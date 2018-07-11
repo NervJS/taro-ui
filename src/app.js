@@ -1,16 +1,16 @@
-import Taro, { Component } from "@tarojs/taro"
-import Index from "./pages/index/index"
+import Taro, { Component } from '@tarojs/taro'
+import Index from './pages/index/index'
 
-import "./app.scss"
+import './app.scss'
 
 class App extends Component {
   config = {
-    pages: ["pages/index/index"],
+    pages: ['pages/index/index', 'pages/toast/index'],
     window: {
-      backgroundTextStyle: "light",
-      navigationBarBackgroundColor: "#fff",
-      navigationBarTitleText: "WeChat",
-      navigationBarTextStyle: "black"
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
     }
   }
 
@@ -27,4 +27,4 @@ class App extends Component {
   }
 }
 
-Taro.render(<App />, document.getElementById("app"))
+Taro.render(<App />, document.getElementById('app'))
