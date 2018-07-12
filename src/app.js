@@ -5,7 +5,14 @@ import './app.scss'
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index', 'pages/toast/index'],
+    pages: [
+      'pages/index/index',
+      'pages/action/toast/index',
+      'pages/action/modal/index',
+      'pages/action/progress/index',
+      'pages/action/action-sheet/index',
+      'pages/action/activity-indicator/index',
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

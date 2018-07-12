@@ -170,8 +170,8 @@ export default class Index extends Taro.Component {
     }
   }
 
-  goToComponent = ({ name }) => {
-    const url = `/pages/${name.toLowerCase()}/index`
+  goToComponent = ({ id, name }) => {
+    const url = `/pages/${id.toLowerCase()}/${name.toLowerCase()}/index`
     Taro.navigateTo({
       url
     })
@@ -195,10 +195,13 @@ export default class Index extends Taro.Component {
                       return (
                         <View
                           key={index}
-                          onClick={this.goToComponent.bind(this, child)}
+                          onClick={this.goToComponent.bind(this, {
+                            id: item.id,
+                            name: child.name
+                          })}
                           className='list-component'>
                           <View className='list-component-info'>
-                            {child.name} {child.title}
+                            {child.name.split('-').join('')} {child.title}
                           </View>
                           <View className='list-component-arrow' />
                         </View>
