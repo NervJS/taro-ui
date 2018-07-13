@@ -18,34 +18,30 @@
   }
 }
 
-.activity-indicator {
-  width: 200px;
-  height: 200px;
-  position: relative;
+.at-activity-indicator {
   display: inline-block;
-  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-  &--center{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    position: absolute;
-  }
-  &__item {
-    left: 94px;
-    top: 48px;
-    position: absolute;
-    animation: lds-spinner linear 1.5s infinite;
-    background: #6690ED;
-    width: 12px;
-    height: 24px;
-    border-radius: 40%;
-    transform-origin: 6px 52px;
-    @for $i from 0 to 12 {
-      &:nth-child(#{$i}) {
-        transform: rotate(#{$i * 30}deg);
-        animation-delay: #{($i - 1) * 0.125}s;
+  &__body {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: inline-block;
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+ 
+    &-item {
+      left: 94px;
+      top: 48px;
+      position: absolute;
+      animation: lds-spinner linear 1.5s infinite;
+      background: #6690ed;
+      width: 12px;
+      height: 24px;
+      border-radius: 40%;
+      transform-origin: 6px 52px;
+      @for $i from 0 to 12 {
+        &:nth-child(#{$i}) {
+          transform: rotate(#{$i * 30}deg);
+          animation-delay: #{($i - 1) * 0.125}s;
+        }
       }
     }
   }

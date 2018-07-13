@@ -26,19 +26,21 @@ export default class ActivityIndicator extends Taro.Component {
       background: color
     }
 
-    const rootClassName = ['activity-indicator', `activity-indicator--${mode}`]
+    const rootClassName = ['at-activity-indicator__body', `at-activity-indicator__body--${mode}`]
 
     return (
-      <View className={rootClassName} style={rootStyle}>
-        {views.map((item, index) => {
-          return (
-            <View
-              key={index}
-              className='activity-indicator__item'
-              style={style} />
-          )
-        })}
-        <Text>{text}</Text>
+      <View className='at-activity-indicator'>
+        <View className={rootClassName} style={rootStyle}>
+          {views.map((item, index) => {
+            return (
+              <View
+                key={index}
+                className='at-activity-indicator__body-item'
+                style={style} />
+            )
+          })}
+        </View>
+        <View>{text}</View>
       </View>
     )
   }
