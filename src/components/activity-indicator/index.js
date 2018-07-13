@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 
 import './index.scss'
 
@@ -13,9 +13,10 @@ export default class ActivityIndicator extends Taro.Component {
 
   render() {
     const { views } = this.state
-    const { color, size = 100, mode } = this.props
+    const { color, size = 100, mode, text } = this.props
     const realSize = size / 2
     const scaleSize = size / 200
+
     const rootStyle = {
       width: +size,
       height: +size,
@@ -25,8 +26,7 @@ export default class ActivityIndicator extends Taro.Component {
       background: color
     }
 
-    const rootClassName = ['activity-indicator',`activity-indicator--${mode}`]
-    
+    const rootClassName = ['activity-indicator', `activity-indicator--${mode}`]
 
     return (
       <View className={rootClassName} style={rootStyle}>
@@ -38,6 +38,7 @@ export default class ActivityIndicator extends Taro.Component {
               style={style} />
           )
         })}
+        <Text>{text}</Text>
       </View>
     )
   }
