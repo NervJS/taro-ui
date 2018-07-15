@@ -1,3 +1,6 @@
-@mixin fontSize($num) {
-  font-size: $num;
+@mixin absolute-center {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
 }

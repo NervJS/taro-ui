@@ -1,4 +1,5 @@
 /*postcss-pxtransform disable*/
+@import '../../style/mixins';
 
 @keyframes lds-spinner {
   0% {
@@ -20,12 +21,16 @@
 
 .at-activity-indicator {
   display: inline-block;
+
+  &--center{
+    @include absolute-center;
+  }
+
   &__body {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     position: relative;
-    display: inline-block;
-    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-50px, -50px) scale(.5) translate(50px, 50px);
  
     &-item {
       left: 94px;
@@ -44,5 +49,9 @@
         }
       }
     }
+  }
+  &__content{
+    text-align: center;
+    font-size: 16px;
   }
 }

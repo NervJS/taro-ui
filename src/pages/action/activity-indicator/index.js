@@ -44,7 +44,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <Text className='example__header-title'>自定义文字</Text>
           </View>
           <View className='example__body example__body--custom'>
-            <ActivityIndicator text='加载中...' />
+            <ActivityIndicator content='加载中...' />
           </View>
         </View>
         <View className='example example--center'>
@@ -53,6 +53,9 @@ export default class ActivityIndicatorPage extends Taro.Component {
           </View>
           <View className='example__body example__body--center'>
             <ActivityIndicator mode='center' />
+          </View>
+          <View className='example__body example__body--center'>
+            <ActivityIndicator mode='center' content='Loading...' />
           </View>
         </View>
       </View>

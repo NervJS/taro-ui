@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View,Text } from '@tarojs/components'
+
+import Progress from '../../../components/progress/index'
 
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class ProgressPage extends Taro.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -16,13 +18,26 @@ export default class Index extends Taro.Component {
 
   render() {
     return (
-      <View className='index-page'>
-        
-        <View>
-          <View>Taro UI Modal</View>
-          <View>Alert Modal</View>
-          <View>Confirm Modal</View>
-          <View>Custom Modal</View>
+      <View className='progress__page'>
+        <View className='example'>
+          <View className='example__header'>
+            <Text className='example__header-title'>任意尺寸</Text>
+          </View>
+          <View className='example__body example__body--list'>
+            <Progress size='50' />
+            <Progress size='75' />
+            <Progress size='100' />
+          </View>
+        </View>
+        <View className='example'>
+          <View className='example__header'>
+            <Text className='example__header-title'>任意尺寸</Text>
+          </View>
+          <View className='example__body example__body--list'>
+            <Progress size='50' />
+            <Progress size='75' />
+            <Progress size='100' />
+          </View>
         </View>
       </View>
     )
