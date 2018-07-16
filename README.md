@@ -60,3 +60,4 @@
 
 - 组件的 CSS 命名统一使用 `${block-name}__${element-name}--${modifier-name}`,`Taro UI` 组件需要加上 `at-` 的前缀
 - 按照预期 只要执行 `gulpfile` 文件里 `theme`就可以生成需要的主题文件,`sass`用于处理 Taro 项目下无法编译出 css 文件的问题
+- 为了避免组件与基础组件冲突 组件的名称也需要加上 `At` 前缀
