@@ -4,7 +4,8 @@
     "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
     "quotes": [2, "single"],
     "react/self-closing-comp": "off",
-    "semi": [2,"never"],
+    "semi": [2, "never"],
+    "react/jsx-boolean-value": "off",
     "react/jsx-closing-bracket-location": [
       "error",
       {

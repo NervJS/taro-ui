@@ -170,7 +170,8 @@ export default class Index extends Taro.Component {
     }
   }
 
-  goToComponent = ({ id, name }) => {
+  goToComponent = e => {
+    const { id, name } = e.currentTarget.dataset
     const url = `/pages/${id.toLowerCase()}/${name.toLowerCase()}/index`
     Taro.navigateTo({
       url
@@ -195,10 +196,9 @@ export default class Index extends Taro.Component {
                       return (
                         <View
                           key={index}
-                          onClick={this.goToComponent.bind(this, {
-                            id: item.id,
-                            name: child.name
-                          })}
+                          data-id={item.id}
+                          data-name={child.name}
+                          onClick={this.goToComponent}
                           className='list-component'>
                           <View className='list-component-info'>
                             {child.name.split('-').join('')} {child.title}

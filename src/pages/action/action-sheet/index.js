@@ -1,29 +1,30 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+
+import ActionSheet from '../../../components/action-sheet/index'
 
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class ActionSheetPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'ActionSheet Page'
   }
 
   constructor() {
     super(...arguments)
-    this.atButton = ''
     this.state = {}
   }
 
   render() {
     return (
-      <View className='index-page'>
-        
-        <View>
-          <View>Taro UI Modal</View>
-          <View>Alert Modal</View>
-          <View>Confirm Modal</View>
-          <View>Custom Modal</View>
+      <View className='action-sheet__page'>
+        <View className='example'>
+          <View className='example__header'>
+            <Text className='example__header-title'>真实案例</Text>
+          </View>
+          <View className='example__body' />
         </View>
+        <ActionSheet></ActionSheet>
       </View>
     )
   }

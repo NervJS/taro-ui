@@ -1,21 +1,22 @@
 #app {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 // 实例模板
 .example {
-    padding: 20px;
-    margin-bottom: 50px;
-    &:not(:first-child) {
-        border-top: 40px solid #f5f5f5;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  &:not(:first-child) {
+    border-top: 40px solid #f5f5f5;
+  }
+  &__header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba($color: #e5e5e5, $alpha: 1);
+    &-title {
+      color: #999;
+      font-size: 28px;
     }
-    &__header {
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba($color: #E5E5E5, $alpha: 1);
-        &-title {
-            color: #999;
-            font-size: 28px;
-        }
-    }
-    &__body{}
+  }
+  &__body {
+  }
 }
