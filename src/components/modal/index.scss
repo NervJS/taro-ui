@@ -11,7 +11,7 @@
     @include overlay;
   }
   &__container {
-    @include absolute-center;
+    @include absolute-center();
     width: 270px;
     background-color: white;
   }
