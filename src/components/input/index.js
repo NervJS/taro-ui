@@ -1,17 +1,19 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Label } from '@tarojs/components'
-import './index.scss'
 import PropTypes from 'prop-types'
 import AtIcon from '../../components/icon/index'
-
+import './index.scss'
 /**
  * @author:chenzeji
  * @description 单行输入框
+ * @prop value {String|Number} 输入框值
  * @prop placeholder {String} 提示字符
- * @prop maxlength {Number} 最大长度
- * @prop type {String} 图标类型 eg：'collection_fill' 图标列表详细请看文档：https://weapp.iviewui.com/components/icon
- * @prop size {Number|String} 图标大小 default: 30
- * @prop color {String} 图标颜色 default:#6190e8
+ * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
+ * @prop maxlength {Number} 最大长度 default:200
+ * @prop type {String}  输入框类型,可选为 text,number,password
+ * @prop onChange {Function} 输入框值改变时触发的事件
+ * @prop onFocus {Function} 输入框被选中时触发的事件
+ * @prop onBlur {Function} 输入框失去焦点时触发的事件
  */
 class AtInput extends Taro.Component {
   handleInput(e) {
@@ -20,32 +22,48 @@ class AtInput extends Taro.Component {
   handleFocus(e) {
     this.props.onFocus(e)
   }
+  handleBlur(e) {
+    this.props.onBlur(e)
+  }
   render() {
     return <View className={this.props.error ? 'at-input at-input--error' : 'at-input'}>
-      <View className='at-input_border'>
-        <Label className='at-input__label'>{this.props.label}</Label>
+      <View className='at-input__border'>
+        <Label className='at-input__title'>{this.props.title}</Label>
         <Input className='at-input__input'
-          type={this.props.type ? this.props.type : 'text'}
+          type={this.props.type}
           placeholder={this.props.placeholder}
-          maxlength={this.props.maxlength || 140}
+          maxlength={this.props.maxlength}
           onInput={this.handleInput.bind(this)}
           onChange={this.handleInput.bind(this)}
           onFocus={this.handleFocus.bind(this)}
-          value={this.props.value || ''} />
+          onBlur={this.handleBlur.bind(this)}
+          value={this.props.value} />
         <View className='at-input__icon'><AtIcon type='warning_fill' color='#e93b3d' size='20' /></View>
       </View>
     </View>
   }
 }
 AtInput.defaultProps = {
-  color: '#6190e8',
-  size: '30',
-  onClick: () => { }
+  value: '',
+  placeholder: '',
+  title: '',
+  maxlength: 200,
+  type: 'text',
+  onChange: () => {},
+  onFocus: () => {},
+  onBlur: () => {},
 }
 AtInput.propTypes = {
-  color: PropTypes.string,
-
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  placeholder: PropTypes.string,
+  title: PropTypes.string,
+  maxlength: PropTypes.number,
+  type: PropTypes.string,
   onChange: PropTypes.func,
-  onFocus: PropTypes.func
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 }
 export default AtInput
