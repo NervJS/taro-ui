@@ -16,27 +16,19 @@ export default class Index extends Taro.Component {
   render() {
     return (
       <View className='index-page'>
-        <View onClick={Taro.showToast.bind(this, { title: 'Toast Test' })}>
+        <View >
           Toast
         </View>
-        <View
-          onClick={Taro.showModal.bind(this, {
-            title: 'Modal Test',
-            content: '这是一个Modal框里面的内容'
-          })}>
+        <View>
           Modal
         </View>
-        <View onClick={Taro.showLoading.bind(this, { title: 'Start Loading' })}>
+        <View >
           Start Loading
         </View>
-        <View
-          onClick={Taro.hideLoading.bind(this, { itemList: 'Cancle Loading' })}>
+        <View>
           Cancle Loading
         </View>
-        <View
-          onClick={Taro.showActionSheet.bind(this, {
-            itemList: ['Action Sheet Test']
-          })}>
+        <View>
           Action Sheet
         </View>
       </View>

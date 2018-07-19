@@ -5,5 +5,5 @@ yarn.lock
 package-lock.json
 
 .temp
-
+.DS_Store
 .vscode

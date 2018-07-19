@@ -1,0 +1,36 @@
+.at-singleinput {
+  margin:10px;
+  padding: 22px 0 22px 20px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .at-singleinput__input {
+    display: inline-flex;
+    font-size: 28px;
+    min-width: 50%;
+  }
+  .at-singleinput__input.at-singleinput__input--withoutaction {
+    width: 90%;
+  }
+  .at-singleinput_action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    .at-singleinput__icon {
+      padding: 0 20px;
+    }
+    .at-singleinput_tip {
+      font-size: 24px;
+      display: inline-flex;
+      border-left: #e7e7e7 solid 1px;
+      padding: 0 20px;
+      color:#e93b3d;
+    }
+    .at-singleinput_tip-disabled {
+      opacity: 0.5;
+    }
+  }
+
+}
