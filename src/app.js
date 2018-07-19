@@ -12,6 +12,7 @@ class App extends Component {
       'pages/action/progress/index',
       'pages/action/action-sheet/index',
       'pages/action/activity-indicator/index',
+      'pages/input/index',
     ],
     window: {
       backgroundTextStyle: 'light',

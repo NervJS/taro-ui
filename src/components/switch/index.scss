@@ -1,0 +1,20 @@
+.at-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 22px 22px 22px 0;
+  .at-switch__title {
+    flex:6;
+    font-size: 30px;
+    margin-left:22px;
+  }
+  .at-switch__switch {
+    flex:2;
+    text-align: right;
+    background-color: #fff;
+  }
+}
+.at-switch + .at-switch {
+  border-top: #e5e5e5 solid 1px;
+}
