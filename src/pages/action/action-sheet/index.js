@@ -24,7 +24,7 @@ export default class ActionSheetPage extends Taro.Component {
           </View>
           <View className='example__body' />
         </View>
-        <ActionSheet></ActionSheet>
+        <ActionSheet />
       </View>
     )
   }

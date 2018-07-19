@@ -6,6 +6,7 @@
     "react/self-closing-comp": "off",
     "semi": [2, "never"],
     "react/jsx-boolean-value": "off",
+    "taro/custom-component-children": "off",
     "react/jsx-closing-bracket-location": [
       "error",
       {

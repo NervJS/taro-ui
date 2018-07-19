@@ -1,5 +1,5 @@
 /*postcss-pxtransform disable*/
-@import '../../style/mixins';
+@import "../../style/mixins";
 
 @keyframes lds-spinner {
   0% {
@@ -21,37 +21,43 @@
 
 .at-activity-indicator {
   display: inline-block;
-
-  &--center{
+  &--center {
     @include absolute-center;
   }
+  &-container {
+    display: flex;
 
-  &__body {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform: translate(-50px, -50px) scale(.5) translate(50px, 50px);
- 
-    &-item {
-      left: 94px;
-      top: 48px;
-      position: absolute;
-      animation: lds-spinner linear 1.5s infinite;
-      background: #6690ed;
-      width: 12px;
-      height: 24px;
-      border-radius: 40%;
-      transform-origin: 6px 52px;
-      @for $i from 0 to 12 {
-        &:nth-child(#{$i}) {
-          transform: rotate(#{$i * 30}deg);
-          animation-delay: #{($i - 1) * 0.125}s;
+    &__body {
+      flex: 0 0 auto;
+      &-views {
+        width: 40px;
+        height: 40px;
+        font-size: 0;
+        transform: translate(-20px, -20px) scale(0.2) translate(20px, 20px);
+        &-item {
+          left: 94px;
+          top: 48px;
+          position: absolute;
+          animation: lds-spinner linear 1.5s infinite;
+          background: #6690ed;
+          width: 12px;
+          height: 24px;
+          border-radius: 40%;
+          transform-origin: 6px 52px;
+          @for $i from 0 to 12 {
+            &:nth-child(#{$i}) {
+              transform: rotate(#{$i * 30}deg);
+              animation-delay: #{($i - 1) * 0.125}s;
+            }
+          }
         }
       }
     }
-  }
-  &__content{
-    text-align: center;
-    font-size: 16px;
+    &__content {
+      flex: 0 0 auto;
+      font-size: 14px;
+      align-self: center;
+      color: #999999;
+    }
   }
 }

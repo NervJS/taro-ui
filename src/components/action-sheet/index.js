@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 import './index.scss'
 
@@ -18,12 +18,12 @@ export default class ActionSheet extends Taro.Component {
             <View>这里最多显示两行</View>
           </View>
           <View className='at-action-sheet__container-body body__list'>
-            <View className='body__list-item'>清除位置信息并退出</View>
+            <View className='body__list-item'>清除位置信息并退出 </View>
             <View className='body__list-item'>清除位置信息并退出</View>
             <View className='body__list-item'>清除位置信息并退出</View>
           </View>
           <View className='at-action-sheet__container-footer'>
-            <View >取消</View>
+            <View>取消</View>
           </View>
         </View>
       </View>

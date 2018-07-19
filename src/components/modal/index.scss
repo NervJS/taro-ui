@@ -1,0 +1,35 @@
+/*postcss-pxtransform disable*/
+@import "../../style/mixins";
+
+.at-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  &__overlay {
+    @include overlay;
+  }
+  &__container {
+    @include absolute-center;
+    width: 270px;
+    background-color: white;
+  }
+
+  .at-footer {
+    border-top: 1px solid #e5e5e5;
+    &__actions {
+      display: flex;
+      .at-button {
+        outline: 0;
+        flex: auto;
+        border: none;
+        font-size: 14px;
+        background-color: white;
+        &:not(:first-child) {
+          border-left: 1px solid #e5e5e5;
+        }
+      }
+    }
+  }
+}

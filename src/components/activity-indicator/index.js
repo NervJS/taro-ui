@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 
 import './index.scss'
 
@@ -34,19 +34,27 @@ export default class ActivityIndicator extends Taro.Component {
 
     return (
       <View className={rootClassName}>
-        <View className='at-activity-indicator__body' style={indicatorStyle}>
-          {views.map((item, index) => {
-            return (
-              <View
-                key={index}
-                className='at-activity-indicator__body-item'
-                style={style} />
-            )
-          })}
+      
+        <View className='at-activity-indicator-container'>
+          <View className='at-activity-indicator-container__body'>
+            <View
+              className='at-activity-indicator-container__body-views'
+              style={indicatorStyle}>
+              {views.map((item, index) => {
+                return (
+                  <View
+                    key={index}
+                    className='at-activity-indicator-container__body-views-item'
+                    style={style} />
+                )
+              })}
+            </View>
+          </View>
+
+          {content && (
+            <Text className='at-activity-indicator-container__content'>{content}</Text>
+          )}
         </View>
-        {content && (
-          <View className='at-activity-indicator__content'>{content}</View>
-        )}
       </View>
     )
   }

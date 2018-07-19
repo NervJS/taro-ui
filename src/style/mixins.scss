@@ -1,16 +1,16 @@
-@mixin absolute-center {
+@mixin absolute-center($pos: absoulte) {
   top: 50%;
   left: 50%;
-  position: absolute;
-  transform: translate(-50%,-50%);
+  position: $pos;
+  transform: translate(-50%, -50%);
 }
 
 // 通用的遮罩
-@mixin overlay{
+@mixin overlay {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba($color: #000000, $alpha: .3);
+  background-color: rgba($color: #000000, $alpha: 0.3);
 }
