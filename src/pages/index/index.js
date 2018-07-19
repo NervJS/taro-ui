@@ -195,10 +195,7 @@ export default class Index extends Taro.Component {
                       return (
                         <View
                           key={index}
-                          onClick={this.goToComponent.bind(this, {
-                            id: item.id,
-                            name: child.name
-                          })}
+                          
                           className='list-component'>
                           <View className='list-component-info'>
                             {child.name.split('-').join('')} {child.title}

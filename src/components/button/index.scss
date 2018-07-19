@@ -1,0 +1,27 @@
+
+.at-button {
+    width: 710px;
+    height: 92px;
+    line-height: 92px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 32px;
+    margin: 0 auto;
+    
+    border: 2px solid #6190E8;
+    background-color: #fff;
+    color: #6190E8;
+    box-sizing: border-box;
+    &--active {
+        opacity: .8;
+    }
+    &--disabled {
+        opacity: .5;
+    }
+    &--primary {
+        background-color: rgba(92, 137, 228, 1);
+        color: #fff;
+        border: none;
+
+    }
+}

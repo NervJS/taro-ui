@@ -1,0 +1,31 @@
+
+
+@font-face {
+    font-family: 'fontello';
+    src: url('https://wq.360buyimg.com/data/ppms/others/fontello.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.at-icon {
+    display: inline-block;
+    font-size: 24px;
+    color: #000;
+    &::after {
+        font-family: fontello;
+        color: currentColor;
+        text-transform: none;
+    }
+}
+
+.at-icon-arrow-left {
+    &::after {
+        content: '\e801';
+    }
+}
+
+.at-icon-arrow-down-left {
+    &::after {
+        content: '\e800';
+    }
+}
+
