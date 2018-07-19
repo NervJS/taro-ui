@@ -14,6 +14,7 @@ class App extends Component {
       'pages/action/activity-indicator/index',
       'pages/view/icon/index',
       'pages/view/button/index',
+      'pages/input/index',
     ],
     window: {
       backgroundTextStyle: 'light',
