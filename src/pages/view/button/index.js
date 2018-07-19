@@ -20,24 +20,52 @@ export default class ButtonPage extends Taro.Component {
     }
   }
 
+  onButtonClick() {
+    alert('点击了！')
+  }
+
   render() {
     // let {icons} = this.state
     return (
       <View className='page'>
         <View className='example'>
-          <AtButton>测试按钮</AtButton>
+          <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>页面主操作</AtButton>
         </View>
         <View className='example'>
-          <AtButton>测试按钮</AtButton>
+          <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
         </View>
         <View className='example'>
-          <AtButton disabled>测试按钮</AtButton>
+          <AtButton type="primary" active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="secondary">测试按钮</AtButton>
+          <AtButton type="primary" disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+        </View>
+
+
+        <View className='example'>
+          <AtButton type="secondary" onClick={this.onButtonClick.bind(this)}>页面次操作</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="secondary" disabled>测试按钮</AtButton>
+          <AtButton type="secondary" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton type="secondary" active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton type="secondary" disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+        </View>
+
+        <View className='example'>
+          <AtButton onClick={this.onButtonClick.bind(this)}>页面次要操作</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
         </View>
       </View>
     )

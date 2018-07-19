@@ -11,6 +11,7 @@ const SIZE_CLASS = {
 
 const TYPE_CLASS = {
   primary: 'primary',
+  secondary: 'secondary',
 }
 
 
@@ -22,15 +23,18 @@ export default class AtButton extends Taro.Component {
     }
   }
 
-  onClick() {
-    console.log('ddasddas')
+  onClick(e) {
+    if (!this.props.disabled) {
+      this.props.onClick && this.props.onClick(e)
+    }
   }
 
   render(){
     let {
       size = 'normal',
-      type = 'primary',
+      type = '',
       icon = '',
+      active = false,
       loading = false,
       disabled = false,
     } = this.props
@@ -38,13 +42,14 @@ export default class AtButton extends Taro.Component {
     let sizeClass = SIZE_CLASS[size] || ''
     let disabledClass = disabled? 'at-button--disabled': ''
     let typeClass = TYPE_CLASS[type]? `at-button--${type}`: ''
+    let activeClass = active? 'at-button--active': ''
 
-    rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass)
+    rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass, activeClass)
     rootClassName = rootClassName.filter(str => str != '')
-console.log(this.props, this.state)
+    // console.log(this.props, this.state)
     return (
-      <View className={rootClassName} onClick={this.onClick}>
-        测试按钮
+      <View className={rootClassName} onClick={this.onClick.bind(this)}>
+        {this.props.children}
       </View>
     )
   }

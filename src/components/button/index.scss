@@ -8,20 +8,24 @@
     font-size: 32px;
     margin: 0 auto;
     
-    border: 2px solid #6190E8;
+    border: 2px solid #ccc;
     background-color: #fff;
-    color: #6190E8;
+    color: #333;
     box-sizing: border-box;
     &--active {
-        opacity: .8;
+        opacity: .6;
     }
     &--disabled {
-        opacity: .5;
+        opacity: .3;
     }
     &--primary {
         background-color: rgba(92, 137, 228, 1);
         color: #fff;
-        border: none;
-
+        border: 2px solid rgba(92, 137, 228, 1);
+    }
+    &--secondary {
+        background-color: #fff;
+        color: rgba(92, 137, 228, 1);
+        border: 2px solid rgba(92, 137, 228, 1);
     }
 }
