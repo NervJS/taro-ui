@@ -5,7 +5,16 @@ import './app.scss'
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index', 'pages/toast/index', 'pages/input/index'],
+    pages: [
+      'pages/index/index',
+      'pages/form/checkbox/index',
+      'pages/form/input/index',
+      'pages/form/input-number/index',
+      'pages/form/radio/index',
+      'pages/form/textarea/index',
+      'pages/form/switch/index',
+      'pages/form/rate/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
