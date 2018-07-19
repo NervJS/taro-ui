@@ -13,10 +13,7 @@ export default class ButtonPage extends Taro.Component {
   constructor() {
     super(...arguments)
     this.state = {
-      // icons: [
-      //   'arrow-left',
-      //   'arrow-down-left',
-      // ]
+
     }
   }
 
@@ -32,7 +29,10 @@ export default class ButtonPage extends Taro.Component {
           <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>页面主操作</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+          <AtButton type="primary" loading onClick={this.onButtonClick.bind(this)}>带loading</AtButton>
+        </View>
+        <View className='example'>
+          <AtButton type="primary" icon="arrow-left" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
         </View>
         <View className='example'>
           <AtButton type="primary" active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>

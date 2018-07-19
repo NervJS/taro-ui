@@ -1,5 +1,6 @@
 import Taro from "@tarojs/taro"
 import { View } from "@tarojs/components"
+import { AtIcon } from "../icon/index"
 
 import './index.scss'
 
@@ -24,8 +25,8 @@ export default class AtButton extends Taro.Component {
   }
 
   onClick(e) {
-    if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick(e)
+    if (!this.props.disabled && this.props.onClick) {
+      this.props.onClick(e)
     }
   }
 
@@ -43,12 +44,16 @@ export default class AtButton extends Taro.Component {
     let disabledClass = disabled? 'at-button--disabled': ''
     let typeClass = TYPE_CLASS[type]? `at-button--${type}`: ''
     let activeClass = active? 'at-button--active': ''
+    // let loadingClass = loading? 'at-button--loading': ''
+    // let iconClass = loading? 'at-button--icon': ''
 
     rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass, activeClass)
     rootClassName = rootClassName.filter(str => str != '')
-    // console.log(this.props, this.state)
+    console.log('loading====', loading)
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>
+        {loading && <AtIcon value="arrow-left"></AtIcon>}
+        {icon && <AtIcon value={icon}></AtIcon>}
         {this.props.children}
       </View>
     )

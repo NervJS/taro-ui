@@ -9,7 +9,7 @@ export default class AtIcon extends Taro.Component {
   }
 
   render() {
-    let { value, size = 24, color = '#000'} = this.props
+    let { value = '', size = 24, color = '#000'} = this.props
     
     const rootStyle = {
       // width: `${+size}px`,
@@ -19,7 +19,7 @@ export default class AtIcon extends Taro.Component {
     }
 
     let rootClassName = ['at-icon', `at-icon-${value}`]
-      
+      console.log('value====',value)
     return (
       <View className={rootClassName} style={rootStyle}></View>
     )
