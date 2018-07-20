@@ -7,7 +7,11 @@
 	"scripts": {
 		"build:weapp": "taro build --type weapp",
 		"build:h5": "taro build --type h5",
+<<<<<<< HEAD
+		"dev:weapp": "npm run build:weapp -- --watch",
+=======
 		"dev:wxapp": "npm run build:weapp -- --watch",
+>>>>>>> 48f32cdc50f7e9f31a57a19aff91b0b782befa24
 		"dev:h5": "npm run build:h5 -- --watch",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
