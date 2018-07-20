@@ -7,18 +7,18 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'rate 使用示例'
   }
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       rateValue: 3
     }
   }
-  handleRateChange(detail) {
+  handleRateChange (detail) {
     this.setState({
       rateValue: detail.value
     })
   }
-  render() {
+  render () {
     return (
       <View className='example__body'>
         <View className='item'>

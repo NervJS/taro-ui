@@ -4,11 +4,11 @@ import { View } from '@tarojs/components'
 import './index.scss'
 
 export default class Progress extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
   }
 
-  render() {
+  render () {
     let { percent, strokeWidth, color, status, hidePercent } = this.props
 
     if (percent < 0) {
@@ -31,7 +31,8 @@ export default class Progress extends Taro.Component {
           <View className='at-progress__outer-inner'>
             <View
               className='at-progress__outer-inner-background'
-              style={progressStyle} />
+              style={progressStyle}
+            />
           </View>
         </View>
         {!hidePercent && (

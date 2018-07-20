@@ -10,7 +10,7 @@ export default class ModalPage extends Taro.Component {
     navigationBarTitleText: 'Modal Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       open: true
@@ -22,7 +22,7 @@ export default class ModalPage extends Taro.Component {
     this.setState(state)
   }
 
-  render() {
+  render () {
     const { open } = this.state
     return (
       <View className='action-sheet__page'>
@@ -31,7 +31,7 @@ export default class ModalPage extends Taro.Component {
             <Text className='example__header-title'>基本案例</Text>
           </View>
           <View className='example__body'>
-            <Button data-open={true} onClick={this.handleClick}>
+            <Button data-open onClick={this.handleClick}>
               打开Modal
             </Button>
           </View>

@@ -1,0 +1,8 @@
+node_modules/
+test/
+dist/
+coverage/
+.vscode/
+.nyc_output/
+git_stats/
+yarn-offline/

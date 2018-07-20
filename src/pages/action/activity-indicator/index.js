@@ -10,13 +10,13 @@ export default class ActivityIndicatorPage extends Taro.Component {
     navigationBarTitleText: 'ActivityIndicator Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.atButton = ''
     this.state = {}
   }
 
-  render() {
+  render () {
     return (
       <View className='activity-indicator__page'>
         <View className='example'>

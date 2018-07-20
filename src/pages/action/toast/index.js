@@ -19,7 +19,7 @@ export default class ToastPage extends Taro.Component {
     navigationBarTitleText: 'Toast Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = INIT_STATE
   }
@@ -36,7 +36,7 @@ export default class ToastPage extends Taro.Component {
     console.log('Click Toast', '默认行为被取消')
   }
 
-  render() {
+  render () {
     const {
       isOpen,
       iconColor,
@@ -69,7 +69,8 @@ export default class ToastPage extends Taro.Component {
                 size='mini'
                 onClick={this.handleClick}
                 data-text='只有文本'
-                data-hidden-icon={true}>
+                data-hidden-icon
+              >
                 Open Toast
               </Button>
             </View>
@@ -97,7 +98,8 @@ export default class ToastPage extends Taro.Component {
                 data-icon-type='success'
                 data-icon-size='80'
                 size='mini'
-                onClick={this.handleClick}>
+                onClick={this.handleClick}
+              >
                 Open Toast
               </Button>
             </View>
@@ -109,7 +111,8 @@ export default class ToastPage extends Taro.Component {
           iconSize={iconSize}
           iconType={iconType}
           iconColor={iconColor}
-          hiddenIcon={hiddenIcon} />
+          hiddenIcon={hiddenIcon}
+        />
       </View>
     )
   }

@@ -8,30 +8,30 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'input 使用范例'
   }
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       inputValue: '初始值',
     }
   }
-  handleInput(e) {
+  handleInput (e) {
     this.setState({
       inputValue: e.target.value
     })
   }
-  handleChange(detail) {
+  handleChange (detail) {
     this.setState({
       inputValue: detail.value
     })
   }
-  handleClick() {
+  handleClick () {
     Taro.showToast({
       title: '已发送验证码',
       icon: 'success',
       duration: 2000
     })
   }
-  render() {
+  render () {
     return (
       <View className='example__body'>
         <View className='item'><AtInput title='单项输入' placeholder='预设内容' value={this.state.inputValue} onChange={this.handleInput.bind(this)} /></View>

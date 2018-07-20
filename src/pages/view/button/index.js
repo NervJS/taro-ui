@@ -10,7 +10,7 @@ export default class ButtonPage extends Taro.Component {
     navigationBarTitleText: 'Button Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       // icons: [
@@ -20,39 +20,39 @@ export default class ButtonPage extends Taro.Component {
     }
   }
 
-  onButtonClick() {
+  onButtonClick () {
     alert('点击了！')
   }
 
-  render() {
+  render () {
     // let {icons} = this.state
     return (
       <View className='page'>
         <View className='example'>
-          <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>页面主操作</AtButton>
+          <AtButton type='primary' onClick={this.onButtonClick.bind(this)}>页面主操作</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="primary" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+          <AtButton type='primary' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="primary" active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
+          <AtButton type='primary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="primary" disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+          <AtButton type='primary' disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
         </View>
 
 
         <View className='example'>
-          <AtButton type="secondary" onClick={this.onButtonClick.bind(this)}>页面次操作</AtButton>
+          <AtButton type='secondary' onClick={this.onButtonClick.bind(this)}>页面次操作</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="secondary" onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+          <AtButton type='secondary' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="secondary" active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
+          <AtButton type='secondary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
         </View>
         <View className='example'>
-          <AtButton type="secondary" disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+          <AtButton type='secondary' disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
         </View>
 
         <View className='example'>
