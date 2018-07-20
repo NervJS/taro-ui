@@ -14,7 +14,13 @@ class App extends Component {
       'pages/action/activity-indicator/index',
       'pages/view/icon/index',
       'pages/view/button/index',
-      'pages/input/index',
+      'pages/form/checkbox/index',
+      'pages/form/input/index',
+      'pages/form/input-number/index',
+      'pages/form/radio/index',
+      'pages/form/textarea/index',
+      'pages/form/switch/index',
+      'pages/form/rate/index'
     ],
     window: {
       backgroundTextStyle: 'light',
