@@ -9,7 +9,7 @@ class App extends Component {
       'pages/index/index',
       'pages/action/toast/index',
       // 'pages/action/modal/index',
-      // 'pages/action/progress/index',
+      'pages/action/progress/index',
       'pages/action/action-sheet/index',
       'pages/action/activity-indicator/index',
       // 'pages/view/icon/index',

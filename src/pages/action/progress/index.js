@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
 
-import Progress from '../../../components/progress/index'
+import AtProgress from '../../../components/progress/index'
 
 import './index.scss'
 
@@ -21,7 +21,7 @@ export default class ProgressPage extends Taro.Component {
 
   reduce = () => {
     const { percent } = this.state
-    if (percent == 0) {
+    if (percent === 0) {
       return
     }
     this.setState({
@@ -31,7 +31,7 @@ export default class ProgressPage extends Taro.Component {
 
   increase = () => {
     const { percent } = this.state
-    if (percent == 100) {
+    if (percent === 100) {
       return
     }
     this.setState({
@@ -49,13 +49,13 @@ export default class ProgressPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <View className='example__body-item'>
-              <Progress percent='25' />
+              <AtProgress percent='25' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='50' />
+              <AtProgress percent='50' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' />
+              <AtProgress percent='75' />
             </View>
           </View>
         </View>
@@ -67,10 +67,10 @@ export default class ProgressPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <View className='example__body-item'>
-              <Progress percent='25' />
+              <AtProgress percent='25' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' hidePercent />
+              <AtProgress percent='75' hidePercent />
             </View>
           </View>
         </View>
@@ -82,13 +82,13 @@ export default class ProgressPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <View className='example__body-item'>
-              <Progress percent='25' strokeWidth='5' />
+              <AtProgress percent='25' strokeWidth='5' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='50' strokeWidth='10' />
+              <AtProgress percent='50' strokeWidth='10' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' strokeWidth='15' />
+              <AtProgress percent='75' strokeWidth='15' />
             </View>
           </View>
         </View>
@@ -98,13 +98,13 @@ export default class ProgressPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <View className='example__body-item'>
-              <Progress percent='25' color='#FF4949' />
+              <AtProgress percent='25' color='#FF4949' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='50' color='#13CE66' />
+              <AtProgress percent='50' color='#13CE66' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' color='#FFC82C' />
+              <AtProgress percent='75' color='#FFC82C' />
             </View>
           </View>
         </View>
@@ -114,16 +114,16 @@ export default class ProgressPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <View className='example__body-item'>
-              <Progress percent='25' status='normal' />
+              <AtProgress percent='25' status='normal' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='50' status='active' />
+              <AtProgress percent='50' status='active' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' status='success' />
+              <AtProgress percent='75' status='success' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' status='error' />
+              <AtProgress percent='75' status='error' />
             </View>
           </View>
         </View>
@@ -132,10 +132,14 @@ export default class ProgressPage extends Taro.Component {
             <Text className='example__header-title'>实际案例</Text>
           </View>
           <View className='example__body'>
-            <Button onClick={this.increase}>+</Button>
-            <Button onClick={this.reduce}>-</Button>
+            <Button size='mini' onClick={this.increase}>
+              +
+            </Button>
+            <Button size='mini' onClick={this.reduce}>
+              -
+            </Button>
             <View className='example__body-item'>
-              <Progress percent={percent} />
+              <AtProgress percent={percent} />
             </View>
           </View>
         </View>

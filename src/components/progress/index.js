@@ -3,13 +3,10 @@ import { View } from '@tarojs/components'
 
 import './index.scss'
 
-export default class Progress extends Taro.Component {
-  constructor () {
-    super(...arguments)
-  }
-
+export default class AtProgress extends Taro.Component {
   render () {
-    let { percent, strokeWidth, color, status, hidePercent } = this.props
+    let { percent } = this.props
+    const { strokeWidth, color, status, hidePercent } = this.props
 
     if (percent < 0) {
       percent = 0

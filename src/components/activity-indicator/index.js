@@ -29,12 +29,11 @@ export default class ActivityIndicator extends Taro.Component {
 
     const rootClassName = {
       'at-activity-indicator': true,
-      'at-activity-indicator--center': mode == 'center'
+      'at-activity-indicator--center': mode === 'center'
     }
 
     return (
       <View className={rootClassName}>
-
         <View className='at-activity-indicator-container'>
           <View className='at-activity-indicator-container__body'>
             <View
@@ -52,7 +51,9 @@ export default class ActivityIndicator extends Taro.Component {
           </View>
 
           {content && (
-            <Text className='at-activity-indicator-container__content'>{content}</Text>
+            <Text className='at-activity-indicator-container__content'>
+              {content}
+            </Text>
           )}
         </View>
       </View>
