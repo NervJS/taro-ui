@@ -27,7 +27,7 @@ class AtInputNumber extends Taro.Component {
     catch (e) {
       sq2 = 0
     }
-    m = Math.pow(10, Math.max(sq1, sq2));
+    m = Math.pow(10, Math.max(sq1, sq2))
     return (Math.round(num1 * m) + Math.round(num2 * m)) / m
   }
   handleMinus(){
