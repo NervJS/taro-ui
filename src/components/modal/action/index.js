@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
+import ModalButton from './button.js'
+
 import './index.scss'
 
 export default class ModalFooter extends Taro.Component {
@@ -8,10 +10,14 @@ export default class ModalFooter extends Taro.Component {
     super(...arguments)
   }
 
+  static Button = ModalButton
+
   render() {
     const { children } = this.props
     return (
-      <View className='at-modal-header'>{children}</View>
+      <View className='at-modal-footer'>
+        <View className='at-modal-footer__action'>{children}</View>
+      </View>
     )
   }
 }

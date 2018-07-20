@@ -1,8 +1,9 @@
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
-import ModalBody from './body/index'
 import ModalHeader from './header/index'
+import ModalAction from './action/index'
+import ModalContent from './content/index'
 
 import './index.scss'
 
@@ -15,8 +16,9 @@ export default class Modal extends Taro.Component {
     }
   }
 
-  static Body = ModalBody
+  static Content = ModalContent
   static Header = ModalHeader
+  static Action = ModalAction
 
   componentWillReceiveProps(nextProps) {
     const { open } = nextProps
@@ -45,23 +47,11 @@ export default class Modal extends Taro.Component {
 
   render() {
     const { open } = this.state
-    const { children, buttons } = this.props
+    const { children } = this.props
     return open ? (
       <View className='at-modal'>
         <View className='at-modal__overlay' onClick={this.handleClickOverlay} />
-        <View className='at-modal__container'>
-          {children}
-          <View className='at-modal__container-footer at-footer' />
-          <View className='at-footer__actions'>
-            {buttons.map((item, key) => {
-              return (
-                <Button key={key} className='at-button'>
-                  {item.name}
-                </Button>
-              )
-            })}
-          </View>
-        </View>
+        <View className='at-modal__container'>{children}</View>
       </View>
     ) : null
   }

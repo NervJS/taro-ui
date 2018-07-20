@@ -18,7 +18,7 @@ export default class ModalPage extends Taro.Component {
   }
 
   handleClick = e => {
-    const state = Object.assign({}, e.currentTarget.dataset)
+    const state = Object.assign({ isOpen: true }, e.currentTarget.dataset)
     this.setState(state)
   }
 
@@ -31,18 +31,20 @@ export default class ModalPage extends Taro.Component {
             <Text className='example__header-title'>基本案例</Text>
           </View>
           <View className='example__body'>
-            <Button data-open={true} onClick={this.handleClick}>
-              打开Modal
-            </Button>
+            <Button onClick={this.handleClick}>打开Modal</Button>
           </View>
         </View>
         <Modal open={open}>
           <Modal.Header>
             <Text>这是标题知道吧</Text>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Content>
             <View>这是内容知道吧</View>
-          </Modal.Body>
+          </Modal.Content>
+          <Modal.Action>
+            <Modal.Action.Button onClick={console.log.bind(this,1)}>取消</Modal.Action.Button>
+            <Modal.Action.Button>确认</Modal.Action.Button>
+          </Modal.Action>
         </Modal>
       </View>
     )
