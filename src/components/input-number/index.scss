@@ -1,0 +1,28 @@
+.at-inputnumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #e5e5e5 solid 1px;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #fff;
+  .at-inputnumber__btn,.at-inputnumber-text {
+    padding: 13px;
+  }
+  .at-inputnumber__btn {
+    flex:1;
+    text-align: center;
+    color: #6190e8;
+    cursor: pointer;
+    &--disabled {
+      color: #e5e5e5;
+    }
+  }
+  .at-inputnumber__input {
+    font-size: 30px;
+    flex:2;
+    text-align: center;
+    border-left: #e5e5e5 solid 1px;
+    border-right: #e5e5e5 solid 1px;
+  }
+}

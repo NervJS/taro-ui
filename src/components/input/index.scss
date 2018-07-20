@@ -1,15 +1,15 @@
 .at-input {
     background-color: #fff;
-    + .at-input .at-input_border {
+    + .at-input .at-input__border {
       border-top: #e9eaec solid 1px;
     }
-    .at-input_border {
+    .at-input__border {
       padding: 22px 0;
       margin-left:22px;
       display: flex;
       align-items: center;
     }
-    .at-input__label {
+    .at-input__title {
       flex:2;
       margin-right:20px;
       font-size: 28px;

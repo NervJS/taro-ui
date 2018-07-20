@@ -2,10 +2,10 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtInput from '../../components/input/index'
-import AtActionInput from '../../components/actionInput/index'
+import AtActionInput from '../../components/action-input/index'
 import AtTextarea from '../../components/textarea/index'
 import AtIcon from '../../components/icon/index'
-import AtInputNumber from '../../components/inputnumber/index'
+import AtInputNumber from '../../components/input-number/index'
 import AtRadio from '../../components/radio/index'
 import AtCheckbox from '../../components/checkbox/index'
 import AtSwitch from '../../components/switch/index'
@@ -103,7 +103,6 @@ export default class Index extends Taro.Component {
         <View className='index-page'><AtInputNumber min={0} max={1} step={0.01} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
         <View className='index-page'><AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} /></View>
         <View className='index-page'>
-          <View>sdf: <AtCheckbox onChange={1} /></View>
           <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleCheckboxChange.bind(this)} />
         </View>
         <View className='index-page'>
