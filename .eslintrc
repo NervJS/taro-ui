@@ -1,19 +1,8 @@
 {
-  "extends": ["taro"],
+  "extends": ["o2team", "taro"],
+  "parser": "babel-eslint",
   "rules": {
-    "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
-    "quotes": [2, "single"],
-    "react/self-closing-comp": "off",
-    "semi": [2, "never"],
-    "react/jsx-boolean-value": "off",
-    "taro/custom-component-children": "off",
-    "react/jsx-closing-bracket-location": [
-      "error",
-      {
-        "nonEmpty": "after-props",
-        "selfClosing": "after-props"
-      }
-    ]
-  },
-  "parser": "babel-eslint"
+    "class-methods-use-this": "off",
+    "prefer-rest-params": "off"
+  }
 }

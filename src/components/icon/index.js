@@ -10,18 +10,19 @@ import './index.scss'
  * @prop color {String} 图标颜色 default:#6190e8
  */
 class AtIcon extends Taro.Component {
-  handleClick() {
+  handleClick () {
     this.props.onClick(...arguments)
   }
-  render() {
+  render () {
     let style = `font-size: ${this.props.size}px;`
     if (this.props.color) {
       style += `color:${this.props.color}`
     }
     return <View
-      className={this.props.type ? 'at-icon at-icon-' + this.props.type  : 'at-icon'}
+      className={this.props.type ? `at-icon at-icon-${this.props.type}` : 'at-icon'}
       style={style}
-      onClick={this.handleClick.bind(this)}>
+      onClick={this.handleClick.bind(this)}
+    >
     </View>
   }
 }
@@ -34,7 +35,7 @@ AtIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   onClick: PropTypes.func
 }

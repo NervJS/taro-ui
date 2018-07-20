@@ -7,7 +7,7 @@ import ModalHeader from './header/index'
 import './index.scss'
 
 export default class Modal extends Taro.Component {
-  constructor(props) {
+  constructor (props) {
     super(...arguments)
     const { open } = props
     this.state = {
@@ -18,7 +18,7 @@ export default class Modal extends Taro.Component {
   static Body = ModalBody
   static Header = ModalHeader
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { open } = nextProps
     if (open != this.state.open) {
       this.setState({
@@ -27,13 +27,13 @@ export default class Modal extends Taro.Component {
     }
   }
 
-  _close() {
+  _close () {
     this.setState({
       open: false
     })
   }
 
-  _open() {
+  _open () {
     this.setState({
       open: true
     })
@@ -43,7 +43,7 @@ export default class Modal extends Taro.Component {
     this._close()
   }
 
-  render() {
+  render () {
     const { open } = this.state
     const { children, buttons } = this.props
     return open ? (
@@ -53,13 +53,11 @@ export default class Modal extends Taro.Component {
           {children}
           <View className='at-modal__container-footer at-footer' />
           <View className='at-footer__actions'>
-            {buttons.map((item, key) => {
-              return (
-                <Button key={key} className='at-button'>
-                  {item.name}
-                </Button>
-              )
-            })}
+            {buttons.map((item, key) => (
+              <Button key={key} className='at-button'>
+                {item.name}
+              </Button>
+            ))}
           </View>
         </View>
       </View>

@@ -12,17 +12,18 @@ import './index.scss'
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
 class AtTextarea extends Taro.Component {
-  handleInput(e) {
+  handleInput (e) {
     this.props.onChange(e)
   }
-  render() {
+  render () {
     return <View className='at-textarea'>
       <Textarea
         value={this.props.value}
         className='at-textarea__textarea'
         onInput={this.handleInput.bind(this)}
         maxlength={this.props.maxlength}
-        placeholder={this.props.placeholder} />
+        placeholder={this.props.placeholder}
+      />
       <View className='at-textarea_bottom'>{this.props.value.length}/{this.props.maxlength}</View>
     </View>
   }

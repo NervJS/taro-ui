@@ -11,10 +11,10 @@ import './index.scss'
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
 class AtSwitch extends Taro.Component {
-  handleChange(e) {
-    this.props.onChange({value:e.detail.value})
+  handleChange (e) {
+    this.props.onChange({ value: e.detail.value })
   }
-  render() {
+  render () {
     return <View className='at-switch'>
       <View className='at-switch__title'>{this.props.title}</View>
       {

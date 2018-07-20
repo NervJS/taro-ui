@@ -7,19 +7,19 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'Switch 使用示例'
   }
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       switchValue: false,
     }
   }
-  handleSwitchChange(detail) {
+  handleSwitchChange (detail) {
     console.log(this.state.switchValue)
     this.setState({
       switchValue: detail.value
     })
   }
-  render() {
+  render () {
     return (
       <View className='example__body'>
         <View className='item'>

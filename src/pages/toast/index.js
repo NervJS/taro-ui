@@ -8,12 +8,12 @@ export default class Index extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {}
   }
 
-  render() {
+  render () {
     return (
       <View className='index-page'>
         <View >

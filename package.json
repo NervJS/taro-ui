@@ -2,16 +2,28 @@
 	"name": "taro-ui-examples",
 	"version": "1.0.0",
 	"private": true,
-	"description": "",
+	"description": "UI KIT for Taro",
 	"main": "index.js",
 	"scripts": {
-		"build:weapp": "taro build --type weapp",
-		"build:h5": "taro build --type h5",
 		"dev:weapp": "npm run build:weapp -- --watch",
 		"dev:h5": "npm run build:h5 -- --watch",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "lint": "eslint ./src --fix"
 	},
-	"author": "",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -e $GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"eslint --quiet --cache --fix",
+			"git add"
+		]
+	},
+	"author": "O2Team <aotu.io>",
 	"license": "MIT",
 	"dependencies": {
 		"@tarojs/components": "0.0.70",
@@ -24,6 +36,8 @@
 		"prop-types": "^15.6.2"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^7.0.0",
+		"@commitlint/config-conventional": "^7.0.1",
 		"@tarojs/cli": "0.0.70",
 		"@tarojs/plugin-babel": "0.0.70",
 		"@tarojs/plugin-csso": "0.0.70",
@@ -36,6 +50,7 @@
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
 		"eslint": "^4.19.1",
+		"eslint-config-o2team": "^0.1.6",
 		"eslint-config-taro": "0.0.70",
 		"eslint-plugin-import": "^2.12.0",
 		"eslint-plugin-react": "^7.8.2",
@@ -45,6 +60,8 @@
 		"gulp-clean": "^0.4.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-sass": "^4.0.1",
+		"husky": "^1.0.0-rc.13",
+		"lint-staged": "^7.2.0",
 		"node-fs-extra": "^0.8.2"
 	}
 }

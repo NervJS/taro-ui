@@ -1,5 +1,5 @@
-import Taro from "@tarojs/taro"
-import { View } from "@tarojs/components"
+import Taro from '@tarojs/taro'
+import { View } from '@tarojs/components'
 
 import './index.scss'
 
@@ -16,21 +16,21 @@ const TYPE_CLASS = {
 
 
 export default class AtButton extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
-      
+
     }
   }
 
-  onClick(e) {
+  onClick (e) {
     if (!this.props.disabled) {
       this.props.onClick && this.props.onClick(e)
     }
   }
 
-  render(){
-    let {
+  render () {
+    const {
       size = 'normal',
       type = '',
       icon = '',
@@ -39,10 +39,10 @@ export default class AtButton extends Taro.Component {
       disabled = false,
     } = this.props
     let rootClassName = ['at-button']
-    let sizeClass = SIZE_CLASS[size] || ''
-    let disabledClass = disabled? 'at-button--disabled': ''
-    let typeClass = TYPE_CLASS[type]? `at-button--${type}`: ''
-    let activeClass = active? 'at-button--active': ''
+    const sizeClass = SIZE_CLASS[size] || ''
+    const disabledClass = disabled ? 'at-button--disabled' : ''
+    const typeClass = TYPE_CLASS[type] ? `at-button--${type}` : ''
+    const activeClass = active ? 'at-button--active' : ''
 
     rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass, activeClass)
     rootClassName = rootClassName.filter(str => str != '')

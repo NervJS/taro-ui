@@ -16,16 +16,16 @@ import './index.scss'
  * @prop onBlur {Function} 输入框失去焦点时触发的事件
  */
 class AtInput extends Taro.Component {
-  handleInput(e) {
+  handleInput (e) {
     this.props.onChange(e)
   }
-  handleFocus(e) {
+  handleFocus (e) {
     this.props.onFocus(e)
   }
-  handleBlur(e) {
+  handleBlur (e) {
     this.props.onBlur(e)
   }
-  render() {
+  render () {
     return <View className={this.props.error ? 'at-input at-input--error' : 'at-input'}>
       <View className='at-input__border'>
         <Label className='at-input__title'>{this.props.title}</Label>
@@ -37,7 +37,8 @@ class AtInput extends Taro.Component {
           onChange={this.handleInput.bind(this)}
           onFocus={this.handleFocus.bind(this)}
           onBlur={this.handleBlur.bind(this)}
-          value={this.props.value} />
+          value={this.props.value}
+        />
         <View className='at-input__icon'><AtIcon type='warning_fill' color='#e93b3d' size='20' /></View>
       </View>
     </View>

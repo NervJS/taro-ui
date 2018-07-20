@@ -12,20 +12,18 @@ import './index.scss'
  * @prop onChange {Function} 监听事件改变函数
  */
 class AtRadio extends Taro.Component {
-  handleClick(option) {
-    this.props.onClick && this.props.onClick({ value: option})
+  handleClick (option) {
+    this.props.onClick && this.props.onClick({ value: option })
   }
-  render() {
+  render () {
     return <View className='at-radio'>
       {
-        this.props.options.map(option => {
-          return <View key={option} onClick={this.handleClick.bind(this, option)} className={option == this.props.value ? 'at-radio__option at-radio__option--selected' : 'at-radio__option'} >
-            <View className='at-radio__title'>{option.toString()}</View>
-            <View className='at-radio__icon'>
-              <AtIcon type='right' size='20' color='#6190e8' />
-            </View>
+        this.props.options.map(option => <View key={option} onClick={this.handleClick.bind(this, option)} className={option == this.props.value ? 'at-radio__option at-radio__option--selected' : 'at-radio__option'} >
+          <View className='at-radio__title'>{option.toString()}</View>
+          <View className='at-radio__icon'>
+            <AtIcon type='right' size='20' color='#6190e8' />
           </View>
-        })
+        </View>)
       }
     </View>
   }

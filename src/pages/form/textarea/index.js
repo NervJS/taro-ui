@@ -7,19 +7,19 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'textarea 使用范例'
   }
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       textareaValue: ''
     }
   }
-  handleTextAreaChange(e) {
+  handleTextAreaChange (e) {
     this.setState({
       textareaValue: e.target.value
     })
   }
 
-  render() {
+  render () {
     return (
       <View className='example__body'>
         <View className='item'>
@@ -27,7 +27,8 @@ export default class Index extends Taro.Component {
             value={this.state.textareaValue}
             onChange={this.handleTextAreaChange.bind(this)}
             maxlength='200'
-            placeholder='你的问题是...' />
+            placeholder='你的问题是...'
+          />
         </View>
       </View>
     )

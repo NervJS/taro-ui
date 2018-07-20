@@ -10,12 +10,12 @@ export default class ActionSheetPage extends Taro.Component {
     navigationBarTitleText: 'ActionSheet Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {}
   }
 
-  render() {
+  render () {
     return (
       <View className='action-sheet__page'>
         <View className='example'>

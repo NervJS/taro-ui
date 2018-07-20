@@ -12,7 +12,7 @@ export default class ProgressPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       percent: 0
@@ -39,7 +39,7 @@ export default class ProgressPage extends Taro.Component {
     })
   }
 
-  render() {
+  render () {
     const { percent } = this.state
     return (
       <View className='progress__page'>
@@ -70,7 +70,7 @@ export default class ProgressPage extends Taro.Component {
               <Progress percent='25' />
             </View>
             <View className='example__body-item'>
-              <Progress percent='75' hidePercent={true} />
+              <Progress percent='75' hidePercent />
             </View>
           </View>
         </View>

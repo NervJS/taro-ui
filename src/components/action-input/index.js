@@ -14,14 +14,14 @@ import './index.scss'
  * @prop onClick {Function} 点击右边按钮触发的事件
  */
 class AtActionInput extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
-      second: this.props.second ? parseInt(this.props.second): 60,
+      second: this.props.second ? parseInt(this.props.second) : 60,
       disabled: false
     }
   }
-  handleClick() {
+  handleClick () {
     if (this.state.disabled) return
 
     this.props.onClick()
@@ -29,7 +29,7 @@ class AtActionInput extends Taro.Component {
     this.state.disabled = true
     // 倒计时
     const timer = setInterval(() => {
-      if (this.state.second>0) {
+      if (this.state.second > 0) {
         // 使用setState 数值更新有延迟
         this.state.second--
         this.setState({
@@ -44,25 +44,26 @@ class AtActionInput extends Taro.Component {
         })
         clearInterval(timer)
       }
-    },1000)
+    }, 1000)
   }
-  clearValue() {
-    this.props.onChange({value:''})
+  clearValue () {
+    this.props.onChange({ value: '' })
   }
-  handleChange(e) {
+  handleChange (e) {
     this.props.onChange({ value: e.target.value })
   }
-  showTipText() {
-    return this.state.disabled ? this.state.second + 's后重试' : this.props.actionName
+  showTipText () {
+    return this.state.disabled ? `${this.state.second}s后重试` : this.props.actionName
   }
-  render() {
+  render () {
     return <View className='at-actioninput'>
       <Input className={this.props.actionName ? 'at-actioninput__input' : 'at-actioninput__input at-actioninput__input--withoutaction'}
         value={this.props.value}
         type='text'
         placeholder={this.props.placeholder}
         maxlength={this.props.maxlength}
-        onInput={this.handleChange.bind(this)} />
+        onInput={this.handleChange.bind(this)}
+      />
       <View className='at-actioninput__action'>
         {this.props.value && this.props.value.length
           ? <Icon className='at-actioninput__icon' size='15' type='clear' onClick={this.clearValue.bind(this)} />
@@ -71,7 +72,7 @@ class AtActionInput extends Taro.Component {
         {this.props.actionName
           ? <View className='at-actioninput__tip' onClick={this.handleClick.bind(this)}>
             {this.showTipText()}
-            </View>
+          </View>
           : null
         }
       </View>

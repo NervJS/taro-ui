@@ -13,16 +13,16 @@ import './index.scss'
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
 class AtRate extends Taro.Component {
-  handleClick(i) {
-    this.props.onChange && this.props.onChange({value:i+1})
+  handleClick (i) {
+    this.props.onChange && this.props.onChange({ value: i + 1 })
   }
   // 暂不实现touchmove，等taro新版本
   // handleTouchMove(e) {
   // }
-  render() {
+  render () {
     // 生成星星颜色数组，方便在jsx中直接map
     const rateArr = []
-    for(let i=0;i < this.props.max;i++) {
+    for (let i = 0; i < this.props.max; i++) {
       if (this.props.value > i) {
         rateArr.push('#ffca3e')
       } else {
@@ -43,7 +43,7 @@ AtRate.defaultProps = {
 AtRate.propTypes = {
   size: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   value: PropTypes.number,
   max: PropTypes.number,

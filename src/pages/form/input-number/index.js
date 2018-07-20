@@ -7,18 +7,18 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'input-number 使用范例'
   }
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       number: 1
     }
   }
-  handleNumberChange(detail) {
+  handleNumberChange (detail) {
     this.setState({
       number: detail.value
     })
   }
-  render() {
+  render () {
     return (
       <View className='example__body'>
         <View className='item'><AtInputNumber min={0} max={10} step={3} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
