@@ -1,3 +1,4 @@
+/* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 

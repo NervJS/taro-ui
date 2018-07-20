@@ -20,7 +20,7 @@ export default class Modal extends Taro.Component {
 
   componentWillReceiveProps (nextProps) {
     const { open } = nextProps
-    if (open != this.state.open) {
+    if (open !== this.state.open) {
       this.setState({
         open
       })

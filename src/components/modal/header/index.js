@@ -4,10 +4,6 @@ import { View } from '@tarojs/components'
 import './index.scss'
 
 export default class ModalHeader extends Taro.Component {
-  constructor () {
-    super(...arguments)
-  }
-
   render () {
     const { children } = this.props
     return (
