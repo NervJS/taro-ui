@@ -1,13 +1,21 @@
 .at-input {
     background-color: #fff;
-    + .at-input .at-input__border {
+    + .at-input .at-input__container {
       border-top: #e9eaec solid 1px;
     }
-    .at-input__border {
+    .at-input__container {
       padding: 22px 0;
       margin-left:22px;
       display: flex;
       align-items: center;
+      &--without-title {
+        .at-input__input {
+          flex:7;
+        }
+        .at-input__icon {
+          flex:1;
+        }
+      }
     }
     .at-input__title {
       flex:2;
