@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View, Input, Icon } from '@tarojs/components'
 import PropTypes from 'prop-types'
