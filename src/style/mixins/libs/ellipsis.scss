@@ -1,0 +1,17 @@
+/**
+ * Truncate text and add an ellipsis to represent overflow
+ *
+ * @param {number} $width [Default 100%]
+ * @param {string} $display [Default inline-block] [Sets the display-value of the element]
+ */
+@mixin ellipsis(
+  $width: 100%,
+  $display: inline-block
+) {
+  display: $display;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

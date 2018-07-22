@@ -31,7 +31,7 @@ const getSassFile = () => {
 
 gulp.task('theme', () => {
   getSassFile().then(() => {
-    gulp.src('./src/theme/**').pipe(gulp.dest('./dist/theme/'))
+    gulp.src('./src/style/theme/**').pipe(gulp.dest('./dist/theme/'))
   })
 })
 
@@ -45,7 +45,7 @@ gulp.task('cleanTheme', () => {
 
 gulp.task('sass', () => {
   gulp
-    .src(['./src/**/*.scss', '!./src/theme/*'])
+    .src(['./src/**/*.scss', '!./src/style/theme/*'])
     .pipe(
       gSass({
         outputStyle: 'compressed'
