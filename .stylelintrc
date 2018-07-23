@@ -5,6 +5,7 @@
     "at-rule-no-unknown": null,
     "color-hex-case": null,
     "number-no-trailing-zeros": null,
+    "no-empty-source": null,
     "scss/at-rule-no-unknown": true
   }
 }

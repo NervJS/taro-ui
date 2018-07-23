@@ -1,10 +1,11 @@
-/*postcss-pxtransform disable*/
-@import "../../style/mixins";
+/* postcss-pxtransform disable */
+@import "../../style/mixins/index";
 
 @keyframes lds-spinner {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -14,6 +15,7 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -21,19 +23,23 @@
 
 .at-activity-indicator {
   display: inline-block;
+
   &--center {
     @include absolute-center;
   }
+
   &-container {
     display: flex;
 
     &__body {
       flex: 0 0 auto;
+
       &-views {
         width: 40px;
         height: 40px;
         font-size: 0;
         transform: translate(-20px, -20px) scale(0.2) translate(20px, 20px);
+
         &-item {
           left: 94px;
           top: 48px;
@@ -44,6 +50,7 @@
           height: 24px;
           border-radius: 40%;
           transform-origin: 6px 52px;
+
           @for $i from 0 to 12 {
             &:nth-child(#{$i}) {
               transform: rotate(#{$i * 30}deg);
@@ -53,11 +60,12 @@
         }
       }
     }
+
     &__content {
       flex: 0 0 auto;
       font-size: 14px;
       align-self: center;
-      color: #999999;
+      color: #999;
     }
   }
 }
