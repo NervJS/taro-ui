@@ -1,32 +1,42 @@
-.at-actioninput {
-  margin:10px;
+.at-action-input {
+  margin: 10px;
   padding: 22px 0 22px 20px;
   border-radius: 8px;
   background-color: #f8f8f8;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .at-actioninput__input {
+
+  .at-action-input__input {
     display: inline-flex;
     font-size: 28px;
-    min-width: 50%;
+    min-width: 60%;
+
+    input {
+      width: 100%;
+    }
+
     &--withoutaction {
       width: 90%;
     }
   }
-  .at-actioninput__action {
+
+  .at-action-input__action {
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
-    .at-actioninput__icon {
+
+    .at-action-input__icon {
       padding: 0 20px;
     }
-    .at-actioninput__tip {
+
+    .at-action-input__tip {
       font-size: 24px;
       display: inline-flex;
       border-left: #e7e7e7 solid 1px;
       padding: 0 20px;
-      color:#e93b3d;
+      color: #e93b3d;
+
       &--disabled {
         opacity: 0.5;
       }

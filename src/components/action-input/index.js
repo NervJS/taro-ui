@@ -73,24 +73,26 @@ class AtActionInput extends Taro.Component {
   }
   render () {
     return <View className='at-action-input'>
-      <Input className={this.props.actionName ? 'at-action-input__input' : 'at-action-input__input at-action-input__input--withoutaction'}
-        value={this.props.value}
-        type='text'
-        placeholder={this.props.placeholder}
-        maxlength={this.props.maxlength}
-        autoFocus={this.props.autoFocus}
-        onFocus={this.handleFocus.bind(this)}
-        onBlur={this.handleBlur.bind(this)}
-        onConfirm={this.handleConfirm.bind(this)}
-        onInput={this.handleChange.bind(this)}
-      />
+      <View className={this.props.actionName ? 'at-action-input__input' : 'at-action-input__input at-action-input__input--withoutaction'}>
+        <Input
+          value={this.props.value}
+          type={this.props.type}
+          placeholder={this.props.placeholder}
+          maxlength={this.props.maxlength}
+          autoFocus={this.props.autoFocus}
+          onFocus={this.handleFocus.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
+          onConfirm={this.handleConfirm.bind(this)}
+          onInput={this.handleChange.bind(this)}
+        />
+      </View>
       <View className='at-action-input__action'>
         {this.props.value.length
           ? <Icon className='at-action-input__icon' size='15' type='clear' onClick={this.clearValue.bind(this)} />
           : null
         }
         {this.props.actionName
-          ? <View className='at-action-input__tip' onClick={this.handleClick.bind(this)}>
+          ? <View className={this.state.disabled ? 'at-action-input__tip at-action-input__tip--disabled' : 'at-action-input__tip'} onClick={this.handleClick.bind(this)}>
             {this.showTipText()}
           </View>
           : null
