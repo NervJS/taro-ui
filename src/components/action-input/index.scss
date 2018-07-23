@@ -1,5 +1,5 @@
-.at-actioninput {
-  margin:10px;
+.at-action-input {
+  margin: 10px;
   padding: 22px 0 22px 20px;
   border-radius: 8px;
   background-color: #f8f8f8;
@@ -7,35 +7,39 @@
   align-items: center;
   justify-content: space-between;
 
-  .at-actioninput__input {
+  &__input {
     display: inline-flex;
     font-size: 28px;
-    min-width: 50%;
+    min-width: 60%;
 
-    &--withoutaction {
+    input {
+      width: 100%;
+    }
+
+    &--without-action {
       width: 90%;
     }
   }
 
-  .at-actioninput__action {
+  &__action {
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
+  }
 
-    .at-actioninput__icon {
-      padding: 0 20px;
-    }
+  &__icon {
+    padding: 0 20px;
+  }
 
-    .at-actioninput__tip {
-      font-size: 24px;
-      display: inline-flex;
-      border-left: #e7e7e7 solid 1px;
-      padding: 0 20px;
-      color:#e93b3d;
+  &__tip {
+    font-size: 24px;
+    display: inline-flex;
+    border-left: #e7e7e7 solid 1px;
+    padding: 0 20px;
+    color: #e93b3d;
 
-      &--disabled {
-        opacity: 0.5;
-      }
+    &--disabled {
+      opacity: 0.5;
     }
   }
 }

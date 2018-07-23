@@ -5,19 +5,19 @@
   background-color: #fff;
   padding: 22px 22px 22px 0;
 
-  .at-switch__title {
-    flex:6;
+  &__title {
+    flex: 6;
     font-size: 30px;
-    margin-left:22px;
+    margin-left: 22px;
   }
 
-  .at-switch__switch {
-    flex:2;
+  &__switch {
+    flex: 2;
     text-align: right;
     background-color: #fff;
   }
-}
 
-.at-switch + .at-switch {
-  border-top: #e5e5e5 solid 1px;
+  + .at-switch {
+    border-top: #e5e5e5 solid 1px;
+  }
 }

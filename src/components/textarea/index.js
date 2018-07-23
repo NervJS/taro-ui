@@ -24,7 +24,7 @@ class AtTextarea extends Taro.Component {
         maxlength={this.props.maxlength}
         placeholder={this.props.placeholder}
       />
-      <View className='at-textarea_bottom'>{this.props.value.length}/{this.props.maxlength}</View>
+      <View className='at-textarea__bottom'>{this.props.value.length}/{this.props.maxlength}</View>
     </View>
   }
 }
