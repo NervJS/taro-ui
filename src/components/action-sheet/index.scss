@@ -1,4 +1,5 @@
-@import "../../style/mixins";
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
 
 .at-action-sheet {
   position: fixed;
@@ -6,9 +7,11 @@
   height: 100%;
   top: 0;
   left: 0;
+
   &__overlay {
     @include overlay;
   }
+
   &__container {
     bottom: 0;
     width: 100%;
@@ -16,12 +19,14 @@
     text-align: center;
     position: absolute;
     background-color: white;
+
     &-header {
       font-size: 28px;
       padding: 25px 0;
-      color: #888888;
-      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+      color: #888;
+      border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
     }
+
     &-footer {
       font-size: 36px;
       padding: 25px 0;
@@ -32,11 +37,13 @@
 
 .body__list {
   text-align: center;
+
   &-item {
     font-size: 36px;
     padding: 25px 0;
+
     &:not(:last-child) {
-      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+      border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
     }
   }
 }

@@ -3,6 +3,7 @@
     opacity: 0.5;
     transform: translate(-100%);
   }
+
   to {
     opacity: 0.1;
     transform: translate(0);
@@ -12,15 +13,18 @@
 .at-progress {
   display: flex;
   align-items: center;
+
   &__outer {
     flex: 1 1 100%;
     margin-right: 0;
     padding-right: 0;
+
     &-inner {
       width: 100%;
       background-color: #f3f3f3;
       border-radius: 100px;
       vertical-align: middle;
+
       &-background {
         height: 20px;
         border-radius: 100px;
@@ -31,14 +35,13 @@
       }
     }
   }
+
   &__content {
     flex: 1 1 70px;
     font-size: 24px;
     margin-left: 10px;
   }
-}
 
-.at-progress {
   &.at-progress--active {
     .at-progress__outer-inner-background::before {
       content: "";

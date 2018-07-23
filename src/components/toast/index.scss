@@ -1,14 +1,18 @@
-@import "../../style/mixins";
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
 
 .at-toast {
   @include absolute-center(fixed);
+
   padding: 25px 30px;
-  background-color: rgba($color: #000000, $alpha: .8);
+  background-color: rgba($color: $color-black-0, $alpha: 0.8);
   border-radius: 8px;
+
   &-content {
     &__icon {
       margin-bottom: 15px;
     }
+
     &__info {
       text-align: center;
       color: white;
