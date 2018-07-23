@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs */
 const config = {
   projectName: 'taro-ui-examples',
   date: '2018-7-5',
