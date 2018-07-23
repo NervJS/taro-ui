@@ -6,13 +6,9 @@ import ModalButton from './button.js'
 import './index.scss'
 
 export default class ModalFooter extends Taro.Component {
-  constructor() {
-    super(...arguments)
-  }
-
   static Button = ModalButton
 
-  render() {
+  render () {
     const { children } = this.props
     return (
       <View className='at-modal-footer'>

@@ -1,0 +1,16 @@
+.at-textarea {
+  background-color: #fff;
+  font-size: 28px;
+  padding: 30px 25px;
+
+  .at-textarea__textarea {
+    height: 168px;
+  }
+
+  .at-textarea_bottom {
+    width: 100%;
+    text-align: right;
+    font-size: 24px;
+    color: #ccc;
+  }
+}

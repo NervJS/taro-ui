@@ -4,11 +4,7 @@ import { View } from '@tarojs/components'
 import './index.scss'
 
 export default class ActionSheet extends Taro.Component {
-  constructor() {
-    super(...arguments)
-  }
-
-  render() {
+  render () {
     return (
       <View className='at-action-sheet'>
         <View className='at-action-sheet__overlay' />

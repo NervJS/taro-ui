@@ -4,11 +4,7 @@ import { View } from '@tarojs/components'
 import './index.scss'
 
 export default class ModalFooter extends Taro.Component {
-  constructor() {
-    super(...arguments)
-  }
-
-  render() {
+  render () {
     const { children } = this.props
     return <View className='at-modal-body'>{children}</View>
   }

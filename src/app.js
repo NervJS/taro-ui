@@ -8,10 +8,19 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/action/toast/index',
-      'pages/action/modal/index',
+      // 'pages/action/modal/index',
       'pages/action/progress/index',
       'pages/action/action-sheet/index',
       'pages/action/activity-indicator/index',
+      // 'pages/view/icon/index',
+      'pages/view/button/index',
+      'pages/form/checkbox/index',
+      'pages/form/input/index',
+      'pages/form/input-number/index',
+      'pages/form/radio/index',
+      'pages/form/textarea/index',
+      'pages/form/switch/index',
+      'pages/form/rate/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -21,15 +30,15 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount () {}
 
-  componentDidShow() {}
+  componentDidShow () {}
 
-  componentDidHide() {}
+  componentDidHide () {}
 
-  componentCatchError() {}
+  componentCatchError () {}
 
-  render() {
+  render () {
     return <Index />
   }
 }

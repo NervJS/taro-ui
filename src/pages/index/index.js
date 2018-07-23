@@ -8,7 +8,7 @@ export default class Index extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
 
     this.state = {
@@ -178,39 +178,36 @@ export default class Index extends Taro.Component {
     })
   }
 
-  render() {
+  render () {
     const { list } = this.state
     return (
       <View className='index-page'>
         <View className='page-header'>组件入口</View>
         <View className='page-body'>
           <View className='component-group'>
-            {list.map((item, index) => {
-              return (
-                <View className='group-item' key={index}>
-                  <View className='group-info'>
-                    <View className='group-info-title'>{item.name}</View>
-                  </View>
-                  <View className='group-list'>
-                    {item.childrens.map(child => {
-                      return (
-                        <View
-                          key={index}
-                          data-id={item.id}
-                          data-name={child.name}
-                          onClick={this.goToComponent}
-                          className='list-component'>
-                          <View className='list-component-info'>
-                            {child.name.split('-').join('')} {child.title}
-                          </View>
-                          <View className='list-component-arrow' />
-                        </View>
-                      )
-                    })}
-                  </View>
+            {list.map((item, index) => (
+              <View className='group-item' key={index}>
+                <View className='group-info'>
+                  <View className='group-info-title'>{item.name}</View>
                 </View>
-              )
-            })}
+                <View className='group-list'>
+                  {item.childrens.map(child => (
+                    <View
+                      key={index}
+                      data-id={item.id}
+                      data-name={child.name}
+                      onClick={this.goToComponent}
+                      className='list-component'
+                    >
+                      <View className='list-component-info'>
+                        {child.name.split('-').join('')} {child.title}
+                      </View>
+                      <View className='list-component-arrow' />
+                    </View>
+                  ))}
+                </View>
+              </View>
+            ))}
           </View>
         </View>
       </View>

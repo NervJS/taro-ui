@@ -4,7 +4,7 @@ import { View, Icon } from '@tarojs/components'
 import './index.scss'
 
 export default class Toast extends Taro.Component {
-  constructor(props) {
+  constructor (props) {
     super(...arguments)
 
     const { isOpen } = props
@@ -19,14 +19,14 @@ export default class Toast extends Taro.Component {
     }
   }
 
-  _clearTimer() {
+  _clearTimer () {
     if (this._timer) {
       clearTimeout(this._timer)
       this._timer = null
     }
   }
 
-  _makeTimer() {
+  _makeTimer () {
     const { duration } = this.props
     this._timer = setTimeout(() => {
       this.setState({
@@ -35,7 +35,7 @@ export default class Toast extends Taro.Component {
     }, duration)
   }
 
-  _close() {
+  _close () {
     const { isOpen } = this.state
     if (isOpen) {
       this.setState({
@@ -45,7 +45,7 @@ export default class Toast extends Taro.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { isOpen } = nextProps
     if (!isOpen) return
 
@@ -67,7 +67,7 @@ export default class Toast extends Taro.Component {
     this._close()
   }
 
-  render() {
+  render () {
     const { isOpen } = this.state
     const { text, hiddenIcon, iconSize, iconType, iconColor } = this.props
     return isOpen ? (

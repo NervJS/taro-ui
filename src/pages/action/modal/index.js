@@ -1,3 +1,4 @@
+/* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 
@@ -10,7 +11,7 @@ export default class ModalPage extends Taro.Component {
     navigationBarTitleText: 'Modal Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       open: true
@@ -22,7 +23,7 @@ export default class ModalPage extends Taro.Component {
     this.setState(state)
   }
 
-  render() {
+  render () {
     const { open } = this.state
     return (
       <View className='action-sheet__page'>
@@ -42,7 +43,9 @@ export default class ModalPage extends Taro.Component {
             <View>这是内容知道吧</View>
           </Modal.Content>
           <Modal.Action>
-            <Modal.Action.Button onClick={console.log.bind(this,1)}>取消</Modal.Action.Button>
+            <Modal.Action.Button onClick={console.log.bind(this, 1)}>
+              取消
+            </Modal.Action.Button>
             <Modal.Action.Button>确认</Modal.Action.Button>
           </Modal.Action>
         </Modal>

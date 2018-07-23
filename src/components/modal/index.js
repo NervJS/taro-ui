@@ -8,7 +8,7 @@ import ModalContent from './content/index'
 import './index.scss'
 
 export default class Modal extends Taro.Component {
-  constructor(props) {
+  constructor (props) {
     super(...arguments)
     const { open } = props
     this.state = {
@@ -20,22 +20,22 @@ export default class Modal extends Taro.Component {
   static Header = ModalHeader
   static Action = ModalAction
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { open } = nextProps
-    if (open != this.state.open) {
+    if (open !== this.state.open) {
       this.setState({
         open
       })
     }
   }
 
-  _close() {
+  _close () {
     this.setState({
       open: false
     })
   }
 
-  _open() {
+  _open () {
     this.setState({
       open: true
     })
@@ -45,7 +45,7 @@ export default class Modal extends Taro.Component {
     this._close()
   }
 
-  render() {
+  render () {
     const { open } = this.state
     const { children } = this.props
     return open ? (
