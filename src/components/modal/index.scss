@@ -1,4 +1,3 @@
-/* postcss-pxtransform disable */
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
@@ -16,8 +15,8 @@
   &__container {
     @include absolute-center();
 
-    width: 270px;
-    background-color: white;
+    width: 540px;
+    background-color: $color-white;
   }
 
   .at-footer {

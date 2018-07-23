@@ -3,9 +3,9 @@ import { View } from '@tarojs/components'
 
 import './index.scss'
 
-export default class AtModalContent extends Taro.Component {
+export default class AtActionSheetHeader extends Taro.Component {
   render () {
     const { children } = this.props
-    return <View className='at-modal-body'>{children}</View>
+    return <View className='at-action-sheet-header'>{children}</View>
   }
 }

@@ -2,7 +2,7 @@
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 
-import Modal from '../../../components/modal/index'
+import Modal from '../../../components/modal'
 
 import './index.scss'
 
@@ -14,17 +14,17 @@ export default class ModalPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      open: true
+      isOpened: false
     }
   }
 
   handleClick = e => {
-    const state = Object.assign({ isOpen: true }, e.currentTarget.dataset)
+    const state = Object.assign({ isOpened: true }, e.currentTarget.dataset)
     this.setState(state)
   }
 
   render () {
-    const { open } = this.state
+    const { isOpened } = this.state
     return (
       <View className='action-sheet__page'>
         <View className='example'>
@@ -35,7 +35,7 @@ export default class ModalPage extends Taro.Component {
             <Button onClick={this.handleClick}>打开Modal</Button>
           </View>
         </View>
-        <Modal open={open}>
+        <Modal isOpened={isOpened}>
           <Modal.Header>
             <Text>这是标题知道吧</Text>
           </Modal.Header>
@@ -43,9 +43,7 @@ export default class ModalPage extends Taro.Component {
             <View>这是内容知道吧</View>
           </Modal.Content>
           <Modal.Action>
-            <Modal.Action.Button onClick={console.log.bind(this, 1)}>
-              取消
-            </Modal.Action.Button>
+            <Modal.Action.Button>取消</Modal.Action.Button>
             <Modal.Action.Button>确认</Modal.Action.Button>
           </Modal.Action>
         </Modal>

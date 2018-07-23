@@ -1,0 +1,11 @@
+@import "../../../../style/mixins/index.scss";
+@import "../../../../style/theme/default.scss";
+
+.at-action-sheet-item {
+  font-size: 36px;
+  padding: 25px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
+  }
+}

@@ -1,17 +1,8 @@
 .at-modal-footer {
   border-top: 2px solid #e5e5e5;
+
   &__action {
     display: flex;
   }
 }
 
-.at-modal-action__button {
-  outline: 0;
-  flex: auto;
-  border: none;
-  font-size: 28px;
-  background-color: white;
-  &:not(:first-child) {
-    border-left: 2px solid #e5e5e5;
-  }
-}

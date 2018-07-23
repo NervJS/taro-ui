@@ -19,31 +19,5 @@
     text-align: center;
     position: absolute;
     background-color: white;
-
-    &-header {
-      font-size: 28px;
-      padding: 25px 0;
-      color: #888;
-      border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
-    }
-
-    &-footer {
-      font-size: 36px;
-      padding: 25px 0;
-      border-top: 12px solid rgba($color: #cdcdd1, $alpha: 0.3);
-    }
-  }
-}
-
-.body__list {
-  text-align: center;
-
-  &-item {
-    font-size: 36px;
-    padding: 25px 0;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
-    }
   }
 }

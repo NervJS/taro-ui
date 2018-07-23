@@ -19,9 +19,10 @@
 .group-item {
   padding: 0 30px;
   margin: 20px 0;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 4px;
   overflow: hidden;
+
   &:first-child {
     margin-top: 0;
   }
@@ -32,6 +33,7 @@
   display: flex;
   align-items: center;
   transition: opacity 0.3s;
+
   &-title {
     opacity: 0.5;
   }
@@ -39,11 +41,13 @@
 
 .group-list {
   font-size: 28px;
+
   .list-component {
     padding: 20px 0;
     position: relative;
     align-items: center;
-    &:before {
+
+    &::before {
       content: " ";
       position: absolute;
       left: 0;
@@ -53,6 +57,7 @@
       border-top: 1px solid #d8d8d8;
       color: #d8d8d8;
     }
+
     &:first-child::before {
       display: none;
     }
@@ -66,7 +71,7 @@
       height: 18px;
       width: 18px;
       border-width: 2px 2px 0 0;
-      border-color: #888888;
+      border-color: #888;
       border-style: solid;
       transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) translate(-50%);
       position: absolute;

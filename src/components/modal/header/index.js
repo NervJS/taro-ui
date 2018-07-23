@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 
 import './index.scss'
 
-export default class ModalHeader extends Taro.Component {
+export default class AtModalHeader extends Taro.Component {
   render () {
     const { children } = this.props
     return (

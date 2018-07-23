@@ -5,20 +5,19 @@ import _isFunction from 'lodash/isFunction'
 
 import './index.scss'
 
-export default class ModalButton extends Taro.Component {
-  constructor() {
-    super(...arguments)
-  }
-
+export default class AtModalButton extends Taro.Component {
   handleClick = () => {
-    const { onClick } = this.props
-    _isFunction(onClick) && onClick()
+    const { onClick, $$close } = this.props
+    if (_isFunction(onClick)) {
+      return onClick()
+    }
+    $$close()
   }
 
-  render() {
+  render () {
     const { children } = this.props
     return (
-      <Button className='at-modal-action__button' onClick={this.handleClick}>
+      <Button className='at-modal-action-button' onClick={this.handleClick}>
         {children}
       </Button>
     )

@@ -1,15 +1,22 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
-import ModalButton from './button.js'
+import AtModalButton from './button/index.js'
 
 import './index.scss'
 
-export default class ModalFooter extends Taro.Component {
-  static Button = ModalButton
+export default class AtModalFooter extends Taro.Component {
+  static Button = AtModalButton
 
   render () {
-    const { children } = this.props
+    let { children } = this.props
+    const { $$close } = this.props
+
+    children = children.map(item => {
+      item.props.$$close = $$close
+      return item
+    })
+
     return (
       <View className='at-modal-footer'>
         <View className='at-modal-footer__action'>{children}</View>
