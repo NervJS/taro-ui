@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
 
-  .at-action-input__input {
+  &__input {
     display: inline-flex;
     font-size: 28px;
     min-width: 60%;
@@ -16,30 +16,30 @@
       width: 100%;
     }
 
-    &--withoutaction {
+    &--without-action {
       width: 90%;
     }
   }
 
-  .at-action-input__action {
+  &__action {
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
+  }
 
-    .at-action-input__icon {
-      padding: 0 20px;
-    }
+  &__icon {
+    padding: 0 20px;
+  }
 
-    .at-action-input__tip {
-      font-size: 24px;
-      display: inline-flex;
-      border-left: #e7e7e7 solid 1px;
-      padding: 0 20px;
-      color: #e93b3d;
+  &__tip {
+    font-size: 24px;
+    display: inline-flex;
+    border-left: #e7e7e7 solid 1px;
+    padding: 0 20px;
+    color: #e93b3d;
 
-      &--disabled {
-        opacity: 0.5;
-      }
+    &--disabled {
+      opacity: 0.5;
     }
   }
 }

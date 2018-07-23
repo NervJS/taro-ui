@@ -73,7 +73,7 @@ class AtActionInput extends Taro.Component {
   }
   render () {
     return <View className='at-action-input'>
-      <View className={this.props.actionName ? 'at-action-input__input' : 'at-action-input__input at-action-input__input--withoutaction'}>
+      <View className={this.props.actionName ? 'at-action-input__input' : 'at-action-input__input at-action-input__input--without-action'}>
         <Input
           value={this.props.value}
           type={this.props.type}
