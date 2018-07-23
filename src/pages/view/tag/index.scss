@@ -1,0 +1,16 @@
+@import "../../../style/variables";
+
+.page {
+  background-color: #fff;
+}
+
+
+.example {
+  margin-bottom: 15px;
+  text-align: center;
+  &-item {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 20px;
+  }
+}

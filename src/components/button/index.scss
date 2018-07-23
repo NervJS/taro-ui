@@ -28,4 +28,16 @@
         color: rgba(92, 137, 228, 1);
         border: 2px solid rgba(92, 137, 228, 1);
     }
+    &--small {
+        width: 120px;
+        height: 60px;
+        line-height: 60px;
+        display: inline-block;
+        font-size: 28px;
+    }
+    &--circle {
+        border-radius: 100px;
+        overflow: hidden;
+        background-clip: border-box;
+    }
 }

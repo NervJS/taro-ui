@@ -6,7 +6,7 @@ import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  large: 'large',
+  // large: 'large',
   small: 'small',
 }
 
@@ -24,9 +24,9 @@ export default class AtButton extends Taro.Component {
     }
   }
 
-  onClick(e) {
+  onClick() {
     if (!this.props.disabled && this.props.onClick) {
-      this.props.onClick(e)
+      this.props.onClick(...arguments)
     }
   }
 
@@ -35,6 +35,7 @@ export default class AtButton extends Taro.Component {
       size = 'normal',
       type = '',
       icon = '',
+      circle = false,
       active = false,
       loading = false,
       disabled = false,
@@ -44,10 +45,11 @@ export default class AtButton extends Taro.Component {
     let disabledClass = disabled? 'at-button--disabled': ''
     let typeClass = TYPE_CLASS[type]? `at-button--${type}`: ''
     let activeClass = active? 'at-button--active': ''
+    let circleClass = circle? 'at-button--circle': ''
     // let loadingClass = loading? 'at-button--loading': ''
     // let iconClass = loading? 'at-button--icon': ''
 
-    rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass, activeClass)
+    rootClassName.push(`at-button--${sizeClass}`, typeClass, activeClass, circleClass, disabledClass)
     rootClassName = rootClassName.filter(str => str != '')
     console.log('loading====', loading)
     return (

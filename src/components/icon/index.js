@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 
 import './index.scss'
 
@@ -21,7 +21,7 @@ export default class AtIcon extends Taro.Component {
     let rootClassName = ['at-icon', `at-icon-${value}`]
       console.log('value====',value)
     return (
-      <View className={rootClassName} style={rootStyle}></View>
+      <Text className={rootClassName} style={rootStyle}></Text>
     )
   }
 }
