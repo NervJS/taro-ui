@@ -10,8 +10,8 @@
     "build:weapp": "taro build --type weapp",
     "build:h5": "taro build --type h5",
     "lint": "eslint ./src --fix",
-    "stylelint": "stylelint \"src/**/*.scss\" --syntax scss",
-    "stylelint-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"
+    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
+    "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"
   },
   "husky": {
     "hooks": {

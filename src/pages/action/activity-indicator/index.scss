@@ -1,11 +1,10 @@
 .activity-indicator__page {
-    .example__body {
-        &--list {}
-        &--center {
-            height: 375px;
-            position: relative;
-            background-color: #f8f8f8;
-            margin-bottom: 20px;
-        }
+  .example__body {
+    &--center {
+      height: 375px;
+      position: relative;
+      background-color: #f8f8f8;
+      margin-bottom: 20px;
     }
+  }
 }
