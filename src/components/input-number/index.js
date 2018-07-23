@@ -14,7 +14,7 @@ import './index.scss'
  */
 class AtInputNumber extends Taro.Component {
   static addNum (num1, num2) {
-    let sq1, sq2, m
+    let sq1, sq2
     try {
       sq1 = num1.toString().split('.')[1].length
     } catch (e) {
@@ -25,7 +25,7 @@ class AtInputNumber extends Taro.Component {
     } catch (e) {
       sq2 = 0
     }
-    m = Math.pow(10, Math.max(sq1, sq2))
+    const m = Math.pow(10, Math.max(sq1, sq2))
     return (Math.round(num1 * m) + Math.round(num2 * m)) / m
   }
   handleMinus () {
