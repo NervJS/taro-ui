@@ -10,7 +10,7 @@ import './index.scss'
  * @prop placeholder {String} 提示字符
  * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
  * @prop maxlength {Number} 最大长度 default:200
- * @prop type {String}  输入框类型,可选为 text,number,password
+ * @prop type {String}  输入框类型,可选为 text,number,password default: text
  * @prop autoFocus {Boolean} 是否自动聚焦 default:false
  * @prop onChange {Function} 输入框值改变时触发的事件,回调参数: {value:''}
  * @prop onFocus {Function} 输入框被选中时触发的事件,回调参数: {value:''}
