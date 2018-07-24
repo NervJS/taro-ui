@@ -1,0 +1,37 @@
+
+@import "../../style/mixins.scss";
+
+.at-noticebar {
+    background: #FCF6ED;
+    padding: 14px;
+    font-size: 24px;
+    color: #DE8C17;
+    position: relative;
+    &__close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        left: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        + .at-noticebar__content {
+            margin-left: 68px;
+        }
+    }
+    &--single {
+        .at-noticebar__content {
+            @include line(1);
+        }
+    }
+    &--more {
+        .at-noticebar__content {
+            max-width: 520px;
+        }
+    }
+    &__more {
+        color: #999;
+        position: absolute;
+        right: 18px;
+        top: 15px;
+    }
+}

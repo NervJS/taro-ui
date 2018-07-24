@@ -1,0 +1,40 @@
+
+.at-tag {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
+    display: inline-block;
+    
+    border: 2px solid #F7F7F7;
+    background-color: #F7F7F7;
+    color: #666;
+    box-sizing: border-box;
+    vertical-align: middle;
+    &--active {
+        border: 2px solid #77A1F7;
+        background-color: #fff;
+        color: #77A1F7;
+        &.at-tag--primary {
+            background-color: #769EFA;
+            color: #fff;
+            border: 2px solid #769EFA;;
+        }
+    }
+    &--disabled {
+        opacity: .3;
+    }
+    &--small {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
+        font-size: 20px;
+    }
+    &--circle {
+        border-radius: 100px;
+        overflow: hidden;
+        background-clip: border-box;
+    }
+}
