@@ -14,7 +14,7 @@ import './index.scss'
  */
 class AtInputNumber extends Taro.Component {
   static addNum (num1, num2) {
-    let sq1, sq2, m
+    let sq1, sq2
     try {
       sq1 = num1.toString().split('.')[1].length
     } catch (e) {
@@ -25,7 +25,7 @@ class AtInputNumber extends Taro.Component {
     } catch (e) {
       sq2 = 0
     }
-    m = Math.pow(10, Math.max(sq1, sq2))
+    const m = Math.pow(10, Math.max(sq1, sq2))
     return (Math.round(num1 * m) + Math.round(num2 * m)) / m
   }
   handleMinus () {
@@ -39,13 +39,13 @@ class AtInputNumber extends Taro.Component {
     this.props.onChange({ value })
   }
   render () {
-    return <View className='at-inputnumber'>
-      <View className={this.props.value <= this.props.min ? 'at-inputnumber__btn at-inputnumber__btn--disabled' : 'at-inputnumber__btn'} onClick={this.handleMinus.bind(this)}>-</View>
-      <Input className='at-inputnumber__input'
+    return <View className='at-input-number'>
+      <View className={this.props.value <= this.props.min ? 'at-input-number__btn at-input-number__btn--disabled' : 'at-input-number__btn'} onClick={this.handleMinus.bind(this)}>-</View>
+      <Input className='at-input-number__input'
         type='number'
         value={this.props.value}
       />
-      <View className={this.props.value >= this.props.max ? 'at-inputnumber__btn at-inputnumber__btn--disabled' : 'at-inputnumber__btn'} onClick={this.handlePlus.bind(this)}>+</View>
+      <View className={this.props.value >= this.props.max ? 'at-input-number__btn at-input-number__btn--disabled' : 'at-input-number__btn'} onClick={this.handlePlus.bind(this)}>+</View>
     </View>
   }
 }

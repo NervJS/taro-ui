@@ -1,27 +1,32 @@
 .at-radio {
   background-color: #fff;
-  .at-radio__option {
+
+  &__icon {
+    flex: 1;
+    text-align: right;
+    visibility: hidden;
+  }
+
+  &__option {
     display: flex;
     padding: 13px 13px 13px 0;
-    margin-left:  13px;
+    margin-left: 13px;
     align-items: center;
+
     &--selected {
       .at-radio__icon {
-        visibility: visible!important;
+        visibility: visible !important;
       }
     }
-    .at-radio__icon {
-      flex:1;
-      text-align: right;
-      visibility: hidden;
-    }
-    .at-radio__title {
-      flex:6;
-      font-size: 30px;
-      text-align: left;
+
+    + .at-radio__option {
+      border-top: #e5e5e5 solid 1px;
     }
   }
-  .at-radio__option + .at-radio__option {
-    border-top: #e5e5e5 solid 1px;
+
+  &__title {
+    flex: 6;
+    font-size: 30px;
+    text-align: left;
   }
 }
