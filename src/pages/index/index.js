@@ -14,8 +14,8 @@ export default class Index extends Taro.Component {
     this.state = {
       list: [
         {
-          id: 'View',
-          name: '视图',
+          id: 'Basic',
+          name: '基础',
           open: false,
           childrens: [
             {
@@ -37,13 +37,13 @@ export default class Index extends Taro.Component {
           ]
         },
         {
-          id: 'Content',
-          name: '基础组件',
+          id: 'View',
+          name: '视图组件',
           open: false,
           childrens: [
             {
               title: '通告栏',
-              name: 'Notice-Bar'
+              name: 'NoticeBar'
             },
             {
               title: '徽章',

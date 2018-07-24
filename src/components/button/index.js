@@ -1,11 +1,13 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+
+import Taro from "@tarojs/taro"
+import { View, Text } from "@tarojs/components"
+import AtIcon from "../icon/index"
 
 import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  large: 'large',
+  // large: 'large',
   small: 'small',
 }
 
@@ -23,9 +25,9 @@ export default class AtButton extends Taro.Component {
     }
   }
 
-  onClick (e) {
-    if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick(e)
+  onClick() {
+    if (!this.props.disabled && this.props.onClick) {
+      this.props.onClick(...arguments)
     }
   }
 
@@ -34,21 +36,33 @@ export default class AtButton extends Taro.Component {
       size = 'normal',
       type = '',
       icon = '',
+      circle = false,
       active = false,
       loading = false,
       disabled = false,
     } = this.props
     let rootClassName = ['at-button']
-    const sizeClass = SIZE_CLASS[size] || ''
-    const disabledClass = disabled ? 'at-button--disabled' : ''
-    const typeClass = TYPE_CLASS[type] ? `at-button--${type}` : ''
-    const activeClass = active ? 'at-button--active' : ''
+    let sizeClass = SIZE_CLASS[size] || ''
+    let disabledClass = disabled? 'at-button--disabled': ''
+    let typeClass = TYPE_CLASS[type]? `at-button--${type}`: ''
+    let activeClass = active? 'at-button--active': ''
+    let circleClass = circle? 'at-button--circle': ''
+    // let loadingClass = loading? 'at-button--loading': ''
+    // let iconClass = loading? 'at-button--icon': ''
+    console.log('icon==', icon)
 
-    rootClassName.push(`at-button--${sizeClass}`, disabledClass, typeClass, activeClass)
+    rootClassName.push(`at-button--${sizeClass}`, typeClass, activeClass, circleClass, disabledClass)
     rootClassName = rootClassName.filter(str => str != '')
-    // console.log(this.props, this.state)
+    
+    let component;
+    if (icon) {
+      component = <AtIcon style={{marginRight: '5px'}} value={icon} size="20"></AtIcon>
+    } else if (loading) {
+      component = <AtIcon style={{marginRight: '5px'}} value="clock" size="20"></AtIcon>
+    }
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>
+        {component}
         {this.props.children}
       </View>
     )
