@@ -4,8 +4,9 @@
 .at-flex__item {
   @include flex(1);
 
-  display: block;
   width: 100%;
+  display: block;
+  word-break: keep-all;
 
   @for $col from 1 through 12 {
     $width: ($col / 12) * 100%;

@@ -7,8 +7,6 @@ import AtFlexItem from './item/index'
 
 import './index.scss'
 
-// const Props = ['direction','wrap','justify',]
-
 export default class AtFlex extends Taro.Component {
   static Item = AtFlexItem
 

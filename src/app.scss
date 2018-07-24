@@ -1,3 +1,5 @@
+@import "./style/theme/default.scss";
+
 #app {
   background-color: #f8f8f8;
 }
@@ -14,27 +16,37 @@
   &__header {
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba($color: #e5e5e5, $alpha: 1);
+    border-bottom: 1px solid $color-grey-4;
 
     &-title {
-      color: #999;
+      color: $color-grey-2;
       font-size: 28px;
+    }
+
+    &-note {
+      font-size: 24px;
+      margin-left: 20px;
+      color: $color-grey-3;
     }
   }
 }
 
 // Flex 展示样式
 .flex__page {
-  .at-flex__item {
-    color: white;
-    text-align: center;
+  .at-flex {
+    margin-bottom: 40px;
 
-    &:nth-child(odd) {
-      background-color: #6190e8;
-    }
+    &__item {
+      color: white;
+      text-align: center;
 
-    &:nth-child(even) {
-      background-color: #78a4f4;
+      &:nth-child(odd) {
+        background-color: #6190e8;
+      }
+
+      &:nth-child(even) {
+        background-color: #78a4f4;
+      }
     }
   }
 }
