@@ -135,8 +135,8 @@ export default class Index extends Taro.Component {
           open: false,
           childrens: [
             {
-              title: '布局',
-              name: 'Layout'
+              title: '弹性布局',
+              name: 'Flex'
             },
             {
               title: '栅格',

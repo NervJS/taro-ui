@@ -1,0 +1,47 @@
+@import "../../../style/mixins/index.scss";
+@import "../../../style/theme/default.scss";
+
+.at-flex__item {
+  @include flex(1);
+
+  display: block;
+  width: 100%;
+
+  @for $col from 1 through 12 {
+    $width: ($col / 12) * 100%;
+
+    &-size {
+      &--#{$col} {
+        @include flex(0, 0, $width);
+
+        max-width: $width;
+      }
+    }
+
+    &-offset--#{$col} {
+      margin-left: $width;
+    }
+  }
+
+  &-align {
+    &--top {
+      @include align-self(flex-start);
+    }
+
+    &--bottom {
+      @include align-self(flex-end);
+    }
+
+    &--center {
+      @include align-self(center);
+    }
+  }
+
+  &--auto {
+    max-width: initial;
+  }
+
+  &--wrap {
+    word-wrap: break-word;
+  }
+}

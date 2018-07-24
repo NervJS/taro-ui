@@ -22,3 +22,19 @@
     }
   }
 }
+
+// Flex 展示样式
+.flex__page {
+  .at-flex__item {
+    color: white;
+    text-align: center;
+
+    &:nth-child(odd) {
+      background-color: #6190e8;
+    }
+
+    &:nth-child(even) {
+      background-color: #78a4f4;
+    }
+  }
+}
