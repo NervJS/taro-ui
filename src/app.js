@@ -27,8 +27,9 @@ class App extends Component {
       'pages/view/avatar/index',
       'pages/view/article/index'
       // 'pages/layout/flex/index'
-      // 'pages/layout/grid/index'
-      // 'pages/layout/float-layout/index'
+      // 'pages/layout/grid/index',
+      // 'pages/layout/float-layout/index',
+      // 'pages/layout/card/index'
     ],
     window: {
       backgroundTextStyle: 'light',

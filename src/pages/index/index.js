@@ -149,6 +149,10 @@ export default class Index extends Taro.Component {
             {
               title: '浮层',
               name: 'Float-Layout'
+            },
+            {
+              title: '卡片',
+              name: 'Card'
             }
           ]
         },
