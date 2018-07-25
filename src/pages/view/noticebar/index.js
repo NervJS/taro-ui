@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 import AtNoticebar from '../../../components/noticebar/index'
 
@@ -10,7 +10,7 @@ export default class NoticebarPage extends Taro.Component {
     navigationBarTitleText: 'Noticebar Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
 
@@ -21,28 +21,28 @@ export default class NoticebarPage extends Taro.Component {
   //   alert('点击了！')
   // }
 
-  render() {
+  render () {
     // let {icons} = this.state
     return (
       <View className='page'>
         <View className='example'>
-          <AtNoticebar close single moreUrl="https://taro.aotu.io/">这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
-        </View> 
-        <View className='example'> 
+          <AtNoticebar close single moreUrl='https://taro.aotu.io/'>这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
+        </View>
+        <View className='example'>
           <AtNoticebar close single>这是 NoticeBar 通告栏。带关闭按钮、单行</AtNoticebar>
-        </View> 
-        <View className='example'> 
+        </View>
+        <View className='example'>
           <AtNoticebar close>这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。带关闭按钮、多行</AtNoticebar>
-        </View> 
+        </View>
 
-        <View className='example'> 
+        <View className='example'>
           <AtNoticebar>这是 NoticeBar 通告栏。单行</AtNoticebar>
         </View>
-        <View className='example'> 
-          <AtNoticebar icon="icon-notice">这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
-        </View> 
+        <View className='example'>
+          <AtNoticebar icon='icon-notice'>这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
+        </View>
 
-        
+
       </View>
     )
   }

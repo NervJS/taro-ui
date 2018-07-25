@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import AtArticle from '../../../components/article/index'
 
 import './index.scss'
@@ -9,20 +9,19 @@ export default class ArticlePage extends Taro.Component {
     navigationBarTitleText: 'Article Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
 
     }
   }
 
-  onClick() {
+  onClick () {
     // alert('点击了！')
     console.log(arguments)
   }
 
-  render() {
-
+  render () {
     return (
       <View className='page'>
 

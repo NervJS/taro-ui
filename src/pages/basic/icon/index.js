@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 import AtIcon from '../../../components/icon/index'
 
@@ -10,28 +10,26 @@ export default class IconPage extends Taro.Component {
     navigationBarTitleText: 'Icon Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       icons: [
         'accessory',
-        'activity',
+        'activity'
       ]
     }
   }
 
-  render() {
-    let {icons} = this.state
+  render () {
+    const { icons } = this.state
     return (
       <View className='page'>
         <View className='example'>
-          {icons.map((icon) => {
-            return (
-              <AtIcon value={icon} color='#f00' size={30}>
-              </AtIcon>
-            )
-          })}
-          
+          {icons.map((icon, index) => (
+            <AtIcon value={icon} color='#f00' size={30} key={index}>
+            </AtIcon>
+          ))}
+
         </View>
       </View>
     )

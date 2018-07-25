@@ -1,33 +1,37 @@
 
 .at-avatar {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  font-size: 40px;
+  line-height: 100px;
+  color: #fff;
+  background: #D8D8D8;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--large {
+    width: 120px;
+    height: 120px;
+    font-size: 48px;
+    line-height: 120px;
+  }
+
+  &--small {
+    height: 80px;
+    width: 80px;
+    font-size: 32px;
+    line-height: 80px;
+  }
+
+  &--circle {
+    border-radius: 100px;
     overflow: hidden;
-    box-shadow: 0 0 50px 0 rgba(0,0,0,0.05);
-    border-radius: 8px;
-    font-size: 40px;
-    line-height: 100px;
-    color: #fff;
-    background: #D8D8D8;
-    &__img {
-        width: 100%;
-        height: 100%;
-    }
-    &--large {
-        width: 120px;
-        height: 120px;
-        font-size: 48px;
-        line-height: 120px;
-    }
-    &--small {
-        height: 80px;
-        width: 80px;
-        font-size: 32px;
-        line-height: 80px;
-    }
-    &--circle {
-        border-radius: 100px;
-        overflow: hidden;
-        background-clip: border-box;
-    }
+    background-clip: border-box;
+  }
 }

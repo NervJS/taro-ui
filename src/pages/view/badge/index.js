@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 import AtBadge from '../../../components/badge/index'
 import AtButton from '../../../components/button/index'
@@ -11,7 +11,7 @@ export default class BadgePage extends Taro.Component {
     navigationBarTitleText: 'Badge Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
 
@@ -22,63 +22,63 @@ export default class BadgePage extends Taro.Component {
   //   alert('点击了！')
   // }
 
-  render() {
+  render () {
     // let {icons} = this.state
     return (
       <View className='page'>
 
         <View className='example'>
           <View className='example-item'>
-            <AtBadge value="10" maxValue="99">
-              <AtButton size="small" circle>按钮</AtButton>
+            <AtBadge value='10' maxValue='99'>
+              <AtButton size='small' circle>按钮</AtButton>
             </AtBadge>
           </View>
           <View className='example-item'>
-            <AtBadge value="10" maxValue="99">
-              <AtButton size="small">按钮</AtButton>
+            <AtBadge value='10' maxValue='99'>
+              <AtButton size='small'>按钮</AtButton>
             </AtBadge>
-          </View> 
-        </View> 
+          </View>
+        </View>
 
         <View className='example'>
           <View className='example-item'>
             <AtBadge dot>
-              <AtButton size="small" circle>按钮</AtButton>
+              <AtButton size='small' circle>按钮</AtButton>
             </AtBadge>
-          </View> 
+          </View>
           <View className='example-item'>
             <AtBadge dot>
-              <AtButton size="small">按钮</AtButton>
+              <AtButton size='small'>按钮</AtButton>
             </AtBadge>
-          </View> 
-        </View> 
+          </View>
+        </View>
 
         <View className='example'>
           <View className='example-item'>
-            <AtBadge value="new">
-              <AtButton size="small" circle>按钮</AtButton>
+            <AtBadge value='new'>
+              <AtButton size='small' circle>按钮</AtButton>
             </AtBadge>
-          </View> 
+          </View>
           <View className='example-item'>
-            <AtBadge value="new">
-              <AtButton size="small">按钮</AtButton>
+            <AtBadge value='new'>
+              <AtButton size='small'>按钮</AtButton>
             </AtBadge>
-          </View> 
-        </View> 
+          </View>
+        </View>
 
         <View className='example'>
           <View className='example-item'>
-            <AtBadge value="...">
-              <AtButton size="small" circle>按钮</AtButton>
+            <AtBadge value='...'>
+              <AtButton size='small' circle>按钮</AtButton>
             </AtBadge>
-          </View> 
+          </View>
           <View className='example-item'>
-            <AtBadge value="...">
-              <AtButton size="small">按钮</AtButton>
+            <AtBadge value='...'>
+              <AtButton size='small'>按钮</AtButton>
             </AtBadge>
-          </View> 
-        </View> 
-        
+          </View>
+        </View>
+
       </View>
     )
   }

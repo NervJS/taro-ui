@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import AtAvatar from '../../../components/avatar/index'
 
 import './index.scss'
@@ -9,70 +9,69 @@ export default class AvatarPage extends Taro.Component {
     navigationBarTitleText: 'Avatar Page'
   }
 
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
 
     }
   }
 
-  onClick() {
+  onClick () {
     // alert('点击了！')
     console.log(arguments)
   }
 
-  render() {
-
+  render () {
     return (
       <View className='page'>
 
         <View className='example'>
           <View className='example-item'>
-            <AtAvatar circle size="small" image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar circle size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar circle image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar circle size="large" image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar circle size='large' image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
-          
+
         </View>
 
         <View className='example'>
           <View className='example-item'>
-            <AtAvatar size="small" image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar size="large" image="https://jdc.jd.com/img/200"></AtAvatar>
+            <AtAvatar size='large' image='https://jdc.jd.com/img/200'></AtAvatar>
           </View>
-          
+
         </View>
 
         <View className='example'>
           <View className='example-item'>
-            <AtAvatar circle size="small" image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar circle size='small' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar circle image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar circle image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar circle size="large" image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar circle size='large' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
         </View>
 
         <View className='example'>
           <View className='example-item'>
-            <AtAvatar size="small" image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar size='small' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
           <View className='example-item'>
-            <AtAvatar size="large" image="https://jdc.jd.com/img/200">凹</AtAvatar>
+            <AtAvatar size='large' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
           </View>
         </View>
 

@@ -1,6 +1,6 @@
-import Taro from "@tarojs/taro"
-import { View, Image, Text } from "@tarojs/components"
-import PropTypes from 'prop-types';
+import Taro from '@tarojs/taro'
+import { View, Image, Text } from '@tarojs/components'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
@@ -10,45 +10,39 @@ const SIZE_CLASS = {
   small: 'small',
 }
 
-// const TYPE_CLASS = {
-//   primary: 'primary',
-// }
-
-
 export default class AtAvatar extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
 
     }
   }
 
-  onClick() {
+  onClick () {
   }
 
-  render(){
-    let {
+  render () {
+    const {
       size,
       circle,
       image,
     } = this.props
     let rootClassName = ['at-avatar']
-    let sizeClass = SIZE_CLASS[size] || ''
-    let circleClass = circle? 'at-avatar--circle': ''
+    const sizeClass = SIZE_CLASS[size] || ''
+    const circleClass = circle ? 'at-avatar--circle' : ''
 
     rootClassName.push(`at-avatar--${sizeClass}`, circleClass)
-    rootClassName = rootClassName.filter(str => str != '')
-console.log('=====', this.props.children)
+    rootClassName = rootClassName.filter(str => str !== '')
 
-    let {children} = this.props
-    let letter;
-    if (typeof children == 'string') {
+    const { children } = this.props
+    let letter
+    if (typeof children === 'string') {
       letter = children[0]
     }
     return (
       <View className={rootClassName}>
-        {letter ? <Text className="at-avatar__text">{letter}</Text>: <Image className="at-avatar__img" src={image} />}
-        
+        {letter ? <Text className='at-avatar__text'>{letter}</Text> : <Image className='at-avatar__img' src={image} />}
+
       </View>
     )
   }
@@ -64,4 +58,4 @@ AtAvatar.propTypes = {
   size: PropTypes.oneOf(['large', 'normal', 'small']),
   circle: PropTypes.bool,
   image: PropTypes.string,
-};
+}

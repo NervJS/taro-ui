@@ -1,38 +1,37 @@
 
-import PropTypes from 'prop-types';
-import Taro from "@tarojs/taro"
-import { View, Text } from "@tarojs/components"
-
+import PropTypes from 'prop-types'
+import Taro from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import loadash from 'lodash'
 import './index.scss'
 
 
 export default class AtBadge extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {}
   }
 
-  formatValue(value, maxValue) {
-    if (isNaN(value)) {
+  formatValue (value, maxValue) {
+    if (loadash.isNaN(value)) {
       return value
-    } else {
-      let numValue = +value
-      return numValue > maxValue? `${maxValue}+`: numValue
     }
+    const numValue = +value
+    return numValue > maxValue ? `${maxValue}+` : numValue
   }
 
-  render(){
-    let {
+  render () {
+    const {
       dot,
       value,
       maxValue,
     } = this.props
-    let rootClassName = ['at-badge']
+    const rootClassName = ['at-badge']
 
     return (
       <View className={rootClassName}>
         {this.props.children}
-        {dot ? <View className="at-badge__dot"></View>: <View className="at-badge__num">{this.formatValue(value, maxValue)}</View>}
+        {dot ? <View className='at-badge__dot'></View> : <View className='at-badge__num'>{this.formatValue(value, maxValue)}</View>}
       </View>
     )
   }
@@ -47,4 +46,4 @@ AtBadge.defaultProps = {
 AtBadge.propTypes = {
   dot: PropTypes.bool,
   maxValue: PropTypes.number,
-};
+}
