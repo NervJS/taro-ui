@@ -28,6 +28,7 @@ class App extends Component {
       'pages/view/article/index'
       // 'pages/layout/flex/index'
       // 'pages/layout/grid/index'
+      // 'pages/layout/float-layout/index'
     ],
     window: {
       backgroundTextStyle: 'light',
