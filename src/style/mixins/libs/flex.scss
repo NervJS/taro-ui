@@ -1,21 +1,13 @@
 @mixin display-flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
   display: flex;
 }
 
 @mixin flex-wrap($value: nowrap) {
   flex-wrap: $value;
-  -webkit-flex-wrap: $value;
-  -moz-flex-wrap: $value;
 }
 
 @mixin align-items($value: stretch) {
   align-items: $value;
-  -webkit-align-items: $value;
-  -moz-align-items: $value;
   @if $value == flex-start {
     -webkit-box-align: start;
   } @else if $value == flex-end {
@@ -27,14 +19,10 @@
 
 @mixin align-content($value: flex-start) {
   align-content: $value;
-  -webkit-align-content: $value;
-  -moz-align-content: $value;
 }
 
 @mixin justify-content($value: flex-start) {
   justify-content: $value;
-  -webkit-justify-content: $value;
-  -moz-justify-content: $value;
   @if $value == flex-start {
     -webkit-box-pack: start;
   } @else if $value == flex-end {
@@ -47,23 +35,16 @@
 }
 
 /* Flex Item */
-
 @mixin flex($fg: 1, $fs: null, $fb: null) {
-  -webkit-box-flex: $fg;
-  -webkit-flex: $fg $fs $fb;
-  -moz-box-flex: $fg;
-  -moz-flex: $fg $fs $fb;
   flex: $fg $fs $fb;
+  -webkit-box-flex: $fg;
 }
 
 @mixin flex-order($n) {
-  -webkit-order: $n;
   order: $n;
   -webkit-box-ordinal-group: $n;
 }
 
 @mixin align-self($value: auto) {
   align-self: $value;
-  -webkit-align-self: $value;
-  -moz-align-self: $value;
 }
