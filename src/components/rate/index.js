@@ -30,7 +30,7 @@ class AtRate extends Taro.Component {
       }
     }
     return <View className='at-rate' >
-      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon type='collection_fill' size={this.props.size} color={color} /></View>)}
+      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='collection_fill' size={this.props.size} color={color} /></View>)}
     </View>
   }
 }

@@ -45,7 +45,7 @@ class AtInput extends Taro.Component {
           onFocus={this.handleFocus.bind(this)}
           onBlur={this.handleBlur.bind(this)}
         />
-        <View className='at-input__icon'><AtIcon type='warning_fill' color='#e93b3d' size='20' /></View>
+        <View className='at-input__icon'><AtIcon value='warning_fill' color='#e93b3d' size='20' /></View>
       </View>
     </View>
   }

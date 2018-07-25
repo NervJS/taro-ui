@@ -27,7 +27,7 @@ class AtCheckbox extends Taro.Component {
         this.props.options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className='at-checkbox__option'>
           <View className='at-checkbox__top'>
             <View className={this.props.selectedList.includes(option.value) ? 'at-checkbox__icon at-checkbox__icon--selected' : 'at-checkbox__icon'}>
-              <AtIcon type='right' size='30' color='#fff' />
+              <AtIcon value='right' size='30' color='#fff' />
             </View>
             <View className='at-checkbox__title'>{option.value}</View>
           </View>
