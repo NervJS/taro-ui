@@ -4,12 +4,13 @@
   background-color: #fff;
 }
 
-
 .example {
   margin-bottom: 15px;
+
   &.small {
     text-align: center;
-    > * {
+
+    .at-button {
       margin: 0 20px;
     }
   }

@@ -27,41 +27,21 @@
 
   &--secondary {
     background-color: #fff;
-    color: #333;
-    box-sizing: border-box;
+    color: rgba(92, 137, 228, 1);
+    border: 2px solid rgba(92, 137, 228, 1);
+  }
 
-    &--active {
-      opacity: 0.6;
-    }
+  &--small {
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    font-size: 28px;
+  }
 
-    &--disabled {
-      opacity: 0.3;
-    }
-
-    &--primary {
-      background-color: rgba(92, 137, 228, 1);
-      color: #fff;
-      border: 2px solid rgba(92, 137, 228, 1);
-    }
-
-    &--secondary {
-      background-color: #fff;
-      color: rgba(92, 137, 228, 1);
-      border: 2px solid rgba(92, 137, 228, 1);
-    }
-
-    &--small {
-      width: 120px;
-      height: 60px;
-      line-height: 60px;
-      display: inline-block;
-      font-size: 28px;
-    }
-
-    &--circle {
-      border-radius: 100px;
-      overflow: hidden;
-      background-clip: border-box;
-    }
+  &--circle {
+    border-radius: 100px;
+    overflow: hidden;
+    background-clip: border-box;
   }
 }

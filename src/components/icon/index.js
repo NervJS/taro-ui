@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
-import { View, Text } from '@tarojs/components'
+import { Text } from '@tarojs/components'
 import './index.scss'
 
 export default class AtIcon extends Taro.Component {
@@ -8,22 +8,19 @@ export default class AtIcon extends Taro.Component {
     this.props.onClick(...arguments)
   }
 
-  render() {
-    let { value = '', size , color} = this.props
-    
+  render () {
+    const { value = '', size, color } = this.props
+
     const rootStyle = {
-      // width: `${+size}px`,
-      // height: `${+size}px`,
       fontSize: `${size}px`,
       color,
     }
 
-    let rootClassName = ['at-icon', `at-icon-${value}`]
-      console.log('value====',value)
+    const rootClassName = ['at-icon', `at-icon-${value}`]
+    console.log('value====', value)
     return (
       <Text className={rootClassName} style={rootStyle}></Text>
     )
-
   }
 }
 AtIcon.defaultProps = {
