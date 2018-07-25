@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "rules": {
     "class-methods-use-this": "off",
-    "prefer-rest-params": "off"
+    "prefer-rest-params": "off",
+    "taro/custom-component-children": "off"
   }
 }
