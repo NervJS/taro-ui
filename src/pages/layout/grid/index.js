@@ -20,7 +20,39 @@ export default class GridPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtGrid mode='square'>
-              <AtGrid.Item />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+            </AtGrid>
+          </View>
+        </View>
+        <View className='example'>
+          <View className='example__header'>
+            <Text className='example__header-title'>定义最大的列数</Text>
+          </View>
+          <View className='example__body'>
+            <AtGrid mode='square' columnNum={4}>
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+            </AtGrid>
+          </View>
+        </View>
+        <View className='example'>
+          <View className='example__header'>
+            <Text className='example__header-title'>定义最大的列数</Text>
+          </View>
+          <View className='example__body'>
+            <AtGrid mode='rect'>
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
+              <AtGrid.Item icon='emoji' value='放置文本' />
             </AtGrid>
           </View>
         </View>
