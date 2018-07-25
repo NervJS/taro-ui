@@ -14,11 +14,6 @@
     font-size: 30px;
     padding: 20px;
     color: $color-text-base;
-
-    &--current {
-      color: $color-brand;
-      border-bottom: 2px solid $color-brand;
-    }
   }
 
   &--scroll {

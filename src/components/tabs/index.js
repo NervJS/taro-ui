@@ -20,16 +20,13 @@ class AtTabs extends Taro.Component {
   render () {
     const { tabList, scroll, current, color } = this.props
     const rootCls = ['at-tabs']
-    let style = ''
-    if (color) {
-      style = `color: ${color};border-color: ${color};`
-    }
+    const style = `color: ${color};border-bottom: 1px solid ${color};`
     if (scroll) {
       rootCls.push('at-tabs--scroll')
     }
     return <View className={rootCls}>
       {
-        tabList.map((item, i) => <View className={current === i ? 'at-tabs__item at-tabs__item--current' : 'at-tabs__item'} style={current === i ? style : ''} key={item} onClick={this.handleClick.bind(this, i)}>
+        tabList.map((item, i) => <View className='at-tabs__item' style={current === i ? style : ''} key={item} onClick={this.handleClick.bind(this, i)}>
           {item.title}
         </View>)
       }
@@ -38,7 +35,7 @@ class AtTabs extends Taro.Component {
 }
 AtTabs.defaultProps = {
   current: 0,
-  color: '',
+  color: '#6190E8',
   scroll: false,
   tabList: [],
   onClick: () => { }
