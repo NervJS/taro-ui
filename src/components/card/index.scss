@@ -1,0 +1,58 @@
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
+
+.at-card {
+  border-radius: 6px;
+  background-color: white;
+  border: 2px solid #ddd;
+
+  &-header {
+    @include display-flex;
+    @include align-items(center);
+
+    height: 94px;
+    padding: 0 30px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+
+    &__title,
+    &__extra {
+      line-height: 1;
+    }
+
+    &__icon {
+      @include flex(0, 0, auto);
+
+      display: block;
+      line-height: 0;
+      margin-right: 16px;
+    }
+
+    &__title {
+      @include flex(auto);
+
+      display: block;
+      font-size: 32px;
+    }
+
+    &__extra {
+      @include flex(0, 0, auto);
+
+      font-size: 30px;
+    }
+  }
+
+  &-content {
+    padding: 20px 30px;
+
+    &__info {
+      font-size: 32px;
+    }
+
+    &__note {
+      color: #888;
+      font-size: 28px;
+      margin-top: 20px;
+    }
+  }
+}

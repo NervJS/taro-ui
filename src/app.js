@@ -28,7 +28,9 @@ class App extends Component {
       'pages/view/article/index',
       'pages/navigation/tabs/index'
       // 'pages/layout/flex/index'
-      // 'pages/layout/grid/index'
+      // 'pages/layout/grid/index',
+      // 'pages/layout/float-layout/index',
+      // 'pages/layout/card/index'
     ],
     window: {
       backgroundTextStyle: 'light',
