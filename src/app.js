@@ -8,9 +8,9 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/action/toast/index',
-      'pages/action/modal/index',
+      // 'pages/action/modal/index',
       'pages/action/progress/index',
-      'pages/action/action-sheet/index',
+      // 'pages/action/action-sheet/index',
       'pages/action/activity-indicator/index',
       'pages/form/checkbox/index',
       'pages/form/input/index',
@@ -25,8 +25,8 @@ class App extends Component {
       'pages/view/badge/index',
       'pages/view/tag/index',
       'pages/view/avatar/index',
-      'pages/view/article/index',
-      'pages/layout/flex/index'
+      'pages/view/article/index'
+      // 'pages/layout/flex/index'
     ],
     window: {
       backgroundTextStyle: 'light',
