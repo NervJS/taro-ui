@@ -167,6 +167,10 @@ export default class Index extends Taro.Component {
             {
               title: '抽屉',
               name: 'Drawer'
+            },
+            {
+              title: '标签栏',
+              name: 'Tab-Bar'
             }
           ]
         }
