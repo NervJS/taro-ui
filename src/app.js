@@ -26,7 +26,8 @@ class App extends Component {
       'pages/view/tag/index',
       'pages/view/avatar/index',
       'pages/view/article/index',
-      'pages/layout/flex/index'
+      'pages/layout/flex/index',
+      'pages/layout/grid/index'
     ],
     window: {
       backgroundTextStyle: 'light',
