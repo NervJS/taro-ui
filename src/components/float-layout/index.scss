@@ -1,0 +1,51 @@
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
+
+.at-float-layout {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &__overlay {
+    @include overlay;
+  }
+
+  &__container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    min-height: 600px;
+    max-height: 950px;
+  }
+}
+
+.at-float-layout .layout {
+  &-header {
+    height: 92px;
+    background-color: $color-grey-6;
+    padding: 0 20px;
+    line-height: 85px;
+    position: relative;
+
+    &__title {
+      font-size: 32px;
+      color: $color-grey-0;
+    }
+
+    &__icon {
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &-body {
+    font-size: 32px;
+    padding: 30px 20px 0 20px;
+  }
+}
