@@ -25,7 +25,8 @@ class App extends Component {
       'pages/view/badge/index',
       'pages/view/tag/index',
       'pages/view/avatar/index',
-      'pages/view/article/index'
+      'pages/view/article/index',
+      'pages/navigation/tabs/index'
       // 'pages/layout/flex/index'
       // 'pages/layout/grid/index'
     ],
