@@ -16,10 +16,10 @@
     font-size: 30px;
     padding: 10px;
     color: $color-text-base;
+  }
 
-    + .at-segmented-control__item {
-      border-left: 2px solid #6190E8;
-    }
+  &__item + &__item {
+    border-left: 2px solid #6190E8;
   }
 
   &--disabled {
