@@ -1,7 +1,19 @@
 @import "./style/theme/default.scss";
 
 #app {
-  background-color: #f8f8f8;
+  background-color: #f3f3f8;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: #f3f3f8;
+}
+
+view {
+  box-sizing: border-box;
 }
 
 // 实例模板

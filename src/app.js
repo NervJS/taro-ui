@@ -27,12 +27,14 @@ class App extends Component {
       'pages/view/avatar/index',
       'pages/view/article/index',
       'pages/navigation/timeline/index',
-      'pages/navigation/drawer/index',
-      'pages/navigation/tabs/index'
+      // 'pages/navigation/drawer/index',
+      'pages/navigation/tabs/index',
       // 'pages/layout/flex/index'
       // 'pages/layout/grid/index',
       // 'pages/layout/float-layout/index',
       // 'pages/layout/card/index'
+      'pages/panel/index',
+      'pages/basic/color/index'
     ],
     window: {
       backgroundTextStyle: 'light',

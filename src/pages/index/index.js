@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Image, Text } from '@tarojs/components'
+import logoImg from '../../assets/images/logo_taro.png'
 
 import './index.scss'
 
@@ -15,208 +16,76 @@ export default class Index extends Taro.Component {
       list: [
         {
           id: 'Basic',
-          name: '基础',
-          open: false,
-          childrens: [
-            {
-              title: '图标',
-              name: 'Icon'
-            },
-            {
-              title: '颜色',
-              name: 'Color'
-            },
-            {
-              title: '文本',
-              name: 'Text'
-            },
-            {
-              title: '按钮',
-              name: 'Button'
-            }
-          ]
+          title: '基础',
+          content: '包含颜色、文本、图标'
         },
         {
           id: 'View',
-          name: '视图组件',
-          open: false,
-          childrens: [
-            {
-              title: '通告栏',
-              name: 'NoticeBar'
-            },
-            {
-              title: '徽章',
-              name: 'Badge'
-            },
-            {
-              title: '警告提示',
-              name: 'Alert'
-            },
-            {
-              title: '标签',
-              name: 'Tag'
-            },
-            {
-              title: '头像',
-              name: 'Avatar'
-            },
-            {
-              title: '文章',
-              name: 'Article'
-            }
-          ]
+          title: '视图',
+          content: '6个组件'
         },
         {
           id: 'Action',
-          name: '操作反馈',
-          open: false,
-          childrens: [
-            {
-              title: '动作面板',
-              name: 'Action-Sheet'
-            },
-            {
-              title: '动作指示器',
-              name: 'Activity-Indicator'
-            },
-            {
-              title: '对话框',
-              name: 'Modal'
-            },
-            {
-              title: '进度条',
-              name: 'Progress'
-            },
-            {
-              title: '轻提示',
-              name: 'Toast'
-            }
-          ]
+          title: '操作反馈',
+          content: '5个组件'
         },
         {
-          id: 'form',
-          name: '表单组件',
-          open: false,
-          childrens: [
-            {
-              title: '输入框',
-              name: 'Input'
-            },
-            {
-              title: '单选框',
-              name: 'Radio'
-            },
-            {
-              title: '复选框',
-              name: 'Checkbox'
-            },
-            {
-              title: '开关',
-              name: 'Switch'
-            },
-            {
-              title: '评分',
-              name: 'Rate'
-            },
-            {
-              title: '数字输入框',
-              name: 'Input-Number'
-            },
-            {
-              title: '多行文本框',
-              name: 'Textarea'
-            }
-          ]
+          id: 'Form',
+          title: '表单',
+          content: '7个组件'
         },
         {
           id: 'Layout',
-          name: '布局',
-          open: false,
-          childrens: [
-            {
-              title: '弹性布局',
-              name: 'Flex'
-            },
-            {
-              title: '栅格',
-              name: 'Grid'
-            },
-            {
-              title: '列表',
-              name: 'List'
-            },
-            {
-              title: '浮层',
-              name: 'Float-Layout'
-            },
-            {
-              title: '卡片',
-              name: 'Card'
-            }
-          ]
+          title: '布局',
+          content: '5个组件'
         },
         {
           id: 'Navigation',
-          name: '导航',
-          childrens: [
-            {
-              title: '标签页',
-              name: 'Tabs'
-            },
-            {
-              title: '抽屉',
-              name: 'Drawer'
-            },
-            {
-              title: '时间轴',
-              name: 'Timeline'
-            }
-          ]
+          title: '导航',
+          content: '6个组件'
         }
       ]
     }
   }
 
-  goToComponent = e => {
-    const { id, name } = e.currentTarget.dataset
-    const url = `/pages/${id.toLowerCase()}/${name.toLowerCase()}/index`
+  gotoPanel = e => {
+    const { id } = e.currentTarget.dataset
     Taro.navigateTo({
-      url
+      url: `/pages/panel/index?id=${id.toLowerCase()}`
     })
   }
 
   render () {
     const { list } = this.state
+
     return (
-      <View className='index-page'>
-        <View className='page-header'>组件入口</View>
-        <View className='page-body'>
-          <View className='component-group'>
-            {list.map((item, index) => (
-              <View className='group-item' key={index}>
-                <View className='group-info'>
-                  <View className='group-info-title'>{item.name}</View>
-                </View>
-                <View className='group-list'>
-                  {item.childrens.map(child => (
-                    <View
-                      key={index}
-                      data-id={item.id}
-                      data-name={child.name}
-                      onClick={this.goToComponent}
-                      className='list-component'
-                    >
-                      <View className='list-component-info'>
-                        {child.name.split('-').join('')} {child.title}
-                      </View>
-                      <View className='list-component-arrow' />
-                    </View>
-                  ))}
-                </View>
+      <View className='page page-index'>
+        <View className='logo'>
+          <Image src={logoImg} className='img' mode='widthFix' />
+        </View>
+        <View className='page-title'>Taro UI Weapp</View>
+        <View className='module-list'>
+          {list.map((item, index) => (
+            <View
+              className='module-list__item'
+              key={index}
+              data-id={item.id}
+              data-name={item.title}
+              data-list={item.subpages}
+              onClick={this.gotoPanel}
+            >
+              <View className='module-list__icon'>
+                <Text className='at-icon at-icon-barrage'></Text>
               </View>
-            ))}
-          </View>
+              <View className='module-list__info'>
+                <View className='title'>{item.title}</View>
+                <View className='content'>{item.content}</View>
+              </View>
+              <View className='module-list__arrow'>
+                <Text className='at-icon at-icon-enter'></Text>
+              </View>
+            </View>
+          ))}
         </View>
       </View>
     )
