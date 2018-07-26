@@ -28,7 +28,8 @@ class App extends Component {
       'pages/view/article/index',
       'pages/navigation/timeline/index',
       'pages/navigation/drawer/index',
-      'pages/navigation/tabs/index'
+      'pages/navigation/tabs/index',
+      'pages/navigation/tab-bar/index'
       // 'pages/layout/flex/index'
       // 'pages/layout/grid/index',
       // 'pages/layout/float-layout/index',

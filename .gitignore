@@ -4,6 +4,7 @@ node_modules/
 yarn.lock
 yarn-error.log
 package-lock.json
+project.config.json
 
 .temp
 .DS_Store

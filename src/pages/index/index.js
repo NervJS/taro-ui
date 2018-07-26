@@ -171,6 +171,10 @@ export default class Index extends Taro.Component {
             {
               title: '时间轴',
               name: 'Timeline'
+            },
+            {
+              title: '标签栏',
+              name: 'Tab-Bar'
             }
           ]
         }
