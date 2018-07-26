@@ -1,0 +1,118 @@
+
+.at-timelineitem {
+  position: relative;
+  padding: 0 0 12px;
+
+  &__content {
+    font-size: 28px;
+    color: #333;
+    text-align: left;
+    margin-left: 36px;
+    height: 50px;
+  }
+
+  &__dot,
+  &__icon {
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 36px;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: 1;
+    text-align: left;
+  }
+
+  &__dot {
+    &::after {
+      content: '';
+      width: 20px;
+      height: 18px;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      border-color: #78A4FA;
+      margin-top: 5px;
+    }
+
+    &.at-timelineitem__icon {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    left: -5px;
+    // top: 7px;
+    color: #78A4FA;
+    // padding-top: 2px;
+  }
+
+  &--green {
+    .at-timelineitem__icon {
+      color: #00D06D;
+    }
+
+    .at-timelineitem__dot {
+      &::after {
+        border-color: #00D06D;
+      }
+    }
+  }
+
+  &--red {
+    .at-timelineitem__icon {
+      color: #FF4849;
+    }
+
+    .at-timelineitem__dot {
+      &::after {
+        border-color: #FF4849;
+      }
+    }
+  }
+
+  &--yellow {
+    .at-timelineitem__icon {
+      color: #FFCA3E;
+    }
+
+    .at-timelineitem__dot {
+      &::after {
+        border-color: #FFCA3E;
+      }
+    }
+  }
+
+  &__tail {
+    position: absolute;
+    top: 20px;
+    bottom: -10px;
+    left: 8px;
+    border-left: 2px solid #ececec;
+  }
+}
+
+.at-timeline {
+  .at-timelineitem:last-child {
+    .at-timelineitem__tail {
+      display: none;
+    }
+  }
+
+  &--pending {
+    .at-timelineitem:nth-last-child(2) {
+      .at-timelineitem__content {
+        height: 80px;
+      }
+
+      .at-timelineitem__tail {
+        border-left-style: dotted;
+      }
+    }
+  }
+}

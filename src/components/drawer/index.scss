@@ -1,0 +1,39 @@
+
+.at-drawer {
+  position: relative;
+  z-index: 900;
+
+  &__mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &__content {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 460px;
+    background-color: #fff;
+    z-index: 1;
+    text-align: left;
+  }
+
+  &__list {
+    margin: 0 0 0 18px;
+    max-height: 100%;
+    overflow-y: scroll;
+
+    &-item {
+      height: 90px;
+      line-height: 90px;
+      font-size: 34px;
+      color: #000;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
