@@ -1,0 +1,27 @@
+@import '../../style/mixins/index.scss';
+@import '../../style/theme/default.scss';
+
+.at-tabs {
+  background-color: $color-bg;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  &__item {
+    flex: 1;
+    font-size: 30px;
+    padding: 20px;
+    color: $color-text-base;
+  }
+
+  &--scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .at-tabs__item {
+      display: inline-block;
+    }
+  }
+}

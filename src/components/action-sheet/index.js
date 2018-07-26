@@ -49,8 +49,6 @@ export default class AtActionSheet extends Taro.Component {
     const { children } = this.props
     const { isOpened } = this.state
 
-    console.log(children)
-
     if (children) {
       const index = children.findIndex(
         item => item.name === 'AtActionSheetFooter'

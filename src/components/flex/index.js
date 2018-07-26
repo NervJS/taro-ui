@@ -11,7 +11,7 @@ export default class AtFlex extends Taro.Component {
   static Item = AtFlexItem
 
   render () {
-    const { children, ...props } = this.props
+    const { children, style, ...props } = this.props
 
     const rootClass = ['at-flex']
 
@@ -22,6 +22,10 @@ export default class AtFlex extends Taro.Component {
       rootClass.push(`at-flex__${key}--${value}`)
     })
 
-    return <View className={rootClass}>{children}</View>
+    return (
+      <View className={rootClass} style={style}>
+        {children}
+      </View>
+    )
   }
 }
