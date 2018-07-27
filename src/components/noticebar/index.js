@@ -35,10 +35,12 @@ export default class AtNoticebar extends Taro.Component {
     const {
       close,
       moreUrl,
-      moreText,
       single,
       icon,
     } = this.props
+    let _moreText = this.props.moreText
+    if (!_moreText) _moreText = '查看详情'
+    console.log('moreText===')
     const rootClassName = ['at-noticebar']
     if (moreUrl) rootClassName.push('at-noticebar--more')
     if (single) rootClassName.push('at-noticebar--single')
@@ -50,7 +52,7 @@ export default class AtNoticebar extends Taro.Component {
         <View className='at-noticebar__content'>
           {icon && <AtIcon value={icon} size='16'></AtIcon>}{this.props.children}
         </View>
-        {moreUrl && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}>{moreText}<AtIcon value='right'></AtIcon></View>}
+        {moreUrl && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}>{_moreText}<AtIcon value='right'></AtIcon></View>}
       </View>
     )
   }

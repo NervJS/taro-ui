@@ -26,6 +26,7 @@ export default class AtAvatar extends Taro.Component {
       size,
       circle,
       image,
+      text,
     } = this.props
     let rootClassName = ['at-avatar']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -34,14 +35,11 @@ export default class AtAvatar extends Taro.Component {
     rootClassName.push(`at-avatar--${sizeClass}`, circleClass)
     rootClassName = rootClassName.filter(str => str !== '')
 
-    const { children } = this.props
     let letter
-    if (typeof children === 'string') {
-      letter = children[0]
-    }
+    if (text) letter = text[0]
     return (
       <View className={rootClassName}>
-        {letter ? <Text className='at-avatar__text'>{letter}</Text> : <Image className='at-avatar__img' src={image} />}
+        {image ? <Image className='at-avatar__img' src={image} /> : <Text className='at-avatar__text'>{letter}</Text>}
 
       </View>
     )

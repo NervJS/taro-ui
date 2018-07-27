@@ -1,13 +1,13 @@
 
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import PropTypes from 'prop-types'
 import AtIcon from '../icon/index'
 
 import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  // large: 'large',
   small: 'small',
 }
 
@@ -26,7 +26,9 @@ export default class AtButton extends Taro.Component {
   }
 
   onClick () {
-    if (!this.props.disabled && this.props.onClick) {
+    console.log('click====', this.props)
+    if (!this.props.disabled) {
+      console.log('click====', this.props)
       this.props.onClick(...arguments)
     }
   }
@@ -66,4 +68,24 @@ export default class AtButton extends Taro.Component {
       </View>
     )
   }
+}
+
+AtButton.defaultProps = {
+  size: 'normal',
+  type: '',
+  icon: '',
+  circle: false,
+  active: false,
+  loading: false,
+  disabled: false,
+}
+
+AtButton.propTypes = {
+  size: PropTypes.oneOf(['normal', 'small']),
+  type: PropTypes.oneOf(['primary', 'secondary']),
+  icon: PropTypes.string,
+  circle: PropTypes.bool,
+  active: PropTypes.bool,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
