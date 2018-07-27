@@ -9,6 +9,7 @@ class App extends Component {
       'pages/index/index',
       'pages/panel/index',
       'pages/basic/color/index',
+      'pages/basic/typo/index',
       'pages/basic/icon/index',
       'pages/basic/button/index',
       'pages/action/toast/index',
@@ -29,7 +30,7 @@ class App extends Component {
       'pages/view/avatar/index',
       'pages/view/article/index',
       'pages/navigation/timeline/index',
-      'pages/navigation/drawer/index',
+      // 'pages/navigation/drawer/index',
       'pages/navigation/tabs/index',
       'pages/navigation/tab-bar/index',
       'pages/navigation/segmented-control/index'

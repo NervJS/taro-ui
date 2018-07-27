@@ -8,6 +8,7 @@
     "at-rule-empty-line-before":null,
     "number-no-trailing-zeros": null,
     "no-empty-source": null,
+    "unit-case": null,
     "scss/at-rule-no-unknown": true
   }
 }

@@ -55,9 +55,12 @@
   height: 180px;
 
   &__title {
-    height: 98px;
-    border-bottom: 4px solid #6190E8;
-    border-radius: 2px;
+    height: 90px;
+    color: #333;
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 2PX solid #6190E8;
+    border-radius: 1PX;
   }
 }
 
@@ -87,11 +90,11 @@
         left: 0;
         top: 50%;
         margin-top: -20px;
-        width: 6px;
+        width: 2PX;
         height: 40px;
         background-color: #6190E8;
         box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.20);
-        border-radius: 3px;
+        border-radius: 1PX;
       }
     }
   }
