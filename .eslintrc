@@ -4,6 +4,7 @@
   "rules": {
     "class-methods-use-this": "off",
     "prefer-rest-params": "off",
+    "arrow-body-style": "warn",
     "taro/custom-component-children": "off"
   }
 }
