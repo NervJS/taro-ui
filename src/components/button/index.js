@@ -52,15 +52,17 @@ export default class AtButton extends Taro.Component {
     rootClassName = rootClassName.filter(str => str !== '')
 
     let component
+    // const _style = {
+    //   marginRight: '5px',
+    // }
     if (icon) {
-      component = <AtIcon style={{ marginRight: '5px' }} value={icon} size='20'></AtIcon>
+      component = <AtIcon value={icon} size='20'></AtIcon>
     } else if (loading) {
-      component = <AtIcon style={{ marginRight: '5px' }} value='clock' size='20'></AtIcon>
+      component = <AtIcon value='clock' size='20'></AtIcon>
     }
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>
-        {component}
-        {this.props.children}
+        {component}{this.props.children}
       </View>
     )
   }

@@ -8,62 +8,75 @@ import './index.scss'
 export default class AtDrawer extends Taro.Component {
   constructor () {
     super(...arguments)
-    this.state = {}
-    this.onItemClick = this.onItemClick.bind(this)
+    this.state = { animShow: false }
   }
 
-  onItemClick (index) {
-    console.log('=====', index)
+  onItemClick (e) {
+    this.animHide(e, e.currentTarget.dataset.index)
   }
 
   onHide () {
-    // if (delay) {
-    //   setTimeout(() => {
-    //     this.props.onClose(...arguments)
-    //   }, delay)
-    // } else this.props.onClose(...arguments)
     this.props.onClose(...arguments)
+  }
+
+  animHide () {
+    this.setState({
+      animShow: false,
+    })
+    setTimeout(() => {
+      this.onHide(...arguments)
+    }, 300)
+  }
+
+  onMaskClick () {
+    this.animHide(...arguments)
+  }
+
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({
+        animShow: true,
+      })
+    }, 100)
+    console.log('did mount')
   }
 
   render () {
     const {
-      show,
       mask,
       width,
       right,
       items,
     } = this.props
+    const {
+      animShow,
+    } = this.state
     let rootClassName = ['at-drawer']
-    const showAnimClass = show ? 'anim-show' : 'anim-hide'
-    const rootStyle = {}
-    setTimeout(() => {
-      // rootStyle.display = show ? 'block' : 'none'
-    }, 500)
 
     const maskStyle = {
       display: mask ? 'block' : 'none',
-      opacity: show ? 1 : 0,
+      opacity: animShow ? 1 : 0,
     }
     const listStyle = {
       width,
-      transform: show ? 'translateX(0%)' : 'translateX(-100%)',
+      transform: animShow ? 'translateX(0%)' : 'translateX(-100%)',
+      transition: animShow ? 'transform 225ms cubic-bezier(0, 0, 0.2, 1)' : 'transform 195ms cubic-bezier(0.4, 0, 0.6, 1)',
     }
     if (right) {
       listStyle.right = '0px'
       listStyle.left = 'auto'
+      listStyle.transform = animShow ? 'translateX(0%)' : 'translateX(100%)'
     }
-    rootClassName.push(showAnimClass)
     rootClassName = rootClassName.filter(str => str !== '')
+    // console.log('====', this.props.children)
 
     return (
-      <View className={rootClassName} style={rootStyle}>
-        <View className='at-drawer__mask' style={maskStyle} onClick={this.onHide.bind(this, 500)}></View>
+      <View className={rootClassName}>
+        <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
           <View className='at-drawer__list'>
-            {
-              items.map((name, index) => <View className='at-drawer__list-item' key={index} onClick={this.onItemClick}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)
-            }
+            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this)}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)}
           </View>
         </View>
       </View>
