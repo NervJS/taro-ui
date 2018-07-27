@@ -21,15 +21,32 @@ export default class Index extends Taro.Component {
 
   render () {
     return (
-      <View className='example__body'>
-        <View className='item'>
-          <AtTextarea
-            value={this.state.textareaValue}
-            onChange={this.handleTextAreaChange.bind(this)}
-            maxlength='200'
-            placeholder='你的问题是...'
-          />
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>多行文本框</View>
         </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='item'>
+                  <AtTextarea
+                    value={this.state.textareaValue}
+                    onChange={this.handleTextAreaChange.bind(this)}
+                    maxlength='200'
+                    placeholder='你的问题是...'
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        {/* E Body */}
       </View>
     )
   }
