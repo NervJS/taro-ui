@@ -10,6 +10,8 @@
     top: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.3s ease-out;
   }
 
   &__content {
@@ -21,6 +23,8 @@
     background-color: #fff;
     z-index: 1;
     text-align: left;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-out;
   }
 
   &__list {
@@ -34,6 +38,37 @@
       font-size: 34px;
       color: #000;
       border-bottom: 1px solid #ddd;
+      position: relative;
+
+      .at-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
+  }
+
+  // &.anim-show {
+  //   .at-drawer__mask {
+  //     animation: anim-show 0.3s ease-out both;
+  //   }
+  // }
+  // &.anim-hide {
+  //   .at-drawer__mask {
+  //     animation: anim-hide 0.3s ease-out both;
+  //   }
+  // }
+}
+
+@keyframes anim-show {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes anim-hide {
+  100% {
+    opacity: 0;
   }
 }

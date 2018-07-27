@@ -1,0 +1,28 @@
+@import '../../style/mixins/index.scss';
+@import '../../style/theme/default.scss';
+
+.at-segmented-control {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #6190E8;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &__item {
+    flex: 1;
+    font-size: 30px;
+    padding: 10px;
+    color: $color-text-base;
+  }
+
+  &__item + &__item {
+    border-left: 2px solid #6190E8;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+}

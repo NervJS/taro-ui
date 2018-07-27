@@ -8,14 +8,21 @@ import './index.scss'
 export default class AtDrawer extends Taro.Component {
   constructor () {
     super(...arguments)
-    this.state = {
-
-    }
+    this.state = {}
     this.onItemClick = this.onItemClick.bind(this)
   }
 
   onItemClick (index) {
     console.log('=====', index)
+  }
+
+  onHide () {
+    // if (delay) {
+    //   setTimeout(() => {
+    //     this.props.onClose(...arguments)
+    //   }, delay)
+    // } else this.props.onClose(...arguments)
+    this.props.onClose(...arguments)
   }
 
   render () {
@@ -28,14 +35,18 @@ export default class AtDrawer extends Taro.Component {
     } = this.props
     let rootClassName = ['at-drawer']
     const showAnimClass = show ? 'anim-show' : 'anim-hide'
-    const rootStyle = {
-      display: show ? 'block' : 'none',
-    }
+    const rootStyle = {}
+    setTimeout(() => {
+      // rootStyle.display = show ? 'block' : 'none'
+    }, 500)
+
     const maskStyle = {
       display: mask ? 'block' : 'none',
+      opacity: show ? 1 : 0,
     }
     const listStyle = {
       width,
+      transform: show ? 'translateX(0%)' : 'translateX(-100%)',
     }
     if (right) {
       listStyle.right = '0px'
@@ -46,12 +57,12 @@ export default class AtDrawer extends Taro.Component {
 
     return (
       <View className={rootClassName} style={rootStyle}>
-        <View className='at-drawer__mask' style={maskStyle}></View>
+        <View className='at-drawer__mask' style={maskStyle} onClick={this.onHide.bind(this, 500)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
           <View className='at-drawer__list'>
             {
-              items.map((name, index) => <View className='at-drawer__list-item' key={index} onClick={this.onItemClick}>{name}<AtIcon value='activity'></AtIcon></View>)
+              items.map((name, index) => <View className='at-drawer__list-item' key={index} onClick={this.onItemClick}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)
             }
           </View>
         </View>

@@ -17,7 +17,7 @@ export default class AtIcon extends Taro.Component {
     }
 
     const rootClassName = ['at-icon', `at-icon-${value}`]
-    console.log('value====', value)
+    // console.log('value====', value)
     return (
       <Text className={rootClassName} style={rootStyle}></Text>
     )
