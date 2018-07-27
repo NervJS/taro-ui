@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Button } from '@tarojs/components'
 
 import AtProgress from '../../../components/progress/index'
 
@@ -42,107 +42,124 @@ export default class ProgressPage extends Taro.Component {
   render () {
     const { percent } = this.state
     return (
-      <View className='progress__page'>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>不同的进度 percent</Text>
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>进度条</View>
+        </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          {/* 基础进度条 */}
+          <View className='panel'>
+            <View className='panel__title'>基础进度条</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-item'>
+                  <AtProgress percent='25' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='50' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' />
+                </View>
+              </View>
+            </View>
           </View>
-          <View className='example__body'>
-            <View className='example__body-item'>
-              <AtProgress percent='25' />
+
+          {/* 隐藏进度文案 */}
+          <View className='panel'>
+            <View className='panel__title'>隐藏进度文案</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-item'>
+                  <AtProgress percent='25' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' hidePercent />
+                </View>
+              </View>
             </View>
-            <View className='example__body-item'>
-              <AtProgress percent='50' />
+          </View>
+
+          {/* 不同的规格 */}
+          <View className='panel'>
+            <View className='panel__title'>不同的规格</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-item'>
+                  <AtProgress percent='25' strokeWidth='5' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='50' strokeWidth='10' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' strokeWidth='15' />
+                </View>
+              </View>
             </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' />
+          </View>
+
+          {/* 不同的颜色 */}
+          <View className='panel'>
+            <View className='panel__title'>不同的颜色</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-item'>
+                  <AtProgress percent='25' color='#FF4949' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='50' color='#13CE66' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' color='#FFC82C' />
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 不同的状态 */}
+          <View className='panel'>
+            <View className='panel__title'>不同的状态</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-item'>
+                  <AtProgress percent='25' status='normal' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='50' status='active' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' status='success' />
+                </View>
+                <View className='example__body-item'>
+                  <AtProgress percent='75' status='error' />
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 实际案例 */}
+          <View className='panel'>
+            <View className='panel__title'>实际案例</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <Button size='mini' onClick={this.increase}>
+                  +
+                </Button>
+                <Button size='mini' onClick={this.reduce}>
+                  -
+                </Button>
+                <View className='example__body-item'>
+                  <AtProgress percent={percent} />
+                </View>
+              </View>
             </View>
           </View>
         </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>
-              是否隐藏进度条 hidePercent
-            </Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-item'>
-              <AtProgress percent='25' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' hidePercent />
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>
-              不同的规格 strokeWidth
-            </Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-item'>
-              <AtProgress percent='25' strokeWidth='5' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='50' strokeWidth='10' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' strokeWidth='15' />
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>不同的颜色 color</Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-item'>
-              <AtProgress percent='25' color='#FF4949' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='50' color='#13CE66' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' color='#FFC82C' />
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>不同的状态 status</Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-item'>
-              <AtProgress percent='25' status='normal' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='50' status='active' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' status='success' />
-            </View>
-            <View className='example__body-item'>
-              <AtProgress percent='75' status='error' />
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>实际案例</Text>
-          </View>
-          <View className='example__body'>
-            <Button size='mini' onClick={this.increase}>
-              +
-            </Button>
-            <Button size='mini' onClick={this.reduce}>
-              -
-            </Button>
-            <View className='example__body-item'>
-              <AtProgress percent={percent} />
-            </View>
-          </View>
-        </View>
+        {/* E Body */}
       </View>
     )
   }

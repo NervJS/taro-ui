@@ -25,8 +25,25 @@ export default class Index extends Taro.Component {
   }
   render () {
     return (
-      <View className='example__body'>
-        <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleCheckboxChange.bind(this)} />
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>复选框</View>
+        </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础复选框</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleCheckboxChange.bind(this)} />
+              </View>
+            </View>
+          </View>
+        </View>
+        {/* E Body */}
       </View>
     )
   }

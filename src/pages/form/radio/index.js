@@ -21,8 +21,25 @@ export default class Index extends Taro.Component {
   }
   render () {
     return (
-      <View className='example__body'>
-        <View className='item'><AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} /></View>
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>单选框</View>
+        </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础单选框</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='item'><AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} /></View>
+              </View>
+            </View>
+          </View>
+        </View>
+        {/* E Body */}
       </View>
     )
   }

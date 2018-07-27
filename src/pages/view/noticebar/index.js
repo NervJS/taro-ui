@@ -17,32 +17,47 @@ export default class NoticebarPage extends Taro.Component {
     }
   }
 
-  // onButtonClick() {
-  //   alert('点击了！')
-  // }
-
   render () {
-    // let {icons} = this.state
     return (
       <View className='page'>
-        <View className='example'>
-          <AtNoticebar close single moreUrl='https://taro.aotu.io/'>这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>通告栏</View>
         </View>
-        <View className='example'>
-          <AtNoticebar close single>这是 NoticeBar 通告栏。带关闭按钮、单行</AtNoticebar>
-        </View>
-        <View className='example'>
-          <AtNoticebar close>这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。带关闭按钮、多行</AtNoticebar>
-        </View>
+        {/* E Header */}
 
-        <View className='example'>
-          <AtNoticebar>这是 NoticeBar 通告栏。单行</AtNoticebar>
-        </View>
-        <View className='example'>
-          <AtNoticebar icon='icon-notice'>这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
-        </View>
+        {/* S Body */}
+        <View className='doc-body'>
+          {/* 基础通告栏 */}
+          <View className='panel'>
+            <View className='panel__title'>基础通告栏</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtNoticebar>这是 NoticeBar 通告栏。单行</AtNoticebar>
+              </View>
+              <View className='example'>
+                <AtNoticebar icon='icon-notice'>这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
+              </View>
+            </View>
+          </View>
 
-
+          {/* 基础通告栏（带关闭按钮） */}
+          <View className='panel'>
+            <View className='panel__title'>基础通告栏（带关闭按钮）</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtNoticebar close single moreUrl='https://taro.aotu.io/'>这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
+              </View>
+              <View className='example'>
+                <AtNoticebar close single>这是 NoticeBar 通告栏。带关闭按钮、单行</AtNoticebar>
+              </View>
+              <View className='example'>
+                <AtNoticebar close>这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。带关闭按钮、多行</AtNoticebar>
+              </View>
+            </View>
+          </View>
+        </View>
+        {/* E Body */}
       </View>
     )
   }

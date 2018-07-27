@@ -20,9 +20,26 @@ export default class Index extends Taro.Component {
   }
   render () {
     return (
-      <View className='example__body'>
-        <View className='item'><AtInputNumber min={0} max={10} step={3} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
-        <View className='item'><AtInputNumber min={0} max={1} step={0.01} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>数字输入框</View>
+        </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础数字输入框</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='item'><AtInputNumber min={0} max={10} step={3} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
+                <View className='item'><AtInputNumber min={0} max={1} step={0.01} value={this.state.number} onChange={this.handleNumberChange.bind(this)} /></View>
+              </View>
+            </View>
+          </View>
+        </View>
+        {/* E Body */}
       </View>
     )
   }
