@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Button } from '@tarojs/components'
 
 import Toast from '../../../components/toast/index'
 
@@ -46,65 +46,83 @@ export default class ToastPage extends Taro.Component {
       hiddenIcon
     } = this.state
     return (
-      <View className='action-sheet__page'>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>基本案例</Text>
+      <View className='page'>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>头像</View>
+        </View>
+        {/* E Header */}
+
+        {/* S Body */}
+        <View className='doc-body'>
+          {/* 基本案例 */}
+          <View className='panel'>
+            <View className='panel__title'>基本案例</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-button'>
+                  <Button size='mini' onClick={this.handleClick}>
+                    Open Toast
+                  </Button>
+                </View>
+              </View>
+            </View>
           </View>
-          <View className='example__body'>
-            <View className='example__body-button'>
-              <Button size='mini' onClick={this.handleClick}>
-                Open Toast
-              </Button>
+
+          {/* 只展示文本 */}
+          <View className='panel'>
+            <View className='panel__title'>只展示文本</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-button'>
+                  <Button
+                    size='mini'
+                    onClick={this.handleClick}
+                    data-text='只有文本'
+                    data-hidden-icon
+                  >
+                    Open Toast
+                  </Button>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 只显示 Icon */}
+          <View className='panel'>
+            <View className='panel__title'>只显示 Icon</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-button'>
+                  <Button data-text='' size='mini' onClick={this.handleClick}>
+                    Open Toast
+                  </Button>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 更改 Icon */}
+          <View className='panel'>
+            <View className='panel__title'>更改 Icon</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <View className='example__body-button'>
+                  <Button
+                    data-icon-type='success'
+                    data-icon-size='80'
+                    size='mini'
+                    onClick={this.handleClick}
+                  >
+                    Open Toast
+                  </Button>
+                </View>
+              </View>
             </View>
           </View>
         </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>只展示文本</Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-button'>
-              <Button
-                size='mini'
-                onClick={this.handleClick}
-                data-text='只有文本'
-                data-hidden-icon
-              >
-                Open Toast
-              </Button>
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>只显示Icon</Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-button'>
-              <Button data-text='' size='mini' onClick={this.handleClick}>
-                Open Toast
-              </Button>
-            </View>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>更改Icon</Text>
-          </View>
-          <View className='example__body'>
-            <View className='example__body-button'>
-              <Button
-                data-icon-type='success'
-                data-icon-size='80'
-                size='mini'
-                onClick={this.handleClick}
-              >
-                Open Toast
-              </Button>
-            </View>
-          </View>
-        </View>
+        {/* E Body */}
+
         <Toast
           text={text}
           isOpen={isOpen}
