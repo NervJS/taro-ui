@@ -179,6 +179,10 @@ export default class Index extends Taro.Component {
             {
               title: '分段器',
               name: 'Segmented-Control'
+            },
+            {
+              title: '导航栏',
+              name: 'Nav-Bar'
             }
           ]
         }
