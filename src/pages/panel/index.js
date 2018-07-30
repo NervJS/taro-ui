@@ -141,11 +141,11 @@ export default class PanelBasic extends Taro.Component {
         ],
         'navigation': [
           {
-            id: 'NavBar',
+            id: 'Nav-Bar',
             name: '导航栏'
           },
           {
-            id: 'TabBar',
+            id: 'Tab-Bar',
             name: '标签栏'
           },
           {

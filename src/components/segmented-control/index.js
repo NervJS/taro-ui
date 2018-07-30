@@ -35,7 +35,11 @@ class AtSegmentedControl extends Taro.Component {
       border-color: ${selectedColor};
       font-size: ${fontSize}px;
     `
-    return <View className={disabled ? 'at-segmented-control at-segmented-control--disabled' : 'at-segmented-control'} style={rootStyle}>
+    const rootClassName = ['at-segmented-control']
+    if (disabled) {
+      rootClassName.push('at-segmented-control--disabled')
+    }
+    return <View className={rootClassName} style={rootStyle}>
       {
         tabList.map((item, i) => <View className='at-segmented-control__item' style={current === i ? selectedItemStyle : itemStyle} key={item} onClick={this.handleClick.bind(this, i, disabled)}>
           {item.title}

@@ -27,6 +27,10 @@ class AtTabBar extends Taro.Component {
   handleClick (i) {
     this.props.onClick({ value: i })
   }
+
+  showCount (count) {
+    return parseInt(count) > 99 ? '99+' : count
+  }
   render () {
     const { fixed, backgroundColor, tabList, current, color, iconSize, fontSize, selectedColor } = this.props
     const defaultStyle = `color: ${color};`
@@ -39,32 +43,34 @@ class AtTabBar extends Taro.Component {
     }
     return <View className={rootClassName} style={rootStyle}>
       {
-        tabList.map((item, i) => <View className='at-tab-bar__item' style={current === i ? selectedStyle : defaultStyle} key={item} onClick={this.handleClick.bind(this, i)}>
-          <View className='at-tab-bar__item-container'>
-            {
-              !item.count && item.dot
-                ? <View className='at-tab-bar__dot'></View>
-                : null
-            }
-            {
-              item.count
-                ? <View className='at-tab-bar__count'>{item.count}</View>
-                : null
-            }
-            {
-              item.iconType
-                ? <View className='at-tab-bar__icon'>
-                  <AtIcon
-                    value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
-                    size={iconSize}
-                    color={current === i ? selectedColor : color}
-                  />
-                </View>
-                : null
-            }
-            <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+        tabList.map((item, i) => {
+          return <View className='at-tab-bar__item' style={current === i ? selectedStyle : defaultStyle} key={item} onClick={this.handleClick.bind(this, i)}>
+            <View className='at-tab-bar__item-container'>
+              {
+                !item.count && item.dot
+                  ? <View className='at-tab-bar__dot'></View>
+                  : null
+              }
+              {
+                item.count
+                  ? <View className='at-tab-bar__count'>{this.showCount(item.count)}</View>
+                  : null
+              }
+              {
+                item.iconType
+                  ? <View className='at-tab-bar__icon'>
+                    <AtIcon
+                      value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
+                      size={iconSize}
+                      color={current === i ? selectedColor : color}
+                    />
+                  </View>
+                  : null
+              }
+              <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+            </View>
           </View>
-        </View>)
+        })
       }
     </View>
   }

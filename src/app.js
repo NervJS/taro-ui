@@ -17,7 +17,11 @@ class App extends Component {
       'pages/view/article/index',
       'pages/navigation/drawer/index',
       'pages/navigation/timeline/index',
-      'pages/navigation/pagination/index'
+      'pages/navigation/pagination/index',
+      'pages/navigation/tabs/index',
+      'pages/navigation/tab-bar/index',
+      'pages/navigation/segmented-control/index',
+      'pages/navigation/nav-bar/index'
     ],
     // pages: [
     //   'pages/index/index',
