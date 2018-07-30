@@ -28,7 +28,15 @@ export default class PaginationPage extends Taro.Component {
       <View className='page'>
 
         <View className='example'>
+          <AtPagination total='50' pageSize='10' current='1'></AtPagination>
+        </View>
+
+        <View className='example'>
           <AtPagination icon total='50' pageSize='10' current='1'></AtPagination>
+        </View>
+
+        <View className='example'>
+          <AtPagination icon total='50' pageSize='10' current='1' simple></AtPagination>
         </View>
       </View>
     )
