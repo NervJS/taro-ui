@@ -31,8 +31,10 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+    padding: 20px;
+    box-sizing: border-box;
     border-radius: 50%;
     border: #6190e8 solid 3px;
     background-color: #fff;

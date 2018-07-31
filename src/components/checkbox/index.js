@@ -9,7 +9,7 @@ import './index.scss'
  * @description 多选框组件
  * @prop onChange {Function} 监听数据改变事件
  * @prop selectedList  {Array} 被选中的选项列表 eg: ['苹果']
- * @prop options {Array} 选项列表 eg: [{value:'苹果',desc:'这个苹果又大又甜'}]
+ * @prop options {Array} 选项列表 eg: [{value:'apple', label: '苹果', desc:'这个苹果又大又甜'}]
  */
 class AtCheckbox extends Taro.Component {
   handleClick (value) {
@@ -19,17 +19,18 @@ class AtCheckbox extends Taro.Component {
     } else {
       selectedList.delete(value)
     }
-    this.props.onChange({ value: Array.from(selectedList) })
+    this.props.onChange(Array.from(selectedList))
   }
   render () {
+    const { options, selectedList } = this.props
     return <View className='at-checkbox'>
       {
-        this.props.options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className='at-checkbox__option'>
+        options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className='at-checkbox__option'>
           <View className='at-checkbox__top'>
-            <View className={this.props.selectedList.includes(option.value) ? 'at-checkbox__icon at-checkbox__icon--selected' : 'at-checkbox__icon'}>
-              <AtIcon value='right' size='30' color='#fff' />
+            <View className={selectedList.includes(option.value) ? 'at-checkbox__icon at-checkbox__icon--selected' : 'at-checkbox__icon'}>
+              <AtIcon value='right' size='18' color='#fff' />
             </View>
-            <View className='at-checkbox__title'>{option.value}</View>
+            <View className='at-checkbox__title'>{option.label}</View>
           </View>
           {option.desc ? <View className='at-checkbox__desc'>{option.desc}</View> : null}
         </View>)
