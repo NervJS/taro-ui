@@ -1,9 +1,9 @@
-import Taro from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
 import './index.scss'
 
-export default class PanelBasic extends Taro.Component {
+export default class PanelBasic extends Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
