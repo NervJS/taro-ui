@@ -4,13 +4,9 @@
   align-items: center;
   border: #e5e5e5 solid 1px;
   border-radius: 8px;
-  width: 300px;
+  width: 100%;
   background-color: #fff;
-
-  &__btn,
-  &-text {
-    padding: 13px;
-  }
+  font-size: 30px;
 
   &__btn {
     flex: 1;
@@ -24,7 +20,6 @@
   }
 
   &__input {
-    font-size: 30px;
     flex: 2;
     text-align: center;
     border-left: #e5e5e5 solid 1px;
