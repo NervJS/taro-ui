@@ -34,11 +34,12 @@ class App extends Component {
       'pages/navigation/tabs/index',
       'pages/navigation/tab-bar/index',
       'pages/navigation/segmented-control/index',
-      'pages/navigation/nav-bar/index'
+      'pages/navigation/nav-bar/index',
       // 'pages/layout/flex/index'
       // 'pages/layout/grid/index',
       // 'pages/layout/float-layout/index',
-      // 'pages/layout/card/index'
+      // 'pages/layout/card/index',
+      'pages/layout/list/index'
     ],
     window: {
       backgroundTextStyle: 'light',

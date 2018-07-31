@@ -23,7 +23,10 @@ export default class ListPage extends Component {
             <View className='panel__title'>基础列表</View>
             <View className='panel__content'>
               <View className='example__body'>
-                <AtListItem title='标题文字' />
+                <AtListItem
+                  title='标题文字'
+                  onClick={console.log.bind(this, 1)}
+                />
                 <AtListItem title='标题文字' arrow='right' />
                 <AtListItem
                   arrow='right'

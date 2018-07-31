@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
@@ -12,6 +13,7 @@ export default class AtListItem extends Component {
       arrow,
       title,
       thumb,
+      onClick,
       isSwitch,
       extraText,
       extraThumb
@@ -28,7 +30,7 @@ export default class AtListItem extends Component {
     }
 
     return (
-      <View className={rootClass}>
+      <View className={rootClass} onClick={onClick}>
         {thumb && (
           <View className='at-list__item-thumb item-thumb'>
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />
@@ -71,4 +73,19 @@ export default class AtListItem extends Component {
       </View>
     )
   }
+}
+
+AtListItem.defaultProps = {
+  onClick: () => {}
+}
+
+AtListItem.propTypes = {
+  note: PropTypes.string,
+  title: PropTypes.string,
+  thumb: PropTypes.string,
+  onClick: PropTypes.func,
+  isSwitch: PropTypes.bool,
+  extraText: PropTypes.string,
+  extraThumb: PropTypes.string,
+  arrow: PropTypes.oneOf(['right', 'top', 'bottom', 'left'])
 }
