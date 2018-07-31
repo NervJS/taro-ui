@@ -45,7 +45,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View><AtSegmentedControl disabled values={tabList1} /></View>
             </View>
-            <View className='panel__title'>自定义颜色</View>
+            <View className='panel__title'>自定义颜色,字体大小</View>
             <View className='panel__content'>
               <View>
                 <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#FF4949' fontSize='12' current={current} values={tabList2} />
