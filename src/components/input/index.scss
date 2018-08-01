@@ -1,53 +1,65 @@
+@import '../../style/mixins/index.scss';
+@import '../../style/theme/default.scss';
+
 .at-input {
   background-color: #fff;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
 
   &__input {
-    flex: 5;
+    flex: 1;
     font-size: 24px;
+    padding: 0 12px;
     display: inline-block;
     vertical-align: middle;
   }
 
   &__icon {
-    flex: 1;
+    display: inline-block;
+    padding: 0 6px;
     text-align: center;
-    visibility: hidden;
-  }
-
-  &--error {
-    color: #e93b3d;
-
-    .at-input__icon {
-      visibility: visible;
-    }
-  }
-
-  &__container {
-    padding: 22px 0;
-    margin-left: 22px;
-    display: flex;
-    align-items: center;
-
-    &--without-title {
-      .at-input__input {
-        flex: 7;
-      }
-
-      .at-input__icon {
-        flex: 1;
-      }
-    }
-  }
-
-  + .at-input .at-input__container {
-    border-top: #e9eaec solid 1px;
+    font-size: 20px;
   }
 
   &__title {
-    flex: 2;
+    width: 150px;
     margin-right: 20px;
     font-size: 28px;
     vertical-align: middle;
     text-align: left;
+  }
+
+  &__children {
+    display: inline-block;
+    border-left: #e7e7e7 solid 1px;
+
+    > view,
+    div,
+    span,
+    text,
+    image,
+    .taro-img {
+      font-size: 28px;
+      display: inline-block;
+      padding: 0 20px;
+      color: #78a4fa;
+    }
+
+    > image,
+    img,
+    .taro-img {
+      width: 100px;
+      height: 60px;
+      vertical-align: middle;
+    }
+  }
+
+  &--error {
+    color: #e93b3d;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
   }
 }

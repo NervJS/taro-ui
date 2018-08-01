@@ -21,7 +21,14 @@ class App extends Component {
       'pages/navigation/tabs/index',
       'pages/navigation/tab-bar/index',
       'pages/navigation/segmented-control/index',
-      'pages/navigation/nav-bar/index'
+      'pages/navigation/nav-bar/index',
+      'pages/form/checkbox/index',
+      'pages/form/input/index',
+      'pages/form/input-number/index',
+      'pages/form/radio/index',
+      'pages/form/textarea/index',
+      'pages/form/switch/index',
+      'pages/form/rate/index'
     ],
     // pages: [
     //   'pages/index/index',
