@@ -21,16 +21,13 @@ import './index.scss'
  *  count: {Number} 显示的数字 [可选]
  *  dot: {Boolean} 是否显示红点，如果有count，优先显示count [可选]
  *  示例: [{ title: '标签页1',iconType: '', dot: true, iconSize:24, selectedIconType: '',count: 8 }, { title: '标签页2' }]
- * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
+ * @prop onClick {Function} 点击时触发事件，回调参数：列表索引值
  */
 class AtTabBar extends Taro.Component {
   handleClick (i) {
-    this.props.onClick({ value: i })
+    this.props.onClick(i)
   }
 
-  showCount (count) {
-    return parseInt(count) > 99 ? '99+' : count
-  }
   render () {
     const { fixed, backgroundColor, tabList, current, color, iconSize, fontSize, selectedColor } = this.props
     const defaultStyle = `color: ${color};`
@@ -53,7 +50,7 @@ class AtTabBar extends Taro.Component {
               }
               {
                 item.count
-                  ? <View className='at-tab-bar__count'>{this.showCount(item.count)}</View>
+                  ? <View className='at-tab-bar__count'>{item.count}</View>
                   : null
               }
               {
