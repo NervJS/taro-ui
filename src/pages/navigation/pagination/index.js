@@ -26,17 +26,38 @@ export default class PaginationPage extends Taro.Component {
   render () {
     return (
       <View className='page'>
-
-        <View className='example'>
-          <AtPagination total='50' pageSize='10' current='1'></AtPagination>
+        {/* S Header */}
+        <View className='doc-header'>
+          <View className='doc-header__title'>Pagination 分页器</View>
         </View>
+        {/* E Header */}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>文本按钮 + 页码</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtPagination total='50' pageSize='10' current='1'></AtPagination>
+              </View>
+            </View>
+          </View>
 
-        <View className='example'>
-          <AtPagination icon total='50' pageSize='10' current='1'></AtPagination>
-        </View>
+          <View className='panel'>
+            <View className='panel__title'>图标按钮 + 页码</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtPagination icon total='50' pageSize='10' current='1'></AtPagination>
+              </View>
+            </View>
+          </View>
 
-        <View className='example'>
-          <AtPagination icon total='50' pageSize='10' current='1' simple></AtPagination>
+          <View className='panel'>
+            <View className='panel__title'>隐藏页码</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtPagination icon total='50' pageSize='10' current='1' simple></AtPagination>
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     )

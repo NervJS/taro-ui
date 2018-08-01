@@ -52,17 +52,33 @@ export default class DrawerPage extends Taro.Component {
     return (
       <View className='page'>
 
-        <View className='example'>
-          <AtButton type='primary' onClick={this.leftDrawerClick.bind(this)}>显示drawer(左边滑出)</AtButton>
-          {this.state.leftDrawerShow && <AtDrawer show={this.state.leftDrawerShow} mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
-          </AtDrawer>}
+        <View className='doc-header'>
+          <View className='doc-header__title'>Drawer 抽屉</View>
+        </View>
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>左边滑出</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtButton type='primary' onClick={this.leftDrawerClick.bind(this)}>显示drawer</AtButton>
+                {this.state.leftDrawerShow && <AtDrawer show={this.state.leftDrawerShow} mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
+                </AtDrawer>}
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>右边滑出</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtButton type='primary' onClick={this.rightDrawerClick.bind(this)}>显示drawer</AtButton>
+                {this.state.rightDrawerShow && <AtDrawer show={this.state.rightDrawerShow} right mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
+                </AtDrawer>}
+              </View>
+            </View>
+          </View>
         </View>
 
-        <View className='example'>
-          <AtButton type='primary' onClick={this.rightDrawerClick.bind(this)}>显示drawer(右边滑出)</AtButton>
-          {this.state.rightDrawerShow && <AtDrawer show={this.state.rightDrawerShow} right mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
-          </AtDrawer>}
-        </View>
       </View>
     )
   }
