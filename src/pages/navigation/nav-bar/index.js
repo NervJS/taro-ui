@@ -20,8 +20,8 @@ export default class Index extends Taro.Component {
         <View className='item'>
           <AtNavBar
             onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRightFirstIcon={this.handleClick.bind(this, '点击右边1')}
-            onClickRightSecondIcon={this.handleClick.bind(this, '点击右边2')}
+            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
+            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
             title='nav bar 导航栏 示例'
             leftIconType='return'
             leftText='返回'
@@ -32,8 +32,8 @@ export default class Index extends Taro.Component {
         <View className='item'>
           <AtNavBar
             onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRightFirstIcon={this.handleClick.bind(this, '点击右边1')}
-            onClickRightSecondIcon={this.handleClick.bind(this, '点击右边2')}
+            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
+            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
             title='nav bar 导航栏'
             leftIconType='return'
             rightFirstIconType='group'
@@ -43,8 +43,8 @@ export default class Index extends Taro.Component {
         <View className='item'>
           <AtNavBar
             onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRightFirstIcon={this.handleClick.bind(this, '点击右边1')}
-            onClickRightSecondIcon={this.handleClick.bind(this, '点击右边2')}
+            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
+            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
             color='#000'
             title='nav bar导航栏 示例'
             leftIconType='return'
