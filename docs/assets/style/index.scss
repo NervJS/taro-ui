@@ -1,0 +1,294 @@
+@import '~at-ui-style/src/variables/index.scss';
+@import '~at-ui-style/src/mixins/index.scss';
+
+$bg-color: #F8FAFF;
+$drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
+
+.wrapper {
+  min-height: 100vh;
+  background-color: $bg-color;
+  overflow: hidden;
+}
+
+.section {
+  width: 100%;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+/**
+ * Section banner
+ */
+.section-banner {
+  text-align: center;
+
+  .logo {
+    margin: 200px auto 0;
+    width: 200px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h1 {
+    margin-top: 56px;
+    color: #8994C6;
+    font-size: 32px;
+  }
+
+  .btn-container {
+    margin-top: 72px;
+
+    .btn {
+      display: inline-block;
+      width: 190px;
+      height: 56px;
+      margin: 0 35px;
+      font-size: 18px;
+      line-height: 56px;
+      border-radius: 28px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .btn-begin {
+      color: #fff;
+      background-image: linear-gradient(90deg, #00AEFF 0%, #3369E7 100%);
+      box-shadow: 0 2px 6px 0 rgba(51, 105, 231, 0.4);
+
+      a {
+        color: #fff;
+      }
+
+      &:hover {
+        box-shadow: 0 4px 12px 0 rgba(51, 105, 231, 0.4);
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .btn-github {
+      color: #316DE9;
+      border: 1px solid #2F6EE9;
+
+      &:hover {
+        color: $brand-blue-400;
+        border-color: $brand-blue-400;
+      }
+    }
+  }
+
+  .prototype-screens {
+    margin-top: 104px;
+
+    .prototype {
+      display: inline-block;
+      margin: 0 16px;
+      background-color: #fff;
+      border-radius: 30px;
+      box-shadow: $drop-shadow;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .prototype-1 {
+      margin-top: 120px;
+    }
+
+    .prototype-2 {
+      margin-top: 80px;
+    }
+
+    .prototype-3 {
+      margin-top: 40px;
+    }
+  }
+
+  .separate-panel {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -180px;
+      width: 100%;
+      height: 350px;
+      background: #F8FAFF;
+      box-shadow: 0 -4px 30px 0 #DFE1E6;
+      transform: skewY(-4deg);
+    }
+  }
+}
+
+/**
+ * Section navigation
+ */
+.section-navigation {
+  position: relative;
+  background-color: $bg-color;
+
+  .container {
+    margin: 80px auto 200px;
+    height: 380px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: $drop-shadow;
+  }
+
+  .navigation-panel {
+    margin-top: 56px;
+    padding-left: 32px;
+    width: 250px;
+    height: 250px;
+
+    .icon-cnt {
+      margin-left: -32px;
+      width: 80px;
+      height: 83px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .title {
+      margin: 16px 0;
+      color: #4573DE;
+      font-size: 18px;
+    }
+
+    .desc {
+      color: #6B798C;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .btn-readmore {
+      display: inline-block;
+      margin-top: 16px;
+      color: #6B798C;
+      font-size: 13px;
+      border: 1px solid #ECECEC;
+      border-radius: 2px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover:not(.disabled) {
+        color: $brand-blue-400;
+        border-color: $brand-blue-400;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+
+      a {
+        display: block;
+        padding: 4px 20px;
+        color: #6B798C;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  .container {
+    width: 100%;
+  }
+
+  .section-banner {
+    .logo {
+      margin-top: 160px;
+
+      svg {
+        width: 120px;
+      }
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: 18px;
+    }
+
+    .btn-container {
+      margin-top: 48px;
+
+      .btn {
+        width: 160px;
+        height: 48px;
+        font-size: 16px;
+        line-height: 48px;
+      }
+
+      .btn + .btn {
+        margin-top: 24px;
+      }
+    }
+
+    .separate-panel::before {
+      top: -40px;
+    }
+
+    .prototype-screens {
+      margin-top: 80px;
+
+      .prototype {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+      .prototype-1 {
+        margin-top: 30px;
+      }
+
+      .prototype-2 {
+        margin-top: 20px;
+      }
+
+      .prototype-3 {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .section-navigation {
+    .container {
+      flex-wrap: wrap;
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-bottom: 100px;
+      width: initial;
+      height: initial;
+    }
+
+    .navigation-panel {
+      margin: 56px 0;
+      padding-left: 0;
+      height: initial;
+      text-align: center;
+
+      .icon-cnt {
+        margin: 0 auto;
+
+        img {
+          margin-left: -20px;
+        }
+      }
+    }
+  }
+}

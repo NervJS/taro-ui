@@ -1,0 +1,49 @@
+.at-color-container {
+  margin: 16px 16px 0 0;
+  padding: 16px;
+  border-radius: 4px;
+
+  p {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .color-value {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+}
+
+.c-dark {
+  color: #7E95A7 !important;
+}
+
+.color-palette {
+  .color-group {
+    padding: 0;
+    margin: 16px 16px 16px 0;
+    color: #fff;
+    font-size: 14px;
+    list-style: none;
+    min-width: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    li {
+      padding: 16px;
+      overflow: hidden;
+      line-height: 1.4;
+
+      &:first-child {
+        .color-name {
+          display: block;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .color-value {
+      float: right;
+    }
+  }
+}
