@@ -6,10 +6,37 @@
 
 以下文档指示例子，请根据具体组件编写
 
-## 基础按钮
+## 使用指南
 
-基础按钮分三种：`主按钮（实心）` 、 `次按钮（空心）` 、 `文字按钮`
+在 Taro 文件中引入组件
 
+:::demo
+```js
+import AtButton from 'taro-ui'
+```
+:::
+
+## 一般用法
+
+:::demo
+```html
+<At-Button type="success">按钮文案</At-Button>
+<At-Button type="error">按钮文案</At-Button>
+<At-Button type="warning">按钮文案</At-Button>
+<At-Button type="info">按钮文案</At-Button>
+```
+:::
+
+## 不同尺寸
+
+:::demo
+```html
+<At-Button type="success">按钮文案</At-Button>
+<At-Button type="error">按钮文案</At-Button>
+<At-Button type="warning">按钮文案</At-Button>
+<At-Button type="info">按钮文案</At-Button>
+```
+:::
 
 ## Button 参数
 
@@ -22,13 +49,6 @@
 | icon       | 按钮的图标类名，填入图标的 `classname` | String  | 见文档 `Icon 图标`                                                  | -        |
 | loading    | 设置按钮的载入状态                     | Boolean | -                                                                   | false    |
 | circle     | 设置圆形图标按钮                       | Boolean | -                                                                   | false    |
-
-## Button Group 参数
-
-| 参数 | 说明       | 类型   | 可选值           | 默认值   |
-| ---- | ---------- | ------ | ---------------- | -------- |
-| size | 按钮的大小 | String | `large`, `small` | 正常大小 |
-| gap  | 按钮间隔   | Number | -                | -1       |
 
 ## Button 事件
 

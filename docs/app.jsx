@@ -1,11 +1,11 @@
 import * as Nerv from 'nervjs'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
+import 'at-ui-style'
+
 import Index from './pages/index.jsx'
 import Docs from './pages/docs.jsx'
 import Guide from './pages/guide.jsx'
-
-import 'at-ui-style'
 
 class App extends Nerv.Component {
   constructor (...args) {

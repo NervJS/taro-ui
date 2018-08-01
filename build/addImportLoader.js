@@ -88,23 +88,16 @@ const formatModule = (imports, js, jsx, state, method) => {
   return moduleText
 }
 
-const formatOpening = (code, description, flag) => {
-  return `  <div className="at-component__container">
-    <div className="at-component__sample">
-        ${code}
-    </div>
-    <div className="${options.className}-demo-meta" >
-        <div className="at-component__code"  style={{display: this.state.showCode${flag}? '' : 'none' }}>
-            `
+const formatOpening = () => {
+  return `
+    <div className="at-component__container">
+      <div className="at-component__code">`
 }
 
-const formatClosing = flag => {
-  return `</div>
-        <div className="at-component__code-toggle" onClick={this.handleToggleCode.bind(this, ${flag})}>
-          { this.state.showCode${flag} ? '隐藏代码':'显示代码'}
-        </div>
-    </div>
-</div>`
+const formatClosing = () => {
+  return `
+      </div>
+    </div>`
 }
 
 module.exports = function (source) {
@@ -120,7 +113,7 @@ module.exports = function (source) {
   const imports = `import * as Nerv from 'nervjs';  import copy from 'copy-to-clipboard';${importMap}`
 
   const moduleJS = []
-  let state = ''
+  const state = ''
   // 放在这里应该没有问题， 反正是顺序执行的
   let flag = ''
 
@@ -136,7 +129,7 @@ module.exports = function (source) {
       if (tokens[idx].nesting === 1) {
         flag = idx
 
-        let jsx = ''
+        let codeText = ''
         // let state = null
         // let method = ''
         let i = 1
@@ -148,22 +141,14 @@ module.exports = function (source) {
         while (token.markup !== ':::') {
           // 只认```，其他忽略
           if (token.markup === '```') {
-            if (token.info === 'js') {
-              // 插入到import后，component前
-              moduleJS.push(token.content)
-            } else if (token.info === 'jsx' || token.info === 'html') {
-              // 插入render内
-              jsx = token.content
-            } else if (token.info === 'state') {
-              // console.log(typeof )
-              state = token.content.replace(/\\[a-z]/g, ' ').replace(/'/g, `"`)
-            }
+            // 里面的内容都当代码文本输出
+            codeText = token.content
           }
           i++
           token = tokens[idx + i]
         }
         // 描述也执行md
-        return formatOpening(jsx, md.render(m[1]), flag)
+        return formatOpening(codeText, md.render(m[1]), flag)
       }
       return formatClosing(flag)
     }
