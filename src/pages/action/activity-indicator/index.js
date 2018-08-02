@@ -32,7 +32,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__title'>任意尺寸</View>
             <View className='panel__content'>
               <View className='example__body example__body--list'>
-                <ActivityIndicator size='50' />
+                <ActivityIndicator size='50' >11</ActivityIndicator>
                 <ActivityIndicator size='75' />
                 <ActivityIndicator size='100' />
               </View>

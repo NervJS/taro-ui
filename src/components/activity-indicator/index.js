@@ -18,18 +18,19 @@ export default class ActivityIndicator extends Taro.Component {
     const scaleSize = size / 200
 
     const indicatorStyle = {
-      width: +size,
-      height: +size,
-      transform: `translate(-${realSize}px, -${realSize}px) scale(${scaleSize}) translate(${realSize}px,${realSize}px)`
+      width: size ? `${+size}px` : undefined,
+      height: size ? `${+size}px` : undefined,
+      transform: realSize ? `translate(-${realSize}px, -${realSize}px) scale(${scaleSize}) translate(${realSize}px,${realSize}px)` : undefined
     }
 
     const style = {
       background: color
     }
 
-    const rootClassName = {
-      'at-activity-indicator': true,
-      'at-activity-indicator--center': mode === 'center'
+    const rootClassName = ['at-activity-indicator']
+
+    if (mode === 'center') {
+      rootClassName.push('at-activity-indicator--center')
     }
 
     return (

@@ -5,7 +5,6 @@ import './index.scss'
 
 export default class AtModalContent extends Taro.Component {
   render () {
-    const { children } = this.props
-    return <View className='at-modal-body'>{children}</View>
+    return <View className='at-modal-content'>{this.props.children}</View>
   }
 }

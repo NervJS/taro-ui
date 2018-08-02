@@ -14,11 +14,15 @@ export default class AtProgress extends Taro.Component {
       percent = 100
     }
 
-    const rootClass = ['at-progress', `at-progress--${status}`]
+    const rootClass = ['at-progress']
+
+    if (status) {
+      rootClass.push(`at-progress--${status}`)
+    }
 
     const progressStyle = {
       width: `${+percent}%`,
-      height: +strokeWidth,
+      height: `${+strokeWidth}px`,
       backgroundColor: color
     }
 

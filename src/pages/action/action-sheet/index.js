@@ -2,7 +2,8 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
 
-import ActionSheet from '../../../components/action-sheet'
+import AtActionSheet from '../../../components/action-sheet'
+import AtActionSheetItem from '../../../components/action-sheet/body/item/index'
 
 import './index.scss'
 
@@ -35,19 +36,11 @@ export default class ActionSheetPage extends Taro.Component {
             <Button onClick={this.handleClick}>打开ActionSheet</Button>
           </View>
         </View>
-        <ActionSheet isOpened={isOpened}>
-          <ActionSheet.Header>
-            <Text>Title</Text>
-          </ActionSheet.Header>
-          <ActionSheet.Body>
-            <ActionSheet.Body.Item>这是啥??</ActionSheet.Body.Item>
-            <ActionSheet.Body.Item>这是啥</ActionSheet.Body.Item>
-            <ActionSheet.Body.Item>这是啥</ActionSheet.Body.Item>
-          </ActionSheet.Body>
-          <ActionSheet.Footer>
-            <Text>取消</Text>
-          </ActionSheet.Footer>
-        </ActionSheet>
+        <AtActionSheet title='标题' cancleText='取消' isOpened={isOpened}>
+          <AtActionSheetItem>这是啥??</AtActionSheetItem>
+          <AtActionSheetItem>这是啥</AtActionSheetItem>
+          <AtActionSheetItem>这是啥</AtActionSheetItem>
+        </AtActionSheet>
       </View>
     )
   }

@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
 import AtGrid from '../../../components/grid/index'
 
@@ -10,49 +10,66 @@ export default class GridPage extends Taro.Component {
     navigationBarTitleText: 'Grid Page'
   }
 
+  constructor () {
+    super(...arguments)
+    this.state = {
+      data: [
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        },
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        },
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        },
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        },
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        },
+        {
+          icon: 'emoji',
+          value: '放置文本'
+        }
+      ]
+    }
+  }
+
+  handleClick = (...x) => {
+    console.log(...x)
+  }
+
   render () {
     return (
-      <View className='grid__page'>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>基本案例</Text>
-          </View>
-          <View className='example__body'>
-            <AtGrid mode='square'>
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-            </AtGrid>
-          </View>
+      <View className='page'>
+        <View className='doc-header'>
+          <View className='doc-header__title'>宫格布局</View>
         </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>定义最大的列数</Text>
+
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>正方形案例</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <AtGrid data={this.state.data} onClick={this.handleClick} />
+              </View>
+            </View>
           </View>
-          <View className='example__body'>
-            <AtGrid mode='square' columnNum={4}>
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-            </AtGrid>
-          </View>
-        </View>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>定义最大的列数</Text>
-          </View>
-          <View className='example__body'>
-            <AtGrid mode='rect'>
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-              <AtGrid.Item icon='emoji' value='放置文本' />
-            </AtGrid>
+
+          <View className='panel'>
+            <View className='panel__title'>矩形案例</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <AtGrid mode='rect' data={this.state.data} />
+              </View>
+            </View>
           </View>
         </View>
       </View>

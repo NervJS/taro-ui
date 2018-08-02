@@ -1,8 +1,12 @@
 /* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button } from '@tarojs/components'
 
-import Modal from '../../../components/modal'
+import AtModal from '../../../components/modal/index'
+import AtModalHeader from '../../../components/modal/header/index'
+import AtModalContent from '../../../components/modal/content/index'
+import AtModalAction from '../../../components/modal/action/index'
+// import AtModalActionButton from '../../../components/modal/action//index'
 
 import './index.scss'
 
@@ -14,7 +18,7 @@ export default class ModalPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false
+      isOpened: true
     }
   }
 
@@ -23,30 +27,39 @@ export default class ModalPage extends Taro.Component {
     this.setState(state)
   }
 
+  closeModal = () => {
+    this.setState({
+      isOpened: false
+    })
+  }
+
   render () {
     const { isOpened } = this.state
     return (
-      <View className='action-sheet__page'>
-        <View className='example'>
-          <View className='example__header'>
-            <Text className='example__header-title'>基本案例</Text>
-          </View>
-          <View className='example__body'>
-            <Button onClick={this.handleClick}>打开Modal</Button>
+      <View className='page'>
+        <View className='doc-header'>
+          <View className='doc-header__title'>模态框</View>
+        </View>
+
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础案例</View>
+            <View className='panel__content'>
+              <View className='example__body'>
+                <Button onClick={this.handleClick}>打开Modal</Button>
+              </View>
+            </View>
           </View>
         </View>
-        <Modal isOpened={isOpened}>
-          <Modal.Header>
-            <Text>这是标题知道吧</Text>
-          </Modal.Header>
-          <Modal.Content>
-            <View>这是内容知道吧</View>
-          </Modal.Content>
-          <Modal.Action>
-            <Modal.Action.Button>取消</Modal.Action.Button>
-            <Modal.Action.Button>确认</Modal.Action.Button>
-          </Modal.Action>
-        </Modal>
+
+        <AtModal isOpened={isOpened}>
+          <AtModalHeader>标题</AtModalHeader>
+          <AtModalContent>内容区</AtModalContent>
+          <AtModalAction>
+            <Button className='test' onClick={this.closeModal}>取消</Button>
+            <Button onClick={this.closeModal}>确定</Button>
+          </AtModalAction>
+        </AtModal>
       </View>
     )
   }

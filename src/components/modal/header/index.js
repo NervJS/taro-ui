@@ -1,13 +1,10 @@
-import Taro from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import './index.scss'
 
-export default class AtModalHeader extends Taro.Component {
+export default class AtModalHeader extends Component {
   render () {
-    const { children } = this.props
-    return (
-      <View className='at-modal-header'>{children}</View>
-    )
+    return <View className='at-modal-header'>{this.props.children}</View>
   }
 }
