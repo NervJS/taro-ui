@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtGrid from '../../../components/grid/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -49,9 +50,7 @@ export default class GridPage extends Taro.Component {
   render () {
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>宫格布局</View>
-        </View>
+        <DocsHeader title='宫格布局'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>

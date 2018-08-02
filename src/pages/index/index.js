@@ -75,14 +75,14 @@ export default class Index extends Taro.Component {
               onClick={this.gotoPanel}
             >
               <View className='module-list__icon'>
-                <Text className='at-icon at-icon-barrage'></Text>
+                <Text className='at-icon at-icon-list'></Text>
               </View>
               <View className='module-list__info'>
                 <View className='title'>{item.title}</View>
                 <View className='content'>{item.content}</View>
               </View>
               <View className='module-list__arrow'>
-                <Text className='at-icon at-icon-enter'></Text>
+                <Text className='at-icon at-icon-chevron-right'></Text>
               </View>
             </View>
           ))}

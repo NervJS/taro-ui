@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 
 import AtFloatLayout from '../../../components/float-layout/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -26,9 +27,7 @@ export default class FloatLayoutPage extends Taro.Component {
     const { isOpened } = this.state
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>浮动布局</View>
-        </View>
+        <DocsHeader title='浮动弹层'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>

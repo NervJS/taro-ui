@@ -4,6 +4,7 @@ import { View, Image } from '@tarojs/components'
 import AtInput from '../../../components/input/index'
 import AtForm from '../../../components/form/index'
 import verificationCode from '../../../assets/images/verification_code.png'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -72,9 +73,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>输入框</View>
-        </View>
+        <DocsHeader title='输入框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

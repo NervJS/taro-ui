@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 
 import Toast from '../../../components/toast/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -48,9 +49,7 @@ export default class ToastPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>头像</View>
-        </View>
+        <DocsHeader title='轻提示'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

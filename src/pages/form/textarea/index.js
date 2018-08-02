@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTextarea from '../../../components/textarea/index'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -23,9 +24,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>多行文本框</View>
-        </View>
+        <DocsHeader title='多行文本框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

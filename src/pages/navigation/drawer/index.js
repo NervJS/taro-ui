@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtDrawer from '../../../components/drawer/index'
 import AtButton from '../../../components/button/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -51,10 +52,8 @@ export default class DrawerPage extends Taro.Component {
   render () {
     return (
       <View className='page'>
+        <DocsHeader title='抽屉'></DocsHeader>
 
-        <View className='doc-header'>
-          <View className='doc-header__title'>Drawer 抽屉</View>
-        </View>
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>左边滑出</View>

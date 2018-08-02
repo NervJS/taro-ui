@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 
 import AtProgress from '../../../components/progress/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -44,9 +45,7 @@ export default class ProgressPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>进度条</View>
-        </View>
+        <DocsHeader title='进度条'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

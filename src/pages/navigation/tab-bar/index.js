@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTabBar from '../../../components/tab-bar/index'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -24,9 +25,8 @@ export default class Index extends Taro.Component {
     const tabList2 = [{ title: '待办事项', iconType: 'activity', selectedIconType: 'activity_fill', text: 'new' }, { title: '拍照', iconType: 'camera', selectedIconType: 'camera_fill' }, { title: '通讯录', iconType: 'addressbook', selectedIconType: 'addressbook_fill', text: '100', max: '99' }]
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>TabBar 标签栏</View>
-        </View>
+        <DocsHeader title='TabBar 标签栏'></DocsHeader>
+
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>文本标签栏</View>

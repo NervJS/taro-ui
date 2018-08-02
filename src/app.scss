@@ -159,7 +159,7 @@ view {
     &__title {
       position: relative;
       margin-bottom: 50px;
-      padding-left: 28px;
+      padding-left: 50px;
       color: #6A6A77;
       font-size: 32px;
       font-weight: bold;
@@ -169,7 +169,7 @@ view {
         content: '';
         display: inline-block;
         position: absolute;
-        left: 0;
+        left: 24px;
         top: 50%;
         margin-top: -20px;
         width: 2PX;

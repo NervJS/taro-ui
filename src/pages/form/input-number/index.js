@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtInputNumber from '../../../components/input-number/index'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -22,9 +23,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>数字输入框</View>
-        </View>
+        <DocsHeader title='数字输入框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

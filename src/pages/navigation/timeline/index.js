@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTimeline from '../../../components/timeline/index'
 import AtTimelineItem from '../../../components/timeline/item'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -13,9 +14,7 @@ export default class TimelinePage extends Taro.Component {
   render () {
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>Timeline 时间轴</View>
-        </View>
+        <DocsHeader title='Timeline 时间轴'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>

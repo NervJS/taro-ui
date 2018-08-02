@@ -193,7 +193,7 @@ export default class PanelBasic extends Component {
         {/* S Header */}
         <View className='panel-header'>
           <View className='panel-header__icon'>
-            <Text className='at-icon at-icon-barrage'></Text>
+            <Text className='at-icon at-icon-list'></Text>
           </View>
           <View className='panel-header__title'>{title}</View>
         </View>

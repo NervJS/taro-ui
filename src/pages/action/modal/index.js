@@ -7,6 +7,7 @@ import AtModalHeader from '../../../components/modal/header/index'
 import AtModalContent from '../../../components/modal/content/index'
 import AtModalAction from '../../../components/modal/action/index'
 // import AtModalActionButton from '../../../components/modal/action//index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -37,9 +38,7 @@ export default class ModalPage extends Taro.Component {
     const { isOpened } = this.state
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>模态框</View>
-        </View>
+        <DocsHeader title='模态框'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>

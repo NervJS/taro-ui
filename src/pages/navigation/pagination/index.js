@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtPagination from '../../../components/pagination/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -27,10 +28,9 @@ export default class PaginationPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>Pagination 分页器</View>
-        </View>
+        <DocsHeader title='Pagination 分页器'></DocsHeader>
         {/* E Header */}
+
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>文本按钮 + 页码</View>

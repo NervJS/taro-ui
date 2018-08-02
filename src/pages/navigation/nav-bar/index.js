@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtNavBar from '../../../components/nav-bar/index'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -17,9 +18,8 @@ export default class Index extends Taro.Component {
   render () {
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>NavBar 导航栏</View>
-        </View>
+        <DocsHeader title='NavBar 导航栏'></DocsHeader>
+
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础用法</View>

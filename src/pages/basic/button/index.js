@@ -2,12 +2,13 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
 export default class ButtonPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Button Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   onButtonClick () {
@@ -20,9 +21,7 @@ export default class ButtonPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>按钮</View>
-        </View>
+        <DocsHeader title='按钮'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

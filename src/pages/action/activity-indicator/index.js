@@ -2,12 +2,13 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import ActivityIndicator from '../../../components/activity-indicator/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
 export default class ActivityIndicatorPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'ActivityIndicator Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -20,9 +21,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>活动指示器</View>
-        </View>
+        <DocsHeader title='活动指示器'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

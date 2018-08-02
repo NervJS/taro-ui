@@ -3,6 +3,7 @@ import { View } from '@tarojs/components'
 
 import AtList from '../../../components/list/index'
 import AtListItem from '../../../components/list/item/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -14,9 +15,7 @@ export default class ListPage extends Component {
   render () {
     return (
       <View className='page'>
-        <View className='doc-header'>
-          <View className='doc-header__title'>列表</View>
-        </View>
+        <DocsHeader title='列表'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
