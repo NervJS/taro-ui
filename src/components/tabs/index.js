@@ -14,7 +14,7 @@ import './index.scss'
  */
 class AtTabs extends Taro.Component {
   handleClick (i) {
-    this.props.onClick({ value: i })
+    this.props.onClick(i, ...arguments)
   }
 
   render () {

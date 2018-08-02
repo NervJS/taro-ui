@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTabs from '../../../components/tabs/index'
@@ -10,32 +11,61 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      current: 0,
+      current1: 0,
+      current2: 0,
+      current3: 0
     }
   }
-  handleClick (detail) {
-    this.setState({
-      current: detail.value
-    })
+  handleClick (stateName, value) {
+    this.state[stateName] = value
+    this.setState()
   }
   render () {
-    const { current } = this.state
-    const tabList1 = [{ title: '标签页1' }, { title: '默认颜色的标签页2' }]
-    const tabList2 = [{ title: '标签页1' }, { title: '滚动的标签页2' }, { title: '标签页3' }, { title: '标签页4' }, { title: '标签页5' }]
-    const tabList3 = [{ title: '标签页1' }, { title: '自定义颜色的标签页2' }, { title: '标签页3' }]
+    const { current1, current2, current3 } = this.state
+    const tabList1 = [{ title: '标签页1' }, { title: '标签页2' }]
+    const tabList2 = [
+      { title: '标签页1' },
+      { title: '标签页2' },
+      { title: '标签页3' },
+      { title: '标签页4' },
+      { title: '标签页5' },
+      { title: '标签页6' },
+      { title: '标签页7' }
+    ]
     return (
-      <View className='example__body'>
-        <View className='item'>
-          <AtTabs tabList={tabList1} />
+      <View className='page'>
+        <View className='doc-header'>
+          <View className='doc-header__title'>Tabs 标签页</View>
         </View>
-        <View className='item'>
-          <AtTabs scroll current={current} tabList={tabList2} onClick={this.handleClick.bind(this)} />
-        </View>
-        <View className='item'>
-          <AtTabs onClick={this.handleClick.bind(this)} color='#f759ab' scroll current={current} tabList={tabList3} />
-          {current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
-          {current === 1 ? <View className='tab-content'>标签2的内容</View> : null}
-          {current === 2 ? <View className='tab-content'>标签3的内容</View> : null}
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础用法</View>
+            <View className='panel__content'>
+              <AtTabs current={current1} tabList={tabList1} onClick={this.handleClick.bind(this, 'current1')} />
+              {
+                current1 === 0
+                  ? <View className='tab-content'>标签页一的内容</View>
+                  : null
+              }
+              {
+                current1 === 1
+                  ? <View className='tab-content'>标签页二的内容</View>
+                  : null
+              }
+            </View>
+          </View>
+          <View className='panel'>
+            <View className='panel__title'>滚动</View>
+            <View className='panel__content'>
+              <AtTabs scroll current={current2} tabList={tabList2} onClick={this.handleClick.bind(this, 'current2')} />
+            </View>
+          </View>
+          <View className='panel'>
+            <View className='panel__title'>自定义颜色</View>
+            <View className='panel__content'>
+              <AtTabs scroll color='#f759ab' current={current3} tabList={tabList2} onClick={this.handleClick.bind(this, 'current3')} />
+            </View>
+          </View>
         </View>
       </View>
     )
