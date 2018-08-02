@@ -10,7 +10,7 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      radioValue: '',
+      radioValue: 'apple',
       radioOptions: [{ label: '苹果', value: 'apple' }, { label: '梨子', value: 'pear' }, { label: '菠萝', value: 'pineapple' }],
     }
   }
