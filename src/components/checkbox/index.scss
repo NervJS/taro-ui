@@ -1,3 +1,6 @@
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
+
 .at-checkbox {
   background-color: #fff;
 
@@ -22,15 +25,14 @@
     text-align: left;
   }
 
-  &__top {
+  &__option_container {
     display: flex;
     align-items: center;
   }
 
   &__icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    display: inline-block;
     width: 40px;
     height: 40px;
     padding: 20px;
@@ -39,11 +41,17 @@
     border: #6190e8 solid 3px;
     background-color: #fff;
     margin-right: 20px;
+    font-size: 30px;
     overflow: hidden;
 
     &--selected {
       background-color: #6190e8;
     }
+  }
+
+  &__icon_container {
+    display: inline-block;
+    @include absolute-center;
   }
 
   &__option + &__option {
