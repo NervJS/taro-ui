@@ -6,7 +6,8 @@ import './index.scss'
 /**
  * @author:chenzeji
  * @description 数字输入框
- * @prop style {String} 样式
+ * @prop atStyle {String} 样式 小程序限制问题
+ * @prop size 大小 可选值：small、middle、normal 默认值：normal
  * @prop value {Number} 当前输入框值 default: 1
  * @prop min  {Number} 最小值 default: 0
  * @prop max {Number} 最大值 default:100
@@ -41,8 +42,16 @@ class AtInputNumber extends Taro.Component {
     nextValue = nextValue < max ? nextValue : max
     this.props.onChange(nextValue)
   }
+  getSize () {
+    const sizeMap = {
+      'small': 'width: 100px;',
+      'middle': 'width: 200px;',
+      'normal': 'width: 100%;'
+    }
+    return sizeMap[this.props.size] ? sizeMap[this.props.size] : ''
+  }
   render () {
-    const { style, value, min, max } = this.props
+    const { atStyle, value, min, max } = this.props
     const minusBtnCls = ['at-input-number__btn']
     const plusBtnCls = ['at-input-number__btn']
     if (value <= min) {
@@ -51,6 +60,7 @@ class AtInputNumber extends Taro.Component {
     if (value >= max) {
       plusBtnCls.push('at-input-number__btn--disabled')
     }
+    const style = atStyle + this.getSize()
     return <View className='at-input-number' style={style}>
       <View className={minusBtnCls} onClick={this.handleMinus.bind(this)}>-</View>
       <Input className='at-input-number__input'
@@ -62,7 +72,8 @@ class AtInputNumber extends Taro.Component {
   }
 }
 AtInputNumber.defaultProps = {
-  style: '',
+  atStyle: '',
+  size: 'normal',
   value: 1,
   min: 0,
   max: 100,
@@ -70,7 +81,8 @@ AtInputNumber.defaultProps = {
   onChange: () => {}
 }
 AtInputNumber.propTypes = {
-  style: PropTypes.string,
+  atStyle: PropTypes.string,
+  size: PropTypes.string,
   value: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,
