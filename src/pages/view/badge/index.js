@@ -3,6 +3,7 @@ import { View } from '@tarojs/components'
 
 import AtBadge from '../../../components/badge/index'
 import AtButton from '../../../components/button/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
@@ -22,9 +23,7 @@ export default class BadgePage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>徽标</View>
-        </View>
+        <DocsHeader title='Badge 徽标'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -33,13 +32,13 @@ export default class BadgePage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>常规徽标</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='badge-item'>
+                <View className='subitem'>
                   <AtBadge value='10' maxValue='99'>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtBadge value='10' maxValue='99'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
@@ -52,13 +51,13 @@ export default class BadgePage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>小红点</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='badge-item'>
+                <View className='subitem'>
                   <AtBadge dot>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtBadge dot>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
@@ -71,13 +70,13 @@ export default class BadgePage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>文本</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='badge-item'>
+                <View className='subitem'>
                   <AtBadge value='new'>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtBadge value='new'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
@@ -90,13 +89,13 @@ export default class BadgePage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>省略号</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='badge-item'>
+                <View className='subitem'>
                   <AtBadge value='...'>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtBadge value='...'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>

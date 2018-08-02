@@ -1,10 +1,14 @@
-.example {
-  margin-bottom: 15px;
-  text-align: center;
+.panel__content {
+  .badge-item {
+    margin-bottom: 20px;
 
-  &-item {
-    vertical-align: middle;
-    display: inline-block;
-    margin: 0 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .subitem {
+      display: inline-block;
+      margin-left: 40px;
+    }
   }
 }
