@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
+
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
-import Icon from '../../icon/index'
+import PropTypes from 'prop-types'
+
+import AtIcon from '../../icon/index'
 
 import './index.scss'
 
@@ -66,7 +68,7 @@ export default class AtListItem extends Component {
 
           {arrow && (
             <View className='item-extra__icon'>
-              <Icon value='narrow' color='#c7c7cc' />
+              <AtIcon value='narrow' color='#c7c7cc' />
             </View>
           )}
         </View>

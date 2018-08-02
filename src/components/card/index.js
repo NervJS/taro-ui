@@ -1,35 +1,32 @@
 import Taro from '@tarojs/taro'
+import { View, Text, Image } from '@tarojs/components'
 
-import { View, Text } from '@tarojs/components'
-
-import AtIcon from '../icon/index'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
 export default class AtCard extends Taro.Component {
   render () {
-    const {
-      children,
-      title,
-      note,
-      icon,
-      iconColor,
-      iconSize,
-      extra
-    } = this.props
+    const { title, note, extra, thumb, onClick } = this.props
 
     return (
-      <View className='at-card'>
+      <View className='at-card' onClick={onClick}>
         <View className='at-card-header'>
-          <View className='at-card-header__icon'>
-            <AtIcon value={icon} size={iconSize} color={iconColor} />
-          </View>
+          {thumb && (
+            <View className='at-card-header__thumb'>
+              <Image
+                className='at-card-header__thumb-info'
+                mode='scaleToFill'
+                src={thumb}
+              />
+            </View>
+          )}
           <Text className='at-card-header__title'>{title}</Text>
-          <Text className='at-card-header__extra'>{extra}</Text>
+          {extra && <Text className='at-card-header__extra'>{extra}</Text>}
         </View>
         <View className='at-card-content'>
-          <View className='at-card-content__info'>{children}</View>
-          <View className='at-card-content__note'>{note}</View>
+          <View className='at-card-content__info'>{this.props.children}</View>
+          {note && <View className='at-card-content__note'>{note}</View>}
         </View>
       </View>
     )
@@ -37,5 +34,14 @@ export default class AtCard extends Taro.Component {
 }
 
 AtCard.defaultProps = {
-  iconSize: 18
+  iconSize: 18,
+  onClick: () => {}
+}
+
+AtCard.propTypes = {
+  note: PropTypes.string,
+  thumb: PropTypes.string,
+  title: PropTypes.string,
+  extra: PropTypes.string,
+  onClick: PropTypes.func
 }

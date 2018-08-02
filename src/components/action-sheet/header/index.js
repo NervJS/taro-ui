@@ -5,7 +5,6 @@ import './index.scss'
 
 export default class AtActionSheetHeader extends Taro.Component {
   render () {
-    const { children } = this.props
-    return <View className='at-action-sheet-header'>{children}</View>
+    return <View className='at-action-sheet-header'>{this.props.children}</View>
   }
 }
