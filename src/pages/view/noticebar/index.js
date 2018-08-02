@@ -2,12 +2,13 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtNoticebar from '../../../components/noticebar/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
 export default class NoticebarPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Noticebar Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -21,9 +22,7 @@ export default class NoticebarPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>通告栏</View>
-        </View>
+        <DocsHeader title='NoticeBar 通告栏'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -32,10 +31,10 @@ export default class NoticebarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础通告栏</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='bar-item'>
                 <AtNoticebar>这是 NoticeBar 通告栏。单行</AtNoticebar>
               </View>
-              <View className='example'>
+              <View className='bar-item'>
                 <AtNoticebar icon='icon-notice'>这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
               </View>
             </View>
@@ -45,13 +44,13 @@ export default class NoticebarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础通告栏（带关闭按钮）</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='bar-item'>
                 <AtNoticebar close single moreUrl='https://taro.aotu.io/'>这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
               </View>
-              <View className='example'>
+              <View className='bar-item'>
                 <AtNoticebar close single>这是 NoticeBar 通告栏。带关闭按钮、单行</AtNoticebar>
               </View>
-              <View className='example'>
+              <View className='bar-item'>
                 <AtNoticebar close>这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。带关闭按钮、多行</AtNoticebar>
               </View>
             </View>
