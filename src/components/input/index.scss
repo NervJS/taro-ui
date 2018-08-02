@@ -31,7 +31,7 @@
   }
 
   &__children {
-    display: inline-block;
+    display: inline-flex;
     border-left: #e7e7e7 solid 1px;
 
     > view,
@@ -49,7 +49,8 @@
     > image,
     img,
     .taro-img {
-      width: 100px;
+      display: inline-block;
+      width: 140px;
       height: 60px;
       vertical-align: middle;
     }
