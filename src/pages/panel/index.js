@@ -49,10 +49,6 @@ export default class PanelBasic extends Component {
             name: '徽章'
           },
           {
-            id: 'Alert',
-            name: '警告提示'
-          },
-          {
             id: 'Tag',
             name: '标签'
           },
