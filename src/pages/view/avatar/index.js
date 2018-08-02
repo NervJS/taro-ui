@@ -1,12 +1,13 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtAvatar from '../../../components/avatar/index'
+import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
 export default class AvatarPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Avatar Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -25,9 +26,7 @@ export default class AvatarPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <View className='doc-header'>
-          <View className='doc-header__title'>头像</View>
-        </View>
+        <DocsHeader title='Avatar 头像'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -36,7 +35,7 @@ export default class AvatarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>圆形头像</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='example-item'>
                 <View className='example-item'>
                   <AtAvatar circle size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
                 </View>
@@ -54,14 +53,14 @@ export default class AvatarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>圆角矩形头像</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar size='large' image='https://jdc.jd.com/img/200'></AtAvatar>
                 </View>
               </View>
@@ -72,14 +71,14 @@ export default class AvatarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>圆形头像（支持文本）</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar circle size='small' text='凹'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar circle text='凹'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar circle size='large' text='凹'></AtAvatar>
                 </View>
               </View>
@@ -90,14 +89,14 @@ export default class AvatarPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>圆角矩形头像（支持文本）</View>
             <View className='panel__content'>
-              <View className='example'>
-                <View className='example-item'>
+              <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar size='small' text='凹'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar text='凹'></AtAvatar>
                 </View>
-                <View className='example-item'>
+                <View className='subitem'>
                   <AtAvatar size='large' text='凹'></AtAvatar>
                 </View>
               </View>
