@@ -21,7 +21,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='活动指示器'></DocsHeader>
+        <DocsHeader title='Activity Indicator 活动指示器'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -30,10 +30,16 @@ export default class ActivityIndicatorPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>任意尺寸</View>
             <View className='panel__content'>
-              <View className='example__body example__body--list'>
-                <ActivityIndicator size='50' >11</ActivityIndicator>
-                <ActivityIndicator size='75' />
-                <ActivityIndicator size='100' />
+              <View className='example-item'>
+                <View className='subitem'>
+                  <ActivityIndicator size='50' >11</ActivityIndicator>
+                </View>
+                <View className='subitem'>
+                  <ActivityIndicator size='75' />
+                </View>
+                <View className='subitem'>
+                  <ActivityIndicator size='100' />
+                </View>
               </View>
             </View>
           </View>
@@ -42,10 +48,16 @@ export default class ActivityIndicatorPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>各种颜色</View>
             <View className='panel__content'>
-              <View className='example__body example__body--color'>
-                <ActivityIndicator color='red' />
-                <ActivityIndicator color='#DE8C17' />
-                <ActivityIndicator color='#00D06D' />
+              <View className='example-item'>
+                <View className='subitem'>
+                  <ActivityIndicator color='red' />
+                </View>
+                <View className='subitem'>
+                  <ActivityIndicator color='#DE8C17' />
+                </View>
+                <View className='subitem'>
+                  <ActivityIndicator color='#00D06D' />
+                </View>
               </View>
             </View>
           </View>
@@ -54,7 +66,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>自定义文字</View>
             <View className='panel__content'>
-              <View className='example__body example__body--custom'>
+              <View className='example-item'>
                 <ActivityIndicator content='加载中...' />
               </View>
             </View>
@@ -64,10 +76,10 @@ export default class ActivityIndicatorPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>垂直水平居中</View>
             <View className='panel__content'>
-              <View className='example__body example__body--center'>
+              <View className='example-item example-item--center'>
                 <ActivityIndicator mode='center' />
               </View>
-              <View className='example__body example__body--center'>
+              <View className='example-item example-item--center'>
                 <ActivityIndicator mode='center' content='Loading...' />
               </View>
             </View>
