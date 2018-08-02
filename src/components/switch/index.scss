@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #fff;
   padding: 22px 22px 22px 0;
+  border-bottom: #e5e5e5 solid 1px;
 
   &__title {
     flex: 6;
@@ -15,9 +16,5 @@
     flex: 2;
     text-align: right;
     background-color: #fff;
-  }
-
-  + .at-switch {
-    border-top: #e5e5e5 solid 1px;
   }
 }

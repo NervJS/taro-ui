@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtSwitch from '../../../components/switch/index'
+import AtForm from '../../../components/form/index'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -13,7 +14,7 @@ export default class Index extends Taro.Component {
       switchValue: false,
     }
   }
-  handleSwitchChange (value) {
+  handleChange (value) {
     console.log(this.state.switchValue)
     this.setState({
       switchValue: value
@@ -34,10 +35,10 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>基础</View>
             <View className='panel__content'>
               <View className='example__body'>
-                <View className='item'>
-                  <AtSwitch title='开启中' checked onChange={this.handleSwitchChange.bind(this)} />
+                <AtForm>
+                  <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
                   <AtSwitch title='已关闭' />
-                </View>
+                </AtForm>
               </View>
             </View>
           </View>

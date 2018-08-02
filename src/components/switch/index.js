@@ -21,7 +21,7 @@ class AtSwitch extends Taro.Component {
       <View className='at-switch__title'>{title}</View>
       {
         checked
-          ? <Switch checked={checked} color={color} onChange={this.handleChange.bind(this)} />
+          ? <Switch checked color={color} onChange={this.handleChange.bind(this)} />
           : <Switch color={color} onChange={this.handleChange.bind(this)} />
       }
     </View>

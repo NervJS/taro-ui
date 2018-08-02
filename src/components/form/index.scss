@@ -1,12 +1,6 @@
 .at-form {
+  display: block;
   padding-left: 22px;
   background-color: #fff;
-
-  .at-input {
-    border-bottom: #e9eaec solid 1px;
-
-    &:last-child {
-      border: none;
-    }
-  }
+  overflow: hidden;
 }
