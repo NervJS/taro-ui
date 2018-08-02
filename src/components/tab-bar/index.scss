@@ -22,46 +22,11 @@
     position: relative;
   }
 
-  &__icon {
-    position: relative;
-  }
-
-  &__dot {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    color: #fff;
-    border-radius: $border-radius-circle;
-    background-color: $color-error;
-    z-index: $zindex-drawer;
-  }
-
-  &__count {
-    position: absolute;
-    display: inline-flex;
-    top: -10px;
-    right: -20px;
-    padding: 10px;
-    min-width: 20px;
-    height: 20px;
-    line-height: 100%;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    border-radius: $border-radius-circle;
-    background-color: $color-error;
-    z-index: $zindex-drawer;
-  }
-
   &--fixed {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
     z-index: $zindex-drawer;
   }
 }

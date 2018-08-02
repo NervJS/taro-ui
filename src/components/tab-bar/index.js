@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtIcon from '../../components/icon/index'
+import AtBadge from '../../components/badge/index'
 import './index.scss'
 
 /**
@@ -18,9 +19,10 @@ import './index.scss'
  *  title: {String} 标题 [必填]
  *  iconType: {String} 未选中时展示的icon 类型，仅支持AtIcon支持的类型 [可选]
  *  selectedIconType: {String} 选中时展示的icon 类型，仅支持AtIcon支持的类型 [可选]
- *  count: {Number} 显示的数字 [可选]
- *  dot: {Boolean} 是否显示红点，如果有count，优先显示count [可选]
- *  示例: [{ title: '标签页1',iconType: '', dot: true, iconSize:24, selectedIconType: '',count: 8 }, { title: '标签页2' }]
+ *  text: {String} 右上角显示到文本，可以为数字或文字，如果有dot，优先显示dot [可选]
+ *  max: {Number} text可显示的最大数字，超过则显示最大数字加'+'，如'99+' [可选]
+ *  dot: {Boolean} 是否显示红点，优先级比text高 [可选]
+ *  示例: [{ title: '标签页1',iconType: '', dot: true, iconSize:24, selectedIconType: '',text: 8 }, { title: '标签页2' }]
  * @prop onClick {Function} 点击时触发事件，回调参数：列表索引值
  */
 class AtTabBar extends Taro.Component {
@@ -43,28 +45,20 @@ class AtTabBar extends Taro.Component {
         tabList.map((item, i) => {
           return <View className='at-tab-bar__item' style={current === i ? selectedStyle : defaultStyle} key={item} onClick={this.handleClick.bind(this, i)}>
             <View className='at-tab-bar__item-container'>
-              {
-                !item.count && item.dot
-                  ? <View className='at-tab-bar__dot'></View>
-                  : null
-              }
-              {
-                item.count
-                  ? <View className='at-tab-bar__count'>{item.count}</View>
-                  : null
-              }
-              {
-                item.iconType
-                  ? <View className='at-tab-bar__icon'>
-                    <AtIcon
-                      value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
-                      size={iconSize}
-                      color={current === i ? selectedColor : color}
-                    />
-                  </View>
-                  : null
-              }
-              <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+              <AtBadge dot={item.dot} value={item.text} max={item.max}>
+                {
+                  item.iconType
+                    ? <View className='at-tab-bar__icon'>
+                      <AtIcon
+                        value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
+                        size={iconSize}
+                        color={current === i ? selectedColor : color}
+                      />
+                    </View>
+                    : null
+                }
+                <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+              </AtBadge>
             </View>
           </View>
         })
