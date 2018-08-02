@@ -5,7 +5,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'nav bar 导航栏 示例'
+    navigationBarTitleText: 'NavBar 导航栏示例'
   }
   handleClick (title) {
     Taro.showToast({
@@ -16,41 +16,40 @@ export default class Index extends Taro.Component {
   }
   render () {
     return (
-      <View className='example__body'>
-        <View className='item'>
-          <AtNavBar
-            onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
-            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
-            title='nav bar 导航栏 示例'
-            leftIconType='return'
-            leftText='返回'
-            rightFirstIconType='group'
-            rightSecondIconType='feedback'
-          />
+      <View className='page'>
+        <View className='doc-header'>
+          <View className='doc-header__title'>NavBar 导航栏</View>
         </View>
-        <View className='item'>
-          <AtNavBar
-            onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
-            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
-            title='nav bar 导航栏'
-            leftIconType='return'
-            rightFirstIconType='group'
-            rightSecondIconType='feedback'
-          />
-        </View>
-        <View className='item'>
-          <AtNavBar
-            onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
-            onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
-            onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
-            color='#000'
-            title='nav bar导航栏 示例'
-            leftIconType='return'
-            leftText='返回'
-            rightFirstIconType='feedback'
-          />
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>基础用法</View>
+            <View className='panel__content'>
+              <AtNavBar
+                onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
+                onClickRgIconSt={this.handleClick.bind(this, '点击右边1')}
+                onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
+                title='NavBar 导航栏示例'
+                leftIconType='return'
+                leftText='返回'
+                rightFirstIconType='group'
+                rightSecondIconType='feedback'
+              />
+            </View>
+          </View>
+          <View className='panel'>
+            <View className='panel__title'>自定义图标颜色</View>
+            <View className='panel__content'>
+              <AtNavBar
+                onClickLeftIcon={this.handleClick.bind(this, '点击左边')}
+                onClickRgIconNd={this.handleClick.bind(this, '点击右边2')}
+                color='#000'
+                title='NavBar 导航栏示例'
+                leftIconType='return'
+                leftText='返回'
+                rightSecondIconType='feedback'
+              />
+            </View>
+          </View>
         </View>
       </View>
     )
