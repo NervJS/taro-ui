@@ -1,11 +1,14 @@
-.example {
-  margin-bottom: 15px;
+.panel__content {
+  .btn-item {
+    margin-bottom: 20px;
 
-  &.small {
-    text-align: center;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-    .at-button {
-      margin: 0 20px;
+    .subitem {
+      display: inline-block;
+      margin-left: 24px;
     }
   }
 }
