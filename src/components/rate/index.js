@@ -14,12 +14,13 @@ import './index.scss'
  */
 class AtRate extends Taro.Component {
   handleClick (i) {
-    this.props.onChange && this.props.onChange({ value: i + 1 })
+    this.props.onChange(i + 1)
   }
   // 暂不实现touchmove，等taro新版本
   // handleTouchMove(e) {
   // }
   render () {
+    const { size } = this.props
     // 生成星星颜色数组，方便在jsx中直接map
     const rateArr = []
     for (let i = 0; i < this.props.max; i++) {
@@ -30,7 +31,7 @@ class AtRate extends Taro.Component {
       }
     }
     return <View className='at-rate' >
-      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='collection_fill' size={this.props.size} color={color} /></View>)}
+      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='collection_fill' size={size} color={color} /></View>)}
     </View>
   }
 }

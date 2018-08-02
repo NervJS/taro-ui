@@ -2,9 +2,14 @@
   background-color: #fff;
   font-size: 28px;
   padding: 30px 25px;
+  width: 100%;
+  box-sizing: border-box;
 
   &__textarea {
     height: 168px;
+    width: 100%;
+    outline: none;
+    resize: none;
   }
 
   &__bottom {

@@ -11,8 +11,8 @@ export default class AtDrawer extends Taro.Component {
     this.state = { animShow: false }
   }
 
-  onItemClick (e) {
-    this.animHide(e, e.currentTarget.dataset.index)
+  onItemClick (index, e) {
+    this.animHide(e, index)
   }
 
   onHide () {
@@ -37,7 +37,7 @@ export default class AtDrawer extends Taro.Component {
       this.setState({
         animShow: true,
       })
-    }, 100)
+    }, 200)
     console.log('did mount')
   }
 
@@ -68,7 +68,6 @@ export default class AtDrawer extends Taro.Component {
       listStyle.transform = animShow ? 'translateX(0%)' : 'translateX(100%)'
     }
     rootClassName = rootClassName.filter(str => str !== '')
-    // console.log('====', this.props.children)
 
     return (
       <View className={rootClassName}>
@@ -76,7 +75,7 @@ export default class AtDrawer extends Taro.Component {
 
         <View className='at-drawer__content' style={listStyle}>
           <View className='at-drawer__list'>
-            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this)}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)}
+            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this, index)}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)}
           </View>
         </View>
       </View>

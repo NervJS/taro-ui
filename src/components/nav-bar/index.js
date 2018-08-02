@@ -22,11 +22,11 @@ class AtNavBar extends Taro.Component {
   handleClickLeftView () {
     this.props.onClickLeftIcon(...arguments)
   }
-  handleClickFirstIcon () {
-    this.props.onClickRightFirstIcon(...arguments)
+  handleClickSt () {
+    this.props.onClickRgIconSt(...arguments)
   }
-  handleClickSecondIcon () {
-    this.props.onClickRightSecondIcon(...arguments)
+  handleClickNd () {
+    this.props.onClickRgIconNd(...arguments)
   }
 
   render () {
@@ -40,10 +40,10 @@ class AtNavBar extends Taro.Component {
       </View>
       <View className='at-nav-bar__title'>{title}</View>
       <View className='at-nav-bar__right_view'>
-        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickFirstIcon.bind(this)}>
+        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickSt.bind(this)}>
           <AtIcon value={rightFirstIconType} />
         </View>
-        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickSecondIcon.bind(this)}>
+        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickNd.bind(this)}>
           <AtIcon value={rightSecondIconType} />
         </View>
       </View>
@@ -51,7 +51,7 @@ class AtNavBar extends Taro.Component {
   }
 }
 
-const defaltFunc = () => {}
+const defaultFunc = () => {}
 
 AtNavBar.defaultProps = {
   fixed: false,
@@ -61,9 +61,9 @@ AtNavBar.defaultProps = {
   title: '',
   rightFirstIconType: '',
   rightSecondIconType: '',
-  onClickLeftIcon: defaltFunc,
-  onClickRightFirstIcon: defaltFunc,
-  onClickRightSecondIcon: defaltFunc
+  onClickLeftIcon: defaultFunc,
+  onClickRgIconSt: defaultFunc,
+  onClickRgIconNd: defaultFunc
 }
 AtNavBar.propTypes = {
   fixed: PropTypes.bool,
@@ -74,7 +74,7 @@ AtNavBar.propTypes = {
   rightFirstIconType: PropTypes.string,
   rightSecondIconType: PropTypes.string,
   onClickLeftIcon: PropTypes.func,
-  onClickRightFirstIcon: PropTypes.func,
-  onClickRightSecondIcon: PropTypes.func
+  onClickRgIconSt: PropTypes.func,
+  onClickRgIconNd: PropTypes.func
 }
 export default AtNavBar

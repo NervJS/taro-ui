@@ -6,6 +6,7 @@ import './index.scss'
 /**
  * @author:chenzeji
  * @description 数字输入框
+ * @prop style {String} 样式
  * @prop value {Number} 当前输入框值 default: 1
  * @prop min  {Number} 最小值 default: 0
  * @prop max {Number} 最大值 default:100
@@ -29,27 +30,39 @@ class AtInputNumber extends Taro.Component {
     return (Math.round(num1 * m) + Math.round(num2 * m)) / m
   }
   handleMinus () {
-    let value = AtInputNumber.addNum(this.props.value, -this.props.step)
-    value = value > this.props.min ? value : this.props.min
-    this.props.onChange({ value })
+    const { value, min, step } = this.props
+    let nextValue = AtInputNumber.addNum(value, -step)
+    nextValue = nextValue > min ? nextValue : min
+    this.props.onChange(nextValue)
   }
   handlePlus () {
-    let value = AtInputNumber.addNum(this.props.value, this.props.step)
-    value = value < this.props.max ? value : this.props.max
-    this.props.onChange({ value })
+    const { value, max, step } = this.props
+    let nextValue = AtInputNumber.addNum(value, step)
+    nextValue = nextValue < max ? nextValue : max
+    this.props.onChange(nextValue)
   }
   render () {
-    return <View className='at-input-number'>
-      <View className={this.props.value <= this.props.min ? 'at-input-number__btn at-input-number__btn--disabled' : 'at-input-number__btn'} onClick={this.handleMinus.bind(this)}>-</View>
+    const { style, value, min, max } = this.props
+    const minusBtnCls = ['at-input-number__btn']
+    const plusBtnCls = ['at-input-number__btn']
+    if (value <= min) {
+      minusBtnCls.push('at-input-number__btn--disabled')
+    }
+    if (value >= max) {
+      plusBtnCls.push('at-input-number__btn--disabled')
+    }
+    return <View className='at-input-number' style={style}>
+      <View className={minusBtnCls} onClick={this.handleMinus.bind(this)}>-</View>
       <Input className='at-input-number__input'
         type='number'
-        value={this.props.value}
+        value={value}
       />
-      <View className={this.props.value >= this.props.max ? 'at-input-number__btn at-input-number__btn--disabled' : 'at-input-number__btn'} onClick={this.handlePlus.bind(this)}>+</View>
+      <View className={plusBtnCls} onClick={this.handlePlus.bind(this)}>+</View>
     </View>
   }
 }
 AtInputNumber.defaultProps = {
+  style: '',
   value: 1,
   min: 0,
   max: 100,
@@ -57,6 +70,7 @@ AtInputNumber.defaultProps = {
   onChange: () => {}
 }
 AtInputNumber.propTypes = {
+  style: PropTypes.string,
   value: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,

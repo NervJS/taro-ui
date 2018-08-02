@@ -74,13 +74,13 @@ export default class AvatarPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example'>
                 <View className='example-item'>
-                  <AtAvatar circle size='small' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar circle size='small' text='凹'></AtAvatar>
                 </View>
                 <View className='example-item'>
-                  <AtAvatar circle image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar circle text='凹'></AtAvatar>
                 </View>
                 <View className='example-item'>
-                  <AtAvatar circle size='large' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar circle size='large' text='凹'></AtAvatar>
                 </View>
               </View>
             </View>
@@ -92,13 +92,13 @@ export default class AvatarPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example'>
                 <View className='example-item'>
-                  <AtAvatar size='small' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar size='small' text='凹'></AtAvatar>
                 </View>
                 <View className='example-item'>
-                  <AtAvatar image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar text='凹'></AtAvatar>
                 </View>
                 <View className='example-item'>
-                  <AtAvatar size='large' image='https://jdc.jd.com/img/200'>凹</AtAvatar>
+                  <AtAvatar size='large' text='凹'></AtAvatar>
                 </View>
               </View>
             </View>

@@ -1,0 +1,41 @@
+
+.at-pagination {
+  font-size: 0;
+  width: 670px;
+  height: 60px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+
+  &__btns {
+    display: flex;
+
+    &-prev {
+      flex: 1;
+      text-align: left;
+    }
+
+    &-next {
+      flex: 1;
+      text-align: right;
+    }
+  }
+
+  &__number {
+    font-size: 28px;
+    color: #354052;
+    position: absolute;
+    width: 100px;
+    overflow: hidden;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    line-height: 60px;
+    transform: translateX(-50%);
+
+    &-current {
+      color: #6190E8;
+    }
+  }
+}
+

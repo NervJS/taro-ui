@@ -12,55 +12,73 @@ export default class DrawerPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      drawerShow1: false,
-      drawerShow2: false,
+      leftDrawerShow: false,
+      rightDrawerShow: false,
     }
   }
 
-  onClick1 () {
+  leftDrawerClick () {
+    console.log('click====')
     this.setState({
-      drawerShow1: !this.state.drawerShow1,
+      leftDrawerShow: !this.state.leftDrawerShow,
     })
   }
 
-  onClick2 () {
+  rightDrawerClick () {
     this.setState({
-      drawerShow2: !this.state.drawerShow2,
+      rightDrawerShow: !this.state.rightDrawerShow,
     })
   }
 
   onClose (e, index) {
     this.setState({
-      drawerShow1: false,
-      drawerShow2: false,
+      leftDrawerShow: false,
+      rightDrawerShow: false,
     })
 
-    const ENV = Taro.getEnv
+    const ENV = Taro.getEnv()
     let content
-    if (typeof index === 'undefined') {
-      content = '你点击了遮罩关闭'
+    if (typeof index !== 'number') {
+      // content = '你点击了遮罩关闭'
+      content = ''
     } else {
       content = `你点击了第 ${+index + 1} 个项目`
     }
-    if (ENV === 'WEAPP') Taro.showModal({ content })
-    else if (ENV === 'WEB') alert(content)
+    if (ENV === 'WEAPP') content && Taro.showModal({ content, showCancel: false })
+    else if (ENV === 'WEB') content && alert(content)
   }
 
   render () {
     return (
       <View className='page'>
 
-        <View className='example'>
-          <AtButton type='primary' onClick={this.onClick1.bind(this)}>显示drawer(左边)</AtButton>
-          {this.state.drawerShow1 && <AtDrawer show={this.state.drawerShow1} onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
-          </AtDrawer>}
+        <View className='doc-header'>
+          <View className='doc-header__title'>Drawer 抽屉</View>
+        </View>
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>左边滑出</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtButton type='primary' onClick={this.leftDrawerClick.bind(this)}>显示drawer</AtButton>
+                {this.state.leftDrawerShow && <AtDrawer show={this.state.leftDrawerShow} mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
+                </AtDrawer>}
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>右边滑出</View>
+            <View className='panel__content'>
+              <View className='example'>
+                <AtButton type='primary' onClick={this.rightDrawerClick.bind(this)}>显示drawer</AtButton>
+                {this.state.rightDrawerShow && <AtDrawer show={this.state.rightDrawerShow} right mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
+                </AtDrawer>}
+              </View>
+            </View>
+          </View>
         </View>
 
-        <View className='example'>
-          <AtButton type='primary' onClick={this.onClick2.bind(this)}>显示drawer(右边)</AtButton>
-          {this.state.drawerShow2 && <AtDrawer show={this.state.drawerShow2} right onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
-          </AtDrawer>}
-        </View>
       </View>
     )
   }

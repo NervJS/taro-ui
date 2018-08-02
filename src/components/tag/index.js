@@ -1,6 +1,6 @@
-import Taro from "@tarojs/taro"
-import { View } from "@tarojs/components"
-import PropTypes from 'prop-types';
+import Taro from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
@@ -15,42 +15,43 @@ const TYPE_CLASS = {
 
 
 export default class AtTag extends Taro.Component {
-  constructor() {
+  constructor () {
     super(...arguments)
     this.state = {
       active: this.props.active,
+      // active: true,
     }
   }
 
-  onClick() {
+  onClick () {
     if (!this.props.disabled) {
-      let active = !this.state.active
+      console.log('===', this.state, this.props)
+      const active = !this.state.active
+      console.log(active)
       this.setState({
         active,
       })
-      this.props.onClick(...arguments, {active})
+      // debugger
+      this.props.onClick(...arguments, { active })
     }
   }
 
-  render(){
-    let {
+  render () {
+    const {
       size = 'normal',
       type = '',
       circle = false,
-      // active = false,
       disabled = false,
     } = this.props
     let rootClassName = ['at-tag']
-    let sizeClass = SIZE_CLASS[size] || ''
-    let disabledClass = disabled? 'at-tag--disabled': ''
-    let typeClass = TYPE_CLASS[type]? `at-tag--${type}`: ''
-    let activeClass = this.state.active? 'at-tag--active': ''
-    let circleClass = circle? 'at-tag--circle': ''
-    // let loadingClass = loading? 'at-tag--loading': ''
-    // let iconClass = loading? 'at-tag--icon': ''
+    const sizeClass = SIZE_CLASS[size] || ''
+    const disabledClass = disabled ? 'at-tag--disabled' : ''
+    const typeClass = TYPE_CLASS[type] ? `at-tag--${type}` : ''
+    const activeClass = this.state.active ? 'at-tag--active' : ''
+    const circleClass = circle ? 'at-tag--circle' : ''
 
     rootClassName.push(`at-tag--${sizeClass}`, typeClass, activeClass, circleClass, disabledClass)
-    rootClassName = rootClassName.filter(str => str != '')
+    rootClassName = rootClassName.filter(str => str !== '')
 
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>
@@ -74,4 +75,4 @@ AtTag.propTypes = {
   circle: PropTypes.bool,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
-};
+}

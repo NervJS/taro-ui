@@ -11,12 +11,12 @@ export default class Index extends Taro.Component {
     super(...arguments)
     this.state = {
       radioValue: '',
-      radioOptions: ['苹果', '菠萝', '荔枝'],
+      radioOptions: [{ label: '苹果', value: 'apple' }, { label: '梨子', value: 'pear' }, { label: '菠萝', value: 'pineapple' }],
     }
   }
-  handleRadioChange (detail) {
+  handleRadioChange (value) {
     this.setState({
-      radioValue: detail.value
+      radioValue: value
     })
   }
   render () {

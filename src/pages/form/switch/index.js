@@ -13,10 +13,10 @@ export default class Index extends Taro.Component {
       switchValue: false,
     }
   }
-  handleSwitchChange (detail) {
+  handleSwitchChange (value) {
     console.log(this.state.switchValue)
     this.setState({
-      switchValue: detail.value
+      switchValue: value
     })
   }
   render () {

@@ -13,9 +13,9 @@ export default class Index extends Taro.Component {
       rateValue: 3
     }
   }
-  handleRateChange (detail) {
+  handleRateChange (value) {
     this.setState({
-      rateValue: detail.value
+      rateValue: value
     })
   }
   render () {
@@ -32,8 +32,19 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础</View>
             <View className='panel__content'>
-              <View><AtRate size={20} value={this.state.rateValue} max={7} onChange={this.handleRateChange.bind(this)} /></View>
-              <View><AtRate /></View>
+              <View><AtRate value={this.state.rateValue} onChange={this.handleRateChange.bind(this)} /></View>
+            </View>
+            <View className='panel__title'>自定义星星大小</View>
+            <View className='panel__content'>
+              <View><AtRate size='20' value={this.state.rateValue} onChange={this.handleRateChange.bind(this)} /></View>
+            </View>
+            <View className='panel__title'>自定义评分数</View>
+            <View className='panel__content'>
+              <View><AtRate max={10} value={this.state.rateValue} onChange={this.handleRateChange.bind(this)} /></View>
+            </View>
+            <View className='panel__title'>只读</View>
+            <View className='panel__content'>
+              <View><AtRate value={5} /></View>
             </View>
           </View>
         </View>

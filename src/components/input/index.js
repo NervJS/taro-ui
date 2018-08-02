@@ -10,56 +10,113 @@ import './index.scss'
  * @prop placeholder {String} 提示字符
  * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
  * @prop maxlength {Number} 最大长度 default:200
- * @prop type {String}  输入框类型,可选为 text,number,password default: text
+ * @prop backgroundColor {String} 背景颜色 default:#fff
+ * @prop disabled {Boolean} 是否禁止输入，禁止点击按钮 default: false
+ * @prop error {Boolean} 是否出现错误, default: false
+ * @prop clear {Boolean} 是否显示清除按钮, default: false
+ * @prop type {String}  输入框类型,可选为 text,number,password,phone default: text
  * @prop autoFocus {Boolean} 是否自动聚焦 default:false
- * @prop onChange {Function} 输入框值改变时触发的事件,回调参数: {value:''}
- * @prop onFocus {Function} 输入框被选中时触发的事件,回调参数: {value:''}
- * @prop onBlur {Function} 输入框失去焦点时触发的事件,回调参数: {value:''}
+ * @prop onChange {Function} 输入框值改变时触发的事件
+ * @prop onFocus {Function} 输入框被选中时触发的事件
+ * @prop onBlur {Function} 输入框失去焦点时触发的事件
+ * @prop onClickErrorIcon {Function} 点击错误按钮触发的事件
  */
 class AtInput extends Taro.Component {
   handleInput (e) {
-    this.props.onChange({ value: e.target.value })
+    const { value } = e.target
+    const { type } = this.props
+    let newValue = value
+    if (type === 'phone') {
+      newValue = value.replace(/\D/g, '').substring(0, 11)
+      const valueLen = newValue.length
+      if (valueLen > 3 && valueLen < 8) {
+        newValue = `${newValue.substr(0, 3)} ${newValue.substr(3)}`
+      } else if (valueLen >= 8) {
+        newValue = `${newValue.substr(0, 3)} ${newValue.substr(3, 4)} ${newValue.substr(7)}`
+      }
+    }
+    this.props.onChange(newValue, ...arguments)
   }
   handleFocus (e) {
-    this.props.onFocus({ value: e.target.value })
+    this.props.onFocus(e.target.value, ...arguments)
   }
   handleBlur (e) {
-    this.props.onBlur({ value: e.target.value })
+    this.props.onBlur(e.target.value, ...arguments)
+  }
+  clearValue () {
+    this.props.onChange('', ...arguments)
+  }
+  handleClickErrIcon () {
+    this.props.onClickErrorIcon(...arguments)
+  }
+  transferType (type) {
+    if (type === 'phone') {
+      return 'text'
+    }
+    return type
   }
   render () {
-    return <View className={this.props.error ? 'at-input at-input--error' : 'at-input'}>
-      <View className={this.props.title ? 'at-input__container' : 'at-input__container at-input__container--without-title'}>
-        {
-          this.props.title
-            ? <Label className='at-input__title'>{this.props.title}</Label>
-            : null
-        }
-        <Input className='at-input__input'
-          type={this.props.type}
-          placeholder={this.props.placeholder}
-          maxlength={this.props.maxlength}
-          autoFocus={this.props.autoFocus}
-          value={this.props.value}
-          onInput={this.handleInput.bind(this)}
-          onChange={this.handleInput.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-        />
-        <View className='at-input__icon'><AtIcon value='warning_fill' color='#e93b3d' size='20' /></View>
-      </View>
+    const { title, disabled, error, clear, type, placeholder, maxlength, autoFocus, value, backgroundColor } = this.props
+    const rootStyle = `background-color: ${backgroundColor};`
+    const rootCls = ['at-input']
+    if (error) {
+      rootCls.push('at-input--error')
+    }
+    if (disabled) {
+      rootCls.push('at-input--disabled')
+    }
+    return <View className={rootCls} style={rootStyle} >
+      {
+        title
+          ? <Label className='at-input__title'>{title}</Label>
+          : null
+      }
+      <Input className='at-input__input'
+        type={this.transferType(type)}
+        placeholder={placeholder}
+        maxlength={maxlength}
+        autoFocus={autoFocus}
+        value={value}
+        disabled={disabled}
+        onInput={this.handleInput.bind(this)}
+        onChange={this.handleInput.bind(this)}
+        onFocus={this.handleFocus.bind(this)}
+        onBlur={this.handleBlur.bind(this)}
+      />
+      {
+        clear && value
+          ? <View className='at-input__icon' onClick={this.clearValue.bind(this)} >
+            <AtIcon value='delete' color='#ccc' size='20' />
+          </View>
+          : null
+      }
+      {
+        error
+          ? <View className='at-input__icon' onClick={this.handleClickErrIcon.bind(this)} >
+            <AtIcon value='warning_fill' color='#e93b3d' size='20' />
+          </View>
+          : null
+      }
+      <View className='at-input__children'>{this.props.children}</View>
     </View>
   }
 }
+const defaultFunc = () => {}
 AtInput.defaultProps = {
   value: '',
   placeholder: '',
   title: '',
   maxlength: 200,
   type: 'text',
+  disabled: false,
+  error: false,
+  clear: false,
+  backgroundColor: '#fff',
   autoFocus: false,
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {}
+  onChange: defaultFunc,
+  onFocus: defaultFunc,
+  onBlur: defaultFunc,
+  onClickErrorIcon: defaultFunc
 }
 AtInput.propTypes = {
   value: PropTypes.oneOfType([
@@ -70,9 +127,14 @@ AtInput.propTypes = {
   title: PropTypes.string,
   maxlength: PropTypes.number,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  clear: PropTypes.bool,
+  backgroundColor: PropTypes.string,
   autoFocus: PropTypes.bool,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  onClickErrorIcon: PropTypes.func,
 }
 export default AtInput

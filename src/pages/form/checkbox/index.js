@@ -10,17 +10,17 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      checkedList: ['苹果'],
+      checkedList: ['apple'],
       checkboxOption: [
-        { value: '苹果', desc: '苹果味甘、酸，性凉，归脾、肺经；具有生津、润肺，除烦解暑，开胃、醒酒，止泻的功效；' },
-        { value: '菠萝', desc: '菠萝原生长在半荫的热带雨林，较耐阴，由于长期人工栽培驯化而对光照要求增加，充足的光照下生长良好、果实含糖量高、品质佳' },
-        { value: '梨子' }
+        { value: 'apple', label: '苹果', desc: '苹果味甘、酸，性凉，归脾、肺经；具有生津、润肺，除烦解暑，开胃、醒酒，止泻的功效；' },
+        { value: 'pear', label: '梨子' },
+        { value: 'pineapple', label: '菠萝', desc: '菠萝原生长在半荫的热带雨林，较耐阴，由于长期人工栽培驯化而对光照要求增加，充足的光照下生长良好、果实含糖量高、品质佳' }
       ]
     }
   }
-  handleCheckboxChange (detail) {
+  handleChange (value) {
     this.setState({
-      checkedList: detail.value
+      checkedList: value
     })
   }
   render () {
@@ -38,7 +38,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>基础复选框</View>
             <View className='panel__content'>
               <View className='example__body'>
-                <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleCheckboxChange.bind(this)} />
+                <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleChange.bind(this)} />
               </View>
             </View>
           </View>

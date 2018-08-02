@@ -10,15 +10,10 @@ export default class ButtonPage extends Taro.Component {
     navigationBarTitleText: 'Button Page'
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-
-    }
-  }
-
   onButtonClick () {
-    alert('点击了！')
+    const ENV = Taro.getEnv()
+    if (ENV === 'WEAPP') Taro.showModal({ content: '您点击了！', showCancel: false })
+    else if (ENV === 'WEB') alert('您点击了！')
   }
 
   render () {
