@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import AtInput from '../../../components/input/index'
 import AtForm from '../../../components/form/index'
-import verificationCode from './verificationCode.png'
+import verificationCode from '../../../assets/images/verification_code.png'
 import './index.scss'
 
 export default class Index extends Taro.Component {
