@@ -19,7 +19,7 @@ export default class ModalPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: true
+      isOpened: false
     }
   }
 
@@ -38,14 +38,14 @@ export default class ModalPage extends Taro.Component {
     const { isOpened } = this.state
     return (
       <View className='page'>
-        <DocsHeader title='模态框'></DocsHeader>
+        <DocsHeader title='Modal 模态框'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础案例</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <Button onClick={this.handleClick}>打开Modal</Button>
+              <View className='example-item'>
+                <Button onClick={this.handleClick}>打开 Modal</Button>
               </View>
             </View>
           </View>
