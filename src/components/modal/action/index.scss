@@ -1,8 +1,31 @@
 .at-modal-footer {
-  border-top: 2px solid #e5e5e5;
+  /* prettier-ignore */
+  border-top: 1PX solid #e5e5e5;
 
   &__action {
     display: flex;
   }
-}
 
+  .at-modal-action {
+    display: flex;
+
+    & > button {
+      border: 0;
+      outline: 0;
+      flex: auto;
+      font-size: 28px;
+      background-color: white;
+      border-radius: 0;
+
+      &::after {
+        border: 0;
+        border-radius: 0;
+      }
+
+      &:not(:first-child) {
+        /* prettier-ignore */
+        border-left: 1PX solid #e5e5e5;
+      }
+    }
+  }
+}

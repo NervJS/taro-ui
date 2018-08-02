@@ -1,15 +1,10 @@
-import Taro from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtActionSheetItem from './item/index.js'
 
 import './index.scss'
 
-export default class AtActionSheetBody extends Taro.Component {
-  static Item = AtActionSheetItem
-
+export default class AtActionSheetBody extends Component {
   render () {
-    const { children } = this.props
-    return <View className='at-action-sheet-body'>{children}</View>
+    return <View className='at-action-sheet-body'>{this.props.children}</View>
   }
 }

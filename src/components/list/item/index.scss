@@ -1,0 +1,101 @@
+@import "../../../style/mixins/index.scss";
+@import "../../../style/theme/default.scss";
+
+$image-size: 56px;
+$image-distance: 32px;
+$item-horizontal-padding: 30px;
+
+@mixin squareImg($size: 56px) {
+  width: $size;
+  height: $size;
+  background-color: #d8d8d8;
+
+  &-info {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.at-list__item {
+  @include display-flex;
+  @include align-items(center);
+
+  font-size: 34px;
+  padding: 20px 30px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  color: $color-black-0;
+
+  &--multiple {
+    .item-thumb {
+      top: 30px;
+    }
+  }
+
+  &--thumb {
+    padding-left: $image-size + $item-horizontal-padding + $image-distance;
+
+    .item-thumb {
+      @include squareImg($image-size);
+
+      top: 20px;
+      position: absolute;
+      left: $item-horizontal-padding;
+    }
+  }
+
+  &-content {
+    @include flex(1);
+  }
+
+  &-extra {
+    @include flex(0, 0, 235px);
+
+    text-align: right;
+  }
+}
+
+.at-list__item .item-contet {
+  &__info {
+    display: inline-block;
+
+    &-title {
+      color: inherit;
+      font-size: inherit;
+    }
+
+    &-note {
+      font-size: 28px;
+      color: #8b8b8d;
+    }
+  }
+}
+
+.at-list__item .item-extra {
+  &__info,
+  &__icon,
+  &__image,
+  &__switch {
+    display: inline-block;
+  }
+
+  &__info {
+    color: #888;
+    font-size: 32px;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    margin-left: 30px;
+  }
+
+  &__switch {
+    vertical-align: middle;
+  }
+
+  &__image {
+    @include squareImg($image-size);
+
+    vertical-align: middle;
+  }
+}

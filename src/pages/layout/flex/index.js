@@ -1,8 +1,8 @@
-/* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
 import AtFlex from '../../../components/flex/index'
+import AtFlexItem from '../../../components/flex/item/index'
 
 import './index.scss'
 
@@ -20,14 +20,14 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item>A</AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
-              <AtFlex.Item>C</AtFlex.Item>
+              <AtFlexItem>A</AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
+              <AtFlexItem>C</AtFlexItem>
             </AtFlex>
             <AtFlex>
-              <AtFlex.Item>A</AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
-              <AtFlex.Item>C</AtFlex.Item>
+              <AtFlexItem>A</AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
+              <AtFlexItem>C</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -37,10 +37,10 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item size='3'>A</AtFlex.Item>
-              <AtFlex.Item size='6'>B</AtFlex.Item>
-              <AtFlex.Item size='2'>C</AtFlex.Item>
-              <AtFlex.Item size='1'>D</AtFlex.Item>
+              <AtFlexItem size='3'>A</AtFlexItem>
+              <AtFlexItem size='6'>B</AtFlexItem>
+              <AtFlexItem size='2'>C</AtFlexItem>
+              <AtFlexItem size='1'>D</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -50,9 +50,9 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item offset='2'>A</AtFlex.Item>
-              <AtFlex.Item offset='3'>B</AtFlex.Item>
-              <AtFlex.Item>C</AtFlex.Item>
+              <AtFlexItem offset='2'>A</AtFlexItem>
+              <AtFlexItem offset='3'>B</AtFlexItem>
+              <AtFlexItem>C</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -63,11 +63,11 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex wrap='wrap'>
-              <AtFlex.Item size='4'>A</AtFlex.Item>
-              <AtFlex.Item size='4'>B</AtFlex.Item>
-              <AtFlex.Item size='4'>C</AtFlex.Item>
-              <AtFlex.Item size='4'>D</AtFlex.Item>
-              <AtFlex.Item size='4'>E</AtFlex.Item>
+              <AtFlexItem size='4'>A</AtFlexItem>
+              <AtFlexItem size='4'>B</AtFlexItem>
+              <AtFlexItem size='4'>C</AtFlexItem>
+              <AtFlexItem size='4'>D</AtFlexItem>
+              <AtFlexItem size='4'>E</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -77,14 +77,14 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item isAuto size='1'>
+              <AtFlexItem isAuto size='1'>
                 被内容撑开
-              </AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
             </AtFlex>
             <AtFlex>
-              <AtFlex.Item size='1'>没有被内容撑开</AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
+              <AtFlexItem size='1'>没有被内容撑开</AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -94,14 +94,14 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item isWrap size='1'>
+              <AtFlexItem isWrap size='1'>
                 内容自动换行
-              </AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
             </AtFlex>
             <AtFlex>
-              <AtFlex.Item size='1'>内容没有自动换行</AtFlex.Item>
-              <AtFlex.Item>B</AtFlex.Item>
+              <AtFlexItem size='1'>内容没有自动换行</AtFlexItem>
+              <AtFlexItem>B</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -111,8 +111,8 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex>
-              <AtFlex.Item>撑开高度 撑开高度 撑开高度 撑开高度</AtFlex.Item>
-              <AtFlex.Item align='center'>B</AtFlex.Item>
+              <AtFlexItem>撑开高度 撑开高度 撑开高度 撑开高度</AtFlexItem>
+              <AtFlexItem align='center'>B</AtFlexItem>
             </AtFlex>
           </View>
         </View>
@@ -122,34 +122,34 @@ export default class FlexPage extends Taro.Component {
           </View>
           <View className='example__body'>
             <AtFlex justify='start'>
-              <AtFlex.Item size='4'>
+              <AtFlexItem size='4'>
                 撑开高度 撑开高度 撑开高度 撑开高度
-              </AtFlex.Item>
-              <AtFlex.Item size='3'>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem size='3'>B</AtFlexItem>
             </AtFlex>
             <AtFlex justify='center'>
-              <AtFlex.Item size='4'>
+              <AtFlexItem size='4'>
                 撑开高度 撑开高度 撑开高度 撑开高度
-              </AtFlex.Item>
-              <AtFlex.Item size='3'>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem size='3'>B</AtFlexItem>
             </AtFlex>
             <AtFlex justify='end'>
-              <AtFlex.Item size='4'>
+              <AtFlexItem size='4'>
                 撑开高度 撑开高度 撑开高度 撑开高度
-              </AtFlex.Item>
-              <AtFlex.Item size='3'>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem size='3'>B</AtFlexItem>
             </AtFlex>
             <AtFlex justify='between'>
-              <AtFlex.Item size='4'>
+              <AtFlexItem size='4'>
                 撑开高度 撑开高度 撑开高度 撑开高度
-              </AtFlex.Item>
-              <AtFlex.Item size='3'>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem size='3'>B</AtFlexItem>
             </AtFlex>
             <AtFlex justify='around'>
-              <AtFlex.Item size='4'>
+              <AtFlexItem size='4'>
                 撑开高度 撑开高度 撑开高度 撑开高度
-              </AtFlex.Item>
-              <AtFlex.Item size='3'>B</AtFlex.Item>
+              </AtFlexItem>
+              <AtFlexItem size='3'>B</AtFlexItem>
             </AtFlex>
           </View>
         </View>

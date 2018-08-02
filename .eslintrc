@@ -5,6 +5,7 @@
     "class-methods-use-this": "off",
     "prefer-rest-params": "off",
     "arrow-body-style": "warn",
-    "taro/custom-component-children": "off"
+    "taro/custom-component-children": "off",
+    "no-unused-vars":["error", { "varsIgnorePattern": "Taro" }]
   }
 }

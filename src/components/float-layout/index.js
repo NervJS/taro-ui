@@ -1,6 +1,8 @@
+/* eslint-disable taro/function-naming */
 import Taro from '@tarojs/taro'
-
 import { View, Text } from '@tarojs/components'
+
+import PropTypes from 'prop-types'
 
 import AtIcon from '../icon/index'
 
@@ -32,7 +34,7 @@ export default class AtFloatLayout extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
-    const { children, title } = this.props
+    const { title } = this.props
 
     return isOpened ? (
       <View className='at-float-layout'>
@@ -44,9 +46,14 @@ export default class AtFloatLayout extends Taro.Component {
               <AtIcon value='close' size='18' color='#CCC' />
             </View>
           </View>
-          <View className='layout-body'>{children}</View>
+          <View className='layout-body'>{this.props.children}</View>
         </View>
       </View>
     ) : null
   }
+}
+
+AtFloatLayout.propTypes = {
+  title: PropTypes.string,
+  isOpened: PropTypes.bool
 }

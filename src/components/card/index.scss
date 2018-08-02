@@ -20,19 +20,25 @@
       line-height: 1;
     }
 
-    &__icon {
-      @include flex(0, 0, auto);
+    &__thumb {
+      @include flex(0, 0, 34px);
 
+      height: 34px;
       display: block;
       line-height: 0;
       margin-right: 16px;
+
+      &-info {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__title {
       @include flex(auto);
 
       display: block;
-      font-size: 32px;
+      font-size: 36px;
     }
 
     &__extra {
