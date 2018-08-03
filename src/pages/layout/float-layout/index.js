@@ -8,13 +8,13 @@ import './index.scss'
 
 export default class FloatLayoutPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'FloatLayout Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: true
+      isOpened: false
     }
   }
 
@@ -25,16 +25,17 @@ export default class FloatLayoutPage extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
+
     return (
       <View className='page'>
-        <DocsHeader title='浮动弹层'></DocsHeader>
+        <DocsHeader title='Float Layout 浮动弹层'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <Button onClick={this.handleClick}>打开Float Layout</Button>
+              <View className='example-item'>
+                <Button onClick={this.handleClick}>打开 Float Layout</Button>
               </View>
             </View>
           </View>

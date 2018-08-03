@@ -20,7 +20,7 @@ export default [
   'chevron-up',
   'clock',
   'close-2',
-  'close-1',
+  'close',
   'credit-card',
   'download-cloud',
   'download',
