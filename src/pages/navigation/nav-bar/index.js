@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'NavBar 导航栏示例'
+    navigationBarTitleText: 'Taro UI'
   }
   handleClick (title) {
     Taro.showToast({
@@ -36,6 +36,7 @@ export default class Index extends Taro.Component {
               />
             </View>
           </View>
+
           <View className='panel'>
             <View className='panel__title'>自定义图标颜色</View>
             <View className='panel__content'>

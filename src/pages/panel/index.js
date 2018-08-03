@@ -137,11 +137,11 @@ export default class PanelBasic extends Component {
         ],
         'navigation': [
           {
-            id: 'Nav-Bar',
+            id: 'NavBar',
             name: '导航栏'
           },
           {
-            id: 'Tab-Bar',
+            id: 'TabBar',
             name: '标签栏'
           },
           {
@@ -211,7 +211,7 @@ export default class PanelBasic extends Component {
                 onClick={this.gotoComponent}
               >
                 <Text className='name'>{`${item.id} ${item.name}`}</Text>
-                <Text className='at-icon at-icon-enter'></Text>
+                <Text className='at-icon at-icon-chevron-right'></Text>
               </View>
             ))}
           </View>

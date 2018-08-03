@@ -6,23 +6,27 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'TabBar 标签栏示例'
+    navigationBarTitleText: 'Taro UI'
   }
+
   constructor () {
     super(...arguments)
     this.state = {
       current: 0,
     }
   }
+
   handleClick (value) {
     this.setState({
       current: value
     })
   }
+
   render () {
     const { current } = this.state
     const tabList1 = [{ title: '待办事项', text: 8 }, { title: '拍照' }, { title: '通讯录', dot: true }]
     const tabList2 = [{ title: '待办事项', iconType: 'activity', selectedIconType: 'activity_fill', text: 'new' }, { title: '拍照', iconType: 'camera', selectedIconType: 'camera_fill' }, { title: '通讯录', iconType: 'addressbook', selectedIconType: 'addressbook_fill', text: '100', max: '99' }]
+
     return (
       <View className='page'>
         <DocsHeader title='TabBar 标签栏'></DocsHeader>
