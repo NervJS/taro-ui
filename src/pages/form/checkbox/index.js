@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'checkbox 使用范例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -28,15 +28,15 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='复选框'></DocsHeader>
+        <DocsHeader title='Checkbox 复选框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础复选框</View>
-            <View className='panel__content'>
-              <View className='example__body'>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
                 <AtCheckbox options={this.state.checkboxOption} selectedList={this.state.checkedList} onChange={this.handleChange.bind(this)} />
               </View>
             </View>
