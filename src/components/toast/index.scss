@@ -11,6 +11,10 @@
   &-content {
     &__icon {
       margin-bottom: 15px;
+
+      &--no-margin {
+        margin: 0;
+      }
     }
 
     &__info {

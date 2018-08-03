@@ -1,6 +1,6 @@
 /* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Text } from '@tarojs/components'
 
 import AtActionSheet from '../../../components/action-sheet'
 import AtActionSheetItem from '../../../components/action-sheet/body/item/index'
@@ -30,7 +30,7 @@ export default class ActionSheetPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='ActionSheet 操作面板'></DocsHeader>
+        <DocsHeader title='ActionSheet 操作面板' />
         {/* E Header */}
 
         {/* S Body */}
@@ -45,12 +45,17 @@ export default class ActionSheetPage extends Taro.Component {
             </View>
           </View>
         </View>
-        {/* E Body */}
 
-        <AtActionSheet title='标题' cancleText='取消' isOpened={isOpened}>
-          <AtActionSheetItem>这是啥??</AtActionSheetItem>
-          <AtActionSheetItem>这是啥</AtActionSheetItem>
-          <AtActionSheetItem>这是啥</AtActionSheetItem>
+        <AtActionSheet
+          cancleText='取消'
+          isOpened={isOpened}
+          title='清除位置信息后， 别人将不能查看到你这里最多显示两行'
+        >
+          <AtActionSheetItem>按钮一</AtActionSheetItem>
+          <AtActionSheetItem>按钮二</AtActionSheetItem>
+          <AtActionSheetItem>
+            <Text className='danger'>清除位置信息并退出</Text>
+          </AtActionSheetItem>
         </AtActionSheet>
       </View>
     )

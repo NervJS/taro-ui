@@ -2,8 +2,9 @@
 @import "../../../style/theme/default.scss";
 
 .at-action-sheet-header {
-  font-size: 28px;
-  padding: 25px 0;
   color: #888;
+  font-size: 28px;
+  padding: 25px 135px;
+  text-align: center;
   border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
 }

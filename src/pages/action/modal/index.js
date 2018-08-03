@@ -2,11 +2,12 @@
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 
+import AtButton from '../../../components/button/index'
 import AtModal from '../../../components/modal/index'
 import AtModalHeader from '../../../components/modal/header/index'
 import AtModalContent from '../../../components/modal/content/index'
 import AtModalAction from '../../../components/modal/action/index'
-// import AtModalActionButton from '../../../components/modal/action//index'
+
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -45,7 +46,7 @@ export default class ModalPage extends Taro.Component {
             <View className='panel__title'>基础案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button onClick={this.handleClick}>打开 Modal</Button>
+                <AtButton onClick={this.handleClick}>打开Modal</AtButton>
               </View>
             </View>
           </View>
@@ -53,10 +54,18 @@ export default class ModalPage extends Taro.Component {
 
         <AtModal isOpened={isOpened}>
           <AtModalHeader>标题</AtModalHeader>
-          <AtModalContent>内容区</AtModalContent>
+          <AtModalContent>
+            <View className='modal-content'>
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+            </View>
+          </AtModalContent>
           <AtModalAction>
-            <Button className='test' onClick={this.closeModal}>取消</Button>
-            <Button onClick={this.closeModal}>确定</Button>
+            <Button onClick={this.closeModal}>取消</Button>
+            <Button className='serious-button' onClick={this.closeModal}>
+              确定
+            </Button>
           </AtModalAction>
         </AtModal>
       </View>

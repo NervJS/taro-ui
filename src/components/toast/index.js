@@ -7,56 +7,56 @@ export default class Toast extends Taro.Component {
   constructor (props) {
     super(...arguments)
 
-    const { isOpen } = props
+    const { isOpened } = props
 
-    if (isOpen) {
+    if (isOpened) {
       this._makeTimer()
     }
 
     this._timer = null
     this.state = {
-      isOpen
+      isOpened
     }
   }
 
-  _clearTimer () {
+  clearTimmer () {
     if (this._timer) {
       clearTimeout(this._timer)
       this._timer = null
     }
   }
 
-  _makeTimer () {
+  makeTimer () {
     const { duration } = this.props
     this._timer = setTimeout(() => {
       this.setState({
-        isOpen: false
+        isOpened: false
       })
     }, duration)
   }
 
-  _close () {
-    const { isOpen } = this.state
-    if (isOpen) {
+  close () {
+    const { isOpened } = this.state
+    if (isOpened) {
       this.setState({
-        isOpen: false
+        isOpened: false
       })
-      this._clearTimer()
+      this.clearTimmer()
     }
   }
 
   componentWillReceiveProps (nextProps) {
-    const { isOpen } = nextProps
-    if (!isOpen) return
+    const { isOpened } = nextProps
+    if (!isOpened) return
 
-    if (!this.state.isOpen) {
+    if (!this.state.isOpened) {
       this.setState({
-        isOpen
+        isOpened
       })
     } else {
-      this._clearTimer()
+      this.clearTimmer()
     }
-    this._makeTimer()
+    this.makeTimer()
   }
 
   handleClick = () => {
@@ -64,17 +64,23 @@ export default class Toast extends Taro.Component {
     if (onClickToast) {
       return onClickToast()
     }
-    this._close()
+    this.close()
   }
 
   render () {
-    const { isOpen } = this.state
+    const { isOpened } = this.state
     const { text, hiddenIcon, iconSize, iconType, iconColor } = this.props
-    return isOpen ? (
+
+    const iconClass = [
+      'at-toast-content__icon',
+      'at-toast-content__icon--no-margin'
+    ]
+
+    return isOpened ? (
       <View className='at-toast' onClick={this.handleClick}>
         <View className='at-toast-content'>
           {!hiddenIcon && (
-            <View className='at-toast-content__icon'>
+            <View className={iconClass}>
               <Icon type={iconType} color={iconColor} size={iconSize} />
             </View>
           )}
