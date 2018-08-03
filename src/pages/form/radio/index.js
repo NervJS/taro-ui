@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'radio 使用示例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -24,16 +24,16 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='单选框'></DocsHeader>
+        <DocsHeader title='Radio 单选框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础单选框</View>
-            <View className='panel__content'>
-              <View className='example__body'>
-                <View className='item'><AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} /></View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} />
               </View>
             </View>
           </View>
