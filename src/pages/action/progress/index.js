@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
+import AtButton from '../../../components/button/index'
 import AtProgress from '../../../components/progress/index'
 
 import './index.scss'
@@ -146,12 +147,12 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__title'>实际案例</View>
             <View className='panel__content'>
               <View className='example__body'>
-                <Button size='mini' onClick={this.increase}>
+                <AtButton size='small' onClick={this.increase}>
                   +
-                </Button>
-                <Button size='mini' onClick={this.reduce}>
+                </AtButton>
+                <AtButton size='small' onClick={this.reduce}>
                   -
-                </Button>
+                </AtButton>
                 <View className='example__body-item'>
                   <AtProgress percent={percent} />
                 </View>

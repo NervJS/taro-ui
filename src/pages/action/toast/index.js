@@ -1,13 +1,14 @@
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View } from '@tarojs/components'
 
-import Toast from '../../../components/toast/index'
+import AtToast from '../../../components/toast/index'
+import AtButton from '../../../components/button/index'
 
 import './index.scss'
 
 const INIT_STATE = {
   text: '一行文本',
-  isOpen: false,
+  isOpened: false,
   iconSize: 100,
   iconColor: 'white',
   iconType: 'cancel',
@@ -26,7 +27,7 @@ export default class ToastPage extends Taro.Component {
 
   handleClick = e => {
     const state = Object.assign(
-      { ...INIT_STATE, isOpen: true },
+      { ...INIT_STATE, isOpened: true },
       e.currentTarget.dataset
     )
     this.setState(state)
@@ -38,7 +39,7 @@ export default class ToastPage extends Taro.Component {
 
   render () {
     const {
-      isOpen,
+      isOpened,
       iconColor,
       iconSize,
       iconType,
@@ -61,9 +62,7 @@ export default class ToastPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example__body'>
                 <View className='example__body-button'>
-                  <Button size='mini' onClick={this.handleClick}>
-                    Open Toast
-                  </Button>
+                  <AtButton onClick={this.handleClick}>Open Toast</AtButton>
                 </View>
               </View>
             </View>
@@ -75,14 +74,13 @@ export default class ToastPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example__body'>
                 <View className='example__body-button'>
-                  <Button
-                    size='mini'
+                  <AtButton
                     onClick={this.handleClick}
                     data-text='只有文本'
                     data-hidden-icon
                   >
                     Open Toast
-                  </Button>
+                  </AtButton>
                 </View>
               </View>
             </View>
@@ -94,9 +92,9 @@ export default class ToastPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example__body'>
                 <View className='example__body-button'>
-                  <Button data-text='' size='mini' onClick={this.handleClick}>
+                  <AtButton data-text='' onClick={this.handleClick}>
                     Open Toast
-                  </Button>
+                  </AtButton>
                 </View>
               </View>
             </View>
@@ -108,14 +106,13 @@ export default class ToastPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example__body'>
                 <View className='example__body-button'>
-                  <Button
+                  <AtButton
                     data-icon-type='success'
                     data-icon-size='80'
-                    size='mini'
                     onClick={this.handleClick}
                   >
                     Open Toast
-                  </Button>
+                  </AtButton>
                 </View>
               </View>
             </View>
@@ -123,9 +120,9 @@ export default class ToastPage extends Taro.Component {
         </View>
         {/* E Body */}
 
-        <Toast
+        <AtToast
           text={text}
-          isOpen={isOpen}
+          isOpened={isOpened}
           iconSize={iconSize}
           iconType={iconType}
           iconColor={iconColor}

@@ -1,21 +1,23 @@
+@import "../../../style/mixins/index";
+@import "../../../style/theme/default";
+
 .at-modal-footer {
   /* prettier-ignore */
   border-top: 1PX solid #e5e5e5;
 
-  &__action {
-    display: flex;
-  }
-
   .at-modal-action {
-    display: flex;
+    @include display-flex;
 
     & > button {
+      @include flex(auto);
+
       border: 0;
       outline: 0;
-      flex: auto;
+      height: 88px;
       font-size: 28px;
       background-color: white;
       border-radius: 0;
+      line-height: 86px;
 
       &::after {
         border: 0;
