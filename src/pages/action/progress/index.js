@@ -75,7 +75,7 @@ export default class ProgressPage extends Taro.Component {
                 <AtProgress percent='25' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='75' hidePercent />
+                <AtProgress percent='75' isHidePercent />
               </View>
             </View>
           </View>

@@ -37,6 +37,18 @@ components:
             name: Grid
           - title: FloatLayout 浮动布局
             name: FloatLayout
+      - title: 操作反馈
+        items:
+          - title: Toast 轻提示
+            name: Toast
+          - title: Modal 模态框
+            name: Modal
+          - title: Progress 进度条
+            name: Progress
+          - title: ActionSheet 上拉菜单
+            name: ActionSheet
+          - title: ActivityIndicator 活动指示器
+            name: ActivityIndicator
           # - title: 布局
           #   name: Layout
           # - title: 标签
