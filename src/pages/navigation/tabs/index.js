@@ -7,7 +7,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'tabs 标签页示例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -33,11 +33,13 @@ export default class Index extends Taro.Component {
       { title: '标签页6' },
       { title: '标签页7' }
     ]
+
     return (
       <View className='page'>
         <DocsHeader title='Tabs 标签页'></DocsHeader>
 
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
@@ -54,12 +56,16 @@ export default class Index extends Taro.Component {
               }
             </View>
           </View>
+
+          {/* 滚动 */}
           <View className='panel'>
             <View className='panel__title'>滚动</View>
             <View className='panel__content'>
               <AtTabs scroll current={current2} tabList={tabList2} onClick={this.handleClick.bind(this, 'current2')} />
             </View>
           </View>
+
+          {/* 自定义颜色 */}
           <View className='panel'>
             <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
