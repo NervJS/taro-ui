@@ -56,10 +56,10 @@ export default class AtPagination extends Taro.Component {
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
-              <AtButton onClick={this.onPrev.bind(this)} size='small' icon={icon ? 'emoji' : ''} _disabled={current === 1}>{icon ? '' : '上一页'}</AtButton>
+              <AtButton onClick={this.onPrev.bind(this)} size='small' icon={icon ? 'chevron-left' : ''} _disabled={current === 1}>{icon ? '' : '上一页'}</AtButton>
             </View>
             <View className='at-pagination__btns-next'>
-              <AtButton onClick={this.onNext.bind(this)} size='small' icon={icon ? 'emoji' : ''} _disabled={current === maxPage}>{icon ? '' : '下一页'}</AtButton>
+              <AtButton onClick={this.onNext.bind(this)} size='small' icon={icon ? 'chevron-right' : ''} _disabled={current === maxPage}>{icon ? '' : '下一页'}</AtButton>
             </View>
           </View>
         </View>

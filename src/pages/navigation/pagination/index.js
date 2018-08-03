@@ -7,7 +7,7 @@ import './index.scss'
 
 export default class PaginationPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Pagination Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   // onClose (e) {
@@ -35,7 +35,7 @@ export default class PaginationPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>文本按钮 + 页码</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='example-item'>
                 <AtPagination total='50' pageSize='10' current='1'></AtPagination>
               </View>
             </View>
@@ -44,7 +44,7 @@ export default class PaginationPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>图标按钮 + 页码</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='example-item'>
                 <AtPagination icon total='50' pageSize='10' current='1'></AtPagination>
               </View>
             </View>
@@ -53,7 +53,7 @@ export default class PaginationPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>隐藏页码</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='example-item'>
                 <AtPagination icon total='50' pageSize='10' current='1' simple></AtPagination>
               </View>
             </View>
