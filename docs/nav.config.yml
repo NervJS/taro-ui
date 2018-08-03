@@ -25,6 +25,18 @@ components:
         items:
           - title: 按钮
             name: Button
+      - title: 布局组件
+        items:
+          - title: List 列表
+            name: List
+          - title: Card 卡片
+            name: Card
+          - title: Flex 弹性布局
+            name: Flex
+          - title: Grid 宫格布局
+            name: Grid
+          - title: FloatLayout 浮动布局
+            name: FloatLayout
           # - title: 布局
           #   name: Layout
           # - title: 标签

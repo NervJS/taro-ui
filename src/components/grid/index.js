@@ -81,7 +81,6 @@ AtGrid.propTypes = {
       value: PropTypes.string,
       iconSize: PropTypes.string,
       iconColor: PropTypes.string,
-      onCLick: PropTypes.func
     })
   )
 }
