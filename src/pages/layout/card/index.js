@@ -8,19 +8,19 @@ import './index.scss'
 
 export default class CardPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Card Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   render () {
     return (
       <View className='page'>
-        <DocsHeader title='卡片'></DocsHeader>
+        <DocsHeader title='Card 卡片'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础卡片</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtCard
                   title='这是个标题'
                   onClick={console.log.bind(this, 'click card')}
@@ -34,7 +34,7 @@ export default class CardPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>带缩略图的卡片</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtCard
                   title='这是个标题'
                   thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
@@ -48,7 +48,7 @@ export default class CardPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>带小信息的卡片</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtCard
                   note='小Tips'
                   title='这是个标题'
@@ -63,7 +63,7 @@ export default class CardPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>完整的卡片</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtCard
                   note='小Tips'
                   extra='额外信息'
