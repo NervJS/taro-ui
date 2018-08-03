@@ -49,7 +49,7 @@ export default class ToastPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='轻提示'></DocsHeader>
+        <DocsHeader title='Toast 轻提示'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -58,12 +58,8 @@ export default class ToastPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <View className='example__body-button'>
-                  <Button size='mini' onClick={this.handleClick}>
-                    Open Toast
-                  </Button>
-                </View>
+              <View className='example-item'>
+                <Button size='mini' onClick={this.handleClick}>Open Toast</Button>
               </View>
             </View>
           </View>
@@ -72,17 +68,15 @@ export default class ToastPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>只展示文本</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <View className='example__body-button'>
-                  <Button
-                    size='mini'
-                    onClick={this.handleClick}
-                    data-text='只有文本'
-                    data-hidden-icon
-                  >
-                    Open Toast
-                  </Button>
-                </View>
+              <View className='example-item'>
+                <Button
+                  size='mini'
+                  onClick={this.handleClick}
+                  data-text='只有文本'
+                  data-hidden-icon
+                >
+                  Open Toast
+                </Button>
               </View>
             </View>
           </View>
@@ -91,12 +85,8 @@ export default class ToastPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>只显示 Icon</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <View className='example__body-button'>
-                  <Button data-text='' size='mini' onClick={this.handleClick}>
-                    Open Toast
-                  </Button>
-                </View>
+              <View className='example-item'>
+                <Button data-text='' size='mini' onClick={this.handleClick}>Open Toast</Button>
               </View>
             </View>
           </View>
@@ -105,17 +95,15 @@ export default class ToastPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>更改 Icon</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <View className='example__body-button'>
-                  <Button
-                    data-icon-type='success'
-                    data-icon-size='80'
-                    size='mini'
-                    onClick={this.handleClick}
-                  >
-                    Open Toast
-                  </Button>
-                </View>
+              <View className='example-item'>
+                <Button
+                  data-icon-type='success'
+                  data-icon-size='80'
+                  size='mini'
+                  onClick={this.handleClick}
+                >
+                  Open Toast
+                </Button>
               </View>
             </View>
           </View>
