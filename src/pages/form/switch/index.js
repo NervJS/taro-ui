@@ -7,7 +7,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Switch 使用示例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -25,7 +25,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='开关'></DocsHeader>
+        <DocsHeader title='Switch 开关'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -33,7 +33,7 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtForm>
                   <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
                   <AtSwitch title='已关闭' />
