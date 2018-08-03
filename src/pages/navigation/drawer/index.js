@@ -8,7 +8,7 @@ import './index.scss'
 
 export default class DrawerPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Drawer Page'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -52,12 +52,12 @@ export default class DrawerPage extends Taro.Component {
   render () {
     return (
       <View className='page'>
-        <DocsHeader title='抽屉'></DocsHeader>
+        <DocsHeader title='Drawer 抽屉'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>左边滑出</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example'>
                 <AtButton type='primary' onClick={this.leftDrawerClick.bind(this)}>显示drawer</AtButton>
                 {this.state.leftDrawerShow && <AtDrawer show={this.state.leftDrawerShow} mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
@@ -68,7 +68,7 @@ export default class DrawerPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>右边滑出</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example'>
                 <AtButton type='primary' onClick={this.rightDrawerClick.bind(this)}>显示drawer</AtButton>
                 {this.state.rightDrawerShow && <AtDrawer show={this.state.rightDrawerShow} right mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
