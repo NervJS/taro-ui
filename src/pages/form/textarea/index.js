@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'textarea 使用范例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -24,7 +24,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='多行文本框'></DocsHeader>
+        <DocsHeader title='Textarea 多行文本框'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -32,16 +32,14 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础</View>
             <View className='panel__content'>
-              <View className='example__body'>
-                <View className='item'>
-                  <AtTextarea
-                    value={this.state.textareaValue}
-                    onChange={this.handleChange.bind(this)}
-                    autoFocus
-                    maxlength='200'
-                    placeholder='你的问题是...'
-                  />
-                </View>
+              <View className='example-item'>
+                <AtTextarea
+                  value={this.state.textareaValue}
+                  onChange={this.handleChange.bind(this)}
+                  autoFocus
+                  maxlength='200'
+                  placeholder='你的问题是...'
+                />
               </View>
             </View>
           </View>
