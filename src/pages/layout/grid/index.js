@@ -8,7 +8,7 @@ import './index.scss'
 
 export default class GridPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Grid Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -50,13 +50,13 @@ export default class GridPage extends Taro.Component {
   render () {
     return (
       <View className='page'>
-        <DocsHeader title='宫格布局'></DocsHeader>
+        <DocsHeader title='Grid 栅格'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>正方形案例</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtGrid data={this.state.data} onClick={this.handleClick} />
               </View>
             </View>
@@ -65,7 +65,7 @@ export default class GridPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>矩形案例</View>
             <View className='panel__content'>
-              <View className='example__body'>
+              <View className='example-item'>
                 <AtGrid mode='rect' data={this.state.data} />
               </View>
             </View>
