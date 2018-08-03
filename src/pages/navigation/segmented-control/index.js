@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class Index extends Taro.Component {
   config = {
-    navigationBarTitleText: 'segmented-control 分段器示例'
+    navigationBarTitleText: 'Taro UI'
   }
   constructor () {
     super(...arguments)
@@ -23,14 +23,16 @@ export default class Index extends Taro.Component {
     const { current } = this.state
     const tabList1 = ['标签页1', '标签页2' ]
     const tabList2 = ['标签页1', '标签页2', '标签页3']
+
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='分段器'></DocsHeader>
+        <DocsHeader title='Segmented Control 分段器'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
         <View className='doc-body'>
+          {/* 基础 */}
           <View className='panel'>
             <View className='panel__title'>基础</View>
             <View className='panel__content'>
@@ -41,15 +43,21 @@ export default class Index extends Taro.Component {
                 {current === 2 ? <View className='tab-content'>标签3的内容</View> : null}
               </View>
             </View>
+          </View>
+
+          {/* 禁用 */}
+          <View className='panel'>
             <View className='panel__title'>禁用</View>
             <View className='panel__content'>
-              <View><AtSegmentedControl disabled values={tabList1} /></View>
+              <AtSegmentedControl disabled values={tabList1} />
             </View>
-            <View className='panel__title'>自定义颜色,字体大小</View>
+          </View>
+
+          {/* 自定义 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义</View>
             <View className='panel__content'>
-              <View>
-                <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#FF4949' fontSize='12' current={current} values={tabList2} />
-              </View>
+              <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#FF4949' fontSize='12' current={current} values={tabList2} />
             </View>
           </View>
         </View>
