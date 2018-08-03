@@ -200,6 +200,10 @@ view {
 
     &__content {
       padding: 0 20px;
+
+      &.no-padding {
+        padding: 0;
+      }
     }
   }
 }
