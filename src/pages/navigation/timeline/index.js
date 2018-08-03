@@ -8,7 +8,7 @@ import './index.scss'
 
 export default class TimelinePage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Timeline Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   render () {
@@ -18,8 +18,9 @@ export default class TimelinePage extends Taro.Component {
 
         <View className='doc-body'>
           <View className='panel'>
+            <View className='panel__title'>基础</View>
             <View className='panel__content'>
-              <View className='example'>
+              <View className='example-item'>
                 <AtTimeline pending>
                   <AtTimelineItem icon='accessory'>刷牙洗脸</AtTimelineItem>
                   <AtTimelineItem icon='accessory' color='green'>吃早餐</AtTimelineItem>
@@ -30,7 +31,6 @@ export default class TimelinePage extends Taro.Component {
             </View>
           </View>
         </View>
-
       </View>
     )
   }
