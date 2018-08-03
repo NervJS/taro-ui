@@ -8,19 +8,19 @@ import './index.scss'
 
 export default class ListPage extends Component {
   config = {
-    navigationBarTitleText: 'List Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   render () {
     return (
       <View className='page'>
-        <DocsHeader title='列表'></DocsHeader>
+        <DocsHeader title='List 列表'></DocsHeader>
 
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础列表</View>
-            <View className='panel__content'>
-              <View className='example__body'>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
                 <AtListItem
                   title='标题文字'
                   onClick={console.log.bind(this, 1)}
