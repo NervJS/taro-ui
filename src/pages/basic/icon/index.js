@@ -9,7 +9,7 @@ import './index.scss'
 
 export default class IconPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Icon Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -21,23 +21,128 @@ export default class IconPage extends Taro.Component {
 
   render () {
     const { icons } = this.state
+    const iconColor = '#999'
+    const iconSize = 30
 
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='图标'></DocsHeader>
+        <DocsHeader title='ICON 图标'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
         <View className='doc-body'>
+          {/* 主要 */}
           <View className='panel'>
-            <View className='panel__title'>ICON</View>
+            <View className='panel__title'>主要</View>
             <View className='panel__content'>
               <View className='icon-list'>
-                {icons.map((icon, index) => (
+                {icons.main.map((icon, index) => (
                   <View className='icon-list__item' key={index}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color='#999' size={30}></AtIcon>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* 文件 */}
+          <View className='panel'>
+            <View className='panel__title'>文件</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.file.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* 文本 */}
+          <View className='panel'>
+            <View className='panel__title'>文本</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.text.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* 箭头 */}
+          <View className='panel'>
+            <View className='panel__title'>箭头</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.arrow.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* 媒体控制 */}
+          <View className='panel'>
+            <View className='panel__title'>媒体控制</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.media.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* 多媒体 */}
+          <View className='panel'>
+            <View className='panel__title'>多媒体</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.photo.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                    </View>
+                    <View className='icon-list__name'>at-icon-{icon}</View>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* Logo */}
+          <View className='panel'>
+            <View className='panel__title'>Logo</View>
+            <View className='panel__content'>
+              <View className='icon-list'>
+                {icons.logo.map((icon, index) => (
+                  <View className='icon-list__item' key={index}>
+                    <View className='icon-list__icon'>
+                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
                     <View className='icon-list__name'>at-icon-{icon}</View>
                   </View>
