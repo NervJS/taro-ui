@@ -34,13 +34,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton type='primary'>主操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='primary' loading>带loading</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='primary' icon='activity'>带icon</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='primary' active>点击态</AtButton>
+                <AtButton type='primary' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton type='primary' disabled>不可操作</AtButton>
@@ -56,10 +50,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton type='secondary'>次操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' icon='activity'>带icon</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='secondary' active>点击态</AtButton>
+                <AtButton type='secondary' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton type='secondary' disabled>不可操作</AtButton>
@@ -75,10 +66,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton>次次要操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton icon='activity'>带icon</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton active>点击态</AtButton>
+                <AtButton icon='activity' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton disabled>不可操作</AtButton>
@@ -110,17 +98,6 @@ export default class ButtonPage extends Taro.Component {
                 </View>
                 <View className='subitem'>
                   <AtButton size='small' loading></AtButton>
-                </View>
-              </View>
-              <View className='btn-item'>
-                <View className='subitem'>
-                  <AtButton type='primary' size='small' active>按钮</AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton type='secondary' size='small' active>按钮</AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton size='small' active>按钮</AtButton>
                 </View>
               </View>
               <View className='btn-item'>
@@ -161,17 +138,6 @@ export default class ButtonPage extends Taro.Component {
                 </View>
                 <View className='subitem'>
                   <AtButton size='small' loading circle></AtButton>
-                </View>
-              </View>
-              <View className='btn-item'>
-                <View className='subitem'>
-                  <AtButton type='primary' size='small' active circle>按钮</AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton type='secondary' size='small' active circle>按钮</AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton size='small' active circle>按钮</AtButton>
                 </View>
               </View>
               <View className='btn-item'>
