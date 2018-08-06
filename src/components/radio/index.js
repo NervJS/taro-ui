@@ -22,7 +22,7 @@ class AtRadio extends Taro.Component {
         options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className={option.value === value ? 'at-radio__option at-radio__option--selected' : 'at-radio__option'} >
           <View className='at-radio__title'>{option.label}</View>
           <View className='at-radio__icon'>
-            <AtIcon value='right' size='20' color='#6190e8' />
+            <AtIcon value='check' size='15' color='#6190e8' />
           </View>
         </View>)
       }
