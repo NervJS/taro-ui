@@ -19,7 +19,71 @@ import { AtGrid } from "taro-ui"
 :::demo
 
 ```html
-<AtGrid></AtGrid>
+<AtGrid data={
+  [
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    }
+  ]
+} />
+```
+
+:::
+
+## 矩形用法
+
+:::demo
+
+```html
+<AtGrid mode='rect' data={
+  [
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    },
+    {
+      icon: 'emoji',
+      value: '放置文本'
+    }
+  ]
+} />
 ```
 
 :::

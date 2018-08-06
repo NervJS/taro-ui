@@ -22,10 +22,65 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 
 ```html
 <AtFlex>
-  <AtFlexItem>Item 1</AtFlexItem>
-  <AtFlexItem>Item 2</AtFlexItem>
-  <AtFlexItem>Item 3</AtFlexItem>
-  <AtFlexItem>Item 4</AtFlexItem>
+  <AtFlexItem>A</AtFlexItem>
+  <AtFlexItem>B</AtFlexItem>
+  <AtFlexItem>C</AtFlexItem>
+</AtFlex>
+```
+:::
+
+## 使用栅格化（长度）
+
+:::demo
+
+```html
+<AtFlex>
+  <AtFlexItem size='3'>A</AtFlexItem>
+  <AtFlexItem size='6'>B</AtFlexItem>
+  <AtFlexItem size='2'>C</AtFlexItem>
+  <AtFlexItem size='1'>D</AtFlexItem>
+</AtFlex>
+```
+:::
+
+## 使用栅格化（偏移）
+
+:::demo
+
+```html
+<AtFlex>
+  <AtFlexItem offset='2'>A</AtFlexItem>
+  <AtFlexItem offset='3'>B</AtFlexItem>
+  <AtFlexItem>C</AtFlexItem>
+</AtFlex>
+```
+:::
+
+## 超出换行
+
+:::demo
+
+```html
+<AtFlex wrap='wrap'>
+  <AtFlexItem size='4'>A</AtFlexItem>
+  <AtFlexItem size='4'>B</AtFlexItem>
+  <AtFlexItem size='4'>C</AtFlexItem>
+  <AtFlexItem size='4'>D</AtFlexItem>
+  <AtFlexItem size='4'>E</AtFlexItem>
+</AtFlex>
+```
+:::
+
+## 宽度根据内容撑开
+
+:::demo
+
+```html
+<AtFlex>
+  <AtFlexItem isAuto size='1'>
+    被内容撑开
+  </AtFlexItem>
+  <AtFlexItem>B</AtFlexItem>
 </AtFlex>
 ```
 :::

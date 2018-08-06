@@ -27,16 +27,31 @@ components:
             name: Button
       - title: 布局组件
         items:
-          - title: List 列表
+          - title: 列表
             name: List
-          - title: Card 卡片
+          - title: 卡片
             name: Card
-          - title: Flex 弹性布局
+          - title: 弹性布局
             name: Flex
-          - title: Grid 宫格布局
+          - title: 宫格布局
             name: Grid
-          - title: FloatLayout 浮动布局
+          - title: 浮动布局
             name: FloatLayout
+<<<<<<< Updated upstream
+=======
+      - title: 操作反馈
+        items:
+          - title: 轻提示
+            name: Toast
+          - title: 模态框
+            name: Modal
+          - title: 进度条
+            name: Progress
+          - title: 上拉菜单
+            name: ActionSheet
+          - title: 活动指示器
+            name: ActivityIndicator
+>>>>>>> Stashed changes
           # - title: 布局
           #   name: Layout
           # - title: 标签

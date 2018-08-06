@@ -19,7 +19,13 @@ import { AtFloatLayout } from "taro-ui"
 :::demo
 
 ```html
-<AtFloatLayout></AtFloatLayout>
+<AtFloatLayout title='这是个标题' isOpened={isOpened}>
+  <View>
+    这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
+    随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
+    随你怎么写
+  </View>
+</AtFloatLayout>
 ```
 
 :::
