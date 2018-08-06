@@ -7,7 +7,7 @@ import './index.scss'
 /**
  * @author: chenzeji
  * @description 评分组件
- * @prop size {Number|String} 评分星星大小 default:30
+ * @prop size {Number|String} 评分星星大小 default:20
  * @prop value {Number} 当前评分 default:0
  * @prop max {Number} 最大评分 default:5
  * @prop onChange {Function} 监听函数，数值改变时触发
@@ -31,12 +31,12 @@ class AtRate extends Taro.Component {
       }
     }
     return <View className='at-rate' >
-      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='star' size={size} color={color} /></View>)}
+      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='star-2' size={size} color={color} /></View>)}
     </View>
   }
 }
 AtRate.defaultProps = {
-  size: 30,
+  size: 20,
   value: 0,
   max: 5,
   onChange: () => {}
