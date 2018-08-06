@@ -1,20 +1,37 @@
 .at-input-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
+  // justify-content: center;
   border: #e5e5e5 solid 1px;
   border-radius: 8px;
-  width: 300px;
   background-color: #fff;
   font-size: 30px;
+  width: 200px;
+  height: auto;
+
+  &-normal {
+    width: 300px;
+  }
+
+  &-md {
+    width: 200px;
+  }
+
+  &-sm {
+    width: 150px;
+  }
 
   &__btn {
     flex: 1;
-    vertical-align: middle;
+    font-size: 30px;
+    box-sizing: border-box;
     text-align: center;
     color: #6190e8;
     padding: 10px;
-    cursor: pointer;
+    vertical-align: middle;
+    // background-color: red;
+    overflow: hidden;
+    position: relative;
+    height: auto;
 
     &--disabled {
       color: #e5e5e5;
@@ -23,8 +40,9 @@
 
   &__input {
     flex: 1;
+    box-sizing: border-box;
     padding: 10px;
-    vertical-align: middle;
+    height: auto;
     text-align: center;
     font-size: 30px;
     border-left: #e5e5e5 solid 1px;

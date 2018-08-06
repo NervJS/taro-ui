@@ -46,17 +46,17 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
-          <View className='panel'>
+          {/* <View className='panel'>
             <View className='panel__title'>其他规格</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber size='middle' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber size='md' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
               </View>
               <View className='example--item'>
-                <AtInputNumber size='small' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber size='sm' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
               </View>
             </View>
-          </View>
+          </View> */}
         </View>
         {/* E Body */}
       </View>
