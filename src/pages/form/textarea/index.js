@@ -36,7 +36,6 @@ export default class Index extends Taro.Component {
                 <AtTextarea
                   value={this.state.textareaValue}
                   onChange={this.handleChange.bind(this)}
-                  autoFocus
                   maxlength='200'
                   placeholder='你的问题是...'
                 />
@@ -51,7 +50,6 @@ export default class Index extends Taro.Component {
                   count={false}
                   value={this.state.textareaValue}
                   onChange={this.handleChange.bind(this)}
-                  autoFocus
                   maxlength='200'
                   placeholder='你的问题是...'
                 />
