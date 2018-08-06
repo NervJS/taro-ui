@@ -17,7 +17,7 @@ const INIT_STATE = {
 
 export default class ToastPage extends Component {
   config = {
-    navigationBarTitleText: 'Toast Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {

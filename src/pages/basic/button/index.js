@@ -21,7 +21,7 @@ export default class ButtonPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='按钮'></DocsHeader>
+        <DocsHeader title='Button 按钮'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -31,19 +31,13 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__title'>主操作</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton type='primary' onClick={this.onButtonClick.bind(this)}>主操作按钮</AtButton>
+                <AtButton type='primary'>主操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='primary' loading onClick={this.onButtonClick.bind(this)}>带loading</AtButton>
+                <AtButton type='primary' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='primary' icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='primary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='primary' disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+                <AtButton type='primary' disabled>不可操作</AtButton>
               </View>
             </View>
           </View>
@@ -53,16 +47,13 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__title'>次要操作</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton type='secondary' onClick={this.onButtonClick.bind(this)}>次操作按钮</AtButton>
+                <AtButton type='secondary'>次操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+                <AtButton type='secondary' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton type='secondary' disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+                <AtButton type='secondary' disabled>不可操作</AtButton>
               </View>
             </View>
           </View>
@@ -72,16 +63,13 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__title'>次次要操作</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton onClick={this.onButtonClick.bind(this)}>次次要操作按钮</AtButton>
+                <AtButton>次次要操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+                <AtButton icon='activity' loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
-              </View>
-              <View className='btn-item'>
-                <AtButton disabled onClick={this.onButtonClick.bind(this)}>不可操作</AtButton>
+                <AtButton disabled>不可操作</AtButton>
               </View>
             </View>
           </View>
@@ -92,46 +80,35 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__content'>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small'>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small'>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
-                </View>
-              </View>
-              <View className='btn-item'>
-                <View className='subitem'>
-                  <AtButton type='primary' size='small' loading onClick={this.onButtonClick.bind(this)}></AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton type='secondary' size='small' loading onClick={this.onButtonClick.bind(this)}></AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton size='small' loading onClick={this.onButtonClick.bind(this)}></AtButton>
+                  <AtButton size='small'>按钮</AtButton>
                 </View>
               </View>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' active onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small' loading></AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' active onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small' loading></AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' active onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton size='small' loading></AtButton>
                 </View>
               </View>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' disabled onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small' disabled>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' disabled onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small' disabled>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' disabled onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton size='small' disabled>按钮</AtButton>
                 </View>
               </View>
             </View>
@@ -143,46 +120,35 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__content'>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small' circle>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small' circle>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
-                </View>
-              </View>
-              <View className='btn-item'>
-                <View className='subitem'>
-                  <AtButton type='primary' size='small' loading circle onClick={this.onButtonClick.bind(this)}></AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton type='secondary' size='small' loading circle onClick={this.onButtonClick.bind(this)}></AtButton>
-                </View>
-                <View className='subitem'>
-                  <AtButton size='small' loading circle onClick={this.onButtonClick.bind(this)}></AtButton>
+                  <AtButton size='small' circle>按钮</AtButton>
                 </View>
               </View>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' active circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small' loading circle></AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' active circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small' loading circle></AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' active circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton size='small' loading circle></AtButton>
                 </View>
               </View>
               <View className='btn-item'>
                 <View className='subitem'>
-                  <AtButton type='primary' size='small' disabled circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='primary' size='small' disabled circle>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton type='secondary' size='small' disabled circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton type='secondary' size='small' disabled circle>按钮</AtButton>
                 </View>
                 <View className='subitem'>
-                  <AtButton size='small' disabled circle onClick={this.onButtonClick.bind(this)}>按钮</AtButton>
+                  <AtButton size='small' disabled circle>按钮</AtButton>
                 </View>
               </View>
             </View>
