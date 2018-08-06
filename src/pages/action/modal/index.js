@@ -14,7 +14,7 @@ import './index.scss'
 
 export default class ModalPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Modal Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {

@@ -125,7 +125,7 @@ export default class BasicColor extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='颜色'></DocsHeader>
+        <DocsHeader title='Color 颜色'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

@@ -14,13 +14,13 @@ export default class BasicTypo extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='字体'></DocsHeader>
+        <DocsHeader title='Typography 字体'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
         <View className='doc-body'>
           <View className='panel'>
-            <View className='panel__title'>Typography</View>
+            <View className='panel__title'>示例</View>
             <View className='panel__content'>
               <View className='table-typo'>
                 <View className='table-typo__head'>
