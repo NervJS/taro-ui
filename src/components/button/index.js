@@ -58,9 +58,9 @@ export default class AtButton extends Taro.Component {
     //   marginRight: '5px',
     // }
     if (icon) {
-      component = <AtIcon value={icon} size='20'></AtIcon>
+      component = <AtIcon value={icon} size='16'></AtIcon>
     } else if (loading) {
-      component = <AtIcon value='clock' size='20'></AtIcon>
+      component = <AtIcon value='clock' size='16'></AtIcon>
     }
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>

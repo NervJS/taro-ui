@@ -13,10 +13,13 @@ export default class AtBadge extends Taro.Component {
   }
 
   formatValue (value, maxValue) {
-    if (loadash.isNaN(value)) {
+    console.log('value', value)
+    const numValue = +value
+    if (loadash.isNaN(numValue)) {
+      console.log('value111', value)
       return value
     }
-    const numValue = +value
+    console.log('value222', value)
     return numValue > maxValue ? `${maxValue}+` : numValue
   }
 
@@ -45,5 +48,6 @@ AtBadge.defaultProps = {
 
 AtBadge.propTypes = {
   dot: PropTypes.bool,
+  value: PropTypes.string,
   maxValue: PropTypes.number,
 }

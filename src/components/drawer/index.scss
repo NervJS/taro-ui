@@ -16,21 +16,28 @@
 
   &__content {
     position: fixed;
-    left: 0;
     top: 0;
     bottom: 0;
     width: 460px;
     background-color: #fff;
     z-index: 1;
     text-align: left;
-    transform: translateX(-100%);
-    transition: transform 0.2s ease-out;
+    opacity: 0;
+    // transform: translateX(-100%);
+    // transition: transform 0.2s ease-out;
   }
 
   &__list {
     margin: 0 0 0 18px;
     max-height: 100%;
     overflow-y: scroll;
+
+    &-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
     &-item {
       height: 90px;
@@ -39,13 +46,28 @@
       color: #000;
       border-bottom: 1px solid #ddd;
       position: relative;
+    }
+  }
 
-      .at-icon {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+  &.at-drawer--left {
+    .at-drawer__content {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  &.at-drawer--right {
+    .at-drawer__content {
+      // left: auto;
+      right: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  &.at-drawer--show {
+    .at-drawer__content {
+      opacity: 1;
+      transform: translateX(0%);
     }
   }
 }

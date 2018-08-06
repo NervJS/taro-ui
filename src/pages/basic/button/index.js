@@ -37,7 +37,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton type='primary' loading onClick={this.onButtonClick.bind(this)}>带loading</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='primary' icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+                <AtButton type='primary' icon='download' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton type='primary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
@@ -56,7 +56,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton type='secondary' onClick={this.onButtonClick.bind(this)}>次操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+                <AtButton type='secondary' icon='download' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton type='secondary' active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>
@@ -75,7 +75,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton onClick={this.onButtonClick.bind(this)}>次次要操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton icon='activity' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
+                <AtButton icon='download' onClick={this.onButtonClick.bind(this)}>带icon</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton active onClick={this.onButtonClick.bind(this)}>点击态</AtButton>

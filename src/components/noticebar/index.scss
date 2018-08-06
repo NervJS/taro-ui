@@ -14,7 +14,7 @@
     position: absolute;
     left: 22px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-85%);
 
     + .at-noticebar__content {
       margin-left: 68px;
@@ -38,5 +38,13 @@
     position: absolute;
     right: 18px;
     top: 15px;
+
+    &-icon {
+      width: 26px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: -8px;
+      margin-left: -3px;
+    }
   }
 }
