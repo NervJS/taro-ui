@@ -1,5 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
+
+import iconBasic from '../../assets/images/icon-list-basic.png'
+import iconView from '../../assets/images/icon-list-view.png'
+import iconAction from '../../assets/images/icon-list-action.png'
+import iconForm from '../../assets/images/icon-list-form.png'
+import iconLayout from '../../assets/images/icon-list-layout.png'
+import iconNavigation from '../../assets/images/icon-list-navigation.png'
 
 import './index.scss'
 
@@ -13,12 +20,30 @@ export default class PanelBasic extends Component {
 
     this.state = {
       panelNames: {
-        'basic': '基础',
-        'view': '视图',
-        'action': '操作反馈',
-        'form': '表单',
-        'layout': '布局',
-        'navigation': '导航'
+        basic: {
+          name: '基础',
+          icon: iconBasic
+        },
+        view: {
+          name: '视图',
+          icon: iconView
+        },
+        action: {
+          name: '操作反馈',
+          icon: iconAction
+        },
+        form: {
+          name: '表单',
+          icon: iconForm
+        },
+        layout: {
+          name: '布局',
+          icon: iconLayout
+        },
+        navigation: {
+          name: '导航',
+          icon: iconNavigation
+        }
       },
       list: {
         'basic': [
@@ -46,7 +71,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Badge',
-            name: '徽章'
+            name: '徽标'
           },
           {
             id: 'Tag',
@@ -186,14 +211,18 @@ export default class PanelBasic extends Component {
   render () {
     const { list, currentId, panelNames } = this.state
     const itemList = list[currentId] || []
-    const title = panelNames[currentId] || ''
+    const title = (panelNames[currentId] && panelNames[currentId].name) || ''
+    const icon = (panelNames[currentId] && panelNames[currentId].icon) || ''
 
     return (
       <View className='page'>
         {/* S Header */}
         <View className='panel-header'>
           <View className='panel-header__icon'>
-            <Text className='at-icon at-icon-list'></Text>
+            {
+              icon ? <Image src={icon} className='img' mode='widthFix' />
+                : <Text className='at-icon at-icon-list'></Text>
+            }
           </View>
           <View className='panel-header__title'>{title}</View>
         </View>
