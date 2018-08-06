@@ -11,6 +11,7 @@ import './index.scss'
  * @prop placeholder {String} 提示
  * @prop disabled {Boolean} 是否禁用 default:false
  * @prop autoFocus {Boolean} 是否自动聚焦 default:false
+ * @prop count {Boolean} 是否显示字数
  * @prop fixed {Boolean} 如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true, default:false
  * @prop onChange {Function} 当键盘输入时触发
  * @prop onFocus {Function} 输入框获得焦点时触发
@@ -31,7 +32,7 @@ class AtTextarea extends Taro.Component {
     this.props.onConfirm(e)
   }
   render () {
-    const { value, maxlength, placeholder, disabled, autoFocus, fixed } = this.props
+    const { value, maxlength, placeholder, count, disabled, autoFocus, fixed } = this.props
     return <View className='at-textarea'>
       <Textarea
         className='at-textarea__textarea'
@@ -46,7 +47,11 @@ class AtTextarea extends Taro.Component {
         onBlur={this.handleBlur.bind(this)}
         onConfirm={this.handleConfirm.bind(this)}
       />
-      <View className='at-textarea__bottom'>{value.length}/{maxlength}</View>
+      {
+        count
+          ? <View className='at-textarea__bottom'>{value.length}/{maxlength}</View>
+          : null
+      }
     </View>
   }
 }
@@ -57,6 +62,7 @@ AtTextarea.defaultProps = {
   placeholder: '',
   disabled: false,
   autoFocus: false,
+  count: true,
   fixed: false,
   onChange: defaultFunc,
   onFocus: defaultFunc,
@@ -72,6 +78,7 @@ AtTextarea.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   autoFocus: PropTypes.bool,
+  count: PropTypes.bool,
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,

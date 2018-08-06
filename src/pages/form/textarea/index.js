@@ -43,6 +43,21 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+          <View className='panel'>
+            <View className='panel__title'>不显示字数</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTextarea
+                  count={false}
+                  value={this.state.textareaValue}
+                  onChange={this.handleChange.bind(this)}
+                  autoFocus
+                  maxlength='200'
+                  placeholder='你的问题是...'
+                />
+              </View>
+            </View>
+          </View>
         </View>
         {/* E Body */}
       </View>
