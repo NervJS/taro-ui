@@ -4,14 +4,16 @@
   align-items: center;
   border: #e5e5e5 solid 1px;
   border-radius: 8px;
-  width: 100%;
+  width: 300px;
   background-color: #fff;
   font-size: 30px;
 
   &__btn {
     flex: 1;
+    vertical-align: middle;
     text-align: center;
     color: #6190e8;
+    padding: 10px;
     cursor: pointer;
 
     &--disabled {
@@ -20,8 +22,11 @@
   }
 
   &__input {
-    flex: 2;
+    flex: 1;
+    padding: 10px;
+    vertical-align: middle;
     text-align: center;
+    font-size: 30px;
     border-left: #e5e5e5 solid 1px;
     border-right: #e5e5e5 solid 1px;
   }

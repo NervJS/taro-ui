@@ -46,7 +46,7 @@ class AtInputNumber extends Taro.Component {
     const sizeMap = {
       'small': 'width: 100px;',
       'middle': 'width: 200px;',
-      'normal': 'width: 100%;'
+      'normal': 'width: 300px;'
     }
     return sizeMap[this.props.size] ? sizeMap[this.props.size] : ''
   }
