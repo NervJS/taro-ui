@@ -16,7 +16,7 @@ $at-button-height-sm: 60px;
   border-radius: $border-radius-md;
   border: 2px solid $color-border-base;
   box-sizing: border-box;
-  @include ellipsis();
+  @include line();
 
   &:active {
     opacity: 0.6;
