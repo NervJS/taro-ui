@@ -19,12 +19,74 @@ import { AtListItem } from "taro-ui"
 :::demo
 
 ```html
-<AtListItem></AtListItem>
+<AtListItem title='标题文字'/>
 ```
 
 :::
 
-## AtFlex 参数
+## 带箭头的 Item
+
+:::demo
+
+```html
+<AtListItem title='标题文字' arrow='right' />
+```
+
+:::
+
+## 带附加信息的 Item
+
+:::demo
+
+```html
+<AtListItem
+  arrow='right'
+  title='标题文字'
+  extraText='详细信息' />
+```
+
+:::
+
+## 带 Switch 的 Item
+
+:::demo
+
+```html
+<AtListItem isSwitch arrow='right' title='标题文字' />
+```
+
+:::
+
+## 带缩略图的 Item
+
+:::demo
+
+```html
+<AtListItem
+  arrow='right'
+  title='标题文字'
+  extraText='详细信息'
+  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15307837419.PNG' />
+```
+
+:::
+
+## 带描述信息的 Item
+
+:::demo
+
+```html
+<AtListItem
+  arrow='right'
+  note='描述信息'
+  title='标题文字'
+  extraText='详细信息'
+  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15307837419.PNG' />
+```
+
+:::
+
+## AtList 参数
 
 | 参数       | 说明                   | 类型     | 可选值                 | 默认值  |
 | ---------- | ---------------------- | -------- | ---------------------- | ------- |
