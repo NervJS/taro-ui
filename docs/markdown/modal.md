@@ -22,7 +22,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 <AtModal>
   <AtModalHeader>标题</AtModalHeader>
   <AtModalContent>
-    <View className='modal-content'>
+    <View>
       这里是正文内容，欢迎加入京东凹凸实验室
       这里是正文内容，欢迎加入京东凹凸实验室
       这里是正文内容，欢迎加入京东凹凸实验室
@@ -30,7 +30,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
   </AtModalContent>
   <AtModalAction>
     <Button>取消</Button>
-    <Button className='serious-button'>
+    <Button>
       确定
     </Button>
   </AtModalAction>

@@ -19,7 +19,13 @@ import { AtToast } from "taro-ui"
 :::demo
 
 ```html
-<AtToast></AtToast>
+<AtToast 
+  text={text}
+  isOpened={isOpened}
+  iconSize={iconSize}
+  iconType={iconType}
+  iconColor={iconColor}
+  isHiddenIcon={isHiddenIcon}></AtToast>
 ```
 
 :::
