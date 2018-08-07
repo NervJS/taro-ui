@@ -59,14 +59,12 @@ export default class AtDrawer extends Taro.Component {
     }
     const listStyle = {
       width,
-      transform: animShow ? 'translateX(0%)' : 'translateX(-100%)',
-      transition: animShow ? 'transform 225ms cubic-bezier(0, 0, 0.2, 1)' : 'transform 195ms cubic-bezier(0.4, 0, 0.6, 1)',
+      transition: animShow ? 'all 225ms cubic-bezier(0, 0, 0.2, 1)' : 'all 195ms cubic-bezier(0.4, 0, 0.6, 1)',
     }
-    if (right) {
-      listStyle.right = '0px'
-      listStyle.left = 'auto'
-      listStyle.transform = animShow ? 'translateX(0%)' : 'translateX(100%)'
-    }
+    if (right) rootClassName.push('at-drawer--right')
+    else rootClassName.push('at-drawer--left')
+
+    if (animShow) rootClassName.push('at-drawer--show')
     rootClassName = rootClassName.filter(str => str !== '')
 
     return (
@@ -75,7 +73,7 @@ export default class AtDrawer extends Taro.Component {
 
         <View className='at-drawer__content' style={listStyle}>
           <View className='at-drawer__list'>
-            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this, index)}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)}
+            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this, index)}>{name}<View className='at-drawer__list-icon'><AtIcon value='chevron-right' size='20' color='#C7C7CC'></AtIcon></View></View>)}
           </View>
         </View>
       </View>

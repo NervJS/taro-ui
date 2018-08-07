@@ -52,7 +52,7 @@ export default class AtNoticebar extends Taro.Component {
         <View className='at-noticebar__content'>
           {icon && <AtIcon value={icon} size='16'></AtIcon>}{this.props.children}
         </View>
-        {moreUrl && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}>{_moreText}<AtIcon value='right'></AtIcon></View>}
+        {moreUrl && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}>{_moreText}<View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}
       </View>
     )
   }

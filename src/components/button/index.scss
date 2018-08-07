@@ -63,13 +63,16 @@ $at-button-height-sm: 60px;
     background-clip: border-box;
   }
 
-  &--icon {
-    .at-button__text {
-      margin-left: 20px;
-    }
-  }
-
   &__icon {
+    margin: 0 20px;
     display: inline-block;
+    animation: loading-rotate 1s linear infinite;
+    transform-origin: 50% 51.2%;
+  }
+}
+
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(360deg);
   }
 }

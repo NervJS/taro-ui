@@ -1,5 +1,4 @@
-
-@import "../../style/mixins.scss";
+@import '../../style/theme/default.scss';
 
 .at-badge {
   position: relative;
@@ -9,8 +8,8 @@
 
   &__dot {
     position: absolute;
-    right: -10px;
-    top: -10px;
+    right: -6px;
+    top: -6px;
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -20,7 +19,7 @@
   }
 
   &__num {
-    font-size: 20px;
+    font-size: $font-size-xs;
     color: #fff;
     height: 28px;
     line-height: 28px;
@@ -28,7 +27,7 @@
     right: 0;
     top: -14px;
     transform: translate(50%, 0);
-    padding: 0 10px;
+    padding: 0 $spacing-h-sm;
     border-radius: 20px 20px 20px 0;
     overflow: hidden;
     background: #FF4949;

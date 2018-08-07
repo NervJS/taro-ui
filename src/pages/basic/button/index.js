@@ -66,7 +66,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton>次次要操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton icon='activity' loading>Loading</AtButton>
+                <AtButton loading>Loading</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton disabled>不可操作</AtButton>

@@ -33,7 +33,6 @@ export default class ListPage extends Component {
                 />
                 <AtListItem isSwitch arrow='right' title='标题文字' />
                 <AtListItem
-                  disabledPadding
                   arrow='right'
                   title='标题文字'
                   extraText='详细信息'
