@@ -12,12 +12,12 @@ const INIT_STATE = {
   iconSize: 100,
   iconColor: 'white',
   iconType: 'cancel',
-  hiddenIcon: false
+  isHiddenIcon: false
 }
 
 export default class ToastPage extends Component {
   config = {
-    navigationBarTitleText: 'Toast Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -40,7 +40,7 @@ export default class ToastPage extends Component {
       iconSize,
       iconType,
       text,
-      hiddenIcon
+      isHiddenIcon
     } = this.state
     return (
       <View className='page'>
@@ -112,7 +112,7 @@ export default class ToastPage extends Component {
           iconSize={iconSize}
           iconType={iconType}
           iconColor={iconColor}
-          hiddenIcon={hiddenIcon}
+          isHiddenIcon={isHiddenIcon}
         />
       </View>
     )

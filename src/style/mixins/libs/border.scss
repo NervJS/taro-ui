@@ -1,0 +1,26 @@
+@mixin border-thin(
+  $color: #333,
+  $style: solid,
+  $directions: top bottom right left
+) {
+  @each $value in $directions {
+    /* prettier-ignore */
+    border-#{$value}: 1PX $color $style;
+  }
+}
+
+@mixin border-thin-top($color, $style) {
+  @include border-thin($color, $style, top);
+}
+
+@mixin border-thin-left($color, $style) {
+  @include border-thin($color, $style, left);
+}
+
+@mixin border-thin-right($color, $style) {
+  @include border-thin($color, $style, right);
+}
+
+@mixin border-thin-bottom($color, $style) {
+  @include border-thin($color, $style, bottom);
+}

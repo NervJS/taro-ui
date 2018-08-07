@@ -2,6 +2,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTabs from '../../../components/tabs/index'
+import AtTabsPane from '../../../components/tabs-pane/index'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -43,20 +44,16 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
-              <AtTabs current={current1} tabList={tabList1} onClick={this.handleClick.bind(this, 'current1')} />
-              {
-                current1 === 0
-                  ? <View className='tab-content'>标签页一的内容</View>
-                  : null
-              }
-              {
-                current1 === 1
-                  ? <View className='tab-content'>标签页二的内容</View>
-                  : null
-              }
+              <AtTabs current={current1} tabList={tabList1} onClick={this.handleClick.bind(this, 'current1')}>
+                <AtTabsPane>
+                  <View className='tab-content'>标签页一的内容</View>
+                </AtTabsPane>
+                <AtTabsPane>
+                  <View className='tab-content'>标签页二的内容</View>
+                </AtTabsPane>
+              </AtTabs>
             </View>
           </View>
-
           {/* 滚动 */}
           <View className='panel'>
             <View className='panel__title'>滚动</View>

@@ -34,7 +34,8 @@ export default class ArticlePage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>示例</View>
             <View className='panel__content'>
-              <AtArticle></AtArticle>
+              <AtArticle>
+              </AtArticle>
             </View>
           </View>
         </View>

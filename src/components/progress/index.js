@@ -1,12 +1,14 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
+import PropTypes from 'prop-types'
+
 import './index.scss'
 
 export default class AtProgress extends Taro.Component {
   render () {
     let { percent } = this.props
-    const { strokeWidth, color, status, hidePercent } = this.props
+    const { strokeWidth, color, status, isHidePercent } = this.props
 
     if (percent < 0) {
       percent = 0
@@ -36,10 +38,18 @@ export default class AtProgress extends Taro.Component {
             />
           </View>
         </View>
-        {!hidePercent && (
+        {!isHidePercent && (
           <View className='at-progress__content'>{percent}%</View>
         )}
       </View>
     )
   }
+}
+
+AtProgress.propTypes = {
+  color: PropTypes.string,
+  status: PropTypes.string,
+  percent: PropTypes.number,
+  strokeWidth: PropTypes.number,
+  isHidePercent: PropTypes.bool,
 }

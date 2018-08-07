@@ -57,12 +57,20 @@
     }
 
     &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 70px;
       height: 70px;
       color: #78A4FA;
       text-align: center;
       border: 5px solid rgba(120, 164, 250, 0.16);
       border-radius: 50%;
+
+      .img {
+        width: 30px;
+        height: 30px;
+      }
     }
 
     &__info {

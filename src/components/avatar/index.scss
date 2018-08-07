@@ -1,3 +1,4 @@
+@import '../../style/theme/default.scss';
 
 .at-avatar {
   height: 100px;
@@ -5,10 +6,11 @@
   overflow: hidden;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  font-size: 40px;
+  font-size: $font-size-xxl;
   line-height: 100px;
   color: #fff;
   background: #D8D8D8;
+  text-align: center;
 
   &__img {
     width: 100%;
@@ -25,7 +27,7 @@
   &--small {
     height: 80px;
     width: 80px;
-    font-size: 32px;
+    font-size: $font-size-lg;
     line-height: 80px;
   }
 

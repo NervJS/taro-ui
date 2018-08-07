@@ -44,7 +44,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>自定义星星大小</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtRate size='20' value={this.state.rateValue} onChange={this.handleRateChange.bind(this)} />
+                <AtRate size='12' value={this.state.rateValue} onChange={this.handleRateChange.bind(this)} />
               </View>
             </View>
           </View>

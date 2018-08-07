@@ -1,7 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
-import AtIcon from '../icon/index'
+import AtList from '../list/index'
+import AtListItem from '../list/item/index'
 
 import './index.scss'
 
@@ -59,14 +60,12 @@ export default class AtDrawer extends Taro.Component {
     }
     const listStyle = {
       width,
-      transform: animShow ? 'translateX(0%)' : 'translateX(-100%)',
-      transition: animShow ? 'transform 225ms cubic-bezier(0, 0, 0.2, 1)' : 'transform 195ms cubic-bezier(0.4, 0, 0.6, 1)',
+      transition: animShow ? 'all 225ms cubic-bezier(0, 0, 0.2, 1)' : 'all 195ms cubic-bezier(0.4, 0, 0.6, 1)',
     }
-    if (right) {
-      listStyle.right = '0px'
-      listStyle.left = 'auto'
-      listStyle.transform = animShow ? 'translateX(0%)' : 'translateX(100%)'
-    }
+    if (right) rootClassName.push('at-drawer--right')
+    else rootClassName.push('at-drawer--left')
+
+    if (animShow) rootClassName.push('at-drawer--show')
     rootClassName = rootClassName.filter(str => str !== '')
 
     return (
@@ -74,9 +73,19 @@ export default class AtDrawer extends Taro.Component {
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
-          <View className='at-drawer__list'>
-            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this, index)}>{name}<AtIcon value='activity' size='20' color='#C7C7CC'></AtIcon></View>)}
-          </View>
+          <AtList>
+            {
+              items.map((name, index) =>
+                <AtListItem
+                  key={index}
+                  data-index={index}
+                  onClick={this.onItemClick.bind(this, index)}
+                  title={name}
+                  arrow='right'
+                >
+                </AtListItem>)
+            }
+          </AtList>
         </View>
       </View>
     )

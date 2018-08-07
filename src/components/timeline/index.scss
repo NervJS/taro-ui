@@ -1,11 +1,12 @@
+@import '../../style/theme/default.scss';
 
 .at-timelineitem {
   position: relative;
   padding: 0 0 12px;
 
   &__content {
-    font-size: 28px;
-    color: #333;
+    font-size: $font-size-base;
+    color: $color-black-1;
     text-align: left;
     margin-left: 36px;
     height: 50px;
@@ -29,12 +30,12 @@
     &::after {
       content: '';
       width: 20px;
-      height: 18px;
+      height: 20px;
       display: inline-block;
       box-sizing: border-box;
       border: 2px solid transparent;
       border-radius: 50%;
-      border-color: #78A4FA;
+      border-color: $color-info;
       margin-top: 5px;
     }
 
@@ -48,7 +49,7 @@
   &__icon {
     left: -5px;
     // top: 7px;
-    color: #78A4FA;
+    color: $color-info;
     // padding-top: 2px;
   }
 

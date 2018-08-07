@@ -1,6 +1,13 @@
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
+
 import logoImg from '../../assets/images/logo_taro.png'
+import iconBasic from '../../assets/images/icon-list-basic.png'
+import iconView from '../../assets/images/icon-list-view.png'
+import iconAction from '../../assets/images/icon-list-action.png'
+import iconForm from '../../assets/images/icon-list-form.png'
+import iconLayout from '../../assets/images/icon-list-layout.png'
+import iconNavigation from '../../assets/images/icon-list-navigation.png'
 
 import './index.scss'
 
@@ -17,32 +24,38 @@ export default class Index extends Taro.Component {
         {
           id: 'Basic',
           title: '基础',
-          content: '包含颜色、文本、图标'
+          content: '包含颜色、文本、图标等',
+          icon: iconBasic
         },
         {
           id: 'View',
           title: '视图',
-          content: '6个组件'
+          content: '包含通告栏、标签、徽标等',
+          icon: iconView
         },
         {
           id: 'Action',
           title: '操作反馈',
-          content: '5个组件'
+          content: '包含对话框、进度条、动作面板等',
+          icon: iconAction
         },
         {
           id: 'Form',
           title: '表单',
-          content: '7个组件'
+          content: '包含输入框、单选框、复选框等',
+          icon: iconForm
         },
         {
           id: 'Layout',
           title: '布局',
-          content: '5个组件'
+          content: '包含列表、浮层、卡片等',
+          icon: iconLayout
         },
         {
           id: 'Navigation',
           title: '导航',
-          content: '6个组件'
+          content: '包含标签栏、导航栏、时间轴等',
+          icon: iconNavigation
         }
       ]
     }
@@ -75,7 +88,7 @@ export default class Index extends Taro.Component {
               onClick={this.gotoPanel}
             >
               <View className='module-list__icon'>
-                <Text className='at-icon at-icon-list'></Text>
+                <Image src={item.icon} className='img' mode='widthFix' />
               </View>
               <View className='module-list__info'>
                 <View className='title'>{item.title}</View>

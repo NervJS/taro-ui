@@ -49,15 +49,6 @@ export default class PaginationPage extends Taro.Component {
               </View>
             </View>
           </View>
-
-          <View className='panel'>
-            <View className='panel__title'>隐藏页码</View>
-            <View className='panel__content'>
-              <View className='example-item'>
-                <AtPagination icon total='50' pageSize='10' current='1' simple></AtPagination>
-              </View>
-            </View>
-          </View>
         </View>
       </View>
     )

@@ -25,7 +25,7 @@ export default class Index extends Taro.Component {
   render () {
     const { current } = this.state
     const tabList1 = [{ title: '待办事项', text: 8 }, { title: '拍照' }, { title: '通讯录', dot: true }]
-    const tabList2 = [{ title: '待办事项', iconType: 'activity', selectedIconType: 'activity_fill', text: 'new' }, { title: '拍照', iconType: 'camera', selectedIconType: 'camera_fill' }, { title: '通讯录', iconType: 'addressbook', selectedIconType: 'addressbook_fill', text: '100', max: '99' }]
+    const tabList2 = [{ title: '待办事项', iconType: 'bullet-list', text: 'new' }, { title: '拍照', iconType: 'camera' }, { title: '文件夹', iconType: 'folder', text: '100', max: '99' }]
 
     return (
       <View className='page'>
@@ -45,7 +45,7 @@ export default class Index extends Taro.Component {
             </View>
           </View>
           <View className='panel'>
-            <View className='panel__title'>自定义颜色</View>
+            <View className='panel__title'>自定义图标颜色、字体颜色、背景颜色</View>
             <View className='panel__content'>
               <AtTabBar backgroundColor='#ececec' color='#ea6bb8' selectedColor='#e64340' tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
             </View>

@@ -1,12 +1,14 @@
 .at-textarea {
   background-color: #fff;
   font-size: 28px;
-  padding: 30px 25px;
+  padding: 15px;
   width: 100%;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
   box-sizing: border-box;
 
   &__textarea {
-    height: 168px;
+    height: 100px;
     width: 100%;
     outline: none;
     resize: none;

@@ -1,3 +1,4 @@
+@import "../../style/theme/default.scss";
 
 .at-pagination {
   font-size: 0;
@@ -34,7 +35,7 @@
     transform: translateX(-50%);
 
     &-current {
-      color: #6190E8;
+      color: $color-brand;
     }
   }
 }
