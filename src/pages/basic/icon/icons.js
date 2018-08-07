@@ -54,7 +54,8 @@ export default {
     'tags',
     'trash',
     'upload',
-    'user'
+    'user',
+    'loading'
   ],
   'file': [
     'file-audio',

@@ -1,18 +1,37 @@
 .at-input-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
+  // justify-content: center;
   border: #e5e5e5 solid 1px;
   border-radius: 8px;
-  width: 100%;
   background-color: #fff;
   font-size: 30px;
+  width: 200px;
+  height: auto;
+
+  &-normal {
+    width: 300px;
+  }
+
+  &-md {
+    width: 200px;
+  }
+
+  &-sm {
+    width: 150px;
+  }
 
   &__btn {
     flex: 1;
+    font-size: 30px;
+    box-sizing: border-box;
     text-align: center;
     color: #6190e8;
-    cursor: pointer;
+    padding: 10px;
+    vertical-align: middle;
+    // background-color: red;
+    overflow: hidden;
+    position: relative;
+    height: auto;
 
     &--disabled {
       color: #e5e5e5;
@@ -20,8 +39,12 @@
   }
 
   &__input {
-    flex: 2;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    height: auto;
     text-align: center;
+    font-size: 30px;
     border-left: #e5e5e5 solid 1px;
     border-right: #e5e5e5 solid 1px;
   }

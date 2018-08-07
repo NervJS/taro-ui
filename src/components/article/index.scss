@@ -1,12 +1,14 @@
+@import '../../style/theme/default.scss';
 
 .at-article {
   word-break: break-all;
   word-wrap: break-word;
+  line-height: $line-height-zh;
 
   &__h1,
   &__h2,
   &__h3 {
-    color: #333;
+    color: $color-grey-0;
     margin: 0 30px;
   }
 
@@ -17,26 +19,26 @@
   }
 
   &__info {
-    font-size: 28px;
-    color: #CCC;
+    font-size: $font-size-base;
+    color: $color-grey-3;
     line-height: 42px;
     margin: 0 30px;
   }
 
   &__h2 {
-    font-size: 40px;
+    font-size: $font-size-xxl;
     line-height: 60px;
     margin-top: 30px;
   }
 
   &__h3 {
-    font-size: 32px;
+    font-size: $font-size-lg;
     line-height: 48px;
   }
 
   &__p {
-    font-size: 28px;
-    color: #666;
+    font-size: $font-size-base;
+    color: $color-grey-1;
     line-height: 42px;
     margin: 25px 30px 0;
   }

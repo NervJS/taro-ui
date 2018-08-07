@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Input } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import AtIcon from '../../components/icon/index'
 import './index.scss'
 
 /**
@@ -46,28 +47,24 @@ class AtInputNumber extends Taro.Component {
     const sizeMap = {
       'small': 'width: 100px;',
       'middle': 'width: 200px;',
-      'normal': 'width: 100%;'
+      'normal': 'width: 300px;'
     }
     return sizeMap[this.props.size] ? sizeMap[this.props.size] : ''
   }
   render () {
-    const { atStyle, value, min, max } = this.props
-    const minusBtnCls = ['at-input-number__btn']
-    const plusBtnCls = ['at-input-number__btn']
-    if (value <= min) {
-      minusBtnCls.push('at-input-number__btn--disabled')
-    }
-    if (value >= max) {
-      plusBtnCls.push('at-input-number__btn--disabled')
-    }
-    const style = atStyle + this.getSize()
-    return <View className='at-input-number' style={style}>
-      <View className={minusBtnCls} onClick={this.handleMinus.bind(this)}>-</View>
+    const { value, min, max } = this.props
+
+    return <View className='at-input-number' >
+      <View className='at-input-number__btn' onClick={this.handleMinus.bind(this)}>
+        <AtIcon value='subtract' color={value <= min ? '#ccc' : '#6190e8'} size='15' />
+      </View>
       <Input className='at-input-number__input'
         type='number'
         value={value}
       />
-      <View className={plusBtnCls} onClick={this.handlePlus.bind(this)}>+</View>
+      <View className='at-input-number__btn' onClick={this.handlePlus.bind(this)}>
+        <AtIcon value='add' color={value >= max ? '#ccc' : '#6190e8'} size='15' />
+      </View>
     </View>
   }
 }

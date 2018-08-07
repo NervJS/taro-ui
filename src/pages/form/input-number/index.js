@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtInputNumber from '../../../components/input-number/index'
@@ -11,13 +12,13 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      number: 1
+      number1: 1,
+      number2: 1
     }
   }
-  handleNumberChange (value) {
-    this.setState({
-      number: value
-    })
+  handleNumberChange (stateName, value) {
+    this.state[stateName] = value
+    this.setState()
   }
   render () {
     return (
@@ -32,7 +33,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>基础数字输入框</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber min={0} max={10} step={1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber min={0} max={10} step={1} value={this.state.number1} onChange={this.handleNumberChange.bind(this, 'number1')} />
               </View>
             </View>
           </View>
@@ -41,22 +42,22 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>小数</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber min={0} max={1} step={0.1} value={this.state.number2} onChange={this.handleNumberChange.bind(this, 'number2')} />
               </View>
             </View>
           </View>
 
-          <View className='panel'>
+          {/* <View className='panel'>
             <View className='panel__title'>其他规格</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber size='middle' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber size='md' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
               </View>
               <View className='example--item'>
-                <AtInputNumber size='small' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber size='sm' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
               </View>
             </View>
-          </View>
+          </View> */}
         </View>
         {/* E Body */}
       </View>

@@ -19,17 +19,23 @@ class AtTabs extends Taro.Component {
 
   render () {
     const { tabList, scroll, current, color } = this.props
-    const rootCls = ['at-tabs']
+    const headerCls = ['at-tabs__header']
     const style = `color: ${color};border-bottom: 1px solid ${color};`
     if (scroll) {
-      rootCls.push('at-tabs--scroll')
+      headerCls.push('at-tabs__header--scroll')
     }
-    return <View className={rootCls}>
-      {
-        tabList.map((item, i) => <View className='at-tabs__item' style={current === i ? style : ''} key={item} onClick={this.handleClick.bind(this, i)}>
-          {item.title}
-        </View>)
-      }
+    const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
+    return <View className='at-tabs'>
+      <View className={headerCls}>
+        {
+          tabList.map((item, i) => <View className='at-tabs__item' style={current === i ? style : ''} key={item} onClick={this.handleClick.bind(this, i)}>
+            {item.title}
+          </View>)
+        }
+      </View>
+      <View className='at-tabs__body' style={animationStyle}>
+        {this.props.children}
+      </View>
     </View>
   }
 }

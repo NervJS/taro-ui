@@ -21,9 +21,7 @@ export default class Atarticle extends Taro.Component {
     return (
       <View className={rootClassName}>
         <View className='at-article__h1'>这是一级标题这是一级标题</View>
-        <View className='at-article__info'>
-          2017-05-07&nbsp;&nbsp;&nbsp;这是作者
-        </View>
+        <View className='at-article__info'>2017-05-07&nbsp;&nbsp;&nbsp;这是作者</View>
         <View className='at-article__content'>
           <View className='at-article__section'>
             <View className='at-article__h2'>这是二级标题</View>
@@ -42,8 +40,6 @@ export default class Atarticle extends Taro.Component {
 
           </View>
         </View>
-
-
       </View>
     )
   }

@@ -11,7 +11,7 @@ const OFFSET = 15
 
 export default class ProgressPage extends Taro.Component {
   config = {
-    navigationBarTitleText: 'Progress Page'
+    navigationBarTitleText: 'Taro UI'
   }
 
   constructor () {
@@ -46,7 +46,7 @@ export default class ProgressPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='进度条'></DocsHeader>
+        <DocsHeader title='Progress 进度条'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

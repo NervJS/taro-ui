@@ -84,7 +84,7 @@ export default class Index extends Taro.Component {
               <View className='component-item'>
                 <AtForm>
                   <AtInput title='标准五个字' type='text' clear placeholder='标准五个字' value={this.state.value1} onChange={this.handleInput.bind(this, 'value1')} />
-                  <AtInput autoFocus type='number' placeholder='请输入数字' value={this.state.value2} onChange={this.handleInput.bind(this, 'value2')} />
+                  <AtInput type='number' placeholder='请输入数字' value={this.state.value2} onChange={this.handleInput.bind(this, 'value2')} />
                   <AtInput title='密码' type='password' placeholder='密码不能少于10位数' value={this.state.value3} onChange={this.handleInput.bind(this, 'value3')} />
                   <AtInput title='标题实在特别长就换行' placeholder='其他列保持正常间距' value={this.state.value4} onChange={this.handleInput.bind(this, 'value4')} />
                   <AtInput title='出现错误' clear error onClickErrorIcon={this.onClickErrorIcon.bind(this)} placeholder='其他列保持正常间距' value={this.state.value5} onChange={this.handleInput.bind(this, 'value5')} />
