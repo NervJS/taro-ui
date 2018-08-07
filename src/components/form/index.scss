@@ -1,8 +1,10 @@
+@import '../../style/theme/default.scss';
+
 .at-form {
   display: block;
-  padding-left: 30px;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  border-top: 1px solid #e5e5e5;
+  padding-left: $spacing-h-lg;
+  background-color: $color-bg;
+  border-bottom: $border;
+  border-top: $border;
   overflow: hidden;
 }
