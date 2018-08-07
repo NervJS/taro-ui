@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
 import { View, Icon } from '@tarojs/components'
 
+import PropTypes from 'prop-types'
+
 import './index.scss'
 
-export default class Toast extends Taro.Component {
+export default class AtToast extends Taro.Component {
   constructor (props) {
     super(...arguments)
 
@@ -69,7 +71,7 @@ export default class Toast extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
-    const { text, hiddenIcon, iconSize, iconType, iconColor } = this.props
+    const { text, isHiddenIcon, iconSize, iconType, iconColor } = this.props
 
     const iconClass = [
       'at-toast-content__icon',
@@ -79,7 +81,7 @@ export default class Toast extends Taro.Component {
     return isOpened ? (
       <View className='at-toast' onClick={this.handleClick}>
         <View className='at-toast-content'>
-          {!hiddenIcon && (
+          {!isHiddenIcon && (
             <View className={iconClass}>
               <Icon type={iconType} color={iconColor} size={iconSize} />
             </View>
@@ -91,6 +93,15 @@ export default class Toast extends Taro.Component {
   }
 }
 
-Toast.defaultProps = {
+AtToast.defaultProps = {
   duration: 3000
+}
+
+AtToast.propTypes = {
+  text: PropTypes.string,
+  isOpened: PropTypes.bool,
+  iconType: PropTypes.string,
+  iconSize: PropTypes.string,
+  iconColor: PropTypes.string,
+  isHiddenIcon: PropTypes.bool
 }
