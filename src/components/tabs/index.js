@@ -31,8 +31,6 @@ class AtTabs extends Taro.Component {
   }
 
   handleTouchStart (e) {
-    e.preventDefault()
-    e.stopPropagation()
     if (!this.props.swipeable) return
 
     // 获取触摸时的原点
@@ -43,8 +41,6 @@ class AtTabs extends Taro.Component {
     }, 100)
   }
   handleTouchMove (e) {
-    e.preventDefault()
-    e.stopPropagation()
     if (!this.props.swipeable) return
 
     const { current } = this.props
@@ -61,9 +57,7 @@ class AtTabs extends Taro.Component {
     }
   }
 
-  handleTouchEnd (e) {
-    e.preventDefault()
-    e.stopPropagation()
+  handleTouchEnd () {
     if (!this.props.swipeable) return
 
     clearInterval(this.interval)
