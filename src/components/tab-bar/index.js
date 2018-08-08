@@ -27,7 +27,7 @@ import './index.scss'
  */
 class AtTabBar extends Taro.Component {
   handleClick (i) {
-    this.props.onClick(i)
+    this.props.onClick(i, ...arguments)
   }
 
   render () {
@@ -44,22 +44,20 @@ class AtTabBar extends Taro.Component {
       {
         tabList.map((item, i) => {
           return <View className='at-tab-bar__item' style={current === i ? selectedStyle : defaultStyle} key={item} onClick={this.handleClick.bind(this, i)}>
-            <View className='at-tab-bar__item-container'>
-              <AtBadge dot={item.dot} value={item.text} max={item.max}>
-                {
-                  item.iconType
-                    ? <View className='at-tab-bar__icon'>
-                      <AtIcon
-                        value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
-                        size={iconSize}
-                        color={current === i ? selectedColor : color}
-                      />
-                    </View>
-                    : null
-                }
-                <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
-              </AtBadge>
-            </View>
+            <AtBadge dot={item.dot} value={item.text} max={item.max}>
+              {
+                item.iconType
+                  ? <View className='at-tab-bar__icon'>
+                    <AtIcon
+                      value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
+                      size={iconSize}
+                      color={current === i ? selectedColor : color}
+                    />
+                  </View>
+                  : null
+              }
+              <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+            </AtBadge>
           </View>
         })
       }
