@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
-import { View, Icon } from '@tarojs/components'
+import { View, Icon, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+
+import statusImg from './img.json'
 
 import './index.scss'
 
@@ -12,7 +14,7 @@ export default class AtToast extends Taro.Component {
     const { isOpened } = props
 
     if (isOpened) {
-      this._makeTimer()
+      this.makeTimer()
     }
 
     this._timer = null
@@ -58,7 +60,7 @@ export default class AtToast extends Taro.Component {
     } else {
       this.clearTimmer()
     }
-    this.makeTimer()
+    // this.makeTimer()
   }
 
   handleClick = () => {
@@ -71,17 +73,43 @@ export default class AtToast extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
-    const { text, isHiddenIcon, iconSize, iconType, iconColor } = this.props
+    const {
+      text,
+      isHiddenIcon,
+      iconSize,
+      iconType,
+      iconColor,
+      status,
+      img
+    } = this.props
 
-    const iconClass = [
-      'at-toast-content__icon',
-      'at-toast-content__icon--no-margin'
-    ]
+    const realImg = statusImg[status] || img
+
+    const rootClass = ['at-toast']
+    const iconClass = ['at-toast-content__icon']
+
+    if (!text) {
+      iconClass.push('at-toast-content__icon--no-margin')
+    }
+
+    if (status) {
+      rootClass.push(`at-toast--${status}`)
+    }
 
     return isOpened ? (
-      <View className='at-toast' onClick={this.handleClick}>
+      <View className={rootClass} onClick={this.handleClick}>
         <View className='at-toast-content'>
-          {!isHiddenIcon && (
+          {realImg && (
+            <View className='at-toast-content__img'>
+              <Image
+                className='at-toast-content__img-item'
+                src={realImg}
+                mode='scaleToFill'
+              />
+            </View>
+          )}
+          {!isHiddenIcon &&
+            !realImg && (
             <View className={iconClass}>
               <Icon type={iconType} color={iconColor} size={iconSize} />
             </View>

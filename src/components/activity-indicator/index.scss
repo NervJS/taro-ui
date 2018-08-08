@@ -1,24 +1,13 @@
-/* postcss-pxtransform disable */
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
-@keyframes lds-spinner {
+@keyframes atRotate {
   0% {
-    opacity: 1;
+    transform: rotate(-90deg);
   }
 
   100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes lds-spinner {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+    transform: rotate(270deg);
   }
 }
 
@@ -29,44 +18,14 @@
     @include absolute-center;
   }
 
-  &-container {
-    display: flex;
+  &__body {
+    display: inline-block;
+    animation: atRotate 1350ms linear infinite;
+  }
 
-    &__body {
-      flex: 0 0 auto;
-
-      &-views {
-        width: 40px;
-        height: 40px;
-        font-size: 0;
-        transform: translate(-20px, -20px) scale(0.2) translate(20px, 20px);
-
-        &-item {
-          left: 94px;
-          top: 48px;
-          position: absolute;
-          animation: lds-spinner linear 1.5s infinite;
-          background: $color-brand;
-          width: 12px;
-          height: 24px;
-          border-radius: 40%;
-          transform-origin: 6px 52px;
-
-          @for $i from 0 to 12 {
-            &:nth-child(#{$i}) {
-              transform: rotate(#{$i * 30}deg);
-              animation-delay: #{($i - 1) * 0.125}s;
-            }
-          }
-        }
-      }
-    }
-
-    &__content {
-      flex: 0 0 auto;
-      font-size: 14px;
-      align-self: center;
-      color: $color-grey-2;
-    }
+  &__content {
+    font-size: 28px;
+    margin-left: 16px;
+    color: $color-grey-2;
   }
 }

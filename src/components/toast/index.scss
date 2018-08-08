@@ -1,6 +1,16 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
+@keyframes atRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .at-toast {
   @include absolute-center(fixed);
 
@@ -10,10 +20,20 @@
 
   &-content {
     &__icon {
+      line-height: 0;
       margin-bottom: 15px;
 
       &--no-margin {
-        margin: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    &__img {
+      text-align: center;
+
+      &-item {
+        width: 100px;
+        height: 100px;
       }
     }
 
@@ -22,5 +42,11 @@
       color: white;
       font-size: 28px;
     }
+  }
+}
+
+.at-toast--loading {
+  .at-toast-content__img {
+    animation: atRotate 1350ms linear infinite;
   }
 }

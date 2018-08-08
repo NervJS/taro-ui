@@ -1,31 +1,15 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
+import PropTypes from 'prop-types'
+
+import AtIcon from '../icon/index'
+
 import './index.scss'
 
-export default class ActivityIndicator extends Taro.Component {
-  constructor () {
-    super(...arguments)
-    this.state = {
-      views: new Array(12).fill()
-    }
-  }
-
+export default class AtActivityIndicator extends Taro.Component {
   render () {
-    const { views } = this.state
     const { color, size, mode, content } = this.props
-    const realSize = size / 2
-    const scaleSize = size / 200
-
-    const indicatorStyle = {
-      width: size ? `${+size}px` : undefined,
-      height: size ? `${+size}px` : undefined,
-      transform: realSize ? `translate(-${realSize}px, -${realSize}px) scale(${scaleSize}) translate(${realSize}px,${realSize}px)` : undefined
-    }
-
-    const style = {
-      background: color
-    }
 
     const rootClassName = ['at-activity-indicator']
 
@@ -35,29 +19,25 @@ export default class ActivityIndicator extends Taro.Component {
 
     return (
       <View className={rootClassName}>
-        <View className='at-activity-indicator-container'>
-          <View className='at-activity-indicator-container__body'>
-            <View
-              className='at-activity-indicator-container__body-views'
-              style={indicatorStyle}
-            >
-              {views.map((item, index) => (
-                <View
-                  key={index}
-                  className='at-activity-indicator-container__body-views-item'
-                  style={style}
-                />
-              ))}
-            </View>
-          </View>
-
-          {content && (
-            <Text className='at-activity-indicator-container__content'>
-              {content}
-            </Text>
-          )}
+        <View className='at-activity-indicator__body'>
+          <AtIcon value='loading' size={size} color={color} />
         </View>
+        {content && (
+          <Text className='at-activity-indicator__content'>{content}</Text>
+        )}
       </View>
     )
   }
+}
+
+AtActivityIndicator.defaultProps = {
+  size: 30,
+  color: '#6190E8'
+}
+
+AtActivityIndicator.propTypes = {
+  size: PropTypes.number,
+  mode: PropTypes.string,
+  color: PropTypes.string,
+  content: PropTypes.string
 }

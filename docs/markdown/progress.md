@@ -29,7 +29,7 @@ import { AtProgress } from "taro-ui"
 | 参数          | 说明         | 类型    | 可选值                     | 默认值  |
 | ------------- | ------------ | ------- | -------------------------- | ------- |
 | color         | 元素的颜色   | String  | -                          | -       |
-| status        | 元素的状态   | String  | `active`,`fail`,`finished` | -       |
+| status        | 元素的状态   | String  | `progress`,`error`,`success` | -       |
 | percent       | 元素的进度   | Number  | -                          | -       |
 | strokeWidth   | 元素的规格   | Number  | -                          | -       |
 | isHidePercent | 是否隐藏文字 | Boolean | -                          | `false` |

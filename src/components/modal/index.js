@@ -22,20 +22,20 @@ export default class AtModal extends Taro.Component {
     }
   }
 
-  close = () => {
-    this.setState({
-      isOpened: false
-    })
-  }
-
   render () {
     const { isOpened } = this.state
 
-    return isOpened ? (
-      <View className='at-modal'>
-        <View className='at-modal__overlay' onClick={this.close} />
+    const rootClass = ['at-modal']
+
+    if (isOpened) {
+      rootClass.push('at-modal--active')
+    }
+
+    return (
+      <View className={rootClass}>
+        <View className='at-modal__overlay' />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>
-    ) : null
+    )
   }
 }

@@ -1,5 +1,5 @@
-@import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
 
 .at-action-sheet {
   position: fixed;
@@ -7,9 +7,15 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: $zindex-action-sheet;
+  visibility: hidden;
+  transition: visibility 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
 
   &__overlay {
     @include overlay;
+
+    opacity: 0;
+    transition: opacity 150ms ease-in;
   }
 
   &__container {
@@ -19,5 +25,19 @@
     text-align: center;
     position: absolute;
     background-color: white;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  }
+}
+
+.at-action-sheet--active {
+  visibility: visible;
+
+  .at-action-sheet__overlay {
+    opacity: 1;
+  }
+
+  .at-action-sheet__container {
+    transform: translate3d(0, 0, 0);
   }
 }

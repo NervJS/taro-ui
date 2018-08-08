@@ -5,6 +5,5 @@
   font-size: 36px;
   padding: 25px 0;
 
-  /* prettier-ignore */
-  border-bottom: 1PX solid rgba($color: $color-black-0, $alpha: 0.1);
+  @include border-thin-bottom($color-grey-4);
 }

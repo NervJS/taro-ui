@@ -9,18 +9,18 @@
   }
 }
 
-@mixin border-thin-top($color, $style) {
+@mixin border-thin-top($color, $style: solid) {
   @include border-thin($color, $style, top);
 }
 
-@mixin border-thin-left($color, $style) {
+@mixin border-thin-left($color, $style: solid) {
   @include border-thin($color, $style, left);
 }
 
-@mixin border-thin-right($color, $style) {
+@mixin border-thin-right($color, $style: solid) {
   @include border-thin($color, $style, right);
 }
 
-@mixin border-thin-bottom($color, $style) {
+@mixin border-thin-bottom($color, $style: solid) {
   @include border-thin($color, $style, bottom);
 }

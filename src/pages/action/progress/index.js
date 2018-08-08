@@ -46,7 +46,7 @@ export default class ProgressPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='Progress 进度条'></DocsHeader>
+        <DocsHeader title='Progress 进度条' />
         {/* E Header */}
 
         {/* S Body */}
@@ -117,16 +117,16 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__title'>不同的状态</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtProgress percent='25' status='normal' />
+                <AtProgress percent='25' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='50' status='active' />
+                <AtProgress percent='50' status='progress' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='75' status='success' />
+                <AtProgress percent='75' status='error' color='#FF4949' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='75' status='error' />
+                <AtProgress percent='100' status='success' color='#13CE66' />
               </View>
             </View>
           </View>
@@ -136,14 +136,14 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__title'>实际案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton size='small' onClick={this.increase}>
-                  +
-                </AtButton>
-                <AtButton size='small' onClick={this.reduce}>
-                  -
-                </AtButton>
-                <View className='example__body-item'>
-                  <AtProgress percent={percent} />
+                <AtProgress percent={percent} />
+                <View className='example-item_buttons'>
+                  <AtButton size='small' onClick={this.increase}>
+                    +
+                  </AtButton>
+                  <AtButton size='small' onClick={this.reduce}>
+                    -
+                  </AtButton>
                 </View>
               </View>
             </View>

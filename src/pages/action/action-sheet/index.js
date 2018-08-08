@@ -25,6 +25,13 @@ export default class ActionSheetPage extends Taro.Component {
     this.setState(state)
   }
 
+  showToast = name => {
+    Taro.showToast({
+      icon: 'none',
+      title: name
+    })
+  }
+
   render () {
     const { isOpened } = this.state
     return (
@@ -49,11 +56,21 @@ export default class ActionSheetPage extends Taro.Component {
         <AtActionSheet
           cancleText='取消'
           isOpened={isOpened}
-          title='清除位置信息后， 别人将不能查看到你这里最多显示两行'
+          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
         >
-          <AtActionSheetItem>按钮一</AtActionSheetItem>
-          <AtActionSheetItem>按钮二</AtActionSheetItem>
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
+            按钮一
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
+            按钮二
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '成功清除位置')}
+          >
             <Text className='danger'>清除位置信息并退出</Text>
           </AtActionSheetItem>
         </AtActionSheet>

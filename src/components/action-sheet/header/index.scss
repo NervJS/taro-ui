@@ -2,9 +2,11 @@
 @import "../../../style/theme/default.scss";
 
 .at-action-sheet-header {
-  color: #888;
-  font-size: 28px;
-  padding: 25px 135px;
+  color: $color-black-3;
+  padding: 25px;
   text-align: center;
-  border-bottom: 1px solid rgba($color: $color-black-0, $alpha: 0.1);
+  font-size: $font-size-base;
+  line-height: $line-height-zh;
+
+  @include border-thin-bottom($color-grey-4);
 }
