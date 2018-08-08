@@ -13,7 +13,8 @@ export default class Index extends Taro.Component {
     super(...arguments)
     this.state = {
       number1: 1,
-      number2: 1
+      number2: 1,
+      number3: 1
     }
   }
   handleNumberChange (stateName, value) {
@@ -42,22 +43,20 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>小数</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber min={0} max={1} step={0.1} value={this.state.number2} onChange={this.handleNumberChange.bind(this, 'number2')} />
+                <AtInputNumber min={0} max={5} step={0.1} value={this.state.number2} onChange={this.handleNumberChange.bind(this, 'number2')} />
               </View>
             </View>
           </View>
 
-          {/* <View className='panel'>
-            <View className='panel__title'>其他规格</View>
+          <View className='panel'>
+            <View className='panel__title'>禁止状态</View>
             <View className='panel__content'>
               <View className='example--item'>
-                <AtInputNumber size='md' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
+                <AtInputNumber disabled min={0} max={10} step={1} value={this.state.number3} onChange={this.handleNumberChange.bind(this, 'number3')} />
               </View>
-              <View className='example--item'>
-                <AtInputNumber size='sm' min={0} max={1} step={0.1} value={this.state.number} onChange={this.handleNumberChange.bind(this)} />
-              </View>
+
             </View>
-          </View> */}
+          </View>
         </View>
         {/* E Body */}
       </View>

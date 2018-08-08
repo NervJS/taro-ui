@@ -1,51 +1,36 @@
+@import '../../style/theme/default.scss';
+
 .at-input-number {
   display: inline-flex;
-  // justify-content: center;
-  border: #e5e5e5 solid 1px;
-  border-radius: 8px;
-  background-color: #fff;
-  font-size: 30px;
-  width: 200px;
-  height: auto;
-
-  &-normal {
-    width: 300px;
-  }
-
-  &-md {
-    width: 200px;
-  }
-
-  &-sm {
-    width: 150px;
-  }
+  border: $border;
+  border-radius: $border-radius-md;
+  background-color: $color-bg;
+  font-size: $font-size-base;
+  overflow: hidden;
 
   &__btn {
-    flex: 1;
-    font-size: 30px;
-    box-sizing: border-box;
+    font-size: $font-size-base;
+    display: inline-flex;
     text-align: center;
-    color: #6190e8;
-    padding: 10px;
-    vertical-align: middle;
-    // background-color: red;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    padding: $spacing-v-xs;
+    vertical-align: -20px;
     overflow: hidden;
-    position: relative;
     height: auto;
-
-    &--disabled {
-      color: #e5e5e5;
-    }
+    position: relative;
   }
 
   &__input {
-    flex: 1;
-    box-sizing: border-box;
-    padding: 10px;
+    display: inline-flex;
+    min-width: 50px;
+    max-width: 80px;
     height: auto;
+    padding: $spacing-v-xs;
     text-align: center;
-    font-size: 30px;
-    border-left: #e5e5e5 solid 1px;
-    border-right: #e5e5e5 solid 1px;
+    font-size: $font-size-base;
+    border-left: $border;
+    border-right: $border;
   }
 }
