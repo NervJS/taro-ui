@@ -18,6 +18,7 @@
     line-height: $line-height-base;
     padding: $spacing-v-sm;
     color: $color-text-base;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #fff;
