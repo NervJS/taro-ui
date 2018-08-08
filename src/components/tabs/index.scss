@@ -10,6 +10,8 @@
     font-size: 30px;
     padding: 20px;
     color: $color-text-base;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &::after {
       content: '';
@@ -33,6 +35,7 @@
   }
 
   &__header {
+    position: relative;
     background-color: $color-bg;
     display: flex;
     text-align: center;
@@ -47,6 +50,7 @@
 
       .at-tabs__item {
         display: inline-block;
+        overflow: visible;
       }
     }
   }

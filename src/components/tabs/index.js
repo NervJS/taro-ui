@@ -31,6 +31,8 @@ class AtTabs extends Taro.Component {
   }
 
   handleTouchStart (e) {
+    e.preventDefault()
+    e.stopPropagation()
     if (!this.props.swipeable) return
 
     // 获取触摸时的原点
@@ -41,23 +43,27 @@ class AtTabs extends Taro.Component {
     }, 100)
   }
   handleTouchMove (e) {
+    e.preventDefault()
+    e.stopPropagation()
     if (!this.props.swipeable) return
 
     const { current } = this.props
     const touchMove = e.touches[0].pageX
     // 向左滑动
-    if (!this.isMoving && current - 1 >= 0 && touchMove - this.touchDot <= -40 && this.time < 10) {
-      this.isMoving = true
-      this.handleClick(current - 1)
-    }
-    // 向右滑动
-    if (!this.isMoving && current + 1 < this.maxIndex && touchMove - this.touchDot >= 40 && this.time < 10) {
+    if (!this.isMoving && current + 1 < this.maxIndex && touchMove - this.touchDot <= -40 && this.time < 10) {
       this.isMoving = true
       this.handleClick(current + 1)
     }
+    // 向右滑动
+    if (!this.isMoving && current - 1 >= 0 && touchMove - this.touchDot >= 40 && this.time < 10) {
+      this.isMoving = true
+      this.handleClick(current - 1)
+    }
   }
 
-  handleTouchEnd () {
+  handleTouchEnd (e) {
+    e.preventDefault()
+    e.stopPropagation()
     if (!this.props.swipeable) return
 
     clearInterval(this.interval)
