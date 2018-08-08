@@ -1,26 +1,30 @@
+@import "../../theme/default";
+
+// 默认主题下 $color-border-split : #e5e5e5
+
 @mixin border-thin(
-  $color: #333,
+  $color: $color-border-split,
   $style: solid,
   $directions: top bottom right left
 ) {
   @each $value in $directions {
     /* prettier-ignore */
-    border-#{$value}: 1PX $color $style;
+    border-#{$value}: 2rpx $color $style; /* stylelint-disable-line unit-no-unknown */
   }
 }
 
-@mixin border-thin-top($color, $style) {
+@mixin border-thin-top($color: $color-border-split, $style: solid) {
   @include border-thin($color, $style, top);
 }
 
-@mixin border-thin-left($color, $style) {
+@mixin border-thin-left($color: $color-border-split, $style: solid) {
   @include border-thin($color, $style, left);
 }
 
-@mixin border-thin-right($color, $style) {
+@mixin border-thin-right($color: $color-border-split, $style: solid) {
   @include border-thin($color, $style, right);
 }
 
-@mixin border-thin-bottom($color, $style) {
+@mixin border-thin-bottom($color: $color-border-split, $style: solid) {
   @include border-thin($color, $style, bottom);
 }
