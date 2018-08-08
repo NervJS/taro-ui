@@ -26,27 +26,27 @@
     opacity: 0;
   }
 
-  &__list {
-    margin: 0 0 0 18px;
-    max-height: 100%;
-    overflow-y: scroll;
+  // &__list {
+  //   margin: 0 0 0 18px;
+  //   max-height: 100%;
+  //   overflow-y: scroll;
 
-    &-icon {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  //   &-icon {
+  //     position: absolute;
+  //     right: 20px;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //   }
 
-    &-item {
-      height: 90px;
-      line-height: 90px;
-      font-size: 34px;
-      color: $color-black-0;
-      border-bottom: 1px solid #ddd;
-      position: relative;
-    }
-  }
+  //   &-item {
+  //     height: 90px;
+  //     line-height: 90px;
+  //     font-size: 34px;
+  //     color: $color-black-0;
+  //     border-bottom: 1px solid #ddd;
+  //     position: relative;
+  //   }
+  // }
 
   &.at-drawer--left {
     .at-drawer__content {

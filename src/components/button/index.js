@@ -1,6 +1,6 @@
 
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtIcon from '../icon/index'
 
@@ -35,9 +35,9 @@ export default class AtButton extends Taro.Component {
     const {
       size = 'normal',
       type = '',
-      circle = false,
-      loading = false,
-      disabled = false,
+      circle,
+      loading,
+      disabled,
     } = this.props
     let rootClassName = ['at-button']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -61,7 +61,7 @@ export default class AtButton extends Taro.Component {
 
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>
-        {component}<Text className='at-button__text'>{this.props.children}</Text>
+        {component}<View className='at-button__text'>{this.props.children}</View>
       </View>
     )
   }
