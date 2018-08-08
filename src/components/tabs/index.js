@@ -7,20 +7,67 @@ import './index.scss'
  * @author:chenzeji
  * @description tabs 标签页
  * @prop current {Number} 当前选中的tab index值，从0计数，default:0
- * @prop color {String} 选中标签的颜色
  * @prop scroll {Boolean} 是否横向滚动，default:false
  * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
  * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
  */
 class AtTabs extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    // 触摸时的原点
+    this.touchDot = 0
+    // 定时器
+    this.interval = null
+    // 滑动时间间隔
+    this.time = 0
+    // 是否已经在滑动
+    this.isMoving = false
+    // 最大索引
+    this.maxIndex = this.props.tabList.length
+  }
+
   handleClick (i) {
     this.props.onClick(i, ...arguments)
   }
 
+  handleTouchStart (e) {
+    if (!this.props.swipeable) return
+
+    // 获取触摸时的原点
+    this.touchDot = e.touches[0].pageX
+    // 使用js计时器记录时间
+    this.interval = setInterval(function () {
+      this.time++
+    }, 100)
+  }
+  handleTouchMove (e) {
+    if (!this.props.swipeable) return
+
+    const { current } = this.props
+    const touchMove = e.touches[0].pageX
+    // 向左滑动
+    if (!this.isMoving && current - 1 >= 0 && touchMove - this.touchDot <= -40 && this.time < 10) {
+      this.isMoving = true
+      this.handleClick(current - 1)
+    }
+    // 向右滑动
+    if (!this.isMoving && current + 1 < this.maxIndex && touchMove - this.touchDot >= 40 && this.time < 10) {
+      this.isMoving = true
+      this.handleClick(current + 1)
+    }
+  }
+
+  handleTouchEnd () {
+    if (!this.props.swipeable) return
+
+    clearInterval(this.interval)
+    this.time = 0
+    this.isMoving = false
+  }
+
   render () {
-    const { tabList, scroll, current, color } = this.props
+    const { tabList, scroll, current } = this.props
     const headerCls = ['at-tabs__header']
-    const style = `color: ${color};border-bottom: 1px solid ${color};`
     if (scroll) {
       headerCls.push('at-tabs__header--scroll')
     }
@@ -28,12 +75,18 @@ class AtTabs extends Taro.Component {
     return <View className='at-tabs'>
       <View className={headerCls}>
         {
-          tabList.map((item, i) => <View className='at-tabs__item' style={current === i ? style : ''} key={item} onClick={this.handleClick.bind(this, i)}>
+          tabList.map((item, i) => <View className={current === i ? 'at-tabs__item at-tabs__item--active' : 'at-tabs__item'} key={item} onClick={this.handleClick.bind(this, i)}>
             {item.title}
           </View>)
         }
       </View>
-      <View className='at-tabs__body' style={animationStyle}>
+      <View className='at-tabs__body'
+        id='test'
+        onTouchStart={this.handleTouchStart.bind(this)}
+        onTouchEnd={this.handleTouchEnd.bind(this)}
+        onTouchMove={this.handleTouchMove.bind(this)}
+        style={animationStyle}
+      >
         {this.props.children}
       </View>
     </View>
@@ -41,14 +94,14 @@ class AtTabs extends Taro.Component {
 }
 AtTabs.defaultProps = {
   current: 0,
-  color: '#6190E8',
+  swipeable: true,
   scroll: false,
   tabList: [],
   onClick: () => { }
 }
 AtTabs.propTypes = {
   current: PropTypes.number,
-  color: PropTypes.string,
+  swipeable: PropTypes.bool,
   scroll: PropTypes.bool,
   tabList: PropTypes.array,
   onClick: PropTypes.func
