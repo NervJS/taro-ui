@@ -1,10 +1,11 @@
 @import '../../style/theme/default.scss';
+@import "../../style/mixins/index.scss";
 
 .at-form {
   display: block;
   padding-left: $spacing-h-lg;
   background-color: $color-bg;
-  border-bottom: $border;
-  border-top: $border;
+  @include border-thin($directions: bottom top);
+
   overflow: hidden;
 }

@@ -1,8 +1,10 @@
 @import '../../style/theme/default.scss';
+@import "../../style/mixins/index.scss";
 
 .at-input-number {
   display: inline-flex;
-  border: $border;
+  @include border-thin;
+
   border-radius: $border-radius-md;
   background-color: $color-bg;
   font-size: $font-size-base;
@@ -30,7 +32,6 @@
     padding: $spacing-v-xs;
     text-align: center;
     font-size: $font-size-base;
-    border-left: $border;
-    border-right: $border;
+    @include border-thin($directions:left right);
   }
 }

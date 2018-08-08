@@ -1,9 +1,10 @@
 @import '../../style/theme/default.scss';
+@import "../../style/mixins/index.scss";
 
 .at-input {
   background-color: $color-bg;
   padding: $spacing-v-md 0;
-  border-bottom: $border;
+  @include border-thin-bottom;
 
   &__container {
     display: flex;
@@ -41,7 +42,7 @@
 
   &__children {
     display: inline-flex;
-    border-left: $border;
+    @include border-thin-left;
 
     > view,
     div,
