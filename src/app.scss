@@ -79,59 +79,13 @@ view {
   }
 }
 
-.component-list {
-  margin: 20px 60px 0;
-
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 120px;
-    border-bottom: 1px solid #d8d8d8;
-
-    .name {
-      color: #1d1d26;
-      font-size: 28px;
-    }
-  }
-}
-
-/**
- * 文档 DEMO 页
- */
-.doc-header {
-  display: flex;
-  align-items: center;
-  padding: 60px;
-  height: 180px;
-
-  &__title {
-    position: relative;
-    height: 90px;
-    color: #333;
-    font-size: 40px;
-    font-weight: bold;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: inline-block;
-      width: 120px;
-      height: 2px;
-      border-radius: 1px;
-      background-color: #6190e8;
-    }
-  }
-}
-
 .doc-body {
   min-height: calc(100vh - 180px);
   background: #fff;
   box-shadow: 0 26px 163px 0 rgba(0, 0, 0, 0.11);
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 60px;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 60px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 60px);
 
   .panel {
     margin: 32px 0 56px;
@@ -152,11 +106,11 @@ view {
         left: 24px;
         top: 50%;
         margin-top: -20px;
-        width: 2px;
+        width: 2PX;
         height: 40px;
         background-color: #6190e8;
         box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.2);
-        border-radius: 1px;
+        border-radius: 1PX;
       }
     }
 

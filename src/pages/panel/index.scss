@@ -1,4 +1,5 @@
 @import '../../components/icon/index.scss';
+@import '../../style/theme/default.scss';
 
 /**
  * 分类页样式
@@ -39,4 +40,21 @@
   min-height: calc(100vh - 180px);
   background: #fff;
   box-shadow: 0 26px 163px 0 rgba(0, 0, 0, 0.11);
+}
+
+.component-list {
+  margin: 20px 60px 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    border-bottom: 1px solid $color-border-lightest;
+
+    .name {
+      color: #1d1d26;
+      font-size: 28px;
+    }
+  }
 }

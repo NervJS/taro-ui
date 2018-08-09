@@ -1,23 +1,36 @@
 @import "../../style/theme/default.scss";
 @import "../../style/mixins/index.scss";
 
+$noticebar-color-bg: #FCF6ED;
+$noticebar-color-font: #DE8C17;
+$noticebar-icon-size: 26px;
+
 .at-noticebar {
-  background: #FCF6ED;
-  padding: 14px;
-  font-size: 24px;
-  color: #DE8C17;
   position: relative;
+  padding: $spacing-v-sm $spacing-h-lg;
+  color: $noticebar-color-font;
+  font-size: $font-size-sm;
+  background: $noticebar-color-bg;
+
+  &__content {
+    line-height: $line-height-zh;
+
+    &-icon {
+      display: inline-block;
+      margin-right: 12px;
+    }
+  }
 
   &__close {
-    width: 26px;
-    height: 26px;
+    width: $noticebar-icon-size;
+    height: $noticebar-icon-size;
     position: absolute;
-    left: 22px;
+    left: $spacing-h-lg;
     top: 50%;
-    transform: translateY(-85%);
+    margin-top: -($noticebar-icon-size / 2 + 4);
 
     + .at-noticebar__content {
-      margin-left: 68px;
+      margin-left: 50px;
     }
   }
 
@@ -34,17 +47,23 @@
   }
 
   &__more {
-    color: $color-grey-2;
     position: absolute;
-    right: 18px;
-    top: 15px;
+    right: $spacing-h-lg;
+    top: $spacing-v-sm;
+    color: $color-grey-2;
+    font-size: 0;
+
+    .text {
+      font-size: $font-size-sm;
+      line-height: $line-height-zh;
+      vertical-align: middle;
+    }
 
     &-icon {
-      width: 26px;
-      overflow: hidden;
       display: inline-block;
-      vertical-align: -8px;
-      margin-left: -3px;
+      width: $noticebar-icon-size;
+      vertical-align: middle;
+      overflow: hidden;
     }
   }
 }
