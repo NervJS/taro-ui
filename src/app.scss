@@ -1,7 +1,7 @@
 @import "./style/theme/default.scss";
 
 #app {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 .page {
@@ -9,7 +9,7 @@
   flex-direction: column;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 view {
@@ -62,21 +62,19 @@ view {
 }
 
 // Flex 展示样式
-.flex__page {
-  .at-flex {
-    margin-bottom: 40px;
+.page .at-flex {
+  margin-bottom: 40px;
 
-    &__item {
-      color: white;
-      text-align: center;
+  &__item {
+    color: white;
+    text-align: center;
 
-      &:nth-child(odd) {
-        background-color: #6190e8;
-      }
+    &:nth-child(odd) {
+      background-color: #6190e8;
+    }
 
-      &:nth-child(even) {
-        background-color: #78a4f4;
-      }
+    &:nth-child(even) {
+      background-color: #78a4f4;
     }
   }
 }
@@ -89,10 +87,10 @@ view {
     align-items: center;
     justify-content: space-between;
     height: 120px;
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid #d8d8d8;
 
     .name {
-      color: #1D1D26;
+      color: #1d1d26;
       font-size: 28px;
     }
   }
@@ -115,15 +113,15 @@ view {
     font-weight: bold;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       bottom: 0;
       display: inline-block;
       width: 120px;
-      height: 2PX;
-      border-radius: 1PX;
-      background-color: #6190E8;
+      height: 2px;
+      border-radius: 1px;
+      background-color: #6190e8;
     }
   }
 }
@@ -142,23 +140,23 @@ view {
       position: relative;
       margin-bottom: 50px;
       padding-left: 50px;
-      color: #6A6A77;
+      color: #6a6a77;
       font-size: 32px;
       font-weight: bold;
       line-height: 1.5;
 
       &::before {
-        content: '';
+        content: "";
         display: inline-block;
         position: absolute;
         left: 24px;
         top: 50%;
         margin-top: -20px;
-        width: 2PX;
+        width: 2px;
         height: 40px;
-        background-color: #6190E8;
-        box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.20);
-        border-radius: 1PX;
+        background-color: #6190e8;
+        box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.2);
+        border-radius: 1px;
       }
     }
 

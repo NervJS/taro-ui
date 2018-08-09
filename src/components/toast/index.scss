@@ -12,23 +12,30 @@
 }
 
 .at-toast {
+  &-overlay {
+    @include overlay;
+
+    position: fixed;
+    opacity: 0;
+  }
+}
+
+.at-toast .toast-body {
   @include absolute-center(fixed);
 
-  padding: 25px 30px;
+  z-index: $zindex-toast;
+  padding: 30px 72px;
   background-color: rgba($color: $color-black-0, $alpha: 0.8);
   border-radius: 8px;
 
   &-content {
     &__icon {
       line-height: 0;
-      margin-bottom: 15px;
-
-      &--no-margin {
-        margin-bottom: 0;
-      }
+      text-align: center;
     }
 
     &__img {
+      line-height: 0;
       text-align: center;
 
       &-item {
@@ -41,12 +48,26 @@
       text-align: center;
       color: white;
       font-size: 28px;
+      margin-top: $spacing-v-sm;
+    }
+  }
+
+  &--text {
+    padding: 24px 30px;
+    line-height: $line-height-zh;
+
+    .toast-body-content__info {
+      margin-top: 0;
     }
   }
 }
 
-.at-toast--loading {
-  .at-toast-content__img {
+.at-toast-body--loading {
+  .toast-body-content__img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
     animation: atRotate 1350ms linear infinite;
   }
 }
