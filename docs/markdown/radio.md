@@ -48,6 +48,7 @@ import AtRadio from 'taro-ui'
 | value | 选项标识符，必须保证唯一  | String  | - | - | 必填 |
 | label  | 选项标题  | String | - | - | 必填|
 | desc  | 选项描述，显示在标题下方的文字  | String | - | - | 可选|
+| disabled  | 是否禁止点击  | Boolean | - | false | 可选|
 
 ## 事件
 

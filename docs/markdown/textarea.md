@@ -61,6 +61,8 @@ import AtTextarea from 'taro-ui'
 | autoFocus| 是否自动聚焦  | Boolean | - | false |
 | count | 是否显示字数  | Boolean | - | true |
 | fixed| 如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true  | Boolean | - | false|
+| textOverflowForbidden | 文字超出最大长度时是否禁止输入，若否，则还可以在maxlength的基础上输入500字符，并右下角红字提示  | Boolean | - | true |
+| height | 输入框高度  | Number | - | 100  |
 
 ## 事件
 
