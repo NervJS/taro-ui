@@ -32,7 +32,7 @@ export default class Index extends Taro.Component {
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtForm>
                   <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
