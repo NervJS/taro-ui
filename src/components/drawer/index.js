@@ -1,7 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
-import AtIcon from '../icon/index'
+import AtList from '../list/index'
+import AtListItem from '../list/item/index'
 
 import './index.scss'
 
@@ -72,9 +73,19 @@ export default class AtDrawer extends Taro.Component {
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
-          <View className='at-drawer__list'>
-            {items.map((name, index) => <View className='at-drawer__list-item' key={index} data-index={index} onClick={this.onItemClick.bind(this, index)}>{name}<View className='at-drawer__list-icon'><AtIcon value='chevron-right' size='20' color='#C7C7CC'></AtIcon></View></View>)}
-          </View>
+          <AtList>
+            {
+              items.map((name, index) =>
+                <AtListItem
+                  key={index}
+                  data-index={index}
+                  onClick={this.onItemClick.bind(this, index)}
+                  title={name}
+                  arrow='right'
+                >
+                </AtListItem>)
+            }
+          </AtList>
         </View>
       </View>
     )

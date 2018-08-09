@@ -2,24 +2,33 @@
 @import '../../style/theme/default.scss';
 
 .at-tab-bar {
-  background-color: $color-bg;
   display: flex;
-  text-align: center;
   width: 100%;
+  min-height: 50px;
+  padding: $spacing-v-sm 0;
+  text-align: center;
   box-sizing: border-box;
   justify-content: center;
   align-items: start;
+  background-color: $color-bg;
+  @include border-thin-top;
 
   &__item {
     flex: 1;
-    font-size: 30px;
-    padding: 10px;
+    font-size: $font-size-base;
+    padding: $spacing-v-xs;
     color: $color-black-1;
   }
 
-  &__item-container {
-    display: inline-block;
-    position: relative;
+  &__title {
+    display: block;
+    max-width: 200px;
+    font-size: $font-size-base;
+    padding: $spacing-v-xs 0;
+    line-height: $line-height-base;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &--fixed {
@@ -27,6 +36,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: $zindex-drawer;
+    z-index: $zindex-nav;
   }
 }

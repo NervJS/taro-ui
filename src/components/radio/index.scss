@@ -1,5 +1,9 @@
+@import '../../style/theme/default.scss';
+@import "../../style/mixins/index.scss";
+
 .at-radio {
   background-color: #fff;
+  line-height: $line-height-zh;
 
   &__icon {
     flex: 1;
@@ -9,9 +13,11 @@
 
   &__option {
     display: flex;
-    padding: 13px 13px 13px 0;
-    margin-left: 30px;
+    padding: $spacing-v-md;
+    padding-left: 0;
+    margin-left: $spacing-h-lg;
     align-items: center;
+    @include active;
 
     &--selected {
       .at-radio__icon {
@@ -20,13 +26,23 @@
     }
 
     + .at-radio__option {
-      border-top: #e5e5e5 solid 1px;
+      @include border-thin-top;
     }
   }
 
   &__title {
     flex: 6;
-    font-size: 28px;
+    font-size: $font-size-base;
     text-align: left;
+  }
+
+  &__desc {
+    display: block;
+    padding-left: 60px;
+    text-align: left;
+    font-size: 24px;
+    color: #999;
+    letter-spacing: 0;
+    line-height: 36px;
   }
 }

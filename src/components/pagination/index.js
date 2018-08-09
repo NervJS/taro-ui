@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtButton from '../button/index'
+import AtIcon from '../icon/index'
 
 import './index.scss'
 
@@ -42,12 +43,12 @@ export default class AtPagination extends Taro.Component {
     const {
       current,
       icon,
-      simple,
+      // simple,
       maxPage,
     } = this.state
 
     let rootClassName = ['at-pagination']
-    if (simple) rootClassName.push('at-pagination--simple')
+    // if (simple) rootClassName.push('at-pagination--simple')
     if (icon) rootClassName.push('at-pagination--icon')
     rootClassName = rootClassName.filter(str => str !== '')
 
@@ -56,16 +57,18 @@ export default class AtPagination extends Taro.Component {
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
-              <AtButton onClick={this.onPrev.bind(this)} size='small' icon={icon ? 'chevron-left' : ''} _disabled={current === 1}>{icon ? '' : '上一页'}</AtButton>
+              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={current === 1}><AtIcon value='chevron-left' color='#000' size='20'></AtIcon></AtButton>}
+              {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={current === 1}>上一页</AtButton>}
             </View>
             <View className='at-pagination__btns-next'>
-              <AtButton onClick={this.onNext.bind(this)} size='small' icon={icon ? 'chevron-right' : ''} _disabled={current === maxPage}>{icon ? '' : '下一页'}</AtButton>
+              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={current === maxPage}><AtIcon value='chevron-right' color='#000' size='20'></AtIcon></AtButton>}
+              {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={current === maxPage}>下一页</AtButton>}
             </View>
           </View>
         </View>
-        {!simple && <View className='at-pagination__number'>
+        <View className='at-pagination__number'>
           <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
-        </View>}
+        </View>
 
       </View>
     )
@@ -77,7 +80,7 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
-  simple: false,
+  // simple: false,
 }
 
 AtPagination.propTypes = {
@@ -85,5 +88,5 @@ AtPagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
-  simple: PropTypes.bool,
+  // simple: PropTypes.bool,
 }

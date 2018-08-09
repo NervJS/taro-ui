@@ -1,5 +1,5 @@
-@import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
 
 .at-checkbox {
   background-color: #fff;
@@ -7,6 +7,7 @@
   &__option {
     padding: 13px 13px 13px 0;
     margin-left: 13px;
+    @include active;
   }
 
   &__desc {
@@ -27,11 +28,9 @@
 
   &__option_container {
     display: flex;
-    align-items: center;
   }
 
   &__icon {
-    position: relative;
     display: inline-flex;
     width: 40px;
     height: 40px;
@@ -50,8 +49,11 @@
   }
 
   &__icon_container {
-    display: inline-block;
-    @include absolute-center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
   }
 
   &__option + &__option {

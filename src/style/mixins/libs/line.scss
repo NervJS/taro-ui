@@ -1,7 +1,3 @@
-@mixin fontSize($num) {
-  font-size: $num;
-}
-
 @mixin line($num: 1) {
   overflow: hidden;
   text-overflow: ellipsis;

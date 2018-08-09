@@ -55,26 +55,26 @@ components:
           #   name: Tag
           # - title: 图标
           #   name: Icon
-  #     - title: 表单组件
-  #       items:
-  #         - title: 多选框
-  #           name: Checkbox
-  #         - title: 输入框
-  #           name: Input
-  #         - title: 数字输入框
-  #           name: InputNumber
-  #         - title: 单选按钮
-  #           name: Radio
-  #         - title: 评分
-  #           name: Rate
+      - title: 表单组件
+        items:
+          - title: 多选框
+            name: Checkbox
+          - title: 输入框
+            name: Input
+          - title: 数字输入框
+            name: InputNumber
+          - title: 单选按钮
+            name: Radio
+          - title: 评分
+            name: Rate
   #         - title: 选择器
   #           name: Select
-  #         - title: 开关
-  #           name: Switch
+          - title: 开关
+            name: Switch
   #         - title: 滑动输入条
   #           name: Slider
-  #         - title: 文本域
-  #           name: Textarea
+          - title: 文本域
+            name: Textarea
   #     - title: 视图组件
   #       items:
   #         - title: 警告提示
@@ -104,8 +104,8 @@ components:
   #         - title: 表格
   #           name: Table
 
-  #     - title: 导航组件
-  #       items:
+      - title: 导航组件
+        items:
   #         - title: 面包屑
   #           name: Breadcrumb
   #         - title: 下拉菜单
@@ -116,5 +116,11 @@ components:
   #           name: Pagination
   #         - title: 步骤条
   #           name: Steps
-  #         - title: 标签页
-  #           name: Tabs
+          - title: 标签页
+            name: Tabs
+          - title: 导航栏
+            name: NavBar
+          - title: 标签栏
+            name: TabBar
+          - title: 分段器组件
+            name: SegmentedControl

@@ -1,5 +1,5 @@
-
-@import "../../style/mixins.scss";
+@import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
 
 .at-noticebar {
   background: #FCF6ED;
@@ -34,7 +34,7 @@
   }
 
   &__more {
-    color: #999;
+    color: $color-grey-2;
     position: absolute;
     right: 18px;
     top: 15px;

@@ -4,14 +4,14 @@
 .at-nav-bar {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid $color-border-grey;
-  padding: 10px;
+  padding: $spacing-v-sm;
   background-color: #fff;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   overflow: hidden;
+  @include border-thin-bottom;
 
   &--fixed {
     position: fixed;
@@ -28,7 +28,7 @@
   }
 
   &__left_text {
-    font-size: 35px;
+    font-size: $font-size-lg;
     vertical-align: middle;
     display: inline-block;
   }
@@ -41,17 +41,23 @@
 
   &__title {
     flex: 5;
-    font-size: 30px;
+    font-size: $font-size-base;
     color: $color-text-base;
     text-align: center;
     vertical-align: middle;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__text {
+    display: inline-block;
+    font-size: $font-size-base;
   }
 
   &__container {
     width: 50%;
     display: inline-block;
     text-align: center;
-    color: $color-link;
   }
 }

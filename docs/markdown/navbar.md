@@ -1,0 +1,57 @@
+# NavBar 导航栏组件
+
+---
+NavBar 导航栏组件
+
+以下文档指示例子，请根据具体组件编写
+
+## 使用指南
+
+在 Taro 文件中引入组件
+
+:::demo
+
+```js
+import AtNavBar from 'taro-ui'
+```
+
+:::
+
+## 一般用法
+
+:::demo
+
+```jsx
+<AtNavBar
+  onClickRgIconSt={() => console.log(1)}
+  onClickRgIconNd={() => console.log(2)}
+  onClickLeftIcon={() => console.log(3)}
+  color='#000'
+  title='NavBar 导航栏示例'
+  leftText='返回'
+  rightFirstIconType='bullet-list'
+  rightSecondIconType='user'
+/>
+```
+
+:::
+
+## 参数
+
+| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
+| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
+| color | 链接文字跟图标颜色，不包括标题 | Number  | - | `#6190E8` |
+| fixed | 是否固定顶部  | Boolean | - | false |
+| leftIconType  | 左边图标类型，图标类型请看`AtIcon`文档  | String | - | 'chevron-left' |
+| leftText | 左边文字 | String  | - | - |
+| title | 标题文字 | String  | - | - |
+| rightFirstIconType | 从左到右，第一个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
+| rightSecondIconType | 从左到右第二个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
+
+## 事件
+
+| 事件名称 | 说明          | 返回参数  |
+|---------- |-------------- |---------- |
+| onClickLeftIcon | 左边第一个图标类型点击事件 | -  |
+| onClickRightFirstIcon | 从左到右第一个图标类型点击事件 | -  |
+| onClickRightSecondIcon | 从左到右第二个图标类型点击事件 | -  |

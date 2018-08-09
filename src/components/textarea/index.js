@@ -20,16 +20,16 @@ import './index.scss'
  */
 class AtTextarea extends Taro.Component {
   handleInput (e) {
-    this.props.onChange(e)
+    this.props.onChange(e, ...arguments)
   }
   handleFocus (e) {
-    this.props.onFocus(e)
+    this.props.onFocus(e, ...arguments)
   }
   handleBlur (e) {
-    this.props.onBlur(e)
+    this.props.onBlur(e, ...arguments)
   }
   handleConfirm (e) {
-    this.props.onConfirm(e)
+    this.props.onConfirm(e, ...arguments)
   }
   render () {
     const { value, maxlength, placeholder, count, disabled, autoFocus, fixed } = this.props

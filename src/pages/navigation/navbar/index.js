@@ -44,7 +44,7 @@ export default class Index extends Taro.Component {
         <View className='doc-body'>
           <View className='panel'>
             <View className='panel__title'>基础用法</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <AtNavBar
                 onClickLeftIcon={this.handleClick.bind(this, '返回')}
                 title='NavBar 导航栏示例'
@@ -55,7 +55,7 @@ export default class Index extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>自定义图标、文字、颜色</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <AtNavBar
                 onClickRgIconSt={this.clickList.bind(this)}
                 onClickRgIconNd={this.clickMy.bind(this)}
