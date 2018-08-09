@@ -53,4 +53,4 @@ import AtRadio from 'taro-ui'
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onChange | 输入框值改变时触发的事件 | 当前值value  |
+| onClick | 点击选项触发事件 | 当前值value  |

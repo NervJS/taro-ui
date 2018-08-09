@@ -11,8 +11,8 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      radioValue: 'apple',
-      radioOptions: [{ label: '苹果', value: 'apple' }, { label: '梨子', value: 'pear' }, { label: '菠萝', value: 'pineapple' }],
+      radioValue: 'option1',
+      radioOptions: [{ label: '单选项', value: 'option1', desc: '单选项描述' }, { label: '单选项', value: 'option2' }, { label: '单选项禁用某一项', value: 'option3', disabled: true }],
     }
   }
   handleRadioChange (value) {
@@ -32,7 +32,7 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础单选框</View>
             <View className='panel__content no-padding'>
-              <View className='example-item'>
+              <View className='radio-container'>
                 <AtRadio options={this.state.radioOptions} value={this.state.radioValue} onClick={this.handleRadioChange.bind(this)} />
               </View>
             </View>
