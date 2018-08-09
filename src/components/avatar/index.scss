@@ -1,16 +1,20 @@
 @import '../../style/theme/default.scss';
 
+$avatar-size-sm: 80px;
+$avatar-size-md: 100px;
+$avatar-size-lg: 120px;
+
 .at-avatar {
-  height: 100px;
-  width: 100px;
-  overflow: hidden;
-  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  font-size: $font-size-xxl;
-  line-height: 100px;
+  width: $avatar-size-md;
+  height: $avatar-size-md;
   color: #fff;
-  background: #D8D8D8;
+  font-size: $font-size-xxl;
+  line-height: $avatar-size-md;
   text-align: center;
+  border-radius: $border-radius-md;
+  background: $color-grey-4;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 
   &__img {
     width: 100%;
@@ -18,22 +22,22 @@
   }
 
   &--large {
-    width: 120px;
-    height: 120px;
+    width: $avatar-size-lg;
+    height: $avatar-size-lg;
     font-size: 48px;
-    line-height: 120px;
+    line-height: $avatar-size-lg;
   }
 
   &--small {
-    height: 80px;
-    width: 80px;
+    width: $avatar-size-sm;
+    height: $avatar-size-sm;
     font-size: $font-size-lg;
-    line-height: 80px;
+    line-height: $avatar-size-sm;
   }
 
   &--circle {
-    border-radius: 100px;
-    overflow: hidden;
+    border-radius: 50%;
     background-clip: border-box;
+    overflow: hidden;
   }
 }
