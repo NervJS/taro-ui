@@ -1,48 +1,58 @@
-@import '../../style/theme/default.scss';
+@import "../../style/theme/default.scss";
 @import "../../style/mixins/index.scss";
 
 .at-radio {
   background-color: #fff;
-  line-height: $line-height-zh;
 
-  &__icon {
-    flex: 1;
-    text-align: right;
-    visibility: hidden;
+  &__option_wrap {
+    padding: $spacing-v-md $spacing-h-xl $spacing-v-md 0;
+  }
+
+  &__option_container {
+    display: flex;
+  }
+
+  &__desc {
+    display: block;
+    text-align: left;
+    font-size: $font-size-sm;
+    color: $color-grey-2;
+    letter-spacing: 0;
+    line-height: $line-height-zh;
   }
 
   &__option {
-    display: flex;
-    padding: $spacing-v-md;
-    padding-left: 0;
-    margin-left: $spacing-h-xl;
-    align-items: center;
+    padding-left: $spacing-h-xl;
     @include active;
 
-    &--selected {
-      .at-radio__icon {
-        visibility: visible !important;
+    &--disabled {
+      .at-radio__option_container,
+      .at-radio__desc {
+        opacity: $opacity-disabled;
       }
-    }
 
-    + .at-radio__option {
-      @include border-thin-top;
+      &:active {
+        background-color: $color-bg;
+      }
     }
   }
 
   &__title {
     flex: 6;
-    font-size: $font-size-base;
     text-align: left;
+    font-size: $font-size-base;
   }
 
-  &__desc {
-    display: block;
-    padding-left: 60px;
-    text-align: left;
-    font-size: 24px;
-    color: #999;
-    letter-spacing: 0;
-    line-height: 36px;
+  &__icon_container {
+    flex: 1;
+    text-align: right;
+    font-size: $font-size-base;
+    overflow: hidden;
+  }
+
+  &__option + &__option {
+    .at-radio__option_wrap {
+      @include border-thin-top;
+    }
   }
 }
