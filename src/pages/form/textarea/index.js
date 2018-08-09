@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTextarea from '../../../components/textarea/index'
@@ -11,13 +12,15 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      textareaValue: ''
+      value1: '',
+      value2: '',
+      value3: '',
+      value4: ''
     }
   }
-  handleChange (e) {
-    this.setState({
-      textareaValue: e.target.value
-    })
+  handleChange (stateName, e) {
+    this.state[stateName] = e.target.value
+    this.setState()
   }
 
   render () {
@@ -34,8 +37,8 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtTextarea
-                  value={this.state.textareaValue}
-                  onChange={this.handleChange.bind(this)}
+                  value={this.state.value1}
+                  onChange={this.handleChange.bind(this, 'value1')}
                   maxlength='200'
                   placeholder='你的问题是...'
                 />
@@ -48,8 +51,36 @@ export default class Index extends Taro.Component {
               <View className='example-item'>
                 <AtTextarea
                   count={false}
-                  value={this.state.textareaValue}
-                  onChange={this.handleChange.bind(this)}
+                  value={this.state.value2}
+                  onChange={this.handleChange.bind(this, 'value2')}
+                  maxlength='200'
+                  placeholder='你的问题是...'
+                />
+              </View>
+            </View>
+          </View>
+          <View className='panel'>
+            <View className='panel__title'>文字超出仍可输入</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTextarea
+                  textOverflowForbidden={false}
+                  value={this.state.value3}
+                  onChange={this.handleChange.bind(this, 'value3')}
+                  maxlength='200'
+                  placeholder='你的问题是...'
+                />
+              </View>
+            </View>
+          </View>
+          <View className='panel'>
+            <View className='panel__title'>自定义高度</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTextarea
+                  height='300'
+                  value={this.state.value4}
+                  onChange={this.handleChange.bind(this, 'value4')}
                   maxlength='200'
                   placeholder='你的问题是...'
                 />
