@@ -36,8 +36,14 @@ export default class AtFloatLayout extends Taro.Component {
     const { isOpened } = this.state
     const { title } = this.props
 
-    return isOpened ? (
-      <View className='at-float-layout'>
+    const rootClassNames = ['at-float-layout']
+
+    if (isOpened) {
+      rootClassNames.push('at-float-layout--active')
+    }
+
+    return (
+      <View className={rootClassNames}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           <View className='layout-header'>
@@ -49,7 +55,7 @@ export default class AtFloatLayout extends Taro.Component {
           <View className='layout-body'>{this.props.children}</View>
         </View>
       </View>
-    ) : null
+    )
   }
 }
 
