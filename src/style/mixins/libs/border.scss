@@ -1,9 +1,9 @@
 @import "../../theme/default";
 
-// 默认主题下 $color-border-split : #e5e5e5
+// 默认主题下 $color-border-lighter
 
 @mixin border-thin(
-  $color: $color-border-split,
+  $color: $color-border-lighter,
   $style: solid,
   $directions: top bottom right left
 ) {
@@ -13,18 +13,18 @@
   }
 }
 
-@mixin border-thin-top($color: $color-border-split, $style: solid) {
+@mixin border-thin-top($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, top);
 }
 
-@mixin border-thin-left($color: $color-border-split, $style: solid) {
+@mixin border-thin-left($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, left);
 }
 
-@mixin border-thin-right($color: $color-border-split, $style: solid) {
+@mixin border-thin-right($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, right);
 }
 
-@mixin border-thin-bottom($color: $color-border-split, $style: solid) {
+@mixin border-thin-bottom($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, bottom);
 }

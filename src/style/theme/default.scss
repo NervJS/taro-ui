@@ -114,6 +114,9 @@ $zindex-action-sheet: 1010;
 $zindex-picker: 1010;
 $zindex-toast: 1090;
 
+/* timing function */
+$timing-func: cubic-bezier(0.36, 0.66, 0.04, 1);
+
 /**
  * CSS cubic-bezier timing functions
  * http://bourbon.io/docs/#timing-functions
