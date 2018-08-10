@@ -38,16 +38,16 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag circle onClick={this.onClick.bind(this)}>标签</AtTag>
+                  <AtTag name='tag-1' circle onClick={this.onClick.bind(this)}>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag>标签</AtTag>
+                  <AtTag name='tag-2'>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag circle active>标签</AtTag>
+                  <AtTag name='tag-3' circle active>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag active>标签</AtTag>
+                  <AtTag name='tag-4' active>标签</AtTag>
                 </View>
               </View>
             </View>
@@ -59,16 +59,16 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag type='primary' circle>标签</AtTag>
+                  <AtTag name='tag-5' type='primary' circle>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag type='primary'>标签</AtTag>
+                  <AtTag name='tag-6' type='primary'>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag type='primary' circle active>标签</AtTag>
+                  <AtTag name='tag-7' type='primary' circle active>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag type='primary' active>标签</AtTag>
+                  <AtTag name='tag-8' type='primary' active>标签</AtTag>
                 </View>
               </View>
             </View>
