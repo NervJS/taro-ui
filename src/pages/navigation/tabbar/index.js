@@ -52,9 +52,7 @@ export default class Index extends Taro.Component {
           </View>
           <View className='panel'>
             <View className='panel__title'>固定底部</View>
-            <View className='panel__content no-padding'>
-              <AtTabBar fixed tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
-            </View>
+            <AtTabBar fixed tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
           </View>
         </View>
       </View>
