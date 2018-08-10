@@ -30,7 +30,7 @@ export default class AtTag extends Taro.Component {
         active,
       })
       // debugger
-      this.props.onClick(...arguments, { active })
+      this.props.onClick({ name: this.props.name, active })
     }
   }
 
@@ -62,6 +62,7 @@ export default class AtTag extends Taro.Component {
 AtTag.defaultProps = {
   size: 'normal',
   type: '',
+  name: '',
   circle: false,
   active: false,
   disabled: false,
@@ -70,6 +71,7 @@ AtTag.defaultProps = {
 AtTag.propTypes = {
   size: PropTypes.oneOf(['normal', 'small']),
   type: PropTypes.oneOf(['', 'primary']),
+  name: PropTypes.string,
   circle: PropTypes.bool,
   active: PropTypes.bool,
   disabled: PropTypes.bool,

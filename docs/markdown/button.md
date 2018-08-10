@@ -20,10 +20,9 @@ import AtButton from 'taro-ui'
 
 :::demo
 ```html
-<At-Button type="success">按钮文案</At-Button>
-<At-Button type="error">按钮文案</At-Button>
-<At-Button type="warning">按钮文案</At-Button>
-<At-Button type="info">按钮文案</At-Button>
+<AtButton type="primary">按钮文案</AtButton>
+<AtButton type="secondary">按钮文案</AtButton>
+<AtButton>按钮文案</AtButton>
 ```
 :::
 
@@ -31,27 +30,33 @@ import AtButton from 'taro-ui'
 
 :::demo
 ```html
-<At-Button type="success">按钮文案</At-Button>
-<At-Button type="error">按钮文案</At-Button>
-<At-Button type="warning">按钮文案</At-Button>
-<At-Button type="info">按钮文案</At-Button>
+<AtButton type="primary" size="normal">按钮文案</AtButton>
+<AtButton type="primary" size="small">按钮文案</AtButton>
+```
+:::
+
+## 带Icon
+
+:::demo
+```html
+<AtButton icon="clock" type="primary" size="normal">按钮文案</AtButton>
+<AtButton loading type="primary">按钮文案</AtButton>
 ```
 :::
 
 ## Button 参数
 
-| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
-| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| type       | 按钮的类型                             | String  | `default`, `primary`, `success`, `error`, `warning`, `info`, `text` | -        |
-| nativeType | 原生按钮的类型                         | String  | -                                                                   | `button` |
-| size       | 按钮的大小                             | String  | `large`, `small`, `smaller`                                         | -        |
-| hollow     | 是否为空心按钮                         | Boolean | -                                                                   | false    |
-| icon       | 按钮的图标类名，填入图标的 `classname` | String  | 见文档 `Icon 图标`                                                  | -        |
-| loading    | 设置按钮的载入状态                     | Boolean | -                                                                   | false    |
-| circle     | 设置圆形图标按钮                       | Boolean | -                                                                   | false    |
+| 微信小程序 | H5 | 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
+|:-----------|:---|:---------|:-----------------------------|:--------|:-----------------------|:---------|
+| √          | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
+| √          | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
+| √          | √  | icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
+| √          | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
+| √          | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
+| √          | √  | disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
 
 ## Button 事件
 
-| 事件名称 | 说明          | 返回参数  |
-|---------- |-------------- |---------- |
-| onClick | 点击按钮时触发 | - |
+| 微信小程序 | H5 | 事件名称 | 说明           | 返回参数 |
+|:-----------|:---|:---------|:---------------|:---------|
+| √          | √  | onClick  | 点击按钮时触发 | -        |

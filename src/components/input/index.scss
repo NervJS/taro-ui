@@ -14,7 +14,8 @@
   &__input {
     flex: 1;
     font-size: $font-size-base;
-    padding-right: $spacing-v-sm;
+    line-height: normal;
+    padding-right: $spacing-v-md;
     display: inline-block;
     vertical-align: middle;
   }
@@ -26,7 +27,7 @@
 
   &__icon {
     display: inline-block;
-    padding: 0 $spacing-v-md;
+    padding-right: $spacing-v-md;
     text-align: center;
     font-size: $font-size-base;
   }

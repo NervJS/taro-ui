@@ -13,7 +13,11 @@ export default class ListPage extends Component {
   }
 
   handleChange = e => {
-    console.log(e)
+    console.log('Change Switch', e)
+  }
+
+  handleClick = e => {
+    console.log('Click Item', e)
   }
 
   render () {
@@ -23,14 +27,11 @@ export default class ListPage extends Component {
 
         <View className='doc-body'>
           <View className='panel'>
-            <View className='panel__title'>基础列表</View>
+            <View className='panel__title'>完整案例</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtList>
-                  <AtListItem
-                    title='标题文字'
-                    onClick={console.log.bind(this, 1)}
-                  />
+                  <AtListItem title='标题文字' onClick={this.handleClick} />
                   <AtListItem title='标题文字' arrow='right' />
                   <AtListItem
                     arrow='right'

@@ -30,6 +30,17 @@ export default class ActionSheetPage extends Taro.Component {
     })
   }
 
+  handleClose = name => {
+    console.log(name)
+    this.setState({
+      [`isOpened${name}`]: false
+    })
+  }
+
+  handleCancle = () => {
+    this.showToast('点击了取消按钮')
+  }
+
   showToast = name => {
     Taro.showToast({
       icon: 'none',
@@ -53,7 +64,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='1' onClick={this.handleClick}>打开 ActionSheet</Button>
+                <Button data-type='1' onClick={this.handleClick}>
+                  打开 ActionSheet
+                </Button>
               </View>
             </View>
           </View>
@@ -63,7 +76,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>含标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='2' onClick={this.handleClick}>打开 ActionSheet</Button>
+                <Button data-type='2' onClick={this.handleClick}>
+                  打开 ActionSheet
+                </Button>
               </View>
             </View>
           </View>
@@ -73,7 +88,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>自定义选项</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='3' onClick={this.handleClick}>打开 ActionSheet</Button>
+                <Button data-type='3' onClick={this.handleClick}>
+                  打开 ActionSheet
+                </Button>
               </View>
             </View>
           </View>
@@ -82,6 +99,7 @@ export default class ActionSheetPage extends Taro.Component {
         <AtActionSheet
           cancleText='取消'
           isOpened={isOpened1}
+          onClose={this.handleClose.bind(this, 1)}
         >
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}
@@ -98,6 +116,7 @@ export default class ActionSheetPage extends Taro.Component {
         <AtActionSheet
           cancleText='取消'
           isOpened={isOpened2}
+          onClose={this.handleClose.bind(this, 2)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
         >
           <AtActionSheetItem
@@ -115,6 +134,7 @@ export default class ActionSheetPage extends Taro.Component {
         <AtActionSheet
           cancleText='取消'
           isOpened={isOpened3}
+          onClose={this.handleClose.bind(this, 3)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
         >
           <AtActionSheetItem

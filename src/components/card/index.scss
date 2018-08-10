@@ -2,22 +2,33 @@
 @import "../../style/theme/default.scss";
 
 .at-card {
-  border-radius: 6px;
-  background-color: white;
-  border: 2px solid #ddd;
+  @include border-thin();
+
+  margin: 0 $spacing-h-lg;
+  background-color: $color-white;
+  border-radius: $border-radius-md;
+
+  &--full {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
 
   &-header {
     @include display-flex;
     @include align-items(center);
+    @include border-thin-bottom();
 
     height: 94px;
-    padding: 0 30px;
+    padding: 0 $spacing-h-lg;
     position: relative;
-    border-bottom: 1px solid #ddd;
 
     &__title,
     &__extra {
-      line-height: 1;
+      @include line;
+
+      line-height: $line-height-zh;
     }
 
     &__thumb {
@@ -26,7 +37,7 @@
       height: 34px;
       display: block;
       line-height: 0;
-      margin-right: 16px;
+      margin-right: $spacing-h-md;
 
       &-info {
         width: 100%;
@@ -38,27 +49,29 @@
       @include flex(auto);
 
       display: block;
-      font-size: 36px;
+      font-size: $font-size-xl;
     }
 
     &__extra {
       @include flex(0, 0, auto);
 
-      font-size: 30px;
+      max-width: 200px;
+      margin-left: $spacing-h-lg;
+      font-size: $font-size-base;
     }
   }
 
   &-content {
-    padding: 20px 30px;
+    padding: $spacing-v-md $spacing-h-lg;
 
     &__info {
-      font-size: 32px;
+      font-size: $font-size-lg;
     }
 
     &__note {
-      color: #888;
-      font-size: 28px;
-      margin-top: 20px;
+      color: $color-grey-2;
+      font-size: $font-size-base;
+      margin-top: $spacing-v-md;
     }
   }
 }
