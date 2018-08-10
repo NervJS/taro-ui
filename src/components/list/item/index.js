@@ -8,15 +8,13 @@ import AtIcon from '../../icon/index'
 import './index.scss'
 
 export default class AtListItem extends Component {
-  onClick () {
-    this.props.onClick(...arguments)
-  }
   render () {
     const {
       note,
       arrow,
       title,
       thumb,
+      onClick,
       isSwitch,
       extraText,
       extraThumb,
@@ -34,7 +32,7 @@ export default class AtListItem extends Component {
     }
 
     return (
-      <View className={rootClass} onClick={this.onClick.bind(this)}>
+      <View className={rootClass} onClick={onClick}>
         {thumb && (
           <View className='at-list__item-thumb item-thumb'>
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />
