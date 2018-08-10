@@ -69,6 +69,10 @@ $at-button-height-sm: 60px;
     animation: loading-rotate 1s linear infinite;
     transform-origin: 50% 51.2%;
   }
+
+  &__text {
+    display: inline;
+  }
 }
 
 @keyframes loading-rotate {
