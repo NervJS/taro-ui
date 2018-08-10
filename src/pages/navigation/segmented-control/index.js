@@ -35,7 +35,7 @@ export default class Index extends Taro.Component {
           {/* 基础 */}
           <View className='panel'>
             <View className='panel__title'>基础</View>
-            <View className='panel__content'>
+            <View className='panel__content no'>
               <View>
                 <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#6190E8' current={current} values={tabList2} />
                 {current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
@@ -44,20 +44,23 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
-
+          {/* 自定义 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义颜色、字体大小</View>
+            <View className='panel__content'>
+              <View>
+                <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#FF4949' fontSize='12' current={current} values={tabList2} />
+                {current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
+                {current === 1 ? <View className='tab-content'>标签2的内容</View> : null}
+                {current === 2 ? <View className='tab-content'>标签3的内容</View> : null}
+              </View>
+            </View>
+          </View>
           {/* 禁用 */}
           <View className='panel'>
             <View className='panel__title'>禁用</View>
             <View className='panel__content'>
               <AtSegmentedControl disabled values={tabList1} />
-            </View>
-          </View>
-
-          {/* 自定义 */}
-          <View className='panel'>
-            <View className='panel__title'>自定义颜色、字体大小</View>
-            <View className='panel__content'>
-              <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#FF4949' fontSize='12' current={current} values={tabList2} />
             </View>
           </View>
         </View>
