@@ -43,6 +43,7 @@ class AtTextarea extends Taro.Component {
     return <View className='at-textarea'>
       <Textarea
         style={textareaStyle}
+        cursorSpacing='30'
         className='at-textarea__textarea'
         value={value}
         maxlength={actualMaxLength}

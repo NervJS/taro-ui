@@ -14,7 +14,7 @@
   &__input {
     flex: 1;
     font-size: $font-size-base;
-    padding-right: $spacing-v-md;
+    padding-right: $spacing-v-sm;
     display: inline-block;
     vertical-align: middle;
   }
@@ -61,7 +61,7 @@
     img,
     .taro-img {
       display: inline-block;
-      width: 140px;
+      width: 145px;
       height: 60px;
       vertical-align: middle;
     }
