@@ -1,5 +1,19 @@
 .example-item {
-  &_buttons {
+  &__buttons {
     margin-top: 20px;
+
+    .btn {
+      display: inline-block;
+      margin-left: 12px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__desc {
+    color: #333;
+    font-size: 24px;
   }
 }

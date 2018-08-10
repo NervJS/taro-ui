@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
+import AtIcon from '../../../components/icon/index'
 import AtProgress from '../../../components/progress/index'
 import DocsHeader from '../../components/doc-header'
 
@@ -72,7 +73,7 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__title'>隐藏进度文案</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtProgress percent='25' />
+                <AtProgress percent='25' isHidePercent />
               </View>
               <View className='example-item'>
                 <AtProgress percent='75' isHidePercent />
@@ -80,25 +81,25 @@ export default class ProgressPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 不同的规格 */}
+          {/* 自定义进度条线宽 */}
           <View className='panel'>
-            <View className='panel__title'>不同的规格</View>
+            <View className='panel__title'>自定义进度条线宽</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtProgress percent='25' strokeWidth='5' />
+                <AtProgress percent='25' strokeWidth='6' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='50' strokeWidth='10' />
+                <AtProgress percent='50' strokeWidth='8' />
               </View>
               <View className='example-item'>
-                <AtProgress percent='75' strokeWidth='15' />
+                <AtProgress percent='75' strokeWidth='10' />
               </View>
             </View>
           </View>
 
-          {/* 不同的颜色 */}
+          {/* 自定义颜色 */}
           <View className='panel'>
-            <View className='panel__title'>不同的颜色</View>
+            <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtProgress percent='25' color='#FF4949' />
@@ -117,15 +118,19 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__title'>不同的状态</View>
             <View className='panel__content'>
               <View className='example-item'>
+                <View className='example-item__desc'>暂停</View>
                 <AtProgress percent='25' />
               </View>
               <View className='example-item'>
+                <View className='example-item__desc'>进行中</View>
                 <AtProgress percent='50' status='progress' />
               </View>
               <View className='example-item'>
+                <View className='example-item__desc'>错误</View>
                 <AtProgress percent='75' status='error' color='#FF4949' />
               </View>
               <View className='example-item'>
+                <View className='example-item__desc'>已完成</View>
                 <AtProgress percent='100' status='success' color='#13CE66' />
               </View>
             </View>
@@ -137,13 +142,17 @@ export default class ProgressPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtProgress percent={percent} />
-                <View className='example-item_buttons'>
-                  <AtButton size='small' onClick={this.increase}>
-                    +
-                  </AtButton>
-                  <AtButton size='small' onClick={this.reduce}>
-                    -
-                  </AtButton>
+                <View className='example-item__buttons'>
+                  <View className='btn'>
+                    <AtButton size='small' onClick={this.reduce}>
+                      <AtIcon value='subtract' size='12'></AtIcon>
+                    </AtButton>
+                  </View>
+                  <View className='btn'>
+                    <AtButton size='small' onClick={this.increase}>
+                      <AtIcon value='add' size='12'></AtIcon>
+                    </AtButton>
+                  </View>
                 </View>
               </View>
             </View>
