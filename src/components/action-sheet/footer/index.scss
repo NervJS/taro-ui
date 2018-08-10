@@ -1,5 +1,7 @@
+@import "../../../style/theme/default.scss";
+
 .at-action-sheet-footer {
-  font-size: 36px;
-  padding: 25px 0;
-  border-top: 12px solid rgba($color: #cdcdd1, $alpha: 0.3);
+  font-size: $font-size-xl;
+  padding: $spacing-v-lg $spacing-h-lg;
+  border-top: 12px solid rgba($color: $color-border-base, $alpha: 0.3);
 }
