@@ -1,18 +1,25 @@
 @import "../../../style/mixins/index.scss";
 @import "../../../style/theme/default.scss";
 
-.example-item {
-  @include display-flex;
-  @include align-items(center);
+.panel__content {
+  .example-item {
+    @include display-flex;
+    @include align-items(center);
 
-  &--center {
-    height: 375px;
-    position: relative;
-    background-color: #f8f8f8;
-    margin-bottom: 20px;
-  }
+    &--center {
+      height: 375px;
+      position: relative;
+      background-color: #FAFBFC;
+      margin-bottom: 20px;
+    }
 
-  .subitem {
-    @include flex(0, 0, auto);
+    .subitem {
+      margin-left: 32px;
+      @include flex(0, 0, auto);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
   }
 }
