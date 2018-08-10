@@ -25,13 +25,9 @@ export default class ActionSheetPage extends Taro.Component {
   handleClick = e => {
     const { type } = e.currentTarget.dataset
 
-    if (type === '1') {
-      this.setState({ isOpened1: true })
-    } else if (type === '2') {
-      this.setState({ isOpened2: true })
-    } else if (type === '3') {
-      this.setState({ isOpened3: true })
-    }
+    this.setState({
+      [`isOpened${type}`]: true
+    })
   }
 
   showToast = name => {

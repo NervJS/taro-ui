@@ -31,9 +31,14 @@ export default class ModalPage extends Taro.Component {
     })
   }
 
-  closeModal = name => {
+  closeModal = (name, msg) => {
     this.setState({
       [`isOpened${name}`]: false
+    })
+
+    Taro.showToast({
+      icon: 'none',
+      title: msg
     })
   }
 
@@ -44,23 +49,25 @@ export default class ModalPage extends Taro.Component {
         <DocsHeader title='Modal 模态框' />
 
         <View className='doc-body'>
+          {/* 单个按钮 */}
           <View className='panel'>
             <View className='panel__title'>单个按钮</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 'Single')}>
-                  打开单按钮Modal
+                  打开单按钮 Modal
                 </AtButton>
               </View>
             </View>
           </View>
 
+          {/* 多个按钮 */}
           <View className='panel'>
             <View className='panel__title'>多个按钮</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 'Multi')}>
-                  打开多按钮Modal
+                  打开多按钮 Modal
                 </AtButton>
               </View>
             </View>
@@ -77,10 +84,10 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 'Multi')}>取消</Button>
+            <Button onClick={this.closeModal.bind(this, 'Multi', '点击了取消')}>取消</Button>
             <Button
               className='serious-button'
-              onClick={this.closeModal.bind(this, 'Multi')}
+              onClick={this.closeModal.bind(this, 'Multi', '点击了确定')}
             >
               确定
             </Button>
@@ -97,7 +104,7 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 'Single')}>取消</Button>
+            <Button onClick={this.closeModal.bind(this, 'Single', '点击了取消')}>取消</Button>
           </AtModalAction>
         </AtModal>
       </View>

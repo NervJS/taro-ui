@@ -1,6 +1,8 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
+$modal-width: 540px;
+
 .at-modal {
   position: fixed;
   width: 100%;
@@ -23,9 +25,9 @@
   &__container {
     @include absolute-center();
 
-    width: 540px;
+    width: $modal-width;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: $border-radius-lg;
     background-color: $color-white;
   }
 }
