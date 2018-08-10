@@ -28,6 +28,7 @@ export default {
     'star',
     'star-2',
     'help',
+    'alert-circle',
     'home',
     'iphone-x',
     'iphone',

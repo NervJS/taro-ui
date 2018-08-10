@@ -1,4 +1,3 @@
-
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
@@ -20,7 +19,8 @@ export default class AtListItem extends Component {
       thumb,
       isSwitch,
       extraText,
-      extraThumb
+      extraThumb,
+      onSwitchChange
     } = this.props
 
     const rootClass = ['at-list__item']
@@ -64,7 +64,7 @@ export default class AtListItem extends Component {
             !extraThumb &&
             !extraText && (
             <View className='item-extra__switch'>
-              <Switch />
+              <Switch color='#6190E8' onChange={onSwitchChange} />
             </View>
           )}
 

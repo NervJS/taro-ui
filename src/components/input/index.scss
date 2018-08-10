@@ -1,39 +1,48 @@
-@import '../../style/mixins/index.scss';
 @import '../../style/theme/default.scss';
+@import "../../style/mixins/index.scss";
 
 .at-input {
-  background-color: #fff;
-  padding: 22px 0;
-  display: flex;
-  align-items: center;
-  border-bottom: #e5e5e5 solid 1px;
+  background-color: $color-bg;
+  padding: $spacing-v-md 0;
+  @include border-thin-bottom;
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
 
   &__input {
     flex: 1;
-    font-size: 28px;
-    padding: 0 12px;
+    font-size: $font-size-base;
+    padding-right: $spacing-v-md;
     display: inline-block;
     vertical-align: middle;
   }
 
+  input {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
   &__icon {
     display: inline-block;
-    padding: 0 6px;
+    padding: 0 $spacing-v-md;
     text-align: center;
-    font-size: 20px;
+    font-size: $font-size-base;
   }
 
   &__title {
     width: 150px;
-    margin-right: 20px;
-    font-size: 28px;
+    margin-right: $spacing-h-md;
+    font-size: $font-size-base;
+    line-height: $line-height-zh;
     vertical-align: middle;
     text-align: left;
   }
 
   &__children {
     display: inline-flex;
-    border-left: #e7e7e7 solid 1px;
+    @include border-thin-left;
 
     > view,
     div,
@@ -41,10 +50,11 @@
     text,
     image,
     .taro-img {
-      font-size: 28px;
+      font-size: $font-size-base;
       display: inline-block;
-      padding: 0 20px;
-      color: #78a4fa;
+      text-align: center;
+      padding: 0 $spacing-v-md;
+      color: $color-brand-dark;
     }
 
     > image,
@@ -58,7 +68,7 @@
   }
 
   &--error {
-    color: #e93b3d;
+    color: $color-error;
   }
 
   &--disabled {

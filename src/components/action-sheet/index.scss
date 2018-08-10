@@ -1,5 +1,7 @@
-@import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
+
+$action-sheet-timer: 300ms;
 
 .at-action-sheet {
   position: fixed;
@@ -7,9 +9,15 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: $zindex-action-sheet;
+  visibility: hidden;
+  transition: visibility $action-sheet-timer $timing-func;
 
   &__overlay {
     @include overlay;
+
+    opacity: 0;
+    transition: opacity $action-sheet-timer ease-in;
   }
 
   &__container {
@@ -18,6 +26,20 @@
     max-height: 50%;
     text-align: center;
     position: absolute;
-    background-color: white;
+    background-color: $color-white;
+    transform: translate3d(0, 100%, 0);
+    transition: transform $action-sheet-timer $timing-func;
+  }
+}
+
+.at-action-sheet--active {
+  visibility: visible;
+
+  .at-action-sheet__overlay {
+    opacity: 1;
+  }
+
+  .at-action-sheet__container {
+    transform: translate3d(0, 0, 0);
   }
 }

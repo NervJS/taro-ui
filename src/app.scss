@@ -1,7 +1,7 @@
 @import "./style/theme/default.scss";
 
 #app {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 .page {
@@ -9,7 +9,7 @@
   flex-direction: column;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 view {
@@ -62,68 +62,19 @@ view {
 }
 
 // Flex 展示样式
-.flex__page {
-  .at-flex {
-    margin-bottom: 40px;
-
-    &__item {
-      color: white;
-      text-align: center;
-
-      &:nth-child(odd) {
-        background-color: #6190e8;
-      }
-
-      &:nth-child(even) {
-        background-color: #78a4f4;
-      }
-    }
-  }
-}
-
-.component-list {
-  margin: 20px 60px 0;
+.page .at-flex {
+  margin-bottom: 40px;
 
   &__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 120px;
-    border-bottom: 1px solid #D8D8D8;
+    color: white;
+    text-align: center;
 
-    .name {
-      color: #1D1D26;
-      font-size: 28px;
+    &:nth-child(odd) {
+      background-color: #6190e8;
     }
-  }
-}
 
-/**
- * 文档 DEMO 页
- */
-.doc-header {
-  display: flex;
-  align-items: center;
-  padding: 60px;
-  height: 180px;
-
-  &__title {
-    position: relative;
-    height: 90px;
-    color: #333;
-    font-size: 40px;
-    font-weight: bold;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: inline-block;
-      width: 120px;
-      height: 2PX;
-      border-radius: 1PX;
-      background-color: #6190E8;
+    &:nth-child(even) {
+      background-color: #78a4f4;
     }
   }
 }
@@ -132,8 +83,9 @@ view {
   min-height: calc(100vh - 180px);
   background: #fff;
   box-shadow: 0 26px 163px 0 rgba(0, 0, 0, 0.11);
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 60px;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 60px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 60px);
 
   .panel {
     margin: 32px 0 56px;
@@ -142,13 +94,13 @@ view {
       position: relative;
       margin-bottom: 50px;
       padding-left: 50px;
-      color: #6A6A77;
+      color: #6a6a77;
       font-size: 32px;
       font-weight: bold;
       line-height: 1.5;
 
       &::before {
-        content: '';
+        content: "";
         display: inline-block;
         position: absolute;
         left: 24px;
@@ -156,8 +108,8 @@ view {
         margin-top: -20px;
         width: 2PX;
         height: 40px;
-        background-color: #6190E8;
-        box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.20);
+        background-color: #6190e8;
+        box-shadow: 0 7px 12px 0 rgba(97, 144, 232, 0.2);
         border-radius: 1PX;
       }
     }

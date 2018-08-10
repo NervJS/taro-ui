@@ -1,4 +1,32 @@
+@import "../../style/mixins/index.scss";
+@import "../../style/theme/default.scss";
+
 .at-list {
-  border-top: 1px solid #ddd;
+  @include border-thin-top;
+
   padding-left: 20px;
+  position: relative;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: $color-grey-4;
+
+    /* prettier-ignore */
+    height: 1PX;
+  }
+
+  &::before {
+    content: " ";
+    position: absolute;
+    width: 45px;
+    top: 1PX;
+    left: 0;
+    background-color: white;
+    height: calc(100% - 2PX);
+    z-index: 100;
+  }
 }

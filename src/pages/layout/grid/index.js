@@ -16,27 +16,28 @@ export default class GridPage extends Taro.Component {
     this.state = {
       data: [
         {
-          icon: 'emoji',
+          image: 'https://aotu.io/img/qrcode.jpg',
+          icon: 'bookmark',
           value: '放置文本'
         },
         {
-          icon: 'emoji',
+          icon: 'bookmark',
           value: '放置文本'
         },
         {
-          icon: 'emoji',
+          icon: 'bookmark',
           value: '放置文本'
         },
         {
-          icon: 'emoji',
+          icon: 'bookmark',
           value: '放置文本'
         },
         {
-          icon: 'emoji',
+          icon: 'bookmark',
           value: '放置文本'
         },
         {
-          icon: 'emoji',
+          icon: 'bookmark',
           value: '放置文本'
         }
       ]

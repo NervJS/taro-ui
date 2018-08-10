@@ -28,9 +28,9 @@ export default class BadgePage extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 常规徽标 */}
+          {/* 数字 */}
           <View className='panel'>
-            <View className='panel__title'>常规徽标</View>
+            <View className='panel__title'>数字</View>
             <View className='panel__content'>
               <View className='badge-item'>
                 <View className='subitem'>
@@ -39,7 +39,7 @@ export default class BadgePage extends Taro.Component {
                   </AtBadge>
                 </View>
                 <View className='subitem'>
-                  <AtBadge value='10' maxValue='99'>
+                  <AtBadge value='100' maxValue='99'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
                 </View>
@@ -72,12 +72,12 @@ export default class BadgePage extends Taro.Component {
             <View className='panel__content'>
               <View className='badge-item'>
                 <View className='subitem'>
-                  <AtBadge value='new'>
+                  <AtBadge value='NEW'>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
-                  <AtBadge value='new'>
+                  <AtBadge value='NEW'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
                 </View>
@@ -91,12 +91,12 @@ export default class BadgePage extends Taro.Component {
             <View className='panel__content'>
               <View className='badge-item'>
                 <View className='subitem'>
-                  <AtBadge value='...'>
+                  <AtBadge value='···'>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
-                  <AtBadge value='...'>
+                  <AtBadge value='···'>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
                 </View>

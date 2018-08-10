@@ -9,20 +9,26 @@ import './index.scss'
  * @description 单选框
  * @prop value {String} 当前单选框值
  * @prop options {Array} 选项列表 eg:[{label:'苹果',value:'apple'}]
- * @prop onChange {Function} 监听事件改变函数
+ * @prop onClick {Function} 点击选项触发事件
  */
 class AtRadio extends Taro.Component {
-  handleClick (value) {
-    this.props.onClick(value, ...arguments)
+  handleClick (option) {
+    if (option.disabled) return
+    this.props.onClick(option.value, ...arguments)
   }
   render () {
     const { options, value } = this.props
     return <View className='at-radio'>
       {
-        options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className={option.value === value ? 'at-radio__option at-radio__option--selected' : 'at-radio__option'} >
-          <View className='at-radio__title'>{option.label}</View>
-          <View className='at-radio__icon'>
-            <AtIcon value='check' size='15' color='#6190e8' />
+        options.map(option => <View key={option.value} onClick={this.handleClick.bind(this, option)} className={option.disabled ? 'at-radio__option at-radio__option--disabled' : 'at-radio__option'}>
+          <View className='at-radio__option_wrap'>
+            <View className='at-radio__option_container'>
+              <View className='at-radio__title'>{option.label}</View>
+              <View className='at-radio__icon_container'>
+                {value === option.value ? <AtIcon value='check' size='14' color='#6190E8' /> : null}
+              </View>
+            </View>
+            {option.desc ? <View className='at-radio__desc'>{option.desc}</View> : null}
           </View>
         </View>)
       }
@@ -32,11 +38,11 @@ class AtRadio extends Taro.Component {
 AtRadio.defaultProps = {
   value: '',
   options: [],
-  onChange: () => {}
+  onClick: () => {}
 }
 AtRadio.propTypes = {
   value: PropTypes.string,
   options: PropTypes.array,
-  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 }
 export default AtRadio

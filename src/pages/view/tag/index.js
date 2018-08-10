@@ -32,9 +32,9 @@ export default class TagPage extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 常规标签 */}
+          {/* 空心标签 */}
           <View className='panel'>
-            <View className='panel__title'>常规标签</View>
+            <View className='panel__title'>空心标签</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
@@ -53,9 +53,9 @@ export default class TagPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 选中态 */}
+          {/* 实心标签 */}
           <View className='panel'>
-            <View className='panel__title'>选中态</View>
+            <View className='panel__title'>实心标签</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
@@ -89,9 +89,9 @@ export default class TagPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 常规标签（小） */}
+          {/* 空心标签（小） */}
           <View className='panel'>
-            <View className='panel__title'>常规标签（小）</View>
+            <View className='panel__title'>空心标签（小）</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
@@ -110,9 +110,9 @@ export default class TagPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 选中态（小） */}
+          {/* 实心标签（小） */}
           <View className='panel'>
-            <View className='panel__title'>选中态（小）</View>
+            <View className='panel__title'>实心标签（小）</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>

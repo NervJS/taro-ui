@@ -7,6 +7,14 @@
   height: 100%;
   top: 0;
   left: 0;
+  visibility: hidden;
+  transition: visibility 200ms ease-in;
+
+  &__overlay,
+  &__container {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
 
   &__overlay {
     @include overlay;
@@ -16,26 +24,17 @@
     @include absolute-center();
 
     width: 540px;
+    overflow: hidden;
+    border-radius: 12px;
     background-color: $color-white;
   }
+}
 
-  .at-footer {
-    border-top: 1px solid #e5e5e5;
+.at-modal--active {
+  visibility: visible;
 
-    &__actions {
-      display: flex;
-
-      .at-button {
-        outline: 0;
-        flex: auto;
-        border: none;
-        font-size: 14px;
-        background-color: $color-white;
-
-        &:not(:first-child) {
-          border-left: 1px solid #e5e5e5;
-        }
-      }
-    }
+  .at-modal__overlay,
+  .at-modal__container {
+    opacity: 1;
   }
 }

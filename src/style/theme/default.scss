@@ -1,7 +1,7 @@
 /**
  * Default Theme
  */
-@import '../mixins/index.scss';
+@import '../mixins/libs/tint';
 
 $hd: 2; // 基本单位
 
@@ -91,7 +91,8 @@ $line-height-zh: 1.5; // 中文多行
 /* 水平间距 */
 $spacing-h-sm: 5px * $hd;
 $spacing-h-md: 8px * $hd;
-$spacing-h-lg: 16px * $hd;
+$spacing-h-lg: 12px * $hd;
+$spacing-h-xl: 16px * $hd;
 
 /* 垂直间距 */
 $spacing-v-xs: 3px * $hd;
@@ -112,6 +113,9 @@ $zindex-modal: 1000;
 $zindex-action-sheet: 1010;
 $zindex-picker: 1010;
 $zindex-toast: 1090;
+
+/* timing function */
+$timing-func: cubic-bezier(0.36, 0.66, 0.04, 1);
 
 /**
  * CSS cubic-bezier timing functions

@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 
 import _chunk from 'lodash/chunk'
 import PropTypes from 'prop-types'
@@ -46,11 +46,15 @@ export default class AtGrid extends Component {
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>
                     <View className='content-inner__icon'>
-                      <AtIcon
-                        value={childItem.icon}
-                        color={childItem.iconColor}
-                        size={childItem.iconSize}
-                      />
+                      {childItem.image && <Image className='content-inner__img' src={childItem.image} mode='scaleToFill' />}
+                      {childItem.icon &&
+                        !childItem.image && (
+                        <AtIcon
+                          value={childItem.icon}
+                          color={childItem.iconColor}
+                          size={childItem.iconSize}
+                        />
+                      )}
                     </View>
                     <Text className='content-inner__text'>
                       {childItem.value}
@@ -80,7 +84,7 @@ AtGrid.propTypes = {
       icon: PropTypes.string,
       value: PropTypes.string,
       iconSize: PropTypes.string,
-      iconColor: PropTypes.string,
+      iconColor: PropTypes.string
     })
   )
 }

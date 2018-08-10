@@ -14,7 +14,7 @@ import './index.scss'
  */
 class AtRate extends Taro.Component {
   handleClick (i) {
-    this.props.onChange(i + 1)
+    this.props.onChange(i + 1, ...arguments)
   }
   // 暂不实现touchmove，等taro新版本
   // handleTouchMove(e) {

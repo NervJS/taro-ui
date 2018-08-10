@@ -7,12 +7,12 @@ import AtToast from '../../../components/toast/index'
 import './index.scss'
 
 const INIT_STATE = {
-  text: '一行文本',
-  isOpened: false,
-  iconSize: 100,
-  iconColor: 'white',
-  iconType: 'cancel',
-  isHiddenIcon: false
+  image: '',
+  icon: '',
+  text: '',
+  status: '',
+  hasMask: false,
+  isOpened: false
 }
 
 export default class ToastPage extends Component {
@@ -35,12 +35,13 @@ export default class ToastPage extends Component {
 
   render () {
     const {
-      isOpened,
-      iconColor,
-      iconSize,
-      iconType,
       text,
-      isHiddenIcon
+      icon,
+      status,
+      isOpened,
+      duration,
+      image,
+      hasMask
     } = this.state
     return (
       <View className='page'>
@@ -50,25 +51,14 @@ export default class ToastPage extends Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 基本案例 */}
           <View className='panel'>
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button onClick={this.handleClick}>Open Toast</Button>
-              </View>
-            </View>
-          </View>
-
-          {/* 只展示文本 */}
-          <View className='panel'>
-            <View className='panel__title'>只展示文本</View>
-            <View className='panel__content'>
-              <View className='example-item'>
                 <Button
                   onClick={this.handleClick}
-                  data-text='只有文本'
-                  data-hidden-icon
+                  data-text='基本案例'
+                  data-icon='close-circle'
                 >
                   Open Toast
                 </Button>
@@ -76,26 +66,73 @@ export default class ToastPage extends Component {
             </View>
           </View>
 
-          {/* 只显示 Icon */}
           <View className='panel'>
-            <View className='panel__title'>只显示 Icon</View>
+            <View className='panel__title'>显示图片</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <Button data-text='' onClick={this.handleClick}>
+                <Button
+                  data-image='https://aotu.io/img/qrcode.jpg'
+                  data-text='欢迎关注'
+                  onClick={this.handleClick}
+                >
                   Open Toast
                 </Button>
               </View>
             </View>
           </View>
 
-          {/* 更改 Icon */}
           <View className='panel'>
-            <View className='panel__title'>更改 Icon</View>
+            <View className='panel__title'>添加遮罩层</View>
             <View className='panel__content'>
               <View className='example__item'>
                 <Button
-                  data-icon-type='success'
-                  data-icon-size='80'
+                  data-has-mask
+                  data-text='透明遮罩层的作用在于不可点击下面的元素'
+                  onClick={this.handleClick}
+                >
+                  Open Toast
+                </Button>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>状态为Error的Toast</View>
+            <View className='panel__content'>
+              <View className='example__item'>
+                <Button
+                  data-status='error'
+                  data-text='错误提示'
+                  onClick={this.handleClick}
+                >
+                  Open Toast
+                </Button>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>状态为Success的Toast</View>
+            <View className='panel__content'>
+              <View className='example__item'>
+                <Button
+                  data-status='success'
+                  data-text='正确提示'
+                  onClick={this.handleClick}
+                >
+                  Open Toast
+                </Button>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>状态为Loading的Toast</View>
+            <View className='panel__content'>
+              <View className='example__item'>
+                <Button
+                  data-status='loading'
+                  data-text='正在加载…'
                   onClick={this.handleClick}
                 >
                   Open Toast
@@ -107,12 +144,13 @@ export default class ToastPage extends Component {
         {/* E Body */}
 
         <AtToast
+          icon={icon}
           text={text}
+          image={image}
+          status={status}
+          hasMask={hasMask}
           isOpened={isOpened}
-          iconSize={iconSize}
-          iconType={iconType}
-          iconColor={iconColor}
-          isHiddenIcon={isHiddenIcon}
+          duration={duration}
         />
       </View>
     )

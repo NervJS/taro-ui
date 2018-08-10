@@ -26,7 +26,6 @@ export default class AtTag extends Taro.Component {
   onClick () {
     if (!this.props.disabled) {
       const active = !this.state.active
-      console.log('>>>', this.props.name, active)
       this.setState({
         active,
       })

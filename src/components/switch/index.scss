@@ -1,20 +1,22 @@
+@import "../../style/mixins/index.scss";
+@import '../../style/theme/default.scss';
+
 .at-switch {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: $color-bg;
   padding: 22px 22px 22px 0;
-  border-bottom: #e5e5e5 solid 1px;
+  @include border-thin-bottom;
 
   &__title {
     flex: 6;
-    font-size: 30px;
-    margin-left: 22px;
+    font-size: $font-size-base;
   }
 
   &__switch {
     flex: 2;
     text-align: right;
-    background-color: #fff;
+    background-color: $color-bg;
   }
 }

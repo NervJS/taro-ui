@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -13,13 +12,10 @@ export default class AtBadge extends Taro.Component {
   }
 
   formatValue (value, maxValue) {
-    console.log('value', value)
     const numValue = +value
     if (loadash.isNaN(numValue)) {
-      console.log('value111', value)
       return value
     }
-    console.log('value222', value)
     return numValue > maxValue ? `${maxValue}+` : numValue
   }
 

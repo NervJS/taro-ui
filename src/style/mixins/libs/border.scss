@@ -1,26 +1,30 @@
+@import "../../theme/default";
+
+// 默认主题下 $color-border-lighter
+
 @mixin border-thin(
-  $color: #333,
+  $color: $color-border-lighter,
   $style: solid,
   $directions: top bottom right left
 ) {
   @each $value in $directions {
     /* prettier-ignore */
-    border-#{$value}: 1PX $color $style;
+    border-#{$value}: 1PX $color $style; /* stylelint-disable-line unit-no-unknown */
   }
 }
 
-@mixin border-thin-top($color, $style) {
+@mixin border-thin-top($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, top);
 }
 
-@mixin border-thin-left($color, $style) {
+@mixin border-thin-left($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, left);
 }
 
-@mixin border-thin-right($color, $style) {
+@mixin border-thin-right($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, right);
 }
 
-@mixin border-thin-bottom($color, $style) {
+@mixin border-thin-bottom($color: $color-border-lighter, $style: solid) {
   @include border-thin($color, $style, bottom);
 }

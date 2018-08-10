@@ -2,9 +2,9 @@
 @import "../../../../style/theme/default.scss";
 
 .at-action-sheet-item {
-  font-size: 36px;
-  padding: 25px 0;
+  padding: $spacing-v-lg $spacing-h-lg;
+  font-size: $font-size-xl;
 
-  /* prettier-ignore */
-  border-bottom: 1PX solid rgba($color: $color-black-0, $alpha: 0.1);
+  @include border-thin-bottom();
+  @include line(1);
 }

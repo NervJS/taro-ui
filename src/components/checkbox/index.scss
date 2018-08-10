@@ -1,60 +1,80 @@
-@import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
 
 .at-checkbox {
   background-color: #fff;
 
-  &__option {
-    padding: 13px 13px 13px 0;
-    margin-left: 13px;
+  &__option_wrap {
+    padding: $spacing-v-md $spacing-h-md $spacing-v-md 0;
+  }
+
+  &__option_container {
+    display: flex;
   }
 
   &__desc {
     display: block;
     padding-left: 60px;
     text-align: left;
-    font-size: 24px;
-    color: #999;
+    font-size: $font-size-sm;
+    color: $color-grey-2;
     letter-spacing: 0;
-    line-height: 36px;
+    line-height: $line-height-zh;
+  }
+
+  &__option {
+    padding-left: $spacing-h-xl;
+    @include active;
+
+    &--disabled {
+      .at-checkbox__option_container,
+      .at-checkbox__desc {
+        opacity: $opacity-disabled;
+      }
+
+      &:active {
+        background-color: $color-bg;
+      }
+    }
   }
 
   &__title {
     display: inline-flex;
-    font-size: 30px;
+    font-size: $font-size-base;
     text-align: left;
   }
 
-  &__option_container {
-    display: flex;
-    align-items: center;
-  }
-
   &__icon {
-    position: relative;
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
     padding: 20px;
     box-sizing: border-box;
-    border-radius: 50%;
-    border: #6190e8 solid 3px;
+    border-radius: $border-radius-circle;
+    border: $color-brand solid 3px;
     background-color: #fff;
-    margin-right: 20px;
-    font-size: 30px;
+    margin-right: $spacing-h-md;
+    font-size: $font-size-base;
     overflow: hidden;
 
     &--selected {
-      background-color: #6190e8;
+      background-color: $color-brand;
     }
   }
 
   &__icon_container {
-    display: inline-block;
-    @include absolute-center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
   }
 
   &__option + &__option {
-    border-top: #e5e5e5 solid 1px;
+    .at-checkbox__option_wrap {
+      @include border-thin-top;
+    }
   }
 }

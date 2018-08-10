@@ -1,32 +1,58 @@
+@import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
+
 .at-radio {
   background-color: #fff;
 
-  &__icon {
-    flex: 1;
-    text-align: right;
-    visibility: hidden;
+  &__option_wrap {
+    padding: $spacing-v-md $spacing-h-xl $spacing-v-md 0;
+  }
+
+  &__option_container {
+    display: flex;
+  }
+
+  &__desc {
+    display: block;
+    text-align: left;
+    font-size: $font-size-sm;
+    color: $color-grey-2;
+    letter-spacing: 0;
+    line-height: $line-height-zh;
   }
 
   &__option {
-    display: flex;
-    padding: 13px 13px 13px 0;
-    margin-left: 30px;
-    align-items: center;
+    padding-left: $spacing-h-xl;
+    @include active;
 
-    &--selected {
-      .at-radio__icon {
-        visibility: visible !important;
+    &--disabled {
+      .at-radio__option_container,
+      .at-radio__desc {
+        opacity: $opacity-disabled;
       }
-    }
 
-    + .at-radio__option {
-      border-top: #e5e5e5 solid 1px;
+      &:active {
+        background-color: $color-bg;
+      }
     }
   }
 
   &__title {
     flex: 6;
-    font-size: 28px;
     text-align: left;
+    font-size: $font-size-base;
+  }
+
+  &__icon_container {
+    flex: 1;
+    text-align: right;
+    font-size: $font-size-base;
+    overflow: hidden;
+  }
+
+  &__option + &__option {
+    .at-radio__option_wrap {
+      @include border-thin-top;
+    }
   }
 }

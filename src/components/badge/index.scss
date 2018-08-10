@@ -1,5 +1,10 @@
 @import '../../style/theme/default.scss';
 
+$badge-box-shadow: 0 4px 8px 0 rgba(233, 59, 61, 0.20);
+$badge-height: 28px;
+$badge-border-radius: 14px;
+$badge-dot-size: 20px;
+
 .at-badge {
   position: relative;
   display: inline-block;
@@ -10,27 +15,27 @@
     position: absolute;
     right: -6px;
     top: -6px;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
+    width: $badge-dot-size;
+    height: $badge-dot-size;
+    border-radius: 50%;
     overflow: hidden;
-    background: #FF4949;
-    box-shadow: 0 4px 8px 0 rgba(233, 59, 61, 0.20);
+    background: $color-error;
+    box-shadow: $badge-box-shadow;
   }
 
   &__num {
     font-size: $font-size-xs;
     color: #fff;
-    height: 28px;
-    line-height: 28px;
+    height: $badge-height;
+    line-height: $badge-height;
     position: absolute;
     right: 0;
-    top: -14px;
+    top: -$badge-border-radius;
     transform: translate(50%, 0);
     padding: 0 $spacing-h-sm;
-    border-radius: 20px 20px 20px 0;
+    border-radius: $badge-border-radius $badge-border-radius $badge-border-radius 0;
     overflow: hidden;
-    background: #FF4949;
-    box-shadow: 0 4px 8px 0 rgba(233, 59, 61, 0.20);
+    background: $color-error;
+    box-shadow: $badge-box-shadow;
   }
 }

@@ -12,7 +12,9 @@ import './index.scss'
  * @prop options {Array} 选项列表 eg: [{value:'apple', label: '苹果', desc:'这个苹果又大又甜'}]
  */
 class AtCheckbox extends Taro.Component {
-  handleClick (value) {
+  handleClick (option) {
+    if (option.disabled) return
+    const value = option.value
     const selectedList = new Set(this.props.selectedList)
     if (!selectedList.has(value)) {
       selectedList.add(value)
@@ -25,16 +27,18 @@ class AtCheckbox extends Taro.Component {
     const { options, selectedList } = this.props
     return <View className='at-checkbox'>
       {
-        options.map(option => <View key={option} onClick={this.handleClick.bind(this, option.value)} className='at-checkbox__option'>
-          <View className='at-checkbox__option_container'>
-            <View className={selectedList.includes(option.value) ? 'at-checkbox__icon at-checkbox__icon--selected' : 'at-checkbox__icon'}>
-              <View className='at-checkbox__icon_container'>
-                <AtIcon value='check' size='12' color='#fff' />
+        options.map(option => <View key={option.value} onClick={this.handleClick.bind(this, option)} className={option.disabled ? 'at-checkbox__option at-checkbox__option--disabled' : 'at-checkbox__option'}>
+          <View className='at-checkbox__option_wrap'>
+            <View className='at-checkbox__option_container'>
+              <View className={selectedList.includes(option.value) ? 'at-checkbox__icon at-checkbox__icon--selected' : 'at-checkbox__icon'}>
+                <View className='at-checkbox__icon_container'>
+                  <AtIcon value='check' size='14' color='#fff' />
+                </View>
               </View>
+              <View className='at-checkbox__title'>{option.label}</View>
             </View>
-            <View className='at-checkbox__title'>{option.label}</View>
+            {option.desc ? <View className='at-checkbox__desc'>{option.desc}</View> : null}
           </View>
-          {option.desc ? <View className='at-checkbox__desc'>{option.desc}</View> : null}
         </View>)
       }
     </View>

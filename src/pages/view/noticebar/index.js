@@ -27,31 +27,75 @@ export default class NoticebarPage extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 基础通告栏 */}
+          {/* 文字 */}
           <View className='panel'>
-            <View className='panel__title'>基础通告栏</View>
+            <View className='panel__title'>文字</View>
             <View className='panel__content'>
               <View className='bar-item'>
-                <AtNoticebar>这是 NoticeBar 通告栏。单行</AtNoticebar>
+                <AtNoticebar single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar icon='icon-notice'>这是 NoticeBar 通告栏。单行、带 icon</AtNoticebar>
+                <AtNoticebar>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
             </View>
           </View>
 
-          {/* 基础通告栏（带关闭按钮） */}
+          {/* 图标 */}
           <View className='panel'>
-            <View className='panel__title'>基础通告栏（带关闭按钮）</View>
+            <View className='panel__title'>图标</View>
             <View className='panel__content'>
               <View className='bar-item'>
-                <AtNoticebar close single moreUrl='https://taro.aotu.io/'>这是 NoticeBar 通告栏。带关闭按钮、查看更多链接、单行</AtNoticebar>
+                <AtNoticebar icon='volume-plus' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close single>这是 NoticeBar 通告栏。带关闭按钮、单行</AtNoticebar>
+                <AtNoticebar icon='volume-plus'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+            </View>
+          </View>
+
+          {/* 查看更多 */}
+          <View className='panel'>
+            <View className='panel__title'>查看更多</View>
+            <View className='panel__content'>
+              <View className='bar-item'>
+                <AtNoticebar moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close>这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。这是 NoticeBar 通告栏。带关闭按钮、多行</AtNoticebar>
+                <AtNoticebar icon='volume-plus' moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar icon='volume-plus' moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+            </View>
+          </View>
+
+          {/* 关闭按钮 */}
+          <View className='panel'>
+            <View className='panel__title'>关闭按钮</View>
+            <View className='panel__content'>
+              <View className='bar-item'>
+                <AtNoticebar close single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close icon='volume-plus' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close icon='volume-plus' moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar close icon='volume-plus' moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
             </View>
           </View>

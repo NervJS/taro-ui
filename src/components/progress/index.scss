@@ -1,3 +1,5 @@
+@import "../../style/theme/default";
+
 @keyframes progress-active {
   from {
     opacity: 0.5;
@@ -29,7 +31,7 @@
         height: 20px;
         border-radius: 100px;
         background-color: #2db7f5;
-        transition: all 0.2s linear;
+        transition: all 0.3s $ease-in-out-quad;
         position: relative;
         overflow: hidden;
       }
@@ -40,20 +42,21 @@
     flex: 1 1 70px;
     font-size: 24px;
     margin-left: 10px;
+    text-align: center;
   }
+}
 
-  &.at-progress--active {
-    .at-progress__outer-inner-background::before {
-      content: "";
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #fff;
-      border-radius: 10px;
-      animation: progress-active 2s ease-in-out infinite;
-    }
+.at-progress--progress {
+  .at-progress__outer-inner-background::before {
+    content: "";
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    border-radius: 10px;
+    animation: progress-active 2s $ease-out-quad infinite;
   }
 }

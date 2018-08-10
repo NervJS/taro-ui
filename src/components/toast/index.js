@@ -1,7 +1,11 @@
 import Taro from '@tarojs/taro'
-import { View, Icon } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+
+import AtIcon from '../icon/index'
+
+import statusImg from './img.json'
 
 import './index.scss'
 
@@ -9,10 +13,10 @@ export default class AtToast extends Taro.Component {
   constructor (props) {
     super(...arguments)
 
-    const { isOpened } = props
+    const { isOpened, duration } = props
 
     if (isOpened) {
-      this._makeTimer()
+      this.makeTimer(duration)
     }
 
     this._timer = null
@@ -28,13 +32,12 @@ export default class AtToast extends Taro.Component {
     }
   }
 
-  makeTimer () {
-    const { duration } = this.props
+  makeTimer (duration) {
     this._timer = setTimeout(() => {
       this.setState({
         isOpened: false
       })
-    }, duration)
+    }, +duration)
   }
 
   close () {
@@ -48,7 +51,7 @@ export default class AtToast extends Taro.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const { isOpened } = nextProps
+    const { isOpened, duration } = nextProps
     if (!isOpened) return
 
     if (!this.state.isOpened) {
@@ -58,7 +61,7 @@ export default class AtToast extends Taro.Component {
     } else {
       this.clearTimmer()
     }
-    this.makeTimer()
+    this.makeTimer(duration)
   }
 
   handleClick = () => {
@@ -71,22 +74,46 @@ export default class AtToast extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
-    const { text, isHiddenIcon, iconSize, iconType, iconColor } = this.props
+    const { text, icon, status, image, hasMask } = this.props
 
-    const iconClass = [
-      'at-toast-content__icon',
-      'at-toast-content__icon--no-margin'
-    ]
+    const realImg = image || statusImg[status]
+
+    const rootClass = ['toast-body']
+
+    if (!realImg && !icon) {
+      rootClass.push('toast-body--text')
+    }
+
+    if (status) {
+      rootClass.push(`at-toast-body--${status}`)
+    }
 
     return isOpened ? (
-      <View className='at-toast' onClick={this.handleClick}>
-        <View className='at-toast-content'>
-          {!isHiddenIcon && (
-            <View className={iconClass}>
-              <Icon type={iconType} color={iconColor} size={iconSize} />
-            </View>
-          )}
-          {text && <View className='at-toast-content__info'>{text}</View>}
+      <View className='at-toast'>
+        {hasMask && <View className='at-toast-overlay' />}
+        <View className={rootClass} onClick={this.handleClick}>
+          <View className='toast-body-content'>
+            {(image || statusImg[status]) && (
+              <View className='toast-body-content__img'>
+                <Image
+                  className='toast-body-content__img-item'
+                  src={realImg}
+                  mode='scaleToFill'
+                />
+              </View>
+            )}
+            {icon &&
+              !(image || statusImg[status]) && (
+              <View className='toast-body-content__icon'>
+                <AtIcon value={icon} color='white' size='50' />
+              </View>
+            )}
+            {text && (
+              <View className='toast-body-content__info'>
+                <Text>{text}</Text>
+              </View>
+            )}
+          </View>
         </View>
       </View>
     ) : null
@@ -98,10 +125,8 @@ AtToast.defaultProps = {
 }
 
 AtToast.propTypes = {
+  icon: PropTypes.string,
   text: PropTypes.string,
   isOpened: PropTypes.bool,
-  iconType: PropTypes.string,
-  iconSize: PropTypes.string,
-  iconColor: PropTypes.string,
-  isHiddenIcon: PropTypes.bool
+  duration: PropTypes.number
 }

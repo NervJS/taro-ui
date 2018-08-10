@@ -23,6 +23,8 @@ export default class AvatarPage extends Taro.Component {
   }
 
   render () {
+    const avatarImg = 'http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
+
     return (
       <View className='page'>
         {/* S Header */}
@@ -36,14 +38,14 @@ export default class AvatarPage extends Taro.Component {
             <View className='panel__title'>圆形头像</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='example-item'>
-                  <AtAvatar circle size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
+                <View className='subitem'>
+                  <AtAvatar circle size='small' image={avatarImg}></AtAvatar>
                 </View>
-                <View className='example-item'>
-                  <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
+                <View className='subitem'>
+                  <AtAvatar circle image={avatarImg}></AtAvatar>
                 </View>
-                <View className='example-item'>
-                  <AtAvatar circle size='large' image='https://jdc.jd.com/img/200'></AtAvatar>
+                <View className='subitem'>
+                  <AtAvatar circle size='large' image={avatarImg}></AtAvatar>
                 </View>
               </View>
             </View>
@@ -55,13 +57,13 @@ export default class AvatarPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtAvatar size='small' image='https://jdc.jd.com/img/200'></AtAvatar>
+                  <AtAvatar size='small' image={avatarImg}></AtAvatar>
                 </View>
                 <View className='subitem'>
-                  <AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
+                  <AtAvatar image={avatarImg}></AtAvatar>
                 </View>
                 <View className='subitem'>
-                  <AtAvatar size='large' image='https://jdc.jd.com/img/200'></AtAvatar>
+                  <AtAvatar size='large' image={avatarImg}></AtAvatar>
                 </View>
               </View>
             </View>

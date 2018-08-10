@@ -28,16 +28,14 @@ export default class Atarticle extends Taro.Component {
             <View className='at-article__h3'>这是三级标题</View>
             <View className='at-article__p'>这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。1234567890123456789012345678901234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ</View>
             <View className='at-article__p'>这是文本段落。这是文本段落。</View>
-            <Image className='at-article__img' src='https://jdc.jd.com/img/400x400' mode='aspectFit' />
-
+            <Image className='at-article__img' src='http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg' mode='widthFix' />
           </View>
 
           <View className='at-article__section'>
             <View className='at-article__h2'>这是二级标题</View>
             <View className='at-article__h3'>这是三级标题</View>
             <View className='at-article__p'>这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。1234567890123456789012345678901234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ</View>
-            <Image className='at-article__img' src='https://jdc.jd.com/img/400x1000' mode='aspectFit' />
-
+            <Image className='at-article__img' src='https://img30.360buyimg.com/sku/jfs/t19660/324/841553494/117886/ad2742c1/5aab8d20Ne56ae3bf.jpg' mode='widthFix' />
           </View>
         </View>
       </View>

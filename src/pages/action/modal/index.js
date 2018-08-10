@@ -20,39 +20,54 @@ export default class ModalPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false
+      isOpenedMulti: false,
+      isOpenedSingle: false
     }
   }
 
-  handleClick = e => {
-    const state = Object.assign({ isOpened: true }, e.currentTarget.dataset)
-    this.setState(state)
+  handleClick = name => {
+    this.setState({
+      [`isOpened${name}`]: true
+    })
   }
 
-  closeModal = () => {
+  closeModal = name => {
     this.setState({
-      isOpened: false
+      [`isOpened${name}`]: false
     })
   }
 
   render () {
-    const { isOpened } = this.state
+    const { isOpenedMulti, isOpenedSingle } = this.state
     return (
       <View className='page'>
-        <DocsHeader title='Modal 模态框'></DocsHeader>
+        <DocsHeader title='Modal 模态框' />
 
         <View className='doc-body'>
           <View className='panel'>
-            <View className='panel__title'>基础案例</View>
+            <View className='panel__title'>单个按钮</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick}>打开Modal</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, 'Single')}>
+                  打开单按钮Modal
+                </AtButton>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>多个按钮</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 'Multi')}>
+                  打开多按钮Modal
+                </AtButton>
               </View>
             </View>
           </View>
         </View>
 
-        <AtModal isOpened={isOpened}>
+        <AtModal isOpened={isOpenedMulti}>
           <AtModalHeader>标题</AtModalHeader>
           <AtModalContent>
             <View className='modal-content'>
@@ -62,10 +77,27 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal}>取消</Button>
-            <Button className='serious-button' onClick={this.closeModal}>
+            <Button onClick={this.closeModal.bind(this, 'Multi')}>取消</Button>
+            <Button
+              className='serious-button'
+              onClick={this.closeModal.bind(this, 'Multi')}
+            >
               确定
             </Button>
+          </AtModalAction>
+        </AtModal>
+
+        <AtModal isOpened={isOpenedSingle}>
+          <AtModalHeader>标题</AtModalHeader>
+          <AtModalContent>
+            <View className='modal-content'>
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+            </View>
+          </AtModalContent>
+          <AtModalAction>
+            <Button onClick={this.closeModal.bind(this, 'Single')}>取消</Button>
           </AtModalAction>
         </AtModal>
       </View>

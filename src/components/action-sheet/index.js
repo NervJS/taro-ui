@@ -43,8 +43,14 @@ export default class AtActionSheet extends Component {
     const { title, cancleText } = this.props
     const { isOpened } = this.state
 
-    return isOpened ? (
-      <View className='at-action-sheet'>
+    const rootClassNames = ['at-action-sheet']
+
+    if (isOpened) {
+      rootClassNames.push('at-action-sheet--active')
+    }
+
+    return (
+      <View className={rootClassNames}>
         <View onClick={this.close} className='at-action-sheet__overlay' />
         <View className='at-action-sheet__container'>
           <AtActionSheetHeader>{title}</AtActionSheetHeader>
@@ -54,6 +60,6 @@ export default class AtActionSheet extends Component {
           </AtActionSheetFooter>
         </View>
       </View>
-    ) : null
+    )
   }
 }

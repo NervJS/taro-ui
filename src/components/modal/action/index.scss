@@ -2,8 +2,7 @@
 @import "../../../style/theme/default";
 
 .at-modal-footer {
-  /* prettier-ignore */
-  border-top: 1PX solid #e5e5e5;
+  @include border-thin-top($color-grey-4);
 
   .at-modal-action {
     @include display-flex;
@@ -25,8 +24,7 @@
       }
 
       &:not(:first-child) {
-        /* prettier-ignore */
-        border-left: 1PX solid #e5e5e5;
+        @include border-thin-left($color-grey-4);
       }
     }
   }

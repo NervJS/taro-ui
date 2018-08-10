@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtIcon from '../../components/icon/index'
 import './index.scss'
@@ -34,9 +34,9 @@ class AtNavBar extends Taro.Component {
     const linkStyle = `color: ${color};`
 
     return <View className={fixed ? 'at-nav-bar at-nav-bar--fixed' : 'at-nav-bar'}>
-      <View className='at-nav-bar__left_view' onClick={this.handleClickLeftView.bind(this)}>
-        <View className='at-nav-bar__container' style={linkStyle}><AtIcon value={leftIconType} /></View>
-        <View className='at-nav-bar__container at-nav-bar__left_text' style={linkStyle}>{leftText}</View>
+      <View className='at-nav-bar__left_view' onClick={this.handleClickLeftView.bind(this)} style={linkStyle}>
+        <AtIcon value={leftIconType} />
+        <Text className='at-nav-bar__text'>{leftText}</Text>
       </View>
       <View className='at-nav-bar__title'>{title}</View>
       <View className='at-nav-bar__right_view'>
@@ -55,7 +55,7 @@ const defaultFunc = () => {}
 
 AtNavBar.defaultProps = {
   fixed: false,
-  color: '',
+  color: '#6190E8',
   leftIconType: 'chevron-left',
   leftText: '',
   title: '',

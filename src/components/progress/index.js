@@ -3,12 +3,16 @@ import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 
+import AtIcon from '../icon/index'
+
 import './index.scss'
 
 export default class AtProgress extends Taro.Component {
   render () {
     let { percent } = this.props
     const { strokeWidth, color, status, isHidePercent } = this.props
+
+    let iconInfo = {}
 
     if (percent < 0) {
       percent = 0
@@ -22,9 +26,21 @@ export default class AtProgress extends Taro.Component {
       rootClass.push(`at-progress--${status}`)
     }
 
+    if (status === 'error') {
+      iconInfo = {
+        color: '#FF4949',
+        value: 'close-circle'
+      }
+    } else if (status === 'success') {
+      iconInfo = {
+        color: '#13CE66',
+        value: 'check-circle'
+      }
+    }
+
     const progressStyle = {
-      width: `${+percent}%`,
-      height: `${+strokeWidth}px`,
+      width: percent && `${+percent}%`,
+      height: strokeWidth && `${+strokeWidth}px`,
       backgroundColor: color
     }
 
@@ -38,8 +54,15 @@ export default class AtProgress extends Taro.Component {
             />
           </View>
         </View>
+
         {!isHidePercent && (
-          <View className='at-progress__content'>{percent}%</View>
+          <View className='at-progress__content'>
+            {!status || status === 'progress' ? (
+              percent + '%' /* eslint-disable-line prefer-template */
+            ) : (
+              <AtIcon value={iconInfo.value} color={iconInfo.color} size='18' />
+            )}
+          </View>
         )}
       </View>
     )
@@ -51,5 +74,5 @@ AtProgress.propTypes = {
   status: PropTypes.string,
   percent: PropTypes.number,
   strokeWidth: PropTypes.number,
-  isHidePercent: PropTypes.bool,
+  isHidePercent: PropTypes.bool
 }

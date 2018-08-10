@@ -16,17 +16,34 @@ export default class ActionSheetPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false
+      isOpened1: false,
+      isOpened2: false,
+      isOpened3: false
     }
   }
 
   handleClick = e => {
-    const state = Object.assign({ isOpened: true }, e.currentTarget.dataset)
-    this.setState(state)
+    const { type } = e.currentTarget.dataset
+
+    if (type === '1') {
+      this.setState({ isOpened1: true })
+    } else if (type === '2') {
+      this.setState({ isOpened2: true })
+    } else if (type === '3') {
+      this.setState({ isOpened3: true })
+    }
+  }
+
+  showToast = name => {
+    Taro.showToast({
+      icon: 'none',
+      title: name
+    })
   }
 
   render () {
-    const { isOpened } = this.state
+    const { isOpened1, isOpened2, isOpened3 } = this.state
+
     return (
       <View className='page'>
         {/* S Header */}
@@ -35,12 +52,32 @@ export default class ActionSheetPage extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 圆形头像 */}
+          {/* 无 Title */}
           <View className='panel'>
-            <View className='panel__title'>示例</View>
+            <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button onClick={this.handleClick}>打开 ActionSheet</Button>
+                <Button data-type='1' onClick={this.handleClick}>打开 ActionSheet</Button>
+              </View>
+            </View>
+          </View>
+
+          {/* 含标题 */}
+          <View className='panel'>
+            <View className='panel__title'>含标题</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <Button data-type='2' onClick={this.handleClick}>打开 ActionSheet</Button>
+              </View>
+            </View>
+          </View>
+
+          {/* 自定义选项 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义选项</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <Button data-type='3' onClick={this.handleClick}>打开 ActionSheet</Button>
               </View>
             </View>
           </View>
@@ -48,12 +85,55 @@ export default class ActionSheetPage extends Taro.Component {
 
         <AtActionSheet
           cancleText='取消'
-          isOpened={isOpened}
-          title='清除位置信息后， 别人将不能查看到你这里最多显示两行'
+          isOpened={isOpened1}
         >
-          <AtActionSheetItem>按钮一</AtActionSheetItem>
-          <AtActionSheetItem>按钮二</AtActionSheetItem>
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
+            按钮一按钮一按钮一按钮一按钮一按钮一按钮一按钮一
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
+            按钮二
+          </AtActionSheetItem>
+        </AtActionSheet>
+
+        <AtActionSheet
+          cancleText='取消'
+          isOpened={isOpened2}
+          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+        >
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
+            按钮一
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
+            按钮二
+          </AtActionSheetItem>
+        </AtActionSheet>
+
+        <AtActionSheet
+          cancleText='取消'
+          isOpened={isOpened3}
+          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+        >
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
+            按钮一
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
+            按钮二
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '成功清除位置')}
+          >
             <Text className='danger'>清除位置信息并退出</Text>
           </AtActionSheetItem>
         </AtActionSheet>
