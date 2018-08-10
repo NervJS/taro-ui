@@ -17,7 +17,6 @@ export default class AtActionSheet extends Component {
     super(...arguments)
     const { isOpened } = props
 
-    console.log(props, props.onCancle)
     this.state = {
       isOpened
     }
