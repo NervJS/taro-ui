@@ -1,9 +1,9 @@
-import Taro from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import './index.scss'
 
-export default class AtActionSheetFooter extends Taro.Component {
+export default class AtActionSheetFooter extends Component {
   render () {
     const { onClick } = this.props
     return (

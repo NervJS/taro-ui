@@ -110,6 +110,73 @@ export default class FlexPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          <View className='panel'>
+            <View className='panel__title'>侧轴方向上 方式</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <View className='at-flex'>
+                  <View style='height:100px' className='at-flex__item'>A</View>
+                  <View className='at-flex__item'>默认对齐方式 -- stretch</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__align--start'>
+                  <View style='height:100px' className='at-flex__item'>B</View>
+                  <View className='at-flex__item'>顶部对齐 -- start</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__align--center'>
+                  <View style='height:100px' className='at-flex__item'>C</View>
+                  <View className='at-flex__item'>居中对齐 -- center</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__align--end'>
+                  <View style='height:100px' className='at-flex__item'>D</View>
+                  <View className='at-flex__item'>底部对齐 -- end</View>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>主轴方向上 排列方式</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <View className='at-flex'>
+                  <View className='at-flex__item at-flex__item-size--5'>默认</View>
+                  <View className='at-flex__item at-flex__item-size--5'>Start</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__justify--end'>
+                  <View className='at-flex__item at-flex__item-size--5'>底部排列</View>
+                  <View className='at-flex__item at-flex__item-size--5'>End</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__justify--center'>
+                  <View className='at-flex__item at-flex__item-size--5'>居中排列</View>
+                  <View className='at-flex__item at-flex__item-size--5'>Center</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__justify--between'>
+                  <View className='at-flex__item at-flex__item-size--5'>左右排列</View>
+                  <View className='at-flex__item at-flex__item-size--5'>Between</View>
+                </View>
+              </View>
+              <View className='example-item'>
+                <View className='at-flex at-flex__justify--around'>
+                  <View className='at-flex__item at-flex__item-size--5'>平均排列</View>
+                  <View className='at-flex__item at-flex__item-size--5'>Around</View>
+                </View>
+              </View>
+            </View>
+          </View>
+
         </View>
       </View>
     )

@@ -3,6 +3,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
+import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
+
 import AtActionSheetBody from './body/index'
 import AtActionSheetHeader from './header/index'
 import AtActionSheetFooter from './footer/index'
@@ -13,6 +16,8 @@ export default class AtActionSheet extends Component {
   constructor (props) {
     super(...arguments)
     const { isOpened } = props
+
+    console.log(props, props.onCancle)
     this.state = {
       isOpened
     }
@@ -24,19 +29,30 @@ export default class AtActionSheet extends Component {
       this.setState({
         isOpened
       })
+
+      !isOpened && this.handleClose()
     }
+  }
+
+  handleClose = () => {
+    if (_isFunction(this.props.onClose)) {
+      this.props.onClose()
+    }
+  }
+
+  handleCancle = () => {
+    if (_isFunction(this.props.onCancle)) {
+      return this.props.onCancle()
+    }
+    this.close()
   }
 
   close = () => {
     this.setState({
       isOpened: false
     })
-  }
 
-  open = () => {
-    this.setState({
-      isOpened: true
-    })
+    this.handleClose()
   }
 
   render () {
@@ -53,13 +69,22 @@ export default class AtActionSheet extends Component {
       <View className={rootClassNames}>
         <View onClick={this.close} className='at-action-sheet__overlay' />
         <View className='at-action-sheet__container'>
-          <AtActionSheetHeader>{title}</AtActionSheetHeader>
+          {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
           <AtActionSheetBody>{this.props.children}</AtActionSheetBody>
-          <AtActionSheetFooter onClick={this.close}>
-            {cancleText}
-          </AtActionSheetFooter>
+          {cancleText && (
+            <AtActionSheetFooter onClick={this.handleCancle}>
+              {cancleText}
+            </AtActionSheetFooter>
+          )}
         </View>
       </View>
     )
   }
+}
+
+AtActionSheet.propTypes = {
+  title: PropTypes.string,
+  onClose: PropTypes.func,
+  onCancle: PropTypes.func,
+  cancleText: PropTypes.string
 }
