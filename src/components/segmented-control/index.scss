@@ -2,7 +2,8 @@
 @import '../../style/theme/default.scss';
 
 .at-segmented-control {
-  display: flex;
+  display: inline-flex;
+  position: relative;
   text-align: center;
   width: 100%;
   border-radius: $border-radius-md;
