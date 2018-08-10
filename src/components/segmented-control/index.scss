@@ -13,6 +13,8 @@
 
   &__item {
     flex: 1;
+    box-sizing: border-box;
+    min-width: 50px;
     min-height: 10px;
     font-size: $font-size-base;
     line-height: $line-height-base;
