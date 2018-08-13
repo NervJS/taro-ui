@@ -11,6 +11,7 @@ $modal-width: 540px;
   left: 0;
   visibility: hidden;
   transition: visibility 200ms ease-in;
+  z-index: $zindex-modal;
 
   &__overlay,
   &__container {
@@ -29,6 +30,10 @@ $modal-width: 540px;
     overflow: hidden;
     border-radius: $border-radius-lg;
     background-color: $color-white;
+  }
+
+  .content-simple {
+    padding: 20px 0;
   }
 }
 

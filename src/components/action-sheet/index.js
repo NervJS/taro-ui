@@ -47,11 +47,12 @@ export default class AtActionSheet extends Component {
   }
 
   close = () => {
-    this.setState({
-      isOpened: false
-    })
-
-    this.handleClose()
+    this.setState(
+      {
+        isOpened: false
+      },
+      this.handleClose
+    )
   }
 
   render () {

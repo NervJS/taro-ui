@@ -127,11 +127,11 @@ export default class ProgressPage extends Taro.Component {
               </View>
               <View className='example-item'>
                 <View className='example-item__desc'>错误</View>
-                <AtProgress percent='75' status='error' color='#FF4949' />
+                <AtProgress percent='75' status='error' />
               </View>
               <View className='example-item'>
                 <View className='example-item__desc'>已完成</View>
-                <AtProgress percent='100' status='success' color='#13CE66' />
+                <AtProgress percent='100' status='success' />
               </View>
             </View>
           </View>
@@ -145,12 +145,12 @@ export default class ProgressPage extends Taro.Component {
                 <View className='example-item__buttons'>
                   <View className='btn'>
                     <AtButton size='small' onClick={this.reduce}>
-                      <AtIcon value='subtract' size='12'></AtIcon>
+                      <AtIcon value='subtract' size='12' />
                     </AtButton>
                   </View>
                   <View className='btn'>
                     <AtButton size='small' onClick={this.increase}>
-                      <AtIcon value='add' size='12'></AtIcon>
+                      <AtIcon value='add' size='12' />
                     </AtButton>
                   </View>
                 </View>

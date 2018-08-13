@@ -23,6 +23,7 @@ export default class ModalPage extends Taro.Component {
       isOpened1: false,
       isOpened2: false,
       isOpened3: false,
+      isOpened4: false
     }
   }
 
@@ -33,6 +34,7 @@ export default class ModalPage extends Taro.Component {
   }
 
   closeModal = (type, msg) => {
+    console.log(msg)
     this.setState({
       [`isOpened${type}`]: false
     })
@@ -44,7 +46,7 @@ export default class ModalPage extends Taro.Component {
   }
 
   render () {
-    const { isOpened1, isOpened2, isOpened3 } = this.state
+    const { isOpened1, isOpened2, isOpened3, isOpened4 } = this.state
 
     return (
       <View className='page'>
@@ -75,7 +77,6 @@ export default class ModalPage extends Taro.Component {
             </View>
           </View>
 
-
           {/* 无标题 */}
           <View className='panel'>
             <View className='panel__title'>无标题</View>
@@ -83,6 +84,18 @@ export default class ModalPage extends Taro.Component {
               <View className='example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 3)}>
                   打开无标题模态框
+                </AtButton>
+              </View>
+            </View>
+          </View>
+
+          {/* 简化使用 */}
+          <View className='panel'>
+            <View className='panel__title'>简化使用</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 4)}>
+                  打开简化使用模态框
                 </AtButton>
               </View>
             </View>
@@ -100,8 +113,12 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 1, '点击了取消')}>取消</Button>
-            <Button className='serious-button' onClick={this.closeModal.bind(this, 1, '点击了确定')}>确定</Button>
+            <Button onClick={this.closeModal.bind(this, 1, '点击了取消')}>
+              取消
+            </Button>
+            <Button onClick={this.closeModal.bind(this, 1, '点击了确定')}>
+              确定
+            </Button>
           </AtModalAction>
         </AtModal>
 
@@ -116,11 +133,13 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button className='serious-button' onClick={this.closeModal.bind(this, 2, '点击了确定')}>确定</Button>
+            <Button onClick={this.closeModal.bind(this, 2, '点击了确定')}>
+              确定
+            </Button>
           </AtModalAction>
         </AtModal>
 
-        {/* 单个按钮 */}
+        {/* 无标题 */}
         <AtModal isOpened={isOpened3}>
           <AtModalContent>
             <View className='modal-content'>
@@ -130,10 +149,25 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>取消</Button>
-            <Button className='serious-button' onClick={this.closeModal.bind(this, 3, '点击了确定')}>确定</Button>
+            <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>
+              取消
+            </Button>
+            <Button onClick={this.closeModal.bind(this, 3, '点击了确定')}>
+              确定
+            </Button>
           </AtModalAction>
         </AtModal>
+
+        {/* 简化使用 */}
+        <AtModal
+          isOpened={isOpened4}
+          title='标题'
+          cancleText='取消'
+          confirmText='确认'
+          content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+          onCancle={this.closeModal.bind(this, 4, '点击了取消')}
+          onConfirm={this.closeModal.bind(this, 4, '点击了确认')}
+        />
       </View>
     )
   }

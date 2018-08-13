@@ -9,6 +9,7 @@
   left: 0;
   visibility: hidden;
   transition: visibility 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  z-index: $zindex-flot-layout;
 
   &__overlay {
     @include overlay;
@@ -33,12 +34,12 @@
   &-header {
     height: 92px;
     background-color: $color-grey-6;
-    padding: 0 20px;
+    padding: 0 $spacing-h-md;
     line-height: 85px;
     position: relative;
 
     &__title {
-      font-size: 32px;
+      font-size: $font-size-lg;
       color: $color-grey-0;
     }
 
@@ -52,8 +53,8 @@
   }
 
   &-body {
-    font-size: 32px;
-    padding: 30px 20px 0 20px;
+    font-size: $font-size-lg;
+    padding: $spacing-v-xl $spacing-h-md 0 $spacing-h-md;
   }
 }
 

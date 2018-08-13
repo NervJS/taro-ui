@@ -10,7 +10,8 @@ import './index.scss'
 export default class AtProgress extends Taro.Component {
   render () {
     let { percent } = this.props
-    const { strokeWidth, color, status, isHidePercent } = this.props
+    let { color } = this.props
+    const { strokeWidth, status, isHidePercent } = this.props
 
     let iconInfo = {}
 
@@ -31,11 +32,13 @@ export default class AtProgress extends Taro.Component {
         color: '#FF4949',
         value: 'close-circle'
       }
+      color = '#FF4949'
     } else if (status === 'success') {
       iconInfo = {
         color: '#13CE66',
         value: 'check-circle'
       }
+      color = '#13CE66'
     }
 
     const progressStyle = {

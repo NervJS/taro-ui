@@ -58,7 +58,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '文本内容', '', '', false, '')}>文本 Toast</AtButton>
+                <AtButton size='small' onClick={this.handleClick.bind(this, '文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容', '', '', false, '')}>文本 Toast</AtButton>
               </View>
               <View className='example-item'>
                 <AtButton size='small' onClick={this.handleClick.bind(this, '文本内容', 'loading', '', false, '')}>文本 + ICON</AtButton>
