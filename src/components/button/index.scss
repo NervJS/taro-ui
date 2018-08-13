@@ -11,10 +11,10 @@ $at-button-height-sm: 60px;
   height: $at-button-height;
   color: $color-text-base;
   font-size: $font-size-lg;
-  line-height: $at-button-height - 4;
+  line-height: $at-button-height - 2;
   text-align: center;
   border-radius: $border-radius-md;
-  border: 2px solid $color-border-base;
+  border: 1px solid $color-border-base;
   box-sizing: border-box;
   @include line();
 
@@ -37,13 +37,13 @@ $at-button-height-sm: 60px;
   &--primary {
     background-color: rgba(92, 137, 228, 1);
     color: #fff;
-    border: 2px solid rgba(92, 137, 228, 1);
+    border: 1px solid rgba(92, 137, 228, 1);
   }
 
   &--secondary {
     background-color: #fff;
     color: rgba(92, 137, 228, 1);
-    border: 2px solid rgba(92, 137, 228, 1);
+    border: 1px solid rgba(92, 137, 228, 1);
   }
 
   &--small {
