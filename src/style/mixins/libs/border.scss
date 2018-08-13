@@ -9,7 +9,7 @@
 ) {
   @each $value in $directions {
     /* prettier-ignore */
-    border-#{$value}: 1PX $color $style; /* stylelint-disable-line unit-no-unknown */
+    border-#{$value}: 1px $color $style; /* stylelint-disable-line unit-no-unknown */
   }
 }
 
