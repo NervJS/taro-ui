@@ -19,9 +19,11 @@ class App extends Nerv.Component {
       visible: true
     })
   }
+  
   shouldComponentUpdate () {
     return true
   }
+
   render () {
     return (
       <div className='wrapper' style={{ backgroundColor: '#F8FAFF' }}>

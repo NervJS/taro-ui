@@ -1,6 +1,7 @@
-const mdContainer = require('markdown-it-container')
-const frontMatter = require('front-matter')
 const highlight = require('highlight.js')
+const loaderUtils = require('loader-utils')
+const frontMatter = require('front-matter')
+const mdContainer = require('markdown-it-container')
 
 let md = require('markdown-it')
 
@@ -41,7 +42,10 @@ md = md({
       }
 
       // 把代码中的{}转
-      highlightedContent = highlightedContent.replace(/[{}]/g, match => `{'${match}'}`)
+      highlightedContent = highlightedContent.replace(
+        /[{}]/g,
+        match => `{'${match}'}`
+      )
 
       // 加上 hljs
       highlightedContent = highlightedContent
@@ -88,22 +92,24 @@ const formatModule = (imports, js, jsx, state, method) => {
   return moduleText
 }
 
-const formatOpening = () => {
-  return `
+const formatOpening = () => `
     <div className="at-component__container">
       <div className="at-component__code">`
-}
 
-const formatClosing = () => {
-  return `
+const formatClosing = () => `
       </div>
     </div>`
-}
 
 module.exports = function (source) {
   this.cacheable()
   // init options
-  Object.assign(options, this.options.markdownItReact ? this.options.markdownItReact() : {})
+
+  const _options = loaderUtils.getOptions(this) || {}
+
+  Object.assign(
+    options,
+    _options.markdownItReact ? _options.markdownItReact() : {}
+  )
 
   const {
     body,

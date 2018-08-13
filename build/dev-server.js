@@ -1,17 +1,16 @@
+const ora = require('ora')
 const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackMerge = require('webpack-merge')
-const ora = require('ora')
+const WebpackDevServer = require('webpack-dev-server')
 
-const { getProjectRoot, prepareUrls, formatTime } = require('./util')
-const conf = require('./conf')
-const webpackBaseConf = require('./webpack.base.config')
-const webpackDevConf = require('./webpack.dev.config')
-const formatWebpackMessage = require('./format_webpack_message')
 const open = require('./open')
+const conf = require('./conf')
+const webpackDevConf = require('./webpack.dev.config')
+const webpackBaseConf = require('./webpack.base.config')
+const formatWebpackMessage = require('./format_webpack_message')
+const { getProjectRoot, prepareUrls, formatTime } = require('./util')
 
 const serveSpinner = ora('Starting build...').start()
 
@@ -49,24 +48,36 @@ server.listen(port, host, err => {
     return console.log(err)
   }
 })
+
 let isFirstCompile = true
-compiler.plugin('invalid', filepath => {
+
+compiler.hooks.invalid.tap('InvalidHook', filepath => {
   console.log(chalk.grey(`[${formatTime()}]Modified: ${filepath}`))
   serveSpinner.text = 'Compiling...🤡~'
   serveSpinner.render()
 })
-compiler.plugin('done', stats => {
+
+compiler.hooks.done.tap('DoneHook', stats => {
   const { errors, warnings } = formatWebpackMessage(stats.toJson({}, true))
-  const isSuccess = !errors.length && !warnings.length
-  if (isSuccess) {
-    serveSpinner.succeed(chalk.green('Compile successfully!\n'))
-  }
+  const isSuccess = !errors.length
+
   if (errors.length) {
     errors.splice(1)
     serveSpinner.fail(chalk.red('Compile failed!\n'))
-    console.log(errors.join('\n\n'))
+    console.log(chalk.red(errors.join('\n\n')))
     console.log()
+    return
   }
+
+  if (warnings.length && isFirstCompile) {
+    serveSpinner.warn(chalk.yellow(`Compile Warnning \n`))
+    console.log(chalk.yellow(`${warnings.join('\n\n')}\n`))
+  }
+
+  if (isSuccess) {
+    serveSpinner.succeed(chalk.green('Compile successfully!\n'))
+  }
+
   if (isFirstCompile) {
     console.log(chalk.cyan(`> Listening at ${urls.lanUrlForTerminal}`))
     console.log(chalk.cyan(`> Listening at ${urls.localUrlForBrowser}`))
