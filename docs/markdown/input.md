@@ -13,7 +13,7 @@
 :::demo
 
 ```js
-import AtInput from 'taro-ui'
+import AtInput,AtForm from 'taro-ui'
 ```
 
 :::
@@ -34,12 +34,14 @@ import AtInput from 'taro-ui'
 :::demo
 
 ```html
-<AtInput title='文本' type='text' placeholder='单行文本' />
-<AtInput title='数字' type='number' placeholder='请输入数字'/>
-<AtInput title='密码' type='password' placeholder='密码不能少于10位数'/>
-<AtInput title='身份证' type='idcard' placeholder='身份证号码' />
-<AtInput title='小数' type='digit' placeholder='请输入小数' />
-<AtInput title='手机号码' type='phone' placeholder='手机号码' />
+<AtForm>
+  <AtInput title='文本' type='text' placeholder='单行文本' value={this.state.value} onChange={val => this.setState({'value':val})} />
+  <AtInput title='数字' type='number' placeholder='请输入数字'value={this.state.value} onChange={val => this.setState({'value':val})} />
+  <AtInput title='密码' type='password' placeholder='密码不能少于10位数'value={this.state.value} onChange={val => this.setState({'value':val})} />
+  <AtInput title='身份证' type='idcard' placeholder='身份证号码' value={this.state.value} onChange={val => this.setState({'value':val})} />
+  <AtInput title='小数' type='digit' placeholder='请输入小数' value={this.state.value} onChange={val => this.setState({'value':val})} />
+  <AtInput border={false} title='手机号码' type='phone' placeholder='手机号码' value={this.state.value} onChange={val => this.setState({'value':val})} />
+</AtForm>
 ```
 
 :::
@@ -49,9 +51,11 @@ import AtInput from 'taro-ui'
 :::demo
 
 ```html
-<AtInput error title='出现错误' type='text' placeholder='点击按钮触发回调'/>
-<AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑'/>
-<AtInput clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' />
+<AtForm>
+  <AtInput error title='出现错误' type='text' placeholder='点击按钮触发回调' onErrorClick={() => {console.log('error')}} />
+  <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑'/>
+  <AtInput border={false} clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' />
+</AtForm>
 ```
 
 :::
@@ -80,6 +84,7 @@ import AtInput from 'taro-ui'
 | title     | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
 | maxlength       | 最大长度 | Number  | -  | 140      |
 | disabled    | 是否禁止输入，禁止点击按钮  | Boolean | - | false    |
+| border    | 是否显示下划线边框  | Boolean | - | true    |
 | editable     | 是否可编辑 | Boolean | - | True |
 | error     | 是否出现错误 | Boolean | - | false |
 | clear     | 是否显示清除按钮 | Boolean | - | false |

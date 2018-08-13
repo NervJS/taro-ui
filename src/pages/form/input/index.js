@@ -91,7 +91,7 @@ export default class Index extends Taro.Component {
                 <AtForm>
                   <AtInput name='value1' title='标准五个字' type='text' placeholder='标准五个字' value={this.state.value1} onChange={this.handleInput.bind(this, 'value1')} />
                   <AtInput title='标题实在特别长就换行' placeholder='其他列保持正常间距' value={this.state.value2} onChange={this.handleInput.bind(this, 'value2')} />
-                  <AtInput placeholder='无标题' value={this.state.value3} onChange={this.handleInput.bind(this, 'value3')} />
+                  <AtInput border={false} placeholder='无标题' value={this.state.value3} onChange={this.handleInput.bind(this, 'value3')} />
                 </AtForm>
               </View>
             </View>
@@ -106,7 +106,7 @@ export default class Index extends Taro.Component {
                   <AtInput title='密码' type='password' placeholder='密码不能少于10位数' value={this.state.value6} onChange={this.handleInput.bind(this, 'value6')} />
                   <AtInput title='身份证' type='idcard' placeholder='身份证号码' value={this.state.value7} onChange={this.handleInput.bind(this, 'value7')} />
                   <AtInput title='小数' type='digit' placeholder='请输入小数' value={this.state.value8} onChange={this.handleInput.bind(this, 'value8')} />
-                  <AtInput title='手机号码' type='phone' placeholder='手机号码' value={this.state.value9} onChange={this.handleInput.bind(this, 'value9')} />
+                  <AtInput border={false} title='手机号码' type='phone' placeholder='手机号码' value={this.state.value9} onChange={this.handleInput.bind(this, 'value9')} />
                 </AtForm>
               </View>
             </View>
@@ -119,7 +119,7 @@ export default class Index extends Taro.Component {
                   <AtInput disabled title='禁用' type='text' placeholder='禁止输入' value={this.state.value10} onChange={this.handleInput.bind(this, 'value10')} />
                   <AtInput error title='出现错误' type='text' placeholder='点击按钮触发回调' value={this.state.value11} onChange={this.handleInput.bind(this, 'value11')} onErrorClick={this.onClickErrorIcon.bind(this)} />
                   <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑' value={this.state.value12} onChange={this.handleInput.bind(this, 'value12')} />
-                  <AtInput clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' value={this.state.value13} onChange={this.handleInput.bind(this, 'value13')} />
+                  <AtInput border={false} clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' value={this.state.value13} onChange={this.handleInput.bind(this, 'value13')} />
                 </AtForm>
               </View>
             </View>
@@ -132,7 +132,7 @@ export default class Index extends Taro.Component {
                   <AtInput title='验证码' type='text' maxlength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
                     <Image src={verificationCode} />
                   </AtInput>
-                  <AtInput type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>
+                  <AtInput border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>
                     <View
                       style={{
                         'color': this.state.disabled ? '#e93b3d' : '',

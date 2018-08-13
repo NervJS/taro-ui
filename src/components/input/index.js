@@ -12,6 +12,7 @@ import './index.scss'
  * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
  * @prop maxlength {Number} 最大长度 default:140
  * @prop disabled {Boolean} 是否禁止输入，禁止点击按钮 default: false
+ * @prop border {Boolean} 是否显示下划线边框 default: true
  * @prop editable {Boolean} 是否可编辑 default: true
  * @prop error {Boolean} 是否出现错误, default: false
  * @prop clear {Boolean} 是否显示清除按钮, default: false
@@ -39,7 +40,7 @@ class AtInput extends Taro.Component {
     this.props.onErrorClick(...arguments)
   }
   render () {
-    const { name, type, maxlength, disabled, title, editable, error, clear, placeholder, autoFocus, value } = this.props
+    const { name, type, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
     let newMaxlength = maxlength
     let newType = type
     let newDisabled = disabled
@@ -57,7 +58,11 @@ class AtInput extends Taro.Component {
     if (disabled === false && editable === false) {
       newDisabled = true
     }
-    return <View className='at-input'>
+    let rootStyle = ''
+    if (!border) {
+      rootStyle = 'border: none;'
+    }
+    return <View className='at-input' style={rootStyle}>
       <View className={containerCls}>
         {
           title
@@ -105,6 +110,7 @@ AtInput.defaultProps = {
   maxlength: 140,
   type: 'text',
   disabled: false,
+  border: true,
   editable: true,
   error: false,
   clear: false,
@@ -125,6 +131,7 @@ AtInput.propTypes = {
   maxlength: PropTypes.number,
   type: PropTypes.string,
   disabled: PropTypes.bool,
+  border: PropTypes.bool,
   editable: PropTypes.bool,
   error: PropTypes.bool,
   clear: PropTypes.bool,
