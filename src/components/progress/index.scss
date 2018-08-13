@@ -12,6 +12,8 @@
   }
 }
 
+$progress-height: 16px;
+
 .at-progress {
   display: flex;
   align-items: center;
@@ -23,14 +25,14 @@
 
     &-inner {
       width: 100%;
-      background-color: #f3f3f3;
+      background-color: $color-grey-6;
       border-radius: 100px;
       vertical-align: middle;
 
       &-background {
-        height: 20px;
+        height: $progress-height;
         border-radius: 100px;
-        background-color: #2db7f5;
+        background-color: $color-brand-light;
         transition: all 0.3s $ease-in-out-quad;
         position: relative;
         overflow: hidden;
@@ -40,7 +42,7 @@
 
   &__content {
     flex: 1 1 70px;
-    font-size: 24px;
+    font-size: $font-size-sm;
     margin-left: 10px;
     text-align: center;
   }
@@ -56,7 +58,7 @@
     right: 0;
     bottom: 0;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 100px;
     animation: progress-active 2s $ease-out-quad infinite;
   }
 }

@@ -1,6 +1,8 @@
+@import "../../../style/theme/default";
+
 .at-modal-content {
   min-height: 180px;
+  color: $color-text-base;
+  font-size: $font-size-base;
   box-sizing: border-box;
-  font-size: 28px;
-  color: #333;
 }

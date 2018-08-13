@@ -11,6 +11,9 @@
   }
 }
 
+$toast-image-size: 120px;
+$toast-loading-size: 60px;
+
 .at-toast {
   &-overlay {
     @include overlay;
@@ -24,9 +27,9 @@
   @include absolute-center(fixed);
 
   z-index: $zindex-toast;
-  padding: 30px 72px;
+  padding: $spacing-v-lg $spacing-h-xl;
   background-color: rgba($color: $color-black-0, $alpha: 0.8);
-  border-radius: 8px;
+  border-radius: $border-radius-md;
 
   &-content {
     &__icon {
@@ -39,21 +42,21 @@
       text-align: center;
 
       &-item {
-        width: 100px;
-        height: 100px;
+        width: $toast-image-size;
+        height: $toast-image-size;
       }
     }
 
     &__info {
-      text-align: center;
-      color: white;
-      font-size: 28px;
       margin-top: $spacing-v-sm;
+      color: $color-white;
+      font-size: $font-size-base;
+      text-align: center;
     }
   }
 
   &--text {
-    padding: 24px 30px;
+    padding: $spacing-v-sm $spacing-h-lg;
     line-height: $line-height-zh;
 
     .toast-body-content__info {
@@ -64,10 +67,16 @@
 
 .at-toast-body--loading {
   .toast-body-content__img {
-    width: 100px;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: atRotate 1350ms linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: $toast-image-size;
+
+    &-item {
+      width: $toast-loading-size;
+      height: $toast-loading-size;
+      animation: atRotate 1350ms linear infinite;
+    }
   }
 }

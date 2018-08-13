@@ -26,40 +26,37 @@ export default class ActivityIndicatorPage extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 任意尺寸 */}
+          {/* 自定义尺寸 */}
           <View className='panel'>
-            <View className='panel__title'>任意尺寸</View>
+            <View className='panel__title'>自定义尺寸</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
                   <ActivityIndicator size='20' ></ActivityIndicator>
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator size='30' />
+                  <ActivityIndicator size='24' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator size='40' />
-                </View>
-                <View className='subitem'>
-                  <ActivityIndicator size='50' />
+                  <ActivityIndicator size='32' />
                 </View>
               </View>
             </View>
           </View>
 
-          {/* 各种颜色 */}
+          {/* 自定义颜色 */}
           <View className='panel'>
-            <View className='panel__title'>各种颜色</View>
+            <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <ActivityIndicator color='red' />
+                  <ActivityIndicator color='#13CE66' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator color='#DE8C17' />
+                  <ActivityIndicator color='#FF4949' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator color='#00D06D' />
+                  <ActivityIndicator color='#C9C9C9' />
                 </View>
               </View>
             </View>

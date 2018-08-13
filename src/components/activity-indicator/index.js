@@ -31,7 +31,7 @@ export default class AtActivityIndicator extends Taro.Component {
 }
 
 AtActivityIndicator.defaultProps = {
-  size: 30,
+  size: 24,
   color: '#6190E8'
 }
 

@@ -20,54 +20,77 @@ export default class ModalPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpenedMulti: false,
-      isOpenedSingle: false
+      isOpened1: false,
+      isOpened2: false,
+      isOpened3: false,
     }
   }
 
-  handleClick = name => {
+  handleClick = type => {
     this.setState({
-      [`isOpened${name}`]: true
+      [`isOpened${type}`]: true
     })
   }
 
-  closeModal = name => {
+  closeModal = (type, msg) => {
     this.setState({
-      [`isOpened${name}`]: false
+      [`isOpened${type}`]: false
+    })
+
+    Taro.showToast({
+      icon: 'none',
+      title: msg
     })
   }
 
   render () {
-    const { isOpenedMulti, isOpenedSingle } = this.state
+    const { isOpened1, isOpened2, isOpened3 } = this.state
+
     return (
       <View className='page'>
         <DocsHeader title='Modal 模态框' />
 
         <View className='doc-body'>
+          {/* 基础模态框 */}
           <View className='panel'>
-            <View className='panel__title'>单个按钮</View>
+            <View className='panel__title'>基础模态框</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 'Single')}>
-                  打开单按钮Modal
+                <AtButton onClick={this.handleClick.bind(this, 1)}>
+                  打开基础模态框
                 </AtButton>
               </View>
             </View>
           </View>
 
+          {/* 单个按钮 */}
           <View className='panel'>
-            <View className='panel__title'>多个按钮</View>
+            <View className='panel__title'>单个按钮</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 'Multi')}>
-                  打开多按钮Modal
+                <AtButton onClick={this.handleClick.bind(this, 2)}>
+                  打开单个按钮模态框
+                </AtButton>
+              </View>
+            </View>
+          </View>
+
+
+          {/* 无标题 */}
+          <View className='panel'>
+            <View className='panel__title'>无标题</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 3)}>
+                  打开无标题模态框
                 </AtButton>
               </View>
             </View>
           </View>
         </View>
 
-        <AtModal isOpened={isOpenedMulti}>
+        {/* 基础模态框 */}
+        <AtModal isOpened={isOpened1}>
           <AtModalHeader>标题</AtModalHeader>
           <AtModalContent>
             <View className='modal-content'>
@@ -77,17 +100,13 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 'Multi')}>取消</Button>
-            <Button
-              className='serious-button'
-              onClick={this.closeModal.bind(this, 'Multi')}
-            >
-              确定
-            </Button>
+            <Button onClick={this.closeModal.bind(this, 1, '点击了取消')}>取消</Button>
+            <Button className='serious-button' onClick={this.closeModal.bind(this, 1, '点击了确定')}>确定</Button>
           </AtModalAction>
         </AtModal>
 
-        <AtModal isOpened={isOpenedSingle}>
+        {/* 单个按钮 */}
+        <AtModal isOpened={isOpened2}>
           <AtModalHeader>标题</AtModalHeader>
           <AtModalContent>
             <View className='modal-content'>
@@ -97,7 +116,22 @@ export default class ModalPage extends Taro.Component {
             </View>
           </AtModalContent>
           <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 'Single')}>取消</Button>
+            <Button className='serious-button' onClick={this.closeModal.bind(this, 2, '点击了确定')}>确定</Button>
+          </AtModalAction>
+        </AtModal>
+
+        {/* 单个按钮 */}
+        <AtModal isOpened={isOpened3}>
+          <AtModalContent>
+            <View className='modal-content'>
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+              这里是正文内容，欢迎加入京东凹凸实验室
+            </View>
+          </AtModalContent>
+          <AtModalAction>
+            <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>取消</Button>
+            <Button className='serious-button' onClick={this.closeModal.bind(this, 3, '点击了确定')}>确定</Button>
           </AtModalAction>
         </AtModal>
       </View>
