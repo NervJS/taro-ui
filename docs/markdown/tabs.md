@@ -77,7 +77,13 @@ import AtTabs,AtTabsPane from 'taro-ui'
 | current | 当前选中的`tab`索引值，从0计数  | Number  | - | 0 |
 | scroll     | 是否横向滚动  | Boolean | - | false |
 | swipeable  | 是否支持手势滑动切换内容页  | Boolean | - | true |
-| tabList | tab 列表 | Array  | - | - |
+| tabList | tab 列表 object 详细字段看下表 | Array  | - | - |
+
+## tabList object字段详解
+
+| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   | 可选或必填
+| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |-------- |
+| title | 标题  | String  | - | 0 | 必填 |
 
 ## 事件
 
