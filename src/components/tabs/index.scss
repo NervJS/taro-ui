@@ -42,6 +42,7 @@
     width: 100%;
     box-sizing: border-box;
     white-space: nowrap;
+    overflow: -moz-scrollbars-none;
 
     &--scroll {
       overflow-x: auto;
@@ -52,6 +53,10 @@
         display: inline-block;
         overflow: visible;
       }
+    }
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
     }
   }
 
