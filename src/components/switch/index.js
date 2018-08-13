@@ -16,8 +16,12 @@ class AtSwitch extends Taro.Component {
     this.props.onChange(e.detail.value)
   }
   render () {
-    const { title, checked, color } = this.props
-    return <View className='at-switch'>
+    const { border, title, checked, color } = this.props
+    let rootStyle = ''
+    if (!border) {
+      rootStyle = 'border: none;'
+    }
+    return <View className='at-switch' style={rootStyle}>
       <View className='at-switch__title'>{title}</View>
       {
         checked
@@ -30,6 +34,7 @@ class AtSwitch extends Taro.Component {
 AtSwitch.defaultProps = {
   title: '',
   color: '#6190e8',
+  border: true,
   checked: false,
   onChange: () => {}
 }
@@ -37,6 +42,7 @@ AtSwitch.propTypes = {
   title: PropTypes.string,
   color: PropTypes.string,
   checked: PropTypes.bool,
+  border: PropTypes.bool,
   onChange: PropTypes.func
 }
 export default AtSwitch
