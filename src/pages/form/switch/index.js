@@ -36,7 +36,7 @@ export default class Index extends Taro.Component {
               <View className='example-item'>
                 <AtForm>
                   <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
-                  <AtSwitch title='已关闭' />
+                  <AtSwitch border={false} title='已关闭' />
                 </AtForm>
               </View>
             </View>

@@ -1,9 +1,10 @@
 /* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 
 import AtActionSheet from '../../../components/action-sheet'
 import AtActionSheetItem from '../../../components/action-sheet/body/item/index'
+import AtButton from '../../../components/button/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -22,9 +23,7 @@ export default class ActionSheetPage extends Taro.Component {
     }
   }
 
-  handleClick = e => {
-    const { type } = e.currentTarget.dataset
-
+  handleClick = type => {
     this.setState({
       [`isOpened${type}`]: true
     })
@@ -64,9 +63,7 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='1' onClick={this.handleClick}>
-                  打开 ActionSheet
-                </Button>
+                <AtButton onClick={this.handleClick.bind(this, 1)}>打开 ActionSheet</AtButton>
               </View>
             </View>
           </View>
@@ -76,9 +73,7 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>含标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='2' onClick={this.handleClick}>
-                  打开 ActionSheet
-                </Button>
+                <AtButton onClick={this.handleClick.bind(this, 2)}>打开 ActionSheet</AtButton>
               </View>
             </View>
           </View>
@@ -88,9 +83,7 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>自定义选项</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <Button data-type='3' onClick={this.handleClick}>
-                  打开 ActionSheet
-                </Button>
+                <AtButton onClick={this.handleClick.bind(this, 3)}>打开 ActionSheet</AtButton>
               </View>
             </View>
           </View>
@@ -104,7 +97,7 @@ export default class ActionSheetPage extends Taro.Component {
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}
           >
-            按钮一按钮一按钮一按钮一按钮一按钮一按钮一按钮一
+            按钮一
           </AtActionSheetItem>
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮二')}

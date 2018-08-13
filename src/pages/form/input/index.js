@@ -82,10 +82,12 @@ export default class Index extends Taro.Component {
         {/* S Header */}
         <DocsHeader title='Input 输入框'></DocsHeader>
         {/* E Header */}
+
         {/* S Body */}
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>输入框标题</View>
+            <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtForm>
@@ -96,6 +98,8 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 输入框类型 */}
           <View className='panel'>
             <View className='panel__title'>输入框类型</View>
             <View className='panel__content no-padding'>
@@ -111,6 +115,8 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 状态 */}
           <View className='panel'>
             <View className='panel__title'>状态</View>
             <View className='panel__content no-padding'>
@@ -118,12 +124,14 @@ export default class Index extends Taro.Component {
                 <AtForm>
                   <AtInput disabled title='禁用' type='text' placeholder='禁止输入' value={this.state.value10} onChange={this.handleInput.bind(this, 'value10')} />
                   <AtInput error title='出现错误' type='text' placeholder='点击按钮触发回调' value={this.state.value11} onChange={this.handleInput.bind(this, 'value11')} onErrorClick={this.onClickErrorIcon.bind(this)} />
-                  <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑' value={this.state.value12} onChange={this.handleInput.bind(this, 'value12')} />
+                  <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑' value='不可编辑的内容' onChange={this.handleInput.bind(this, 'value12')} />
                   <AtInput border={false} clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' value={this.state.value13} onChange={this.handleInput.bind(this, 'value13')} />
                 </AtForm>
               </View>
             </View>
           </View>
+
+          {/* 自定义右边栏 */}
           <View className='panel'>
             <View className='panel__title'>自定义右边栏</View>
             <View className='panel__content no-padding'>
@@ -135,7 +143,8 @@ export default class Index extends Taro.Component {
                   <AtInput border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>
                     <View
                       style={{
-                        'color': this.state.disabled ? '#e93b3d' : '',
+                        'color': this.state.disabled ? '#FF4949' : '',
+                        'fontSize': '12px',
                         'width': '90px'
                       }}
                       onClick={this.sendCode.bind(this)}

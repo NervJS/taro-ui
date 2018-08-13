@@ -2,8 +2,9 @@
 @import "../../style/mixins/index.scss";
 
 .at-input {
+  padding: $spacing-v-lg 0;
   background-color: $color-bg;
-  padding: $spacing-v-md 0;
+  color: $color-text-base;
   @include border-thin-bottom;
 
   &__container {
@@ -11,12 +12,21 @@
     align-items: center;
   }
 
+  &__title {
+    margin-right: $spacing-h-md;
+    width: 172px;
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
+    vertical-align: middle;
+    text-align: left;
+  }
+
   &__input {
     flex: 1;
-    font-size: $font-size-base;
-    line-height: normal;
-    padding-right: $spacing-v-md;
     display: inline-block;
+    padding-right: $spacing-v-md;
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
     vertical-align: middle;
   }
 
@@ -29,16 +39,8 @@
     display: inline-block;
     padding-right: $spacing-v-md;
     text-align: center;
-    font-size: $font-size-base;
-  }
-
-  &__title {
-    width: 150px;
-    margin-right: $spacing-h-md;
-    font-size: $font-size-base;
-    line-height: $line-height-zh;
-    vertical-align: middle;
-    text-align: left;
+    line-height: 1;
+    font-size: $font-size-lg;
   }
 
   &__children {
@@ -51,11 +53,11 @@
     text,
     image,
     .taro-img {
-      font-size: $font-size-base;
       display: inline-block;
-      text-align: center;
       padding: 0 $spacing-v-md;
       color: $color-brand-dark;
+      font-size: $font-size-lg;
+      text-align: center;
     }
 
     > image,

@@ -24,7 +24,7 @@ import AtSwitch from 'taro-ui'
 ```html
 <AtForm>
   <AtSwitch title='开启中' checked onChange={val => console.log(val)} />
-  <AtSwitch title='已关闭' />
+  <AtSwitch border={false} title='已关闭' />
 </AtForm>
 
 
@@ -39,7 +39,7 @@ import AtSwitch from 'taro-ui'
 | title | 标签名 | String  | - | - |
 | color | 背景颜色  | String  | - | `#6190e8` |
 | checked     | 是否显示开启  | Boolean | - | false |
-
+| border     | 是否显示下划线边框  | Boolean | - | True |
 
 ## 事件
 

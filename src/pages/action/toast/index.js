@@ -58,10 +58,10 @@ export default class ToastPage extends Component {
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容', '', '', false, '')}>文本 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '文本内容', '', '', false, '')}>文本 Toast</AtButton>
               </View>
               <View className='example-item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '文本内容', 'loading', '', false, '')}>文本 + ICON</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '文本内容', 'loading', '', false, '')}>文本 + ICON</AtButton>
               </View>
             </View>
           </View>
@@ -70,7 +70,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>自定义图片</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '凹凸实验室', '', 'http://storage.360buyimg.com/mtd/home/group-21533885306540.png', false, '')}>自定义图片 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '凹凸实验室', '', 'http://storage.360buyimg.com/mtd/home/group-21533885306540.png', false, '')}>自定义图片 Toast</AtButton>
               </View>
             </View>
           </View>
@@ -79,7 +79,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>添加遮罩层</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '透明遮罩层的作用在于不可点击下面的元素', '', '', true, '')}>添加遮罩层 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '透明遮罩层的作用在于不可点击下面的元素', '', '', true, '')}>添加遮罩层 Toast</AtButton>
               </View>
             </View>
           </View>
@@ -88,7 +88,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>Error Toast</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '错误提示', '', '', true, 'error')}>错误提示 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '错误提示', '', '', true, 'error')}>错误提示 Toast</AtButton>
               </View>
             </View>
           </View>
@@ -97,7 +97,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>Success Toast</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '正确提示', '', '', true, 'success')}>正确提示 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '正确提示', '', '', true, 'success')}>正确提示 Toast</AtButton>
               </View>
             </View>
           </View>
@@ -106,7 +106,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>Loading Toast</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton size='small' onClick={this.handleClick.bind(this, '正在加载…', '', '', true, 'loading')}>加载中 Toast</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, '正在加载…', '', '', true, 'loading')}>加载中 Toast</AtButton>
               </View>
             </View>
           </View>
