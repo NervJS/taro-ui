@@ -6,6 +6,14 @@
     "prefer-rest-params": "off",
     "arrow-body-style": "warn",
     "taro/custom-component-children": "off",
-    "no-unused-vars":["error", { "varsIgnorePattern": "Taro" }]
-  }
+    "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }]
+  },
+  "overrides": [
+    {
+      "files": ["build/*.js"],
+      "rules": {
+        "import/no-commonjs": "off"
+      }
+    }
+  ]
 }
