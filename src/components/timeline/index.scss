@@ -1,42 +1,47 @@
 @import '../../style/theme/default.scss';
 
+$timeline-margin-left: 40px;
+$timeline-dot-size: 24px;
+
 .at-timelineitem {
   position: relative;
-  padding: 0 0 12px;
+  padding: 0 0 $spacing-v-sm;
 
   &__content {
+    margin-left: $timeline-margin-left;
+    min-height: 56px;
+    color: $color-text-base;
     font-size: $font-size-base;
-    color: $color-black-1;
+    line-height: $line-height-zh;
     text-align: left;
-    margin-left: 36px;
-    height: 50px;
   }
 
   &__dot,
   &__icon {
-    font-size: 0;
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 36px;
-    height: 30px;
-    box-sizing: border-box;
-    background-color: #fff;
-    z-index: 1;
+    top: 5px;
+    width: 32px;
+    height: 32px;
+    font-size: 0;
     text-align: left;
+    vertical-align: middle;
+    box-sizing: border-box;
+    background-color: $color-bg;
+    z-index: 1;
   }
 
   &__dot {
     &::after {
       content: '';
-      width: 20px;
-      height: 20px;
+      margin-top: 5px;
       display: inline-block;
       box-sizing: border-box;
-      border: 2px solid transparent;
-      border-radius: 50%;
+      width: $timeline-dot-size;
+      height: $timeline-dot-size;
+      border: 1PX solid transparent;
+      border-radius: $border-radius-circle;
       border-color: $color-info;
-      margin-top: 5px;
     }
 
     &.at-timelineitem__icon {
@@ -47,44 +52,42 @@
   }
 
   &__icon {
-    left: -5px;
-    // top: 7px;
+    left: -6px;
     color: $color-info;
-    // padding-top: 2px;
   }
 
   &--green {
     .at-timelineitem__icon {
-      color: #00D06D;
+      color: $color-success;
     }
 
     .at-timelineitem__dot {
       &::after {
-        border-color: #00D06D;
+        border-color: $color-success;
       }
     }
   }
 
   &--red {
     .at-timelineitem__icon {
-      color: #FF4849;
+      color: $color-error;
     }
 
     .at-timelineitem__dot {
       &::after {
-        border-color: #FF4849;
+        border-color: $color-error;
       }
     }
   }
 
   &--yellow {
     .at-timelineitem__icon {
-      color: #FFCA3E;
+      color: $color-warning;
     }
 
     .at-timelineitem__dot {
       &::after {
-        border-color: #FFCA3E;
+        border-color: $color-warning;
       }
     }
   }
@@ -93,8 +96,8 @@
     position: absolute;
     top: 20px;
     bottom: -10px;
-    left: 8px;
-    border-left: 2px solid #ececec;
+    left: 10px;
+    border-left: 2px solid $color-border-lighter;
   }
 }
 

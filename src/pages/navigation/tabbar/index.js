@@ -47,12 +47,14 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>自定义图标颜色、字体颜色、背景颜色</View>
             <View className='panel__content no-padding'>
-              <AtTabBar backgroundColor='#ececec' color='#ea6bb8' selectedColor='#e64340' tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
+              <AtTabBar backgroundColor='#FAFBFC' color='#ea6bb8' selectedColor='#e64340' tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
             </View>
           </View>
           <View className='panel'>
             <View className='panel__title'>固定底部</View>
-            <AtTabBar fixed tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
+            <View className='panel__content no-padding' style='padding-bottom: 24px;'>
+              <AtTabBar fixed tabList={tabList2} onClick={this.handleClick.bind(this)} current={current} />
+            </View>
           </View>
         </View>
       </View>
