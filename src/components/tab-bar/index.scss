@@ -5,7 +5,7 @@
   display: flex;
   width: 100%;
   min-height: 50px;
-  padding: $spacing-v-sm 0;
+  padding: $spacing-v-sm 0 $spacing-v-xs;
   text-align: center;
   box-sizing: border-box;
   justify-content: center;
@@ -15,16 +15,16 @@
 
   &__item {
     flex: 1;
-    font-size: $font-size-base;
-    padding: $spacing-v-xs;
-    color: $color-black-1;
+    padding: $spacing-v-sm $spacing-v-sm 0;
+    color: $color-text-base;
+    font-size: $font-size-xs;
   }
 
   &__title {
     display: block;
-    max-width: 200px;
-    font-size: $font-size-base;
     padding: $spacing-v-xs 0;
+    max-width: 200px;
+    font-size: $font-size-xs;
     line-height: $line-height-base;
     white-space: nowrap;
     overflow: hidden;

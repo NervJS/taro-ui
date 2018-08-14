@@ -3,12 +3,12 @@
 
 .at-nav-bar {
   display: flex;
-  width: 100%;
-  padding: $spacing-v-sm;
-  background-color: #fff;
-  box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  padding: $spacing-v-md $spacing-h-md;
+  background-color: $color-bg;
+  box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
   @include border-thin-bottom;
@@ -27,12 +27,6 @@
     overflow: hidden;
   }
 
-  &__left_text {
-    font-size: $font-size-lg;
-    vertical-align: middle;
-    display: inline-block;
-  }
-
   &__right_view {
     flex: 2;
     overflow: hidden;
@@ -41,18 +35,19 @@
 
   &__title {
     flex: 5;
-    font-size: $font-size-base;
     color: $color-text-base;
+    font-size: $font-size-xl;
+    line-height: $line-height-zh;
     text-align: center;
+    text-overflow: ellipsis;
     vertical-align: middle;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   &__text {
     display: inline-block;
-    font-size: $font-size-base;
+    font-size: $font-size-lg;
   }
 
   &__container {

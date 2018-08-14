@@ -5,26 +5,27 @@
 @mixin border-thin(
   $color: $color-border-lighter,
   $style: solid,
-  $directions: top bottom right left
+  $directions: top bottom right left,
+  $width: 1px
 ) {
   @each $value in $directions {
     /* prettier-ignore */
-    border-#{$value}: 1px $color $style; /* stylelint-disable-line unit-no-unknown */
+    border-#{$value}: $width $color $style; /* stylelint-disable-line unit-no-unknown */
   }
 }
 
-@mixin border-thin-top($color: $color-border-lighter, $style: solid) {
-  @include border-thin($color, $style, top);
+@mixin border-thin-top($color: $color-border-lighter, $style: solid, $width: 1px) {
+  @include border-thin($color, $style, top, $width);
 }
 
-@mixin border-thin-left($color: $color-border-lighter, $style: solid) {
-  @include border-thin($color, $style, left);
+@mixin border-thin-left($color: $color-border-lighter, $style: solid, $width: 1px) {
+  @include border-thin($color, $style, left, $width);
 }
 
-@mixin border-thin-right($color: $color-border-lighter, $style: solid) {
-  @include border-thin($color, $style, right);
+@mixin border-thin-right($color: $color-border-lighter, $style: solid, $width: 1px) {
+  @include border-thin($color, $style, right, $width);
 }
 
-@mixin border-thin-bottom($color: $color-border-lighter, $style: solid) {
-  @include border-thin($color, $style, bottom);
+@mixin border-thin-bottom($color: $color-border-lighter, $style: solid, $width: 1px) {
+  @include border-thin($color, $style, bottom, $width);
 }

@@ -10,25 +10,25 @@
   box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
-  @include border-thin(#6190E8);
+  @include border-thin($color: $color-brand, $width: 1PX);
 
   &__item {
     flex: 1;
     box-sizing: border-box;
-    min-width: 50px;
-    min-height: 10px;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    padding: $spacing-v-sm;
+    padding: $spacing-v-xs $spacing-h-sm;
+    min-width: 120px;
+    min-height: 40px;
     color: $color-text-base;
-    overflow: hidden;
+    font-size: $font-size-base;
+    line-height: $line-height-zh;
     white-space: nowrap;
     text-overflow: ellipsis;
-    background-color: #fff;
+    background-color: $color-bg;
+    overflow: hidden;
   }
 
   &__item + &__item {
-    @include border-thin-left(#6190E8);
+    @include border-thin-left($color: $color-brand, $width: 1PX);
   }
 
   &--disabled {
