@@ -49,15 +49,10 @@ export default class AtButton extends Taro.Component {
     rootClassName = rootClassName.filter(str => str !== '')
 
     let component
-    // const _style = {
-    //   marginRight: '5px',
-    // }
     if (loading) {
       component = <View className='at-button__icon'><AtIcon value='loading' size='20'></AtIcon></View>
       rootClassName.push('at-button--icon')
     }
-
-    console.log(this.props.children)
 
     return (
       <View className={rootClassName} onClick={this.onClick.bind(this)}>

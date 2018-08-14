@@ -12,17 +12,9 @@ export default class PaginationPage extends Taro.Component {
 
   // onClose (e) {
 
-  //   const ENV = Taro.getEnv()
-  //   let content
-  //   if (typeof index !== 'number') {
-  //     // content = '你点击了遮罩关闭'
-  //     content = ''
-  //   } else {
-  //     content = `你点击了第 ${+index + 1} 个项目`
-  //   }
-  //   if (ENV === 'WEAPP') content && Taro.showModal({ content, showCancel: false })
-  //   else if (ENV === 'WEB') content && alert(content)
-  // }
+  onPage (data) {
+    console.log('pagination: ', data)
+  }
 
   render () {
     return (
@@ -36,7 +28,7 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>文本按钮 + 页码</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtPagination total='50' pageSize='10' current='1'></AtPagination>
+                <AtPagination total='50' pageSize='10' current='1' pageChange={this.onPage.bind(this)}></AtPagination>
               </View>
             </View>
           </View>

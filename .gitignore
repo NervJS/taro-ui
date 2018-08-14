@@ -10,3 +10,4 @@ project.config.json
 .DS_Store
 .vscode
 .eslintcache
+.babelrc

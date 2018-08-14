@@ -22,8 +22,7 @@ export default class AtPagination extends Taro.Component {
     current -= 1
     current = Math.max(1, current)
     if (originCur === current) return
-    this.props.pageChange && this.props.pageChange('prev', current)
-    // console.log('prev', current)
+    this.props.pageChange && this.props.pageChange({ type: 'prev', current })
     this.setState({ current })
   }
 
@@ -34,21 +33,18 @@ export default class AtPagination extends Taro.Component {
     current += 1
     current = Math.min(maxPage, current)
     if (originCur === current) return
-    this.props.pageChange && this.props.pageChange('next', current)
+    this.props.pageChange && this.props.pageChange({ type: 'next', current })
     this.setState({ current })
-    console.log('next', this.state, current)
   }
 
   render () {
     const {
       current,
       icon,
-      // simple,
       maxPage,
     } = this.state
 
     let rootClassName = ['at-pagination']
-    // if (simple) rootClassName.push('at-pagination--simple')
     if (icon) rootClassName.push('at-pagination--icon')
     rootClassName = rootClassName.filter(str => str !== '')
 
@@ -80,7 +76,6 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
-  // simple: false,
 }
 
 AtPagination.propTypes = {
@@ -88,5 +83,4 @@ AtPagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
-  // simple: PropTypes.bool,
 }

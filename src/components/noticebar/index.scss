@@ -9,7 +9,7 @@ $noticebar-icon-size: 26px;
   position: relative;
   padding: $spacing-v-sm $spacing-h-lg;
   color: $noticebar-color-font;
-  font-size: $font-size-sm;
+  font-size: 0;
   background: $noticebar-color-bg;
 
   &__content {
@@ -18,6 +18,13 @@ $noticebar-icon-size: 26px;
     &-icon {
       display: inline-block;
       margin-right: 12px;
+      vertical-align: top;
+      margin-top: 5px;
+    }
+
+    &-text {
+      display: inline;
+      font-size: $font-size-sm;
     }
   }
 
@@ -46,6 +53,31 @@ $noticebar-icon-size: 26px;
     }
   }
 
+  &--marquee {
+    .at-noticebar__content-text {
+      height: 36px;
+      line-height: 36px;
+      overflow: hidden;
+      display: block;
+    }
+
+    .at-noticebar__content-icon {
+      position: absolute;
+
+      + .at-noticebar__content-text {
+        margin-left: 45px;
+      }
+    }
+
+    .at-noticebar__content-inner {
+      display: inline-block;
+      height: 36px;
+      white-space: nowrap;
+      animation: marquee 1s linear infinite both;
+      padding-left: 100%;
+    }
+  }
+
   &__more {
     position: absolute;
     right: $spacing-h-lg;
@@ -65,5 +97,12 @@ $noticebar-icon-size: 26px;
       vertical-align: middle;
       overflow: hidden;
     }
+  }
+}
+
+@keyframes marquee {
+  100% {
+    // transform: translate3d(-100%, 0, 0);
+    transform: translateX(-100%);
   }
 }

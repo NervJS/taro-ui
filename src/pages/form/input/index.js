@@ -1,4 +1,3 @@
-/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import AtInput from '../../../components/input/index'
@@ -24,7 +23,6 @@ export default class Index extends Taro.Component {
       value8: '',
       value9: '',
       value10: '',
-      value12: '',
       value13: '',
       value14: '',
       value15: '',
@@ -37,19 +35,16 @@ export default class Index extends Taro.Component {
   }
   sendCode () {
     if (this.state.disabled) return
-    // 使用setState 数值更新有延迟
-    this.state.disabled = true
+    this.setState({
+      disabled: true
+    })
     // 倒计时
     const timer = setInterval(() => {
       if (this.state.second > 0) {
-        // 使用setState 数值更新有延迟
-        this.state.second--
         this.setState({
-          second: this.state.second
+          second: this.state.second - 1
         })
       } else {
-        // 使用setState 数值更新有延迟
-        this.state.disabled = false
         this.setState({
           second: 60,
           disabled: false
@@ -59,8 +54,9 @@ export default class Index extends Taro.Component {
     }, 1000)
   }
   handleInput (stateName, value) {
-    this.state[stateName] = value
-    this.setState()
+    this.setState({
+      [stateName]: value
+    })
   }
   handleClick () {
     Taro.showToast({
@@ -124,7 +120,7 @@ export default class Index extends Taro.Component {
                 <AtForm>
                   <AtInput disabled title='禁用' type='text' placeholder='禁止输入' value={this.state.value10} onChange={this.handleInput.bind(this, 'value10')} />
                   <AtInput error title='出现错误' type='text' placeholder='点击按钮触发回调' value={this.state.value11} onChange={this.handleInput.bind(this, 'value11')} onErrorClick={this.onClickErrorIcon.bind(this)} />
-                  <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑' value='不可编辑的内容' onChange={this.handleInput.bind(this, 'value12')} />
+                  <AtInput editable={false} title='不可编辑' type='text' placeholder='不可编辑' value='不可编辑的内容' />
                   <AtInput border={false} clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' value={this.state.value13} onChange={this.handleInput.bind(this, 'value13')} />
                 </AtForm>
               </View>
