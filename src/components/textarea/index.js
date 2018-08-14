@@ -43,9 +43,12 @@ class AtTextarea extends Taro.Component {
     return <View className='at-textarea'>
       <Textarea
         style={textareaStyle}
-        cursorSpacing='30'
+        placeholderClass='placeholder'
+        cursorSpacing='50'
         className='at-textarea__textarea'
         value={value}
+        showConfirmBar={false}
+        confirmType='完成'
         maxlength={actualMaxLength}
         placeholder={placeholder}
         disabled={disabled}
