@@ -1,0 +1,20 @@
+@import '../../../style/theme/default.scss';
+
+.page .at-flex {
+  margin-bottom: 40px;
+
+  &__item {
+    padding: $spacing-v-md $spacing-h-md;
+    color: $color-white;
+    font-size: $font-size-base;
+    text-align: center;
+
+    &:nth-child(odd) {
+      background-color: $color-brand-light;
+    }
+
+    &:nth-child(even) {
+      background-color: tint($color-brand-light, 20%);
+    }
+  }
+}

@@ -67,24 +67,6 @@ view {
   }
 }
 
-// Flex 展示样式
-.page .at-flex {
-  margin-bottom: 40px;
-
-  &__item {
-    color: white;
-    text-align: center;
-
-    &:nth-child(odd) {
-      background-color: #6190e8;
-    }
-
-    &:nth-child(even) {
-      background-color: #78a4f4;
-    }
-  }
-}
-
 .doc-body {
   min-height: calc(100vh - 180px);
   background: #fff;

@@ -3,12 +3,11 @@
 
 $image-size: 56px;
 $image-distance: 32px;
-$item-horizontal-padding: 30px;
+$item-horizontal-padding: 24px;
 
 @mixin squareImg($size: 56px) {
   width: $size;
   height: $size;
-  background-color: #d8d8d8;
 
   &-info {
     width: 100%;
@@ -20,32 +19,19 @@ $item-horizontal-padding: 30px;
   @include display-flex;
   @include border-thin-bottom;
   @include align-items(center);
+  @include active;
 
-  height: 90px;
-  font-size: 34px;
+  padding: $spacing-v-lg $spacing-h-xl;
   position: relative;
   box-sizing: border-box;
-  color: $color-black-0;
+  color: $color-text-base;
+  font-size: $font-size-lg;
   line-height: $line-height-zh;
-  padding: $spacing-h-md $spacing-v-xl;
 
   &--thumb {
-    padding-left: $image-size + $item-horizontal-padding + $image-distance;
-
     .item-thumb {
+      margin-right: $item-horizontal-padding;
       @include squareImg($image-size);
-
-      position: absolute;
-      top: $spacing-v-md;
-      left: $item-horizontal-padding;
-    }
-  }
-
-  &--multiple {
-    height: 140px;
-
-    .item-thumb {
-      top: 30px;
     }
   }
 
@@ -67,11 +53,13 @@ $item-horizontal-padding: 30px;
     &-title {
       color: inherit;
       font-size: inherit;
+      line-height: $line-height-zh;
     }
 
     &-note {
+      color: $color-grey-2;
       font-size: $font-size-base;
-      color: lighten($color: $color-grey-2, $amount: 10%);
+      line-height: $line-height-zh;
     }
   }
 }
@@ -86,8 +74,8 @@ $item-horizontal-padding: 30px;
 
   &__info {
     color: $color-grey-2;
-    vertical-align: middle;
     font-size: $font-size-lg;
+    vertical-align: middle;
   }
 
   &__icon {
