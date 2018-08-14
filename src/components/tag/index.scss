@@ -10,21 +10,21 @@ $tag-height-sm: 40px;
   color: $color-grey-1;
   font-size: $font-size-base;
   text-align: center;
-  line-height: $tag-height - 4;
+  line-height: $tag-height - 2;
   vertical-align: middle;
-  border: 2px solid $color-grey-6;
+  border: 1px solid $color-grey-6;
   border-radius: $border-radius-md;
   background-color: $color-bg-grey;
   box-sizing: border-box;
 
   &--active {
     color: $color-brand-light;
-    border: 2px solid $color-brand-light;
+    border: 1px solid $color-brand-light;
     background-color: $color-bg;
 
     &.at-tag--primary {
       color: $color-text-base-inverse;
-      border: 2px solid $color-brand-light;
+      border: 1px solid $color-brand-light;
       background-color: $color-brand-light;
     }
   }

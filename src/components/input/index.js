@@ -92,7 +92,7 @@ class AtInput extends Taro.Component {
         {
           error
             ? <View className='at-input__icon' onClick={this.handleClickErrIcon.bind(this)} >
-              <AtIcon value='alert-circle' color='#e93b3d' size='15' />
+              <AtIcon value='alert-circle' color='#FF4949' size='15' />
             </View>
             : null
         }

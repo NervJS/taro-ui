@@ -30,13 +30,26 @@ export default class Index extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>基础</View>
+            <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtForm>
                   <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
-                  <AtSwitch title='已关闭' />
+                  <AtSwitch title='已关闭' border={false} />
+                </AtForm>
+              </View>
+            </View>
+          </View>
+
+          {/* 禁用状态 */}
+          <View className='panel'>
+            <View className='panel__title'>禁用状态</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtForm>
+                  <AtSwitch title='不可点击' border={false} disabled />
                 </AtForm>
               </View>
             </View>

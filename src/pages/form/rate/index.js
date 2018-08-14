@@ -1,4 +1,3 @@
-/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import AtRate from '../../../components/rate/index'
@@ -20,8 +19,9 @@ export default class Index extends Taro.Component {
   }
 
   handleRateChange (stateName, value) {
-    this.state[stateName] = value
-    this.setState()
+    this.setState({
+      [stateName]: value
+    })
   }
 
   render () {
@@ -34,8 +34,9 @@ export default class Index extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>基础</View>
+            <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtRate value={rateValue1} onChange={this.handleRateChange.bind(this, 'rateValue1')} />
@@ -43,15 +44,17 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
+          {/* 自定义尺寸 */}
           <View className='panel'>
-            <View className='panel__title'>自定义星星大小</View>
+            <View className='panel__title'>自定义尺寸</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtRate size='15' value={rateValue2} onChange={this.handleRateChange.bind(this, 'rateValue2')} />
+                <AtRate size='16' value={rateValue2} onChange={this.handleRateChange.bind(this, 'rateValue2')} />
               </View>
             </View>
           </View>
 
+          {/* 自定义评分数 */}
           <View className='panel'>
             <View className='panel__title'>自定义评分数</View>
             <View className='panel__content'>
@@ -60,6 +63,8 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 只读 */}
           <View className='panel'>
             <View className='panel__title'>只读</View>
             <View className='panel__content'>
