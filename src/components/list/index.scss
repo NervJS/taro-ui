@@ -14,9 +14,7 @@
     bottom: 0;
     left: 0;
     background-color: $color-border-lighter;
-
-    /* prettier-ignore */
-    height: 1PX;
+    height: 1px;
   }
 
   &::before {
@@ -25,12 +23,10 @@
     width: $spacing-h-xl;
     z-index: 100;
     position: absolute;
-    background-color: $color-white;
+    background-color: transparent;
 
     /* prettier-ignore */
-    height: calc(100% - 2PX);
-
-    /* prettier-ignore */
-    top: 1PX;
+    height: calc(100% - 1px);
+    top: 0;
   }
 }

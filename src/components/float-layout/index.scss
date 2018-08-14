@@ -58,6 +58,11 @@ $float-layout-height-max: 950px;
   &-body {
     font-size: $font-size-base;
     padding: $spacing-v-md;
+    max-height: 828px;
+
+    &__content {
+      height: 798px;
+    }
   }
 }
 

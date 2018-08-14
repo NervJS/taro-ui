@@ -41,7 +41,7 @@ export default class AtModal extends Taro.Component {
     }
 
 
-    if (title) {
+    if (title || content) {
       const isRenderAction = cancleText || confirmText
       return (
         <View className={rootClass}>

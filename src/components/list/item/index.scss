@@ -2,7 +2,6 @@
 @import "../../../style/theme/default.scss";
 
 $image-size: 56px;
-$image-distance: 32px;
 $item-horizontal-padding: 24px;
 
 @mixin squareImg($size: 56px) {
@@ -17,7 +16,6 @@ $item-horizontal-padding: 24px;
 
 .at-list__item {
   @include display-flex;
-  @include border-thin-bottom;
   @include align-items(center);
   @include active;
 
@@ -28,6 +26,16 @@ $item-horizontal-padding: 24px;
   font-size: $font-size-lg;
   line-height: $line-height-zh;
 
+  &::after {
+    content: " ";
+    position: absolute;
+    width: calc(100% - #{$spacing-h-xl});
+    height: 1px;
+    background-color: $color-border-lighter;
+    bottom: 0;
+    left: $spacing-h-xl;
+  }
+
   &--thumb {
     .item-thumb {
       margin-right: $item-horizontal-padding;
@@ -37,6 +45,9 @@ $item-horizontal-padding: 24px;
 
   &-content {
     @include flex(1);
+
+    overflow: hidden;
+    margin-right: 40px;
   }
 
   &-extra {
@@ -46,11 +57,11 @@ $item-horizontal-padding: 24px;
   }
 }
 
-.at-list__item .item-contet {
+.at-list__item .item-content {
   &__info {
-    display: inline-block;
-
     &-title {
+      @include line(1);
+
       color: inherit;
       font-size: inherit;
       line-height: $line-height-zh;
@@ -73,7 +84,10 @@ $item-horizontal-padding: 24px;
   }
 
   &__info {
+    @include line(1);
+
     color: $color-grey-2;
+    max-width: 160px;
     font-size: $font-size-lg;
     vertical-align: middle;
   }

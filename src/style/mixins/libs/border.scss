@@ -9,23 +9,38 @@
   $width: 1px
 ) {
   @each $value in $directions {
-    /* prettier-ignore */
-    border-#{$value}: $width $color $style; /* stylelint-disable-line unit-no-unknown */
+    border-#{$value}: $width $color $style;
   }
 }
 
-@mixin border-thin-top($color: $color-border-lighter, $style: solid, $width: 1px) {
+@mixin border-thin-top(
+  $color: $color-border-lighter,
+  $style: solid,
+  $width: 1px
+) {
   @include border-thin($color, $style, top, $width);
 }
 
-@mixin border-thin-left($color: $color-border-lighter, $style: solid, $width: 1px) {
+@mixin border-thin-left(
+  $color: $color-border-lighter,
+  $style: solid,
+  $width: 1px
+) {
   @include border-thin($color, $style, left, $width);
 }
 
-@mixin border-thin-right($color: $color-border-lighter, $style: solid, $width: 1px) {
+@mixin border-thin-right(
+  $color: $color-border-lighter,
+  $style: solid,
+  $width: 1px
+) {
   @include border-thin($color, $style, right, $width);
 }
 
-@mixin border-thin-bottom($color: $color-border-lighter, $style: solid, $width: 1px) {
+@mixin border-thin-bottom(
+  $color: $color-border-lighter,
+  $style: solid,
+  $width: 1px
+) {
   @include border-thin($color, $style, bottom, $width);
 }
