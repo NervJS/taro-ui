@@ -40,6 +40,22 @@ export default class NoticebarPage extends Taro.Component {
             </View>
           </View>
 
+          {/* 跑马灯 */}
+          <View className='panel'>
+            <View className='panel__title'>跑马灯</View>
+            <View className='panel__content'>
+              <View className='bar-item'>
+                <AtNoticebar marquee>[纯文字]这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏[结束]</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar marquee icon='volume-plus'>[带icon]这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏[结束]</AtNoticebar>
+              </View>
+              <View className='bar-item'>
+                <AtNoticebar marquee>[超长文本]这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏[结束]</AtNoticebar>
+              </View>
+            </View>
+          </View>
+
           {/* 图标 */}
           <View className='panel'>
             <View className='panel__title'>图标</View>

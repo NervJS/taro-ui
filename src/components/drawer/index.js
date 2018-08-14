@@ -13,11 +13,12 @@ export default class AtDrawer extends Taro.Component {
   }
 
   onItemClick (index, e) {
+    this.props.onItemClick && this.props.onItemClick(index)
     this.animHide(e, index)
   }
 
   onHide () {
-    this.props.onClose(...arguments)
+    this.props.onClose && this.props.onClose()
   }
 
   animHide () {
