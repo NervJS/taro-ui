@@ -23,13 +23,7 @@ export default class AtNoticebar extends Taro.Component {
   }
 
   onGotoMore () {
-    if (Taro.getEnv() === 'WEAPP') {
-      Taro.navigateTo({
-        url: this.props.moreUrl,
-      })
-    } else {
-      alert('该环境尚未实现此API')
-    }
+    this.props.onGotoMore && this.props.onGotoMore(...arguments)
   }
 
   componentDidMount () {
@@ -52,7 +46,7 @@ export default class AtNoticebar extends Taro.Component {
 
   render () {
     const {
-      moreUrl,
+      showMore,
       single,
       icon,
       marquee,
@@ -74,7 +68,7 @@ export default class AtNoticebar extends Taro.Component {
       style['animation-duration'] = `${dura}s`
       innerClassName.push(this.state.animElemId)
     } else {
-      if (moreUrl) rootClassName.push('at-noticebar--more')
+      if (showMore) rootClassName.push('at-noticebar--more')
       if (single) rootClassName.push('at-noticebar--single')
     }
 
@@ -88,7 +82,7 @@ export default class AtNoticebar extends Taro.Component {
             <Text className={innerClassName} style={style}>{this.props.children}</Text>
           </View>
         </View>
-        {moreUrl && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}
+        {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}
       </View>
     )
   }
@@ -100,7 +94,7 @@ AtNoticebar.defaultProps = {
   marquee: false,
   speed: 100,
   moreText: '查看详情',
-  moreUrl: '',
+  showMore: false,
   icon: '',
 }
 
@@ -110,6 +104,6 @@ AtNoticebar.propTypes = {
   marquee: PropTypes.bool,
   speed: PropTypes.number,
   moreText: PropTypes.string,
-  moreUrl: PropTypes.string,
+  showMore: PropTypes.bool,
   icon: PropTypes.string,
 }

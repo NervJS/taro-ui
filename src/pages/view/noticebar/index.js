@@ -18,6 +18,11 @@ export default class NoticebarPage extends Taro.Component {
     }
   }
 
+  onGotoMore () {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content: '点击了更多!' })
+    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert('您点击了更多!')
+  }
+
   render () {
     return (
       <View className='page'>
@@ -74,16 +79,16 @@ export default class NoticebarPage extends Taro.Component {
             <View className='panel__title'>查看更多</View>
             <View className='panel__content'>
               <View className='bar-item'>
-                <AtNoticebar moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+                <AtNoticebar showMore single onGotoMore={this.onGotoMore.bind(this)}>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar icon='volume-plus' moreUrl='https://taro.aotu.io/' single>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+                <AtNoticebar showMore icon='volume-plus' single onGotoMore={this.onGotoMore.bind(this)}>[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+                <AtNoticebar showMore moreText='更多' onGotoMore={this.onGotoMore.bind(this)}>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar icon='volume-plus' moreUrl='https://taro.aotu.io/'>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+                <AtNoticebar showMore moreText='更多' icon='volume-plus' onGotoMore={this.onGotoMore.bind(this)}>[多行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
               </View>
             </View>
           </View>
