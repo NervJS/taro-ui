@@ -25,6 +25,8 @@ components:
         items:
           - title: 按钮
             name: Button
+          - title: 图标
+            name: Icon
       - title: 布局组件
         items:
           - title: 列表
@@ -51,10 +53,6 @@ components:
             name: ActivityIndicator
           # - title: 布局
           #   name: Layout
-          # - title: 标签
-          #   name: Tag
-          # - title: 图标
-          #   name: Icon
       - title: 表单组件
         items:
           - title: 多选框
@@ -75,52 +73,33 @@ components:
   #           name: Slider
           - title: 文本域
             name: Textarea
-  #     - title: 视图组件
-  #       items:
-  #         - title: 警告提示
-  #           name: Alert
-  #         - title: 徽标
-  #           name: Badge
-  #         - title: 卡片
-  #           name: Card
-  #         - title: 折叠面板
-  #           name: Collapse
-  #         - title: 加载进度条
-  #           name: LoadingBar
-  #         - title: 模态框
-  #           name: Modal
-  #         - title: 全局提示
-  #           name: Message
-  #         - title: 通知提醒
-  #           name: Notification
-  #         - title: 进度条
-  #           name: Progress
-  #         - title: 弹出框
-  #           name: Popover
-  #         - title: 文字提示
-  #           name: Tooltip
-  #         - title: 时间轴
-  #           name: Timeline
-  #         - title: 表格
-  #           name: Table
+      - title: 视图组件
+        items:
+          - title: 文章样式
+            name: Article
+          - title: 头像
+            name: Avatar
+          - title: 徽标
+            name: Badge
+          - title: 通告栏
+            name: Noticebar
+          - title: 标签
+            name: Tag
 
       - title: 导航组件
         items:
-  #         - title: 面包屑
-  #           name: Breadcrumb
-  #         - title: 下拉菜单
-  #           name: Dropdown
-  #         - title: 导航菜单
-  #           name: Menu
-  #         - title: 分页
-  #           name: Pagination
-  #         - title: 步骤条
-  #           name: Steps
-          - title: 标签页
-            name: Tabs
+          - title: 抽屉
+            name: Drawer
           - title: 导航栏
             name: NavBar
-          - title: 标签栏
-            name: TabBar
+          - title: 分页器
+            name: Pagination
           - title: 分段器组件
             name: SegmentedControl
+          - title: 标签栏
+            name: TabBar
+          - title: 标签页
+            name: Tabs
+          # - title: 时间轴
+          #   name: Timeline
+            
