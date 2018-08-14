@@ -58,6 +58,12 @@ view {
       display: inline-block;
       margin-left: 24px;
     }
+
+    &__desc {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 24px;
+    }
   }
 }
 
