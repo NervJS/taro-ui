@@ -36,4 +36,4 @@ import AtPagination from 'taro-ui'
 
 | 微信小程序 | H5 | 事件名称   | 说明               | 返回参数          |
 |:-----------|:---|:-----------|:-------------------|:------------------|
-| √          | √  | pageChange | 点击页码按钮时触发 | { type, current } |
+| √          | √  | onPageChange | 点击页码按钮时触发 | { type, current } |

@@ -10,10 +10,11 @@ export default class AtPagination extends Taro.Component {
   constructor () {
     super(...arguments)
     let { current, pageSize, total } = this.props
+    const { icon } = this.props
     total = +total
     pageSize = +pageSize
     current = +current
-    this.state = Object.assign({ ...this.props, maxPage: Math.ceil(total / pageSize) }, { total, pageSize, current })
+    this.state = Object.assign({ icon, maxPage: Math.ceil(total / pageSize) }, { total, pageSize, current })
   }
 
   onPrev () {
@@ -22,7 +23,7 @@ export default class AtPagination extends Taro.Component {
     current -= 1
     current = Math.max(1, current)
     if (originCur === current) return
-    this.props.pageChange && this.props.pageChange({ type: 'prev', current })
+    this.props.onPageChange && this.props.onPageChange({ type: 'prev', current })
     this.setState({ current })
   }
 
@@ -33,7 +34,8 @@ export default class AtPagination extends Taro.Component {
     current += 1
     current = Math.min(maxPage, current)
     if (originCur === current) return
-    this.props.pageChange && this.props.pageChange({ type: 'next', current })
+    console.log(this.props)
+    this.props.onPageChange && this.props.onPageChange({ type: 'next', current })
     this.setState({ current })
   }
 

@@ -28,7 +28,7 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>文本按钮 + 页码</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtPagination total='50' pageSize='10' current='1' pageChange={this.onPage.bind(this)}></AtPagination>
+                <AtPagination total='50' pageSize='10' current='1' onPageChange={this.onPage.bind(this)}></AtPagination>
               </View>
             </View>
           </View>

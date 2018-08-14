@@ -38,25 +38,44 @@ export default class AtNoticebar extends Taro.Component {
         query.select(`.${this.state.animElemId}`).boundingClientRect(res => {
           const { width } = res
           const dura = width / (+this.props.speed)
-          this.setState({ dura })
+          const animation = Taro.createAnimation({
+            duration: dura * 1000,
+            timingFunction: 'linear',
+          })
+          const resetAnimation = Taro.createAnimation({
+            duration: 0,
+            timingFunction: 'linear',
+          })
+          const animBody = () => {
+            resetAnimation.translateX(0).step()
+            this.setState({ animationData: resetAnimation.export() })
+            setTimeout(() => {
+              animation.translateX(-width).step()
+              this.setState({ animationData: animation.export() })
+            }, 100)
+          }
+          animBody()
+          setInterval(animBody, (dura * 1000) + 100)
         }).exec()
       }
-    }, 0)
+    }, 100)
   }
 
   render () {
     const {
-      showMore,
       single,
       icon,
       marquee,
     } = this.props
     let {
+      showMore,
       close,
     } = this.props
     const { dura } = this.state
     const rootClassName = ['at-noticebar']
     let _moreText = this.props.moreText
+
+    if (!single) showMore = false
 
     if (!_moreText) _moreText = '查看详情'
 
@@ -66,6 +85,9 @@ export default class AtNoticebar extends Taro.Component {
       close = false
       rootClassName.push('at-noticebar--marquee')
       style['animation-duration'] = `${dura}s`
+      if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
+        rootClassName.push('at-noticebar--weapp')
+      }
       innerClassName.push(this.state.animElemId)
     } else {
       if (showMore) rootClassName.push('at-noticebar--more')
@@ -79,7 +101,7 @@ export default class AtNoticebar extends Taro.Component {
         <View className='at-noticebar__content'>
           {icon && <View className='at-noticebar__content-icon'><AtIcon value={icon} size='16'></AtIcon></View>}
           <View className='at-noticebar__content-text'>
-            <Text className={innerClassName} style={style}>{this.props.children}</Text>
+            <Text animation={this.state.animationData} className={innerClassName} style={style}>{this.props.children}</Text>
           </View>
         </View>
         {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}

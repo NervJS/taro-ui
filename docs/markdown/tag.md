@@ -24,6 +24,15 @@ import AtTag from 'taro-ui'
 ```
 :::
 
+## 点击事件
+
+:::demo
+```html
+<!-- 点击返回当前标签名字和是否选中 -->
+<AtTag name='tag-1' type='primary' circle onClick={this.onClick.bind(this)}>tag-1</AtTag>
+```
+:::
+
 ## Tag 参数
 
 | 微信小程序 | H5 | 参数     | 说明         | 类型    | 可选值        | 默认值 |

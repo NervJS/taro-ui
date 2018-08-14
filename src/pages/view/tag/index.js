@@ -18,9 +18,11 @@ export default class TagPage extends Taro.Component {
     }
   }
 
-  onClick () {
-    // alert('点击了！')
-    console.log(arguments)
+  onClick (data) {
+    const content = `您点击的 tag 标签名是：${data.name}，是否选中：${data.active}`
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content, showCancel: false })
+    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert(content)
+    console.log(data)
   }
 
   render () {
@@ -38,16 +40,16 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag name='tag-1' circle onClick={this.onClick.bind(this)}>标签</AtTag>
+                  <AtTag circle>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-2'>标签</AtTag>
+                  <AtTag>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-3' circle active>标签</AtTag>
+                  <AtTag circle active>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-4' active>标签</AtTag>
+                  <AtTag active>标签</AtTag>
                 </View>
               </View>
             </View>
@@ -59,16 +61,37 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag name='tag-5' type='primary' circle>标签</AtTag>
+                  <AtTag type='primary' circle>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-6' type='primary'>标签</AtTag>
+                  <AtTag type='primary'>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-7' type='primary' circle active>标签</AtTag>
+                  <AtTag type='primary' circle active>标签</AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag name='tag-8' type='primary' active>标签</AtTag>
+                  <AtTag type='primary' active>标签</AtTag>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 点击事件 */}
+          <View className='panel'>
+            <View className='panel__title'>点击事件</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <View className='subitem'>
+                  <AtTag name='tag-1' type='primary' circle onClick={this.onClick.bind(this)}>tag-1</AtTag>
+                </View>
+                <View className='subitem'>
+                  <AtTag name='tag-2' type='primary' onClick={this.onClick.bind(this)}>tag-2</AtTag>
+                </View>
+                <View className='subitem'>
+                  <AtTag name='tag-3' type='primary' circle active onClick={this.onClick.bind(this)}>tag-3</AtTag>
+                </View>
+                <View className='subitem'>
+                  <AtTag name='tag-4' type='primary' active onClick={this.onClick.bind(this)}>tag-4</AtTag>
                 </View>
               </View>
             </View>

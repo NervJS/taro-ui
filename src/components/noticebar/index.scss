@@ -14,12 +14,14 @@ $noticebar-icon-size: 26px;
 
   &__content {
     line-height: $line-height-zh;
+    word-break: break-all;
+    word-wrap: break-word;
 
     &-icon {
       display: inline-block;
       margin-right: 12px;
       vertical-align: top;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     &-text {
@@ -38,18 +40,6 @@ $noticebar-icon-size: 26px;
 
     + .at-noticebar__content {
       margin-left: 50px;
-    }
-  }
-
-  &--single {
-    .at-noticebar__content {
-      @include line(1);
-    }
-  }
-
-  &--more {
-    .at-noticebar__content {
-      max-width: 480px;
     }
   }
 
@@ -78,6 +68,32 @@ $noticebar-icon-size: 26px;
     }
   }
 
+  &--single {
+    &.at-noticebar--more {
+      .at-noticebar__content-text {
+        display: inline-block;
+        max-width: 535px;
+        @include line(1);
+      }
+
+      .at-noticebar__content-icon + .at-noticebar__content-text {
+        max-width: 485px;
+      }
+    }
+  }
+
+  &--more {
+    .at-noticebar__content {
+      max-width: 530px;
+    }
+  }
+
+  &--weapp {
+    .at-noticebar__content-inner {
+      animation: none;
+    }
+  }
+
   &__more {
     position: absolute;
     right: $spacing-h-lg;
@@ -102,7 +118,7 @@ $noticebar-icon-size: 26px;
 
 @keyframes marquee {
   100% {
-    // transform: translate3d(-100%, 0, 0);
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
+    // transform: translateX(-100%);
   }
 }
