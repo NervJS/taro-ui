@@ -45,7 +45,7 @@
     overflow: -moz-scrollbars-none;
 
     &--scroll {
-      overflow-x: auto;
+      overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
       white-space: nowrap;
 
@@ -56,6 +56,7 @@
     }
 
     &::-webkit-scrollbar {
+      height: 0 !important;
       width: 0 !important;
     }
   }
