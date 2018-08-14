@@ -10,6 +10,10 @@ export default class PaginationPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
+  onPage (data) {
+    console.log('pagination: ', data)
+  }
+
   render () {
     return (
       <View className='page'>
@@ -23,7 +27,7 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination total='50' pageSize='10' current='1'></AtPagination>
+                <AtPagination total='50' pageSize='10' current='1' pageChange={this.onPage.bind(this)}></AtPagination>
               </View>
             </View>
           </View>
