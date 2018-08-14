@@ -1,6 +1,10 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
+$float-layout-timer: 300ms;
+$float-layout-height-min: 600px;
+$float-layout-height-max: 950px;
+
 .at-float-layout {
   position: fixed;
   width: 100%;
@@ -8,8 +12,8 @@
   top: 0;
   left: 0;
   visibility: hidden;
-  transition: visibility 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
   z-index: $zindex-flot-layout;
+  transition: visibility $float-layout-timer cubic-bezier(0.36, 0.66, 0.04, 1);
 
   &__overlay {
     @include overlay;
@@ -22,39 +26,38 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: white;
-    min-height: 600px;
-    max-height: 950px;
+    min-height: $float-layout-height-min;
+    max-height: $float-layout-height-max;
+    background-color: $color-bg;
     transform: translate3d(0, 100%, 0);
-    transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform $float-layout-timer cubic-bezier(0.36, 0.66, 0.04, 1);
   }
 }
 
 .at-float-layout .layout {
   &-header {
-    height: 92px;
-    background-color: $color-grey-6;
-    padding: 0 $spacing-h-md;
-    line-height: 85px;
     position: relative;
+    padding: $spacing-v-md;
+    line-height: $line-height-zh;
+    background-color: $color-bg-grey;
 
     &__title {
+      color: $color-text-base;
       font-size: $font-size-lg;
-      color: $color-grey-0;
     }
 
     &__icon {
       line-height: 0;
       position: absolute;
       top: 50%;
-      right: 20px;
+      right: $spacing-v-md;
       transform: translate(0, -50%);
     }
   }
 
   &-body {
-    font-size: $font-size-lg;
-    padding: $spacing-v-xl $spacing-h-md 0 $spacing-h-md;
+    font-size: $font-size-base;
+    padding: $spacing-v-md;
   }
 }
 

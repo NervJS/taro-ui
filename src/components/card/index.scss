@@ -1,12 +1,14 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
+$card-thumb-size: 32px;
+
 .at-card {
-  @include border-thin();
+  @include border-thin($color: $color-border-light, $width: 1PX);
 
   margin: 0 $spacing-h-lg;
-  background-color: $color-white;
-  border-radius: $border-radius-md;
+  background-color: $color-bg;
+  border-radius: $border-radius-lg;
 
   &--full {
     margin: 0;
@@ -18,10 +20,9 @@
   &-header {
     @include display-flex;
     @include align-items(center);
-    @include border-thin-bottom();
+    @include border-thin-bottom($width: 1PX);
 
-    height: 94px;
-    padding: 0 $spacing-h-lg;
+    padding: $spacing-v-md $spacing-h-lg;
     position: relative;
 
     &__title,
@@ -32,9 +33,9 @@
     }
 
     &__thumb {
-      @include flex(0, 0, 34px);
+      @include flex(0, 0, $card-thumb-size);
 
-      height: 34px;
+      height: $card-thumb-size;
       display: block;
       line-height: 0;
       margin-right: $spacing-h-md;
@@ -49,7 +50,7 @@
       @include flex(auto);
 
       display: block;
-      font-size: $font-size-xl;
+      font-size: $font-size-lg;
     }
 
     &__extra {
@@ -62,16 +63,16 @@
   }
 
   &-content {
-    padding: $spacing-v-md $spacing-h-lg;
+    padding: $spacing-v-lg $spacing-h-lg;
 
     &__info {
-      font-size: $font-size-lg;
+      font-size: $font-size-base;
     }
 
     &__note {
-      color: $color-grey-2;
-      font-size: $font-size-base;
       margin-top: $spacing-v-md;
+      color: $color-grey-2;
+      font-size: $font-size-sm;
     }
   }
 }

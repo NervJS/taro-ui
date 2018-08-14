@@ -1,5 +1,7 @@
 @import '../../style/theme/default.scss';
 
+$drawer-content-width: 460px;
+
 .at-drawer {
   position: relative;
   z-index: $zindex-drawer;
@@ -12,41 +14,19 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity 225ms $ease-in-out-quart;
+    transition: opacity 300ms $timing-func;
   }
 
   &__content {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 460px;
-    background-color: #fff;
-    z-index: 1;
+    width: $drawer-content-width;
     text-align: left;
+    background-color: $color-bg;
     opacity: 0;
+    z-index: 1;
   }
-
-  // &__list {
-  //   margin: 0 0 0 18px;
-  //   max-height: 100%;
-  //   overflow-y: scroll;
-
-  //   &-icon {
-  //     position: absolute;
-  //     right: 20px;
-  //     top: 50%;
-  //     transform: translateY(-50%);
-  //   }
-
-  //   &-item {
-  //     height: 90px;
-  //     line-height: 90px;
-  //     font-size: 34px;
-  //     color: $color-black-0;
-  //     border-bottom: 1px solid #ddd;
-  //     position: relative;
-  //   }
-  // }
 
   &.at-drawer--left {
     .at-drawer__content {

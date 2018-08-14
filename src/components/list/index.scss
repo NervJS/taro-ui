@@ -4,7 +4,6 @@
 .at-list {
   @include border-thin-top;
 
-  padding-left: $spacing-h-md;
   position: relative;
   background-color: white;
 
@@ -14,7 +13,7 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    background-color: $color-grey-4;
+    background-color: $color-border-lighter;
 
     /* prettier-ignore */
     height: 1PX;
@@ -23,7 +22,7 @@
   &::before {
     content: " ";
     left: 0;
-    width: 45px;
+    width: $spacing-h-xl;
     z-index: 100;
     position: absolute;
     background-color: $color-white;

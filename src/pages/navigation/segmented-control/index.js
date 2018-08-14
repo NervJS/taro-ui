@@ -32,10 +32,10 @@ export default class Index extends Taro.Component {
 
         {/* S Body */}
         <View className='doc-body'>
-          {/* 基础 */}
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>基础</View>
-            <View className='panel__content no'>
+            <View className='panel__title'>基础用法</View>
+            <View className='panel__content'>
               <View>
                 <AtSegmentedControl onClick={this.handleClick.bind(this)} selectedColor='#6190E8' current={current} values={tabList2} />
                 {current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
@@ -44,6 +44,7 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+
           {/* 自定义 */}
           <View className='panel'>
             <View className='panel__title'>自定义颜色、字体大小</View>
@@ -56,6 +57,7 @@ export default class Index extends Taro.Component {
               </View>
             </View>
           </View>
+
           {/* 禁用 */}
           <View className='panel'>
             <View className='panel__title'>禁用</View>

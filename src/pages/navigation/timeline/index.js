@@ -17,8 +17,24 @@ export default class TimelinePage extends Taro.Component {
         <DocsHeader title='Timeline 时间轴'></DocsHeader>
 
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>基础</View>
+            <View className='panel__title'>基础用法</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTimeline pending>
+                  <AtTimelineItem>刷牙洗脸</AtTimelineItem>
+                  <AtTimelineItem>吃早餐</AtTimelineItem>
+                  <AtTimelineItem>上班</AtTimelineItem>
+                  <AtTimelineItem>睡觉</AtTimelineItem>
+                </AtTimeline>
+              </View>
+            </View>
+          </View>
+
+          {/* 自定义颜色 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtTimeline pending>
@@ -31,8 +47,9 @@ export default class TimelinePage extends Taro.Component {
             </View>
           </View>
 
+          {/* 自定义图标 */}
           <View className='panel'>
-            <View className='panel__title'>带icon</View>
+            <View className='panel__title'>自定义图标</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtTimeline pending>

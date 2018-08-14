@@ -34,11 +34,11 @@ export default class CardPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>带缩略图的卡片</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtCard
                   title='这是个标题'
-                  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+                  thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >
                   这也是内容区 可以随意定义功能
                 </AtCard>
@@ -48,12 +48,12 @@ export default class CardPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>带小信息的卡片</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtCard
                   note='小Tips'
                   title='这是个标题'
-                  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+                  thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >
                   这也是内容区 可以随意定义功能
                 </AtCard>
@@ -63,13 +63,13 @@ export default class CardPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>完整的卡片</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtCard
                   note='小Tips'
                   extra='额外信息'
                   title='这是个标题'
-                  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+                  thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >
                   这也是内容区 可以随意定义功能
                 </AtCard>
@@ -79,14 +79,14 @@ export default class CardPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>通栏卡片</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtCard
                   isFull
                   note='小Tips'
                   extra='额外信息'
                   title='这是个标题'
-                  thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+                  thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >
                   这也是内容区 可以随意定义功能 这也是内容区 可以随意定义功能
                   这也是内容区 可以随意定义功能

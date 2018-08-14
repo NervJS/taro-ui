@@ -60,7 +60,7 @@ export default class DrawerPage extends Taro.Component {
             <View className='panel__title'>左边滑出</View>
             <View className='panel__content no-padding'>
               <View className='example'>
-                <AtButton onClick={this.leftDrawerClick.bind(this)}>显示drawer</AtButton>
+                <AtButton onClick={this.leftDrawerClick.bind(this)}>显示 Drawer</AtButton>
                 {this.state.leftDrawerShow && <AtDrawer show={this.state.leftDrawerShow} mask onItemClick={this.onItemClick.bind(this)} onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
                 </AtDrawer>}
               </View>
@@ -71,7 +71,7 @@ export default class DrawerPage extends Taro.Component {
             <View className='panel__title'>右边滑出</View>
             <View className='panel__content no-padding'>
               <View className='example'>
-                <AtButton onClick={this.rightDrawerClick.bind(this)}>显示drawer</AtButton>
+                <AtButton onClick={this.rightDrawerClick.bind(this)}>显示 Drawer</AtButton>
                 {this.state.rightDrawerShow && <AtDrawer show={this.state.rightDrawerShow} right mask onItemClick={this.onItemClick.bind(this)} onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}>
                 </AtDrawer>}
               </View>

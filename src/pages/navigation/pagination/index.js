@@ -10,8 +10,6 @@ export default class PaginationPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  // onClose (e) {
-
   onPage (data) {
     console.log('pagination: ', data)
   }
@@ -24,17 +22,19 @@ export default class PaginationPage extends Taro.Component {
         {/* E Header */}
 
         <View className='doc-body'>
+          {/* 基础用法 */}
           <View className='panel'>
-            <View className='panel__title'>文本按钮 + 页码</View>
-            <View className='panel__content'>
+            <View className='panel__title'>基础用法</View>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtPagination total='50' pageSize='10' current='1' pageChange={this.onPage.bind(this)}></AtPagination>
               </View>
             </View>
           </View>
 
+          {/* 图标类型 */}
           <View className='panel'>
-            <View className='panel__title'>图标按钮 + 页码</View>
+            <View className='panel__title'>图标类型</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtPagination icon total='50' pageSize='10' current='1'></AtPagination>
