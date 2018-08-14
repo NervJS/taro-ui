@@ -10,7 +10,9 @@ import './index.scss'
  * @prop value {String|Number} 输入框值
  * @prop placeholder {String} 提示字符
  * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
+ * @prop confirmType {String} 设置键盘右下角按钮的文字,只在小程序有效 default: '完成'
  * @prop maxlength {Number} 最大长度 default:140
+ * @prop cursorSpacing {Number} 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 default:50
  * @prop disabled {Boolean} 是否禁止输入，禁止点击按钮 default: false
  * @prop border {Boolean} 是否显示下划线边框 default: true
  * @prop editable {Boolean} 是否可编辑 default: true
@@ -21,6 +23,7 @@ import './index.scss'
  * @prop onChange {Function} 输入框值改变时触发的事件
  * @prop onFocus {Function} 输入框被选中时触发的事件
  * @prop onBlur {Function} 输入框失去焦点时触发的事件
+ * @prop onConfirm {Function} 点击完成按钮时触发
  * @prop onErrorClick {Function} 点击错误按钮触发的事件
  */
 class AtInput extends Taro.Component {
@@ -33,6 +36,9 @@ class AtInput extends Taro.Component {
   handleBlur (e) {
     this.props.onBlur(e.target.value, ...arguments)
   }
+  handleConfirm (e) {
+    this.props.onConfirm(e.target.value, ...arguments)
+  }
   clearValue () {
     this.props.onChange('', ...arguments)
   }
@@ -40,7 +46,7 @@ class AtInput extends Taro.Component {
     this.props.onErrorClick(...arguments)
   }
   render () {
-    const { name, type, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
+    const { name, type, cursorSpacing, confirmType, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
     let newMaxlength = maxlength
     let newType = type
     let newDisabled = disabled
@@ -72,10 +78,13 @@ class AtInput extends Taro.Component {
         <Input className='at-input__input'
           id={name}
           type={newType}
+          placeholderClass='placeholder'
           placeholder={placeholder}
+          cursorSpacing={cursorSpacing}
           maxlength={newMaxlength}
           autoFocus={autoFocus}
           value={value}
+          confirmType={confirmType}
           disabled={newDisabled}
           onInput={this.handleInput.bind(this)}
           onChange={this.handleInput.bind(this)}
@@ -107,6 +116,8 @@ AtInput.defaultProps = {
   name: '',
   placeholder: '',
   title: '',
+  cursorSpacing: 50,
+  confirmType: '完成',
   maxlength: 140,
   type: 'text',
   disabled: false,
@@ -118,6 +129,7 @@ AtInput.defaultProps = {
   onChange: defaultFunc,
   onFocus: defaultFunc,
   onBlur: defaultFunc,
+  onConfirm: defaultFunc,
   onErrorClick: defaultFunc
 }
 AtInput.propTypes = {
@@ -128,6 +140,8 @@ AtInput.propTypes = {
   name: '',
   placeholder: PropTypes.string,
   title: PropTypes.string,
+  confirmType: PropTypes.string,
+  cursorSpacing: PropTypes.number,
   maxlength: PropTypes.number,
   type: PropTypes.string,
   disabled: PropTypes.bool,
@@ -140,6 +154,7 @@ AtInput.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
 }
 export default AtInput

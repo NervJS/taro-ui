@@ -1,10 +1,10 @@
 @import "../../style/mixins/index.scss";
 @import '../../style/theme/default.scss';
 
-$textarea-input-height: 100px;
+$textarea-input-height: $font-size-base * 4;
 
 .at-textarea {
-  padding: $spacing-v-sm;
+  padding: $spacing-v-md;
   width: 100%;
   font-size: $font-size-lg;
   line-height: $line-height-zh;
@@ -16,13 +16,22 @@ $textarea-input-height: 100px;
   &__textarea {
     width: 100%;
     height: $textarea-input-height;
+    line-height: $line-height-base;
     outline: none;
     resize: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    @include placeholder;
   }
 
   &__bottom {
     width: 100%;
     text-align: right;
+    padding-top: $spacing-v-sm;
+    line-height: $line-height-base;
     font-size: $font-size-base;
     color: $color-text-placeholder;
   }
