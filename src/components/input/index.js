@@ -90,6 +90,7 @@ class AtInput extends Taro.Component {
           onChange={this.handleInput.bind(this)}
           onFocus={this.handleFocus.bind(this)}
           onBlur={this.handleBlur.bind(this)}
+          onConfirm={this.handleConfirm.bind(this)}
         />
         {
           clear && value

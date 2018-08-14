@@ -83,6 +83,8 @@ import AtInput,AtForm from 'taro-ui'
 | placeholder       | 占位符  | String  | - | - |
 | title     | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
 | maxlength       | 最大长度 | Number  | -  | 140      |
+| cursorSpacing       | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
+| confirmType | 设置键盘右下角按钮的文字,只在小程序有效| String | - | '完成' |
 | disabled    | 是否禁止输入，禁止点击按钮  | Boolean | - | false    |
 | border    | 是否显示下划线边框  | Boolean | - | true    |
 | editable     | 是否可编辑 | Boolean | - | True |
@@ -97,4 +99,5 @@ import AtInput,AtForm from 'taro-ui'
 | onChange | 输入框值改变时触发的事件 | 输入框当前值value  |
 | onFocus | 输入框被选中时触发的事件 | 输入框当前值value  |
 | onBlur | 输入框失去焦点时触发的事件 | 输入框当前值value  |
+| onConfirm | 点击完成按钮时触发 | 输入框当前值value  |
 | onErrorClick | 点击错误按钮触发的事件 | -  |
