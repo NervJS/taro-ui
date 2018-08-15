@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import AtRate from '../../../components/rate/index'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -69,7 +69,10 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>只读</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View><AtRate value={3.5} /><Text className='rate'>评分: 3.5</Text></View>
+                <View>评分: 3.5</View>
+                <View>
+                  <AtRate value={3.5} />
+                </View>
               </View>
             </View>
           </View>

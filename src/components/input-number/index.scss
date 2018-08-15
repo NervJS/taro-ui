@@ -29,7 +29,7 @@ $input-number-size-min: 120px;
   &__input {
     display: inline-block;
     padding: $spacing-v-sm;
-    min-width: $input-number-size-min;
+    width: $input-number-size-min;
     height: auto;
     font-size: $font-size-xl;
     text-align: center;

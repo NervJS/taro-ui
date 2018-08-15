@@ -56,7 +56,7 @@ const defaultFunc = () => {}
 AtNavBar.defaultProps = {
   fixed: false,
   color: '#6190E8',
-  leftIconType: 'chevron-left',
+  leftIconType: '',
   leftText: '',
   title: '',
   rightFirstIconType: '',

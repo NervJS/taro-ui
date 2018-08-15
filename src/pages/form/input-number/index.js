@@ -13,7 +13,8 @@ export default class Index extends Taro.Component {
     this.state = {
       number1: 1,
       number2: 1,
-      number3: 1
+      number3: 1,
+      number4: 1,
     }
   }
   handleNumberChange (stateName, value) {
@@ -58,6 +59,16 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtInputNumber disabled min={0} max={10} step={1} value={this.state.number3} onChange={this.handleNumberChange.bind(this, 'number3')} />
+              </View>
+            </View>
+          </View>
+
+          {/* 自定义宽度 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义宽度</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtInputNumber width={200} min={0} max={10} step={1} value={this.state.number4} onChange={this.handleNumberChange.bind(this, 'number4')} />
               </View>
             </View>
           </View>

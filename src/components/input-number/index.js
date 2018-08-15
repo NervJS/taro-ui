@@ -32,18 +32,14 @@ class AtInputNumber extends Taro.Component {
   }
   handleMinus () {
     const { disabled, value, min, step } = this.props
-    if (disabled) {
-      return
-    }
+    if (disabled) return
     let nextValue = AtInputNumber.addNum(value, -step)
     nextValue = nextValue > min ? nextValue : min
     this.props.onChange(nextValue)
   }
   handlePlus () {
     const { disabled, value, max, step } = this.props
-    if (disabled) {
-      return
-    }
+    if (disabled) return
     let nextValue = AtInputNumber.addNum(value, step)
     nextValue = nextValue < max ? nextValue : max
     this.props.onChange(nextValue)
@@ -51,21 +47,20 @@ class AtInputNumber extends Taro.Component {
   handleInput (e) {
     const { value } = e.target
     const { disabled, min, max } = this.props
-    if (disabled) {
-      return
-    }
+    if (disabled) return
     let nextValue = value < max ? value : max
     nextValue = nextValue > min ? nextValue : min
     this.props.onChange(nextValue)
   }
   render () {
-    const { disabled, value, min, max } = this.props
-
+    const { width, disabled, value, min, max } = this.props
+    const inputStyle = `width: ${Taro.pxTransform(width)}`
     return <View className='at-input-number' >
       <View className='at-input-number__btn' onClick={this.handleMinus.bind(this)}>
         <AtIcon value='subtract' color={value <= min || disabled ? '#ccc' : '#6190e8'} size='20' />
       </View>
       <Input className='at-input-number__input'
+        style={inputStyle}
         type='number'
         value={value}
         disabled={disabled}
@@ -80,6 +75,7 @@ class AtInputNumber extends Taro.Component {
 AtInputNumber.defaultProps = {
   disabled: false,
   value: 1,
+  width: 120,
   min: 0,
   max: 100,
   step: 1,
@@ -88,6 +84,7 @@ AtInputNumber.defaultProps = {
 AtInputNumber.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.number,
+  width: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,

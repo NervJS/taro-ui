@@ -7,6 +7,7 @@ import './index.scss'
  * @author: chenzeji
  * @description 多行文本输入框组件
  * @prop value {String} 输入框当前值
+ * @prop cursorSpacing {Number} 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离  default:100
  * @prop maxlength {Number|String}  最大长度 default:200
  * @prop placeholder {String} 提示
  * @prop disabled {Boolean} 是否禁用 default:false
@@ -33,7 +34,7 @@ class AtTextarea extends Taro.Component {
     this.props.onConfirm(e, ...arguments)
   }
   render () {
-    const { value, maxlength, placeholder, count, disabled, autoFocus, fixed, textOverflowForbidden, height } = this.props
+    const { value, cursorSpacing, maxlength, placeholder, count, disabled, autoFocus, fixed, textOverflowForbidden, height } = this.props
     let actualMaxLength = maxlength
     if (!textOverflowForbidden) {
       actualMaxLength += 500
@@ -44,7 +45,7 @@ class AtTextarea extends Taro.Component {
       <Textarea
         style={textareaStyle}
         placeholderClass='placeholder'
-        cursorSpacing='50'
+        cursorSpacing={cursorSpacing}
         className='at-textarea__textarea'
         value={value}
         showConfirmBar={false}
@@ -70,6 +71,7 @@ class AtTextarea extends Taro.Component {
 const defaultFunc = () => {}
 AtTextarea.defaultProps = {
   value: '',
+  cursorSpacing: 100,
   maxlength: 200,
   placeholder: '',
   disabled: false,
@@ -85,6 +87,7 @@ AtTextarea.defaultProps = {
 }
 AtTextarea.propTypes = {
   value: PropTypes.string,
+  cursorSpacing: PropTypes.number,
   maxlength: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
