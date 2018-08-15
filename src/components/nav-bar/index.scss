@@ -25,6 +25,7 @@
     flex: 2;
     text-align: left;
     overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__right_view {
@@ -37,18 +38,18 @@
     flex: 5;
     color: $color-text-base;
     font-size: $font-size-xl;
-    line-height: $line-height-zh;
     text-align: center;
-    text-overflow: ellipsis;
     vertical-align: middle;
-    overflow: hidden;
-    white-space: nowrap;
+    line-height: $line-height-base;
+    @include line;
   }
 
   &__text {
     display: inline-block;
     font-size: $font-size-lg;
     padding-left: $spacing-h-sm;
+    line-height: $line-height-base;
+    @include line;
   }
 
   &__container {
