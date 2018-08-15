@@ -45,13 +45,13 @@ import AtNavBar from 'taro-ui'
 | leftIconType  | 左边图标类型，图标类型请看`AtIcon`文档  | String | - | 'chevron-left' |
 | leftText | 左边文字 | String  | - | - |
 | title | 标题文字 | String  | - | - |
-| rightFirstIconType | 从左到右，第一个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
-| rightSecondIconType | 从左到右第二个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
+| rightFirstIconType | 从右到左，第一个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
+| rightSecondIconType | 从右到左第二个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
 
 ## 事件
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
 | onClickLeftIcon | 左边第一个图标类型点击事件 | -  |
-| onClickRightFirstIcon | 从左到右第一个图标类型点击事件 | -  |
-| onClickRightSecondIcon | 从左到右第二个图标类型点击事件 | -  |
+| onClickRightFirstIcon | 从右到左第一个图标类型点击事件 | -  |
+| onClickRightSecondIcon | 从右到左第二个图标类型点击事件 | -  |

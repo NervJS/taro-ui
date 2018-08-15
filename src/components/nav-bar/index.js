@@ -12,11 +12,11 @@ import './index.scss'
  * @prop leftIconType {String} 左边图标类型
  * @prop leftText {String} 左边文字
  * @prop title {String} 标题文字
- * @prop rightFirstIconType {String} 从左到右第一个图标类型
- * @prop rightSecondIconType {String} 从左到右第二个图标类型
+ * @prop rightFirstIconType {String} 从右到左第一个图标类型
+ * @prop rightSecondIconType {String} 从右到左第二个图标类型
  * @prop onClickLeftIcon {Function} 左边第一个图标类型点击事件
- * @prop onClickRightFirstIcon {Function} 从左到右第一个图标类型点击事件
- * @prop onClickRightSecondIcon {Function} 从左到右第二个图标类型点击事件
+ * @prop onClickRightFirstIcon {Function} 从右到左第一个图标类型点击事件
+ * @prop onClickRightSecondIcon {Function} 从右到左第二个图标类型点击事件
  */
 class AtNavBar extends Taro.Component {
   handleClickLeftView () {
@@ -40,11 +40,11 @@ class AtNavBar extends Taro.Component {
       </View>
       <View className='at-nav-bar__title'>{title}</View>
       <View className='at-nav-bar__right_view'>
-        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickSt.bind(this)}>
-          <AtIcon value={rightFirstIconType} />
-        </View>
         <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickNd.bind(this)}>
           <AtIcon value={rightSecondIconType} />
+        </View>
+        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickSt.bind(this)}>
+          <AtIcon value={rightFirstIconType} />
         </View>
       </View>
     </View>
