@@ -14,9 +14,30 @@
     font-size: $font-size-base;
   }
 
-  &__switch {
+  &__container {
+    position: relative;
     flex: 2;
     text-align: right;
     background-color: $color-bg;
+  }
+
+  &__mask {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+  }
+
+  &--disabled {
+    .at-switch__switch {
+      opacity: $opacity-disabled;
+    }
+
+    .at-switch__mask {
+      display: block;
+    }
   }
 }
