@@ -37,6 +37,8 @@ $timeline-dot-size: 24px;
   }
 
   &__dot {
+    left: -1px;
+
     &::after {
       content: '';
       margin-top: 5px;
