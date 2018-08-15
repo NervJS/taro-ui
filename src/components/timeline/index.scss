@@ -10,10 +10,15 @@ $timeline-dot-size: 24px;
   &__content {
     margin-left: $timeline-margin-left;
     min-height: 56px;
-    color: $color-text-base;
+    color: $color-grey-0;
     font-size: $font-size-base;
     line-height: $line-height-zh;
     text-align: left;
+
+    &--sub {
+      color: $color-grey-1;
+      font-size: $font-size-sm;
+    }
   }
 
   &__dot,
@@ -94,7 +99,7 @@ $timeline-dot-size: 24px;
 
   &__tail {
     position: absolute;
-    top: 20px;
+    top: 18px;
     bottom: -10px;
     left: 10px;
     border-left: 2px solid $color-border-lighter;
@@ -111,7 +116,7 @@ $timeline-dot-size: 24px;
   &--pending {
     .at-timelineitem:nth-last-child(2) {
       .at-timelineitem__content {
-        height: 80px;
+        min-height: 80px;
       }
 
       .at-timelineitem__tail {

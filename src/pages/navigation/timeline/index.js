@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtTimeline from '../../../components/timeline/index'
-import AtTimelineItem from '../../../components/timeline/item'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -22,11 +21,7 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending>
-                  <AtTimelineItem>刷牙洗脸</AtTimelineItem>
-                  <AtTimelineItem>吃早餐</AtTimelineItem>
-                  <AtTimelineItem>上班</AtTimelineItem>
-                  <AtTimelineItem>睡觉</AtTimelineItem>
+                <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}>
                 </AtTimeline>
               </View>
             </View>
@@ -37,11 +32,7 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending>
-                  <AtTimelineItem>刷牙洗脸</AtTimelineItem>
-                  <AtTimelineItem color='green'>吃早餐</AtTimelineItem>
-                  <AtTimelineItem color='red'>上班</AtTimelineItem>
-                  <AtTimelineItem color='yellow'>睡觉</AtTimelineItem>
+                <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐', color: 'green' }, { title: '上班', color: 'red' }, { title: '睡觉', color: 'yellow' }]}>
                 </AtTimeline>
               </View>
             </View>
@@ -52,11 +43,18 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>自定义图标</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending>
-                  <AtTimelineItem icon='check-circle' color='red'>刷牙洗脸</AtTimelineItem>
-                  <AtTimelineItem icon='clock'>吃早餐</AtTimelineItem>
-                  <AtTimelineItem icon='clock'>上班</AtTimelineItem>
-                  <AtTimelineItem icon='clock'>睡觉</AtTimelineItem>
+                <AtTimeline pending items={[{ title: '刷牙洗脸', icon: 'check-circle' }, { title: '吃早餐', icon: 'clock' }, { title: '上班', icon: 'clock' }, { title: '睡觉', icon: 'clock' }]}>
+                </AtTimeline>
+              </View>
+            </View>
+          </View>
+
+          {/* 丰富内容 */}
+          <View className='panel'>
+            <View className='panel__title'>丰富内容</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTimeline pending items={[{ title: '刷牙洗脸', content: ['大概8:00'], icon: 'check-circle' }, { title: '吃早餐', content: ['牛奶+面包', '餐后记得吃药'], icon: 'clock' }, { title: '上班', content: ['查看邮件', '写PPT', '发送PPT给领导'], icon: 'clock' }, { title: '睡觉', content: ['不超过23:00'], icon: 'clock' }]}>
                 </AtTimeline>
               </View>
             </View>
