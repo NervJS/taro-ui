@@ -49,6 +49,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtForm>
+                  <AtSwitch title='不可点击' checked disabled />
                   <AtSwitch title='不可点击' border={false} disabled />
                 </AtForm>
               </View>
