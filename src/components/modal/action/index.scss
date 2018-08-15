@@ -28,6 +28,10 @@
       &:not(:first-child) {
         @include border-thin-left($color-grey-4);
       }
+
+      &:first-child:last-child {
+        color: $color-error;
+      }
     }
   }
 }

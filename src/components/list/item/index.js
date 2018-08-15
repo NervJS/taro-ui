@@ -41,10 +41,10 @@ export default class AtListItem extends Component {
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />
           </View>
         )}
-        <View className='at-list__item-content item-contet'>
-          <View className='item-contet__info'>
-            <View className='item-contet__info-title'>{title}</View>
-            {note && <View className='item-contet__info-note'>{note}</View>}
+        <View className='at-list__item-content item-content'>
+          <View className='item-content__info'>
+            <View className='item-content__info-title'>{title}</View>
+            {note && <View className='item-content__info-note'>{note}</View>}
           </View>
         </View>
         <View className='at-list__item-extra item-extra'>
@@ -80,9 +80,7 @@ export default class AtListItem extends Component {
   }
 }
 
-AtListItem.defaultProps = {
-  onClick: () => {}
-}
+AtListItem.defaultProps = {}
 
 AtListItem.propTypes = {
   note: PropTypes.string,
@@ -92,5 +90,5 @@ AtListItem.propTypes = {
   isSwitch: PropTypes.bool,
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
-  arrow: PropTypes.oneOf(['right', 'top', 'bottom', 'left'])
+  arrow: PropTypes.oneOf(['up', 'down', 'left', 'right'])
 }

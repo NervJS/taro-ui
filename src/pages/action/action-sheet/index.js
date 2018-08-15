@@ -30,7 +30,7 @@ export default class ActionSheetPage extends Taro.Component {
   }
 
   handleClose = name => {
-    console.log(name)
+    console.log(`第 ${name} 个Action Sheet已经关闭`)
     this.setState({
       [`isOpened${name}`]: false
     })
@@ -127,6 +127,7 @@ export default class ActionSheetPage extends Taro.Component {
         <AtActionSheet
           cancleText='取消'
           isOpened={isOpened3}
+          onCancle={this.handleCancle}
           onClose={this.handleClose.bind(this, 3)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
         >
