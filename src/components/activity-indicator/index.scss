@@ -13,6 +13,7 @@
 
 .at-activity-indicator {
   display: inline-block;
+  line-height: $line-height-base;
 
   &--center {
     @include absolute-center;
@@ -20,6 +21,7 @@
 
   &__body {
     display: inline-block;
+    line-height: inherit;
     animation: atRotate 1350ms linear infinite;
   }
 

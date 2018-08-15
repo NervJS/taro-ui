@@ -1,8 +1,9 @@
 /* eslint-disable taro/function-naming */
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, ScrollView } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
 
@@ -23,13 +24,23 @@ export default class AtFloatLayout extends Taro.Component {
       this.setState({
         isOpened
       })
+      !isOpened && this.handleClose()
+    }
+  }
+
+  handleClose = () => {
+    if (_isFunction(this.props.onClose)) {
+      this.props.onClose()
     }
   }
 
   close = () => {
-    this.setState({
-      isOpened: false
-    })
+    this.setState(
+      {
+        isOpened: false
+      },
+      this.handleClose
+    )
   }
 
   render () {
@@ -52,7 +63,9 @@ export default class AtFloatLayout extends Taro.Component {
               <AtIcon value='close' size='18' color='#CCC' />
             </View>
           </View>
-          <View className='layout-body'>{this.props.children}</View>
+          <View className='layout-body'>
+            <ScrollView scroll-y className='layout-body__content'>{this.props.children}</ScrollView>
+          </View>
         </View>
       </View>
     )
