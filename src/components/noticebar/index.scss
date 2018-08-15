@@ -64,6 +64,7 @@ $noticebar-icon-size: 26px;
       height: 36px;
       white-space: nowrap;
       animation: marquee 1s linear infinite both;
+      transform: translateZ(0);
       padding-left: 100%;
     }
   }
@@ -72,19 +73,19 @@ $noticebar-icon-size: 26px;
     &.at-noticebar--more {
       .at-noticebar__content-text {
         display: inline-block;
-        max-width: 535px;
+        max-width: 525px;
         @include line(1);
       }
 
       .at-noticebar__content-icon + .at-noticebar__content-text {
-        max-width: 485px;
+        max-width: 475px;
       }
     }
   }
 
   &--more {
     .at-noticebar__content {
-      max-width: 530px;
+      max-width: 525px;
     }
   }
 

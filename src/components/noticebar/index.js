@@ -12,7 +12,7 @@ export default class AtNoticebar extends Taro.Component {
     this.state = {
       show: true,
       animElemId,
-      dura: 10000,
+      dura: 15,
     }
   }
 
