@@ -26,6 +26,13 @@ export default class FloatLayoutPage extends Taro.Component {
     })
   }
 
+  handleClose = type => {
+    console.log('handleClose')
+    this.setState({
+      [`isOpened${type}`]: false
+    })
+  }
+
   render () {
     const { isOpened1, isOpened2 } = this.state
 
@@ -59,7 +66,11 @@ export default class FloatLayoutPage extends Taro.Component {
           </View>
         </View>
 
-        <AtFloatLayout title='这是个标题' isOpened={isOpened1} onClose>
+        <AtFloatLayout
+          title='这是个标题'
+          isOpened={isOpened1}
+          onClose={this.handleClose.bind(this, '1')}
+        >
           <View className='content-wrapper'>
             这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
             随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
@@ -67,7 +78,11 @@ export default class FloatLayoutPage extends Taro.Component {
           </View>
         </AtFloatLayout>
 
-        <AtFloatLayout title='这是个标题' isOpened={isOpened2}>
+        <AtFloatLayout
+          title='这是个标题这是个标题这是个标题这是个标题这是个标题这是个标题'
+          isOpened={isOpened2}
+          onClose={this.handleClose.bind(this, '2')}
+        >
           <View className='content-wrapper' scroll-y>
             《诗人继续沉默》收录了耶霍舒亚的十二个中短篇小说。它们以梦境一般的笔法塑造了一个个既敏感又迟钝的角色。故事有时在城市，有时在战场，有时在遥远的山村，有时完全囿于家庭，并总是从司空见惯中生出离奇。每个故事的主线带来不断加剧的紧张感，即使从表面上看，根本没有重要的事情发生：
             封笔的诗人与智力障碍的儿子一起生活；
@@ -89,9 +104,9 @@ export default class FloatLayoutPage extends Taro.Component {
             然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
             然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
             然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
-            然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
-            然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
           </View>
+            然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
+            然而，在这些虚构的世界里，即便是细微的行动也会陷入瘫痪。
         </AtFloatLayout>
       </View>
     )

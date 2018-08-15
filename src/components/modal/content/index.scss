@@ -2,8 +2,7 @@
 
 .at-modal-content {
   min-height: 180px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: $spacing-h-xl $spacing-h-lg;
   color: $color-text-base;
   font-size: $font-size-base;
   box-sizing: border-box;

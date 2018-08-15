@@ -42,15 +42,20 @@ $float-layout-height-max: 950px;
     background-color: $color-bg-grey;
 
     &__title {
+      @include line(1);
+
       color: $color-text-base;
       font-size: $font-size-lg;
+      display: block;
+      padding-right: 80px;
     }
 
     &__icon {
-      line-height: 0;
+      line-height: 1;
       position: absolute;
       top: 50%;
       right: $spacing-v-md;
+      padding: $spacing-h-sm;
       transform: translate(0, -50%);
     }
   }
@@ -59,9 +64,11 @@ $float-layout-height-max: 950px;
     font-size: $font-size-base;
     padding: $spacing-v-md;
     max-height: 828px;
+    min-height: 514px;
 
     &__content {
-      height: 798px;
+      max-height: 798px;
+      min-height: 484px;
     }
   }
 }
