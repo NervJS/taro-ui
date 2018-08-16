@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
+import PropTypes from 'prop-types'
+
 import './index.scss'
 
 export default class AtActionSheetItem extends Taro.Component {
@@ -12,4 +14,8 @@ export default class AtActionSheetItem extends Taro.Component {
       </View>
     )
   }
+}
+
+AtActionSheetItem.propTypes = {
+  onClick: PropTypes.func
 }

@@ -1,5 +1,7 @@
-import Taro from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
+
+import PropTypes from 'prop-types'
 
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
@@ -7,7 +9,7 @@ import AtModalContent from './content/index'
 
 import './index.scss'
 
-export default class AtModal extends Taro.Component {
+export default class AtModal extends Component {
   constructor (props) {
     super(...arguments)
     const { isOpened } = props
@@ -27,19 +29,13 @@ export default class AtModal extends Taro.Component {
 
   render () {
     const { isOpened } = this.state
-    const {
-      title,
-      content,
-      cancleText,
-      confirmText
-    } = this.props
+    const { title, content, cancleText, confirmText } = this.props
 
     const rootClass = ['at-modal']
 
     if (isOpened) {
       rootClass.push('at-modal--active')
     }
-
 
     if (title || content) {
       const isRenderAction = cancleText || confirmText
@@ -60,8 +56,10 @@ export default class AtModal extends Taro.Component {
               </AtModalContent>
             )}
             {isRenderAction && (
-              <AtModalAction>
-                {cancleText && <Button onClick={this.props.onCancle}>{cancleText}</Button>}
+              <AtModalAction isSimple>
+                {cancleText && (
+                  <Button onClick={this.props.onCancle}>{cancleText}</Button>
+                )}
                 {confirmText && (
                   <Button onClick={this.props.onConfirm}>{confirmText}</Button>
                 )}
@@ -79,4 +77,13 @@ export default class AtModal extends Taro.Component {
       </View>
     )
   }
+}
+
+AtModal.propTypes = {
+  title: PropTypes.string,
+  onCancle: PropTypes.func,
+  onConfirm: PropTypes.func,
+  content: PropTypes.string,
+  cancleText: PropTypes.string,
+  confirmText: PropTypes.string,
 }

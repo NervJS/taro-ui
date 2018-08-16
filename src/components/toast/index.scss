@@ -49,8 +49,9 @@ $toast-loading-size: 100px;
     }
 
     &__info {
-      margin-top: $spacing-v-sm;
+      margin-top: $spacing-v-md;
       color: $color-white;
+      line-height: $line-height-zh;
       font-size: $font-size-base;
       text-align: center;
     }
