@@ -57,7 +57,8 @@ export default {
     'upload',
     'user',
     'loading',
-    'loading-2'
+    'loading-2',
+    'loading-3'
   ],
   'file': [
     'file-audio',
