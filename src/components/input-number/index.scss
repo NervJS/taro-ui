@@ -2,6 +2,7 @@
 @import "../../style/mixins/index.scss";
 
 $input-number-btn-padding: 20px;
+$input-number-btn-padding-sm: 5px;
 $input-number-size-min: 120px;
 
 .at-input-number {
@@ -35,5 +36,17 @@ $input-number-size-min: 120px;
     text-align: center;
     line-height: $line-height-zh;
     @include border-thin($directions:left right);
+  }
+
+  &--sm {
+    .at-input-number__btn {
+      padding: $input-number-btn-padding-sm;
+      font-size: $font-size-base;
+    }
+
+    .at-input-number__input {
+      padding: $spacing-v-xs;
+      font-size: $font-size-base;
+    }
   }
 }

@@ -10,6 +10,7 @@ import './index.scss'
  * @prop size {Number|String} 评分星星大小 default:20
  * @prop value {Number} 当前评分 default:0
  * @prop max {Number} 最大评分 default:5
+ * @prop padding {Number} 星星间隔,单位根据环境转为rpx或rem default:5
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
 class AtRate extends Taro.Component {
@@ -20,18 +21,31 @@ class AtRate extends Taro.Component {
   // handleTouchMove(e) {
   // }
   render () {
-    const { size } = this.props
+    const { value, max, size, padding } = this.props
+    const iconStyle = {
+      padding: Taro.pxTransform(padding)
+    }
     // 生成星星颜色数组，方便在jsx中直接map
     const rateArr = []
-    for (let i = 0; i < this.props.max; i++) {
-      if (this.props.value > i) {
+
+    for (let i = 0; i < max; i++) {
+      if (value > i) {
         rateArr.push('#ffca3e')
       } else {
         rateArr.push('#ececec')
       }
     }
     return <View className='at-rate' >
-      {rateArr.map((color, i) => <View className='at-rate__icon' key={i} onClick={this.handleClick.bind(this, i)}><AtIcon value='star-2' size={size} color={color} /></View>)}
+      {
+        rateArr.map((color, i) => <View
+          className='at-rate__icon'
+          key={i}
+          style={iconStyle}
+          onClick={this.handleClick.bind(this, i)}
+        >
+          <AtIcon value='star-2' size={size} color={color} />
+        </View>)
+      }
     </View>
   }
 }
@@ -39,6 +53,7 @@ AtRate.defaultProps = {
   size: 20,
   value: 0,
   max: 5,
+  padding: 5,
   onChange: () => {}
 }
 AtRate.propTypes = {
@@ -48,6 +63,7 @@ AtRate.propTypes = {
   ]),
   value: PropTypes.number,
   max: PropTypes.number,
+  padding: PropTypes.number,
   onChange: PropTypes.func
 }
 export default AtRate

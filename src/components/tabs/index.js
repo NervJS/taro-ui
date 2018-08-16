@@ -36,7 +36,7 @@ class AtTabs extends Taro.Component {
     // 获取触摸时的原点
     this.touchDot = e.touches[0].pageX
     // 使用js计时器记录时间
-    this.interval = setInterval(function () {
+    this.interval = setInterval(() => {
       this.time++
     }, 100)
   }
