@@ -10,6 +10,7 @@
     & > button {
       @include flex(auto);
       @include line(1);
+      @include active;
 
       min-width: 160px;
       height: 88px;

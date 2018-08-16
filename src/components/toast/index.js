@@ -88,6 +88,10 @@ export default class AtToast extends Taro.Component {
       rootClass.push(`at-toast-body--${status}`)
     }
 
+    if (image) {
+      rootClass.push('at-toast-body--custom-image')
+    }
+
     return isOpened ? (
       <View className='at-toast'>
         {hasMask && <View className='at-toast-overlay' />}
@@ -121,7 +125,7 @@ export default class AtToast extends Taro.Component {
 }
 
 AtToast.defaultProps = {
-  duration: 3000
+  duration: 30000
 }
 
 AtToast.propTypes = {

@@ -66,20 +66,17 @@ $toast-loading-size: 100px;
       margin-top: 0;
     }
   }
+
+  &.at-toast-body--custom-image,
+  &.at-toast-body--success,
+  &.at-toast-body--error,
+  &.at-toast-body--loading {
+    padding-bottom: $spacing-v-lg - (($font-size-base * $line-height-zh - $font-size-base) / 2);
+  }
 }
 
 .at-toast-body--loading {
-  .toast-body-content__img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: $toast-image-size;
-
-    &-item {
-      width: $toast-loading-size;
-      height: $toast-loading-size;
-      animation: atRotate 1350ms linear infinite;
-    }
+  .toast-body-content__img-item {
+    animation: atRotate 1350ms linear infinite;
   }
 }
