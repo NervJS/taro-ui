@@ -1,30 +1,28 @@
 @import '../../style/theme/default.scss';
-
-$tag-height: 60px;
-$tag-height-sm: 40px;
+@import '../../style/mixins/index.scss';
 
 .at-tag {
   display: inline-block;
   padding: 0 $spacing-h-xl;
-  height: $tag-height;
+  height: 60px;
   color: $color-grey-1;
   font-size: $font-size-base;
   text-align: center;
-  line-height: $tag-height - 2;
+  line-height: calc(60px - 2PX);
   vertical-align: middle;
-  border: 1px solid $color-grey-6;
+  border: 1PX solid $color-grey-6;
   border-radius: $border-radius-md;
   background-color: $color-bg-grey;
   box-sizing: border-box;
 
   &--active {
     color: $color-brand-light;
-    border: 1px solid $color-brand-light;
+    border: 1PX solid $color-brand-light;
     background-color: $color-bg;
 
     &.at-tag--primary {
       color: $color-text-base-inverse;
-      border: 1px solid $color-brand-light;
+      border: 1PX solid $color-brand-light;
       background-color: $color-brand-light;
     }
   }
@@ -35,13 +33,13 @@ $tag-height-sm: 40px;
 
   &--small {
     padding: 0 $spacing-h-md;
-    height: $tag-height-sm;
+    height: 40px;
     font-size: $font-size-xs;
-    line-height: $tag-height-sm - 4;
+    line-height: calc(40px - 2PX);
   }
 
   &--circle {
-    border-radius: $tag-height / 2;
+    border-radius: 30px;
     background-clip: border-box;
     overflow: hidden;
   }

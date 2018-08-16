@@ -32,6 +32,14 @@ import AtTimeline from 'taro-ui'
 ```
 :::
 
+## 标记最后一个为幽灵节点（即时间轴未完成，还在记录过程中）
+
+:::demo
+```html
+<AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}></AtTimeline>
+```
+:::
+
 ## 添加更多内容
 
 :::demo
