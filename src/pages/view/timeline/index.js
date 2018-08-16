@@ -49,9 +49,9 @@ export default class TimelinePage extends Taro.Component {
             </View>
           </View>
 
-          {/* pending态 */}
+          {/* 幽灵节点 */}
           <View className='panel'>
-            <View className='panel__title'>pending态</View>
+            <View className='panel__title'>幽灵节点</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}>
