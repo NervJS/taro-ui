@@ -118,7 +118,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag size='small' circle onClick={this.onClick.bind(this)}>标签</AtTag>
+                  <AtTag size='small' circle>标签</AtTag>
                 </View>
                 <View className='subitem'>
                   <AtTag size='small'>标签</AtTag>

@@ -21,7 +21,7 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}>
+                <AtTimeline items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}>
                 </AtTimeline>
               </View>
             </View>
@@ -32,7 +32,7 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐', color: 'green' }, { title: '上班', color: 'red' }, { title: '睡觉', color: 'yellow' }]}>
+                <AtTimeline items={[{ title: '刷牙洗脸' }, { title: '吃早餐', color: 'green' }, { title: '上班', color: 'red' }, { title: '睡觉', color: 'yellow' }]}>
                 </AtTimeline>
               </View>
             </View>
@@ -43,7 +43,18 @@ export default class TimelinePage extends Taro.Component {
             <View className='panel__title'>自定义图标</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtTimeline pending items={[{ title: '刷牙洗脸', icon: 'check-circle' }, { title: '吃早餐', icon: 'clock' }, { title: '上班', icon: 'clock' }, { title: '睡觉', icon: 'clock' }]}>
+                <AtTimeline items={[{ title: '刷牙洗脸', icon: 'check-circle' }, { title: '吃早餐', icon: 'clock' }, { title: '上班', icon: 'clock' }, { title: '睡觉', icon: 'clock' }]}>
+                </AtTimeline>
+              </View>
+            </View>
+          </View>
+
+          {/* pending态 */}
+          <View className='panel'>
+            <View className='panel__title'>pending态</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTimeline pending items={[{ title: '刷牙洗脸' }, { title: '吃早餐' }, { title: '上班' }, { title: '睡觉' }]}>
                 </AtTimeline>
               </View>
             </View>
