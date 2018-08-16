@@ -1,17 +1,18 @@
 @import '../../style/mixins/index.scss';
 @import '../../style/theme/default.scss';
+$spacing-v: 9PX;
+$spacing-h: 5PX;
 
 .at-nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: $spacing-v-md $spacing-h-md;
   background-color: $color-bg;
   box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
-  @include border-thin-bottom;
+  @include border-thin-bottom($width: 1PX);
 
   &--fixed {
     position: fixed;
@@ -26,6 +27,8 @@
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: $spacing-v $spacing-h;
+    @include active;
   }
 
   &__right_view {
@@ -37,7 +40,7 @@
   &__title {
     flex: 5;
     color: $color-text-base;
-    font-size: $font-size-xl;
+    font-size: 18PX;
     text-align: center;
     vertical-align: middle;
     line-height: $line-height-base;
@@ -46,8 +49,9 @@
 
   &__text {
     display: inline-block;
-    font-size: $font-size-lg;
-    padding-left: $spacing-h-sm;
+    font-size: 16PX;
+    padding-left: $spacing-h;
+    vertical-align: middle;
     line-height: $line-height-base;
     @include line;
   }
@@ -56,5 +60,7 @@
     width: 50%;
     display: inline-block;
     text-align: center;
+    padding: $spacing-v $spacing-h;
+    @include active;
   }
 }
