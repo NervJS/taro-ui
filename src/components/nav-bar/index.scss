@@ -27,6 +27,7 @@ $spacing-h: 5PX;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 20PX;
     padding: $spacing-v $spacing-h;
     @include active;
   }

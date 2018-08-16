@@ -67,7 +67,7 @@ export default class Index extends Taro.Component {
                   onClickLeftIcon={this.handleClick.bind(this, '返回')}
                   title='NavBar 导航栏示例'
                   leftIconType='chevron-left'
-                  rightSecondIconType='user'
+                  rightFirstIconType='user'
                 />
               </View>
             </View>
