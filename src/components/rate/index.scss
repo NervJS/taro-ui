@@ -1,6 +1,38 @@
-.at-rate,
-.at-rate__icon {
+.at-rate {
   line-height: 0;
   font-size: 0;
-  display: inline-block;
+
+  &__left {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    color: transparent;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  &__icon {
+    position: relative;
+    line-height: 0;
+    font-size: 0;
+    display: inline-block;
+    color: #ececec;
+
+    &--on {
+      color: #ffca3e;
+    }
+
+    &--off {
+      color: #ececec;
+    }
+
+    &--half {
+      .at-rate__left {
+        color: #ffca3e;
+      }
+    }
+  }
 }
