@@ -112,7 +112,7 @@ export default class FlexPage extends Taro.Component {
           </View>
 
           <View className='panel'>
-            <View className='panel__title'>侧轴方向上 方式</View>
+            <View className='panel__title'>侧轴方向的对齐方式</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='at-flex'>
@@ -142,7 +142,7 @@ export default class FlexPage extends Taro.Component {
           </View>
 
           <View className='panel'>
-            <View className='panel__title'>主轴方向上 排列方式</View>
+            <View className='panel__title'>主轴方向的排列方式</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='at-flex'>

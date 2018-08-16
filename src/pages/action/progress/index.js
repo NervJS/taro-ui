@@ -23,22 +23,28 @@ export default class ProgressPage extends Taro.Component {
   }
 
   reduce = () => {
-    const { percent } = this.state
+    let { percent } = this.state
     if (percent === 0) {
       return
     }
+
+    percent = percent - OFFSET < 0 ? 0 : percent - OFFSET
+
     this.setState({
-      percent: this.state.percent - OFFSET
+      percent
     })
   }
 
   increase = () => {
-    const { percent } = this.state
+    let { percent } = this.state
     if (percent === 100) {
       return
     }
+
+    percent = percent + OFFSET > 100 ? 100 : percent + OFFSET
+
     this.setState({
-      percent: this.state.percent + OFFSET
+      percent
     })
   }
 

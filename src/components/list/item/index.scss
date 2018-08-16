@@ -19,7 +19,7 @@ $item-horizontal-padding: 24px;
   @include align-items(center);
   @include active;
 
-  padding: $spacing-v-lg $spacing-h-xl;
+  padding: $spacing-v-lg $spacing-h-lg;
   position: relative;
   box-sizing: border-box;
   color: $color-text-base;
@@ -93,7 +93,8 @@ $item-horizontal-padding: 24px;
   }
 
   &__icon {
-    margin-left: $spacing-h-lg;
+    margin-left: $spacing-h-sm;
+    margin-right: -$spacing-h-sm;
   }
 
   &__switch {

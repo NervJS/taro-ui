@@ -39,10 +39,6 @@ export default class AtCard extends Taro.Component {
   }
 }
 
-AtCard.defaultProps = {
-  onClick: () => {}
-}
-
 AtCard.propTypes = {
   note: PropTypes.string,
   isFull: PropTypes.bool,

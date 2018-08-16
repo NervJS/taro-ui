@@ -30,8 +30,12 @@
       }
 
       &:first-child:last-child {
-        color: $color-error;
+        color: $color-brand;
       }
     }
+  }
+
+  &--simple .at-modal-action > button:last-child:nth-child(2) {
+    color: $color-brand;
   }
 }
