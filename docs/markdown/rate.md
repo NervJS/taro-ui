@@ -62,6 +62,7 @@ import AtRate from 'taro-ui'
 | value | 当前评分  | Number  | - | 0 |
 | max     | 最大评分  | Number | - | 5 |
 | size | 评分星星大小 | `Number`或`String`  | - | 20 |
+| margin | 星星间隔,单位根据环境转为rpx或rem  | `Number`或`String`  | - | 5 |
 
 ## 事件
 

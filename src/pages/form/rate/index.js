@@ -70,7 +70,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>自定义星星间隔</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtRate padding={15} value={rateValue4} onChange={this.handleRateChange.bind(this, 'rateValue4')} />
+                <AtRate margin={15} value={rateValue4} onChange={this.handleRateChange.bind(this, 'rateValue4')} />
               </View>
             </View>
           </View>
