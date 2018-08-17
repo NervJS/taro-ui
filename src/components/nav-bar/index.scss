@@ -27,7 +27,7 @@ $spacing-h: 5PX;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 20PX;
+    height: 100%;
     padding: $spacing-v $spacing-h;
     @include active;
   }
@@ -61,6 +61,7 @@ $spacing-h: 5PX;
     width: 50%;
     display: inline-block;
     text-align: center;
+    box-sizing: border-box;
     padding: $spacing-v $spacing-h;
     @include active;
   }

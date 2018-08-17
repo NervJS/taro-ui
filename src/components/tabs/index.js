@@ -75,7 +75,7 @@ class AtTabs extends Taro.Component {
     return <View className='at-tabs'>
       <View className={headerCls}>
         {
-          tabList.map((item, i) => <View className={current === i ? 'at-tabs__item at-tabs__item--active' : 'at-tabs__item'} key={item} onClick={this.handleClick.bind(this, i)}>
+          tabList.map((item, i) => <View className={current === i ? 'at-tabs__item at-tabs__item--active' : 'at-tabs__item'} key={item.title} onClick={this.handleClick.bind(this, i)}>
             {item.title}
           </View>)
         }

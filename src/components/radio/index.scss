@@ -20,11 +20,16 @@
     line-height: $line-height-zh;
   }
 
-  &__icon_container {
+  &__icon {
     flex: 1;
     text-align: right;
     font-size: $font-size-lg;
     overflow: hidden;
+    visibility: hidden;
+
+    &--checked {
+      visibility: visible;
+    }
   }
 
   &__desc {

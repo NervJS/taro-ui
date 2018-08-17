@@ -43,7 +43,12 @@ class AtTabBar extends Taro.Component {
     return <View className={rootClassName} style={rootStyle}>
       {
         tabList.map((item, i) => {
-          return <View className='at-tab-bar__item' style={current === i ? selectedStyle : defaultStyle} key={item} onClick={this.handleClick.bind(this, i)}>
+          return <View
+            className='at-tab-bar__item'
+            style={current === i ? selectedStyle : defaultStyle}
+            key={item.title}
+            onClick={this.handleClick.bind(this, i)}
+          >
             <AtBadge dot={item.dot} value={item.text} max={item.max}>
               {
                 item.iconType

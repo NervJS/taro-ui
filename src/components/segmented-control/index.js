@@ -11,7 +11,7 @@ import './index.scss'
  * @prop selectedColor {String} 选中的标签背景色与边框颜色，default:#6190E8
  * @prop values {Array} 选项数组,值是字符串 eg: ['标签页1','标签页2' ]
  * @prop disabled {Boolean} 是否禁止点击 default:false
- * @prop fontSize {String|Number} 字体大小,目前单位是px,等taro支持单位转化再修改 default:'14'
+ * @prop fontSize {String|Number} 字体大小,单位h5为rem，小程序为rem default:'28'
  * @prop onClick {Function} 点击时触发事件，回调参数 数组索引值
  */
 class AtSegmentedControl extends Taro.Component {
@@ -27,13 +27,13 @@ class AtSegmentedControl extends Taro.Component {
       color: ${selectedColor};
       background-color:${color};
       border-color: ${selectedColor};
-      font-size: ${fontSize}px;
+      font-size: ${Taro.pxTransform(fontSize)};
     `
     const selectedItemStyle = `
       color: ${color};
       background-color:${selectedColor};
       border-color: ${selectedColor};
-      font-size: ${fontSize}px;
+      font-size: ${Taro.pxTransform(fontSize)};
     `
     const rootClassName = ['at-segmented-control']
     if (disabled) {
@@ -41,7 +41,12 @@ class AtSegmentedControl extends Taro.Component {
     }
     return <View className={rootClassName} style={rootStyle}>
       {
-        values.map((value, i) => <View className='at-segmented-control__item' style={current === i ? selectedItemStyle : itemStyle} key={value} onClick={this.handleClick.bind(this, i, disabled)}>
+        values.map((value, i) => <View
+          className='at-segmented-control__item'
+          style={current === i ? selectedItemStyle : itemStyle}
+          key={value}
+          onClick={this.handleClick.bind(this, i, disabled)}
+        >
           {value}
         </View>)
       }
@@ -51,7 +56,7 @@ class AtSegmentedControl extends Taro.Component {
 AtSegmentedControl.defaultProps = {
   current: 0,
   color: '#fff',
-  fontSize: '14',
+  fontSize: '28',
   disabled: false,
   selectedColor: '#6190E8',
   values: [],

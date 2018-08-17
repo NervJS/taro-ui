@@ -23,21 +23,21 @@ class AtRate extends Taro.Component {
       margin: Taro.pxTransform(margin)
     }
     // 生成星星颜色 className 数组，方便在jsx中直接map
-    const clsArr = []
+    const classNameArr = []
     const floorValue = Math.floor(value)
     const ceilValue = Math.ceil(value)
     for (let i = 0; i < max; i++) {
       if (floorValue > i) {
-        clsArr.push('at-rate__icon at-rate__icon--on')
+        classNameArr.push('at-rate__icon at-rate__icon--on')
       } else if (ceilValue - 1 === i) {
-        clsArr.push('at-rate__icon at-rate__icon--half')
+        classNameArr.push('at-rate__icon at-rate__icon--half')
       } else {
-        clsArr.push('at-rate__icon at-rate__icon--off')
+        classNameArr.push('at-rate__icon at-rate__icon--off')
       }
     }
     return <View className='at-rate' >
       {
-        clsArr.map((cls, i) => <View
+        classNameArr.map((cls, i) => <View
           className={cls}
           key={i}
           style={iconStyle}

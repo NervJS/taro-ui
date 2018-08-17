@@ -34,10 +34,10 @@ $checkbox-icon-size: 40px;
     border-radius: $border-radius-circle;
     background-color: $color-bg;
     box-sizing: border-box;
-    overflow: hidden;
 
     &--selected {
       background-color: $color-brand;
+      border: none;
     }
   }
 

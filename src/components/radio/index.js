@@ -24,8 +24,8 @@ class AtRadio extends Taro.Component {
           <View className='at-radio__option_wrap'>
             <View className='at-radio__option_container'>
               <View className='at-radio__title'>{option.label}</View>
-              <View className='at-radio__icon_container'>
-                {value === option.value ? <AtIcon value='check' size='14' color='#6190E8' /> : null}
+              <View className={value === option.value ? 'at-radio__icon at-radio__icon--checked' : 'at-radio__icon'}>
+                <AtIcon value='check' size='14' color='#6190E8' />
               </View>
             </View>
             {option.desc ? <View className='at-radio__desc'>{option.desc}</View> : null}

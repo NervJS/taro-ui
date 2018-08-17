@@ -54,7 +54,7 @@ import AtSegmentedControl from 'taro-ui'
 | selectedColor  | 选中的标签背景色与边框颜色  | String | - | `#6190E8` |
 | values | 选项数组,值是字符串,eg: ['标签页1','标签页2' ] | Array  | - | false |
 | disabled | 是否禁止点击 | Boolean  | - | false |
-| fontSize | 字体大小 | Number  | - | 14 |
+| fontSize | 字体大小,单位h5为rem，小程序为rem | Number  | - | 28 |
 
 ## 事件
 
