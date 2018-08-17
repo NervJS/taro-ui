@@ -12,6 +12,7 @@ export default class AtBadge extends Taro.Component {
   }
 
   formatValue (value, maxValue) {
+    if (value === '' || value === null) return ''
     const numValue = +value
     if (loadash.isNaN(numValue)) {
       return value
@@ -27,10 +28,12 @@ export default class AtBadge extends Taro.Component {
     } = this.props
     const rootClassName = ['at-badge']
 
+    const val = this.formatValue(value, maxValue)
+
     return (
       <View className={rootClassName}>
         {this.props.children}
-        {dot ? <View className='at-badge__dot'></View> : <View className='at-badge__num'>{this.formatValue(value, maxValue)}</View>}
+        {dot ? <View className='at-badge__dot'></View> : val !== '' && <View className='at-badge__num'>{val}</View>}
       </View>
     )
   }

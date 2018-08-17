@@ -18,8 +18,9 @@ export default class BadgePage extends Taro.Component {
 
     }
   }
-
+  /** eslint-disable */
   render () {
+    const dot = '···'
     return (
       <View className='page'>
         {/* S Header */}
@@ -91,12 +92,12 @@ export default class BadgePage extends Taro.Component {
             <View className='panel__content'>
               <View className='badge-item'>
                 <View className='subitem'>
-                  <AtBadge value='···'>
+                  <AtBadge value={dot}>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
-                  <AtBadge value='···'>
+                  <AtBadge value={dot}>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
                 </View>
