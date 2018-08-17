@@ -14,7 +14,7 @@ export default class FlexPage extends Taro.Component {
 
   render () {
     return (
-      <View className='page'>
+      <View className='page flex-page'>
         <DocsHeader title='Flex 弹性布局' />
 
         <View className='doc-body'>

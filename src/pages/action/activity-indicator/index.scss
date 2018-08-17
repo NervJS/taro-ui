@@ -1,7 +1,7 @@
 @import "../../../style/mixins/index.scss";
 @import "../../../style/theme/default.scss";
 
-.panel__content {
+.activity-indicator-page .panel__content {
   .example-item {
     @include display-flex;
     @include align-items(center);
@@ -9,7 +9,7 @@
     &--center {
       height: 375px;
       position: relative;
-      background-color: #FAFBFC;
+      background-color: #fafbfc;
       margin-bottom: 20px;
     }
 

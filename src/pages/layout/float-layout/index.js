@@ -37,7 +37,7 @@ export default class FloatLayoutPage extends Taro.Component {
     const { isOpened1, isOpened2 } = this.state
 
     return (
-      <View className='page'>
+      <View className='page float-layout-page'>
         <DocsHeader title='Float Layout 浮动弹层' />
 
         <View className='doc-body'>

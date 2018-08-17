@@ -19,7 +19,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
 
   render () {
     return (
-      <View className='page'>
+      <View className='page activity-indicator-page'>
         {/* S Header */}
         <DocsHeader title='Activity Indicator 活动指示器'></DocsHeader>
         {/* E Header */}
