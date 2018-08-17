@@ -29,7 +29,7 @@ $badge-dot-size: 20px;
     height: $badge-height;
     line-height: $badge-height;
     position: absolute;
-    right: 0;
+    right: -6PX;
     top: -$badge-border-radius;
     transform: translate(50%, 0);
     padding: 0 $spacing-h-sm;

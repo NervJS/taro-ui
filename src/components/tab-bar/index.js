@@ -49,20 +49,28 @@ class AtTabBar extends Taro.Component {
             key={item.title}
             onClick={this.handleClick.bind(this, i)}
           >
-            <AtBadge dot={item.dot} value={item.text} max={item.max}>
-              {
-                item.iconType
-                  ? <View className='at-tab-bar__icon'>
+            {
+              item.iconType
+                ? <AtBadge dot={item.dot} value={item.text} max={item.max}>
+                  <View className='at-tab-bar__icon'>
                     <AtIcon
                       value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
                       size={iconSize}
                       color={current === i ? selectedColor : color}
                     />
                   </View>
-                  : null
-              }
-              <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
-            </AtBadge>
+                </AtBadge>
+                : null
+            }
+            <View>
+              <AtBadge
+                dot={item.iconType ? '' : item.dot}
+                value={item.iconType ? '' : item.text}
+                max={item.iconType ? '' : item.max}
+              >
+                <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+              </AtBadge>
+            </View>
           </View>
         })
       }
