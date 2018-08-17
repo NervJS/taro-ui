@@ -21,9 +21,9 @@
     {
       "files": ["src/components/**/test.js"],
       "rules": {
-        "no-unused-vars": "off",
         "taro/no-stateless-component": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": ["error", { "varsIgnorePattern": "Nerv" }]
       }
     }
   ]
