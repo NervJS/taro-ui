@@ -1,4 +1,6 @@
 /* eslint-disable import/no-commonjs */
+const path = require('path')
+
 const config = {
   projectName: 'taro-ui-examples',
   date: '2018-7-5',
@@ -60,6 +62,24 @@ const config = {
           enable: true
         }
       }
+    },
+    webpack: customConfig => {
+      customConfig.output = {
+        path: path.join(process.cwd(), 'dist', 'h5'),
+        filename: 'index.js',
+        libraryTarget: 'umd',
+        library: 'taro-ui-test'
+      }
+      customConfig.externals = {
+        nervjs: 'commonjs2 nervjs',
+        classnames: 'commonjs2 classnames',
+        '@tarojs/components': 'commonjs2 @tarojs/components',
+        '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
+        'weui': 'commonjs2 weui'
+      }
+      customConfig.plugins.splice(1)
+      customConfig.module.rules[1].oneOf.forEach(item => item.use.splice(0, 1, require.resolve('style-loader')))
+      return customConfig
     }
   }
 }
