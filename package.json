@@ -75,6 +75,7 @@
     "eslint-config-o2team": "^0.1.6",
     "eslint-config-taro": "1.0.0-beta.9",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.21.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-taro": "1.0.0-beta.9",
     "file-loader": "^1.1.11",

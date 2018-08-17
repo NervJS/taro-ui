@@ -1,6 +1,9 @@
 {
   "extends": ["o2team", "taro"],
   "parser": "babel-eslint",
+  "env": {
+    "jest": true
+  },
   "rules": {
     "class-methods-use-this": "off",
     "prefer-rest-params": "off",
@@ -13,6 +16,14 @@
       "files": ["build/*.js"],
       "rules": {
         "import/no-commonjs": "off"
+      }
+    },
+    {
+      "files": ["src/components/**/__test__/*.js", "src/components/**/test.js"],
+      "rules": {
+        "no-unused-vars": "off",
+        "taro/no-stateless-component": "off",
+        "react/react-in-jsx-scope": "off"
       }
     }
   ]
