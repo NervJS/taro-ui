@@ -14,7 +14,9 @@
     bottom: 0;
     left: 0;
     background-color: $color-border-lighter;
-    height: 1px;
+
+    /* prettier-ignore */
+    height: 1PX;
   }
 
   &::before {
@@ -26,7 +28,7 @@
     background-color: transparent;
 
     /* prettier-ignore */
-    height: calc(100% - 1px);
+    height: calc(100% - 1PX);
     top: 0;
   }
 }

@@ -64,7 +64,9 @@ export default class AtFloatLayout extends Taro.Component {
             </View>
           </View>
           <View className='layout-body'>
-            <ScrollView scroll-y className='layout-body__content'>{this.props.children}</ScrollView>
+            <ScrollView scrollY className='layout-body__content'>
+              {this.props.children}
+            </ScrollView>
           </View>
         </View>
       </View>
