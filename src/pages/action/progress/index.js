@@ -51,7 +51,7 @@ export default class ProgressPage extends Taro.Component {
   render () {
     const { percent } = this.state
     return (
-      <View className='page'>
+      <View className='page progress-page'>
         {/* S Header */}
         <DocsHeader title='Progress 进度条' />
         {/* E Header */}
