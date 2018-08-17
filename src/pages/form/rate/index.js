@@ -14,7 +14,8 @@ export default class Index extends Taro.Component {
     this.state = {
       rateValue1: 3,
       rateValue2: 3,
-      rateValue3: 3
+      rateValue3: 3,
+      rateValue4: 3
     }
   }
 
@@ -25,7 +26,7 @@ export default class Index extends Taro.Component {
   }
 
   render () {
-    const { rateValue1, rateValue2, rateValue3 } = this.state
+    const { rateValue1, rateValue2, rateValue3, rateValue4 } = this.state
     return (
       <View className='page'>
         {/* S Header */}
@@ -60,6 +61,16 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtRate max={10} value={rateValue3} onChange={this.handleRateChange.bind(this, 'rateValue3')} />
+              </View>
+            </View>
+          </View>
+
+          {/* 自定义星星间隔 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义星星间隔</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtRate margin={15} value={rateValue4} onChange={this.handleRateChange.bind(this, 'rateValue4')} />
               </View>
             </View>
           </View>

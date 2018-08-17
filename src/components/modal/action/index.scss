@@ -10,6 +10,7 @@
     & > button {
       @include flex(auto);
       @include line(1);
+      @include active;
 
       min-width: 160px;
       height: 88px;
@@ -19,6 +20,7 @@
       border: 0;
       border-radius: 0;
       background-color: white;
+      margin-top: 0;
 
       &::after {
         border: 0;

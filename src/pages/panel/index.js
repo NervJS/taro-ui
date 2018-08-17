@@ -48,12 +48,12 @@ export default class PanelBasic extends Component {
       list: {
         'basic': [
           {
-            id: 'Icon',
-            name: '图标'
-          },
-          {
             id: 'Color',
             name: '颜色'
+          },
+          {
+            id: 'Icon',
+            name: '图标'
           },
           {
             id: 'Typo',
@@ -66,24 +66,28 @@ export default class PanelBasic extends Component {
         ],
         'view': [
           {
-            id: 'NoticeBar',
-            name: '通告栏'
-          },
-          {
-            id: 'Badge',
-            name: '徽标'
-          },
-          {
-            id: 'Tag',
-            name: '标签'
-          },
-          {
             id: 'Avatar',
             name: '头像'
           },
           {
             id: 'Article',
             name: '文章'
+          },
+          {
+            id: 'Badge',
+            name: '徽标'
+          },
+          {
+            id: 'NoticeBar',
+            name: '通告栏'
+          },
+          {
+            id: 'Tag',
+            name: '标签'
+          },
+          {
+            id: 'Timeline',
+            name: '时间轴'
           }
         ],
         'action': [
@@ -152,12 +156,12 @@ export default class PanelBasic extends Component {
             name: '列表'
           },
           {
-            id: 'Float-Layout',
-            name: '浮层'
-          },
-          {
             id: 'Card',
             name: '卡片'
+          },
+          {
+            id: 'Float-Layout',
+            name: '浮层'
           }
         ],
         'navigation': [
@@ -176,10 +180,6 @@ export default class PanelBasic extends Component {
           {
             id: 'Segmented-Control',
             name: '分段器'
-          },
-          {
-            id: 'Timeline',
-            name: '时间轴'
           },
           {
             id: 'Pagination',

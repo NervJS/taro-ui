@@ -7,14 +7,13 @@ $at-button-height-sm: 60px;
 .at-button {
   margin: 0 auto;
   padding: 0 $spacing-h-xl;
-  // width: 710px;
   height: $at-button-height;
   color: $color-text-base;
   font-size: $font-size-lg;
   line-height: $at-button-height - 2;
   text-align: center;
   border-radius: $border-radius-md;
-  border: 1px solid $color-border-base;
+  border: 1PX solid $color-border-base;
   box-sizing: border-box;
   @include line();
 
@@ -37,13 +36,13 @@ $at-button-height-sm: 60px;
   &--primary {
     background-color: rgba(92, 137, 228, 1);
     color: #fff;
-    border: 1px solid rgba(92, 137, 228, 1);
+    border: 1PX solid rgba(92, 137, 228, 1);
   }
 
   &--secondary {
     background-color: #fff;
     color: rgba(92, 137, 228, 1);
-    border: 1px solid rgba(92, 137, 228, 1);
+    border: 1PX solid rgba(92, 137, 228, 1);
   }
 
   &--small {
@@ -67,7 +66,6 @@ $at-button-height-sm: 60px;
     margin: 0 20px;
     display: inline-block;
     animation: loading-rotate 1s linear infinite;
-    transform-origin: 50% 51.2%;
   }
 
   &__text {

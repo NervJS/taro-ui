@@ -20,8 +20,8 @@
   }
 
   &__body {
+    line-height: 0;
     display: inline-block;
-    line-height: inherit;
     animation: atRotate 1350ms linear infinite;
   }
 

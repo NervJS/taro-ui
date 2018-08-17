@@ -47,7 +47,7 @@ export default class ToastPage extends Component {
     } = this.state
 
     return (
-      <View className='page'>
+      <View className='page toast-page'>
         {/* S Header */}
         <DocsHeader title='Toast 轻提示' />
         {/* E Header */}

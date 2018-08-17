@@ -116,7 +116,7 @@ export default class ModalPage extends Taro.Component {
             <Button onClick={this.closeModal.bind(this, 1, '点击了取消')}>
               取消
             </Button>
-            <Button onClick={this.closeModal.bind(this, 1, '点击了确定')}>
+            <Button style='color:#6190E8' onClick={this.closeModal.bind(this, 1, '点击了确定')}>
               确定
             </Button>
           </AtModalAction>
@@ -152,7 +152,7 @@ export default class ModalPage extends Taro.Component {
             <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>
               取消
             </Button>
-            <Button onClick={this.closeModal.bind(this, 3, '点击了确定')}>
+            <Button style='color:#6190E8' onClick={this.closeModal.bind(this, 3, '点击了确定')}>
               确定
             </Button>
           </AtModalAction>
