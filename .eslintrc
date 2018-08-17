@@ -19,7 +19,7 @@
       }
     },
     {
-      "files": ["src/components/**/__test__/*.js", "src/components/**/test.js"],
+      "files": ["src/components/**/test.js"],
       "rules": {
         "no-unused-vars": "off",
         "taro/no-stateless-component": "off",

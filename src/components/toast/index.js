@@ -125,7 +125,8 @@ export default class AtToast extends Taro.Component {
 }
 
 AtToast.defaultProps = {
-  duration: 30000
+  duration: 30000,
+  isOpened: false
 }
 
 AtToast.propTypes = {
