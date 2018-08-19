@@ -33,6 +33,9 @@ export default class AtToast extends Taro.Component {
   }
 
   makeTimer (duration) {
+    if (duration === 0) {
+      return
+    }
     this._timer = setTimeout(() => {
       this.setState({
         isOpened: false
@@ -65,7 +68,10 @@ export default class AtToast extends Taro.Component {
   }
 
   handleClick = () => {
-    const { onClickToast } = this.props
+    const { onClickToast, status } = this.props
+    if (status === 'loading') {
+      return
+    }
     if (onClickToast) {
       return onClickToast()
     }
@@ -125,7 +131,7 @@ export default class AtToast extends Taro.Component {
 }
 
 AtToast.defaultProps = {
-  duration: 30000,
+  duration: 3000,
   isOpened: false
 }
 

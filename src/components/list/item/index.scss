@@ -29,11 +29,11 @@ $item-horizontal-padding: 24px;
   &::after {
     content: " ";
     position: absolute;
-    width: calc(100% - #{$spacing-h-xl});
+    width: calc(100% - #{$spacing-h-lg});
     height: 1px;
     background-color: $color-border-lighter;
     bottom: 0;
-    left: $spacing-h-xl;
+    left: $spacing-h-lg;
   }
 
   &--thumb {
