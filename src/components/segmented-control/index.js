@@ -17,7 +17,7 @@ import './index.scss'
 class AtSegmentedControl extends Taro.Component {
   handleClick (i, disable) {
     if (disable) return
-    this.props.onClick(i)
+    this.props.onClick(i, ...arguments)
   }
 
   render () {
