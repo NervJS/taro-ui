@@ -70,8 +70,11 @@ class AtInputNumber extends Taro.Component {
       rootCls.push('at-input-number--lg')
     }
     return <View className={rootCls} >
-      <View className='at-input-number__btn' onClick={this.handleMinus.bind(this)}>
-        <AtIcon value='subtract' color={value <= min || disabled ? '#ccc' : '#6190e8'} size='18' />
+      <View
+        className={value <= min || disabled ? 'at-input-number__btn at-input-number--disabled' : 'at-input-number__btn'}
+        onClick={this.handleMinus.bind(this)}
+      >
+        <AtIcon value='subtract' size='18' />
       </View>
       <Input className='at-input-number__input'
         style={inputStyle}
@@ -80,8 +83,11 @@ class AtInputNumber extends Taro.Component {
         disabled={disabled}
         onInput={this.handleInput.bind(this)}
       />
-      <View className='at-input-number__btn' onClick={this.handlePlus.bind(this)}>
-        <AtIcon value='add' color={value >= max || disabled ? '#ccc' : '#6190e8'} size='18' />
+      <View
+        className={value >= max || disabled ? 'at-input-number__btn at-input-number--disabled' : 'at-input-number__btn'}
+        onClick={this.handlePlus.bind(this)}
+      >
+        <AtIcon value='add' size='18' />
       </View>
     </View>
   }

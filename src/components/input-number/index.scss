@@ -21,9 +21,10 @@ $input-number-size-min-lg: 120px;
     align-items: center;
     justify-content: center;
     padding: $input-number-btn-padding;
-    font-size: $font-size-sm;
+    font-size: 0;
+    color: $color-brand;
     text-align: center;
-    line-height: 1;
+    line-height: $line-height-base;
     overflow: hidden;
     @include active;
   }
@@ -36,6 +37,14 @@ $input-number-size-min-lg: 120px;
     text-align: center;
     line-height: $line-height-zh;
     @include border-thin($width: 1PX, $directions: left right);
+  }
+
+  &--disabled {
+    color: $color-text-disabled;
+
+    &:active {
+      background-color: inherit;
+    }
   }
 
   &--lg {
