@@ -47,9 +47,9 @@ class AtInput extends Taro.Component {
   }
   render () {
     const { name, type, cursorSpacing, confirmType, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
-    let newMaxlength = maxlength
-    let newType = type
-    let newDisabled = disabled
+    let actualMaxlength = maxlength
+    let actualType = type
+    let actualDisabled = disabled
     const containerCls = ['at-input__container']
     if (error) {
       containerCls.push('at-input--error')
@@ -58,11 +58,11 @@ class AtInput extends Taro.Component {
       containerCls.push('at-input--disabled')
     }
     if (type === 'phone') {
-      newMaxlength = 11
-      newType = 'number'
+      actualMaxlength = 11
+      actualType = 'number'
     }
     if (disabled === false && editable === false) {
-      newDisabled = true
+      actualDisabled = true
     }
     let rootStyle = ''
     if (!border) {
@@ -77,15 +77,15 @@ class AtInput extends Taro.Component {
         }
         <Input className='at-input__input'
           id={name}
-          type={newType}
+          type={actualType}
           placeholderClass='placeholder'
           placeholder={placeholder}
           cursorSpacing={cursorSpacing}
-          maxlength={newMaxlength}
+          maxlength={actualMaxlength}
           autoFocus={autoFocus}
           value={value}
           confirmType={confirmType}
-          disabled={newDisabled}
+          disabled={actualDisabled}
           onInput={this.handleInput.bind(this)}
           onChange={this.handleInput.bind(this)}
           onFocus={this.handleFocus.bind(this)}
