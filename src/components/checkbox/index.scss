@@ -34,6 +34,7 @@ $checkbox-icon-size: 40px;
     border-radius: $border-radius-circle;
     background-color: $color-bg;
     box-sizing: border-box;
+    transition: all 0.2s;
 
     &--selected {
       background-color: $color-brand;
