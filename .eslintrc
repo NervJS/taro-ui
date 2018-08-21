@@ -19,7 +19,7 @@
       }
     },
     {
-      "files": ["src/components/**/test.js"],
+      "files": ["src/components/**/*.test.js", "src/components/**/test.js"],
       "rules": {
         "taro/no-stateless-component": "off",
         "react/react-in-jsx-scope": "off",

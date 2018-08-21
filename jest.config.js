@@ -2,7 +2,7 @@ module.exports = {
   verbose: true,
   moduleFileExtensions: ['js', 'jsx', 'json'],
   rootDir: __dirname,
-  testMatch: ['<rootDir>/src/components/**/test.js'],
+  testMatch: ['<rootDir>/src/components/**/*.test.js','<rootDir>/src/components/**/test.js'],
   transform: {
     '^.+\\.js?$': 'babel-jest'
   },

@@ -1,14 +1,11 @@
-import Nerv from 'nervjs'
+/* eslint-disable react/no-find-dom-node */
+import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
-// import {
-//   // Simulate,
-//   findRenderedDOMComponentWithClass,
-//   renderIntoDocument
-// } from 'nerv-test-utils'
+import { Simulate, renderIntoDocument } from 'nerv-test-utils'
 
 import AtToast from '../../../.temp/components/toast/index'
 
-// const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 const ICON = 'loading'
 const TEXT = '测试数据Text'
@@ -18,7 +15,7 @@ const STATUS_ERROR = 'error'
 const STATUS_SUCCESS = 'success'
 const STATUS_LOADING = 'loading'
 
-describe('Toast', () => {
+describe('Toast Snap', () => {
   it('render initial Toast', () => {
     const componet = renderToString(<AtToast />)
     expect(componet).toMatchSnapshot()
@@ -67,14 +64,31 @@ describe('Toast', () => {
     const componet = renderToString(<AtToast isOpened status={STATUS_ERROR} />)
     expect(componet).toMatchSnapshot()
   })
+})
 
+describe('Toast Behavior ', () => {
   it('click Toast', async () => {
-    // const onClick = jest.fn()
-    // const componet = renderIntoDocument(<AtToast isOpened />)
-    // const dom = findRenderedDOMComponentWithClass(componet, 'at-toast')
-    // const bodyDom = dom.querySelector('.toast-body')
+    const componet = renderIntoDocument(<AtToast isOpened />)
+    const dom = findDOMNode(componet, 'at-toast')
+    const bodyDom = dom.querySelector('.toast-body')
 
-    // Simulate.click(bodyDom)
-    // expect(componet.state.isOpened).toBeFalsy()
+    expect(componet.state.isOpened).toBeTruthy()
+    Simulate.click(bodyDom)
+    process.nextTick(() => {
+      expect(componet.state.isOpened).toBeFalsy()
+    })
+  })
+
+  it('Toast duration', async () => {
+    const componet = renderIntoDocument(<AtToast duration={4000} isOpened />)
+
+    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.props.duration).toEqual(4000)
+
+    await delay(4000)
+
+    process.nextTick(() => {
+      expect(componet.state.isOpened).toBeFalsy()
+    })
   })
 })
