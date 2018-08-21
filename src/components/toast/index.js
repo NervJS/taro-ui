@@ -83,6 +83,7 @@ export default class AtToast extends Taro.Component {
     const { text, icon, status, image, hasMask } = this.props
 
     const realImg = image || statusImg[status]
+    const isRenderIcon = icon && !(image || statusImg[status])
 
     const rootClass = ['toast-body']
 
@@ -103,7 +104,7 @@ export default class AtToast extends Taro.Component {
         {hasMask && <View className='at-toast-overlay' />}
         <View className={rootClass} onClick={this.handleClick}>
           <View className='toast-body-content'>
-            {(image || statusImg[status]) && (
+            {realImg && (
               <View className='toast-body-content__img'>
                 <Image
                   className='toast-body-content__img-item'
@@ -112,8 +113,7 @@ export default class AtToast extends Taro.Component {
                 />
               </View>
             )}
-            {icon &&
-              !(image || statusImg[status]) && (
+            {isRenderIcon && (
               <View className='toast-body-content__icon'>
                 <AtIcon value={icon} color='white' size='50' />
               </View>
@@ -137,7 +137,10 @@ AtToast.defaultProps = {
 
 AtToast.propTypes = {
   icon: PropTypes.string,
-  text: PropTypes.string,
+  hasMask: PropTypes.bool,
+  image: PropTypes.string,
+  status: PropTypes.string,
+  text: PropTypes.string.isRequired,
   isOpened: PropTypes.bool,
   duration: PropTypes.number
 }

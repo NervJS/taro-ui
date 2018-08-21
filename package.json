@@ -41,6 +41,7 @@
     "@tarojs/taro-h5": "1.0.0-beta.11",
     "@tarojs/taro-weapp": "1.0.0-beta.11",
     "lodash": "^4.17.10",
+    "nerv-server": "^1.3.2",
     "nervjs": "^1.3.0",
     "prop-types": "^15.6.2"
   },

@@ -1,5 +1,4 @@
 node_modules/
-test/
 dist/
 coverage/
 .vscode/
@@ -7,6 +6,5 @@ coverage/
 git_stats/
 yarn-offline/
 docs/
-test.js
 jest.config.js
 __mock__/
