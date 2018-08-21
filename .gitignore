@@ -11,3 +11,6 @@ project.config.json
 .vscode
 .eslintcache
 .babelrc
+
+site/
+docs/h5/

@@ -1,7 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const conf = require('./conf')
 const { getProjectRoot } = require('./util')
 
 const projectRoot = getProjectRoot()
@@ -99,13 +101,18 @@ module.exports = {
       react: 'nervjs',
       'react-dom': 'nervjs',
       '@md': path.resolve(__dirname, '../docs/markdown/'),
-      // '@src': path.resolve(__dirname, '../src/'),
-      // '@lib': path.resolve(__dirname, '../libs/')
     }
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: `${siteRoot}/index.html`
-    })
+    }),
+    // copy static h5 pages
+    new CopyWebpackPlugin([
+      {
+        from: path.join(siteRoot, 'h5'),
+        to: path.resolve(projectRoot, conf.output, 'h5')
+      }
+    ])
   ]
 }

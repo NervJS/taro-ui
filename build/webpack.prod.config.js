@@ -24,25 +24,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       BASE_NAME: `'/taro-ui'`
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle: {
-        screw_ie8: false,
-        keep_fnames: true,
-        properties: false,
-        keep_quoted: true
-      },
-      compress: {
-        warnings: false,
-        screw_ie8: false,
-        properties: false
-      },
-      output: {
-        keep_quoted_props: true
-      },
-      comments: false,
-      sourceMap: true
     })
   ]
 }

@@ -10,14 +10,10 @@ components:
     items:
       - title: 介绍
         name: Introduction
-      # - title: 安装
-      #   name: Installation
-      # - title: 快速上手
-      #   name: Quickstart
-      # - title: 国际化
-      #   name: I18n
-      # - title: 更新日志
-      #   name: Changelog
+      - title: 快速上手
+        name: Quickstart
+      - title: 更新日志
+        name: Changelog
   - title: 组件
     name: Docs
     groups:
@@ -102,4 +98,4 @@ components:
             name: Tabs
           - title: 时间轴
             name: Timeline
-            
+
