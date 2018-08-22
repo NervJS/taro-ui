@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
       <div className='footer-link'>
         <h3>关于我们</h3>
-        <p><a href="https://aotu.io/about/">凹凸实验室</a></p>
+        <p><a href="https://aotu.io/">凹凸实验室</a></p>
       </div>
     </div>
   </div>
