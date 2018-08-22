@@ -232,22 +232,22 @@ $section-top: 200px;
 }
 
 /* 动画 */
-.delay-1s {
+.delay-1 {
   animation-duration: 1s;
   animation-delay: 0;
 }
 
-.delay-2s {
+.delay-2 {
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+}
+
+.delay-3 {
   animation-duration: 2s;
   animation-delay: 1s;
 }
 
-.delay-3s {
-  animation-duration: 3s;
-  animation-delay: 2s;
-}
-
-.delay-4s {
-  animation-duration: 4s;
-  animation-delay: 3s;
+.delay-4 {
+  animation-duration: 2.5s;
+  animation-delay: 1.5s;
 }
