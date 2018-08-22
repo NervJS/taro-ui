@@ -1,9 +1,7 @@
 # Textarea 多行文本输入框
 
 ---
-Textarea 多行文本输入框组件
-
-以下文档指示例子，请根据具体组件编写
+多行文本输入框，可控制是否显示当前字数，可自定义高度。
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ Textarea 多行文本输入框组件
 :::demo
 
 ```js
-import AtTextarea from 'taro-ui'
+import { AtTextarea } from 'taro-ui'
 ```
 
 :::
