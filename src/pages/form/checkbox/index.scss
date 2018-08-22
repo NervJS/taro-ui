@@ -1,5 +1,5 @@
 @import '../../../style/mixins/index.scss';
 
 .checkbox-container {
-  @include border-thin($directions: top bottom);
+  @include border-thin($directions: top bottom, $width: 1PX);
 }

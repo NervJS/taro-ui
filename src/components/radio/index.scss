@@ -60,7 +60,7 @@
 
   &__option + &__option {
     .at-radio__option_wrap {
-      @include border-thin-top;
+      @include border-thin-top($width: 1PX);
     }
   }
 }
