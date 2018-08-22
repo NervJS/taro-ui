@@ -6,12 +6,16 @@
 
 ## 使用指南
 
-在 Taro 文件中引入组件
+由于小程序的限制 `Flex` 组件只能通过样式来完成,需要在 `app.js` 上添加以下这段代码
 
 :::demo
 
 ```js
-import { AtFlex, AtFlexItem } from "taro-ui"
+if (process.env.TARO_ENV === "weapp") {
+  require("taro-ui/dist/weapp/css/index.css")
+} else if (process.env.TARO_ENV === "h5") {
+  require("taro-ui/dist/h5/css/index.css")
+}
 ```
 
 :::
@@ -21,12 +25,13 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 :::demo
 
 ```html
-<AtFlex>
-  <AtFlexItem>A</AtFlexItem>
-  <AtFlexItem>B</AtFlexItem>
-  <AtFlexItem>C</AtFlexItem>
-</AtFlex>
+<View className='at-flex'>
+  <View className='at-flex__item'>A</View>
+  <View className='at-flex__item'>B</View>
+  <View className='at-flex__item'>C</View>
+</View>
 ```
+
 :::
 
 ## 使用栅格化（长度）
@@ -34,13 +39,14 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 :::demo
 
 ```html
-<AtFlex>
-  <AtFlexItem size='3'>A</AtFlexItem>
-  <AtFlexItem size='6'>B</AtFlexItem>
-  <AtFlexItem size='2'>C</AtFlexItem>
-  <AtFlexItem size='1'>D</AtFlexItem>
-</AtFlex>
+<View className='at-flex'>
+  <View className='at-flex__item at-flex__item-size--3'>A</View>
+  <View className='at-flex__item at-flex__item-size--6'>B</View>
+  <View className='at-flex__item at-flex__item-size--2'>C</View>
+  <View className='at-flex__item at-flex__item-size--1'>D</View>
+</View>
 ```
+
 :::
 
 ## 使用栅格化（偏移）
@@ -48,12 +54,17 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 :::demo
 
 ```html
-<AtFlex>
-  <AtFlexItem offset='2'>A</AtFlexItem>
-  <AtFlexItem offset='3'>B</AtFlexItem>
-  <AtFlexItem>C</AtFlexItem>
-</AtFlex>
+<View className='at-flex'>
+  <View className='at-flex__item at-flex__item-offset--2'>
+    A
+  </View>
+  <View className='at-flex__item at-flex__item-offset--3'>
+    B
+  </View>
+  <View className='at-flex__item'>C</View>
+</View>
 ```
+
 :::
 
 ## 超出换行
@@ -61,14 +72,15 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 :::demo
 
 ```html
-<AtFlex wrap='wrap'>
-  <AtFlexItem size='4'>A</AtFlexItem>
-  <AtFlexItem size='4'>B</AtFlexItem>
-  <AtFlexItem size='4'>C</AtFlexItem>
-  <AtFlexItem size='4'>D</AtFlexItem>
-  <AtFlexItem size='4'>E</AtFlexItem>
-</AtFlex>
+<View className='at-flex at-flex__wrap--wrap'>
+  <View className='at-flex__item at-flex__item-size--4'>A</View>
+  <View className='at-flex__item at-flex__item-size--4'>B</View>
+  <View className='at-flex__item at-flex__item-size--4'>C</View>
+  <View className='at-flex__item at-flex__item-size--4'>D</View>
+  <View className='at-flex__item at-flex__item-size--4'>E</View>
+</View>
 ```
+
 :::
 
 ## 宽度根据内容撑开
@@ -76,31 +88,81 @@ import { AtFlex, AtFlexItem } from "taro-ui"
 :::demo
 
 ```html
-<AtFlex>
-  <AtFlexItem isAuto size='1'>
+<View className='at-flex'>
+  <View className='at-flex__item at-flex__item-size--1 at-flex__item--auto'>
     被内容撑开
-  </AtFlexItem>
-  <AtFlexItem>B</AtFlexItem>
-</AtFlex>
+  </View>
+  <View className='at-flex__item'>B</View>
+</View>
 ```
+
 :::
 
-## AtFlex 参数
+## 内容自动换行
 
-| 参数         | 说明                         | 类型   | 可选值                                           | 默认值    |
-| ------------ | ---------------------------- | ------ | ------------------------------------------------ | --------- |
-| dirction     | 主轴的方向                   | String | `row`, `column`, `row-reverse`, `column-reverse` | `row`     |
-| wrap         | 子元素的换行方式             | String | `no-wrap`, `wrap`, `wrap-reverse`                | `no-wrap` |
-| justify      | 子元素在主轴方向上的对齐方式 | String | `start`, `end`, `center`, `between`, `around`    | `start`   |
-| align        | 子元素在副轴方向上的对齐方式 | String | `start`, `end`, `center`, `stretch`, `baseline`  | `start`   |
-| alignContent | 子元素在交叉轴上的对齐方式   | String | `start`, `end`, `center`, `between`, `around`    | -         |
+:::demo
 
-## AtFlexItem 参数
+```html
+<View className='at-flex'>
+  <View className='at-flex__item at-flex__item-size--1 at-flex__item--wrap'>
+    被内容撑开
+  </View>
+  <View className='at-flex__item'>B</View>
+</View>
+```
 
-| 参数   | 说明                       | 类型    | 可选值                    | 默认值  |
-| ------ | -------------------------- | ------- | ------------------------- | ------- |
-| size   | 占栅格系统的大小           | Number  | 1 ~ 12                    | -       |
-| offset | 偏移栅格系统的大小         | Number  | 1 ~ 12                    | -       |
-| isWrap | 是否自动换行               | Boolean | -                         | `false` |
-| isAuto | 是否被内容区自动撑开       | Boolean | -                         | `false` |
-| align  | 元素在副轴方向上的对齐方式 | String  | `top`, `bottom`, `center` | `top`   |
+:::
+
+## 侧轴方向的对齐方式
+
+:::demo
+
+```html
+<View className='at-flex'>
+  <View style='height:100px' className='at-flex__item'>A</View>
+  <View className='at-flex__item'>默认对齐方式 -- stretch</View>
+</View>
+<View className='at-flex at-flex__align--start'>
+  <View style='height:100px' className='at-flex__item'>B</View>
+  <View className='at-flex__item'>顶部对齐 -- start</View>
+</View>
+<View className='at-flex at-flex__align--center'>
+  <View style='height:100px' className='at-flex__item'>C</View>
+  <View className='at-flex__item'>居中对齐 -- center</View>
+</View>
+<View className='at-flex at-flex__align--end'>
+  <View style='height:100px' className='at-flex__item'>D</View>
+  <View className='at-flex__item'>底部对齐 -- end</View>
+</View>
+```
+
+:::
+
+## 主轴方向的排列方式
+
+:::demo
+
+```html
+<View className='at-flex'>
+  <View className='at-flex__item at-flex__item-size--5'>默认</View>
+  <View className='at-flex__item at-flex__item-size--5'>Start</View>
+</View>
+<View className='at-flex at-flex__justify--end'>
+  <View className='at-flex__item at-flex__item-size--5'>底部排列</View>
+  <View className='at-flex__item at-flex__item-size--5'>End</View>
+</View>
+<View className='at-flex at-flex__justify--center'>
+  <View className='at-flex__item at-flex__item-size--5'>居中排列</View>
+  <View className='at-flex__item at-flex__item-size--5'>Center</View>
+</View>
+<View className='at-flex at-flex__justify--between'>
+  <View className='at-flex__item at-flex__item-size--5'>左右排列</View>
+  <View className='at-flex__item at-flex__item-size--5'>Between</View>
+</View>
+<View className='at-flex at-flex__justify--around'>
+  <View className='at-flex__item at-flex__item-size--5'>平均排列</View>
+  <View className='at-flex__item at-flex__item-size--5'>Around</View>
+</View>
+```
+
+:::

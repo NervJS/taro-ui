@@ -32,7 +32,7 @@ export default class AtFloatLayout extends Taro.Component {
     if (_isFunction(this.props.onClose)) {
       this.props.onClose()
     }
-  }
+  };
 
   close = () => {
     this.setState(
@@ -41,7 +41,7 @@ export default class AtFloatLayout extends Taro.Component {
       },
       this.handleClose
     )
-  }
+  };
 
   render () {
     const { isOpened } = this.state
@@ -75,6 +75,7 @@ export default class AtFloatLayout extends Taro.Component {
 }
 
 AtFloatLayout.propTypes = {
+  onClose: PropTypes.func,
   title: PropTypes.string,
   isOpened: PropTypes.bool
 }

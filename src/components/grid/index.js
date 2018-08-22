@@ -78,6 +78,7 @@ AtGrid.defaultProps = {
 
 AtGrid.propTypes = {
   mode: PropTypes.string,
+  onClick: PropTypes.func,
   columnNum: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
   data: PropTypes.arrayOf(
     PropTypes.shape({
