@@ -53,7 +53,7 @@ export default class ActionSheetPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='ActionSheet 操作面板' />
+        <DocsHeader title='ActionSheet 动作面板' />
         {/* E Header */}
 
         {/* S Body */}

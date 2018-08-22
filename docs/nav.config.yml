@@ -1,9 +1,3 @@
-guide:
-  - title: 品牌
-    name: Guide
-    items:
-      - title: 色彩
-        name: Color
 components:
   - title: 综述
     name: Docs
@@ -25,77 +19,70 @@ components:
             name: Icon
       - title: 布局组件
         items:
+          - title: 弹性布局
+            name: Flex
+          - title: 栅格布局
+            name: Grid
           - title: 列表
             name: List
           - title: 卡片
             name: Card
-          - title: 弹性布局
-            name: Flex
-          - title: 宫格布局
-            name: Grid
-          - title: 浮动布局
+          - title: 浮动弹层
             name: FloatLayout
       - title: 操作反馈
         items:
-          - title: 轻提示
-            name: Toast
+          - title: 动作面板
+            name: ActionSheet
+          - title: 活动指示器
+            name: ActivityIndicator
           - title: 模态框
             name: Modal
           - title: 进度条
             name: Progress
-          - title: 上拉菜单
-            name: ActionSheet
-          - title: 活动指示器
-            name: ActivityIndicator
-          # - title: 布局
-          #   name: Layout
+          - title: 轻提示
+            name: Toast
       - title: 表单组件
         items:
-          - title: 多选框
-            name: Checkbox
           - title: 输入框
             name: Input
           - title: 数字输入框
             name: InputNumber
           - title: 单选按钮
             name: Radio
+          - title: 多选框
+            name: Checkbox
           - title: 评分
             name: Rate
-  #         - title: 选择器
-  #           name: Select
           - title: 开关
             name: Switch
-  #         - title: 滑动输入条
-  #           name: Slider
-          - title: 文本域
+          - title: 多行文本框
             name: Textarea
       - title: 视图组件
         items:
-          - title: 文章样式
-            name: Article
           - title: 头像
             name: Avatar
+          - title: 文章样式
+            name: Article
           - title: 徽标
             name: Badge
           - title: 通告栏
             name: Noticebar
           - title: 标签
             name: Tag
-
+          - title: 时间轴
+            name: Timeline
       - title: 导航组件
         items:
-          - title: 抽屉
-            name: Drawer
           - title: 导航栏
             name: NavBar
-          - title: 分页器
-            name: Pagination
-          - title: 分段器组件
-            name: SegmentedControl
           - title: 标签栏
             name: TabBar
           - title: 标签页
             name: Tabs
-          - title: 时间轴
-            name: Timeline
+          - title: 分段器
+            name: SegmentedControl
+          - title: 分页器
+            name: Pagination
+          - title: 抽屉
+            name: Drawer
 

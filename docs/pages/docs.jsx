@@ -2,6 +2,7 @@ import * as Nerv from 'nervjs'
 import { Route, Redirect, Switch, browserHistory } from 'react-router-dom'
 import QRCode from 'qrcode.react'
 import PageHeader from '../components/header'
+import PageFooter from '../components/footer'
 import Sidebar from '../components/sidebar'
 
 import navsConfig from '../nav.config.yml'
@@ -22,11 +23,11 @@ class Docs extends Nerv.Component {
       const offsetTop = window.scrollY || 0
       const isFixed = this.state.fixed
 
-      if (offsetTop > 230 && !isFixed) {
+      if (offsetTop > 180 && !isFixed) {
         this.setState({
           fixed: true
         })
-      } else if (offsetTop <= 230 && isFixed) {
+      } else if (offsetTop <= 180 && isFixed) {
         this.setState({
           fixed: false
         })
@@ -53,7 +54,7 @@ class Docs extends Nerv.Component {
 
     return (
       <div className='app' id='app'>
-        <PageHeader collapse style={{ 'background': '#25252b' }} />
+        <PageHeader collapse />
         <div className='at-container row'>
           <div className='at-sidebar col-sm-24 col-md-6 col-lg-4'>
             <Sidebar data={data} />
@@ -122,6 +123,7 @@ class Docs extends Nerv.Component {
             }
           </div>
         </div>
+        <PageFooter></PageFooter>
       </div>
     )
   }

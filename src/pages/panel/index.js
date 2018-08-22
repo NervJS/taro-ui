@@ -97,11 +97,11 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Activity-Indicator',
-            name: '动作指示器'
+            name: '活动指示器'
           },
           {
             id: 'Modal',
-            name: '对话框'
+            name: '模态框'
           },
           {
             id: 'Progress',
@@ -161,7 +161,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Float-Layout',
-            name: '浮层'
+            name: '浮动弹层'
           }
         ],
         'navigation': [

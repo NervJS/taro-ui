@@ -1,6 +1,8 @@
 .footer {
+  position: relative;
   padding: 80px 120px;
   background-color: #fff;
+  z-index: 10;
 
   .footer-logo-container {
     display: inline-block;
@@ -10,8 +12,8 @@
 
   .footer-logo {
     margin: 10px 0 14px;
-    width: 198px;
-    height: 40px;
+    width: 148px;
+    height: 30px;
     background-image: url('../../assets/o2logo@2x.png');
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -39,11 +41,16 @@
 
     a {
       color: #666;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
     p {
       font-size: 14px;
-      padding: 10px 0;
+      // padding: 10px 0;
+      margin-bottom: 8px;
     }
   }
 

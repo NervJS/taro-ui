@@ -3,7 +3,7 @@
 $header-height: 80px;
 
 .page-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,6 +14,35 @@ $header-height: 80px;
 
   &.open {
     background-color: #fff;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #fff, $alpha: 0.06);
+  }
+
+  &.collapse {
+    background-color: #fff;
+    box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
+
+    .nav-container {
+      width: 100%;
+      padding: 0 50px;
+
+      .nav-left .logo span {
+        color: #1D1D1F;
+      }
+
+      .nav-right .navbar {
+        margin-right: 0;
+      }
+
+      .navbar a {
+        color: #1D1D1F;
+      }
+    }
   }
 }
 

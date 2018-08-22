@@ -16,14 +16,13 @@ $section-top: 200px;
 .bg-container {
   position: relative;
   width: 100%;
-  height: 1000px;
+  height: 1200px;
   background-image: linear-gradient(117deg, #6B46E3 0%, #5264EE 50%, #55A0EB 100%);
 
   &::after {
     content: '';
     display: block;
     position: absolute;
-    z-index: 10;
     top: 85%;
     width: 100%;
     height: 350px;
@@ -41,7 +40,6 @@ $section-top: 200px;
     border: 1px solid #FFF;
     border-radius: 40px;
     opacity: 0.2;
-    z-index: 10;
   }
 
   .bg-top-shadow {
@@ -53,47 +51,43 @@ $section-top: 200px;
     transform: skew(4deg, -4deg);
     background-color: #FFF;
     border-radius: 40px;
-    opacity: 0.2;
-    z-index: 10;
+    opacity: 0.08;
   }
 
   .bg-bottom-border {
     position: absolute;
     width: 540px;
-    height: 230px;
-    bottom: -20px;
+    height: 360px;
+    bottom: 30px;
     left: -70px;
     transform: skew(7deg, -7deg);
     border: 1px solid #FFF;
     border-radius: 40px;
     opacity: 0.2;
-    z-index: 10;
   }
 
   .bg-bottom-shadow {
     position: absolute;
     width: 540px;
-    height: 230px;
-    bottom: -50px;
+    height: 360px;
+    bottom: 0;
     left: -20px;
     transform: skew(7deg, -7deg);
     background-color: #FFF;
     border-radius: 40px;
-    opacity: 0.2;
-    z-index: 10;
+    opacity: 0.08;
   }
 
   .info-container {
-    position: absolute;
-    left: 120px;
-    top: $section-top;
-    z-index: 200;
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: top;
-    text-align: left;
-    width: 350px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 260px;
+    width: 90%;
+    max-width: 1200px;
     color: #fff;
+    text-align: left;
+    vertical-align: top;
+    box-sizing: border-box;
 
     h1 {
       text-align: left;
@@ -104,6 +98,7 @@ $section-top: 200px;
     }
 
     .info-desc {
+      margin-top: 20px;
       text-align: left;
       font-size: 24px;
       color: #FFF;
@@ -113,18 +108,19 @@ $section-top: 200px;
 
   .img-container {
     position: absolute;
-    top: $section-top;
-    right: 120px;
-    display: inline-block;
+    top: 240px;
+    right: 0;
+    // top: $section-top;
+    // right: 120px;
+    // display: inline-block;
     box-sizing: border-box;
     width: 686px;
     height: 546px;
     background: no-repeat 100% url('../header-bg.png');
-    z-index: 199;
   }
 
   .btn-container {
-    margin-top: 38px;
+    margin-top: 30px;
     text-align: left;
 
     .btn {
@@ -148,7 +144,7 @@ $section-top: 200px;
       background: #00DAA8;
 
       &:hover {
-        box-shadow: 0 4px 12px 0 #00DAA8;
+        background: #20e4b7;
       }
     }
 
@@ -157,36 +153,35 @@ $section-top: 200px;
       border: 1px solid #fff;
 
       &:hover {
-        color: $brand-blue-400;
-        border-color: $brand-blue-400;
+        opacity: 0.8;
       }
     }
   }
+}
+
+.feature-wrapper {
+  position: relative;
+  margin-top: -400px;
+  margin-bottom: 220px;
 
   .main-title {
-    position: absolute;
-    text-align: center;
+    margin-bottom: 80px;
     width: 100%;
-    bottom: 250px;
-    left: 0;
-    font-size: 24px;
     color: #fff;
-    z-index: 200;
+    font-size: 24px;
+    text-align: center;
   }
 
   .panel-container {
     display: flex;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
     justify-content: space-between;
-    padding: 0 $padding;
     box-sizing: border-box;
-    position: absolute;
-    bottom: -150px;
-    left: 0;
-    z-index: 200;
 
     .panel {
-      display: none;
+      display: block;
       position: relative;
       width: 250px;
       box-sizing: border-box;
