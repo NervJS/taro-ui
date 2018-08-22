@@ -1,9 +1,7 @@
 # Checkbox 多选框
 
 ---
-Checkbox 多选框
-
-以下文档指示例子，请根据具体组件编写
+多选框组件
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ Checkbox 多选框
 :::demo
 
 ```js
-import AtCheckbox from 'taro-ui'
+import { AtCheckbox } from 'taro-ui'
 ```
 
 :::
@@ -24,14 +22,14 @@ import AtCheckbox from 'taro-ui'
 ```jsx
 <AtCheckbox
   options={[
-    { value: 'apple', label: '苹果', desc: '苹果味甘、酸，性凉，归脾、肺经；具有生津、润肺，除烦解暑，开胃、醒酒，止泻的功效；' },
-    { value: 'pear', label: '梨子' },
-    { value: 'pineapple', label: '菠萝', desc: '菠萝原生长在半荫的热带雨林，较耐阴，由于长期人工栽培驯化而对光照要求增加，充足的光照下生长良好、果实含糖量高、品质佳' }
+    { value: 'list1', label: 'iPhone X', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。' },
+    { value: 'list2', label: 'HUAWEI P20' },
+    { value: 'list3', label: 'OPPO Find X', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true },
+    { value: 'list4', label: 'vivo NEX', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true }
   ]}
-  selectedList={this.state.checkedList}
-  onChange={val => this.setState({checkedList:val})} />
-
-
+  selectedList={this.state.selectedList}
+  onChange={val => this.setState({selectedList: val})}
+/>
 ```
 
 :::
@@ -40,7 +38,7 @@ import AtCheckbox from 'taro-ui'
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| selectedList | 被选中的选项列表 eg: `['苹果']`  | Array  | - | - |
+| selectedList | 被选中的选项列表 eg: `['list1']`  | Array  | - | - |
 | options  | object选项列表，object 字段详细看下表  | Array | - | - |
 
 ## options object字段详解

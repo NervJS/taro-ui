@@ -1,9 +1,7 @@
 # SegmentedControl 分段器组件
 
 ---
-SegmentedControl 分段器组件
-
-以下文档指示例子，请根据具体组件编写
+由至少 2 个分段控件组成，用作不同视图的显示，可自定义文字大小，配色。
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ SegmentedControl 分段器组件
 :::demo
 
 ```js
-import AtSegmentedControl from 'taro-ui'
+import { AtSegmentedControl } from 'taro-ui'
 ```
 
 :::
@@ -23,12 +21,35 @@ import AtSegmentedControl from 'taro-ui'
 
 ```html
 <AtSegmentedControl
-  tabLislt={['标签页1', '标签页2', '标签页3']}
+  values={['标签页1', '标签页2', '标签页3']}
   onClick={val => this.setState({current: val})}
   current={this.state.current}
 />
+{this.state.current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
+{this.state.current === 1 ? <View className='tab-content'>标签2的内容</View> : null}
+{this.state.current === 2 ? <View className='tab-content'>标签3的内容</View> : null}
 
 ```
+
+:::
+
+## 自定义颜色、字体大小
+
+:::demo
+
+```html
+<AtSegmentedControl
+  onClick={val => this.setState({current: val})}
+  selectedColor='#FF4949'
+  fontSize='30'
+  current={current}
+  values={['标签页1', '标签页2', '标签页3']}
+/>
+
+
+```
+
+:::
 
 ## 禁用
 

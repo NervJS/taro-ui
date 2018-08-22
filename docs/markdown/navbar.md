@@ -1,9 +1,7 @@
 # NavBar 导航栏组件
 
 ---
-NavBar 导航栏组件
-
-以下文档指示例子，请根据具体组件编写
+导航栏组件，主要用于头部导航。
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ NavBar 导航栏组件
 :::demo
 
 ```js
-import AtNavBar from 'taro-ui'
+import { AtNavBar } from 'taro-ui'
 ```
 
 :::

@@ -1,9 +1,7 @@
 # Rate 评分组件
 
 ---
-Rate 评分组件
-
-以下文档指示例子，请根据具体组件编写
+评分组件，可自定义评分星星图标的大小、间隔、评分数
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ Rate 评分组件
 :::demo
 
 ```js
-import AtRate from 'taro-ui'
+import { AtRate } from 'taro-ui'
 ```
 
 :::
@@ -62,7 +60,7 @@ import AtRate from 'taro-ui'
 | value | 当前评分  | Number  | - | 0 |
 | max     | 最大评分  | Number | - | 5 |
 | size | 评分星星大小 | `Number`或`String`  | - | 20 |
-| margin | 星星间隔,单位根据环境转为rpx或rem  | `Number`或`String`  | - | 5 |
+| margin | 星星间隔,单位根据环境自动转为rpx或rem  | `Number`或`String`  | - | 5 |
 
 ## 事件
 

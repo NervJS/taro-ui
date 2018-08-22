@@ -1,9 +1,7 @@
 # Switch 开关组件
 
 ---
-Switch 开关组件
-
-以下文档指示例子，请根据具体组件编写
+开关组件，在两个互斥对象进行选择
 
 ## 使用指南
 
@@ -12,7 +10,7 @@ Switch 开关组件
 :::demo
 
 ```js
-import AtSwitch from 'taro-ui'
+import { AtForm, AtSwitch } from 'taro-ui'
 ```
 
 :::
@@ -24,6 +22,7 @@ import AtSwitch from 'taro-ui'
 ```html
 <AtForm>
   <AtSwitch title='开启中' checked onChange={val => console.log(val)} />
+  <AtSwitch title='已禁止' disabled onChange={val => console.log(val)} />
   <AtSwitch border={false} title='已关闭' />
 </AtForm>
 
@@ -39,7 +38,8 @@ import AtSwitch from 'taro-ui'
 | title | 标签名 | String  | - | - |
 | color | 背景颜色  | String  | - | `#6190e8` |
 | checked     | 是否显示开启  | Boolean | - | false |
-| border     | 是否显示下划线边框  | Boolean | - | True |
+| disabled     | 是否禁止点击  | Boolean | - | false |
+| border     | 是否显示下划线边框  | Boolean | - | true |
 
 ## 事件
 
