@@ -110,6 +110,7 @@
     "ora": "^3.0.0",
     "postcss": "^7.0.2",
     "postcss-loader": "^2.1.6",
+    "qrcode.react": "^0.8.0",
     "react-markdown-loader": "^1.1.14",
     "react-router-dom": "^4.3.1",
     "regenerator-runtime": "^0.12.1",
