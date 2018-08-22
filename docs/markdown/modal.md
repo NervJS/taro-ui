@@ -19,22 +19,47 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 :::demo
 
 ```html
-<AtModal>
+<AtModal isOpened>
   <AtModalHeader>标题</AtModalHeader>
   <AtModalContent>
-    <View>
       这里是正文内容，欢迎加入京东凹凸实验室
       这里是正文内容，欢迎加入京东凹凸实验室
       这里是正文内容，欢迎加入京东凹凸实验室
-    </View>
   </AtModalContent>
   <AtModalAction>
     <Button>取消</Button>
-    <Button>
-      确定
-    </Button>
+    <Button>确定</Button>
   </AtModalAction>
 </AtModal>
 ```
 
 :::
+
+## 简化使用
+
+:::demo
+
+```html
+<AtModal
+  isOpened
+  title='标题'
+  cancleText='取消'
+  confirmText='确认'
+  onCancle={ this.handleCancle }
+  onConfirm={ this.handleConfirm }
+  content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+/>
+```
+
+:::
+
+## AtModal 参数
+
+| 参数        | 说明                   | 类型     | 可选值 | 默认值 |
+| ----------- | ---------------------- | -------- | ------ | ------ |
+| title       | 元素的标题             | String   | -      | -      |
+| content     | 元素的内容             | String   | -      | -      |
+| cancleText  | 取消按钮的文本         | String   | -      | -      |
+| confirmText | 确认按钮的文本         | String   | -      | -      |
+| onCancle    | 点击取消按钮触发的样式 | Function | -      | -      |
+| onConfirm   | 点击确认按钮触发的事件 | Function | -      | -      |

@@ -80,9 +80,14 @@ export default class AtActionSheet extends Component {
   }
 }
 
+AtActionSheet.defaultProps = {
+  isOpened: false,
+}
+
 AtActionSheet.propTypes = {
   title: PropTypes.string,
   onClose: PropTypes.func,
   onCancle: PropTypes.func,
+  isOpened: PropTypes.bool,
   cancleText: PropTypes.string
 }

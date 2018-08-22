@@ -19,9 +19,9 @@ import { AtToast } from "taro-ui"
 :::demo
 
 ```html
-<AtToast 
+<AtToast
+  isOpened
   text={text}
-  isOpened={isOpened}
   iconSize={iconSize}
   iconType={iconType}
   iconColor={iconColor}
@@ -32,11 +32,12 @@ import { AtToast } from "taro-ui"
 
 ## AtToast 参数
 
-| 参数         | 说明          | 类型    | 可选值 | 默认值  |
-| ------------ | ------------- | ------- | ------ | ------- |
-| text         | 元素的内容    | String  | -      | -       |
-| iconType     | icon 的种类   | String  | -      | -       |
-| iconSize     | icon 的大小   | Number  | -      | -       |
-| iconColor    | icon 的颜色   | Number  | -      | -       |
-| isOpened     | 是否展现组件  | Boolean | -      | -       |
-| isHiddenIcon | 是否隐藏 icon | Boolean | -      | `false` |
+| 参数     | 说明                                     | 类型    | 可选值                        | 默认值  |
+| -------- | ---------------------------------------- | ------- | ----------------------------- | ------- |
+| text     | 元素的内容                               | String  | -                             | -       |
+| icon     | icon 的类型                              | String  | -                             | -       |
+| image    | 元素展示的图片                           | String  | -                             | -       |
+| status   | 元素的状态                               | String  | `error`, `loading`, `success` | -       |
+| isOpened | 是否展示元素                             | Boolean | -                             | `false` |
+| duration | 元素持续的事件                           | Number  | -                             | `3000`  |
+| hasMask  | 是否存在底部遮罩层(无法点击底部的内容区) | Boolean | -                             | -       |

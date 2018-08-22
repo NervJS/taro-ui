@@ -136,11 +136,11 @@ AtToast.defaultProps = {
 }
 
 AtToast.propTypes = {
+  text: PropTypes.string,
   icon: PropTypes.string,
   hasMask: PropTypes.bool,
   image: PropTypes.string,
-  status: PropTypes.string,
-  text: PropTypes.string.isRequired,
   isOpened: PropTypes.bool,
-  duration: PropTypes.number
+  duration: PropTypes.number,
+  status: PropTypes.oneOf(['error', 'loading', 'success'])
 }
