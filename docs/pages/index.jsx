@@ -2,8 +2,9 @@ import * as Nerv from 'nervjs'
 import { Link } from 'react-router-dom'
 
 import PageHeader from '../components/header'
-
+import Footer from '../components/footer'
 import '../assets/style/index.scss'
+import '../assets/style/animate.css'
 
 class Index extends Nerv.Component {
   goToGuide (e) {
@@ -12,88 +13,71 @@ class Index extends Nerv.Component {
   goToSource (e) {
     e.preventDefault()
   }
+  componentDidMount() {
+    let header = document.getElementById('J-page-header')
+    let panels = document.getElementsByClassName('panel')
+    let isAnimated = false
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.style.background = 'linear-gradient(117deg, #6B46E3 0%, #5264EE 50%, #55A0EB 100%)'
+
+      } else {
+        header.style.background = 'transparent'
+      }
+      if (!isAnimated && window.scrollY > 300) {
+        isAnimated = true
+        for (let i = 0; i < panels.length; i++) {
+          panels[i].className += ` panel--show animated fadeInUp delay-${i+1}s`
+        }
+      }
+    }, 100)
+
+  }
   render () {
     return (
       <div className='wrapper'>
-        <PageHeader collapse />
-        <section className='section section-banner'>
-          <div className='container'>
-            <div className='logo'>
-              <img src={require('../assets/logo-taro.png')} />
-            </div>
-            <h1>一款轻量级、模块化的前端 UI 组件库</h1>
-            <div className='btn-container'>
-              <div className='btn btn-begin'>
-                <Link to='/docs/introduction'>开始使用</Link>
-              </div>
-              <div className='btn btn-github'>
-                <a href='https://github.com/NervJS/at-ui-nerv'>Github</a>
-              </div>
-            </div>
-          </div>
-          <div className='prototype-screens flex'>
-            <div className='prototype prototype-1'>
-              <img src={require('../assets/prototype-1.png')} alt='' />
-            </div>
-            <div className='prototype prototype-2'>
-              <img src={require('../assets/prototype-2.png')} alt='' />
-            </div>
-            <div className='prototype prototype-3'>
-              <img src={require('../assets/prototype-3.png')} alt='' />
-            </div>
-            <div className='prototype prototype-4'>
-              <img src={require('../assets/prototype-4.png')} alt='' />
-            </div>
-          </div>
-          <div className='separate-panel' />
-        </section>
-        <section className='section section-navigation'>
-          <div className='container flex flex-around'>
-            <div className='navigation-panel'>
-              <div className='icon-cnt'>
-                <img src={require('../assets/icon-navigation-1.png')} alt='' />
-              </div>
-              <div className='title'>指南</div>
-              <div className='desc'>
-                了解设计指南，利用统一的规范进行设计赋能，帮助产品设计师，前端工程师，后台工程师迅速搭建中后台产品。
-              </div>
-              <div className='btn-readmore'>
-                <Link to='/guide'>
-                  查看详情 <i className='icon icon-chevron-right' />
-                </Link>
+        <div className='bg-container'>
+          <div className='bg-top-border'></div>
+          <div className='bg-top-shadow'></div>
+          <div className='bg-bottom-border'></div>
+          <div className='bg-bottom-shadow'></div>
+          <PageHeader collapse />
+            <div className='info-container'>
+              <h1>Taro UI</h1>
+              <div className='info-desc'>一套基于 Taro 框架开发的多端 UI 组件库</div>
+              <div className='btn-container'>
+                <a className='btn btn-start' href="#/zh/docs/introduction">开始使用</a>
+                <a className='btn btn-github' href="https://github.com/NervJS/taro-ui">Github</a>
               </div>
             </div>
-            <div className='navigation-panel'>
-              <div className='icon-cnt'>
-                <img src={require('../assets/icon-navigation-2.png')} alt='' />
-              </div>
-              <div className='title'>组件</div>
-              <div className='desc'>
-                基于 Nerv 的 UI 组件化，可以通过组件的 Demo
-                体验交互细节，开发中既可以根据需要单独引用，也可以使用引入所有组件。
-              </div>
-              <div className='btn-readmore'>
-                <Link to='/docs'>
-                  查看详情 <i className='icon icon-chevron-right' />
-                </Link>
-              </div>
+            <div className='img-container'></div>
+          <div className='main-title'>特性</div>
+          <div className='panel-container'>
+            <div className='panel'>
+              <div className='panel-img'><img src={require('../assets/panel-img1.png')} /></div>
+              <div className='panel-title'>多端适配</div>
+              <div className='panel-desc'>一套组件可以在微信小程序/ H5 /ReactNative 等多端适配运行</div>
             </div>
-            <div className='navigation-panel'>
-              <div className='icon-cnt'>
-                <img src={require('../assets/icon-navigation-3.png')} alt='' />
-              </div>
-              <div className='title'>资源</div>
-              <div className='desc'>
-                提供视觉稿原稿下载，产品可直接用 Sketch 工具快速搭建高保真的产品原型稿，减少沟通成本，提升工作效率。
-              </div>
-              <div className='btn-readmore'>
-                <a className='disabled'>
-                  查看详情 <i className='icon icon-chevron-right' />
-                </a>
-              </div>
+            <div className='panel'>
+              <div className='panel-img'><img src={require('../assets/panel-img2.png')} /></div>
+              <div className='panel-title'>组件丰富</div>
+              <div className='panel-desc'>提供丰富的基础组件，覆盖大部分使用场景，满足各种功能需求</div>
+            </div>
+            <div className='panel'>
+              <div className='panel-img'><img src={require('../assets/panel-img3.png')} /></div>
+              <div className='panel-title'>按需引用</div>
+              <div className='panel-desc'>可按需使用独立的组件，不必引入所有文件，可最小化的注入到项目中</div>
+            </div>
+            <div className='panel'>
+              <div className='panel-tip-container'><img src={require('../assets/panel-tip.png')} /></div>
+              <div className='panel-img'><img src={require('../assets/panel-img4.png')} /></div>
+              <div className='panel-title'>多套主题</div>
+              <div className='panel-desc'>目前只提供默认的蓝色主题，后期会新增红色主题，渐变色主题，以及自定义主题</div>
             </div>
           </div>
-        </section>
+        </div>
+        <div className='space-panel'></div>
+        <Footer />
       </div>
     )
   }

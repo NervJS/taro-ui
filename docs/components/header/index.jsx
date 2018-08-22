@@ -22,12 +22,14 @@ class PageHeader extends Nerv.Component {
   goToSource (e) {
     e.preventDefault()
   }
+
   render () {
-    const { collapse } = this.props
+    const { collapse, style } = this.props
     const { toggle } = this.state
     return (
       <header
         className={classnames('page-header', { collapse })}
+        style={style}
         id='J-page-header'
       >
         <div className='nav-container'>
@@ -35,7 +37,7 @@ class PageHeader extends Nerv.Component {
             <div className='logo'>
               <Link to='/'>
                 <img className='logo-img' src={require('../../assets/logo-taro.png')} />
-                <span>Taro UIKIT</span>
+                <span>Taro UI</span>
               </Link>
             </div>
             <i className='icon icon-menu nav-icon' onClick={this.toggleMenu} />
@@ -46,10 +48,10 @@ class PageHeader extends Nerv.Component {
           >
             <ul className='navbar'>
               <li>
-                <NavLink activeClassName='router-link-active' to='/guide'>指南</NavLink>
+                <NavLink activeClassName='router-link-active' to='/docs'>组件</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='router-link-active' to='/docs'>组件</NavLink>
+                <a href='https://aotu.io/about/'>关于我们</a>
               </li>
             </ul>
           </div>

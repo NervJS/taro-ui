@@ -12,7 +12,7 @@ class Docs extends Nerv.Component {
 
     return (
       <div className='app' id='app'>
-        <PageHeader collapse />
+        <PageHeader collapse style={{ 'background': '#25252b' }} />
         <div className='at-container row'>
           <div className='at-sidebar col-sm-24 col-md-6 col-lg-4'>
             <Sidebar data={data} />
