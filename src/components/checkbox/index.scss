@@ -2,6 +2,7 @@
 @import "../../style/mixins/index.scss";
 
 $checkbox-icon-size: 40px;
+$checkbox-icon-px-size: 20PX;
 
 .at-checkbox {
   background-color: $color-bg;
@@ -26,8 +27,8 @@ $checkbox-icon-size: 40px;
     align-items: center;
     justify-content: center;
     margin-right: $spacing-h-lg;
-    width: $checkbox-icon-size;
-    height: $checkbox-icon-size;
+    width: $checkbox-icon-px-size;
+    height: $checkbox-icon-px-size;
     font-size: $font-size-lg;
     line-height: 0;
     border: 2px solid $color-brand;
@@ -46,8 +47,8 @@ $checkbox-icon-size: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: $checkbox-icon-size;
-    height: $checkbox-icon-size;
+    width: $checkbox-icon-px-size;
+    height: $checkbox-icon-px-size;
   }
 
   &__desc {
