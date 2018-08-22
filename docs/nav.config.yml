@@ -13,22 +13,24 @@ components:
     groups:
       - title: 基础组件
         items:
-          - title: 按钮
-            name: Button
           - title: 图标
             name: Icon
-      - title: 布局组件
+          - title: 按钮
+            name: Button
+      - title: 视图组件
         items:
-          - title: 弹性布局
-            name: Flex
-          - title: 栅格布局
-            name: Grid
-          - title: 列表
-            name: List
-          - title: 卡片
-            name: Card
-          - title: 浮动弹层
-            name: FloatLayout
+          - title: 头像
+            name: Avatar
+          - title: 文章样式
+            name: Article
+          - title: 徽标
+            name: Badge
+          - title: 通告栏
+            name: Noticebar
+          - title: 标签
+            name: Tag
+          - title: 时间轴
+            name: Timeline
       - title: 操作反馈
         items:
           - title: 动作面板
@@ -57,20 +59,18 @@ components:
             name: Switch
           - title: 多行文本框
             name: Textarea
-      - title: 视图组件
+      - title: 布局组件
         items:
-          - title: 头像
-            name: Avatar
-          - title: 文章样式
-            name: Article
-          - title: 徽标
-            name: Badge
-          - title: 通告栏
-            name: Noticebar
-          - title: 标签
-            name: Tag
-          - title: 时间轴
-            name: Timeline
+          - title: 弹性布局
+            name: Flex
+          - title: 栅格布局
+            name: Grid
+          - title: 列表
+            name: List
+          - title: 卡片
+            name: Card
+          - title: 浮动弹层
+            name: FloatLayout
       - title: 导航组件
         items:
           - title: 导航栏
