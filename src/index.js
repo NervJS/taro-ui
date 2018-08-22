@@ -1,3 +1,7 @@
+import './components/article/index.scss'
+import './components/flex/index.scss'
+import './components/flex/item/index.scss'
+
 export { default as AtActionSheet } from './components/action-sheet'
 export { default as AtActionSheetItem } from './components/action-sheet/body/item'
 export { default as ActivityIndicator } from './components/activity-indicator'

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-commonjs */
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
   projectName: 'taro-ui',
@@ -80,7 +81,22 @@ if (process.env.TARO_BUILD_TYPE === 'component') {
       'weui': 'commonjs2 weui'
     }
     customConfig.plugins.splice(1)
+    customConfig.plugins[0] = new MiniCssExtractPlugin({
+      filename: 'css/index.css',
+      chunkFilename: 'css/[id].css'
+    })
+
+    const copySassLoader = { ...customConfig.module.rules[1].oneOf[0] }
+    copySassLoader.use = [...copySassLoader.use]
+    delete copySassLoader.exclude
+    copySassLoader.include = [
+      path.resolve(__dirname, '..', './.temp/components/article/index.scss'),
+      path.resolve(__dirname, '..', './.temp/components/flex/index.scss'),
+      path.resolve(__dirname, '..', './.temp/components/flex/item/index.scss')
+    ]
     customConfig.module.rules[1].oneOf.forEach(item => item.use.splice(0, 1, require.resolve('style-loader')))
+    customConfig.module.rules[1].oneOf.unshift(copySassLoader)
+
     return customConfig
   }
 }
