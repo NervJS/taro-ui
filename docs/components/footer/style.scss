@@ -1,0 +1,51 @@
+.footer {
+  padding: 80px 120px;
+  background-color: #fff;
+
+  .footer-logo-container {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30%;
+  }
+
+  .footer-logo {
+    margin: 10px 0 14px;
+    width: 198px;
+    height: 40px;
+    background-image: url('../../assets/o2logo@2x.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  .footer-link-container {
+    display: inline-flex;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 70%;
+  }
+
+  .footer-link {
+    flex: 1;
+
+    h3 {
+      padding-bottom: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .link {
+      color: #78A4FA;
+    }
+
+    a {
+      color: #666;
+    }
+
+    p {
+      font-size: 14px;
+      padding: 10px 0;
+    }
+  }
+
+}
+

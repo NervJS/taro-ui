@@ -3,20 +3,14 @@
 $header-height: 80px;
 
 .page-header {
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: $header-height;
   background-color: transparent;
   transition: all 0.3s;
-  z-index: 100;
-
-  &.collapse {
-    background-color: #fff;
-    box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
-    opacity: 0.98;
-  }
+  z-index: 300;
 
   &.open {
     background-color: #fff;
@@ -26,7 +20,7 @@ $header-height: 80px;
 .nav-container {
   margin: 0 auto;
   width: 90%;
-  color: #1d1d1f;
+  color: #fff;
 
   .nav-left {
     float: left;
@@ -46,8 +40,9 @@ $header-height: 80px;
 
       span {
         margin-left: 40px;
-        color: #3473e7;
+        color: #FFF;
         font-weight: bold;
+        font-style: italic;
         font-size: 16px;
       }
     }
@@ -67,7 +62,7 @@ $header-height: 80px;
 
     .navbar {
       display: inline-block;
-      margin: 0;
+      margin-right: 40px;
       padding: 0;
       height: $header-height;
       font-size: 14px;
@@ -76,7 +71,7 @@ $header-height: 80px;
 
       a {
         display: inline-block;
-        color: #1d1d1f;
+        color: #fff;
 
         &::after {
           content: '';
@@ -103,14 +98,10 @@ $header-height: 80px;
         display: inline-block;
         margin: 0 24px;
         cursor: pointer;
-        transition: color 0.3s;
+        transition: all 0.3s;
 
         &:hover {
-          color: $brand-blue-500;
-
-          a {
-            color: $brand-blue-500;
-          }
+          opacity: 0.8;
         }
 
         &.disabled {
