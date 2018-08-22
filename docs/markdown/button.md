@@ -12,7 +12,7 @@
 
 :::demo
 ```js
-import AtButton from 'taro-ui'
+import { AtButton } from 'taro-ui'
 ```
 :::
 
@@ -46,17 +46,17 @@ import AtButton from 'taro-ui'
 
 ## Button 参数
 
-| 微信小程序 | H5 | 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
-|:-----------|:---|:---------|:-----------------------------|:--------|:-----------------------|:---------|
-| √          | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
-| √          | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
-| √          | √  | icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
-| √          | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
-| √          | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
-| √          | √  | disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
+| 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
+|:---------|:-----------------------------|:--------|:-----------------------|:---------|
+| type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
+| size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
+| icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
+| circle   | 设置按钮圆角                 | Boolean | -                      | false    |
+| loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
+| disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
 
 ## Button 事件
 
-| 微信小程序 | H5 | 事件名称 | 说明           | 返回参数  |
-|:-----------|:---|:---------|:---------------|:----------|
-| √          | √  | onClick  | 点击按钮时触发 | event对象 |
+| 事件名称 | 说明           | 返回参数  |
+|:---------|:---------------|:----------|
+| onClick  | 点击按钮时触发 | event对象 |

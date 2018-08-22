@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtAvatar from 'taro-ui'
+import { AtAvatar } from 'taro-ui'
 ```
 :::
 
@@ -30,9 +30,9 @@ import AtAvatar from 'taro-ui'
 
 ## Avatar 参数
 
-| 微信小程序 | H5 | 参数   | 说明               | 类型    | 可选值                     | 默认值   |
-|:-----------|:---|:-------|:-------------------|:--------|:---------------------------|:---------|
-| √          | √  | size   | 头像大小           | String  | `large`, `normal`, `small` | `normal` |
-| √          | √  | circle | 头像是否圆形       | Boolean | -                          | false    |
-| √          | √  | image  | 头像图片地址       | String  | -                          | -        |
-| √          | √  | text   | 以文字形式展示头像 | String  | -                          | -        |
+| 参数   | 说明               | 类型    | 可选值                     | 默认值   |
+|:-------|:-------------------|:--------|:---------------------------|:---------|
+| size   | 头像大小           | String  | `large`, `normal`, `small` | `normal` |
+| circle | 头像是否圆形       | Boolean | -                          | false    |
+| image  | 头像图片地址       | String  | -                          | -        |
+| text   | 以文字形式展示头像 | String  | -                          | -        |

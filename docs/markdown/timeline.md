@@ -2,7 +2,7 @@
 
 ---
 
-垂直展示一系列的时间流信息
+垂直展示一系列的时间流信息。
 
 ## 使用指南
 
@@ -51,11 +51,11 @@ import AtTimeline from 'taro-ui'
 
 ## Timeline 参数
 
-| 微信小程序 | H5 | 参数         | 说明                                    | 类型            | 可选值           | 默认值 |
-|:-----------|:---|:-------------|:----------------------------------------|:----------------|:-----------------|:-------|
-| √          | √  | pending      | 最后一项是否为未完成态                  | Boolean         | -                | false  |
-| √          | √  | items        | 需展示的内容。数组对象参数参考下文 item | Array Of Object | -                | []     |
-| √          | √  | item.title   | 标题                                    | String          | 必填             | -      |
-| √          | √  | item.content | 子项内容                                | Array           | -                | []     |
-| √          | √  | item.icon    | 自定义icon                              | String          | 参考`icon`组件   | -      |
-| √          | √  | item.color   | icon颜色                                | String          | green/red/yellow | blue   |
+| 参数         | 说明                                    | 类型            | 可选值           | 默认值 |
+|:-------------|:----------------------------------------|:----------------|:-----------------|:-------|
+| pending      | 最后一项是否为未完成态                  | Boolean         | -                | false  |
+| items        | 需展示的内容。数组对象参数参考下文 item | Array Of Object | -                | []     |
+| item.title   | 标题                                    | String          | 必填             | -      |
+| item.content | 子项内容                                | Array           | -                | []     |
+| item.icon    | 自定义icon                              | String          | 参考`icon`组件   | -      |
+| item.color   | icon颜色                                | String          | green/red/yellow | blue   |

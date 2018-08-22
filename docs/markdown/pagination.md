@@ -2,7 +2,7 @@
 
 ---
 
-用于展示页码、请求数据等
+用于展示页码、请求数据等。
 
 ## 使用指南
 
@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtPagination from 'taro-ui'
+import { AtPagination } from 'taro-ui'
 ```
 :::
 
@@ -25,15 +25,15 @@ import AtPagination from 'taro-ui'
 
 ## Pagination 参数
 
-| 微信小程序 | H5 | 参数     | 说明                   | 类型    | 可选值 | 默认值 |
-|:-----------|:---|:---------|:-----------------------|:--------|:-------|:-------|
-| √          | √  | current  | 当前页                 | Number  | -      | 1      |
-| √          | √  | total    | 数据总量               | Number  | -      | 0      |
-| √          | √  | pageSize | 每页数据量             | Number  | -      | 20     |
-| √          | √  | icon     | 是否以icon形式展示按钮 | Boolean | -      | false  |
+| 参数     | 说明                   | 类型    | 可选值 | 默认值 |
+|:---------|:-----------------------|:--------|:-------|:-------|
+| current  | 当前页                 | Number  | -      | 1      |
+| total    | 数据总量               | Number  | -      | 0      |
+| pageSize | 每页数据量             | Number  | -      | 20     |
+| icon     | 是否以icon形式展示按钮 | Boolean | -      | false  |
 
 ## Pagination 事件
 
-| 微信小程序 | H5 | 事件名称   | 说明               | 返回参数          |
-|:-----------|:---|:-----------|:-------------------|:------------------|
-| √          | √  | onPageChange | 点击页码按钮时触发 | type, current |
+| 事件名称     | 说明               | 返回参数      |
+|:-------------|:-------------------|:--------------|
+| onPageChange | 点击页码按钮时触发 | type, current |

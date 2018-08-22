@@ -6,11 +6,15 @@
 
 ## 使用指南
 
-在 Taro 文件中引入样式
+在 app.js 文件中引入样式
 
 :::demo
 ```js
-import AtArticle from 'taro-ui'
+if (process.env.TARO_ENV === 'weapp') {
+  require('taro-ui/dist/weapp/css/index.css')
+} else if (process.env.TARO_ENV === 'h5') {
+  require('taro-ui/dist/h5/css/index.css')
+}
 ```
 :::
 
@@ -44,7 +48,7 @@ import AtArticle from 'taro-ui'
             <View className='at-article__h3'>这是三级标题</View>
             <View className='at-article__p'>这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。1234567890123456789012345678901234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ</View>
             <View className='at-article__p'>这是文本段落。这是文本段落。</View>
-            <Image className='at-article__img' src='https://jdc.jd.com/img/400x400' mode='aspectFit' />
+            <Image className='at-article__img' src='https://jdc.jd.com/img/400x400' mode='widthFix' />
         </View>
     </View>
 </View>

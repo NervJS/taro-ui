@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtBadge from 'taro-ui'
+import { AtBadge } from 'taro-ui'
 ```
 :::
 
@@ -44,8 +44,8 @@ import AtBadge from 'taro-ui'
 
 ## Badge 参数
 
-| 微信小程序 | H5 | 参数     | 说明       | 类型    | 可选值 | 默认值 |
-|:-----------|:---|:---------|:-----------|:--------|:-------|:-------|
-| √          | √  | dot      | 角标红点   | Boolean | -      | false  |
-| √          | √  | value    | 角标数字   | Number  | -      | -      |
-| √          | √  | maxValue | 角标最大值 | Number  | -      | 99     |
+| 参数     | 说明       | 类型    | 可选值 | 默认值 |
+|:---------|:-----------|:--------|:-------|:-------|
+| dot      | 角标红点   | Boolean | -      | false  |
+| value    | 角标数字   | Number  | -      | -      |
+| maxValue | 角标最大值 | Number  | -      | 99     |
