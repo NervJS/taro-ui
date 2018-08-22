@@ -417,8 +417,6 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 
   .wxapp-qrcode {
     width: 150px;
-    margin-bottom: 10px;
-    margin-top: 10px;
   }
 
   &::after {
@@ -437,18 +435,24 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 
   .qrcode-modal {
     display: none;
-    z-index: 10;
-    padding: 10px;
-    padding-bottom: 5px;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 100%;
     left: -70px;
+    width: 180px;
+    padding: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
 
     .qrcode-box {
       margin-top: 8px;
       width: 140px;
+    }
+
+    .code-image {
+      margin: 12px auto;
     }
   }
 

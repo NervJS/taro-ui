@@ -1,5 +1,6 @@
 import * as Nerv from 'nervjs'
 import { Route, Redirect, Switch, browserHistory } from 'react-router-dom'
+import QRCode from 'qrcode.react'
 import PageHeader from '../components/header'
 import Sidebar from '../components/sidebar'
 
@@ -48,6 +49,7 @@ class Docs extends Nerv.Component {
     const reg = /\/\S+\/(\S+)/
     const result = pathname.match(reg)
     const curDemoPath = pathMap[result[1]] || ''
+    const curPageUrl = `${window.location.origin}/h5/index.html#/pages/${curDemoPath}/index`
 
     return (
       <div className='app' id='app'>
@@ -64,15 +66,18 @@ class Docs extends Nerv.Component {
                 <img src={require('../assets/qr_code.png')} alt='qrcode' />
                 <div className='qrcode-modal'>
                   <h6>扫描二维码查看演示效果</h6>
-                  {/* <qrcode className='qrcode-box' :value='completeUrl' :options='{ size: 150 }'></qrcode> */}
-                  <img className='wxapp-qrcode' src={require('../assets/wxapp.jpg')} alt='wxapp' />
+                  <div className='code-image'>
+                    <QRCode value="http://facebook.github.io/react/" size='140' />
+                  </div>
                 </div>
               </div>
               <div className='wxapp-container'>
                 <img src={require('../assets/wxapp-logo.png')} alt='qrcode' />
                 <div className='qrcode-modal'>
                   <h6>扫描二维码查看演示效果</h6>
-                  <img className='wxapp-qrcode' src={require('../assets/wxapp.jpg')} alt='wxapp' />
+                  <div className='code-image'>
+                    <img className='wxapp-qrcode' src={require('../assets/wxapp.jpg')} alt='wxapp' />
+                  </div>
                 </div>
               </div>
             </div>
