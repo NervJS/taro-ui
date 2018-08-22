@@ -27,7 +27,7 @@ class Index extends Nerv.Component {
       if (!isAnimated && window.scrollY > 300) {
         isAnimated = true
         for (let i = 0; i < panels.length; i++) {
-          panels[i].className += ` panel--show animated fadeInUp delay-${i+1}s`
+          panels[i].className += ` panel--show animated fadeInUp delay-${i+1}`
         }
       }
     }, 100)
@@ -46,7 +46,7 @@ class Index extends Nerv.Component {
               <h1>Taro UI</h1>
               <div className='info-desc'>一套基于 Taro 框架开发的多端 UI 组件库</div>
               <div className='btn-container'>
-                <a className='btn btn-start' href="#/zh/docs/introduction">开始使用</a>
+              <a className='btn btn-start' href="#/docs/introduction">开始使用</a>
                 <a className='btn btn-github' href="https://github.com/NervJS/taro-ui">Github</a>
               </div>
             </div>
