@@ -29,7 +29,14 @@ import { AtTag } from 'taro-ui'
 :::demo
 ```html
 <!-- 点击返回当前标签名字和是否选中 -->
-<AtTag name='tag-1' type='primary' circle onClick={this.onClick.bind(this)}>tag-1</AtTag>
+<AtTag 
+  name='tag-1' 
+  type='primary' 
+  circle 
+  onClick={this.onClick.bind(this)}
+>
+  tag-1
+</AtTag>
 ```
 :::
 
@@ -46,6 +53,6 @@ import { AtTag } from 'taro-ui'
 
 ## Tag 事件
 
-| 事件名称 | 说明                               | 返回参数         |
-|:---------|:-----------------------------------|:-----------------|
+| 事件名称 | 说明                               | 返回参数     |
+|:---------|:-----------------------------------|:-------------|
 | onClick  | 点击标签时触发，返回标签名字和状态 | name, active |

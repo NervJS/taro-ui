@@ -18,7 +18,7 @@ import { AtIcon } from 'taro-ui'
 
 :::demo
 ```html
-<AtIcon value="clock" size="30" color="#F00"></AtIcon>
+<AtIcon value='clock' size='30' color='#F00'></AtIcon>
 ```
 :::
 

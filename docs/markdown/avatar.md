@@ -18,11 +18,11 @@ import { AtAvatar } from 'taro-ui'
 
 :::demo
 ```html
-<AtAvatar image="https://jdc.jd.com/img/200"></AtAvatar>
-<AtAvatar text="凹凸实验室"></AtAvatar>
+<AtAvatar image='https://jdc.jd.com/img/200'></AtAvatar>
+<AtAvatar text='凹凸实验室'></AtAvatar>
 
-<AtAvatar circle image="https://jdc.jd.com/img/200"></AtAvatar>
-<AtAvatar circle text="凹凸实验室"></AtAvatar>
+<AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
+<AtAvatar circle text='凹凸实验室'></AtAvatar>
 ```
 :::
 
