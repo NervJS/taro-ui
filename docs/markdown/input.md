@@ -166,7 +166,7 @@ import { AtInput, AtForm } from 'taro-ui'
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| name       | 输入框的唯一标识，有传入点击title会聚焦输入框 | String  | - | - |
+| name       | 输入框的唯一标识，有传入点击 title 会聚焦输入框 | String  | - | - |
 | type     | 输入框类型 | String | `text`,`number`,`password`,`phone`,`idcard`,`digit` | `text` |
 | value | 输入框值 | String  | - | - |
 | placeholder | 占位符  | String  | - | - |
@@ -185,8 +185,8 @@ import { AtInput, AtForm } from 'taro-ui'
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onChange | 输入框值改变时触发的事件 | 输入框当前值value  |
-| onFocus | 输入框被选中时触发的事件 | 输入框当前值value  |
-| onBlur | 输入框失去焦点时触发的事件 | 输入框当前值value  |
-| onConfirm | 点击完成按钮时触发 | 输入框当前值value  |
+| onChange | 输入框值改变时触发的事件 | 输入框当前值 value  |
+| onFocus | 输入框被选中时触发的事件 | 输入框当前值 value  |
+| onBlur | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
+| onConfirm | 点击完成按钮时触发 | 输入框当前值 value  |
 | onErrorClick | 点击错误按钮触发的事件 | -  |

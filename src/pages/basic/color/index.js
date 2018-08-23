@@ -19,15 +19,15 @@ export default class BasicColor extends Taro.Component {
           type: '主色',
           data: [
             {
-              name: 'Light Blue',
+              name: '浅蓝色',
               hex: '#78A4FA'
             },
             {
-              name: 'Blue',
+              name: '品牌蓝',
               hex: '#6190E8'
             },
             {
-              name: 'Dark Blue',
+              name: '深蓝色',
               hex: '#346FC2'
             }
           ]
@@ -36,19 +36,19 @@ export default class BasicColor extends Taro.Component {
           type: '辅助色',
           data: [
             {
-              name: 'Blue - Info',
+              name: '蓝色 - Info',
               hex: '#78A4FA'
             },
             {
-              name: 'Green - Positive',
+              name: '绿色 - Positive',
               hex: '#13CE66'
             },
             {
-              name: 'Red - Negative',
+              name: '红色 - Negative',
               hex: '#FF4949'
             },
             {
-              name: 'Yellow - Warning',
+              name: '黄色 - Warning',
               hex: '#FFC82C'
             }
           ]

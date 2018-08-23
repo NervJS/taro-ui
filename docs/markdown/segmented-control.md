@@ -1,4 +1,4 @@
-# SegmentedControl 分段器组件
+# SegmentedControl 分段器
 
 ---
 由至少 2 个分段控件组成，用作不同视图的显示，可自定义文字大小，配色。
@@ -73,12 +73,12 @@ import { AtSegmentedControl } from 'taro-ui'
 | current | 当前选中的`tab`索引值，从0计数  | Number  | - | 0 |
 | color     | 背景颜色与选中标签字体的颜色  | String | - | `#fff` |
 | selectedColor  | 选中的标签背景色与边框颜色  | String | - | `#6190E8` |
-| values | 选项数组,值是字符串,eg: ['标签页1','标签页2' ] | Array  | - | false |
+| values | 选项数组，值是字符串，eg: ['标签页1', '标签页2' ] | Array  | - | false |
 | disabled | 是否禁止点击 | Boolean  | - | false |
-| fontSize | 字体大小,单位h5为rem，小程序为rem | Number  | - | 28 |
+| fontSize | 字体大小，单位 h5 为 `rem`，小程序为 `rem` | Number  | - | 28 |
 
 ## 事件
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onClick | 点击触发事件 | 选中tab列表索引值  |
+| onClick | 点击触发事件 | 选中 tab 列表索引值  |

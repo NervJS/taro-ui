@@ -4,9 +4,9 @@
 
 ## 安装 Taro
 
-安装 Taro 开发工具 @tarojs/cli
+安装 `Taro` 开发工具 `@tarojs/cli`
 
-使用 npm 或者 yarn 全局安装，或者直接使用 [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
+使用 `npm` 或者 `yarn` 全局安装，或者直接使用 [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
 ```bash
 $ npm install -g @tarojs/cli
@@ -25,12 +25,12 @@ $ taro init myApp
 
 ```bash
 $ cd myApp
-$ npm i taro-ui
+$ npm install taro-ui
 ```
 
 ## 使用
 
-在代码中 `import` 组件并按照文档说明进行使用
+在代码中 `import` 需要的组件并按照文档说明使用
 
 ```js
 import { AtButton } from 'taro-ui'
@@ -75,7 +75,7 @@ $ taro build --type weapp --watch
 $ npx taro build --type weapp --watch
 ```
 
-**H5编译预览模式**
+**H5 编译预览模式**
 
 ```bash
 # npm script

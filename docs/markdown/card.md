@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtCard } from "taro-ui"
+import { AtCard } from 'taro-ui'
 ```
 
 :::

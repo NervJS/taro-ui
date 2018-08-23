@@ -47,7 +47,7 @@ import { AtDrawer } from 'taro-ui'
 |:------|:---------------|:--------|:------------------|:-------|
 | show  | 展示或隐藏     | Boolean | -                 | false  |
 | mask  | 是否需要遮罩   | Boolean | -                 | true   |
-| width | 抽屉宽度       | String  | 合法的CSS宽度单位 | 230px  |
+| width | 抽屉宽度       | String  | 合法的 CSS 宽度单位 | 230px  |
 | right | 是否从右侧滑出 | Boolean | -                 | false  |
 | items | 菜单列表       | Array   | -                 | -      |
 

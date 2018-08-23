@@ -42,7 +42,7 @@ import { AtPagination } from 'taro-ui'
 | current  | 当前页                 | Number  | -      | 1      |
 | total    | 数据总量               | Number  | -      | 0      |
 | pageSize | 每页数据量             | Number  | -      | 20     |
-| icon     | 是否以icon形式展示按钮 | Boolean | -      | false  |
+| icon     | 是否以 icon 形式展示按钮 | Boolean | -      | false  |
 
 ## Pagination 事件
 
