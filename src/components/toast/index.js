@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
 
@@ -37,19 +38,26 @@ export default class AtToast extends Taro.Component {
       return
     }
     this._timer = setTimeout(() => {
-      this.setState({
-        isOpened: false
-      })
+      this.close()
     }, +duration)
   }
 
   close () {
     const { isOpened } = this.state
     if (isOpened) {
-      this.setState({
-        isOpened: false
-      })
+      this.setState(
+        {
+          isOpened: false
+        },
+        this.handleClose
+      )
       this.clearTimmer()
+    }
+  }
+
+  handleClose () {
+    if (_isFunction(this.props.onClose)) {
+      this.props.onClose()
     }
   }
 
@@ -68,12 +76,12 @@ export default class AtToast extends Taro.Component {
   }
 
   handleClick = () => {
-    const { onClickToast, status } = this.props
+    const { onClick, status } = this.props
     if (status === 'loading') {
       return
     }
-    if (onClickToast) {
-      return onClickToast()
+    if (onClick) {
+      return onClick()
     }
     this.close()
   }
@@ -139,6 +147,8 @@ AtToast.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string,
   hasMask: PropTypes.bool,
+  onClick: PropTypes.func,
+  onClose: PropTypes.func,
   image: PropTypes.string,
   isOpened: PropTypes.bool,
   duration: PropTypes.number,

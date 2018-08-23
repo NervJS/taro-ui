@@ -36,6 +36,10 @@ export default class ToastPage extends Component {
     this.setState(state)
   }
 
+  handleClose = () => {
+    console.log('Close')
+  }
+
   render () {
     const {
       text,

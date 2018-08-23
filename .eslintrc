@@ -23,6 +23,7 @@
       "rules": {
         "taro/no-stateless-component": "off",
         "react/react-in-jsx-scope": "off",
+        "react/no-find-dom-node": "off",
         "no-unused-vars": ["error", { "varsIgnorePattern": "Nerv" }]
       }
     }

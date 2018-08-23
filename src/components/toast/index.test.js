@@ -3,7 +3,7 @@ import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
 
-import AtToast from '../../../.temp/components/toast/index'
+import AtToast from '../../../.temp/components/toast'
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -67,28 +67,61 @@ describe('Toast Snap', () => {
 })
 
 describe('Toast Behavior ', () => {
-  it('click Toast', async () => {
-    const componet = renderIntoDocument(<AtToast isOpened />)
+  it('Toast will close when is clicked && onClose will be called', async () => {
+    const onClose = jest.fn()
+
+    const componet = renderIntoDocument(<AtToast isOpened onClose={onClose} />)
     const dom = findDOMNode(componet, 'at-toast')
     const bodyDom = dom.querySelector('.toast-body')
 
     expect(componet.state.isOpened).toBeTruthy()
     Simulate.click(bodyDom)
+
+    process.nextTick(() => {
+      expect(onClose).toBeCalled()
+      expect(componet.state.isOpened).toBeFalsy()
+    })
+  })
+
+  it('Toast will close when time over --- default', async () => {
+    const componet = renderIntoDocument(<AtToast isOpened />)
+
+    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.props.duration).toEqual(3000)
+
+    await delay(3000)
+
     process.nextTick(() => {
       expect(componet.state.isOpened).toBeFalsy()
     })
   })
 
-  it('Toast duration', async () => {
-    const componet = renderIntoDocument(<AtToast duration={4000} isOpened />)
+  it('Toast will close when time over ', async () => {
+    const componet = renderIntoDocument(<AtToast duration={1000} isOpened />)
 
     expect(componet.state.isOpened).toBeTruthy()
-    expect(componet.props.duration).toEqual(4000)
+    expect(componet.props.duration).toEqual(1000)
 
-    await delay(4000)
+    await delay(1000)
 
     process.nextTick(() => {
       expect(componet.state.isOpened).toBeFalsy()
+    })
+  })
+
+  it('Toast onClick will be called', async () => {
+    const onClick = jest.fn()
+    const componet = renderIntoDocument(<AtToast onClick={onClick} isOpened />)
+    const dom = findDOMNode(componet, 'at-toast')
+    const bodyDom = dom.querySelector('.toast-body')
+
+    expect(componet.state.isOpened).toBeTruthy()
+
+    Simulate.click(bodyDom)
+
+    expect(onClick).toBeCalled()
+    process.nextTick(() => {
+      expect(componet.state.isOpened).toBeTruthy()
     })
   })
 })
