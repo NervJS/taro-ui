@@ -2,6 +2,7 @@
 @import '../../style/theme/default.scss';
 $spacing-v: 9PX;
 $spacing-h: 5PX;
+$font-size: 18PX;
 
 .at-nav-bar {
   display: flex;
@@ -24,7 +25,7 @@ $spacing-h: 5PX;
 
   &__left_view {
     flex: 2;
-    font-size: 18PX;
+    font-size: $font-size;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,7 +44,7 @@ $spacing-h: 5PX;
   &__title {
     flex: 5;
     color: $color-text-base;
-    font-size: 18PX;
+    font-size: $font-size;
     text-align: center;
     vertical-align: middle;
     line-height: $line-height-base;
@@ -52,7 +53,7 @@ $spacing-h: 5PX;
 
   &__text {
     display: inline-block;
-    font-size: 16PX;
+    font-size: $font-size - 2PX;
     height: 100%;
     padding-left: $spacing-h;
     vertical-align: middle;
@@ -63,6 +64,7 @@ $spacing-h: 5PX;
   &__container {
     width: 50%;
     height: 100%;
+    font-size: $font-size;
     display: inline-block;
     text-align: center;
     box-sizing: border-box;
