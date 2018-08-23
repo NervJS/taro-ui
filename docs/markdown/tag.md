@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtTag from 'taro-ui'
+import { AtTag } from 'taro-ui'
 ```
 :::
 
@@ -35,17 +35,17 @@ import AtTag from 'taro-ui'
 
 ## Tag 参数
 
-| 微信小程序 | H5 | 参数     | 说明         | 类型    | 可选值        | 默认值 |
-|:-----------|:---|:---------|:-------------|:--------|:--------------|:-------|
-| √          | √  | size     | 大小尺寸     | String  | normal, small | normal |
-| √          | √  | type     | 样式类型     | String  | primary       | -      |
-| √          | √  | name     | 标签名字     | String  | -             | -      |
-| √          | √  | circle   | 是否大圆角   | Boolean | -             | false  |
-| √          | √  | active   | 是否为选中态 | Boolean | -             | false  |
-| √          | √  | disabled | 是否为禁用态 | Boolean | -             | false  |
+| 参数     | 说明         | 类型    | 可选值        | 默认值 |
+|:---------|:-------------|:--------|:--------------|:-------|
+| size     | 大小尺寸     | String  | normal, small | normal |
+| type     | 样式类型     | String  | primary       | -      |
+| name     | 标签名字     | String  | -             | -      |
+| circle   | 是否大圆角   | Boolean | -             | false  |
+| active   | 是否为选中态 | Boolean | -             | false  |
+| disabled | 是否为禁用态 | Boolean | -             | false  |
 
 ## Tag 事件
 
-| 微信小程序 | H5 | 事件名称 | 说明                               | 返回参数         |
-|:-----------|:---|:---------|:-----------------------------------|:-----------------|
-| √          | √  | onClick  | 点击标签时触发，返回标签名字和状态 | name, active |
+| 事件名称 | 说明                               | 返回参数         |
+|:---------|:-----------------------------------|:-----------------|
+| onClick  | 点击标签时触发，返回标签名字和状态 | name, active |

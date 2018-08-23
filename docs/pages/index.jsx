@@ -4,7 +4,6 @@ import { Link, NavLink } from 'react-router-dom'
 import PageHeader from '../components/header'
 import Footer from '../components/footer'
 import '../assets/style/index.scss'
-import '../assets/style/animate.css'
 
 class Index extends Nerv.Component {
   goToGuide (e) {

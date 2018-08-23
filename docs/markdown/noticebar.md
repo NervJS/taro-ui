@@ -2,7 +2,7 @@
 
 ---
 
-用于展示一行或多行通告
+用于展示一行或多行通告文字。
 
 ## 使用指南
 
@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtNoticebar from 'taro-ui'
+import { AtNoticebar } from 'taro-ui'
 ```
 :::
 
@@ -40,12 +40,12 @@ import AtNoticebar from 'taro-ui'
 
 ## Noticebar 参数
 
-| 微信小程序 | H5 | 参数     | 说明                              | 类型    | 可选值         | 默认值   |
-|:-----------|:---|:---------|:----------------------------------|:--------|:---------------|:---------|
-| √          | √  | close    | 是否需要关闭按钮                  | Boolean | -              | false    |
-| √          | √  | single   | 内容是否单行                      | Boolean | -              | false    |
-| √          | √  | marquee  | 内容是否滚动（内容只能单行）      | Boolean | -              | false    |
-| √          | √  | speed    | 内容滚动速度 （默认速度100px/秒） | Number  | -              | 100      |
-| √          | √  | moreText | “查看更多”链接文本                | String  | -              | 查看详情 |
-| √          | √  | moreUrl  | “查看更多”链接地址                | String  | -              | -        |
-| √          | √  | icon     | 内容前的icon图标                  | String  | 参考`icon`组件 | -        |
+| 参数     | 说明                              | 类型    | 可选值         | 默认值   |
+|:---------|:----------------------------------|:--------|:---------------|:---------|
+| close    | 是否需要关闭按钮                  | Boolean | -              | false    |
+| single   | 内容是否单行                      | Boolean | -              | false    |
+| marquee  | 内容是否滚动（内容只能单行）      | Boolean | -              | false    |
+| speed    | 内容滚动速度 （默认速度100px/秒） | Number  | -              | 100      |
+| moreText | “查看更多”链接文本                | String  | -              | 查看详情 |
+| moreUrl  | “查看更多”链接地址                | String  | -              | -        |
+| icon     | 内容前的icon图标                  | String  | 参考`icon`组件 | -        |

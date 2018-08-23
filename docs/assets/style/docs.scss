@@ -365,6 +365,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 
   &.fixed {
     position: fixed;
+    z-index: 100;
     top: 40px;
     right: 55px;
   }
@@ -452,6 +453,11 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 
     .code-image {
       margin: 12px auto;
+
+      canvas {
+        max-width: 150px;
+        max-height: 150px;
+      }
     }
   }
 

@@ -51,7 +51,7 @@ class PageHeader extends Nerv.Component {
                 <NavLink activeClassName='router-link-active' to='/docs/introduction'>组件</NavLink>
               </li>
               <li>
-                <a href='https://aotu.io/about/'>关于我们</a>
+                <a href='https://aotu.io/'>关于我们</a>
               </li>
             </ul>
           </div>
