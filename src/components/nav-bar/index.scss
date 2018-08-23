@@ -24,6 +24,7 @@ $spacing-h: 5PX;
 
   &__left_view {
     flex: 2;
+    font-size: 18PX;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -52,6 +53,7 @@ $spacing-h: 5PX;
   &__text {
     display: inline-block;
     font-size: 16PX;
+    height: 100%;
     padding-left: $spacing-h;
     vertical-align: middle;
     line-height: $line-height-base;
