@@ -2,6 +2,8 @@
 
 ---
 
+提供在移动端常见的 `宫格` 布局,帮助快速实现宫格效果
+
 ## 使用指南
 
 在 Taro 文件中引入组件
@@ -9,7 +11,7 @@
 :::demo
 
 ```js
-import { AtGrid } from "taro-ui";
+import { AtGrid } from "taro-ui"
 ```
 
 :::
@@ -92,7 +94,7 @@ import { AtGrid } from "taro-ui";
 
 | 参数      | 说明               | 类型                                | 可选值 | 默认值  |
 | --------- | ------------------ | ----------------------------------- | ------ | ------- |
-| data      | 宫格布局数据源     | Array[{'{ icon , value , image }'}] | -      | -       |
+| data      | 宫格布局数据源     | [{'{ icon? , value? , image? }'}]   | -      | -       |
 | mode      | 元素的标题         | String                              | -      | -       |
 | columnNum | 每一列有多少个     | Number                              | -      | -       |
-| onClick   | 点击宫格触发的时间 | (item: Object, index: number): void | -      | `false` |
+| onClick   | 点击宫格触发的事件 | (item: object, index: number): void | -      | `false` |

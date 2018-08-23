@@ -50,7 +50,7 @@ class Docs extends Nerv.Component {
     const reg = /\/\S+\/(\S+)/
     const result = pathname.match(reg)
     const curDemoPath = pathMap[result[1]] || ''
-    const curPageUrl = `${window.location.origin}/h5/index.html#/pages/${curDemoPath}/index`
+    const curPageUrl = `${window.location.origin}${window.location.pathname}/h5/index.html#/pages/${curDemoPath}/index`
 
     return (
       <div className='app' id='app'>
@@ -68,7 +68,7 @@ class Docs extends Nerv.Component {
                 <div className='qrcode-modal'>
                   <h6>扫描二维码查看演示效果</h6>
                   <div className='code-image'>
-                    <QRCode value="http://facebook.github.io/react/" size='140' />
+                    <QRCode value={curPageUrl} size='140' />
                   </div>
                 </div>
               </div>

@@ -76,7 +76,7 @@ export default class Index extends Taro.Component {
         <View className='logo'>
           <Image src={logoImg} className='img' mode='widthFix' />
         </View>
-        <View className='page-title'>Taro UI Weapp</View>
+        <View className='page-title'>Taro UI</View>
         <View className='module-list'>
           {list.map((item, index) => (
             <View

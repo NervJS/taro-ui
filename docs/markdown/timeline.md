@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import AtTimeline from 'taro-ui'
+import { AtTimeline } from 'taro-ui'
 ```
 :::
 
