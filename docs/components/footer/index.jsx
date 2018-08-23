@@ -9,10 +9,10 @@ const Footer = () => {
     <div className='footer-link-container'>
       <div className='footer-link'>
         <h3>相关资源</h3>
-        <p><a className='link' href="https://github.com/NervJS/taro">Taro</a> - 多端解决方案</p>
-        <p><a className='link' href="https://github.com/NervJS/nerv">Nerv</a> - 类 React 框架</p>
-        <p><a className='link' href="https://github.com/o2team/athena">Athena</a> - O2 前端流程工具</p>
-        <p><a className='link' href="https://github.com/AT-UI/at-ui">AT-UI</a> - Vue 组件库</p>
+        <p><a className='link' href="https://taro.aotu.io/">Taro</a> - 多端解决方案</p>
+        <p><a className='link' href="https://nerv.aotu.io/">Nerv</a> - 类 React 框架</p>
+        <p><a className='link' href="https://athena.aotu.io/">Athena</a> - O2 前端流程工具</p>
+        <p><a className='link' href="https://at.aotu.io/">AT-UI</a> - Vue 组件库</p>
       </div>
       <div className='footer-link'>
         <h3>社区</h3>

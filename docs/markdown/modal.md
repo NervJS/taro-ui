@@ -2,7 +2,7 @@
 
 ---
 
-提供一个简单的 `Modal` 框, 也可以作为 `Dialog (对话框)` 之类的组件使用 在页面上的层级为 `1000`
+提供一个简单的 `Modal` 框, 也可以作为 `Dialog (对话框)` 之类的组件使用，在页面上的层级为 `1000`
 
 ## 使用指南
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
+import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 ```
 
 :::

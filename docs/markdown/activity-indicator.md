@@ -2,7 +2,7 @@
 
 ---
 
-该组件提供一个加载等待元素,也就是Loading组件
+该组件提供一个加载等待元素,也就是 Loading 组件
 
 ## 使用指南
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtActivityIndicator } from "taro-ui"
+import { AtActivityIndicator } from 'taro-ui'
 ```
 
 :::

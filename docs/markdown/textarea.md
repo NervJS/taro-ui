@@ -1,4 +1,4 @@
-# Textarea 多行文本输入框
+# Textarea 多行文本框
 
 ---
 多行文本输入框，可控制是否显示当前字数，可自定义高度。
@@ -59,9 +59,9 @@ import { AtTextarea } from 'taro-ui'
 | autoFocus| 是否自动聚焦  | Boolean | - | false |
 | count | 是否显示字数  | Boolean | - | true |
 | fixed| 如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true  | Boolean | - | false|
-| textOverflowForbidden | 文字超出最大长度时是否禁止输入，若否，则还可以在maxlength的基础上输入500字符，并右下角红字提示  | Boolean | - | true |
+| textOverflowForbidden | 文字超出最大长度时是否禁止输入，若否，则还可以在 maxlength 的基础上输入500字符，并右下角红字提示  | Boolean | - | true |
 | height | 输入框高度  | Number | - | 100  |
-| cursorSpacing | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离，只在小程序端有效，目前安卓端微信官方有bug，该特性失效  | Number | - | 100  |
+| cursorSpacing | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离，只在小程序端有效，目前安卓端微信官方有 bug，该特性失效  | Number | - | 100  |
 
 ## 事件
 

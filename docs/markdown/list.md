@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtList, AtListItem } from "taro-ui"
+import { AtList, AtListItem } from 'taro-ui'
 ```
 
 :::
