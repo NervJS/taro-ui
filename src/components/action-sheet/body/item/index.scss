@@ -5,6 +5,8 @@
   padding: $spacing-v-lg $spacing-h-lg;
   font-size: $font-size-xl;
 
-  @include border-thin-bottom();
+  /* prettier-ignore */
+  @include border-thin-bottom($width: 1PX);
+
   @include line(1);
 }

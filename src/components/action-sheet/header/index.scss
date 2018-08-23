@@ -8,5 +8,6 @@
   text-align: center;
   line-height: $line-height-zh;
 
-  @include border-thin-bottom();
+  /* prettier-ignore */
+  @include border-thin-bottom($width: 1PX);
 }

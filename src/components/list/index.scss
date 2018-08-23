@@ -2,7 +2,8 @@
 @import "../../style/theme/default.scss";
 
 .at-list {
-  @include border-thin-top;
+  /* prettier-ignore */
+  @include border-thin-top($width: 1PX);
 
   position: relative;
   background-color: white;

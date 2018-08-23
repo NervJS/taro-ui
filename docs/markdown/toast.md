@@ -34,12 +34,14 @@ import { AtToast } from "taro-ui"
 
 ## AtToast 参数
 
-| 参数     | 说明                                     | 类型    | 可选值                        | 默认值  |
-| -------- | ---------------------------------------- | ------- | ----------------------------- | ------- |
-| text     | 元素的内容                               | String  | -                             | -       |
-| icon     | icon 的类型                              | String  | -                             | -       |
-| image    | 元素展示的图片                           | String  | -                             | -       |
-| status   | 元素的状态                               | String  | `error`, `loading`, `success` | -       |
-| isOpened | 是否展示元素                             | Boolean | -                             | `false` |
-| duration | 元素持续的事件                           | Number  | -                             | `3000`  |
-| hasMask  | 是否存在底部遮罩层(无法点击底部的内容区) | Boolean | -                             | -       |
+| 参数     | 说明                                     | 类型     | 可选值                        | 默认值  |
+| -------- | ---------------------------------------- | -------- | ----------------------------- | ------- |
+| text     | 元素的内容                               | String   | -                             | -       |
+| icon     | icon 的类型                              | String   | -                             | -       |
+| image    | 元素展示的图片                           | String   | -                             | -       |
+| status   | 元素的状态                               | String   | `error`, `loading`, `success` | -       |
+| isOpened | 是否展示元素                             | Boolean  | -                             | `false` |
+| duration | 元素持续的事件                           | Number   | -                             | `3000`  |
+| hasMask  | 是否存在底部遮罩层(无法点击底部的内容区) | Boolean  | -                             | -       |
+| onClick  | 元素被点击之后触发的事件                 | Function | -                             | -       |
+| onClose  | 元素被关闭之后触发的事件                 | Function | -                             | -       |

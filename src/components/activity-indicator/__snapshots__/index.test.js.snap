@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActivityIndicator Snap render ActivityIndicator -- props color 1`] = `"<div class=\\"at-activity-indicator\\"><div class=\\"at-activity-indicator__body\\"><span style=\\"font-size:24px;color:#13CE66;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div>undefined</div>"`;
+
+exports[`ActivityIndicator Snap render ActivityIndicator -- props content  1`] = `"<div class=\\"at-activity-indicator\\"><div class=\\"at-activity-indicator__body\\"><span style=\\"font-size:24px;color:#6190E8;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><span class=\\"taro-text at-activity-indicator__content\\">加载中...</span></div>"`;
+
+exports[`ActivityIndicator Snap render ActivityIndicator -- props mode  1`] = `"<div class=\\"at-activity-indicator at-activity-indicator--center\\"><div class=\\"at-activity-indicator__body\\"><span style=\\"font-size:24px;color:#6190E8;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div>undefined</div>"`;
+
+exports[`ActivityIndicator Snap render ActivityIndicator -- props size 1`] = `"<div class=\\"at-activity-indicator\\"><div class=\\"at-activity-indicator__body\\"><span style=\\"font-size:32px;color:#6190E8;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div>undefined</div>"`;
+
+exports[`ActivityIndicator Snap render initial ActivityIndicator 1`] = `"<div class=\\"at-activity-indicator\\"><div class=\\"at-activity-indicator__body\\"><span style=\\"font-size:24px;color:#6190E8;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div>undefined</div>"`;

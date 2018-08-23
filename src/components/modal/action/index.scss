@@ -2,7 +2,8 @@
 @import "../../../style/theme/default";
 
 .at-modal-footer {
-  @include border-thin-top($color-grey-4);
+  /* prettier-ignore */
+  @include border-thin-top($color:$color-grey-4,$width: 1PX);
 
   .at-modal-action {
     @include display-flex;
@@ -28,7 +29,8 @@
       }
 
       &:not(:first-child) {
-        @include border-thin-left($color-grey-4);
+        /* prettier-ignore */
+        @include border-thin-left($color: $color-grey-4,$width:1PX);
       }
 
       &:first-child:last-child {
