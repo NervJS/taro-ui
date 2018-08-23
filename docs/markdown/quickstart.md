@@ -33,7 +33,7 @@ $ npm i taro-ui
 在代码中 `import` 组件并按照文档说明进行使用
 
 ```js
-import { AtInput } from 'taro-ui'
+import { AtButton } from 'taro-ui'
 ```
 
 ## 示例
@@ -43,36 +43,17 @@ import { AtInput } from 'taro-ui'
 ```jsx
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtInput, AtForm } from 'taro-ui'
+import { AtButton } from 'taro-ui'
 import './index.scss'
 
 export default class Index extends Component {
   config: Config = {
     navigationBarTitleText: '首页'
   }
-  constructor() {
-    super(...arguments)
-    this.state = {
-      inputValue: ''
-    }
-  }
-  handleChange(value) {
-    this.setState({ 'inputValue' : value })
-  }
   render () {
     return (
       <View className='index'>
-        <AtForm>
-          <AtInput
-            border={false}
-            name='value'
-            title='标准五个字'
-            type='text'
-            placeholder='标准五个字'
-            value={this.state.inputValue}
-            onChange={this.handleChange.bind(this)}
-          />
-        </AtForm>
+         <AtButton type='primary'>按钮文案</AtButton>
       </View>
     )
   }
