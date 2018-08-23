@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import AtIcon from '../../components/icon/index'
 import './index.scss'
 
-Taro.initNativeApi(Taro)
 /**
  * @author:chenzeji
  * @description 数字输入框
