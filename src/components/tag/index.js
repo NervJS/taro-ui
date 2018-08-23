@@ -30,7 +30,7 @@ export default class AtTag extends Taro.Component {
         active,
       })
       // debugger
-      this.props.onClick({ name: this.props.name, active })
+      this.props.onClick && this.props.onClick({ name: this.props.name, active })
     }
   }
 

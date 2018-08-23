@@ -21,6 +21,7 @@ export default class BadgePage extends Taro.Component {
   /** eslint-disable */
   render () {
     const dot = '···'
+
     return (
       <View className='page'>
         {/* S Header */}

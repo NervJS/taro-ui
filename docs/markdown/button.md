@@ -18,8 +18,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```html
-<AtButton type="primary">按钮文案</AtButton>
-<AtButton type="secondary">按钮文案</AtButton>
+<AtButton type='primary'>按钮文案</AtButton>
+<AtButton type='secondary'>按钮文案</AtButton>
 <AtButton>按钮文案</AtButton>
 ```
 :::
@@ -28,8 +28,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```html
-<AtButton type="primary" size="normal">按钮文案</AtButton>
-<AtButton type="primary" size="small">按钮文案</AtButton>
+<AtButton type='primary' size='normal'>按钮文案</AtButton>
+<AtButton type='primary' size='small'>按钮文案</AtButton>
 ```
 :::
 
@@ -37,8 +37,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```html
-<AtButton icon="clock" type="primary" size="normal">按钮文案</AtButton>
-<AtButton loading type="primary">按钮文案</AtButton>
+<AtButton icon='clock' type='primary' size='normal'>按钮文案</AtButton>
+<AtButton loading type='primary'>按钮文案</AtButton>
 ```
 :::
 

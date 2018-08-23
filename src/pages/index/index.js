@@ -61,6 +61,14 @@ export default class Index extends Taro.Component {
     }
   }
 
+  onShareAppMessage () {
+    return {
+      title: 'Taro UI',
+      path: '/pages/index/index',
+      imageUrl: 'http://storage.360buyimg.com/mtd/home/share1535013100318.jpg'
+    }
+  }
+
   gotoPanel = e => {
     const { id } = e.currentTarget.dataset
     Taro.navigateTo({

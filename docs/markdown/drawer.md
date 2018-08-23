@@ -18,7 +18,12 @@ import { AtDrawer } from 'taro-ui'
 
 :::demo
 ```html
-<AtDrawer show={this.state.show} mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}></AtDrawer>
+<AtDrawer 
+  show={this.state.show} 
+  mask 
+  onClose={this.onClose.bind(this)} 
+  items={['菜单1', '菜单2']}
+></AtDrawer>
 ```
 :::
 
@@ -26,7 +31,13 @@ import { AtDrawer } from 'taro-ui'
 
 :::demo
 ```html
-<AtDrawer show={this.state.show} right mask onClose={this.onClose.bind(this)} items={['菜单1', '菜单2']}></AtDrawer>
+<AtDrawer 
+  show={this.state.show} 
+  right 
+  mask 
+  onClose={this.onClose.bind(this)} 
+  items={['菜单1', '菜单2']}
+></AtDrawer>
 ```
 :::
 

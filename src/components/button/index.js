@@ -27,7 +27,7 @@ export default class AtButton extends Taro.Component {
 
   onClick () {
     if (!this.props.disabled) {
-      this.props.onClick(...arguments)
+      this.props.onClick && this.props.onClick(...arguments)
     }
   }
 

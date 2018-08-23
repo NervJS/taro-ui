@@ -26,7 +26,9 @@ import { AtNoticebar } from 'taro-ui'
 
 :::demo
 ```html
-<AtNoticebar marquee>这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+<AtNoticebar marquee>
+  这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏
+</AtNoticebar>
 ```
 :::
 
@@ -34,7 +36,9 @@ import { AtNoticebar } from 'taro-ui'
 
 :::demo
 ```html
-<AtNoticebar icon='volume-plus'>这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏</AtNoticebar>
+<AtNoticebar icon='volume-plus'>
+  这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏
+</AtNoticebar>
 ```
 :::
 

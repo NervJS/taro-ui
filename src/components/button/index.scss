@@ -45,6 +45,23 @@ $at-button-height-sm: 60px;
     border: 1PX solid rgba(92, 137, 228, 1);
   }
 
+  &__icon {
+    margin: 0 20px;
+    display: inline-block;
+    font-size: $font-size-base;
+    animation: loading-rotate 1s linear infinite;
+  }
+
+  &--circle {
+    border-radius: 100px;
+    overflow: hidden;
+    background-clip: border-box;
+  }
+
+  &__text {
+    display: inline;
+  }
+
   &--small {
     display: inline-block;
     padding: 0 $spacing-h-md;
@@ -54,22 +71,10 @@ $at-button-height-sm: 60px;
     height: $at-button-height-sm;
     font-size: $font-size-base;
     line-height: $at-button-height-sm - 2;
-  }
 
-  &--circle {
-    border-radius: 100px;
-    overflow: hidden;
-    background-clip: border-box;
-  }
-
-  &__icon {
-    margin: 0 20px;
-    display: inline-block;
-    animation: loading-rotate 1s linear infinite;
-  }
-
-  &__text {
-    display: inline;
+    .at-button__icon {
+      font-size: $font-size-base;
+    }
   }
 }
 

@@ -31,10 +31,10 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__title'>主操作</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton type='primary'>主操作按钮</AtButton>
+                <AtButton type='primary' onClick={this.onButtonClick.bind(this)}>主操作按钮</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='primary' loading>Loading</AtButton>
+                <AtButton type='primary' loading onClick={this.onButtonClick.bind(this)}>Loading</AtButton>
               </View>
               <View className='btn-item'>
                 <AtButton type='primary' disabled>不可操作</AtButton>

@@ -45,6 +45,17 @@ export default class ModalPage extends Taro.Component {
     })
   }
 
+  closeModalConfirm = (type, msg) => {
+    this.setState({
+      [`isOpened${type}`]: false
+    })
+
+    Taro.showToast({
+      icon: 'none',
+      title: msg
+    })
+  }
+
   render () {
     const { isOpened1, isOpened2, isOpened3, isOpened4 } = this.state
 
@@ -166,7 +177,7 @@ export default class ModalPage extends Taro.Component {
           confirmText='确认'
           content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
           onCancle={this.closeModal.bind(this, 4, '点击了取消')}
-          onConfirm={this.closeModal.bind(this, 4, '点击了确认')}
+          onConfirm={this.closeModalConfirm.bind(this, 4, '点击了确认')}
         />
       </View>
     )
