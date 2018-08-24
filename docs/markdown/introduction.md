@@ -16,6 +16,12 @@ Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开�
 - 一套组件可以在 `微信小程序`，`H5`，`ReactNative` 等多端适配运行
 - 提供友好的 API，可灵活的使用组件
 
+## 体验
+
+使用微信扫一扫体验 `小程序` 和 `H5` 组件示例
+
+![QRCode](https://user-images.githubusercontent.com/1240899/44578175-8b2a4800-a7c5-11e8-9ab0-000e25488059.jpg)
+
 ## 版本
 
 `Taro-UI`：[![npm version](https://badge.fury.io/js/taro-ui.svg)](https://badge.fury.io/js/taro-ui)

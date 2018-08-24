@@ -16,9 +16,15 @@ Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开�
 
 使用 Taro，我们可以只书写一套代码，再通过 Taro 的编译工具，将源代码分别编译出可以在不同端（微信小程序、H5、RN等）运行的代码。
 
+## 体验
+
+请使用微信扫一扫以下体验码
+
+![QRCode](https://user-images.githubusercontent.com/1240899/44578175-8b2a4800-a7c5-11e8-9ab0-000e25488059.jpg)
+
 ## 相关链接
 
-- [主页](https://taro-ui.aotu.io)
+- [Taro UI 使用文档](https://taro-ui.aotu.io)
 - [Taro](https://taro.aotu.io/)
 
 ## 安装
