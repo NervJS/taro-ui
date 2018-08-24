@@ -37,5 +37,6 @@ $badge-dot-size: 20px;
     overflow: hidden;
     background: $color-error;
     box-shadow: $badge-box-shadow;
+    z-index: 1;
   }
 }
