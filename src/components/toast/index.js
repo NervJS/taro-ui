@@ -90,8 +90,8 @@ export default class AtToast extends Taro.Component {
     const { isOpened } = this.state
     const { text, icon, status, image, hasMask } = this.props
 
-    const realImg = image || statusImg[status]
-    const isRenderIcon = icon && !(image || statusImg[status])
+    const realImg = image || statusImg[status] || null
+    const isRenderIcon = !!(icon && !(image || statusImg[status]))
 
     const rootClass = ['toast-body']
 
