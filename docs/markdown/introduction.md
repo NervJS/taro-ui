@@ -20,7 +20,7 @@ Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开�
 
 使用微信扫一扫体验 `小程序` 和 `H5` 组件示例
 
-![QRCode](https://user-images.githubusercontent.com/1240899/44578175-8b2a4800-a7c5-11e8-9ab0-000e25488059.jpg)
+![QRCode](https://user-images.githubusercontent.com/1240899/44580574-fe838800-a7cc-11e8-890d-73cf048ef8c2.jpg)
 
 ## 版本
 
