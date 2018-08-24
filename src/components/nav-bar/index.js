@@ -40,10 +40,18 @@ class AtNavBar extends Taro.Component {
       </View>
       <View className='at-nav-bar__title'>{title}</View>
       <View className='at-nav-bar__right_view'>
-        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickNd.bind(this)}>
+        <View
+          className={rightSecondIconType ? 'at-nav-bar__container' : 'at-nav-bar__container--hide'}
+          style={linkStyle}
+          onClick={this.handleClickNd.bind(this)}
+        >
           <AtIcon value={rightSecondIconType} />
         </View>
-        <View className='at-nav-bar__container' style={linkStyle} onClick={this.handleClickSt.bind(this)}>
+        <View
+          className={rightFirstIconType ? 'at-nav-bar__container' : 'at-nav-bar__container--hide'}
+          style={linkStyle}
+          onClick={this.handleClickSt.bind(this)}
+        >
           <AtIcon value={rightFirstIconType} />
         </View>
       </View>

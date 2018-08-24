@@ -1,4 +1,4 @@
-# Article 文章页样式
+# Article 文章样式
 
 ---
 

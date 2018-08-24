@@ -25,10 +25,10 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item'>A</View>
-  <View className='at-flex__item'>B</View>
-  <View className='at-flex__item'>C</View>
+<View className='at-row'>
+  <View className='at-col'>A</View>
+  <View className='at-col'>B</View>
+  <View className='at-col'>C</View>
 </View>
 ```
 
@@ -39,11 +39,11 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item at-flex__item-size--3'>A</View>
-  <View className='at-flex__item at-flex__item-size--6'>B</View>
-  <View className='at-flex__item at-flex__item-size--2'>C</View>
-  <View className='at-flex__item at-flex__item-size--1'>D</View>
+<View className='at-row'>
+  <View className='at-col at-col-3'>A</View>
+  <View className='at-col at-col-6'>B</View>
+  <View className='at-col at-col-2'>C</View>
+  <View className='at-col at-col-1'>D</View>
 </View>
 ```
 
@@ -54,14 +54,14 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item at-flex__item-offset--2'>
+<View className='at-row'>
+  <View className='at-col at-col-offset--2'>
     A
   </View>
-  <View className='at-flex__item at-flex__item-offset--3'>
+  <View className='at-col at-col-offset--3'>
     B
   </View>
-  <View className='at-flex__item'>C</View>
+  <View className='at-col'>C</View>
 </View>
 ```
 
@@ -72,12 +72,12 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex at-flex__wrap--wrap'>
-  <View className='at-flex__item at-flex__item-size--4'>A</View>
-  <View className='at-flex__item at-flex__item-size--4'>B</View>
-  <View className='at-flex__item at-flex__item-size--4'>C</View>
-  <View className='at-flex__item at-flex__item-size--4'>D</View>
-  <View className='at-flex__item at-flex__item-size--4'>E</View>
+<View className='at-row at-row--wrap'>
+  <View className='at-col at-col-4'>A</View>
+  <View className='at-col at-col-4'>B</View>
+  <View className='at-col at-col-4'>C</View>
+  <View className='at-col at-col-4'>D</View>
+  <View className='at-col at-col-4'>E</View>
 </View>
 ```
 
@@ -88,11 +88,11 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item at-flex__item-size--1 at-flex__item--auto'>
+<View className='at-row'>
+  <View className='at-col at-col-1 at-col--auto'>
     被内容撑开
   </View>
-  <View className='at-flex__item'>B</View>
+  <View className='at-col'>B</View>
 </View>
 ```
 
@@ -103,11 +103,11 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item at-flex__item-size--1 at-flex__item--wrap'>
-    被内容撑开
+<View className='at-row'>
+  <View className='at-col at-col-1 at-col--wrap'>
+    内容自动换行
   </View>
-  <View className='at-flex__item'>B</View>
+  <View className='at-col'>B</View>
 </View>
 ```
 
@@ -118,21 +118,21 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View style='height:100px' className='at-flex__item'>A</View>
-  <View className='at-flex__item'>默认对齐方式 -- stretch</View>
+<View className='at-row'>
+  <View style='height:100px' className='at-col'>A</View>
+  <View className='at-col'>默认对齐方式 -- stretch</View>
 </View>
-<View className='at-flex at-flex__align--start'>
-  <View style='height:100px' className='at-flex__item'>B</View>
-  <View className='at-flex__item'>顶部对齐 -- start</View>
+<View className='at-row at-row__align--start'>
+  <View style='height:100px' className='at-col'>B</View>
+  <View className='at-col'>顶部对齐 -- start</View>
 </View>
-<View className='at-flex at-flex__align--center'>
-  <View style='height:100px' className='at-flex__item'>C</View>
-  <View className='at-flex__item'>居中对齐 -- center</View>
+<View className='at-row at-row__align--center'>
+  <View style='height:100px' className='at-col'>C</View>
+  <View className='at-col'>居中对齐 -- center</View>
 </View>
-<View className='at-flex at-flex__align--end'>
-  <View style='height:100px' className='at-flex__item'>D</View>
-  <View className='at-flex__item'>底部对齐 -- end</View>
+<View className='at-row at-row__align--end'>
+  <View style='height:100px' className='at-col'>D</View>
+  <View className='at-col'>底部对齐 -- end</View>
 </View>
 ```
 
@@ -143,26 +143,25 @@ if (process.env.TARO_ENV === "weapp") {
 :::demo
 
 ```html
-<View className='at-flex'>
-  <View className='at-flex__item at-flex__item-size--5'>默认</View>
-  <View className='at-flex__item at-flex__item-size--5'>Start</View>
+<View className='at-row'>
+  <View className='at-col at-col-5'>默认</View>
+  <View className='at-col at-col-5'>Start</View>
 </View>
-<View className='at-flex at-flex__justify--end'>
-  <View className='at-flex__item at-flex__item-size--5'>底部排列</View>
-  <View className='at-flex__item at-flex__item-size--5'>End</View>
+<View className='at-row at-row__justify--end'>
+  <View className='at-col at-col-5'>底部排列</View>
+  <View className='at-col at-col-5'>End</View>
 </View>
-<View className='at-flex at-flex__justify--center'>
-  <View className='at-flex__item at-flex__item-size--5'>居中排列</View>
-  <View className='at-flex__item at-flex__item-size--5'>Center</View>
+<View className='at-row at-row__justify--center'>
+  <View className='at-col at-col-5'>居中排列</View>
+  <View className='at-col at-col-5'>Center</View>
 </View>
-<View className='at-flex at-flex__justify--between'>
-  <View className='at-flex__item at-flex__item-size--5'>左右排列</View>
-  <View className='at-flex__item at-flex__item-size--5'>Between</View>
+<View className='at-row at-row__justify--between'>
+  <View className='at-col at-col-5'>左右排列</View>
+  <View className='at-col at-col-5'>Between</View>
 </View>
-<View className='at-flex at-flex__justify--around'>
-  <View className='at-flex__item at-flex__item-size--5'>平均排列</View>
-  <View className='at-flex__item at-flex__item-size--5'>Around</View>
+<View className='at-row at-row__justify--around'>
+  <View className='at-col at-col-5'>平均排列</View>
+  <View className='at-col at-col-5'>Around</View>
 </View>
 ```
-
 :::

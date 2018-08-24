@@ -70,5 +70,10 @@ $font-size: 18PX;
     box-sizing: border-box;
     padding: $spacing-v $spacing-h;
     @include active;
+
+    &--hide {
+      display: inline-block;
+      visibility: hidden;
+    }
   }
 }

@@ -57,4 +57,4 @@ import { AtButton } from 'taro-ui'
 
 | 事件名称 | 说明           | 返回参数  |
 |:---------|:---------------|:----------|
-| onClick  | 点击按钮时触发 | event对象 |
+| onClick  | 点击按钮时触发 | event 对象 |

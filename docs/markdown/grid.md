@@ -1,4 +1,4 @@
-# Grid 宫格布局
+# Grid 栅格布局
 
 ---
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtGrid } from "taro-ui"
+import { AtGrid } from 'taro-ui'
 ```
 
 :::

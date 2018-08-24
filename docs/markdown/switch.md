@@ -45,4 +45,4 @@ import { AtForm, AtSwitch } from 'taro-ui'
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onChange | 输入框值改变时触发的事件 | 当前值value  |
+| onChange | 输入框值改变时触发的事件 | 当前值 value  |

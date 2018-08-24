@@ -2,7 +2,7 @@
 
 ---
 
-提供一个简单的 `Toast`, 可以传入 `icon` `image` 来展示不同的效果, 另外提供日常使用频繁的三种状态来快速实现效果 页面层级为`1090`
+提供一个简单的 `Toast`, 可以传入 `icon` `image` 来展示不同的效果, 另外提供日常使用频繁的三种状态来快速实现效果，页面层级为`1090`
 
 ## 使用指南
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtToast } from "taro-ui"
+import { AtToast } from 'taro-ui'
 ```
 
 :::

@@ -2,7 +2,7 @@
 
 ---
 
-该组件提供了一种多端统一的 `动作面板` 样式与 `IOS` 对齐 在页面上的层级为 `1010`
+该组件提供了一种多端统一的 `动作面板` 样式与 `IOS` 对齐，在页面上的层级为 `1010`
 
 ## 使用指南
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtActionSheet, AtActionSheetItem } from "taro-ui"
+import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 ```
 
 :::

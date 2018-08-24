@@ -1,63 +1,58 @@
 # Taro UI
 
-## 开发引导
+[![NPM][npm-version-image]][npm-version-url] [![david-dm][david-dm-image]][david-dm-url]
 
-### 目录结构
+一款基于 `Taro` 框架开发的多端 UI 组件库
 
-```tree
-.
-├── config  # Taro 项目配置
-│   ├── dev.js
-│   ├── index.js
-│   └── prod.js
-├── dist # Taro 部署目录
-├── src # 开发目录
-│   ├── components # Taro UI 组件
-│   │   ├── activity-indicator
-│   │   │   ├── index.js
-│   │   │   └── index.scss
-│   │   └── modal
-│   │       ├── index.js
-│   │       └── index.scss
-│   ├── pages # Taro UI 页面 用于演示
-│   │   ├── action # 触摸反馈 演示页面
-│   │   │   ├── action-sheet
-│   │   │   │   ├── index.js
-│   │   │   │   └── index.scss
-│   │   │   ├── activity-indicator
-│   │   │   │   ├── index.js
-│   │   │   │   └── index.scss
-│   │   │   ├── modal
-│   │   │   │   ├── index.js
-│   │   │   │   └── index.scss
-│   │   │   ├── progress
-│   │   │   │   ├── index.js
-│   │   │   │   └── index.scss
-│   │   │   └── toast
-│   │   │       ├── index.js
-│   │   │       └── index.scss
-│   │   └── index # 入口页面
-│   │       ├── index.js
-│   │       └── index.scss
-│   ├── style # Taro UI 公用SCSS文件
-│   │   ├── global.scss # Taro UI 全局样式
-│   │   ├── mixins.scss
-│   │   └── variables.scss
-│   ├── theme # 主题包
-│   │   ├── assertive.scss
-│   │   └── balance.scss
-│   ├── app.js # 入口文件
-│   ├── app.scss # 演示页面的全局变量
-│   └── index.html
-├── LICENSE
-├── README.md
-├── gulpfile.js
-├── package.json
-├── project.config.json
+## 特性
+
+- 基于 `Taro` 开发 UI 组件
+- 一套组件可以在 `微信小程序`，`H5`，`ReactNative` 等多端适配运行
+- 提供友好的 API，可灵活的使用组件
+
+## 关于 Taro
+
+Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开发解决方案。现如今市面上端的形态多种多样，Web、ReactNative、微信小程序等各种端大行其道，当业务要求同时在不同的端都要求有所表现的时候，针对不同的端去编写多套代码的成本显然非常高，这时候只编写一套代码就能够适配到多端的能力就显得极为需要。
+
+使用 Taro，我们可以只书写一套代码，再通过 Taro 的编译工具，将源代码分别编译出可以在不同端（微信小程序、H5、RN等）运行的代码。
+
+## 相关链接
+
+- [主页](https://taro-ui.aotu.io)
+- [Taro](https://taro.aotu.io/)
+
+## 安装
+
+需要安装 `Taro` 开发工具 `@tarojs/cli`
+
+```bash
+npm install -g @tarojs/cli
 ```
 
-### 一些规范
+然后在项目中安装 Taro UI
 
-- 组件的 CSS 命名统一使用 `${block-name}__${element-name}--${modifier-name}`,`Taro UI` 组件需要加上 `at-` 的前缀
-- 按照预期 只要执行 `gulpfile` 文件里 `theme`就可以生成需要的主题文件,`sass`用于处理 Taro 项目下无法编译出 css 文件的问题
-- 为了避免组件与基础组件冲突 组件的名称也需要加上 `At` 前缀
+```bash
+npm install taro-ui
+```
+
+## 使用
+
+在代码中 `import` 需要的组件并按照文档说明使用
+
+```js
+import { AtButton } from 'taro-ui'
+```
+
+## 贡献
+
+如果你在使用 `Taro UI` 时遇到问题，或者有好的建议，欢迎给我们提 `Issue` 或 `Pull Request`。在开始之前，请阅读 [贡献指南](https://github.com/NervJS/taro-ui/blob/master/.github/CONTRIBUTING.md)
+
+## License
+
+MIT
+
+
+[npm-version-image]: https://img.shields.io/npm/v/taro-ui.svg?style=flat-square
+[npm-version-url]: https://www.npmjs.com/package/taro-ui
+[david-dm-image]: https://david-dm.org/NervJS/taro-ui.svg?style=flat-square
+[david-dm-url]: https://david-dm.org/NervJS/taro-ui

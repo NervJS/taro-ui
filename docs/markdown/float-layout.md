@@ -1,4 +1,4 @@
-# FloatLayout 浮动布局
+# FloatLayout 浮动弹层
 
 ---
 
@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtFloatLayout } from "taro-ui";
+import { AtFloatLayout } from 'taro-ui'
 ```
 
 :::
