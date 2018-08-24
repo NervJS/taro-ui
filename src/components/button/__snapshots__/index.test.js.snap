@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtButton Snap render AtButton -- props circle 1`] = `"<div class=\\"at-button at-button--normal at-button--circle\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props disabled 1`] = `"<div class=\\"at-button at-button--normal at-button--disabled\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props loading 1`] = `"<div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><span style=\\"font-size:20px;color:;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props size(normal) 1`] = `"<div class=\\"at-button at-button--normal\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props size(small) 1`] = `"<div class=\\"at-button at-button--small\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props type(primary) 1`] = `"<div class=\\"at-button at-button--normal at-button--primary\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+
+exports[`AtButton Snap render AtButton -- props type(secondary) 1`] = `"<div class=\\"at-button at-button--normal at-button--secondary\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
