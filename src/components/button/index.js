@@ -2,7 +2,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
-import AtIcon from '../icon/index'
+import AtLoading from '../loading/index'
 
 import './index.scss'
 
@@ -47,10 +47,11 @@ export default class AtButton extends Taro.Component {
 
     rootClassName.push(`at-button--${sizeClass}`, typeClass, circleClass, disabledClass)
     rootClassName = rootClassName.filter(str => str !== '')
-
+    const loadingColor = type === 'primary' ? '#fff' : '#6190E8'
+    const loadingSize = size === 'small' ? '16' : '18'
     let component
     if (loading) {
-      component = <View className='at-button__icon'><AtIcon value='loading' size='20'></AtIcon></View>
+      component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>
       rootClassName.push('at-button--icon')
     }
 

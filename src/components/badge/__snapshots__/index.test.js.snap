@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtBadge Snap render AtBadge -- props dot 1`] = `"<div class=\\"at-badge\\"><div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><span style=\\"font-size:20px;color:;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><div class=\\"at-button__text\\">按钮文字</div></div><div class=\\"at-badge__dot\\"></div></div>"`;
+
+exports[`AtBadge Snap render AtBadge -- props maxValue 1`] = `"<div class=\\"at-badge\\"><div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><span style=\\"font-size:20px;color:;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><div class=\\"at-button__text\\">按钮文字</div></div><div class=\\"at-badge__num\\">9+</div></div>"`;
+
+exports[`AtBadge Snap render AtBadge -- props value 1`] = `"<div class=\\"at-badge\\"><div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><span style=\\"font-size:20px;color:;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><div class=\\"at-button__text\\">按钮文字</div></div><div class=\\"at-badge__num\\">3</div></div>"`;
