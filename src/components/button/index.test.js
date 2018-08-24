@@ -51,4 +51,14 @@ describe('AtButton Event', () => {
     Simulate.click(componentDom)
     expect(onClick).toBeCalled()
   })
+
+  it('AtButton disabled, onClick not to be called', () => {
+    const onClick = jest.fn()
+
+    const component = renderIntoDocument(<AtButton disabled onClick={onClick}>按钮</AtButton>)
+    const componentDom = findDOMNode(component, 'at-button')
+
+    Simulate.click(componentDom)
+    expect(onClick).not.toBeCalled()
+  })
 })

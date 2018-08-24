@@ -4,7 +4,7 @@ exports[`AtButton Snap render AtButton -- props circle 1`] = `"<div class=\\"at-
 
 exports[`AtButton Snap render AtButton -- props disabled 1`] = `"<div class=\\"at-button at-button--normal at-button--disabled\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props loading 1`] = `"<div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><span style=\\"font-size:20px;color:;\\" class=\\"taro-text at-icon at-icon-loading\\"></span></div><div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props loading 1`] = `"<div class=\\"at-button at-button--normal at-button--icon\\"><div class=\\"at-button__icon\\"><div style=\\"width:18px;height:18px;\\" class=\\"at-loading\\"><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div></div></div><div class=\\"at-button__text\\">按钮</div></div>"`;
 
 exports[`AtButton Snap render AtButton -- props size(normal) 1`] = `"<div class=\\"at-button at-button--normal\\">undefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
