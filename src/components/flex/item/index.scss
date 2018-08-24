@@ -1,7 +1,7 @@
 @import "../../../style/mixins/index.scss";
 @import "../../../style/theme/default.scss";
 
-.at-flex__item {
+.at-col {
   @include flex(1);
 
   width: 100%;
@@ -12,20 +12,18 @@
   @for $col from 1 through 12 {
     $width: ($col / 12) * 100%;
 
-    &-size {
-      &--#{$col} {
-        @include flex(0, 0, $width);
+    &-#{$col} {
+      @include flex(0, 0, $width);
 
-        max-width: $width;
-      }
+      max-width: $width;
     }
 
-    &-offset--#{$col} {
+    &__offset-#{$col} {
       margin-left: $width;
     }
   }
 
-  &-align {
+  &__align {
     &--top {
       @include align-self(flex-start);
     }

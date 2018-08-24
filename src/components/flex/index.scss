@@ -1,7 +1,7 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
-.at-flex {
+.at-row {
   @include display-flex();
 
   width: 100%;
@@ -21,20 +21,6 @@
 
     &--column-reverse {
       flex-direction: column-reverse;
-    }
-  }
-
-  &__wrap {
-    &--no-wrap {
-      @include flex-wrap(nowrap);
-    }
-
-    &--wrap {
-      @include flex-wrap(wrap);
-    }
-
-    &--wrap-reverse {
-      @include flex-wrap(wrap-reverse);
     }
   }
 
@@ -106,5 +92,17 @@
     &--stretch {
       @include align-content(stretch);
     }
+  }
+
+  &--no-wrap {
+    @include flex-wrap(nowrap);
+  }
+
+  &--wrap {
+    @include flex-wrap(wrap);
+  }
+
+  &--wrap-reverse {
+    @include flex-wrap(wrap-reverse);
   }
 }
