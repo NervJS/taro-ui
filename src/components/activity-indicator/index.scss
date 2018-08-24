@@ -1,18 +1,9 @@
 @import "../../style/mixins/index.scss";
 @import "../../style/theme/default.scss";
 
-@keyframes atRotate {
-  0% {
-    transform: rotate(-90deg);
-  }
-
-  100% {
-    transform: rotate(270deg);
-  }
-}
-
 .at-activity-indicator {
-  display: inline-block;
+  @include display-flex();
+
   line-height: $line-height-base;
 
   &--center {
@@ -20,14 +11,17 @@
   }
 
   &__body {
+    @include flex(0, 0, auto);
+
     line-height: 0;
-    display: inline-block;
-    animation: atRotate 1350ms linear infinite;
   }
 
   &__content {
+    @include flex(0, 0, auto);
+    @include align-self(center);
+
     font-size: 28px;
-    margin-left: 16px;
+    margin-left: $spacing-h-lg;
     color: $color-grey-2;
   }
 }

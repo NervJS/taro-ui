@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 
-import AtIcon from '../icon/index'
+import AtLoading from '../loading/index'
 
 import './index.scss'
 
@@ -20,7 +20,7 @@ export default class AtActivityIndicator extends Taro.Component {
     return (
       <View className={rootClassName}>
         <View className='at-activity-indicator__body'>
-          <AtIcon value='loading' size={size} color={color} />
+          <AtLoading size={size} color={color} />
         </View>
         {content && (
           <Text className='at-activity-indicator__content'>{content}</Text>
