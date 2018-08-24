@@ -5,6 +5,8 @@ $at-button-height: 92px;
 $at-button-height-sm: 60px;
 
 .at-button {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   padding: 0 $spacing-h-xl;
   height: $at-button-height;
@@ -46,10 +48,8 @@ $at-button-height-sm: 60px;
   }
 
   &__icon {
-    margin: 0 20px;
+    margin: 2PX 20px 0 20px;
     display: inline-block;
-    font-size: $font-size-base;
-    animation: loading-rotate 1s linear infinite;
   }
 
   &--circle {
@@ -71,15 +71,5 @@ $at-button-height-sm: 60px;
     height: $at-button-height-sm;
     font-size: $font-size-base;
     line-height: $at-button-height-sm - 2;
-
-    .at-button__icon {
-      font-size: $font-size-base;
-    }
-  }
-}
-
-@keyframes loading-rotate {
-  100% {
-    transform: rotate(360deg);
   }
 }
