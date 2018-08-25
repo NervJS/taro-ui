@@ -83,8 +83,9 @@ AtGrid.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string,
+      image: PropTypes.string,
       value: PropTypes.string,
-      iconSize: PropTypes.string,
+      iconSize: PropTypes.number,
       iconColor: PropTypes.string
     })
   )

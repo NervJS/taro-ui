@@ -1,4 +1,6 @@
 /* eslint taro/custom-component-children: 0 */
+
+
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
@@ -63,7 +65,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 1)}>打开 ActionSheet</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, 1)}>
+                  打开 ActionSheet
+                </AtButton>
               </View>
             </View>
           </View>
@@ -73,7 +77,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>含标题</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 2)}>打开 ActionSheet</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, 2)}>
+                  打开 ActionSheet
+                </AtButton>
               </View>
             </View>
           </View>
@@ -83,7 +89,9 @@ export default class ActionSheetPage extends Taro.Component {
             <View className='panel__title'>自定义选项</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 3)}>打开 ActionSheet</AtButton>
+                <AtButton onClick={this.handleClick.bind(this, 3)}>
+                  打开 ActionSheet
+                </AtButton>
               </View>
             </View>
           </View>
