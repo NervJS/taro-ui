@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run build:doc
+
+after_script:
+  - cd site
+  - git init
+  - git add .
+  - git commit -m "Update Document"
+  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - GH_REF: github.com/NervJS/taro-ui.git
