@@ -53,3 +53,11 @@ import { AtNoticebar } from 'taro-ui'
 | moreText | “查看更多”链接文本                | String  | -              | 查看详情 |
 | moreUrl  | “查看更多”链接地址                | String  | -              | -        |
 | icon     | 内容前的icon图标                  | String  | 参考`icon`组件 | -        |
+
+
+## Noticebar 事件
+
+| 事件名称   | 说明                 | 返回参数 |
+|:-----------|:---------------------|:---------|
+| onClose    | 关闭时触发           | -        |
+| onGotoMore | 点击”查看更多“时触发 | -        |

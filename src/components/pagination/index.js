@@ -34,7 +34,6 @@ export default class AtPagination extends Taro.Component {
     current += 1
     current = Math.min(maxPage, current)
     if (originCur === current) return
-    console.log(this.props)
     this.props.onPageChange && this.props.onPageChange({ type: 'next', current })
     this.setState({ current })
   }
