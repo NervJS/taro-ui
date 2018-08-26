@@ -18,7 +18,7 @@ class AtRate extends Taro.Component {
     this.props.onChange(i + 1, ...arguments)
   }
   render () {
-    const { value, max, size, margin } = this.props
+    const { style, value, max, size, margin } = this.props
     const iconStyle = {
       margin: Taro.pxTransform(margin)
     }
@@ -35,7 +35,7 @@ class AtRate extends Taro.Component {
         classNameArr.push('at-rate__icon at-rate__icon--off')
       }
     }
-    return <View className='at-rate' >
+    return <View className='at-rate' style={style} >
       {
         classNameArr.map((cls, i) => <View
           className={cls}
@@ -53,6 +53,7 @@ class AtRate extends Taro.Component {
   }
 }
 AtRate.defaultProps = {
+  style: '',
   size: 20,
   value: 0,
   max: 5,
@@ -60,6 +61,10 @@ AtRate.defaultProps = {
   onChange: () => {}
 }
 AtRate.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   size: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number

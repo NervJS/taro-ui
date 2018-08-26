@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import PropTypes from 'prop-types'
 import './index.scss'
 
 class AtForm extends Taro.Component {
@@ -11,5 +12,11 @@ class AtForm extends Taro.Component {
 }
 AtForm.defaultProps = {
   style: ''
+}
+AtForm.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ])
 }
 export default AtForm

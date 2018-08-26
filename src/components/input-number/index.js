@@ -62,13 +62,13 @@ class AtInputNumber extends Taro.Component {
     this.props.onChange(AtInputNumber.parseValue(nextValue))
   }
   render () {
-    const { width, disabled, value, min, max, size } = this.props
+    const { style, width, disabled, value, min, max, size } = this.props
     const inputStyle = `width: ${Taro.pxTransform(width)}`
     const rootCls = ['at-input-number']
     if (size) {
       rootCls.push('at-input-number--lg')
     }
-    return <View className={rootCls} >
+    return <View className={rootCls} style={style}>
       <View
         className={value <= min || disabled ? 'at-input-number__btn at-input-number--disabled' : 'at-input-number__btn'}
         onClick={this.handleMinus.bind(this)}
@@ -92,6 +92,7 @@ class AtInputNumber extends Taro.Component {
   }
 }
 AtInputNumber.defaultProps = {
+  style: '',
   disabled: false,
   value: 1,
   width: 80,
@@ -102,6 +103,10 @@ AtInputNumber.defaultProps = {
   onChange: () => {}
 }
 AtInputNumber.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   disabled: PropTypes.bool,
   value: PropTypes.number,
   width: PropTypes.number,

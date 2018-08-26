@@ -66,16 +66,24 @@ class AtTabs extends Taro.Component {
   }
 
   render () {
-    const { tabList, scroll, current } = this.props
+    const { style, tabList, scroll, current } = this.props
     const headerCls = ['at-tabs__header']
     if (scroll) {
       headerCls.push('at-tabs__header--scroll')
     }
     const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
-    return <View className='at-tabs'>
+    return <View className='at-tabs' style={style}>
       <View className={headerCls}>
         {
-          tabList.map((item, i) => <View className={current === i ? 'at-tabs__item at-tabs__item--active' : 'at-tabs__item'} key={item.title} onClick={this.handleClick.bind(this, i)}>
+          tabList.map((item, i) => <View
+            className={
+              current === i
+                ? 'at-tabs__item at-tabs__item--active'
+                : 'at-tabs__item'
+            }
+            key={item.title}
+            onClick={this.handleClick.bind(this, i)}
+          >
             {item.title}
           </View>)
         }
@@ -93,6 +101,7 @@ class AtTabs extends Taro.Component {
   }
 }
 AtTabs.defaultProps = {
+  style: '',
   current: 0,
   swipeable: true,
   scroll: false,
@@ -100,6 +109,10 @@ AtTabs.defaultProps = {
   onClick: () => { }
 }
 AtTabs.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   current: PropTypes.number,
   swipeable: PropTypes.bool,
   scroll: PropTypes.bool,

@@ -31,53 +31,53 @@ class AtTabBar extends Taro.Component {
   }
 
   render () {
-    const { fixed, backgroundColor, tabList, current, color, iconSize, fontSize, selectedColor } = this.props
+    const { style, fixed, backgroundColor, tabList, current, color, iconSize, fontSize, selectedColor } = this.props
     const defaultStyle = `color: ${color};`
     const selectedStyle = `color: ${selectedColor};`
     const titleStyle = `font-size: ${fontSize}px;`
-    const rootStyle = `background-color: ${backgroundColor};`
+    const rootStyle = `background-color: ${backgroundColor};${style}`
     const rootClassName = ['at-tab-bar']
     if (fixed) {
       rootClassName.push('at-tab-bar--fixed')
     }
     return <View className={rootClassName} style={rootStyle}>
       {
-        tabList.map((item, i) => {
-          return <View
-            className='at-tab-bar__item'
-            style={current === i ? selectedStyle : defaultStyle}
-            key={item.title}
-            onClick={this.handleClick.bind(this, i)}
-          >
-            {
-              item.iconType
-                ? <AtBadge dot={item.dot} value={item.text} max={item.max}>
-                  <View className='at-tab-bar__icon'>
-                    <AtIcon
-                      value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
-                      size={iconSize}
-                      color={current === i ? selectedColor : color}
-                    />
-                  </View>
-                </AtBadge>
-                : null
-            }
-            <View>
-              <AtBadge
-                dot={item.iconType ? '' : item.dot}
-                value={item.iconType ? '' : item.text}
-                max={item.iconType ? '' : item.max}
-              >
-                <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+        tabList.map((item, i) => <View
+          className='at-tab-bar__item'
+          style={current === i ? selectedStyle : defaultStyle}
+          key={item.title}
+          onClick={this.handleClick.bind(this, i)}
+        >
+          {
+            item.iconType
+              ? <AtBadge dot={item.dot} value={item.text} max={item.max}>
+                <View className='at-tab-bar__icon'>
+                  <AtIcon
+                    value={current === i && item.selectedIconType ? item.selectedIconType : item.iconType}
+                    size={iconSize}
+                    color={current === i ? selectedColor : color}
+                  />
+                </View>
               </AtBadge>
-            </View>
+              : null
+          }
+          <View>
+            <AtBadge
+              dot={item.iconType ? '' : item.dot}
+              value={item.iconType ? '' : item.text}
+              max={item.iconType ? '' : item.max}
+            >
+              <View className='at-tab-bar__title' style={titleStyle}>{item.title}</View>
+            </AtBadge>
           </View>
-        })
+        </View>
+        )
       }
     </View>
   }
 }
 AtTabBar.defaultProps = {
+  style: '',
   fixed: false,
   backgroundColor: '#fff',
   current: 0,
@@ -90,6 +90,10 @@ AtTabBar.defaultProps = {
   onClick: () => { }
 }
 AtTabBar.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   fixed: PropTypes.bool,
   backgroundColor: PropTypes.string,
   current: PropTypes.number,

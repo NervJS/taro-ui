@@ -34,14 +34,14 @@ class AtTextarea extends Taro.Component {
     this.props.onConfirm(e, ...arguments)
   }
   render () {
-    const { value, cursorSpacing, maxlength, placeholder, count, disabled, autoFocus, fixed, textOverflowForbidden, height } = this.props
+    const { style, value, cursorSpacing, maxlength, placeholder, count, disabled, autoFocus, fixed, textOverflowForbidden, height } = this.props
     let actualMaxLength = maxlength
     if (!textOverflowForbidden) {
       actualMaxLength += 500
     }
     const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
 
-    return <View className='at-textarea'>
+    return <View className='at-textarea' style={style}>
       <Textarea
         style={textareaStyle}
         placeholderClass='placeholder'
@@ -62,7 +62,15 @@ class AtTextarea extends Taro.Component {
       />
       {
         count
-          ? <View className={maxlength < value.length ? 'at-textarea__bottom at-textarea--error' : 'at-textarea__bottom'}>{value.length}/{maxlength}</View>
+          ? <View
+            className={
+              maxlength < value.length
+                ? 'at-textarea__bottom at-textarea--error'
+                : 'at-textarea__bottom'
+            }
+          >
+            {value.length}/{maxlength}
+          </View>
           : null
       }
     </View>
@@ -70,6 +78,7 @@ class AtTextarea extends Taro.Component {
 }
 const defaultFunc = () => {}
 AtTextarea.defaultProps = {
+  style: '',
   value: '',
   cursorSpacing: 100,
   maxlength: 200,
@@ -86,6 +95,10 @@ AtTextarea.defaultProps = {
   onConfirm: defaultFunc
 }
 AtTextarea.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   value: PropTypes.string,
   cursorSpacing: PropTypes.number,
   maxlength: PropTypes.oneOfType([

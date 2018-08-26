@@ -21,8 +21,8 @@ class AtSegmentedControl extends Taro.Component {
   }
 
   render () {
-    const { disabled, values, selectedColor, current, color, fontSize } = this.props
-    const rootStyle = `border-color: ${selectedColor};`
+    const { style, disabled, values, selectedColor, current, color, fontSize } = this.props
+    const rootStyle = `border-color: ${selectedColor};${style}`
     const itemStyle = `
       color: ${selectedColor};
       background-color:${color};
@@ -54,6 +54,7 @@ class AtSegmentedControl extends Taro.Component {
   }
 }
 AtSegmentedControl.defaultProps = {
+  style: '',
   current: 0,
   color: '#fff',
   fontSize: '28',
@@ -63,6 +64,10 @@ AtSegmentedControl.defaultProps = {
   onClick: () => { }
 }
 AtSegmentedControl.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   current: PropTypes.number,
   color: PropTypes.string,
   fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

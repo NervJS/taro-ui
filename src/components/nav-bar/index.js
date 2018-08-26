@@ -30,11 +30,18 @@ class AtNavBar extends Taro.Component {
   }
 
   render () {
-    const { color, fixed, leftIconType, leftText, title, rightFirstIconType, rightSecondIconType } = this.props
+    const { style, color, fixed, leftIconType, leftText, title, rightFirstIconType, rightSecondIconType } = this.props
     const linkStyle = `color: ${color};`
 
-    return <View className={fixed ? 'at-nav-bar at-nav-bar--fixed' : 'at-nav-bar'}>
-      <View className='at-nav-bar__left_view' onClick={this.handleClickLeftView.bind(this)} style={linkStyle}>
+    return <View
+      className={fixed ? 'at-nav-bar at-nav-bar--fixed' : 'at-nav-bar'}
+      style={style}
+    >
+      <View
+        className='at-nav-bar__left_view'
+        onClick={this.handleClickLeftView.bind(this)}
+        style={linkStyle}
+      >
         <AtIcon value={leftIconType} />
         <Text className='at-nav-bar__text'>{leftText}</Text>
       </View>
@@ -62,6 +69,7 @@ class AtNavBar extends Taro.Component {
 const defaultFunc = () => {}
 
 AtNavBar.defaultProps = {
+  style: '',
   fixed: false,
   color: '#6190E8',
   leftIconType: '',
@@ -74,6 +82,10 @@ AtNavBar.defaultProps = {
   onClickRgIconNd: defaultFunc
 }
 AtNavBar.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   fixed: PropTypes.bool,
   color: PropTypes.string,
   leftIconType: PropTypes.string,

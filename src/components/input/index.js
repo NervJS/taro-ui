@@ -46,7 +46,7 @@ class AtInput extends Taro.Component {
     this.props.onErrorClick(...arguments)
   }
   render () {
-    const { name, type, cursorSpacing, confirmType, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
+    const { style, name, type, cursorSpacing, confirmType, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
     let actualMaxlength = maxlength
     let actualType = type
     let actualDisabled = disabled
@@ -68,6 +68,8 @@ class AtInput extends Taro.Component {
     if (!border) {
       rootStyle = 'border: none;'
     }
+    rootStyle += style
+
     return <View className='at-input' style={rootStyle}>
       <View className={containerCls}>
         {
@@ -113,6 +115,7 @@ class AtInput extends Taro.Component {
 }
 const defaultFunc = () => {}
 AtInput.defaultProps = {
+  style: '',
   value: '',
   name: '',
   placeholder: '',
@@ -134,6 +137,10 @@ AtInput.defaultProps = {
   onErrorClick: defaultFunc
 }
 AtInput.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
