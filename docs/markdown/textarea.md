@@ -22,7 +22,7 @@ import { AtTextarea } from 'taro-ui'
 ```html
 <AtTextarea
   value={this.state.value}
-  onChange={e => this.setState({value: e.target.value})}
+  onChange={this.handleChange}
   maxlength='200'
   placeholder='你的问题是...'
 />
@@ -39,7 +39,7 @@ import { AtTextarea } from 'taro-ui'
 <AtTextarea
   count={false}
   value={this.state.value}
-  onChange={e => this.setState({value: e.target.value})}
+  onChange={this.handleChange}
   maxlength='200'
   placeholder='你的问题是...'
 />

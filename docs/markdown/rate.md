@@ -20,15 +20,17 @@ import { AtRate } from 'taro-ui'
 :::demo
 
 ```html
-<AtRate value={this.state.value} onChange={val => this.setState({value:val})} />
+<AtRate value={this.state.value} onChange={this.handleChange} />
 ```
+
+:::
 
 ## 自定义星星大小
 
 :::demo
 
 ```html
-<AtRate size='15' value={this.state.value} onChange={val => this.setState({value:val})} />
+<AtRate size='15' value={this.state.value} onChange={this.handleChange} />
 ```
 
 :::
@@ -38,7 +40,7 @@ import { AtRate } from 'taro-ui'
 :::demo
 
 ```html
-<AtRate max={10} value={this.state.value} onChange={val => this.setState({value:val})} />
+<AtRate max={10} value={this.state.value} onChange={this.handleChange} />
 ```
 
 :::

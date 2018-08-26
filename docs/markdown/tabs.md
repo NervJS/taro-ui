@@ -27,7 +27,7 @@ import { AtTabs, AtTabsPane} from 'taro-ui'
     { title: '标签页2' },
     { title: '标签页3' }
   ]}
-  onClick={val => this.setState({current:val})}>
+  onClick={this.handleClick}>
   <AtTabsPane>
     <View className='tab-content'>标签页一的内容</View>
   </AtTabsPane>
@@ -52,7 +52,7 @@ import { AtTabs, AtTabsPane} from 'taro-ui'
     { title: '标签页2' },
     { title: '标签页3' }
   ]}
-  onClick={val => this.setState({current:val})}>
+  onClick={this.handleClick}>
 </AtTabs>
 {current === 0
   ？ <AtTabsPane>

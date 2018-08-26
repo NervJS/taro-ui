@@ -26,7 +26,7 @@ import { AtTabBar } from 'taro-ui'
     { title: '拍照' },
     { title: '通讯录', dot: true }
   ]}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 
@@ -45,7 +45,7 @@ import { AtTabBar } from 'taro-ui'
     { title: '拍照', iconType: 'camera' },
     { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
   ]}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 ```
@@ -65,7 +65,7 @@ import { AtTabBar } from 'taro-ui'
     { title: '拍照', iconType: 'camera' },
     { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
   ]}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 ```
@@ -84,7 +84,7 @@ import { AtTabBar } from 'taro-ui'
     { title: '拍照', iconType: 'camera' },
     { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
   ]}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 ```

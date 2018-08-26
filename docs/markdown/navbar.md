@@ -21,9 +21,9 @@ import { AtNavBar } from 'taro-ui'
 
 ```jsx
 <AtNavBar
-  onClickRgIconSt={() => console.log(1)}
-  onClickRgIconNd={() => console.log(2)}
-  onClickLeftIcon={() => console.log(3)}
+  onClickRgIconSt={this.handleClick}
+  onClickRgIconNd={this.handleClick}
+  onClickLeftIcon={this.handleClick}
   color='#000'
   title='NavBar 导航栏示例'
   leftText='返回'

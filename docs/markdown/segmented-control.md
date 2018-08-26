@@ -22,7 +22,7 @@ import { AtSegmentedControl } from 'taro-ui'
 ```html
 <AtSegmentedControl
   values={['标签页1', '标签页2', '标签页3']}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 {this.state.current === 0 ? <View className='tab-content'>标签1的内容</View> : null}
@@ -39,7 +39,7 @@ import { AtSegmentedControl } from 'taro-ui'
 
 ```html
 <AtSegmentedControl
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   selectedColor='#FF4949'
   fontSize='30'
   current={current}
@@ -59,7 +59,7 @@ import { AtSegmentedControl } from 'taro-ui'
 <AtSegmentedControl
   disabled
   values={['标签页1', '标签页2', '标签页3']}
-  onClick={val => this.setState({current: val})}
+  onClick={this.handleClick}
   current={this.state.current}
 />
 ```

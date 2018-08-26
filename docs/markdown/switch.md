@@ -21,8 +21,8 @@ import { AtForm, AtSwitch } from 'taro-ui'
 
 ```html
 <AtForm>
-  <AtSwitch title='开启中' checked onChange={val => console.log(val)} />
-  <AtSwitch title='已禁止' disabled onChange={val => console.log(val)} />
+  <AtSwitch title='开启中' checked onChange={this.handleChange} />
+  <AtSwitch title='已禁止' disabled onChange={this.handleChange} />
   <AtSwitch border={false} title='已关闭' />
 </AtForm>
 

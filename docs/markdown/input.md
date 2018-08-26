@@ -29,7 +29,7 @@ import { AtInput, AtForm } from 'taro-ui'
   type='text'
   placeholder='标准五个字'
   value={this.state.value}
-  onChange={val => this.setState({'value':val})}
+  onChange={this.handleChange}
 />
 
 ```
@@ -48,7 +48,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='单行文本'
     value={this.state.value1}
-    onChange={val => this.setState({'value1':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     name='value2'
@@ -56,7 +56,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='number'
     placeholder='请输入数字'
     value={this.state.value2}
-    onChange={val => this.setState({'value2':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     name='value3'
@@ -64,7 +64,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='password'
     placeholder='密码不能少于10位数'
     value={this.state.value3}
-    onChange={val => this.setState({'value3':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     name='value4'
@@ -72,7 +72,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='idcard'
     placeholder='身份证号码'
     value={this.state.value4}
-    onChange={val => this.setState({'value4':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     name='value5'
@@ -80,7 +80,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='digit'
     placeholder='请输入小数'
     value={this.state.value5}
-    onChange={val => this.setState({'value5':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     name='value6'
@@ -89,7 +89,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='phone'
     placeholder='手机号码'
     value={this.state.value6}
-    onChange={val => this.setState({'value6':val})}
+    onChange={this.handleChange}
   />
 </AtForm>
 ```
@@ -108,7 +108,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='禁止输入'
     value={this.state.value1}
-    onChange={val => this.setState({'value1':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     error
@@ -116,8 +116,8 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='点击按钮触发回调'
     value={this.state.value2}
-    onChange={val => this.setState({'value2':val})}
-    onErrorClick={() => {console.log('error')}}
+    onChange={this.handleChange}
+    onErrorClick={this.handleClick}
   />
   <AtInput
     editable={false}
@@ -125,7 +125,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='不可编辑'
     value={this.state.value3}
-    onChange={val => this.setState({'value3':val})}
+    onChange={this.handleChange}
   />
   <AtInput
     clear
@@ -134,7 +134,7 @@ import { AtInput, AtForm } from 'taro-ui'
     placeholder='点击清除按钮清空内容'
     type='text'
     value={this.state.value4}
-    onChange={val => this.setState({'value4':val})}
+    onChange={this.handleChange}
   />
 </AtForm>
 ```
@@ -154,7 +154,7 @@ import { AtInput, AtForm } from 'taro-ui'
   maxlength='4'
   placeholder='验证码'
   value={this.state.value}
-  onChange={val => this.setState({'value':val})}
+  onChange={this.handleChange}
 >
   <Image src='https://aotu.io/img.png' />
 </AtInput>

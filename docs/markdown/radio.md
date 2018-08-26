@@ -27,7 +27,7 @@ import { AtRadio } from 'taro-ui'
     { label: '单选项三禁用', value: 'option3', desc: '单选项描述', disabled: true }
   ]}
   value={this.state.value}
-  onClick={val => this.setState({value:val})}
+  onClick={this.handleChange}
 />
 ```
 

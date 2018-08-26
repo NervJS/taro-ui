@@ -25,7 +25,7 @@ import { AtInputNumber } from 'taro-ui'
   max={10}
   step={1}
   value={this.state.number}
-  onChange={val => this.setState({number:val})}
+  onChange={this.handleChange}
 />
 ```
 
@@ -41,7 +41,7 @@ import { AtInputNumber } from 'taro-ui'
   max={10}
   step={0.1}
   value={this.state.number}
-  onChange={val => this.setState({number:val})}
+  onChange={this.handleChange}
 />
 ```
 
@@ -58,7 +58,7 @@ import { AtInputNumber } from 'taro-ui'
   max={10}
   step={1}
   value={this.state.number}
-  onChange={val => this.setState({number:val})}
+  onChange={this.handleChange}
 />
 ```
 
@@ -75,7 +75,7 @@ import { AtInputNumber } from 'taro-ui'
   step={1}
   width={200}
   value={this.state.number}
-  onChange={val => this.setState({number:val})}
+  onChange={this.handleChange}
 />
 ```
 

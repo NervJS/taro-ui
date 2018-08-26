@@ -28,7 +28,7 @@ import { AtCheckbox } from 'taro-ui'
     { value: 'list4', label: 'vivo NEX', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true }
   ]}
   selectedList={this.state.selectedList}
-  onChange={val => this.setState({selectedList: val})}
+  onChange={this.handleChange}
 />
 ```
 
