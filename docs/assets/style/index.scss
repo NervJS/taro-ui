@@ -1,5 +1,6 @@
 @import '~at-ui-style/src/variables/index.scss';
 @import '~at-ui-style/src/mixins/index.scss';
+@import '../../lib/default.scss';
 
 $bg-color: #F8FAFF;
 $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
@@ -8,9 +9,10 @@ $section-top: 200px;
 
 .wrapper {
   position: relative;
-  min-width: 1200px;
+  min-width: 400px;
   min-height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
+  width: 100%;
 }
 
 .bg-container {
@@ -142,7 +144,12 @@ $section-top: 200px;
 
     .btn-start {
       background: #00DAA8;
-
+      &--h5 {
+        display: none;
+      }
+      &--pc {
+        display: inline-block;
+      }
       &:hover {
         background: #20e4b7;
       }
@@ -197,6 +204,8 @@ $section-top: 200px;
       margin: 20px 0;
 
       img {
+        width: 122px;
+        height: 120px;
         margin-left: 20px;
       }
     }
@@ -217,6 +226,10 @@ $section-top: 200px;
       position: absolute;
       top: 0;
       right: 15px;
+      img {
+        width: 32px;
+        height: 95px;
+      }
     }
   }
 }
@@ -225,4 +238,95 @@ $section-top: 200px;
   width: 100%;
   height: 300px;
   background-color: #F8FAFF;
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  .bg-container {
+    height: 700px;
+
+    .bg-bottom-shadow,
+    .bg-bottom-border{
+      width: 340px;
+      height: 260px;
+    }
+
+    .info-container {
+      padding-top: 100px;
+      text-align: center;
+      h1 {
+        font-size: 24px;
+        text-align: center;
+      }
+      .img-container {
+        display: none;
+      }
+      .info-desc {
+        font-size: 20px;
+        text-align: center;
+      }
+      .btn-container {
+
+        .btn {
+          display: block;
+          margin: 20px auto;
+        }
+        .btn-start {
+          &--h5 {
+            display: block;
+          }
+          &--pc {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .feature-wrapper {
+    margin-top: -300px;
+    margin-bottom: 100px;
+    .panel-container {
+      display: block;
+      .panel {
+        overflow: hidden;
+        clear: both;
+        zoom: 1;
+        margin: 0 auto;
+        padding: 10px 20px;
+        width: 100%;
+        .panel-img {
+          margin: 0;
+          float: left;
+          img {
+            margin-top: 10px;
+          }
+        }
+        .panel-title {
+          padding-top: 10px;
+        }
+        .panel-tip-container {
+          left: 10px;
+          right: unset;
+        }
+        & + .panel {
+          margin-top:25px;
+        }
+
+      }
+    }
+  }
+  .footer {
+    padding: 0;
+    .footer-logo-container {
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+      .footer-logo {
+        margin: 0 auto;
+      }
+    }
+    .footer-link-container {
+      display: none;
+    }
+  }
+
 }

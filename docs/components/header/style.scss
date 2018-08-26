@@ -189,13 +189,16 @@ $header-height: 80px;
       .navbar {
         display: block;
         height: initial;
+        margin: 0;
         line-height: 50px;
 
         li {
+          margin: 0;
           display: block;
         }
 
         a {
+          color: #6190e8;
           width: 100%;
 
           &.router-link-active::after {

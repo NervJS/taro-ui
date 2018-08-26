@@ -39,8 +39,9 @@ class Index extends Nerv.Component {
             <h1>Taro UI</h1>
             <div className='info-desc'>一套基于 Taro 框架开发的多端 UI 组件库</div>
             <div className='btn-container'>
-              <NavLink className='btn btn-start' to='/docs/introduction'>开始使用</NavLink>
-              <a className='btn btn-github' href="https://github.com/NervJS/taro-ui">Github</a>
+              <a className='btn btn-start btn-start--h5' href="https://nervjs.github.io/taro-ui/h5/index.html">开始使用</a>
+              <NavLink className='btn btn-start btn-start--pc' to='/docs/introduction'>开始使用</NavLink>
+              <a className='btn btn-github' href="https://github.com/NervJS/taro-ui">GitHub</a>
             </div>
           </div>
         </div>

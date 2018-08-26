@@ -44,7 +44,7 @@ class PageHeader extends Nerv.Component {
           </div>
           <div
             className='nav-right'
-            style={{ height: toggle ? '0px' : 'auto' }}
+            style={{ height: toggle ? '0px' : '100px' }}
           >
             <ul className='navbar'>
               <li>
