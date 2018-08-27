@@ -2,7 +2,7 @@
 
 exports[`AtNoticebar Snap render AtNoticebar -- props icon 1`] = `"<div class=\\"at-noticebar\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-icon\\"><span style=\\"font-size:16px;color:;\\" class=\\"taro-text at-icon at-icon-volume-plus\\"></span></div><div class=\\"at-noticebar__content-text\\"><span class=\\"taro-text at-noticebar__content-inner\\">这是内容</span></div></div>undefined</div>"`;
 
-exports[`AtNoticebar Snap render AtNoticebar -- props marquee 1`] = `"<div class=\\"at-noticebar at-noticebar--marquee\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-text\\"><span style=\\"animation-duration:15s;\\" class=\\"taro-text at-noticebar__content-inner J_31f0\\">这是内容</span></div></div>undefined</div>"`;
+exports[`AtNoticebar Snap render AtNoticebar -- props marquee 1`] = `"<div class=\\"at-noticebar at-noticebar--marquee\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-text\\"><span style=\\"animation-duration:15s;\\" class=\\"taro-text at-noticebar__content-inner J_5o6w\\">这是内容</span></div></div>undefined</div>"`;
 
 exports[`AtNoticebar Snap render AtNoticebar -- props moreText & showMore 1`] = `"<div class=\\"at-noticebar\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-text\\"><span class=\\"taro-text at-noticebar__content-inner\\">这是内容</span></div></div>undefined</div>"`;
 
