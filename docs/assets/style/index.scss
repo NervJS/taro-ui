@@ -143,12 +143,15 @@ $section-top: 200px;
 
     .btn-start {
       background: #00DAA8;
+
       &--h5 {
         display: none;
       }
+
       &--pc {
         display: inline-block;
       }
+
       &:hover {
         background: #20e4b7;
       }
@@ -216,7 +219,7 @@ $section-top: 200px;
     }
 
     .panel-desc {
-      margin-top: 20px;
+      margin-top: 12px;
       font-size: 14px;
       color: #6B798C;
     }
@@ -225,6 +228,7 @@ $section-top: 200px;
       position: absolute;
       top: 0;
       right: 15px;
+
       img {
         width: 32px;
         height: 95px;
@@ -244,7 +248,7 @@ $section-top: 200px;
     height: 600px;
 
     .bg-bottom-shadow,
-    .bg-bottom-border{
+    .bg-bottom-border {
       width: 340px;
       height: 210px;
     }
@@ -252,17 +256,21 @@ $section-top: 200px;
     .info-container {
       padding-top: 100px;
       text-align: center;
+
       h1 {
         font-size: 24px;
         text-align: center;
       }
+
       .img-container {
         display: none;
       }
+
       .info-desc {
         font-size: 20px;
         text-align: center;
       }
+
       .btn-container {
         display: flex;
         justify-content: space-between;
@@ -270,10 +278,12 @@ $section-top: 200px;
         .btn {
           display: inline-block;
         }
+
         .btn-start {
           &--h5 {
             display: inline-block;
           }
+
           &--pc {
             display: none;
           }
@@ -281,15 +291,19 @@ $section-top: 200px;
       }
     }
   }
+
   .feature-wrapper {
     margin-top: -200px;
     margin-bottom: 50px;
+
     .main-title {
       font-size: 20px;
       margin-bottom: 20px;
     }
+
     .panel-container {
       display: block;
+
       .panel {
         overflow: hidden;
         clear: both;
@@ -297,43 +311,51 @@ $section-top: 200px;
         margin: 0 auto;
         padding: 10px 20px;
         width: 100%;
+
         .panel-img {
           margin: 0;
           float: left;
+
           img {
             margin-top: 10px;
           }
         }
+
         .panel-title {
           padding-top: 10px;
         }
+
         .panel-desc {
           text-align: left;
         }
+
         .panel-tip-container {
           left: 10px;
           right: unset;
         }
-        & + .panel {
-          margin-top:25px;
-        }
 
+        & + .panel {
+          margin-top: 25px;
+        }
       }
     }
   }
+
   .footer {
     padding: 0;
+
     .footer-logo-container {
       padding: 20px;
       width: 100%;
       text-align: center;
+
       .footer-logo {
         margin: 0 auto;
       }
     }
+
     .footer-link-container {
       display: none;
     }
   }
-
 }
