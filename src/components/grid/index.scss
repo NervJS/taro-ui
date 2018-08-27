@@ -9,7 +9,7 @@ $gird-img-size-sm: 50px;
 
   &-item {
     position: relative;
-    @include border-thin-bottom();
+    @include border-thin-bottom($width: 1PX);
 
     &:not(:last-child)::after {
       content: " ";

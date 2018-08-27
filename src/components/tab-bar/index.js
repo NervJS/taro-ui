@@ -26,20 +26,43 @@ import './index.scss'
  * @prop onClick {Function} 点击时触发事件，回调参数：列表索引值
  */
 class AtTabBar extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      isIPhoneX: false
+    }
+  }
+
+  componentDidMount () {
+    const { model = '' } = Taro.getSystemInfoSync()
+    const curEnv = Taro.getEnv()
+
+    if (curEnv === Taro.ENV_TYPE.WEAPP && model.indexOf('iPhone X') >= 0) {
+      this.setState({ isIPhoneX: true })
+    }
+  }
+
   handleClick (i) {
     this.props.onClick(i, ...arguments)
   }
 
   render () {
     const { style, fixed, backgroundColor, tabList, current, color, iconSize, fontSize, selectedColor } = this.props
+    const { isIPhoneX } = this.state
     const defaultStyle = `color: ${color};`
     const selectedStyle = `color: ${selectedColor};`
     const titleStyle = `font-size: ${fontSize}px;`
     const rootStyle = `background-color: ${backgroundColor};${style}`
     const rootClassName = ['at-tab-bar']
+
     if (fixed) {
       rootClassName.push('at-tab-bar--fixed')
     }
+
+    if (isIPhoneX) {
+      rootClassName.push('at-tab-bar--ipx')
+    }
+
     return <View className={rootClassName} style={rootStyle}>
       {
         tabList.map((item, i) => <View
