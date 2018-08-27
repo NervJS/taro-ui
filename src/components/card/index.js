@@ -2,12 +2,19 @@ import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
 
 import './index.scss'
 
 export default class AtCard extends Taro.Component {
+  handleClick = (...args) => {
+    if (_isFunction(this.props.onClick)) {
+      this.props.onClick(...args)
+    }
+  }
+
   render () {
-    const { title, note, extra, thumb, isFull, onClick } = this.props
+    const { title, note, extra, thumb, isFull } = this.props
 
     const rootClass = ['at-card']
 
@@ -16,7 +23,7 @@ export default class AtCard extends Taro.Component {
     }
 
     return (
-      <View className={rootClass} onClick={onClick}>
+      <View className={rootClass} onClick={this.handleClick}>
         <View className='at-card-header'>
           {thumb && (
             <View className='at-card-header__thumb'>
@@ -45,5 +52,5 @@ AtCard.propTypes = {
   thumb: PropTypes.string,
   title: PropTypes.string,
   extra: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }

@@ -3,17 +3,21 @@ import { View, Text, Image } from '@tarojs/components'
 
 import _chunk from 'lodash/chunk'
 import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
 
 import './index.scss'
 
 export default class AtGrid extends Component {
-  handleClick = e => {
-    const { onClick } = this.props
-    const { item, index } = e.currentTarget.dataset
-
-    onClick(item, index, e)
+  handleClick = (e, ...arg) => {
+    const { onClick, columnNum } = this.props
+    const { item, index, row } = e.currentTarget.dataset
+    if (_isFunction(onClick)) {
+      /* prettier-ignore */
+      const clickIndex = (row * columnNum) + index
+      onClick(item, clickIndex, e, ...arg)
+    }
   }
 
   render () {
@@ -41,12 +45,19 @@ export default class AtGrid extends Component {
                 className={rootClass}
                 data-item={childItem}
                 data-index={index}
+                data-row={i}
                 onClick={this.handleClick}
               >
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>
                     <View className='content-inner__icon'>
-                      {childItem.image && <Image className='content-inner__img' src={childItem.image} mode='scaleToFill' />}
+                      {childItem.image && (
+                        <Image
+                          className='content-inner__img'
+                          src={childItem.image}
+                          mode='scaleToFill'
+                        />
+                      )}
                       {childItem.icon &&
                         !childItem.image && (
                         <AtIcon

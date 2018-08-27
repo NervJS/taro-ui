@@ -45,6 +45,10 @@ $item-horizontal-padding: 24px;
     }
   }
 
+  &--no-border::after {
+    content: initial;
+  }
+
   &-content {
     @include flex(1);
 

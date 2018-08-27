@@ -2,15 +2,15 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtProgressProps {
-  color: string
+  color?: string
 
-  status: string
+  status?: string
 
-  percent: number
+  percent?: number
 
-  strokeWidth: number
+  strokeWidth?: number
 
-  isHidePercent: boolean
+  isHidePercent?: boolean
 }
 
 declare const AtProgress: ComponentClass<AtProgressProps>

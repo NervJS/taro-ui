@@ -8,5 +8,6 @@
   /* prettier-ignore */
   @include border-thin-bottom($width: 1PX);
 
+  @include active();
   @include line(1);
 }
