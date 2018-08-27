@@ -9,7 +9,6 @@ $section-top: 200px;
 
 .wrapper {
   position: relative;
-  min-width: 400px;
   min-height: 100vh;
   overflow: hidden;
   width: 100%;
@@ -242,12 +241,12 @@ $section-top: 200px;
 
 @media screen and (max-width: $screen-sm-max) {
   .bg-container {
-    height: 700px;
+    height: 650px;
 
     .bg-bottom-shadow,
     .bg-bottom-border{
       width: 340px;
-      height: 260px;
+      height: 210px;
     }
 
     .info-container {
@@ -282,8 +281,12 @@ $section-top: 200px;
     }
   }
   .feature-wrapper {
-    margin-top: -300px;
-    margin-bottom: 100px;
+    margin-top: -250px;
+    margin-bottom: 50px;
+    .main-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
     .panel-container {
       display: block;
       .panel {
