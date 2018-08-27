@@ -1,4 +1,5 @@
 @import "../../../style/theme/default.scss";
+@import "../../../style/mixins/index.scss";
 
 .at-action-sheet-footer {
   font-size: $font-size-xl;
@@ -6,6 +7,7 @@
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
   border-top: 12px solid rgba($color: $color-border-base, $alpha: 0.3);
+  @include active();
 
   &--ipx {
     padding-bottom: 68px;
