@@ -245,7 +245,7 @@ $section-top: 200px;
 
 @media screen and (max-width: $screen-sm-max) {
   .bg-container {
-    height: 600px;
+    height: 550px;
 
     .bg-bottom-shadow,
     .bg-bottom-border {
@@ -267,7 +267,7 @@ $section-top: 200px;
       }
 
       .info-desc {
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
       }
 
