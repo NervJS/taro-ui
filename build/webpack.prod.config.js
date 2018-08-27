@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const FaviconWebpackPlugin = require('favicons-webpack-plugin')
 
 const conf = require('./conf')
 const { getProjectRoot } = require('./util')
@@ -18,12 +19,16 @@ module.exports = {
     mainFields: ['main']
   },
   plugins: [
-    new CleanWebpackPlugin(path.join(projectRoot, 'siteoutput'), {
+    new CleanWebpackPlugin(path.join(projectRoot, 'site'), {
       verbose: false,
       exclude: ['lib']
     }),
     new webpack.DefinePlugin({
       BASE_NAME: `'/taro-ui'`
+    }),
+    new FaviconWebpackPlugin({
+      logo: path.resolve(projectRoot, 'docs/assets/favicon.png'),
+      prefix: 'favicons/'
     })
   ]
 }
