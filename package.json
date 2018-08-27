@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "UI KIT for Taro",
   "main": "dist/index.js",
   "types": "./@types/index.d.ts",
@@ -95,6 +95,7 @@
     "eslint-plugin-jest": "^21.21.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-taro": "1.0.0-beta.15",
+    "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
     "front-matter": "^2.3.0",
     "fs-extra": "^7.0.0",
