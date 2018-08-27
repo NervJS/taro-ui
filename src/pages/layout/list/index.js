@@ -88,6 +88,28 @@ export default class ListPage extends Component {
             </View>
           </View>
 
+          <View className='panel'>
+            <View className='panel__title'>无边框</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtList hasBorder={false}>
+                  <AtListItem
+                    isSwitch
+                    title='标题文字'
+                    hasBorder={false}
+                    onSwitchChange={this.handleChange}
+                  />
+                  <AtListItem
+                    isSwitch
+                    title='标题文字'
+                    hasBorder={false}
+                    onSwitchChange={this.handleChange}
+                  />
+                </AtList>
+              </View>
+            </View>
+          </View>
+
           {/* Switch 按钮列表 */}
           <View className='panel'>
             <View className='panel__title'>Switch 按钮列表</View>

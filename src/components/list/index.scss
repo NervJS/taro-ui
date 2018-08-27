@@ -32,4 +32,13 @@
     height: calc(100% - 1PX);
     top: 0;
   }
+
+  &--no-border {
+    border-top: none;
+
+    &::after,
+    &::before {
+      content: initial;
+    }
+  }
 }
