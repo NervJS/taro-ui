@@ -3,7 +3,7 @@
 $header-height: 80px;
 
 .page-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -20,7 +20,7 @@ $header-height: 80px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba($color: #fff, $alpha: 0.06);
+    background-color: rgba($color: #fff, $alpha: 0.2);
   }
 
   &.collapse {
