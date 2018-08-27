@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtList, AtListItem } from 'taro-ui'
+import { AtList, AtListItem } from "taro-ui"
 ```
 
 :::
@@ -78,6 +78,29 @@ import { AtList, AtListItem } from 'taro-ui'
 
 :::
 
+## 无边框的 Item
+
+:::demo
+
+```html
+ <AtList hasBorder={false}>
+  <AtListItem
+    isSwitch
+    title='标题文字'
+    hasBorder={false}
+    onSwitchChange={this.handleChange}
+  />
+  <AtListItem
+    isSwitch
+    title='标题文字'
+    hasBorder={false}
+    onSwitchChange={this.handleChange}
+  />
+</AtList>
+```
+
+:::
+
 ## 带 Switch 的 Item
 
 :::demo
@@ -96,6 +119,12 @@ import { AtList, AtListItem } from 'taro-ui'
 
 ## AtListItem 参数
 
+| 参数      | 说明       | 类型    | 可选值 | 默认值 |
+| --------- | ---------- | ------- | ------ | ------ |
+| hasBorder | 是否有边框 | Boolean | -      | `true` |
+
+## AtListItem 参数
+
 | 参数           | 说明                       | 类型     | 可选值                 | 默认值  |
 | -------------- | -------------------------- | -------- | ---------------------- | ------- |
 | title          | 元素的标题                 | String   | -                      | -       |
@@ -105,5 +134,6 @@ import { AtList, AtListItem } from 'taro-ui'
 | extraText      | 额外信息的文本             | String   | -                      | -       |
 | extraThumb     | 额外信息的缩略图           | String   | -                      | -       |
 | isSwitch       | 额外信息是否开关           | Boolean  | -                      | `false` |
+| hasBorder      | 是否有边框                 | Boolean  | -                      | `true`  |
 | onClick        | 用户点击元素触发的事件     | Function | -                      | -       |
 | onSwitchChange | 用户点击切换 Switch 时触发 | Function | -                      | -       |
