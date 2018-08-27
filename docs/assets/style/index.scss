@@ -241,7 +241,7 @@ $section-top: 200px;
 
 @media screen and (max-width: $screen-sm-max) {
   .bg-container {
-    height: 650px;
+    height: 600px;
 
     .bg-bottom-shadow,
     .bg-bottom-border{
@@ -264,14 +264,15 @@ $section-top: 200px;
         text-align: center;
       }
       .btn-container {
+        display: flex;
+        justify-content: space-between;
 
         .btn {
-          display: block;
-          margin: 20px auto;
+          display: inline-block;
         }
         .btn-start {
           &--h5 {
-            display: block;
+            display: inline-block;
           }
           &--pc {
             display: none;
@@ -281,7 +282,7 @@ $section-top: 200px;
     }
   }
   .feature-wrapper {
-    margin-top: -250px;
+    margin-top: -200px;
     margin-bottom: 50px;
     .main-title {
       font-size: 20px;
@@ -305,6 +306,9 @@ $section-top: 200px;
         }
         .panel-title {
           padding-top: 10px;
+        }
+        .panel-desc {
+          text-align: left;
         }
         .panel-tip-container {
           left: 10px;
