@@ -2,17 +2,17 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtModalProps {
-  title: string
+  title?: string
 
-  content: string
+  content?: string
 
-  cancleText: string
+  cancleText?: string
 
-  confirmText: string
+  confirmText?: string
 
-  onCancle: BaseEventFunction
+  onCancle?: BaseEventFunction
 
-  onConfirm: BaseEventFunction
+  onConfirm?: BaseEventFunction
 }
 
 declare const AtModal: ComponentClass<AtModalProps>

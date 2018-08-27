@@ -32,6 +32,16 @@ describe('List Snap', () => {
     )
     expect(componet).toMatchSnapshot()
   })
+
+  it('render completed List -- no border', () => {
+    const componet = renderToString(
+      <AtList hasBorder={false}>
+        <AtListItem title='标题文字' hasBorder={false} />
+        <AtListItem title='标题文字' hasBorder={false} />
+      </AtList>
+    )
+    expect(componet).toMatchSnapshot()
+  })
 })
 
 describe('List Behavior ', () => {

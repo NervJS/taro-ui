@@ -81,7 +81,7 @@ export default class AtActionSheet extends Component {
 }
 
 AtActionSheet.defaultProps = {
-  isOpened: false,
+  isOpened: false
 }
 
 AtActionSheet.propTypes = {

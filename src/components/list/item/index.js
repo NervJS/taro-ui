@@ -2,12 +2,25 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../../icon/index'
 
 import './index.scss'
 
 export default class AtListItem extends Component {
+  handleClick = (...args) => {
+    if (_isFunction(this.props.onClick)) {
+      this.props.onClick(...args)
+    }
+  }
+
+  handleSwitchChange = (...args) => {
+    if (_isFunction(this.props.onSwitchChange)) {
+      this.props.onSwitchChange(...args)
+    }
+  }
+
   render () {
     const {
       note,
@@ -16,9 +29,8 @@ export default class AtListItem extends Component {
       thumb,
       isSwitch,
       extraText,
+      hasBorder,
       extraThumb,
-      onClick,
-      onSwitchChange
     } = this.props
 
     const rootClass = ['at-list__item']
@@ -27,12 +39,16 @@ export default class AtListItem extends Component {
       rootClass.push('at-list__item--thumb')
     }
 
+    if (!hasBorder) {
+      rootClass.push('at-list__item--no-border')
+    }
+
     if (note) {
       rootClass.push('at-list__item--multiple')
     }
 
     return (
-      <View className={rootClass} onClick={onClick}>
+      <View className={rootClass} onClick={this.handleClick}>
         {thumb && (
           <View className='at-list__item-thumb item-thumb'>
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />
@@ -62,7 +78,7 @@ export default class AtListItem extends Component {
             !extraThumb &&
             !extraText && (
             <View className='item-extra__switch'>
-              <Switch color='#6190E8' onChange={onSwitchChange} />
+              <Switch color='#6190E8' onChange={this.handleSwitchChange} />
             </View>
           )}
 
@@ -77,7 +93,10 @@ export default class AtListItem extends Component {
   }
 }
 
-AtListItem.defaultProps = {}
+AtListItem.defaultProps = {
+  hasBorder: true,
+  isSwitch: false
+}
 
 AtListItem.propTypes = {
   note: PropTypes.string,
@@ -85,8 +104,9 @@ AtListItem.propTypes = {
   thumb: PropTypes.string,
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
+  hasBorder: PropTypes.bool,
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
-  onSwitchChange: PropTypes.func,
-  arrow: PropTypes.oneOf(['up', 'down', 'left', 'right'])
+  onSwitchChange: PropTypes.func
 }
+PropTypes.oneOf(['up', 'down', 'left', 'right'])
