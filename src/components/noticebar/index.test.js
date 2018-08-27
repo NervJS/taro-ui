@@ -15,11 +15,6 @@ describe('AtNoticebar Snap', () => {
     expect(componet).toMatchSnapshot()
   })
 
-  it('render AtNoticebar -- props marquee', () => {
-    const componet = renderToString(<AtNoticebar marquee>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
-  })
-
   it('render AtNoticebar -- props speed', () => {
     const componet = renderToString(<AtNoticebar speed={200}>这是内容</AtNoticebar>)
     expect(componet).toMatchSnapshot()
