@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import loadash from 'lodash'
+import isNaN from 'lodash/isNaN'
 import './index.scss'
 
 
@@ -14,7 +14,7 @@ export default class AtBadge extends Taro.Component {
   formatValue (value, maxValue) {
     if (value === '' || value === null) return ''
     const numValue = +value
-    if (loadash.isNaN(numValue)) {
+    if (isNaN(numValue)) {
       return value
     }
     return numValue > maxValue ? `${maxValue}+` : numValue

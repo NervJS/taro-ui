@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
-import ActivityIndicator from '../../../components/activity-indicator/index'
+import AtActivityIndicator from '../../../components/activity-indicator/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -32,13 +32,13 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <ActivityIndicator size='20' ></ActivityIndicator>
+                  <AtActivityIndicator size='20' ></AtActivityIndicator>
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator size='24' />
+                  <AtActivityIndicator size='24' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator size='32' />
+                  <AtActivityIndicator size='32' />
                 </View>
               </View>
             </View>
@@ -50,13 +50,13 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <ActivityIndicator color='#13CE66' />
+                  <AtActivityIndicator color='#13CE66' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator color='#FF4949' />
+                  <AtActivityIndicator color='#FF4949' />
                 </View>
                 <View className='subitem'>
-                  <ActivityIndicator color='#C9C9C9' />
+                  <AtActivityIndicator color='#C9C9C9' />
                 </View>
               </View>
             </View>
@@ -67,7 +67,7 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__title'>自定义文字</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <ActivityIndicator content='加载中...' />
+                <AtActivityIndicator content='加载中...' />
               </View>
             </View>
           </View>
@@ -77,10 +77,10 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__title'>垂直水平居中</View>
             <View className='panel__content'>
               <View className='example-item example-item--center'>
-                <ActivityIndicator mode='center' />
+                <AtActivityIndicator mode='center' />
               </View>
               <View className='example-item example-item--center'>
-                <ActivityIndicator mode='center' content='Loading...' />
+                <AtActivityIndicator mode='center' content='Loading...' />
               </View>
             </View>
           </View>
