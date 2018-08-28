@@ -22,6 +22,10 @@ Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开�
 
 ![QRCode](https://user-images.githubusercontent.com/1240899/44580574-fe838800-a7cc-11e8-890d-73cf048ef8c2.jpg)
 
+## 官方示例
+
+[Taro UI 官方示例](https://github.com/NervJS/taro-ui-demo)
+
 ## 版本
 
 `Taro-UI`：[![npm version](https://badge.fury.io/js/taro-ui.svg)](https://badge.fury.io/js/taro-ui)
