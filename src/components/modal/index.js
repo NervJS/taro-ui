@@ -27,6 +27,10 @@ export default class AtModal extends Component {
     }
   }
 
+  handleTouchMove = e => {
+    e.stopPropagation()
+  }
+
   render () {
     const { isOpened } = this.state
     const { title, content, cancleText, confirmText } = this.props
@@ -40,7 +44,7 @@ export default class AtModal extends Component {
     if (title || content) {
       const isRenderAction = cancleText || confirmText
       return (
-        <View className={rootClass}>
+        <View className={rootClass} onTouchMove={this.handleTouchMove}>
           <View className='at-modal__overlay' />
           <View className='at-modal__container'>
             {title && (
@@ -85,5 +89,5 @@ AtModal.propTypes = {
   onConfirm: PropTypes.func,
   content: PropTypes.string,
   cancleText: PropTypes.string,
-  confirmText: PropTypes.string,
+  confirmText: PropTypes.string
 }

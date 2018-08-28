@@ -43,6 +43,10 @@ export default class AtFloatLayout extends Taro.Component {
     )
   }
 
+  handleTouchMove = e => {
+    e.stopPropagation()
+  }
+
   render () {
     const { isOpened } = this.state
     const { title } = this.props
@@ -54,7 +58,7 @@ export default class AtFloatLayout extends Taro.Component {
     }
 
     return (
-      <View className={rootClassNames}>
+      <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           <View className='layout-header'>

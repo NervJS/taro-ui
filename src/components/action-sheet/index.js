@@ -53,6 +53,10 @@ export default class AtActionSheet extends Component {
     )
   }
 
+  handleTouchMove = e => {
+    e.stopPropagation()
+  }
+
   render () {
     const { title, cancleText } = this.props
     const { isOpened } = this.state
@@ -64,7 +68,7 @@ export default class AtActionSheet extends Component {
     }
 
     return (
-      <View className={rootClassNames}>
+      <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-action-sheet__overlay' />
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}

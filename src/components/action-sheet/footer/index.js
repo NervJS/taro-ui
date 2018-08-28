@@ -21,17 +21,21 @@ export default class AtActionSheetFooter extends Component {
   }
 
   componentDidMount () {
-    const { model = '' } = Taro.getSystemInfoSync()
     const curEnv = Taro.getEnv()
 
-    if (curEnv === Taro.ENV_TYPE.WEAPP && model.indexOf('iPhone X') >= 0) {
+    if (
+      curEnv === Taro.ENV_TYPE.WEAPP &&
+      Taro.getSystemInfoSync().model.indexOf('iPhone X') >= 0
+    ) {
       this.setState({ isIPhoneX: true })
     }
   }
 
   render () {
     const { isIPhoneX } = this.state
-    const footerClassName = isIPhoneX ? 'at-action-sheet-footer at-action-sheet-footer--ipx' : 'at-action-sheet-footer'
+    const footerClassName = isIPhoneX
+      ? 'at-action-sheet-footer at-action-sheet-footer--ipx'
+      : 'at-action-sheet-footer'
 
     return (
       <View className={footerClassName} onClick={this.handleClick}>
