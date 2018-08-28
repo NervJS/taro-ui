@@ -49,6 +49,10 @@ npm install taro-ui
 import { AtButton } from 'taro-ui'
 ```
 
+## 开发交流
+
+[官方微信交流群](https://github.com/NervJS/taro-ui/issues/16)
+
 ## 贡献
 
 如果你在使用 `Taro UI` 时遇到问题，或者有好的建议，欢迎给我们提 `Issue` 或 `Pull Request`。在开始之前，请阅读 [贡献指南](https://github.com/NervJS/taro-ui/blob/master/.github/CONTRIBUTING.md)
