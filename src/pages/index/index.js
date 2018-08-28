@@ -54,7 +54,7 @@ export default class Index extends Taro.Component {
         {
           id: 'Navigation',
           title: '导航',
-          content: '包含标签栏、导航栏、时间轴等',
+          content: '包含标签栏、导航栏、分段器等',
           icon: iconNavigation
         }
       ]
