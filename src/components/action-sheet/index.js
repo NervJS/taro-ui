@@ -17,15 +17,15 @@ export default class AtActionSheet extends AtComponent {
     const { isOpened } = props
 
     this.state = {
-      isOpened
+      _isOpened: isOpened
     }
   }
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
-    if (isOpened !== this.state.isOpened) {
+    if (isOpened !== this.state._isOpened) {
       this.setState({
-        isOpened
+        _isOpened: isOpened
       })
 
       !isOpened && this.handleClose()
@@ -48,7 +48,7 @@ export default class AtActionSheet extends AtComponent {
   close = () => {
     this.setState(
       {
-        isOpened: false
+        _isOpened: false
       },
       this.handleClose
     )
@@ -60,17 +60,20 @@ export default class AtActionSheet extends AtComponent {
 
   render () {
     const { title, cancleText } = this.props
-    const { isOpened } = this.state
+    const { _isOpened } = this.state
 
     const rootClassNames = ['at-action-sheet']
 
-    if (isOpened) {
+    if (_isOpened) {
       rootClassNames.push('at-action-sheet--active')
     }
 
     return (
       <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-action-sheet__overlay my-class' />
+        <View
+          onClick={this.close}
+          className='at-action-sheet__overlay'
+        />
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
           <AtActionSheetBody>{this.props.children}</AtActionSheetBody>

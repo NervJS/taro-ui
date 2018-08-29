@@ -11,13 +11,12 @@ import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtGrid extends AtComponent {
-  handleClick = (e, ...arg) => {
+  handleClick = (item, index, row, ...arg) => {
     const { onClick, columnNum } = this.props
-    const { item, index, row } = e.currentTarget.dataset
     if (_isFunction(onClick)) {
       /* prettier-ignore */
       const clickIndex = (row * columnNum) + index
-      onClick(item, clickIndex, e, ...arg)
+      onClick(item, clickIndex, ...arg)
     }
   }
 
@@ -44,10 +43,7 @@ export default class AtGrid extends AtComponent {
               <View
                 key={index}
                 className={rootClass}
-                data-item={childItem}
-                data-index={index}
-                data-row={i}
-                onClick={this.handleClick}
+                onClick={this.handleClick.bind(this, index, i, childItem)}
               >
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>

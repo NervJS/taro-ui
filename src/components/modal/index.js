@@ -13,17 +13,18 @@ import './index.scss'
 export default class AtModal extends AtComponent {
   constructor (props) {
     super(...arguments)
+
     const { isOpened } = props
     this.state = {
-      isOpened
+      _isOpened: isOpened
     }
   }
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
-    if (isOpened !== this.state.isOpened) {
+    if (isOpened !== this.state._isOpened) {
       this.setState({
-        isOpened
+        _isOpened: isOpened
       })
     }
   }
@@ -33,12 +34,12 @@ export default class AtModal extends AtComponent {
   }
 
   render () {
-    const { isOpened } = this.state
+    const { _isOpened } = this.state
     const { title, content, cancleText, confirmText } = this.props
 
     const rootClass = ['at-modal']
 
-    if (isOpened) {
+    if (_isOpened) {
       rootClass.push('at-modal--active')
     }
 

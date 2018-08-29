@@ -74,38 +74,38 @@ describe('Toast Behavior ', () => {
     const dom = findDOMNode(componet, 'at-toast')
     const bodyDom = dom.querySelector('.toast-body')
 
-    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.state._isOpened).toBeTruthy()
     Simulate.click(bodyDom)
 
     process.nextTick(() => {
       expect(onClose).toBeCalled()
-      expect(componet.state.isOpened).toBeFalsy()
+      expect(componet.state._isOpened).toBeFalsy()
     })
   })
 
   it('Toast will close when time over --- default', async () => {
     const componet = renderIntoDocument(<AtToast isOpened />)
 
-    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.state._isOpened).toBeTruthy()
     expect(componet.props.duration).toEqual(3000)
 
     await delay(3000)
 
     process.nextTick(() => {
-      expect(componet.state.isOpened).toBeFalsy()
+      expect(componet.state._isOpened).toBeFalsy()
     })
   })
 
   it('Toast will close when time over ', async () => {
     const componet = renderIntoDocument(<AtToast duration={1000} isOpened />)
 
-    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.state._isOpened).toBeTruthy()
     expect(componet.props.duration).toEqual(1000)
 
     await delay(1000)
 
     process.nextTick(() => {
-      expect(componet.state.isOpened).toBeFalsy()
+      expect(componet.state._isOpened).toBeFalsy()
     })
   })
 
@@ -115,13 +115,13 @@ describe('Toast Behavior ', () => {
     const dom = findDOMNode(componet, 'at-toast')
     const bodyDom = dom.querySelector('.toast-body')
 
-    expect(componet.state.isOpened).toBeTruthy()
+    expect(componet.state._isOpened).toBeTruthy()
 
     Simulate.click(bodyDom)
 
     expect(onClick).toBeCalled()
     process.nextTick(() => {
-      expect(componet.state.isOpened).toBeTruthy()
+      expect(componet.state._isOpened).toBeTruthy()
     })
   })
 })

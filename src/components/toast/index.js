@@ -23,7 +23,7 @@ export default class AtToast extends AtComponent {
 
     this._timer = null
     this.state = {
-      isOpened
+      _isOpened: isOpened
     }
   }
 
@@ -44,11 +44,11 @@ export default class AtToast extends AtComponent {
   }
 
   close () {
-    const { isOpened } = this.state
-    if (isOpened) {
+    const { _isOpened } = this.state
+    if (_isOpened) {
       this.setState(
         {
-          isOpened: false
+          _isOpened: false
         },
         this.handleClose
       )
@@ -66,9 +66,9 @@ export default class AtToast extends AtComponent {
     const { isOpened, duration } = nextProps
     if (!isOpened) return
 
-    if (!this.state.isOpened) {
+    if (!this.state._isOpened) {
       this.setState({
-        isOpened
+        _isOpened: isOpened
       })
     } else {
       this.clearTimmer()
@@ -88,7 +88,7 @@ export default class AtToast extends AtComponent {
   }
 
   render () {
-    const { isOpened } = this.state
+    const { _isOpened } = this.state
     const { text, icon, status, image, hasMask } = this.props
 
     const realImg = image || statusImg[status] || null
@@ -108,7 +108,7 @@ export default class AtToast extends AtComponent {
       rootClass.push('at-toast-body--custom-image')
     }
 
-    return isOpened ? (
+    return _isOpened ? (
       <View className='at-toast'>
         {hasMask && <View className='at-toast-overlay' />}
         <View className={rootClass} onClick={this.handleClick}>

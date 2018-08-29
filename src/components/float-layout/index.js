@@ -13,17 +13,18 @@ import './index.scss'
 export default class AtFloatLayout extends AtComponent {
   constructor (props) {
     super(...arguments)
+
     const { isOpened } = props
     this.state = {
-      isOpened
+      _isOpened: isOpened
     }
   }
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
-    if (isOpened !== this.state.isOpened) {
+    if (isOpened !== this.state._isOpened) {
       this.setState({
-        isOpened
+        _isOpened: isOpened
       })
       !isOpened && this.handleClose()
     }
@@ -38,7 +39,7 @@ export default class AtFloatLayout extends AtComponent {
   close = () => {
     this.setState(
       {
-        isOpened: false
+        _isOpened: false
       },
       this.handleClose
     )
@@ -49,12 +50,12 @@ export default class AtFloatLayout extends AtComponent {
   }
 
   render () {
-    const { isOpened } = this.state
+    const { _isOpened } = this.state
     const { title } = this.props
 
     const rootClassNames = ['at-float-layout']
 
-    if (isOpened) {
+    if (_isOpened) {
       rootClassNames.push('at-float-layout--active')
     }
 

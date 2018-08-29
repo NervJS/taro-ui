@@ -81,7 +81,7 @@ export default class ToastPage extends Component {
                   onClick={this.handleClick.bind(
                     this,
                     '文本内容',
-                    'loading',
+                    'analytics',
                     '',
                     false,
                     ''
