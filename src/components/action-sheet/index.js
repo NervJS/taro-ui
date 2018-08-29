@@ -1,16 +1,21 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
-import _isFunction from 'lodash/isFunction'
 
 import AtActionSheetBody from './body/index'
 import AtActionSheetHeader from './header/index'
 import AtActionSheetFooter from './footer/index'
 
+import AtComponent from '../../common/component'
+
 import './index.scss'
 
-export default class AtActionSheet extends Component {
+export default class AtActionSheet extends AtComponent {
+  static options = {
+    externalClasses: ['my-class']
+  }
+
   constructor (props) {
     super(...arguments)
     const { isOpened } = props
@@ -32,13 +37,13 @@ export default class AtActionSheet extends Component {
   }
 
   handleClose = () => {
-    if (_isFunction(this.props.onClose)) {
+    if (this.isFunction(this.props.onClose)) {
       this.props.onClose()
     }
   }
 
   handleCancle = () => {
-    if (_isFunction(this.props.onCancle)) {
+    if (this.isFunction(this.props.onCancle)) {
       return this.props.onCancle()
     }
     this.close()
@@ -69,7 +74,7 @@ export default class AtActionSheet extends Component {
 
     return (
       <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-action-sheet__overlay' />
+        <View onClick={this.close} className='at-action-sheet__overlay my-class' />
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
           <AtActionSheetBody>{this.props.children}</AtActionSheetBody>

@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import _chunk from 'lodash/chunk'
@@ -6,10 +6,11 @@ import PropTypes from 'prop-types'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
+import AtComponent from '../../common/component'
 
 import './index.scss'
 
-export default class AtGrid extends Component {
+export default class AtGrid extends AtComponent {
   handleClick = (e, ...arg) => {
     const { onClick, columnNum } = this.props
     const { item, index, row } = e.currentTarget.dataset

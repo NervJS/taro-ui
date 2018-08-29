@@ -4,9 +4,11 @@ import { View, Text, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import _isFunction from 'lodash/isFunction'
 
+import AtComponent from '../../common/component'
+
 import './index.scss'
 
-export default class AtCard extends Taro.Component {
+export default class AtCard extends AtComponent {
   handleClick = (...args) => {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(...args)

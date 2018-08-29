@@ -4,10 +4,11 @@ import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtLoading from '../loading/index'
+import AtComponent from '../../common/component'
 
 import './index.scss'
 
-export default class AtActivityIndicator extends Taro.Component {
+export default class AtActivityIndicator extends AtComponent {
   render () {
     const { color, size, mode, content } = this.props
 

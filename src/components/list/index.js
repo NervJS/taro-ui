@@ -1,11 +1,13 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 
+import AtComponent from '../../common/component'
+
 import './index.scss'
 
-export default class AtList extends Component {
+export default class AtList extends AtComponent {
   render () {
     const rootClass = ['at-list']
 

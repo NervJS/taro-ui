@@ -1,11 +1,13 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 
+import AtComponent from '../../../common/component'
+
 import './index.scss'
 
-export default class AtModalAction extends Component {
+export default class AtModalAction extends AtComponent {
   render () {
     const rootClass = ['at-modal-footer']
 
