@@ -39,7 +39,7 @@ class AtRadio extends Taro.Component {
                     : 'at-radio__icon'
                 }
               >
-                <AtIcon value='check' size='14' color='#6190E8' />
+                <AtIcon value='check' size='16' color='#6190E8' />
               </View>
             </View>
             {
