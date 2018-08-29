@@ -14,7 +14,7 @@
     "build:h5-static": "npm run build:h5 && node ./build/build-static",
     "build:doc": "npm run build:h5-static && node ./build/build-doc",
     "remove:babelrc": "rm -f .babelrc",
-    "prepublish": "npm run build:component",
+    "prepublishOnly": "npm run build:component",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
@@ -42,7 +42,8 @@
     "ui"
   ],
   "files": [
-    "dist"
+    "dist",
+    "@types"
   ],
   "author": "O2Team <aotu.io>",
   "license": "MIT",
