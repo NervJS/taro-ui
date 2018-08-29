@@ -43,7 +43,7 @@ export default class AtGrid extends AtComponent {
               <View
                 key={index}
                 className={rootClass}
-                onClick={this.handleClick.bind(this, index, i, childItem)}
+                onClick={this.handleClick.bind(this, childItem, index, i)}
               >
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>
