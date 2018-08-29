@@ -23,6 +23,14 @@ export default class AtTag extends Taro.Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.active !== nextProps.active) {
+      this.setState({
+        active: nextProps.active,
+      })
+    }
+  }
+  
   onClick () {
     if (!this.props.disabled) {
       const active = !this.state.active
