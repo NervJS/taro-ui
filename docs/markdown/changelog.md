@@ -7,6 +7,20 @@
 
 <div class="row changelog">
   <div class="at-timeline">
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
+        <p class="head">v1.1.0</p>
+        <p class="time">
+          <span>2018-08-29</span>
+        </p>
+        <ul class="content">
+          <li>组件添加<span>全局样式类</span>（<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html">小程序全局样式类</a>）</li>
+          <li>添加<span>TypeScript</span>声明文件</li>
+        </ul>
+      </div>
+    </div>
     <div class="at-timeline__item at-timeline__item--last at-timeline__item--custom at-timeline__item--error">
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot">
