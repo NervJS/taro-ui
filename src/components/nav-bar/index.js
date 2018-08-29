@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -18,7 +20,7 @@ import './index.scss'
  * @prop onClickRightFirstIcon {Function} 从右到左第一个图标类型点击事件
  * @prop onClickRightSecondIcon {Function} 从右到左第二个图标类型点击事件
  */
-class AtNavBar extends Taro.Component {
+class AtNavBar extends AtComponent {
   handleClickLeftView () {
     this.props.onClickLeftIcon(...arguments)
   }

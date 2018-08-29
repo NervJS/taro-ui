@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View, Input } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -14,7 +16,7 @@ import './index.scss'
  * @prop disabled {Boolean} 是否禁止点击 default: false
  * @prop onChange {Function} 监听事件改变函数
  */
-class AtInputNumber extends Taro.Component {
+class AtInputNumber extends AtComponent {
   // 实现两数相加并保留小数点后最短尾数
   static addNum (num1, num2) {
     let sq1, sq2

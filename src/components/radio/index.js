@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -11,7 +13,7 @@ import './index.scss'
  * @prop options {Array} 选项列表 eg:[{label:'苹果',value:'apple'}]
  * @prop onClick {Function} 点击选项触发事件
  */
-class AtRadio extends Taro.Component {
+class AtRadio extends AtComponent {
   handleClick (option) {
     if (option.disabled) return
     this.props.onClick(option.value, ...arguments)

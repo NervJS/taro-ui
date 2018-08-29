@@ -1,8 +1,11 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Label } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
+
 /**
  * @author:chenzeji
  * @description 单行输入框
@@ -26,7 +29,7 @@ import './index.scss'
  * @prop onConfirm {Function} 点击完成按钮时触发
  * @prop onErrorClick {Function} 点击错误按钮触发的事件
  */
-class AtInput extends Taro.Component {
+class AtInput extends AtComponent {
   handleInput (e) {
     this.props.onChange(e.target.value, ...arguments)
   }

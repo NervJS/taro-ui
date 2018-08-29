@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -14,7 +16,7 @@ import './index.scss'
  * @prop fontSize {String|Number} 字体大小,单位h5为rem，小程序为rem default:'28'
  * @prop onClick {Function} 点击时触发事件，回调参数 数组索引值
  */
-class AtSegmentedControl extends Taro.Component {
+class AtSegmentedControl extends AtComponent {
   handleClick (i, disable) {
     if (disable) return
     this.props.onClick(i, ...arguments)

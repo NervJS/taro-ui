@@ -2,6 +2,8 @@ import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
+import AtComponent from '../../common/component'
+
 import './index.scss'
 
 const SIZE_CLASS = {
@@ -10,7 +12,7 @@ const SIZE_CLASS = {
   small: 'small',
 }
 
-export default class AtAvatar extends Taro.Component {
+export default class AtAvatar extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
