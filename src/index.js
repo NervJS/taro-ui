@@ -4,9 +4,7 @@ import './components/flex/item/index.scss'
 
 
 export { default as AtActionSheet } from './components/action-sheet'
-export {
-  default as AtActionSheetItem
-} from './components/action-sheet/body/item'
+export { default as AtActionSheetItem } from './components/action-sheet/body/item'
 export { default as AtActivityIndicator } from './components/activity-indicator'
 export { default as AtAvatar } from './components/avatar'
 export { default as AtBadge } from './components/badge'

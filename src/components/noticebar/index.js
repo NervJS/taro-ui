@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import AtIcon from '../icon/index'
 
+import AtComponent from '../../common/component'
+import AtIcon from '../icon/index'
 import './index.scss'
 
-export default class AtNoticebar extends Taro.Component {
+export default class AtNoticebar extends AtComponent {
   constructor () {
     super(...arguments)
     const animElemId = `J_${Math.ceil(Math.random() * 10e5).toString(36)}`

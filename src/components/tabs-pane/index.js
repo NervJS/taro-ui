@@ -1,5 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -11,7 +13,7 @@ import './index.scss'
  * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
  * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
  */
-class AtTabsPane extends Taro.Component {
+class AtTabsPane extends AtComponent {
   render () {
     return <View className='tabs-pane'>
       {this.props.children}

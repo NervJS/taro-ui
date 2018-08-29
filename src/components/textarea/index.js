@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -20,7 +22,7 @@ import './index.scss'
  * @prop onBlur {Function} 输入框失去焦点时触发
  * @prop onConfirm {Function} 点击完成时触发
  */
-class AtTextarea extends Taro.Component {
+class AtTextarea extends AtComponent {
   handleInput (e) {
     this.props.onChange(e, ...arguments)
   }

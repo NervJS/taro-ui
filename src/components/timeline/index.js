@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtIcon from '../icon/index'
 
+import AtIcon from '../icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
-export default class AtTimeline extends Taro.Component {
+export default class AtTimeline extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {

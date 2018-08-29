@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -11,7 +13,7 @@ import './index.scss'
  * @prop selectedList  {Array} 被选中的选项列表 eg: ['苹果']
  * @prop options {Array} 选项列表 eg: [{value:'apple', label: '苹果', desc:'这个苹果又大又甜'}]
  */
-class AtCheckbox extends Taro.Component {
+class AtCheckbox extends AtComponent {
   handleClick (option) {
     if (option.disabled) return
     const value = option.value

@@ -1,12 +1,13 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
-
+import AtComponent from '../../common/component'
 import './index.scss'
 
-export default class AtDrawer extends Taro.Component {
+export default class AtDrawer extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = { animShow: false }

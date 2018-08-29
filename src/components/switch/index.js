@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Switch } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -12,7 +14,7 @@ import './index.scss'
  * @prop disabled {Boolean} 是否禁用 default:false
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
-class AtSwitch extends Taro.Component {
+class AtSwitch extends AtComponent {
   handleChange (e) {
     this.props.onChange(e.detail.value)
   }

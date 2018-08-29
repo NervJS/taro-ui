@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { Text } from '@tarojs/components'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
-export default class AtIcon extends Taro.Component {
+export default class AtIcon extends AtComponent {
   handleClick () {
     this.props.onClick(...arguments)
   }

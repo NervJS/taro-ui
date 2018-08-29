@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
+import AtComponent from '../../common/component'
 import './index.scss'
 
 const SIZE_CLASS = {
@@ -14,7 +15,7 @@ const TYPE_CLASS = {
 }
 
 
-export default class AtTag extends Taro.Component {
+export default class AtTag extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {

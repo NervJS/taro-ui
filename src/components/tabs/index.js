@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -11,7 +13,7 @@ import './index.scss'
  * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
  * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
  */
-class AtTabs extends Taro.Component {
+class AtTabs extends AtComponent {
   constructor () {
     super(...arguments)
     // 触摸时的原点

@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -13,7 +15,7 @@ import './index.scss'
  * @prop margin {Number} 星星间隔,单位根据环境转为rpx或rem default:5
  * @prop onChange {Function} 监听函数，数值改变时触发
  */
-class AtRate extends Taro.Component {
+class AtRate extends AtComponent {
   handleClick (i) {
     this.props.onChange(i + 1, ...arguments)
   }

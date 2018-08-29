@@ -4,6 +4,7 @@ import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtLoading from '../loading/index'
 
+import AtComponent from '../../common/component'
 import './index.scss'
 
 const SIZE_CLASS = {
@@ -17,7 +18,7 @@ const TYPE_CLASS = {
 }
 
 
-export default class AtButton extends Taro.Component {
+export default class AtButton extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {

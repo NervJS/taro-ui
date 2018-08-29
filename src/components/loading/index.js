@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
+
+import AtComponent from '../../common/component'
 import './index.scss'
 
-class AtLoading extends Taro.Component {
+class AtLoading extends AtComponent {
   render () {
     const { color, size } = this.props
     const sizeStyle = {

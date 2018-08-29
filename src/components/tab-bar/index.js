@@ -1,8 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtIcon from '../../components/icon/index'
 import AtBadge from '../../components/badge/index'
+import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
@@ -25,7 +27,7 @@ import './index.scss'
  *  示例: [{ title: '标签页1',iconType: '', dot: true, iconSize:24, selectedIconType: '',text: 8 }, { title: '标签页2' }]
  * @prop onClick {Function} 点击时触发事件，回调参数：列表索引值
  */
-class AtTabBar extends Taro.Component {
+class AtTabBar extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {

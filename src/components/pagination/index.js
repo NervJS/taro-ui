@@ -1,12 +1,13 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
+
 import AtButton from '../button/index'
 import AtIcon from '../icon/index'
-
+import AtComponent from '../../common/component'
 import './index.scss'
 
-export default class AtPagination extends Taro.Component {
+export default class AtPagination extends AtComponent {
   constructor () {
     super(...arguments)
     let { current, pageSize, total } = this.props
