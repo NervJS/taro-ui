@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
@@ -6,10 +6,11 @@ import PropTypes from 'prop-types'
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
 import AtModalContent from './content/index'
+import AtComponent from '../../common/component'
 
 import './index.scss'
 
-export default class AtModal extends Component {
+export default class AtModal extends AtComponent {
   constructor (props) {
     super(...arguments)
     const { isOpened } = props
@@ -75,7 +76,7 @@ export default class AtModal extends Component {
     }
 
     return (
-      <View className={rootClass}>
+      <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View className='at-modal__overlay' />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>

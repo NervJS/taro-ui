@@ -4,10 +4,11 @@ import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtIcon from '../icon/index'
+import AtComponent from '../../common/component'
 
 import './index.scss'
 
-export default class AtProgress extends Taro.Component {
+export default class AtProgress extends AtComponent {
   render () {
     let { percent } = this.props
     let { color } = this.props

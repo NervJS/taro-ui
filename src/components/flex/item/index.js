@@ -1,12 +1,14 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import _forEach from 'lodash/forEach'
 
+import AtComponent from '../../../common/component'
+
 import './index.scss'
 
-export default class AtFlexItem extends Component {
+export default class AtFlexItem extends AtComponent {
   render () {
     const rootClass = ['at-flex__item']
 

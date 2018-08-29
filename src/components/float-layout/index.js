@@ -6,10 +6,11 @@ import PropTypes from 'prop-types'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
+import AtComponent from '../../common/component'
 
 import './index.scss'
 
-export default class AtFloatLayout extends Taro.Component {
+export default class AtFloatLayout extends AtComponent {
   constructor (props) {
     super(...arguments)
     const { isOpened } = props

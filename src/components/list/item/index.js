@@ -1,14 +1,15 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../../icon/index'
+import AtComponent from '../../../common/component'
 
 import './index.scss'
 
-export default class AtListItem extends Component {
+export default class AtListItem extends AtComponent {
   handleClick = (...args) => {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(...args)
@@ -30,7 +31,7 @@ export default class AtListItem extends Component {
       isSwitch,
       extraText,
       hasBorder,
-      extraThumb,
+      extraThumb
     } = this.props
 
     const rootClass = ['at-list__item']
