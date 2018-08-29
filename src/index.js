@@ -2,8 +2,11 @@ import './components/article/index.scss'
 import './components/flex/index.scss'
 import './components/flex/item/index.scss'
 
+
 export { default as AtActionSheet } from './components/action-sheet'
-export { default as AtActionSheetItem } from './components/action-sheet/body/item'
+export {
+  default as AtActionSheetItem
+} from './components/action-sheet/body/item'
 export { default as AtActivityIndicator } from './components/activity-indicator'
 export { default as AtAvatar } from './components/avatar'
 export { default as AtBadge } from './components/badge'
@@ -38,4 +41,7 @@ export { default as AtTag } from './components/tag'
 export { default as AtTextarea } from './components/textarea'
 export { default as AtTimeline } from './components/timeline'
 export { default as AtToast } from './components/toast'
+
+/* 私有的组件  */
 export { default as AtLoading } from './components/loading'
+export { default as AtComponent } from './common/component'

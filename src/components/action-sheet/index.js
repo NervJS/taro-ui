@@ -12,10 +12,6 @@ import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtActionSheet extends AtComponent {
-  static options = {
-    externalClasses: ['my-class']
-  }
-
   constructor (props) {
     super(...arguments)
     const { isOpened } = props
