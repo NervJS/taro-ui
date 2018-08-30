@@ -49,13 +49,13 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>等宽标签栏</View>
             <View className='panel__content'>
               <AtTabs swipeable={false} current={current1} tabList={tabList1} onClick={this.handleClick.bind(this, 'current1')}>
-                <AtTabsPane>
+                <AtTabsPane current={current1} index={0} >
                   <View className='tab-content'>标签页一的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current1} index={1}>
                   <View className='tab-content'>标签页二的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current1} index={2}>
                   <View className='tab-content'>标签页三的内容</View>
                 </AtTabsPane>
               </AtTabs>
@@ -65,31 +65,31 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>滚动标签栏</View>
             <View className='panel__content'>
               <AtTabs swipeable={false} scroll current={current2} tabList={tabList2} onClick={this.handleClick.bind(this, 'current2')}>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={0}>
                   <View className='tab-content'>标签页一的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={1}>
                   <View className='tab-content'>标签页二的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={2}>
                   <View className='tab-content'>标签页三的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={3}>
                   <View className='tab-content'>标签页四的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={4}>
                   <View className='tab-content'>标签页五的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={5}>
                   <View className='tab-content'>标签页六的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={6}>
                   <View className='tab-content'>标签页七的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={7}>
                   <View className='tab-content'>标签页八的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current2} index={8}>
                   <View className='tab-content'>标签页九的内容</View>
                 </AtTabsPane>
               </AtTabs>
@@ -99,13 +99,13 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>滑动切换内容</View>
             <View className='panel__content'>
               <AtTabs current={current3} tabList={tabList1} onClick={this.handleClick.bind(this, 'current3')}>
-                <AtTabsPane>
+                <AtTabsPane current={current3} index={0}>
                   <View className='tab-content'>标签页一的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current3} index={1}>
                   <View className='tab-content'>标签页二的内容</View>
                 </AtTabsPane>
-                <AtTabsPane>
+                <AtTabsPane current={current3} index={2}>
                   <View className='tab-content'>标签页三的内容</View>
                 </AtTabsPane>
               </AtTabs>

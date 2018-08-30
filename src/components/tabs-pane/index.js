@@ -1,21 +1,37 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import PropTypes from 'prop-types'
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
 /**
  * @author:chenzeji
- * @description tabs 标签页
+ * @description tabs 标签内容页
+ * @prop index {Number} 在页面容器的的索引值 default:0
  * @prop current {Number} 当前选中的tab index值，从0计数，default:0
- * @prop color {String} 选中标签的颜色
- * @prop scroll {Boolean} 是否横向滚动，default:false
- * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
- * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
  */
 class AtTabsPane extends AtComponent {
+  static defaultProps = {
+    index: 0,
+    current: 0
+  }
+
+  static propTypes = {
+    index: PropTypes.number,
+    current: PropTypes.number
+  }
+
   render () {
-    return <View className='tabs-pane'>
+    const { index, current } = this.props
+    const rootCls = ['tabs-pane']
+    if (index === current) {
+      rootCls.push('tabs-pane--active')
+    } else {
+      rootCls.push('tabs-pane--inactive')
+    }
+
+    return <View className={rootCls}>
       {this.props.children}
     </View>
   }

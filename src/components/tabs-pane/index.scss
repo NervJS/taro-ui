@@ -3,4 +3,13 @@
   width: 100%;
   white-space: initial;
   vertical-align: top;
+
+  &--active {
+    height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: visible;
+  }
 }

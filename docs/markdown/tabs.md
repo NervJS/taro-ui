@@ -1,7 +1,8 @@
 # Tabs 标签页
 
 ---
-标签页组件，用于让用户在不同的视图中进行切换。在 iOS 端的次级页面中，不建议使用左右滑动来切换 Tab，这个和 iOS 的左滑返回存在冲突
+标签页组件，用于让用户在不同的视图中进行切换。在 H5 上，不建议使用左右滑动来切换 Tab，这个跟某些浏览器自带的切换页面事件存在冲突，
+如果只是支持微信浏览器的 H5，不会产生冲突。
 
 ## 使用指南
 
@@ -10,12 +11,15 @@
 :::demo
 
 ```js
-import { AtTabs, AtTabsPane} from 'taro-ui'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 ```
 
 :::
 
 ## 一般用法
+
+说明： 该用法适合等宽标签，标签数不建议超过4个，超过4个建议使用**滚动标签栏**，增加 `scroll` 参数(见下)。
+由于小程序的限制，无法遍历 `this.props.children`, `AtTabsPane` 需要用户自行传入 `current` 和 `index` 参数
 
 :::demo
 
@@ -28,17 +32,71 @@ import { AtTabs, AtTabsPane} from 'taro-ui'
     { title: '标签页3' }
   ]}
   onClick={this.handleClick}>
-  <AtTabsPane>
+  <AtTabsPane current={this.state.current} index={0}>
     <View className='tab-content'>标签页一的内容</View>
   </AtTabsPane>
-  <AtTabsPane>
+  <AtTabsPane current={this.state.current} index={1}>
     <View className='tab-content'>标签页二的内容</View>
   </AtTabsPane>
-  <AtTabsPane>
+  <AtTabsPane current={this.state.current} index={2}>
     <View className='tab-content'>标签页三的内容</View>
   </AtTabsPane>
 </AtTabs>
 ```
+
+:::
+
+## 滚动标签栏
+
+:::demo
+
+```html
+<AtTabs
+  current={this.state.current}
+  scroll
+  tabList={[
+    { title: '标签页1' },
+    { title: '标签页2' },
+    { title: '标签页3' },
+    { title: '标签页4' },
+    { title: '标签页5' },
+    { title: '标签页6' },
+    { title: '标签页7' },
+    { title: '标签页8' },
+    { title: '标签页9' }
+  ]}
+  onClick={this.handleClick}>
+  <AtTabsPane current={this.state.current} index={0}>
+    <View className='tab-content'>标签页一的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={1}>
+    <View className='tab-content'>标签页二的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={2}>
+    <View className='tab-content'>标签页三的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={3}>
+    <View className='tab-content'>标签页四的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={4}>
+    <View className='tab-content'>标签页五的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={5}>
+    <View className='tab-content'>标签页六的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={6}>
+    <View className='tab-content'>标签页七的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={7}>
+    <View className='tab-content'>标签页八的内容</View>
+  </AtTabsPane>
+  <AtTabsPane current={this.state.current} index={8}>
+    <View className='tab-content'>标签页九的内容</View>
+  </AtTabsPane>
+</AtTabs>
+```
+
+:::
 
 ## 禁止内容切换动画
 

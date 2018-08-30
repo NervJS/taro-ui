@@ -95,7 +95,6 @@ class AtTabs extends AtComponent {
         }
       </View>
       <View className='at-tabs__body'
-        id='test'
         onTouchStart={this.handleTouchStart.bind(this)}
         onTouchEnd={this.handleTouchEnd.bind(this)}
         onTouchMove={this.handleTouchMove.bind(this)}
