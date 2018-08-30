@@ -20,8 +20,9 @@ export default class Index extends Taro.Component {
     }
   }
   handleClick (stateName, value) {
-    this.state[stateName] = value
-    this.setState()
+    this.setState({
+      [stateName]: value
+    })
   }
   render () {
     const { current1, current2, current3, current4 } = this.state
