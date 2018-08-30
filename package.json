@@ -18,7 +18,7 @@
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "test": "cp ./sample.babelrc ./.babelrc && jest"
+    "test": "cp ./sample.babelrc ./.babelrc && jest --coverage"
   },
   "husky": {
     "hooks": {
