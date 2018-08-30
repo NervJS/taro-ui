@@ -53,10 +53,10 @@ export default class FlexPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='at-row'>
-                  <View className='at-col at-col-offset--2'>
+                  <View className='at-col at-col__offset-2'>
                     A
                   </View>
-                  <View className='at-col at-col-offset--3'>
+                  <View className='at-col at-col__offset-3'>
                     B
                   </View>
                   <View className='at-col'>C</View>
