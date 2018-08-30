@@ -47,16 +47,16 @@ class AtTabs extends AtComponent {
 
     const { current } = this.props
     const touchMove = e.touches[0].pageX
-    const moveDistance = Math.abs(touchMove - this.touchDot)
+    const moveDistance = touchMove - this.touchDot
 
-    if (!this.isMoving && this.time < 10 && moveDistance >= 40) {
+    if (!this.isMoving && this.time < 10) {
       // 向左滑动
-      if (current + 1 < this.maxIndex) {
+      if (current + 1 < this.maxIndex && moveDistance <= -40) {
         this.isMoving = true
         this.handleClick(current + 1)
 
       // 向右滑动
-      } else if (current - 1 >= 0) {
+      } else if (current - 1 >= 0 && moveDistance >= 40) {
         this.isMoving = true
         this.handleClick(current - 1)
       }
