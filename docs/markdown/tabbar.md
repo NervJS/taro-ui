@@ -99,7 +99,7 @@ import { AtTabBar } from 'taro-ui'
 | color     | 未选中标签字体与图标颜色  | String | - | `#333` |
 | selectedColor  | 选中标签字体与图标颜色  | String | - | `#6190E8` |
 | fixed | 是否固定底部 | Boolean  | - | false |
-| backgroundColor | 是否固定底部 | String  | - | `#fff` |
+| backgroundColor | 背景颜色 | String  | - | `#fff` |
 | iconSize | 图标大小 | Number  | - | 24 |
 | fontSize | 字体大小 | Number  | - | 14 |
 | tabList | tab 列表, object 字段说明请看下表 | Array  | - | false |
