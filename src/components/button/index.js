@@ -70,6 +70,7 @@ AtButton.defaultProps = {
   circle: false,
   loading: false,
   disabled: false,
+  onClick: () => {},
 }
 
 AtButton.propTypes = {
@@ -78,4 +79,5 @@ AtButton.propTypes = {
   circle: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 }

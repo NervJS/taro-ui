@@ -2,15 +2,17 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtButtonProps {
-  size: 'normal' | 'small'
+  size?: 'normal' | 'small'
 
-  type: 'primary' | 'secondary'
+  type?: 'primary' | 'secondary'
 
-  circle: number
+  circle?: boolean
 
-  loading: boolean
+  loading?: boolean
 
-  disabled: boolean
+  disabled?: boolean
+
+  onClick?: (event: BaseEventFunction) => void
 }
 
 declare const AtButton: ComponentClass<AtButtonProps>

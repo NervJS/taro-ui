@@ -78,6 +78,7 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
+  onPageChange: () => {},
 }
 
 AtPagination.propTypes = {
@@ -85,4 +86,5 @@ AtPagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
+  onPageChange: PropTypes.func,
 }

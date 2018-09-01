@@ -49,6 +49,9 @@ AtBadge.defaultProps = {
 
 AtBadge.propTypes = {
   dot: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   maxValue: PropTypes.number,
 }

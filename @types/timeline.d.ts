@@ -4,15 +4,15 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 export interface Item {
   title: string
 
-  content: string
+  content?: string
 
-  icon: string
+  icon?: string
 
-  color: string
+  color?: string
 }
 
 export interface AtTimeLineProps {
-  pending: string
+  pending?: boolean
 
   items: Array<Item>
 }

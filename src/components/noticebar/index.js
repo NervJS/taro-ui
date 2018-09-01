@@ -21,7 +21,7 @@ export default class AtNoticebar extends AtComponent {
     this.setState({
       show: false,
     })
-    this.props.onClose && this.props.onClose()
+    this.props.onClose && this.props.onClose(...arguments)
   }
 
   onGotoMore () {
@@ -120,6 +120,8 @@ AtNoticebar.defaultProps = {
   moreText: '查看详情',
   showMore: false,
   icon: '',
+  onClose: () => {},
+  onGotoMore: () => {},
 }
 
 AtNoticebar.propTypes = {
@@ -130,4 +132,6 @@ AtNoticebar.propTypes = {
   moreText: PropTypes.string,
   showMore: PropTypes.bool,
   icon: PropTypes.string,
+  onClose: PropTypes.func,
+  onGotoMore: PropTypes.func,
 }

@@ -4,11 +4,13 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 export interface AtPaginationProps {
   total: number
 
-  current: number
+  current?: number
 
-  pageSize: number
+  pageSize?: number
 
-  icon: boolean
+  icon?: boolean
+
+  onPageChange?: (data: {type: 'prev' | 'next', current: number}) => void
 }
 
 declare const AtPagination: ComponentClass<AtPaginationProps>

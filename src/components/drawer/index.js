@@ -11,6 +11,7 @@ export default class AtDrawer extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = { animShow: false }
+    if (this.props.show) this.animShow()
   }
 
   onItemClick (index, e) {
@@ -19,6 +20,7 @@ export default class AtDrawer extends AtComponent {
   }
 
   onHide () {
+    this.setState({ show: false })
     this.props.onClose && this.props.onClose()
   }
 
@@ -31,17 +33,25 @@ export default class AtDrawer extends AtComponent {
     }, 300)
   }
 
-  onMaskClick () {
-    this.animHide(...arguments)
-  }
-
-  componentDidMount () {
+  animShow () {
+    this.setState({ show: true })
     setTimeout(() => {
       this.setState({
         animShow: true,
       })
     }, 200)
-    console.log('did mount')
+  }
+
+  onMaskClick () {
+    this.animHide(...arguments)
+  }
+
+  componentWillReceiveProps (props) {
+    const { show } = props
+    if (show !== this.props.show) {
+      if (show) this.animShow()
+      else this.animHide(...arguments)
+    }
   }
 
   render () {
@@ -53,6 +63,7 @@ export default class AtDrawer extends AtComponent {
     } = this.props
     const {
       animShow,
+      show,
     } = this.state
     let rootClassName = ['at-drawer']
 
@@ -71,7 +82,7 @@ export default class AtDrawer extends AtComponent {
     rootClassName = rootClassName.filter(str => str !== '')
 
     return (
-      <View className={rootClassName}>
+      show && <View className={rootClassName}>
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
@@ -100,6 +111,8 @@ AtDrawer.defaultProps = {
   width: '230px',
   right: false,
   items: [],
+  onItemClick: () => {},
+  onClose: () => {},
 }
 
 AtDrawer.propTypes = {
@@ -107,4 +120,6 @@ AtDrawer.propTypes = {
   mask: PropTypes.bool,
   width: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
+  onItemClick: PropTypes.func,
+  onClose: PropTypes.func,
 }

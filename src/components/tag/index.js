@@ -67,6 +67,7 @@ AtTag.defaultProps = {
   circle: false,
   active: false,
   disabled: false,
+  onClick: () => {},
 }
 
 AtTag.propTypes = {
@@ -76,4 +77,5 @@ AtTag.propTypes = {
   circle: PropTypes.bool,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 }

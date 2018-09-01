@@ -2,19 +2,23 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtNoticeBarProps {
-  close: boolean
+  close?: boolean
 
-  single: boolean
+  single?: boolean
 
-  marquee: boolean
+  marquee?: boolean
 
-  speed: number
+  speed?: number
 
-  moreText: string
+  moreText?: string
 
-  showMore: boolean
+  showMore?: boolean
 
-  icon: string
+  icon?: string
+
+  onClose?: (event: BaseEventFunction) => void
+
+  onGotoMore?: (event: BaseEventFunction) => void
 }
 
 declare const AtNoticeBar: ComponentClass<AtNoticeBarProps>

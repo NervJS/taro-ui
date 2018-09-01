@@ -11,6 +11,10 @@ export interface AtDrawerProps {
   right?: boolean
 
   items?: Array<string>
+
+  onItemClick?: (index: number) => void
+
+  onClose?: () => void
 }
 
 declare const AtDrawer: ComponentClass<AtDrawerProps>

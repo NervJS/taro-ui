@@ -21,21 +21,23 @@ export default class AtIcon extends AtComponent {
     const rootClassName = ['at-icon', `at-icon-${value}`]
     // console.log('value====', value)
     return (
-      <Text className={rootClassName} style={rootStyle}></Text>
+      <Text className={rootClassName} style={rootStyle} onClick={this.handleClick.bind(this)}></Text>
     )
   }
 }
 AtIcon.defaultProps = {
+  value: '',
   color: '',
-  size: '24',
-  onClick: () => { }
+  size: 24,
+  onClick: () => {},
 }
 AtIcon.propTypes = {
+  value: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
   ]),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 

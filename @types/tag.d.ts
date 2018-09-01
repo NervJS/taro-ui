@@ -2,15 +2,17 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtTagProps {
-  size: string
+  size?: string
 
-  type: string
+  type?: string
 
-  name: string
+  name?: string
 
-  active: boolean
+  active?: boolean
 
-  disabled: boolean
+  disabled?: boolean
+
+  onClick?: (event: BaseEventFunction) => void
 }
 
 declare const AtTag: ComponentClass<AtTagProps>

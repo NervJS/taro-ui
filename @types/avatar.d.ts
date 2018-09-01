@@ -2,11 +2,11 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtAvatarProps {
-  size: 'large' | 'normal' | 'small'
+  size?: 'large' | 'normal' | 'small'
 
-  circle: boolean
+  circle?: boolean
 
-  image: string
+  image?: string
 }
 
 declare const AtAvatar: ComponentClass<AtAvatarProps>
