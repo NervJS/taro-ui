@@ -45,9 +45,9 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 <AtModal
   isOpened
   title='标题'
-  cancleText='取消'
+  cancelText='取消'
   confirmText='确认'
-  onCancle={ this.handleCancle }
+  onCancel={ this.handleCancel }
   onConfirm={ this.handleConfirm }
   content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
 />
@@ -61,7 +61,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 | ----------- | ---------------------- | -------- | ------ | ------ |
 | title       | 元素的标题             | String   | -      | -      |
 | content     | 元素的内容             | String   | -      | -      |
-| cancleText  | 取消按钮的文本         | String   | -      | -      |
+| cancelText  | 取消按钮的文本         | String   | -      | -      |
 | confirmText | 确认按钮的文本         | String   | -      | -      |
-| onCancle    | 点击取消按钮触发的样式 | Function | -      | -      |
+| onCancel    | 点击取消按钮触发的样式 | Function | -      | -      |
 | onConfirm   | 点击确认按钮触发的事件 | Function | -      | -      |

@@ -38,7 +38,7 @@ import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 :::demo
 
 ```html
-<AtActionSheet isOpened cancleText='取消' title=‘头部标题可以用通过转义字符换行’>
+<AtActionSheet isOpened cancelText='取消' title=‘头部标题可以用通过转义字符换行’>
   <AtActionSheetItem>
     按钮一
   </AtActionSheetItem>
@@ -55,7 +55,7 @@ import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 :::demo
 
 ```html
-<AtActionSheet isOpened cancleText='取消' title=‘头部标题可以用通过转义字符换行’ onCancle={ this.handleCancle } onClose={ this.handleClose }>
+<AtActionSheet isOpened cancelText='取消' title=‘头部标题可以用通过转义字符换行’ onCancel={ this.handleCancel } onClose={ this.handleClose }>
   <AtActionSheetItem onClick={ this.handleClick }>
     按钮一
   </AtActionSheetItem>
@@ -73,9 +73,9 @@ import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 | ---------- | ---------------------------- | -------- | ------ | ------ |
 | title      | 元素的标题                   | String   | -      | -      |
 | isOpened   | 是否展示元素                 | Boolean  | -      | `false`  |
-| cancleText | 取消按钮的内容               | String   | -      | -      |
+| cancelText | 取消按钮的内容               | String   | -      | -      |
 | onClose    | 元素被关闭触发的事件         | Function | -      | -      |
-| onCancle   | 点击了底部取消按钮触发的事件 | Function | -      | -      |
+| onCancel   | 点击了底部取消按钮触发的事件 | Function | -      | -      |
 
 ## AtActionSheetItem 参数
 

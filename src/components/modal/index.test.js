@@ -84,7 +84,7 @@ describe('Modal Snap', () => {
       <AtModal
         isOpened
         title='标题'
-        cancleText='取消'
+        cancelText='取消'
         confirmText='确认'
         content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
       />
@@ -94,32 +94,32 @@ describe('Modal Snap', () => {
 })
 
 describe('Modal Behavior ', () => {
-  it('Modal onClose & onCancle & onClick', () => {
-    const onCancle = jest.fn()
+  it('Modal onClose & onCancel & onClick', () => {
+    const onCancel = jest.fn()
     const onConfirm = jest.fn()
 
     const component = renderIntoDocument(
       <AtModal
         isOpened
         title='标题'
-        cancleText='取消'
+        cancelText='取消'
         confirmText='确认'
-        onCancle={onCancle}
+        onCancel={onCancel}
         onConfirm={onConfirm}
         content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
       />
     )
     const componentDom = findDOMNode(component, 'at-modal')
 
-    const cancleDom = componentDom.querySelector(
+    const cancelDom = componentDom.querySelector(
       '.at-modal-footer__action button:first-child'
     )
     const confirmDom = componentDom.querySelector(
       '.at-modal-footer__action button:last-child'
     )
 
-    Simulate.click(cancleDom)
-    expect(onCancle).toBeCalled()
+    Simulate.click(cancelDom)
+    expect(onCancel).toBeCalled()
 
     Simulate.click(confirmDom)
     expect(onConfirm).toBeCalled()

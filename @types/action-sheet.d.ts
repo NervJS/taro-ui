@@ -5,10 +5,10 @@ export interface AtActionSheetProps {
   isOpened: boolean
 
   title?: string
-  cancleText?: string
+  cancelText?: string
 
   onClose?: (event: BaseEventFunction) => void
-  onCancle?: (event: BaseEventFunction) => void
+  onCancel?: (event: BaseEventFunction) => void
 }
 
 declare const AtActionSheet: ComponentClass<AtActionSheetProps>

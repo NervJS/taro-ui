@@ -26,9 +26,9 @@ describe('ActionSheet Snap', () => {
     expect(componet).toMatchSnapshot()
   })
 
-  it('render opened ActionSheet -- props cancleText', () => {
+  it('render opened ActionSheet -- props cancelText', () => {
     const componet = renderToString(
-      <AtActionSheet isOpened cancleText='取消'>
+      <AtActionSheet isOpened cancelText='取消'>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
@@ -53,7 +53,7 @@ describe('ActionSheet Snap', () => {
     const componet = renderToString(
       <AtActionSheet
         isOpened
-        cancleText='取消'
+        cancelText='取消'
         title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
       >
         <AtActionSheetItem>按钮一</AtActionSheetItem>
@@ -65,17 +65,17 @@ describe('ActionSheet Snap', () => {
 })
 
 describe('ActionSheet Behavior ', () => {
-  it('ActionSheet onClose & onCancle & onClick', () => {
+  it('ActionSheet onClose & onCancel & onClick', () => {
     const onClose = jest.fn()
     const onClick = jest.fn()
-    const onCancle = jest.fn()
+    const onCancel = jest.fn()
 
     const component = renderIntoDocument(
       <AtActionSheet
         isOpened
-        cancleText='取消'
+        cancelText='取消'
         onClose={onClose}
-        onCancle={onCancle}
+        onCancel={onCancel}
         title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
       >
         <AtActionSheetItem onClick={onClick}>按钮一</AtActionSheetItem>
@@ -91,7 +91,7 @@ describe('ActionSheet Behavior ', () => {
     expect(onClick).toBeCalled()
 
     Simulate.click(footerDom)
-    expect(onCancle).toBeCalled()
+    expect(onCancel).toBeCalled()
 
     Simulate.click(overlayDom)
     process.nextTick(() => {
@@ -105,7 +105,7 @@ describe('ActionSheet Behavior ', () => {
     const component = renderIntoDocument(
       <AtActionSheet
         isOpened
-        cancleText='取消'
+        cancelText='取消'
         onClose={onClose}
         title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
       >

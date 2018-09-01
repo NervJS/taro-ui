@@ -6,11 +6,11 @@ export interface AtModalProps {
 
   content?: string
 
-  cancleText?: string
+  cancelText?: string
 
   confirmText?: string
 
-  onCancle?: BaseEventFunction
+  onCancel?: BaseEventFunction
 
   onConfirm?: BaseEventFunction
 }

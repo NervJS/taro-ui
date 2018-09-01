@@ -38,9 +38,9 @@ export default class AtActionSheet extends AtComponent {
     }
   }
 
-  handleCancle = () => {
-    if (this.isFunction(this.props.onCancle)) {
-      return this.props.onCancle()
+  handleCancel = () => {
+    if (this.isFunction(this.props.onCancel)) {
+      return this.props.onCancel()
     }
     this.close()
   }
@@ -59,7 +59,7 @@ export default class AtActionSheet extends AtComponent {
   }
 
   render () {
-    const { title, cancleText } = this.props
+    const { title, cancelText } = this.props
     const { _isOpened } = this.state
 
     const rootClassNames = ['at-action-sheet']
@@ -77,9 +77,9 @@ export default class AtActionSheet extends AtComponent {
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
           <AtActionSheetBody>{this.props.children}</AtActionSheetBody>
-          {cancleText && (
-            <AtActionSheetFooter onClick={this.handleCancle}>
-              {cancleText}
+          {cancelText && (
+            <AtActionSheetFooter onClick={this.handleCancel}>
+              {cancelText}
             </AtActionSheetFooter>
           )}
         </View>
@@ -95,7 +95,7 @@ AtActionSheet.defaultProps = {
 AtActionSheet.propTypes = {
   title: PropTypes.string,
   onClose: PropTypes.func,
-  onCancle: PropTypes.func,
+  onCancel: PropTypes.func,
   isOpened: PropTypes.bool,
-  cancleText: PropTypes.string
+  cancelText: PropTypes.string
 }

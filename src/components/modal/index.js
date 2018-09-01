@@ -35,7 +35,7 @@ export default class AtModal extends AtComponent {
 
   render () {
     const { _isOpened } = this.state
-    const { title, content, cancleText, confirmText } = this.props
+    const { title, content, cancelText, confirmText } = this.props
 
     const rootClass = ['at-modal']
 
@@ -44,7 +44,7 @@ export default class AtModal extends AtComponent {
     }
 
     if (title || content) {
-      const isRenderAction = cancleText || confirmText
+      const isRenderAction = cancelText || confirmText
       return (
         <View className={rootClass} onTouchMove={this.handleTouchMove}>
           <View className='at-modal__overlay' />
@@ -63,8 +63,8 @@ export default class AtModal extends AtComponent {
             )}
             {isRenderAction && (
               <AtModalAction isSimple>
-                {cancleText && (
-                  <Button onClick={this.props.onCancle}>{cancleText}</Button>
+                {cancelText && (
+                  <Button onClick={this.props.onCancel}>{cancelText}</Button>
                 )}
                 {confirmText && (
                   <Button onClick={this.props.onConfirm}>{confirmText}</Button>
@@ -87,9 +87,9 @@ export default class AtModal extends AtComponent {
 
 AtModal.propTypes = {
   title: PropTypes.string,
-  onCancle: PropTypes.func,
+  onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   content: PropTypes.string,
-  cancleText: PropTypes.string,
+  cancelText: PropTypes.string,
   confirmText: PropTypes.string
 }

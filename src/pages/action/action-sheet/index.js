@@ -37,7 +37,7 @@ export default class ActionSheetPage extends Taro.Component {
     })
   }
 
-  handleCancle = () => {
+  handleCancel = () => {
     this.showToast('点击了取消按钮')
   }
 
@@ -97,7 +97,7 @@ export default class ActionSheetPage extends Taro.Component {
         </View>
 
         <AtActionSheet
-          cancleText='取消'
+          cancelText='取消'
           isOpened={isOpened1}
           onClose={this.handleClose.bind(this, 1)}
         >
@@ -114,7 +114,7 @@ export default class ActionSheetPage extends Taro.Component {
         </AtActionSheet>
 
         <AtActionSheet
-          cancleText='取消'
+          cancelText='取消'
           isOpened={isOpened2}
           onClose={this.handleClose.bind(this, 2)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
@@ -132,9 +132,9 @@ export default class ActionSheetPage extends Taro.Component {
         </AtActionSheet>
 
         <AtActionSheet
-          cancleText='取消'
+          cancelText='取消'
           isOpened={isOpened3}
-          onCancle={this.handleCancle}
+          onCancel={this.handleCancel}
           onClose={this.handleClose.bind(this, 3)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
         >
