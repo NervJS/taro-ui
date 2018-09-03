@@ -6,11 +6,6 @@ import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtTimeline extends AtComponent {
-  constructor () {
-    super(...arguments)
-    this.state = {}
-  }
-
   render () {
     const {
       pending,
