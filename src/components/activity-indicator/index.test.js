@@ -5,27 +5,27 @@ import AtActivityIndicator from '../../../.temp/components/activity-indicator/in
 
 describe('ActivityIndicator Snap', () => {
   it('render initial ActivityIndicator', () => {
-    const componet = renderToString(<AtActivityIndicator />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtActivityIndicator />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render ActivityIndicator -- props size', () => {
-    const componet = renderToString(<AtActivityIndicator size={32} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtActivityIndicator size={32} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render ActivityIndicator -- props color', () => {
-    const componet = renderToString(<AtActivityIndicator color='#13CE66' />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtActivityIndicator color='#13CE66' />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render ActivityIndicator -- props content ', () => {
-    const componet = renderToString(<AtActivityIndicator content='加载中...' />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtActivityIndicator content='加载中...' />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render ActivityIndicator -- props mode ', () => {
-    const componet = renderToString(<AtActivityIndicator mode='center' />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtActivityIndicator mode='center' />)
+    expect(component).toMatchSnapshot()
   })
 })

@@ -6,36 +6,36 @@ import AtFloatLayout from '../../../.temp/components/float-layout/index'
 
 describe('FloatLayout Snap', () => {
   it('render initial FloatLayout', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened FloatLayout', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout isOpened>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render FloatLayout -- props note', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout isOpened title='这是个标题'>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 
@@ -56,6 +56,26 @@ describe('FloatLayout Behavior ', () => {
     Simulate.click(overlayDom)
     process.nextTick(() => {
       expect(onClose).toBeCalled()
+      expect(component.state._isOpened).toBeFalsy()
+    })
+  })
+
+  it('FloatLayout trigger componentWillReceiveProps', () => {
+    const onClose = jest.fn()
+
+    const component = renderIntoDocument(
+      <AtFloatLayout isOpened title='这是个标题' onClose={onClose}>
+        这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
+        随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
+        随你怎么写
+      </AtFloatLayout>
+    )
+
+    component.componentWillReceiveProps({ isOpened: false })
+
+    process.nextTick(() => {
+      expect(onClose).toBeCalled()
+      expect(component.state._isOpened).toBeFalsy()
     })
   })
 })

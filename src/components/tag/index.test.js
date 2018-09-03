@@ -6,33 +6,33 @@ import AtTag from '../../../.temp/components/tag/index'
 
 describe('AtTag Snap', () => {
   it('render AtNoticebar -- props size', () => {
-    const componet = renderToString(<AtTag size='small'>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag size='small'>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props type', () => {
-    const componet = renderToString(<AtTag type='primary'>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag type='primary'>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props name', () => {
-    const componet = renderToString(<AtTag name='tag-01'>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag name='tag-01'>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props circle', () => {
-    const componet = renderToString(<AtTag circle>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag circle>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props active', () => {
-    const componet = renderToString(<AtTag active>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag active>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props disabled', () => {
-    const componet = renderToString(<AtTag disabled>标签</AtTag>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtTag disabled>标签</AtTag>)
+    expect(component).toMatchSnapshot()
   })
 })
 

@@ -17,52 +17,52 @@ const STATUS_LOADING = 'loading'
 
 describe('Toast Snap', () => {
   it('render initial Toast', () => {
-    const componet = renderToString(<AtToast />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast', () => {
-    const componet = renderToString(<AtToast isOpened />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast -- props text', () => {
-    const componet = renderToString(<AtToast isOpened text={TEXT} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened text={TEXT} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast -- props icon', () => {
-    const componet = renderToString(<AtToast isOpened icon={ICON} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened icon={ICON} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened  Toast -- props image', () => {
-    const componet = renderToString(<AtToast isOpened image={IMAGE} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened image={IMAGE} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened  Toast -- props hasMask', () => {
-    const componet = renderToString(<AtToast isOpened hasMask />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened hasMask />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast -- props status : success ', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtToast isOpened status={STATUS_SUCCESS} />
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast -- props status : loading ', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtToast isOpened status={STATUS_LOADING} />
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Toast -- props status : error ', () => {
-    const componet = renderToString(<AtToast isOpened status={STATUS_ERROR} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtToast isOpened status={STATUS_ERROR} />)
+    expect(component).toMatchSnapshot()
   })
 })
 
@@ -70,58 +70,70 @@ describe('Toast Behavior ', () => {
   it('Toast will close when is clicked && onClose will be called', async () => {
     const onClose = jest.fn()
 
-    const componet = renderIntoDocument(<AtToast isOpened onClose={onClose} />)
-    const dom = findDOMNode(componet, 'at-toast')
+    const component = renderIntoDocument(<AtToast isOpened onClose={onClose} />)
+    const dom = findDOMNode(component, 'at-toast')
     const bodyDom = dom.querySelector('.toast-body')
 
-    expect(componet.state._isOpened).toBeTruthy()
+    expect(component.state._isOpened).toBeTruthy()
+
     Simulate.click(bodyDom)
 
     process.nextTick(() => {
       expect(onClose).toBeCalled()
-      expect(componet.state._isOpened).toBeFalsy()
+      expect(component.state._isOpened).toBeFalsy()
     })
   })
 
   it('Toast will close when time over --- default', async () => {
-    const componet = renderIntoDocument(<AtToast isOpened />)
+    const component = renderIntoDocument(<AtToast isOpened />)
 
-    expect(componet.state._isOpened).toBeTruthy()
-    expect(componet.props.duration).toEqual(3000)
+    expect(component._timer).toBeNull()
+    expect(component.state._isOpened).toBeTruthy()
+    expect(component.props.duration).toEqual(3000)
 
     await delay(3000)
 
     process.nextTick(() => {
-      expect(componet.state._isOpened).toBeFalsy()
+      expect(component.state._isOpened).toBeFalsy()
     })
   })
 
   it('Toast will close when time over ', async () => {
-    const componet = renderIntoDocument(<AtToast duration={1000} isOpened />)
+    const component = renderIntoDocument(<AtToast duration={1000} isOpened />)
 
-    expect(componet.state._isOpened).toBeTruthy()
-    expect(componet.props.duration).toEqual(1000)
+    expect(component.state._isOpened).toBeTruthy()
+    expect(component.props.duration).toEqual(1000)
 
     await delay(1000)
 
     process.nextTick(() => {
-      expect(componet.state._isOpened).toBeFalsy()
+      expect(component.state._isOpened).toBeFalsy()
     })
   })
 
   it('Toast onClick will be called', async () => {
     const onClick = jest.fn()
-    const componet = renderIntoDocument(<AtToast onClick={onClick} isOpened />)
-    const dom = findDOMNode(componet, 'at-toast')
+    const component = renderIntoDocument(<AtToast onClick={onClick} isOpened />)
+    const dom = findDOMNode(component, 'at-toast')
     const bodyDom = dom.querySelector('.toast-body')
 
-    expect(componet.state._isOpened).toBeTruthy()
+    expect(component.state._isOpened).toBeTruthy()
 
     Simulate.click(bodyDom)
 
     expect(onClick).toBeCalled()
     process.nextTick(() => {
-      expect(componet.state._isOpened).toBeTruthy()
+      expect(component.state._isOpened).toBeTruthy()
+    })
+  })
+
+  it('Toast trigger componentWillReceiveProps', async () => {
+    const component = renderIntoDocument(<AtToast isOpened />)
+
+    component.componentWillReceiveProps({ isOpened: false })
+
+    process.nextTick(() => {
+      expect(component.state._isOpened).toBeTruthy()
     })
   })
 })
