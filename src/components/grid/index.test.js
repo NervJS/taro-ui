@@ -48,30 +48,30 @@ const ICON_DATA = [
 
 describe('Grid Snap', () => {
   it('render image Grid', () => {
-    const component = renderToString(<AtGrid data={IMAGE_DATA} />)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtGrid data={IMAGE_DATA} />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render rect image Grid', () => {
-    const component = renderToString(<AtGrid mode='rect' data={IMAGE_DATA} />)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtGrid mode='rect' data={IMAGE_DATA} />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render icon Grid', () => {
-    const component = renderToString(<AtGrid data={ICON_DATA} />)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtGrid data={ICON_DATA} />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render rect icon Grid', () => {
-    const component = renderToString(<AtGrid mode='rect' data={ICON_DATA} />)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtGrid mode='rect' data={ICON_DATA} />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render rect icon Grid -- props columnNum', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtGrid mode='rect' columnNum={4} data={ICON_DATA} />
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 })
 

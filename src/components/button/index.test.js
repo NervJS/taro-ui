@@ -6,38 +6,38 @@ import AtButton from '../../../.temp/components/button/index'
 
 describe('AtButton Snap', () => {
   it('render AtButton -- props size(normal)', () => {
-    const component = renderToString(<AtButton size='normal'>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton size='normal'>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props size(small)', () => {
-    const component = renderToString(<AtButton size='small'>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton size='small'>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props type(primary)', () => {
-    const component = renderToString(<AtButton type='primary'>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton type='primary'>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props type(secondary)', () => {
-    const component = renderToString(<AtButton type='secondary'>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton type='secondary'>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props circle', () => {
-    const component = renderToString(<AtButton circle>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton circle>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props loading', () => {
-    const component = renderToString(<AtButton loading>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton loading>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtButton -- props disabled', () => {
-    const component = renderToString(<AtButton disabled>按钮</AtButton>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtButton disabled>按钮</AtButton>)
+    expect(componet).toMatchSnapshot()
   })
 })
 

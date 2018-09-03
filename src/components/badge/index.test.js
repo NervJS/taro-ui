@@ -6,17 +6,17 @@ import AtButton from '../../../.temp/components/button/index'
 
 describe('AtBadge Snap', () => {
   it('render AtBadge -- props value', () => {
-    const component = renderToString(<AtBadge value='3'><AtButton loading>按钮文字</AtButton></AtBadge>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtBadge value='3'><AtButton loading>按钮文字</AtButton></AtBadge>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtBadge -- props dot', () => {
-    const component = renderToString(<AtBadge dot><AtButton loading>按钮文字</AtButton></AtBadge>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtBadge dot><AtButton loading>按钮文字</AtButton></AtBadge>)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtBadge -- props maxValue', () => {
-    const component = renderToString(<AtBadge value='10' maxValue={9}><AtButton loading>按钮文字</AtButton></AtBadge>)
-    expect(component).toMatchSnapshot()
+    const componet = renderToString(<AtBadge value='10' maxValue={9}><AtButton loading>按钮文字</AtButton></AtBadge>)
+    expect(componet).toMatchSnapshot()
   })
 })

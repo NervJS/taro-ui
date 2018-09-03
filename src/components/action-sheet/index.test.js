@@ -7,37 +7,37 @@ import AtActionSheetItem from '../../../.temp/components/action-sheet/body/item'
 
 describe('ActionSheet Snap', () => {
   it('render initial ActionSheet', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtActionSheet>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 
   it('render opened ActionSheet', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtActionSheet isOpened>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 
   it('render opened ActionSheet -- props cancelText', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtActionSheet isOpened cancelText='取消'>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 
   it('render opened ActionSheet -- props title', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtActionSheet
         isOpened
         title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
@@ -46,11 +46,11 @@ describe('ActionSheet Snap', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 
   it('render opened  ActionSheet -- props completed ', () => {
-    const component = renderToString(
+    const componet = renderToString(
       <AtActionSheet
         isOpened
         cancelText='取消'
@@ -60,7 +60,7 @@ describe('ActionSheet Snap', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component).toMatchSnapshot()
+    expect(componet).toMatchSnapshot()
   })
 })
 
@@ -118,28 +118,6 @@ describe('ActionSheet Behavior ', () => {
     Simulate.click(footerDom)
     process.nextTick(() => {
       expect(onClose).toBeCalled()
-    })
-  })
-
-  it('ActionSheet trigger componentWillReceiveProps', () => {
-    const onClose = jest.fn()
-
-    const component = renderIntoDocument(
-      <AtActionSheet
-        isOpened
-        cancelText='取消'
-        onClose={onClose}
-        title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
-      >
-        <AtActionSheetItem>按钮一</AtActionSheetItem>
-      </AtActionSheet>
-    )
-
-    component.componentWillReceiveProps({ isOpened: false })
-
-    process.nextTick(() => {
-      expect(onClose).toBeCalled()
-      expect(component.state._isOpened).toBeFalsy()
     })
   })
 })
