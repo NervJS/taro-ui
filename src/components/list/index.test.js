@@ -7,7 +7,7 @@ import AtListItem from '../../../.temp/components/list/item/index'
 
 describe('List Snap', () => {
   it('render completed List', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtList>
         <AtListItem title='标题文字' />
         <AtListItem title='标题文字' arrow='right' />
@@ -30,17 +30,17 @@ describe('List Snap', () => {
         <AtListItem title='标题文字' isSwitch />
       </AtList>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render completed List -- no border', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtList hasBorder={false}>
         <AtListItem title='标题文字' hasBorder={false} />
         <AtListItem title='标题文字' hasBorder={false} />
       </AtList>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 

@@ -7,37 +7,37 @@ import AtActionSheetItem from '../../../.temp/components/action-sheet/body/item'
 
 describe('ActionSheet Snap', () => {
   it('render initial ActionSheet', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtActionSheet>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened ActionSheet', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtActionSheet isOpened>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened ActionSheet -- props cancelText', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtActionSheet isOpened cancelText='取消'>
         <AtActionSheetItem>按钮一</AtActionSheetItem>
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened ActionSheet -- props title', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtActionSheet
         isOpened
         title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
@@ -46,11 +46,11 @@ describe('ActionSheet Snap', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened  ActionSheet -- props completed ', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtActionSheet
         isOpened
         cancelText='取消'
@@ -60,7 +60,7 @@ describe('ActionSheet Snap', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 

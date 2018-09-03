@@ -6,23 +6,23 @@ import AtPagination from '../../../.temp/components/pagination/index'
 
 describe('AtPagination Snap', () => {
   it('render AtPagination -- props current', () => {
-    const componet = renderToString(<AtPagination current={1} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtPagination current={1} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtPagination -- props total', () => {
-    const componet = renderToString(<AtPagination total={100} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtPagination total={100} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtPagination -- props pageSize', () => {
-    const componet = renderToString(<AtPagination pageSize={40} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtPagination pageSize={40} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtPagination -- props icon', () => {
-    const componet = renderToString(<AtPagination icon />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtPagination icon />)
+    expect(component).toMatchSnapshot()
   })
 })
 

@@ -11,7 +11,7 @@ import AtModalContent from '../../../.temp/components/modal/content/index'
 
 describe('Modal Snap', () => {
   it('render initial Modal', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtModal>
         <AtModalHeader>标题</AtModalHeader>
         <AtModalContent>
@@ -25,11 +25,11 @@ describe('Modal Snap', () => {
         </AtModalAction>
       </AtModal>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Modal', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtModal isOpened>
         <AtModalHeader>标题</AtModalHeader>
         <AtModalContent>
@@ -43,11 +43,11 @@ describe('Modal Snap', () => {
         </AtModalAction>
       </AtModal>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Modal -- not header', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtModal isOpened>
         <AtModalContent>
           这里是正文内容，欢迎加入京东凹凸实验室
@@ -60,11 +60,11 @@ describe('Modal Snap', () => {
         </AtModalAction>
       </AtModal>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened Modal -- single button', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtModal isOpened>
         <AtModalContent>
           这里是正文内容，欢迎加入京东凹凸实验室
@@ -76,11 +76,11 @@ describe('Modal Snap', () => {
         </AtModalAction>
       </AtModal>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened  Modal -- simple', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtModal
         isOpened
         title='标题'
@@ -89,7 +89,7 @@ describe('Modal Snap', () => {
         content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
       />
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 

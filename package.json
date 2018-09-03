@@ -5,20 +5,19 @@
   "main": "dist/index.js",
   "types": "./@types/index.d.ts",
   "scripts": {
-    "dev:weapp": "npm run remove:babelrc && npm run build:weapp -- --watch",
-    "dev:h5": "npm run remove:babelrc && npm run build:h5 -- --watch",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
     "dev:doc": "npm run build:h5-static && node ./build/dev-server",
-    "build:weapp": "npm run remove:babelrc && taro build --type weapp",
-    "build:h5": "npm run remove:babelrc && taro build --type h5",
-    "build:component": "npm run remove:babelrc && cross-env TARO_BUILD_TYPE=component taro build --ui",
+    "build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
     "build:h5-static": "npm run build:h5 && node ./build/build-static",
     "build:doc": "npm run build:h5-static && node ./build/build-doc",
-    "remove:babelrc": "rm -f .babelrc",
     "prepublishOnly": "npm run build:component",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "test": "cp ./sample.babelrc ./.babelrc && jest --coverage"
+    "test": "jest --coverage"
   },
   "husky": {
     "hooks": {

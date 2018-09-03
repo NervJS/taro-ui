@@ -7,23 +7,23 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 describe('AtDrawer Snap', () => {
   it('render AtDrawer -- props show', () => {
-    const componet = renderToString(<AtDrawer show />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtDrawer show />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtDrawer -- props mask', () => {
-    const componet = renderToString(<AtDrawer show mask={false} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtDrawer show mask={false} />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtDrawer -- props width', () => {
-    const componet = renderToString(<AtDrawer show width='50%' />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtDrawer show width='50%' />)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtDrawer -- props items', () => {
-    const componet = renderToString(<AtDrawer show items={['菜单1', '菜单2']} />)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtDrawer show items={['菜单1', '菜单2']} />)
+    expect(component).toMatchSnapshot()
   })
 })
 

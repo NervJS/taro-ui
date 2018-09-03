@@ -6,36 +6,36 @@ import AtFloatLayout from '../../../.temp/components/float-layout/index'
 
 describe('FloatLayout Snap', () => {
   it('render initial FloatLayout', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render opened FloatLayout', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout isOpened>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render FloatLayout -- props note', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtFloatLayout isOpened title='这是个标题'>
         这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
         随你怎么写
       </AtFloatLayout>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 

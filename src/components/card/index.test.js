@@ -6,14 +6,14 @@ import AtCard from '../../../.temp/components/card/index'
 
 describe('Card Snap', () => {
   it('render initial Card', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtCard title='这是个标题'>这也是内容区 可以随意定义功能</AtCard>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render Card -- props thumb', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtCard
         title='这是个标题'
         thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
@@ -21,11 +21,11 @@ describe('Card Snap', () => {
         这也是内容区 可以随意定义功能
       </AtCard>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render Card -- props note', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtCard
         note='小Tips'
         title='这是个标题'
@@ -34,11 +34,11 @@ describe('Card Snap', () => {
         这也是内容区 可以随意定义功能
       </AtCard>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render Card -- props extra ', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtCard
         note='小Tips'
         extra='额外信息'
@@ -48,11 +48,11 @@ describe('Card Snap', () => {
         这也是内容区 可以随意定义功能
       </AtCard>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('render Card -- props isFull ', () => {
-    const componet = renderToString(
+    const component = renderToString(
       <AtCard
         isFull
         note='小Tips'
@@ -63,7 +63,7 @@ describe('Card Snap', () => {
         这也是内容区 可以随意定义功能
       </AtCard>
     )
-    expect(componet).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 

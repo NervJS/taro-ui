@@ -6,28 +6,28 @@ import AtNoticebar from '../../../.temp/components/noticebar/index'
 
 describe('AtNoticebar Snap', () => {
   it('render AtNoticebar -- props show', () => {
-    const componet = renderToString(<AtNoticebar close>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtNoticebar close>这是内容</AtNoticebar>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props single', () => {
-    const componet = renderToString(<AtNoticebar single>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtNoticebar single>这是内容</AtNoticebar>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props speed', () => {
-    const componet = renderToString(<AtNoticebar speed={200}>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtNoticebar speed={200}>这是内容</AtNoticebar>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props moreText & showMore', () => {
-    const componet = renderToString(<AtNoticebar showMore moreText='查看更多'>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtNoticebar showMore moreText='查看更多'>这是内容</AtNoticebar>)
+    expect(component).toMatchSnapshot()
   })
 
   it('render AtNoticebar -- props icon', () => {
-    const componet = renderToString(<AtNoticebar icon='volume-plus'>这是内容</AtNoticebar>)
-    expect(componet).toMatchSnapshot()
+    const component = renderToString(<AtNoticebar icon='volume-plus'>这是内容</AtNoticebar>)
+    expect(component).toMatchSnapshot()
   })
 })
 
