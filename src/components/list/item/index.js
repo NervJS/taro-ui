@@ -16,6 +16,10 @@ export default class AtListItem extends AtComponent {
     }
   }
 
+  handleSwitchClick (e) {
+    e.stopPropagation()
+  }
+
   handleSwitchChange = (...args) => {
     if (_isFunction(this.props.onSwitchChange)) {
       this.props.onSwitchChange(...args)
@@ -31,7 +35,8 @@ export default class AtListItem extends AtComponent {
       isSwitch,
       extraText,
       hasBorder,
-      extraThumb
+      extraThumb,
+      switchIsCheck
     } = this.props
 
     const rootClass = ['at-list__item']
@@ -78,8 +83,15 @@ export default class AtListItem extends AtComponent {
           {isSwitch &&
             !extraThumb &&
             !extraText && (
-            <View className='item-extra__switch'>
-              <Switch color='#6190E8' onChange={this.handleSwitchChange} />
+            <View
+              className='item-extra__switch'
+              onClick={this.handleSwitchClick}
+            >
+              <Switch
+                color='#6190E8'
+                checked={switchIsCheck}
+                onChange={this.handleSwitchChange}
+              />
             </View>
           )}
 
@@ -106,8 +118,9 @@ AtListItem.propTypes = {
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
   hasBorder: PropTypes.bool,
+  switchIsCheck: PropTypes.bool,
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
-  onSwitchChange: PropTypes.func
+  onSwitchChange: PropTypes.func,
+  arrow: PropTypes.oneOf(['up', 'down', 'right'])
 }
-PropTypes.oneOf(['up', 'down', 'left', 'right'])

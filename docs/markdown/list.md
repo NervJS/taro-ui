@@ -134,6 +134,7 @@ import { AtList, AtListItem } from "taro-ui"
 | extraText      | 额外信息的文本             | String   | -                      | -       |
 | extraThumb     | 额外信息的缩略图           | String   | -                      | -       |
 | isSwitch       | 额外信息是否开关           | Boolean  | -                      | `false` |
+| switchIsCheck    | 额外信息开关的值           | Boolean  | -                      | `false` |
 | hasBorder      | 是否有边框                 | Boolean  | -                      | `true`  |
 | onClick        | 用户点击元素触发的事件     | Function | -                      | -       |
 | onSwitchChange | 用户点击切换 Switch 时触发 | Function | -                      | -       |

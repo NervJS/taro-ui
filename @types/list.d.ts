@@ -16,6 +16,8 @@ export interface AtListItemProps {
 
   isSwitch?: boolean
 
+  switchIsCheck?: boolean
+
   extraText?: string
 
   extraThumb?: string
