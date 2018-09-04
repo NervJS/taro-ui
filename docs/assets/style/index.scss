@@ -135,10 +135,6 @@ $section-top: 200px;
       border-radius: 20px;
       transition: all 0.3s;
       cursor: pointer;
-
-      + .btn {
-        margin-left: 30px;
-      }
     }
 
     .btn-start {
@@ -159,6 +155,7 @@ $section-top: 200px;
 
     .btn-github {
       color: #fff;
+      margin-left: 30px;
       border: 1px solid #fff;
 
       &:hover {
@@ -273,10 +270,14 @@ $section-top: 200px;
 
       .btn-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         .btn {
           display: inline-block;
+          width: 120px;
+          height: 30px;
+          font-size: 14px;
+          line-height: 30px;
         }
 
         .btn-start {
@@ -318,20 +319,31 @@ $section-top: 200px;
 
           img {
             margin-top: 10px;
+            margin-left: 0;
+            width: 80px;
+            height: 80px;
           }
         }
 
         .panel-title {
+          font-size: 14px;
+          text-align: left;
           padding-top: 10px;
         }
 
         .panel-desc {
+          font-size: 12px;
+          margin-top: 8px;
           text-align: left;
         }
 
         .panel-tip-container {
           left: 10px;
           right: unset;
+          img {
+            width: 20px;
+            height: 60px;
+          }
         }
 
         & + .panel {
