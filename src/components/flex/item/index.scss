@@ -1,7 +1,8 @@
 @import "../../../style/mixins/index.scss";
 @import "../../../style/theme/default.scss";
 
-.at-col {
+.at-col,
+at-flex-item { // stylelint-disable-line
   @include flex(1);
 
   width: 100%;

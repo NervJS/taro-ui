@@ -10,16 +10,19 @@ import './index.scss'
 
 export default class AtFlexItem extends AtComponent {
   render () {
-    const rootClass = ['at-flex__item']
+    const rootClass = ['at-col']
 
     _forEach(this.props, (value, key) => {
       if (key === 'isAuto' && value) {
-        return rootClass.push('at-flex__item--auto')
+        return rootClass.push('at-col--auto')
       }
       if (key === 'isWrap' && value) {
-        return rootClass.push('at-flex__item--wrap')
+        return rootClass.push('at-col--wrap')
       }
-      rootClass.push(`at-flex__item-${key}--${value}`)
+      if (key === 'size' && value) {
+        rootClass.push(`at-col-${value}`)
+      }
+      rootClass.push(`at-col__${key}--${value}`)
     })
 
     return <View className={rootClass}>{this.props.children}</View>

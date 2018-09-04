@@ -1,9 +1,10 @@
-@import '../../../style/theme/default.scss';
+@import "../../../style/theme/default.scss";
 
 .flex-page .at-row {
   margin-bottom: 40px;
 
-  .at-col {
+  .at-col,
+  at-flex-item { // stylelint-disable-line
     padding: $spacing-v-md $spacing-h-md;
     color: $color-white;
     font-size: $font-size-base;

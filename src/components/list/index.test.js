@@ -78,4 +78,67 @@ describe('List Behavior ', () => {
     Simulate.click(itemSwitchDom)
     expect(onChange).toBeCalled()
   })
+
+  it('ListItem onSwitchChange && onClick', () => {
+    const onClick = jest.fn()
+    const onChange = jest.fn()
+
+    const component = renderIntoDocument(
+      <AtList>
+        <AtListItem
+          title='标题文字'
+          isSwitch
+          onClick={onClick}
+          onSwitchChange={onChange}
+        />
+      </AtList>
+    )
+
+    const componentDom = findDOMNode(component, 'at-list')
+    const itemDom = componentDom.querySelector('.at-list__item').children[0]
+    const itemSwitchDom = componentDom.querySelector(
+      '.at-list__item .item-extra__switch'
+    ).children[0]
+
+    itemSwitchDom.value = true
+
+    Simulate.change(itemSwitchDom)
+    expect(onChange).toBeCalled()
+    expect(onClick).not.toBeCalled()
+
+    onClick.mockReset()
+    onChange.mockReset()
+
+    Simulate.click(itemDom)
+    expect(onClick).toBeCalled()
+    expect(onChange).not.toBeCalled()
+  })
+
+  it('ListItem switch was checked', () => {
+    const checkedComponent = renderIntoDocument(
+      <AtList>
+        <AtListItem isSwitch switchIsCheck title='标题文字' />
+      </AtList>
+    )
+
+    const componentDom = findDOMNode(checkedComponent, 'at-list')
+    const itemSwitchInputDom = componentDom.querySelector(
+      '.at-list__item .item-extra__switch input'
+    )
+    expect(itemSwitchInputDom.style._length).toBeGreaterThan(0)
+  })
+
+  it('ListItem switch was unchecked', () => {
+    const checkedComponent = renderIntoDocument(
+      <AtList>
+        <AtListItem isSwitch title='标题文字' />
+      </AtList>
+    )
+
+    const componentDom = findDOMNode(checkedComponent, 'at-list')
+    const itemSwitchInputDom = componentDom.querySelector(
+      '.at-list__item .item-extra__switch input'
+    )
+    expect(itemSwitchInputDom.style._length).toEqual(0)
+  })
 })
