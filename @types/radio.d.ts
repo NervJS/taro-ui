@@ -9,11 +9,11 @@ export interface Option<T> {
 }
 
 export interface AtRadioProps<T> {
-  value: T
+  value?: T
 
   options: Array<Option<T>>
 
-  onClick: (vaule: T, event: BaseEvent) => void
+  onClick?: (vaule: T, event: BaseEvent) => void
 }
 
 declare const AtRadio: ComponentClass<AtRadioProps<any>>
