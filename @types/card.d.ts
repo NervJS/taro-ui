@@ -2,17 +2,17 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtCardProps {
-  note: string
+  note?: string
 
-  isFull: boolean
+  isFull?: boolean
 
-  thumb: string
+  thumb?: string
 
-  title: string
+  title?: string
 
-  extra: string
+  extra?: string
 
-  onClick: BaseEventFunction
+  onClick?: BaseEventFunction
 }
 
 declare const AtCard: ComponentClass<AtCardProps>

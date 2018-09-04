@@ -1,21 +1,21 @@
 import { MouseEvent, ComponentClass } from 'react'
 
 export interface AtInputNumberProps {
-  min: number
+  min?: number
 
-  max: number
+  max?: number
 
-  step: number
+  step?: number
 
-  size: string
+  size?: string
 
-  value: number
+  value?: number
 
-  width: number
+  width?: number
 
-  disabled: boolean
+  disabled?: boolean
 
-  onChange: (value: number) => void
+  onChange?: (value: number) => void
 }
 
 declare const AtInputNumber: ComponentClass<AtInputNumberProps>

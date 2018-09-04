@@ -2,25 +2,25 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
 export interface AtNavBarProps {
-  title: string
+  title?: string
 
-  fixed: boolean
+  fixed?: boolean
 
-  color: string
+  color?: string
 
-  leftIconType: string
+  leftIconType?: string
 
-  leftText: string
+  leftText?: string
 
-  rightFirstIconType: string
+  rightFirstIconType?: string
 
-  rightSecondIconType: string
+  rightSecondIconType?: string
 
-  onClickLeftIcon: BaseEventFunction
+  onClickLeftIcon?: BaseEventFunction
 
-  onClickRgIconSt: BaseEventFunction
+  onClickRgIconSt?: BaseEventFunction
 
-  onClickRgIconNd: BaseEventFunction
+  onClickRgIconNd?: BaseEventFunction
 }
 
 declare const AtNavBar: ComponentClass<AtNavBarProps>
