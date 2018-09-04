@@ -2,15 +2,15 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtRateProps {
-  size: number
+  size?: number
 
-  value: number
+  value?: number
 
-  max: number
+  max?: number
 
-  margin: number
+  margin?: number
   
-  onChange: BaseEventFunction
+  onChange?: BaseEventFunction
 }
 
 declare const AtRate: ComponentClass<AtRateProps>
