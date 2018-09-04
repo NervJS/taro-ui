@@ -2,15 +2,15 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtTabsProps {
-  current: number
+  current?: number
 
-  scroll: boolean
+  scroll?: boolean
 
-  swipeable: boolean
+  swipeable?: boolean
 
   tabList: Array<{ title: string }>
 
-  onClick: (index: number, event: BaseEvent) => void
+  onClick?: (index: number, event: BaseEvent) => void
 }
 
 declare const AtTabs: ComponentClass<AtTabsProps>
