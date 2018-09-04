@@ -2,17 +2,17 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtSegmentedControlProps {
-  current: number
+  current?: number
 
-  color: string
+  color?: string
 
-  fontSize: number
+  fontSize?: number
 
-  disabled: boolean
+  disabled?: boolean
 
-  values: Array<string>
+  values: string[]
 
-  onClick: (index: number, BaseEvent) => void
+  onClick?: (index: number, BaseEvent) => void
 }
 
 declare const AtSegmentedControl: ComponentClass<AtSegmentedControlProps>
