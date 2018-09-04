@@ -4,7 +4,7 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 export interface Item {
   title: string
 
-  content?: string
+  content?: string[]
 
   icon?: string
 
