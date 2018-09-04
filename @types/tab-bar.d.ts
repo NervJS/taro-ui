@@ -2,34 +2,34 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface TabItem {
-  max: number
-  dot: boolean
-  text: string
+  max?: number
+  dot?: boolean
+  text?: string
   title: string
-  iconType: string
-  selectedIconType: string
+  iconType?: string
+  selectedIconType?: string
 }
 
 export interface AtTabBarProps {
-  fixed: boolean
+  fixed?: boolean
 
-  backgroundColor: string
+  backgroundColor?: string
 
-  current: number
+  current?: number
 
-  iconSize: number
+  iconSize?: number
 
-  fontSize: number
+  fontSize?: number
 
-  color: string
+  color?: string
 
-  selectedColor: string
+  selectedColor?: string
 
-  scroll: boolean
+  scroll?: boolean
 
-  tabList: Array<TabItem>
+  tabList: TabItem[]
 
-  onClick: (index: number, event: BaseEvent) => void
+  onClick?: (index: number, event: BaseEvent) => void
 }
 
 declare const AtTabBar: ComponentClass<AtTabBarProps>
