@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtCard } from 'taro-ui'
+import { AtCard } from "taro-ui"
 ```
 
 :::
@@ -41,4 +41,5 @@ import { AtCard } from 'taro-ui'
 | note    | 元素的辅助信息       | String   | -      | -      |
 | thumb   | 元素的缩略图         | String   | -      | -      |
 | extra   | 元素的额外信息       | String   | -      | -      |
+| isFull  | 是否通栏             | Boolean  | -      | -      |
 | onClick | 元素被点击触发的事件 | Function | -      | -      |
