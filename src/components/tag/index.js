@@ -18,20 +18,12 @@ const TYPE_CLASS = {
 export default class AtTag extends AtComponent {
   constructor () {
     super(...arguments)
-    this.state = {
-      active: this.props.active,
-      // active: true,
-    }
+    this.state = {}
   }
 
   onClick () {
     if (!this.props.disabled) {
-      const active = !this.state.active
-      this.setState({
-        active,
-      })
-      // debugger
-      this.props.onClick && this.props.onClick({ name: this.props.name, active })
+      this.props.onClick && this.props.onClick({ name: this.props.name, active: this.props.active })
     }
   }
 
@@ -41,12 +33,13 @@ export default class AtTag extends AtComponent {
       type = '',
       circle = false,
       disabled = false,
+      active = false,
     } = this.props
     let rootClassName = ['at-tag']
     const sizeClass = SIZE_CLASS[size] || ''
     const disabledClass = disabled ? 'at-tag--disabled' : ''
     const typeClass = TYPE_CLASS[type] ? `at-tag--${type}` : ''
-    const activeClass = this.state.active ? 'at-tag--active' : ''
+    const activeClass = active ? 'at-tag--active' : ''
     const circleClass = circle ? 'at-tag--circle' : ''
 
     rootClassName.push(`at-tag--${sizeClass}`, typeClass, activeClass, circleClass, disabledClass)

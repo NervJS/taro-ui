@@ -14,12 +14,22 @@ export default class TagPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-
+      tagList: [
+        { name: 'tag-1', active: false },
+        { name: 'tag-2', active: false },
+        { name: 'tag-3', active: true },
+        { name: 'tag-4', active: true }
+      ],
     }
   }
 
   onClick (data) {
-    const content = `您点击的 tag 标签名是：${data.name}，是否选中：${data.active}`
+    const { tagList } = this.state
+    const findIndex = this.state.tagList.findIndex(item => item.name === data.name)
+    const active = !tagList[findIndex].active
+    tagList[findIndex].active = active
+    const content = `您点击的 tag 标签名是：${data.name}，点击前是否选中：${data.active}，点击后：${active}`
+    this.setState({ tagList })
     if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content, showCancel: false })
     else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert(content)
     console.log(data)
@@ -81,18 +91,8 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>点击事件</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='subitem'>
-                  <AtTag name='tag-1' type='primary' circle onClick={this.onClick.bind(this)}>tag-1</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag name='tag-2' type='primary' onClick={this.onClick.bind(this)}>tag-2</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag name='tag-3' type='primary' circle active onClick={this.onClick.bind(this)}>tag-3</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag name='tag-4' type='primary' active onClick={this.onClick.bind(this)}>tag-4</AtTag>
-                </View>
+                {this.state.tagList.map((item, index) => <View className='subitem' key={index}><AtTag name={item.name} type='primary' active={item.active} circle={index % 2 === 0} onClick={this.onClick.bind(this)}>tag-{index + 1}</AtTag></View>
+                )}
               </View>
             </View>
           </View>
