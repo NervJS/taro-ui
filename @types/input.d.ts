@@ -5,45 +5,45 @@ declare type InputValue = string | number
 declare type InputFunction = (value: string | number, event: BaseEvent) => void
 
 export interface AtInputProps {
-  name: string
+  name?: string
 
-  title: string
+  title?: string
 
-  type: string
+  type?: string
 
-  error: boolean
+  error?: boolean
 
-  clear: boolean
+  clear?: boolean
 
-  border: boolean
+  border?: boolean
 
-  disabled: boolean
+  disabled?: boolean
 
-  maxlength: number
+  maxlength?: number
 
-  value: InputValue
+  value?: InputValue
 
-  placeholder: string
+  placeholder?: string
 
-  editable: boolean
+  editable?: boolean
 
-  confirmType: string
+  confirmType?: string
 
-  cursorSpacing: number
+  cursorSpacing?: number
 
-  backgroundColor: string
+  backgroundColor?: string
 
-  autoFocus: boolean
+  autoFocus?: boolean
 
-  onBlur: InputFunction
+  onBlur?: InputFunction
 
-  onFocus: InputFunction
+  onFocus?: InputFunction
 
-  onChange: InputFunction
+  onChange?: InputFunction
 
-  onConfirm: InputFunction
+  onConfirm?: InputFunction
 
-  onErrorClick: BaseEventFunction
+  onErrorClick?: BaseEventFunction
 }
 
 declare const AtInput: ComponentClass<AtInputProps>

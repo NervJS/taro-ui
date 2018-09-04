@@ -2,33 +2,33 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtTextareaProps {
-  value: string
+  value?: string
 
-  maxlength: string
+  maxlength?: string
 
-  placeholder: string
+  placeholder?: string
 
-  disabled: boolean
+  disabled?: boolean
 
-  autoFocus: boolean
+  autoFocus?: boolean
 
-  count: number
+  count?: number
 
-  fixed: boolean
+  fixed?: boolean
 
-  textOverflowForbidden: boolean
+  textOverflowForbidden?: boolean
 
-  height: number
+  height?: number
 
-  cursorSpacing: number
+  cursorSpacing?: number
 
-  onChange: BaseEventFunction
+  onChange?: BaseEventFunction
 
-  onFocus: BaseEventFunction
+  onFocus?: BaseEventFunction
 
-  obBlur: BaseEventFunction
+  obBlur?: BaseEventFunction
 
-  onConfirm: BaseEventFunction
+  onConfirm?: BaseEventFunction
 }
 
 declare const AtTextarea: ComponentClass<AtTextareaProps>
