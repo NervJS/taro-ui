@@ -21,6 +21,14 @@ export default class AtTag extends AtComponent {
     this.state = {}
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.active !== nextProps.active) {
+      this.setState({
+        active: nextProps.active,
+      })
+    }
+  }
+  
   onClick () {
     if (!this.props.disabled) {
       this.props.onClick && this.props.onClick({ name: this.props.name, active: this.props.active })
