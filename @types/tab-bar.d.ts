@@ -25,8 +25,6 @@ export interface AtTabBarProps {
 
   selectedColor?: string
 
-  scroll?: boolean
-
   tabList: TabItem[]
 
   onClick?: (index: number, event: BaseEvent) => void
