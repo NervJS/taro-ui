@@ -10,12 +10,11 @@ import './index.scss'
 export default class AtPagination extends AtComponent {
   constructor () {
     super(...arguments)
-    let { current, pageSize, total } = this.props
-    const { icon } = this.props
-    total = +total
-    pageSize = +pageSize
-    current = +current
-    this.state = Object.assign({ icon, maxPage: Math.ceil(total / pageSize) }, { total, pageSize, current })
+    const { current, pageSize, total } = this.props
+    this.state = {
+      current,
+      maxPage: Math.ceil(total / pageSize),
+    }
   }
 
   onPrev () {
@@ -39,28 +38,39 @@ export default class AtPagination extends AtComponent {
     this.setState({ current })
   }
 
+  componentWillReceiveProps (props) {
+    const { total, pageSize, current } = props
+    const maxPage = Math.ceil(total / pageSize)
+    if (maxPage !== this.state.maxPage) {
+      this.setState({ maxPage })
+    }
+    if (current !== this.state.current) {
+      this.setState({ current })
+    }
+  }
+
   render () {
     const {
-      current,
       icon,
-      maxPage,
-    } = this.state
+    } = this.props
+    const { current, maxPage } = this.state
 
-    let rootClassName = ['at-pagination']
+    const rootClassName = ['at-pagination']
     if (icon) rootClassName.push('at-pagination--icon')
-    rootClassName = rootClassName.filter(str => str !== '')
 
+    const prevDisabled = maxPage === 0 || current === 1
+    const nextDisabled = maxPage === 0 || current === maxPage
     return (
       <View className={rootClassName}>
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
-              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={current === 1}><AtIcon value='chevron-left' color='#000' size='20'></AtIcon></AtButton>}
-              {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={current === 1}>上一页</AtButton>}
+              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}><AtIcon value='chevron-left' color='#000' size='20'></AtIcon></AtButton>}
+              {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
             </View>
             <View className='at-pagination__btns-next'>
-              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={current === maxPage}><AtIcon value='chevron-right' color='#000' size='20'></AtIcon></AtButton>}
-              {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={current === maxPage}>下一页</AtButton>}
+              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}><AtIcon value='chevron-right' color='#000' size='20'></AtIcon></AtButton>}
+              {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
             </View>
           </View>
         </View>

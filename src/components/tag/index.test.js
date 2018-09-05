@@ -59,7 +59,7 @@ describe('AtTag Event', () => {
     const dom = findDOMNode(component, 'at-tag')
     Simulate.click(dom)
     expect(onClick.mock.calls[0][0].name).toEqual('tag-01')
-    expect(onClick.mock.calls[0][0].active).toBeTruthy()
+    expect(onClick.mock.calls[0][0].active).toBeFalsy()
   })
 })
 
