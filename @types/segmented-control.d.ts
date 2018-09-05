@@ -6,6 +6,8 @@ export interface AtSegmentedControlProps {
 
   color?: string
 
+  selectedColor?: string
+
   fontSize?: number
 
   disabled?: boolean
