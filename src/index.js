@@ -4,7 +4,6 @@ import './components/article/index.scss'
 import './components/flex/index.scss'
 import './components/flex/item/index.scss'
 
-Taro.initNativeApi(Taro)
 Taro.initPxTransform({ designWidth: 750 })
 
 export { default as AtActionSheet } from './components/action-sheet'
