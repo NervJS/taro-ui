@@ -13,7 +13,7 @@ export default class DrawerPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      leftDrawerShow: true,
+      leftDrawerShow: false,
       rightDrawerShow: false,
     }
   }
