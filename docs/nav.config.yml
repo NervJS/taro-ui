@@ -45,6 +45,8 @@ components:
             name: Toast
       - title: 表单组件
         items:
+          - title: 表单
+            name: Form
           - title: 输入框
             name: Input
           - title: 数字输入框
