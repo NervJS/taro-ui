@@ -174,6 +174,10 @@ import { AtInput, AtForm } from 'taro-ui'
 | maxlength | 最大长度 | Number  | -  | 140      |
 | cursorSpacing | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
 | confirmType | 设置键盘右下角按钮的文字,只在小程序有效| String | - | '完成' |
+| cursor | 指定 focus 时的光标位置 | Number | - | - |
+| selectionStart | 光标起始位置，自动聚集时有效，需与 selection-end 搭配使用 | Number | - | -1 |
+| selectionEnd | 光标结束位置，自动聚集时有效，需与 selection-start 搭配使用 | Number | - | -1 |
+| adjustPosition | 键盘弹起时，是否自动上推页面 | Boolean | - | true |
 | disabled    | 是否禁止输入，禁止点击按钮  | Boolean | - | false    |
 | border    | 是否显示下划线边框  | Boolean | - | true    |
 | editable  | 是否可编辑 | Boolean | - | True |
@@ -190,3 +194,4 @@ import { AtInput, AtForm } from 'taro-ui'
 | onBlur | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
 | onConfirm | 点击完成按钮时触发 | 输入框当前值 value  |
 | onErrorClick | 点击错误按钮触发的事件 | -  |
+| onClick | 当 editable 为 false时，点击组件触发的事件  | event |

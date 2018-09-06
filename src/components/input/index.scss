@@ -38,7 +38,7 @@
 
   &__icon {
     display: inline-block;
-    padding-right: $spacing-v-md;
+    padding: $spacing-v-xs $spacing-v-md $spacing-v-xs 0;
     text-align: center;
     line-height: 1;
     font-size: $font-size-lg;

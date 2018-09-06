@@ -6,53 +6,60 @@ import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-/**
- * @author:chenzeji
- * @description 单行输入框
- * @prop name {String} 输入框的唯一标识，传入点击title会聚焦输入框，小程序官方bug，暂时有问题
- * @prop value {String|Number} 输入框值
- * @prop placeholder {String} 提示字符
- * @prop title {String} 输入框左侧标题，若传入为空，则不显示标题
- * @prop confirmType {String} 设置键盘右下角按钮的文字,只在小程序有效 default: '完成'
- * @prop maxlength {Number} 最大长度 default:140
- * @prop cursorSpacing {Number} 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 default:50
- * @prop disabled {Boolean} 是否禁止输入，禁止点击按钮 default: false
- * @prop border {Boolean} 是否显示下划线边框 default: true
- * @prop editable {Boolean} 是否可编辑 default: true
- * @prop error {Boolean} 是否出现错误, default: false
- * @prop clear {Boolean} 是否显示清除按钮, default: false
- * @prop type {String}  输入框类型,可选为 text,number,password,phone,idcard,digit  default: text
- * @prop autoFocus {Boolean} 是否自动聚焦 default:false
- * @prop onChange {Function} 输入框值改变时触发的事件
- * @prop onFocus {Function} 输入框被选中时触发的事件
- * @prop onBlur {Function} 输入框失去焦点时触发的事件
- * @prop onConfirm {Function} 点击完成按钮时触发
- * @prop onErrorClick {Function} 点击错误按钮触发的事件
- */
 class AtInput extends AtComponent {
-  handleInput (e) {
+  onInput (e) {
     this.props.onChange(e.target.value, ...arguments)
   }
-  handleFocus (e) {
+
+  onFocus (e) {
     this.props.onFocus(e.target.value, ...arguments)
   }
-  handleBlur (e) {
+
+  onBlur (e) {
     this.props.onBlur(e.target.value, ...arguments)
   }
-  handleConfirm (e) {
+
+  onConfirm (e) {
     this.props.onConfirm(e.target.value, ...arguments)
   }
+
+  onClick (e) {
+    !this.props.editable && this.props.onClick(e, ...arguments)
+  }
+
   clearValue () {
     this.props.onChange('', ...arguments)
   }
-  handleClickErrIcon () {
+
+  onErrorClick () {
     this.props.onErrorClick(...arguments)
   }
+
   render () {
-    const { style, name, type, cursorSpacing, confirmType, maxlength, disabled, border, title, editable, error, clear, placeholder, autoFocus, value } = this.props
-    let actualMaxlength = maxlength
-    let actualType = type
-    let actualDisabled = disabled
+    const {
+      name,
+      cursorSpacing,
+      confirmType,
+      cursor,
+      selectionStart,
+      selectionEnd,
+      adjustPosition,
+      border,
+      title,
+      editable,
+      error,
+      clear,
+      placeholder,
+      autoFocus,
+      value
+    } = this.props
+    let {
+      style,
+      maxlength,
+      type,
+      disabled
+    } = this.props
+
     const containerCls = ['at-input__container']
     if (error) {
       containerCls.push('at-input--error')
@@ -60,21 +67,25 @@ class AtInput extends AtComponent {
     if (disabled) {
       containerCls.push('at-input--disabled')
     }
-    if (type === 'phone') {
-      actualMaxlength = 11
-      actualType = 'number'
-    }
-    if (disabled === false && editable === false) {
-      actualDisabled = true
-    }
-    let rootStyle = ''
-    if (!border) {
-      rootStyle = 'border: none;'
-    }
-    rootStyle += style
 
-    return <View className='at-input' style={rootStyle}>
-      <View className={containerCls}>
+    if (type === 'phone') {
+      maxlength = 11
+      type = 'number'
+    }
+
+    if (!disabled && !editable) {
+      disabled = true
+    }
+
+    if (!border) {
+      style += 'border: none;'
+    }
+
+    return <View className='at-input' style={style}>
+      <View
+        className={containerCls}
+        onClick={this.onClick.bind(this)}
+      >
         {
           title
             ? <Label className='at-input__title' for={name}>{title}</Label>
@@ -82,20 +93,24 @@ class AtInput extends AtComponent {
         }
         <Input className='at-input__input'
           id={name}
-          type={actualType}
+          type={type}
           placeholderClass='placeholder'
           placeholder={placeholder}
           cursorSpacing={cursorSpacing}
-          maxlength={actualMaxlength}
+          maxlength={maxlength}
           autoFocus={autoFocus}
           value={value}
           confirmType={confirmType}
-          disabled={actualDisabled}
-          onInput={this.handleInput.bind(this)}
-          onChange={this.handleInput.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-          onConfirm={this.handleConfirm.bind(this)}
+          cursor={cursor}
+          selectionStart={selectionStart}
+          selectionEnd={selectionEnd}
+          adjustPosition={adjustPosition}
+          disabled={disabled}
+          onInput={this.onInput.bind(this)}
+          onChange={this.onInput.bind(this)}
+          onFocus={this.onFocus.bind(this)}
+          onBlur={this.onBlur.bind(this)}
+          onConfirm={this.onConfirm.bind(this)}
         />
         {
           clear && value
@@ -106,7 +121,7 @@ class AtInput extends AtComponent {
         }
         {
           error
-            ? <View className='at-input__icon' onTouchStart={this.handleClickErrIcon.bind(this)} >
+            ? <View className='at-input__icon' onTouchStart={this.onErrorClick.bind(this)} >
               <AtIcon value='alert-circle' color='#FF4949' size='15' />
             </View>
             : null
@@ -116,7 +131,9 @@ class AtInput extends AtComponent {
     </View>
   }
 }
+
 const defaultFunc = () => {}
+
 AtInput.defaultProps = {
   style: '',
   value: '',
@@ -125,6 +142,10 @@ AtInput.defaultProps = {
   title: '',
   cursorSpacing: 50,
   confirmType: '完成',
+  cursor: 0,
+  selectionStart: -1,
+  selectionEnd: -1,
+  adjustPosition: true,
   maxlength: 140,
   type: 'text',
   disabled: false,
@@ -137,13 +158,12 @@ AtInput.defaultProps = {
   onFocus: defaultFunc,
   onBlur: defaultFunc,
   onConfirm: defaultFunc,
-  onErrorClick: defaultFunc
+  onErrorClick: defaultFunc,
+  onClick: defaultFunc
 }
+
 AtInput.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
+  style: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
@@ -152,6 +172,10 @@ AtInput.propTypes = {
   placeholder: PropTypes.string,
   title: PropTypes.string,
   confirmType: PropTypes.string,
+  cursor: PropTypes.number,
+  selectionStart: PropTypes.number,
+  selectionEnd: PropTypes.number,
+  adjustPosition: PropTypes.bool,
   cursorSpacing: PropTypes.number,
   maxlength: PropTypes.number,
   type: PropTypes.string,
@@ -167,5 +191,7 @@ AtInput.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
+  onClick: PropTypes.func
 }
+
 export default AtInput
