@@ -7,13 +7,19 @@ import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
 
+const MIN_MAXPAGE = 1
+const getMaxPage = (maxPage = 0) => {
+  if (maxPage <= 0) return MIN_MAXPAGE
+  return maxPage
+}
+
 export default class AtPagination extends AtComponent {
   constructor () {
     super(...arguments)
     const { current, pageSize, total } = this.props
     this.state = {
       current,
-      maxPage: Math.ceil(total / pageSize),
+      maxPage: getMaxPage(Math.ceil(total / pageSize)),
     }
   }
 
@@ -40,7 +46,7 @@ export default class AtPagination extends AtComponent {
 
   componentWillReceiveProps (props) {
     const { total, pageSize, current } = props
-    const maxPage = Math.ceil(total / pageSize)
+    const maxPage = getMaxPage(Math.ceil(total / pageSize))
     if (maxPage !== this.state.maxPage) {
       this.setState({ maxPage })
     }
@@ -58,8 +64,8 @@ export default class AtPagination extends AtComponent {
     const rootClassName = ['at-pagination']
     if (icon) rootClassName.push('at-pagination--icon')
 
-    const prevDisabled = maxPage === 0 || current === 1
-    const nextDisabled = maxPage === 0 || current === maxPage
+    const prevDisabled = maxPage === MIN_MAXPAGE || current === 1
+    const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
     return (
       <View className={rootClassName}>
         <View className='at-pagination__operate'>
