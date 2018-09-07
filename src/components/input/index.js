@@ -6,7 +6,69 @@ import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-class AtInput extends AtComponent {
+const defaultFunc = () => { }
+
+export default class AtInput extends AtComponent {
+  static defaultProps = {
+    style: '',
+    value: '',
+    name: '',
+    placeholder: '',
+    title: '',
+    cursorSpacing: 50,
+    confirmType: '完成',
+    cursor: 0,
+    selectionStart: -1,
+    selectionEnd: -1,
+    adjustPosition: true,
+    maxlength: 140,
+    type: 'text',
+    disabled: false,
+    border: true,
+    editable: true,
+    error: false,
+    clear: false,
+    autoFocus: false,
+    onChange: defaultFunc,
+    onFocus: defaultFunc,
+    onBlur: defaultFunc,
+    onConfirm: defaultFunc,
+    onErrorClick: defaultFunc,
+    onClick: defaultFunc
+  }
+
+  static propTypes = {
+    style: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    name: '',
+    placeholder: PropTypes.string,
+    title: PropTypes.string,
+    confirmType: PropTypes.string,
+    cursor: PropTypes.number,
+    selectionStart: PropTypes.number,
+    selectionEnd: PropTypes.number,
+    adjustPosition: PropTypes.bool,
+    cursorSpacing: PropTypes.number,
+    maxlength: PropTypes.number,
+    type: PropTypes.string,
+    disabled: PropTypes.bool,
+    border: PropTypes.bool,
+    editable: PropTypes.bool,
+    error: PropTypes.bool,
+    clear: PropTypes.bool,
+    backgroundColor: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onConfirm: PropTypes.func,
+    onErrorClick: PropTypes.func,
+    onClick: PropTypes.func
+  }
+
   onInput (e) {
     this.props.onChange(e.target.value, ...arguments)
   }
@@ -126,72 +188,10 @@ class AtInput extends AtComponent {
             </View>
             : null
         }
-        <View className='at-input__children'>{this.props.children}</View>
+        <View className='at-input__children'>
+          {this.props.children}
+        </View>
       </View>
     </View>
   }
 }
-
-const defaultFunc = () => {}
-
-AtInput.defaultProps = {
-  style: '',
-  value: '',
-  name: '',
-  placeholder: '',
-  title: '',
-  cursorSpacing: 50,
-  confirmType: '完成',
-  cursor: 0,
-  selectionStart: -1,
-  selectionEnd: -1,
-  adjustPosition: true,
-  maxlength: 140,
-  type: 'text',
-  disabled: false,
-  border: true,
-  editable: true,
-  error: false,
-  clear: false,
-  autoFocus: false,
-  onChange: defaultFunc,
-  onFocus: defaultFunc,
-  onBlur: defaultFunc,
-  onConfirm: defaultFunc,
-  onErrorClick: defaultFunc,
-  onClick: defaultFunc
-}
-
-AtInput.propTypes = {
-  style: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  name: '',
-  placeholder: PropTypes.string,
-  title: PropTypes.string,
-  confirmType: PropTypes.string,
-  cursor: PropTypes.number,
-  selectionStart: PropTypes.number,
-  selectionEnd: PropTypes.number,
-  adjustPosition: PropTypes.bool,
-  cursorSpacing: PropTypes.number,
-  maxlength: PropTypes.number,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  border: PropTypes.bool,
-  editable: PropTypes.bool,
-  error: PropTypes.bool,
-  clear: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  autoFocus: PropTypes.bool,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  onConfirm: PropTypes.func,
-  onErrorClick: PropTypes.func,
-  onClick: PropTypes.func
-}
-
-export default AtInput

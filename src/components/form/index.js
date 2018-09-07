@@ -5,7 +5,23 @@ import PropTypes from 'prop-types'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-class AtForm extends AtComponent {
+const defaultFunc = () => { }
+
+export default class AtForm extends AtComponent {
+  static defaultProps = {
+    style: '',
+    reportSubmit: false,
+    onSubmit: defaultFunc,
+    onReset: defaultFunc
+  }
+
+  static propTypes = {
+    style: PropTypes.string,
+    reportSubmit: PropTypes.bool,
+    onSubmit: PropTypes.func,
+    onReset: PropTypes.func
+  }
+
   onSubmit () {
     this.props.onSubmit(...arguments)
   }
@@ -32,24 +48,3 @@ class AtForm extends AtComponent {
     </Form>
   }
 }
-
-const defaultFunc = () => {}
-
-AtForm.defaultProps = {
-  style: '',
-  reportSubmit: false,
-  onSubmit: defaultFunc,
-  onReset: defaultFunc
-}
-
-AtForm.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  reportSubmit: PropTypes.bool,
-  onSubmit: PropTypes.func,
-  onReset: PropTypes.func
-}
-
-export default AtForm
