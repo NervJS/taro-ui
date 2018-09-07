@@ -16,10 +16,15 @@ export default class AtTextarea extends AtComponent {
     placeholder: '',
     disabled: false,
     autoFocus: false,
+    focus: false,
+    showConfirmBar: false,
+    selectionStart: -1,
+    selectionEnd: -1,
     count: true,
     fixed: false,
     height: '',
     textOverflowForbidden: true,
+    onLinechange: defaultFunc,
     onChange: defaultFunc,
     onFocus: defaultFunc,
     onBlur: defaultFunc,
@@ -37,10 +42,15 @@ export default class AtTextarea extends AtComponent {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     autoFocus: PropTypes.bool,
+    focus: PropTypes.bool,
+    showConfirmBar: PropTypes.bool,
+    selectionStart: PropTypes.number,
+    selectionEnd: PropTypes.number,
     count: PropTypes.bool,
     textOverflowForbidden: PropTypes.bool,
     fixed: PropTypes.bool,
     height: PropTypes.string,
+    onLinechange: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -63,6 +73,10 @@ export default class AtTextarea extends AtComponent {
     this.props.onConfirm(e, ...arguments)
   }
 
+  handleLinechange (e) {
+    this.props.onLinechange(e, ...arguments)
+  }
+
   render () {
     const {
       style,
@@ -73,6 +87,10 @@ export default class AtTextarea extends AtComponent {
       count,
       disabled,
       autoFocus,
+      focus,
+      showConfirmBar,
+      selectionStart,
+      selectionEnd,
       fixed,
       textOverflowForbidden,
       height
@@ -90,17 +108,21 @@ export default class AtTextarea extends AtComponent {
         cursorSpacing={cursorSpacing}
         className='at-textarea__textarea'
         value={value}
-        showConfirmBar={false}
         confirmType='完成'
         maxlength={actualMaxlength}
         placeholder={placeholder}
         disabled={disabled}
         autoFocus={autoFocus}
+        focus={focus}
+        showConfirmBar={showConfirmBar}
+        selectionStart={selectionStart}
+        selectionEnd={selectionEnd}
         fixed={fixed}
         onInput={this.handleInput.bind(this)}
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.handleBlur.bind(this)}
         onConfirm={this.handleConfirm.bind(this)}
+        onLinechange={this.handleLinechange.bind(this)}
       />
       {
         count

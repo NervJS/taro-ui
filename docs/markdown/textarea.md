@@ -57,6 +57,10 @@ import { AtTextarea } from 'taro-ui'
 | placeholder | 占位符  | String | - | - |
 | disabled | 是否禁用  | String | - | false |
 | autoFocus| 是否自动聚焦  | Boolean | - | false |
+| focus| 获取焦点  | Boolean | - | false |
+| showConfirmBar| 是否显示键盘上方带有” 完成 “按钮那一栏  | Boolean | - | false |
+| selectionStart| 光标起始位置，自动聚集时有效，需与 selection-end 搭配使用  | Number | - | -1 |
+| selectionEnd| 光标结束位置，自动聚集时有效，需与 selectionStart 搭配使用  | Number | - | -1 |
 | count | 是否显示字数  | Boolean | - | true |
 | fixed| 如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true  | Boolean | - | false|
 | textOverflowForbidden | 文字超出最大长度时是否禁止输入，若否，则还可以在 maxlength 的基础上输入500字符，并右下角红字提示  | Boolean | - | true |
@@ -71,3 +75,4 @@ import { AtTextarea } from 'taro-ui'
 | onFocus | 输入框获得焦点时触发 | event  |
 | onBlur | 输入框失去焦点时触发 | event  |
 | onConfirm | 点击完成时触发 | event  |
+| onLinechange | 输入框行数变化时调用 | event  |

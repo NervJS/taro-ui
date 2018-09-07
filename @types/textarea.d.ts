@@ -14,6 +14,14 @@ export interface AtTextareaProps {
 
   autoFocus?: boolean
 
+  focus?: boolean
+
+  showConfirmBar?: boolean
+
+  selectionStart?: number
+
+  selectionEnd?: number
+
   count?: number
 
   fixed?: boolean
@@ -31,6 +39,8 @@ export interface AtTextareaProps {
   obBlur?: BaseEventFunction
 
   onConfirm?: BaseEventFunction
+
+  onLinechange?: BaseEventFunction
 }
 
 declare const AtTextarea: ComponentClass<AtTextareaProps>
