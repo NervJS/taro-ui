@@ -6,20 +6,33 @@ import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-/**
- * @author:chenzeji
- * @description 单选框
- * @prop value {String} 当前单选框值
- * @prop options {Array} 选项列表 eg:[{label:'苹果',value:'apple'}]
- * @prop onClick {Function} 点击选项触发事件
- */
-class AtRadio extends AtComponent {
+export default class AtRadio extends AtComponent {
+  static defaultProps = {
+    style: '',
+    value: '',
+    options: [],
+    onClick: () => { }
+  }
+
+  static propTypes = {
+    style: PropTypes.string,
+    value: PropTypes.string,
+    options: PropTypes.array,
+    onClick: PropTypes.func,
+  }
+
   handleClick (option) {
     if (option.disabled) return
     this.props.onClick(option.value, ...arguments)
   }
+
   render () {
-    const { style, options, value } = this.props
+    const {
+      style,
+      options,
+      value
+    } = this.props
+
     return <View className='at-radio' style={style}>
       {
         options.map(option => <View
@@ -55,19 +68,3 @@ class AtRadio extends AtComponent {
     </View>
   }
 }
-AtRadio.defaultProps = {
-  style: '',
-  value: '',
-  options: [],
-  onClick: () => {}
-}
-AtRadio.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  value: PropTypes.string,
-  options: PropTypes.array,
-  onClick: PropTypes.func,
-}
-export default AtRadio
