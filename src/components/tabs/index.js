@@ -1,5 +1,6 @@
+/* eslint-disable react/no-string-refs */
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtComponent from '../../common/component'
@@ -26,6 +27,10 @@ export default class AtTabs extends AtComponent {
 
   constructor () {
     super(...arguments)
+    this.state = {
+      scrollLeft: 0,
+      scrollIntoView: ''
+    }
     // 触摸时的原点
     this.touchDot = 0
     // 定时器
@@ -39,6 +44,21 @@ export default class AtTabs extends AtComponent {
   }
 
   handleClick (i) {
+    if (this.props.scroll && i >= 1) {
+      // 标签栏滚动
+      const env = Taro.getEnv()
+      if (env === Taro.ENV_TYPE.WEAPP) {
+        // 小程序环境
+        this.setState({
+          scrollIntoView: `tab${i - 1}`
+        })
+      } else if (env === Taro.ENV_TYPE.WEB) {
+        // web环境
+        this.setState({
+          scrollLeft: this.refs.refTabHeader.vnode.dom.childNodes[i - 1].offsetLeft
+        })
+      }
+    }
     this.props.onClick(i, ...arguments)
   }
 
@@ -89,28 +109,48 @@ export default class AtTabs extends AtComponent {
       scroll,
       current
     } = this.props
+    const {
+      scrollLeft,
+      scrollIntoView
+    } = this.state
+
     const headerCls = ['at-tabs__header']
     if (scroll) {
       headerCls.push('at-tabs__header--scroll')
     }
     const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
+    const tabItems = tabList.map((item, i) => (
+      <View
+        className={
+          current === i
+            ? 'at-tabs__item at-tabs__item--active'
+            : 'at-tabs__item'
+        }
+        id={`tab${i}`}
+        key={item.title}
+        onClick={this.handleClick.bind(this, i)}
+      >
+        {item.title}
+      </View>)
+    )
 
     return <View className='at-tabs' style={style}>
-      <View className={headerCls}>
-        {
-          tabList.map((item, i) => <View
-            className={
-              current === i
-                ? 'at-tabs__item at-tabs__item--active'
-                : 'at-tabs__item'
-            }
-            key={item.title}
-            onClick={this.handleClick.bind(this, i)}
+      {
+        scroll
+          ? <ScrollView
+            className={headerCls}
+            scrollX
+            scrollWithAnimation
+            scrollLeft={scrollLeft}
+            scrollIntoView={scrollIntoView}
+            ref='refTabHeader'
           >
-            {item.title}
-          </View>)
-        }
-      </View>
+            {tabItems}
+          </ScrollView>
+          : <View className={headerCls}>
+            {tabItems}
+          </View>
+      }
       <View className='at-tabs__body'
         onTouchStart={this.handleTouchStart.bind(this)}
         onTouchEnd={this.handleTouchEnd.bind(this)}
