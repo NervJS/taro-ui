@@ -2,6 +2,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtTextareaProps {
+  style?: string
+
   value?: string
 
   maxlength?: string

@@ -5,6 +5,8 @@ declare type InputValue = string | number
 declare type InputFunction = (value: string | number, event: BaseEvent) => void
 
 export interface AtInputProps {
+  style?: string
+
   name: string
 
   title?: string

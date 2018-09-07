@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 
 export interface AtInputNumberProps {
+  style?: string
+
   min?: number
 
   max?: number

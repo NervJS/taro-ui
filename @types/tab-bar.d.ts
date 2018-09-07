@@ -11,6 +11,8 @@ export interface TabItem {
 }
 
 export interface AtTabBarProps {
+  style?: string
+
   fixed?: boolean
 
   backgroundColor?: string
