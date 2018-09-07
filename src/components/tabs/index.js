@@ -5,15 +5,25 @@ import PropTypes from 'prop-types'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-/**
- * @author:chenzeji
- * @description tabs 标签页
- * @prop current {Number} 当前选中的tab index值，从0计数，default:0
- * @prop scroll {Boolean} 是否横向滚动，default:false
- * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
- * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
- */
-class AtTabs extends AtComponent {
+export default class AtTabs extends AtComponent {
+  static defaultProps = {
+    style: '',
+    current: 0,
+    swipeable: true,
+    scroll: false,
+    tabList: [],
+    onClick: () => { }
+  }
+
+  static propTypes = {
+    style: PropTypes.string,
+    current: PropTypes.number,
+    swipeable: PropTypes.bool,
+    scroll: PropTypes.bool,
+    tabList: PropTypes.array,
+    onClick: PropTypes.func
+  }
+
   constructor () {
     super(...arguments)
     // 触摸时的原点
@@ -42,6 +52,7 @@ class AtTabs extends AtComponent {
       this.time++
     }, 100)
   }
+
   handleTouchMove (e) {
     if (!this.props.swipeable) return
 
@@ -72,12 +83,18 @@ class AtTabs extends AtComponent {
   }
 
   render () {
-    const { style, tabList, scroll, current } = this.props
+    const {
+      style,
+      tabList,
+      scroll,
+      current
+    } = this.props
     const headerCls = ['at-tabs__header']
     if (scroll) {
       headerCls.push('at-tabs__header--scroll')
     }
     const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
+
     return <View className='at-tabs' style={style}>
       <View className={headerCls}>
         {
@@ -105,23 +122,3 @@ class AtTabs extends AtComponent {
     </View>
   }
 }
-AtTabs.defaultProps = {
-  style: '',
-  current: 0,
-  swipeable: true,
-  scroll: false,
-  tabList: [],
-  onClick: () => { }
-}
-AtTabs.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  current: PropTypes.number,
-  swipeable: PropTypes.bool,
-  scroll: PropTypes.bool,
-  tabList: PropTypes.array,
-  onClick: PropTypes.func
-}
-export default AtTabs
