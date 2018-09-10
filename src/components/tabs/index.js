@@ -1,21 +1,36 @@
+/* eslint-disable react/no-string-refs */
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
-/**
- * @author:chenzeji
- * @description tabs 标签页
- * @prop current {Number} 当前选中的tab index值，从0计数，default:0
- * @prop scroll {Boolean} 是否横向滚动，default:false
- * @prop tabList {Array} tab 列表 eg: [{ title: '标签页1' }, { title: '标签页2' }]
- * @prop onClick {Function} 点击时触发事件，回调参数 {value: 1}
- */
-class AtTabs extends AtComponent {
+export default class AtTabs extends AtComponent {
+  static defaultProps = {
+    style: '',
+    current: 0,
+    swipeable: true,
+    scroll: false,
+    tabList: [],
+    onClick: () => { }
+  }
+
+  static propTypes = {
+    style: PropTypes.string,
+    current: PropTypes.number,
+    swipeable: PropTypes.bool,
+    scroll: PropTypes.bool,
+    tabList: PropTypes.array,
+    onClick: PropTypes.func
+  }
+
   constructor () {
     super(...arguments)
+    this.state = {
+      scrollLeft: 0,
+      scrollIntoView: ''
+    }
     // 触摸时的原点
     this.touchDot = 0
     // 定时器
@@ -29,6 +44,21 @@ class AtTabs extends AtComponent {
   }
 
   handleClick (i) {
+    if (this.props.scroll && i >= 1) {
+      // 标签栏滚动
+      const env = Taro.getEnv()
+      if (env === Taro.ENV_TYPE.WEAPP) {
+        // 小程序环境
+        this.setState({
+          scrollIntoView: `tab${i - 1}`
+        })
+      } else if (env === Taro.ENV_TYPE.WEB) {
+        // web环境
+        this.setState({
+          scrollLeft: this.refs.refTabHeader.vnode.dom.childNodes[i - 1].offsetLeft
+        })
+      }
+    }
     this.props.onClick(i, ...arguments)
   }
 
@@ -42,6 +72,7 @@ class AtTabs extends AtComponent {
       this.time++
     }, 100)
   }
+
   handleTouchMove (e) {
     if (!this.props.swipeable) return
 
@@ -72,28 +103,54 @@ class AtTabs extends AtComponent {
   }
 
   render () {
-    const { style, tabList, scroll, current } = this.props
+    const {
+      style,
+      tabList,
+      scroll,
+      current
+    } = this.props
+    const {
+      scrollLeft,
+      scrollIntoView
+    } = this.state
+
     const headerCls = ['at-tabs__header']
     if (scroll) {
       headerCls.push('at-tabs__header--scroll')
     }
     const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
-    return <View className='at-tabs' style={style}>
-      <View className={headerCls}>
-        {
-          tabList.map((item, i) => <View
-            className={
-              current === i
-                ? 'at-tabs__item at-tabs__item--active'
-                : 'at-tabs__item'
-            }
-            key={item.title}
-            onClick={this.handleClick.bind(this, i)}
-          >
-            {item.title}
-          </View>)
+    const tabItems = tabList.map((item, i) => (
+      <View
+        className={
+          current === i
+            ? 'at-tabs__item at-tabs__item--active'
+            : 'at-tabs__item'
         }
-      </View>
+        id={`tab${i}`}
+        key={item.title}
+        onClick={this.handleClick.bind(this, i)}
+      >
+        {item.title}
+      </View>)
+    )
+
+    return <View className='at-tabs' style={style}>
+      {
+        scroll
+          ? <ScrollView
+            className={headerCls}
+            scrollX
+            scrollWithAnimation
+            scrollLeft={scrollLeft}
+            scrollIntoView={scrollIntoView}
+            ref='refTabHeader'
+          >
+            {tabItems}
+          </ScrollView>
+          : <View className={headerCls}>
+            {tabItems}
+          </View>
+      }
       <View className='at-tabs__body'
         onTouchStart={this.handleTouchStart.bind(this)}
         onTouchEnd={this.handleTouchEnd.bind(this)}
@@ -105,23 +162,3 @@ class AtTabs extends AtComponent {
     </View>
   }
 }
-AtTabs.defaultProps = {
-  style: '',
-  current: 0,
-  swipeable: true,
-  scroll: false,
-  tabList: [],
-  onClick: () => { }
-}
-AtTabs.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  current: PropTypes.number,
-  swipeable: PropTypes.bool,
-  scroll: PropTypes.bool,
-  tabList: PropTypes.array,
-  onClick: PropTypes.func
-}
-export default AtTabs

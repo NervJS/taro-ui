@@ -11,7 +11,7 @@ import './index.scss'
  * @prop index {Number} 在页面容器的的索引值 default:0
  * @prop current {Number} 当前选中的tab index值，从0计数，default:0
  */
-class AtTabsPane extends AtComponent {
+export default class AtTabsPane extends AtComponent {
   static defaultProps = {
     index: 0,
     current: 0
@@ -36,5 +36,3 @@ class AtTabsPane extends AtComponent {
     </View>
   }
 }
-
-export default AtTabsPane

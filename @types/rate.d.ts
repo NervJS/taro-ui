@@ -2,6 +2,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtRateProps {
+  style?: string
+
   size?: number
 
   value?: number
@@ -9,7 +11,7 @@ export interface AtRateProps {
   max?: number
 
   margin?: number
-  
+
   onChange?: BaseEventFunction
 }
 

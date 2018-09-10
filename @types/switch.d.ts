@@ -2,6 +2,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtSwitchProps {
+  style?: string
+
   title?: string
 
   color?: string

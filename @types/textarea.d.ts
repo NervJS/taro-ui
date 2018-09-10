@@ -2,6 +2,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 export interface AtTextareaProps {
+  style?: string
+
   value?: string
 
   maxlength?: string
@@ -11,6 +13,14 @@ export interface AtTextareaProps {
   disabled?: boolean
 
   autoFocus?: boolean
+
+  focus?: boolean
+
+  showConfirmBar?: boolean
+
+  selectionStart?: number
+
+  selectionEnd?: number
 
   count?: number
 
@@ -29,6 +39,8 @@ export interface AtTextareaProps {
   obBlur?: BaseEventFunction
 
   onConfirm?: BaseEventFunction
+
+  onLinechange?: BaseEventFunction
 }
 
 declare const AtTextarea: ComponentClass<AtTextareaProps>
