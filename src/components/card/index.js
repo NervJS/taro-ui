@@ -25,7 +25,10 @@ export default class AtCard extends AtComponent {
     }
 
     return (
-      <View className={rootClass} onClick={this.handleClick}>
+      <View
+        onClick={this.handleClick}
+        className={this.getClassName(rootClass, this.props.className)}
+      >
         <View className='at-card-header'>
           {thumb && (
             <View className='at-card-header__thumb'>

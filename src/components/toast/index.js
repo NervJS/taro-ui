@@ -109,7 +109,7 @@ export default class AtToast extends AtComponent {
     }
 
     return _isOpened ? (
-      <View className='at-toast'>
+      <View className={this.getClassName('at-toast', this.props.className)}>
         {hasMask && <View className='at-toast-overlay' />}
         <View className={rootClass} onClick={this.handleClick}>
           <View className='toast-body-content'>

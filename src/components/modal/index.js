@@ -46,7 +46,10 @@ export default class AtModal extends AtComponent {
     if (title || content) {
       const isRenderAction = cancelText || confirmText
       return (
-        <View className={rootClass} onTouchMove={this.handleTouchMove}>
+        <View
+          onTouchMove={this.handleTouchMove}
+          className={this.getClassName(rootClass, this.props.className)}
+        >
           <View className='at-modal__overlay' />
           <View className='at-modal__container'>
             {title && (
@@ -77,7 +80,10 @@ export default class AtModal extends AtComponent {
     }
 
     return (
-      <View className={rootClass} onTouchMove={this.handleTouchMove}>
+      <View
+        onTouchMove={this.handleTouchMove}
+        className={this.getClassName(rootClass, this.props.className)}
+      >
         <View className='at-modal__overlay' />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>
