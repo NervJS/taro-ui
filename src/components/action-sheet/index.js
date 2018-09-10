@@ -70,7 +70,10 @@ export default class AtActionSheet extends AtComponent {
     }
 
     return (
-      <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
+      <View
+        onTouchMove={this.handleTouchMove}
+        className={this.getClassName(rootClassNames, this.props.className)}
+      >
         <View onClick={this.close} className='at-action-sheet__overlay' />
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
