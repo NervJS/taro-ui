@@ -10,10 +10,14 @@ export default class AtComponent extends Component {
   getClassName (arg) {
     const { className } = this.props
 
+    if (!className) {
+      return arg
+    }
+
     let componentClass = arg
     let propsClass = className
 
-    if (!Array.isArray(componentClass)) {
+    if (!Array.isArray(propsClass)) {
       propsClass = [propsClass]
     }
 
