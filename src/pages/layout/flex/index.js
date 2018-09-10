@@ -3,9 +3,6 @@ import { View } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
 
-import AtFlex from '../../../components/flex/index'
-import AtFlexItem from '../../../components/flex/item/index'
-
 import '../../../components/flex/index.scss'
 import '../../../components/flex/item/index.scss'
 import './index.scss'
@@ -21,19 +18,6 @@ export default class FlexPage extends Taro.Component {
         <DocsHeader title='Flex 弹性布局' />
 
         <View className='doc-body'>
-
-          <View className='panel'>
-            <View className='panel__title'>基本案例</View>
-            <View className='panel__content'>
-              <View className='example-item'>
-                <AtFlex>
-                  <AtFlexItem>A</AtFlexItem>
-                  <AtFlexItem>B</AtFlexItem>
-                  <AtFlexItem>C</AtFlexItem>
-                </AtFlex>
-              </View>
-            </View>
-          </View>
 
           {/* 基本案例 */}
           <View className='panel'>
