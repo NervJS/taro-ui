@@ -12,9 +12,18 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onButtonClick () {
+    const content = arguments.length === 2 ? arguments[0] : ''
     const ENV = Taro.getEnv()
-    if (ENV === 'WEAPP') Taro.showModal({ content: '您点击了！', showCancel: false })
-    else if (ENV === 'WEB') alert('您点击了！')
+    if (ENV === 'WEAPP') Taro.showModal({ content: content || '您点击了！', showCancel: false })
+    else if (ENV === 'WEB') alert(content || '您点击了！')
+  }
+
+  onShareAppMessage () {
+    return {
+      title: 'Taro UI',
+      path: '/pages/index/index',
+      imageUrl: 'http://storage.360buyimg.com/mtd/home/share1535013100318.jpg'
+    }
   }
 
   render () {
@@ -150,6 +159,19 @@ export default class ButtonPage extends Taro.Component {
                 <View className='subitem'>
                   <AtButton size='small' disabled circle>按钮</AtButton>
                 </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 小程序 button 属性（仅部分支持） */}
+          <View className='panel'>
+            <View className='panel__title'>小程序 button 属性</View>
+            <View className='panel__content'>
+              <View className='btn-item'>
+                <AtButton openType='share' type='primary' onClick={this.onButtonClick.bind(this, '打开分享（仅小程序版支持）')}>分享</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')}>联系 Taro UI 客服</AtButton>
               </View>
             </View>
           </View>

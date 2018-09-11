@@ -7,6 +7,8 @@ export interface AtAvatarProps {
   circle?: boolean
 
   image?: string
+
+  openData?: object
 }
 
 declare const AtAvatar: ComponentClass<AtAvatarProps>

@@ -17,6 +17,7 @@ $at-button-height-sm: 60px;
   border-radius: $border-radius-md;
   border: 1PX solid $color-border-base;
   box-sizing: border-box;
+  position: relative;
   @include line();
 
   &:active {
@@ -71,5 +72,20 @@ $at-button-height-sm: 60px;
     height: $at-button-height-sm;
     font-size: $font-size-base;
     line-height: $at-button-height-sm - 2;
+  }
+
+  &__wxbutton {
+    position: absolute;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+
+    &::after {
+      display: none;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Image, Text } from '@tarojs/components'
+import { View, Image, Text, OpenData } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtComponent from '../../common/component'
@@ -29,6 +29,7 @@ export default class AtAvatar extends AtComponent {
       circle,
       image,
       text,
+      openData,
     } = this.props
     let rootClassName = ['at-avatar']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -37,13 +38,19 @@ export default class AtAvatar extends AtComponent {
     rootClassName.push(`at-avatar--${sizeClass}`, circleClass)
     rootClassName = rootClassName.filter(str => str !== '')
 
-    let letter
+    let letter = ''
     if (text) letter = text[0]
-    return (
-      <View className={rootClassName}>
-        {image ? <Image className='at-avatar__img' src={image} /> : <Text className='at-avatar__text'>{letter}</Text>}
 
-      </View>
+    let elem
+    if (openData.type === 'userAvatarUrl' && Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
+      elem = (<OpenData type={openData.type}></OpenData>)
+    } else if (image) {
+      elem = (<Image className='at-avatar__img' src={image} />)
+    } else {
+      elem = (<Text className='at-avatar__text'>{letter}</Text>)
+    }
+    return (
+      <View className={rootClassName}>{elem}</View>
     )
   }
 }
@@ -52,10 +59,12 @@ AtAvatar.defaultProps = {
   size: 'normal',
   circle: false,
   image: '',
+  openData: {},
 }
 
 AtAvatar.propTypes = {
   size: PropTypes.oneOf(['large', 'normal', 'small']),
   circle: PropTypes.bool,
   image: PropTypes.string,
+  openData: PropTypes.object,
 }

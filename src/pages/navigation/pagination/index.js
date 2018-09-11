@@ -55,7 +55,7 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination total={20} pageSize={10} current={1}></AtPagination>
+                <AtPagination pickerSelect total={20} pageSize={10} current={1}></AtPagination>
               </View>
             </View>
           </View>
@@ -65,7 +65,17 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>图标类型</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtPagination icon total={20} pageSize={10} current={1}></AtPagination>
+                <AtPagination pickerSelect icon total={20} pageSize={10} current={1}></AtPagination>
+              </View>
+            </View>
+          </View>
+
+          {/* 点击页码出是否出现picker选择页码 */}
+          <View className='panel'>
+            <View className='panel__title'>picker快速选择页码</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtPagination pickerSelect icon total={20} pageSize={10} current={1}></AtPagination>
               </View>
             </View>
           </View>
@@ -75,7 +85,7 @@ export default class PaginationPage extends Taro.Component {
             <View className='panel__title'>改变数据长度</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtPagination icon total={len} pageSize={this.state.pageSize} current={this.state.current} onPageChange={this.onPage.bind(this)}></AtPagination>
+                <AtPagination pickerSelect icon total={len} pageSize={this.state.pageSize} current={this.state.current} onPageChange={this.onPage.bind(this)}></AtPagination>
                 <View className='btn-item'>
                 当前页：{this.state.current}，当前数据：{len}条，分页大小：{this.state.pageSize}
                 </View>

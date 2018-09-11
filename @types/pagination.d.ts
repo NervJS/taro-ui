@@ -9,6 +9,8 @@ export interface AtPaginationProps {
   pageSize?: number
 
   icon?: boolean
+  
+  pickerSelect?: boolean
 
   onPageChange?: (data: {type: 'prev' | 'next', current: number}) => void
 }
