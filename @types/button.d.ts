@@ -12,6 +12,8 @@ export interface AtButtonProps {
 
   disabled?: boolean
 
+  className?: string | Array<string>
+
   onClick?: (event: BaseEventFunction) => void
 
   // start Button props

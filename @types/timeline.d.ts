@@ -15,6 +15,8 @@ export interface AtTimeLineProps {
   pending?: boolean
 
   items: Array<Item>
+
+  className?: string | Array<string>
 }
 
 declare const AtTimeLine: ComponentClass<AtTimeLineProps>

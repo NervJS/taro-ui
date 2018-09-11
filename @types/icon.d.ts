@@ -8,6 +8,8 @@ export interface AtIconProps {
 
   color?: string
 
+  className?: string | Array<string>
+
   onClick?: (event: BaseEventFunction) => void
 }
 

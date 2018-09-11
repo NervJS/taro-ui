@@ -9,6 +9,8 @@ export interface AtAvatarProps {
   image?: string
 
   openData?: object
+
+  className?: string | Array<string>
 }
 
 declare const AtAvatar: ComponentClass<AtAvatarProps>

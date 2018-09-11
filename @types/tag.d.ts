@@ -12,6 +12,8 @@ export interface AtTagProps {
 
   disabled?: boolean
 
+  className?: string | Array<string>
+
   onClick?: (event: BaseEventFunction) => void
 }
 

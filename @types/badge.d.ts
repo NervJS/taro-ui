@@ -7,6 +7,8 @@ export interface AtBadgeProps {
   value?: string | number
 
   maxValue?: number
+
+  className?: string | Array<string>
 }
 
 declare const AtBadge: ComponentClass<AtBadgeProps>

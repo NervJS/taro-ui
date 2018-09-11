@@ -16,6 +16,8 @@ export interface AtNoticeBarProps {
 
   icon?: string
 
+  className?: string | Array<string>
+
   onClose?: (event: BaseEventFunction) => void
 
   onGotoMore?: (event: BaseEventFunction) => void

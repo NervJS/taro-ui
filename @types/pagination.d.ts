@@ -12,6 +12,8 @@ export interface AtPaginationProps {
   
   pickerSelect?: boolean
 
+  className?: string | Array<string>
+
   onPageChange?: (data: {type: 'prev' | 'next', current: number}) => void
 }
 
