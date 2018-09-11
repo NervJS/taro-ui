@@ -141,7 +141,9 @@ export default class AtToast extends AtComponent {
 
 AtToast.defaultProps = {
   duration: 3000,
-  isOpened: false
+  isOpened: false,
+  onClick: () => {},
+  onClose: () => {},
 }
 
 AtToast.propTypes = {

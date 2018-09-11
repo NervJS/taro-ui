@@ -90,7 +90,9 @@ export default class AtActionSheet extends AtComponent {
 }
 
 AtActionSheet.defaultProps = {
-  isOpened: false
+  isOpened: false,
+  onClose: () => {},
+  onCancel: () => {}
 }
 
 AtActionSheet.propTypes = {
