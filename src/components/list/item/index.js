@@ -54,10 +54,7 @@ export default class AtListItem extends AtComponent {
     }
 
     return (
-      <View
-        onClick={this.handleClick}
-        className={this.getClassName(rootClass, this.props.className)}
-      >
+      <View className={rootClass} onClick={this.handleClick}>
         {thumb && (
           <View className='at-list__item-thumb item-thumb'>
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />

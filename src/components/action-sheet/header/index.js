@@ -8,12 +8,7 @@ import './index.scss'
 export default class AtActionSheetHeader extends AtComponent {
   render () {
     return (
-      <View
-        className={this.getClassName(
-          'at-action-sheet-header',
-          this.props.className
-        )}
-      >
+      <View className='at-action-sheet-header'>
         <Text>{this.props.children}</Text>
       </View>
     )

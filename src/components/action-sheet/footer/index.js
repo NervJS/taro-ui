@@ -40,10 +40,7 @@ export default class AtActionSheetFooter extends AtComponent {
       : 'at-action-sheet-footer'
 
     return (
-      <View
-        onClick={this.handleClick}
-        className={this.getClassName(footerClassName, this.props.className)}
-      >
+      <View className={footerClassName} onClick={this.handleClick}>
         {this.props.children}
       </View>
     )

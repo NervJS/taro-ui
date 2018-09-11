@@ -7,12 +7,6 @@ import './index.scss'
 
 export default class AtModalContent extends AtComponent {
   render () {
-    return (
-      <View
-        className={this.getClassName('at-modal-content', this.props.className)}
-      >
-        {this.props.children}
-      </View>
-    )
+    return <View className='at-modal-content'>{this.props.children}</View>
   }
 }

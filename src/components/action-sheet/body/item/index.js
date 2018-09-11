@@ -17,13 +17,7 @@ export default class AtActionSheetItem extends AtComponent {
 
   render () {
     return (
-      <View
-        className={this.getClassName(
-          'at-action-sheet-item',
-          this.props.className
-        )}
-        onClick={this.handleClick}
-      >
+      <View className='at-action-sheet-item' onClick={this.handleClick}>
         {this.props.children}
       </View>
     )

@@ -19,7 +19,7 @@ export default class AtActivityIndicator extends AtComponent {
     }
 
     return (
-      <View className={this.getClassName(rootClassName, this.props.className)}>
+      <View className={rootClassName}>
         <View className='at-activity-indicator__body'>
           <AtLoading size={size} color={color} />
         </View>

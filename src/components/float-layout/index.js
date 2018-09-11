@@ -60,10 +60,7 @@ export default class AtFloatLayout extends AtComponent {
     }
 
     return (
-      <View
-        onTouchMove={this.handleTouchMove}
-        className={this.getClassName(rootClassNames, this.props.className)}
-      >
+      <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           <View className='layout-header'>
