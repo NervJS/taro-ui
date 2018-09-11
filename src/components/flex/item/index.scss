@@ -1,12 +1,12 @@
 @import "../../../style/mixins/index.scss";
 @import "../../../style/theme/default.scss";
 
-.at-col,
-at-flex-item { // stylelint-disable-line
+.at-col {
   @include flex(1);
 
   width: 100%;
   display: block;
+  white-space: nowrap;
   word-break: keep-all;
   box-sizing: border-box;
 
@@ -43,6 +43,7 @@ at-flex-item { // stylelint-disable-line
   }
 
   &--wrap {
+    white-space: normal;
     word-wrap: break-word;
   }
 }
