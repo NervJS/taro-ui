@@ -7,6 +7,12 @@ import './index.scss'
 
 export default class AtModalHeader extends AtComponent {
   render () {
-    return <View className='at-modal-header'>{this.props.children}</View>
+    return (
+      <View
+        className={this.getClassName('at-modal-header', this.props.className)}
+      >
+        {this.props.children}
+      </View>
+    )
   }
 }

@@ -14,7 +14,7 @@ export default class AtList extends AtComponent {
     if (!this.props.hasBorder) {
       rootClass.push('at-list--no-border')
     }
-    return <View className={rootClass}>{this.props.children}</View>
+    return <View className={this.getClassName(rootClass, this.props.className)}>{this.props.children}</View>
   }
 }
 

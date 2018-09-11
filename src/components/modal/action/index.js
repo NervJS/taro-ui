@@ -16,7 +16,7 @@ export default class AtModalAction extends AtComponent {
     }
 
     return (
-      <View className={rootClass}>
+      <View className={this.getClassName(rootClass, this.props.className)}>
         <View className='at-modal-footer__action at-modal-action'>
           {this.props.children}
         </View>
