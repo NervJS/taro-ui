@@ -88,7 +88,9 @@ export default class AtPagination extends AtComponent {
     const prevDisabled = maxPage === MIN_MAXPAGE || current === 1
     const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
     return (
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+      >
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>

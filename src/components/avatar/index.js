@@ -50,7 +50,9 @@ export default class AtAvatar extends AtComponent {
       elem = (<Text className='at-avatar__text'>{letter}</Text>)
     }
     return (
-      <View className={rootClassName}>{elem}</View>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+      >{elem}</View>
     )
   }
 }

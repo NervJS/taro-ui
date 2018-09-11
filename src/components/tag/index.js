@@ -46,7 +46,10 @@ export default class AtTag extends AtComponent {
     rootClassName = rootClassName.filter(str => str !== '')
 
     return (
-      <View className={rootClassName} onClick={this.onClick.bind(this)}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+        onClick={this.onClick.bind(this)}
+      >
         {this.props.children}
       </View>
     )

@@ -21,7 +21,11 @@ export default class AtIcon extends AtComponent {
     const rootClassName = ['at-icon', `at-icon-${value}`]
     // console.log('value====', value)
     return (
-      <Text className={rootClassName} style={rootStyle} onClick={this.handleClick.bind(this)}></Text>
+      <Text
+        className={this.getClassName(rootClassName, this.props.className)}
+        style={rootStyle}
+        onClick={this.handleClick.bind(this)}
+      ></Text>
     )
   }
 }

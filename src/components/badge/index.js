@@ -33,7 +33,9 @@ export default class AtBadge extends AtComponent {
     const val = this.formatValue(value, maxValue)
 
     return (
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+      >
         {this.props.children}
         {dot ? <View className='at-badge__dot'></View> : val !== '' && <View className='at-badge__num'>{val}</View>}
       </View>

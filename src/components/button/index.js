@@ -84,7 +84,10 @@ export default class AtButton extends AtComponent {
       rootClassName.push('at-button--icon')
     }
     return (
-      <View className={rootClassName} onClick={this.onClick.bind(this)}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+        onClick={this.onClick.bind(this)}
+      >
         {isWEAPP && !disabled && <Button className='at-button__wxbutton'
           formType={formType}
           openType={openType}

@@ -98,7 +98,9 @@ export default class AtNoticebar extends AtComponent {
 
     return (
       this.state.show &&
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+      >
         {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon value='close' size='16' color='#ccc'></AtIcon></View>}
         <View className='at-noticebar__content'>
           {icon && <View className='at-noticebar__content-icon'><AtIcon value={icon} size='16'></AtIcon></View>}
