@@ -85,11 +85,6 @@ export default class AtModal extends AtComponent {
   }
 }
 
-AtModal.defaultProps = {
-  onCancel: () => {},
-  onConfirm: () => {}
-}
-
 AtModal.propTypes = {
   title: PropTypes.string,
   onCancel: PropTypes.func,

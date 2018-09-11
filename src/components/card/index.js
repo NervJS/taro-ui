@@ -48,10 +48,6 @@ export default class AtCard extends AtComponent {
   }
 }
 
-AtCard.defaultProps = {
-  onClick: () => {},
-}
-
 AtCard.propTypes = {
   note: PropTypes.string,
   isFull: PropTypes.bool,

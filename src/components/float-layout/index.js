@@ -81,8 +81,7 @@ export default class AtFloatLayout extends AtComponent {
 }
 
 AtFloatLayout.defaultProps = {
-  isOpened: false,
-  onClose: () => {}
+  isOpened: false
 }
 
 AtFloatLayout.propTypes = {
