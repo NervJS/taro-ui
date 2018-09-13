@@ -30,6 +30,7 @@ export default class AtAvatar extends AtComponent {
       image,
       text,
       openData,
+      customStyle,
     } = this.props
     let rootClassName = ['at-avatar']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -52,6 +53,7 @@ export default class AtAvatar extends AtComponent {
     return (
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
       >{elem}</View>
     )
   }
@@ -62,6 +64,7 @@ AtAvatar.defaultProps = {
   circle: false,
   image: '',
   openData: {},
+  customStyle: {},
 }
 
 AtAvatar.propTypes = {
@@ -69,4 +72,5 @@ AtAvatar.propTypes = {
   circle: PropTypes.bool,
   image: PropTypes.string,
   openData: PropTypes.object,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }

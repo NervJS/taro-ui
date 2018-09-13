@@ -14,6 +14,8 @@ export interface AtButtonProps {
 
   className?: string | Array<string>
 
+  customStyle?: object | string
+
   onClick?: (event: BaseEventFunction) => void
 
   // start Button props

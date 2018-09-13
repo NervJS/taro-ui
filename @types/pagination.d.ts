@@ -14,6 +14,8 @@ export interface AtPaginationProps {
 
   className?: string | Array<string>
 
+  customStyle?: object | string
+
   onPageChange?: (data: {type: 'prev' | 'next', current: number}) => void
 }
 

@@ -18,6 +18,8 @@ export interface AtNoticeBarProps {
 
   className?: string | Array<string>
 
+  customStyle?: object | string
+
   onClose?: (event: BaseEventFunction) => void
 
   onGotoMore?: (event: BaseEventFunction) => void

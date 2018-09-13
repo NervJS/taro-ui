@@ -68,6 +68,7 @@ export default class AtNoticebar extends AtComponent {
       single,
       icon,
       marquee,
+      customStyle,
     } = this.props
     let {
       showMore,
@@ -100,6 +101,7 @@ export default class AtNoticebar extends AtComponent {
       this.state.show &&
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
       >
         {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon value='close' size='16' color='#ccc'></AtIcon></View>}
         <View className='at-noticebar__content'>
@@ -122,6 +124,7 @@ AtNoticebar.defaultProps = {
   moreText: '查看详情',
   showMore: false,
   icon: '',
+  customStyle: {},
   onClose: () => {},
   onGotoMore: () => {},
 }
@@ -134,6 +137,7 @@ AtNoticebar.propTypes = {
   moreText: PropTypes.string,
   showMore: PropTypes.bool,
   icon: PropTypes.string,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onClose: PropTypes.func,
   onGotoMore: PropTypes.func,
 }

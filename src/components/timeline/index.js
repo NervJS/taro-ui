@@ -10,6 +10,7 @@ export default class AtTimeline extends AtComponent {
     const {
       pending,
       items,
+      customStyle,
     } = this.props
 
     const rootClassName = ['at-timeline']
@@ -54,6 +55,7 @@ export default class AtTimeline extends AtComponent {
     return (
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
       >
         {itemElems}
       </View>
@@ -64,9 +66,11 @@ export default class AtTimeline extends AtComponent {
 AtTimeline.defaultProps = {
   pending: false,
   items: [],
+  customStyle: {},
 }
 
 AtTimeline.propTypes = {
   pending: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }

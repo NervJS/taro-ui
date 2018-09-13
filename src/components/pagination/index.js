@@ -79,6 +79,7 @@ export default class AtPagination extends AtComponent {
     const {
       icon,
       pickerSelect,
+      customStyle,
     } = this.props
     const { current, maxPage } = this.state
 
@@ -90,6 +91,7 @@ export default class AtPagination extends AtComponent {
     return (
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
       >
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
@@ -122,6 +124,7 @@ AtPagination.defaultProps = {
   pageSize: 20,
   icon: false,
   pickerSelect: false,
+  customStyle: {},
   onPageChange: () => {},
 }
 
@@ -131,5 +134,6 @@ AtPagination.propTypes = {
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
   pickerSelect: PropTypes.bool,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onPageChange: PropTypes.func,
 }

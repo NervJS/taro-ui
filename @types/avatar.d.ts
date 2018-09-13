@@ -11,6 +11,8 @@ export interface AtAvatarProps {
   openData?: object
 
   className?: string | Array<string>
+
+  customStyle?: object | string
 }
 
 declare const AtAvatar: ComponentClass<AtAvatarProps>

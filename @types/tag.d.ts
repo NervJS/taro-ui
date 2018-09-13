@@ -14,6 +14,8 @@ export interface AtTagProps {
 
   className?: string | Array<string>
 
+  customStyle?: object | string
+
   onClick?: (event: BaseEventFunction) => void
 }
 

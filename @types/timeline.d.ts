@@ -17,6 +17,8 @@ export interface AtTimeLineProps {
   items: Array<Item>
 
   className?: string | Array<string>
+
+  customStyle?: object | string
 }
 
 declare const AtTimeLine: ComponentClass<AtTimeLineProps>

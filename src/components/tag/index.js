@@ -34,6 +34,7 @@ export default class AtTag extends AtComponent {
       circle = false,
       disabled = false,
       active = false,
+      customStyle,
     } = this.props
     let rootClassName = ['at-tag']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -48,6 +49,7 @@ export default class AtTag extends AtComponent {
     return (
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
         onClick={this.onClick.bind(this)}
       >
         {this.props.children}
@@ -63,6 +65,7 @@ AtTag.defaultProps = {
   circle: false,
   active: false,
   disabled: false,
+  customStyle: {},
   onClick: () => {},
 }
 
@@ -73,5 +76,6 @@ AtTag.propTypes = {
   circle: PropTypes.bool,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onClick: PropTypes.func,
 }

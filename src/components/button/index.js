@@ -53,6 +53,7 @@ export default class AtButton extends AtComponent {
       circle,
       loading,
       disabled,
+      customStyle,
 
       formType,
       openType,
@@ -86,6 +87,7 @@ export default class AtButton extends AtComponent {
     return (
       <View
         className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
         onClick={this.onClick.bind(this)}
       >
         {isWEAPP && !disabled && <Button className='at-button__wxbutton'
@@ -117,6 +119,7 @@ AtButton.defaultProps = {
   circle: false,
   loading: false,
   disabled: false,
+  customStyle: {},
   onClick: () => {},
   // Button props
   formType: '',
@@ -142,6 +145,7 @@ AtButton.propTypes = {
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 
   formType: PropTypes.oneOf(['submit', 'reset']),
   openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo']),
