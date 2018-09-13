@@ -40,7 +40,10 @@ class App extends Component {
       'pages/form/radio/index',
       'pages/form/textarea/index',
       'pages/form/switch/index',
-      'pages/form/rate/index'
+      'pages/form/rate/index',
+      'pages/form/picker/index',
+      'pages/form/picker-view/index',
+      'pages/form/slider/index'
     ],
     window: {
       backgroundTextStyle: 'light',
