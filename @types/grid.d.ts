@@ -14,6 +14,8 @@ export interface AtGridProps {
 
   columnNum: number
 
+  hasBorder?: boolean
+
   mode?: 'square' | 'rect'
 
   onClick?: (item: Item, index: number, event: BaseEvent) => void

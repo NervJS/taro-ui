@@ -9,7 +9,7 @@ $gird-img-size-sm: 50px;
 
   &-item {
     position: relative;
-    @include border-thin-bottom($width: 1PX);
+    @include border-thin-bottom($width: 1px);
 
     &:not(:last-child)::after {
       content: " ";
@@ -108,6 +108,14 @@ $gird-img-size-sm: 50px;
         width: $gird-img-size-sm;
         height: $gird-img-size-sm;
       }
+    }
+  }
+
+  &--no-border {
+    border-bottom: initial;
+
+    &::after {
+      content: initial;
     }
   }
 

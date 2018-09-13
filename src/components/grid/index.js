@@ -21,7 +21,7 @@ export default class AtGrid extends AtComponent {
   }
 
   render () {
-    const { data, mode, columnNum } = this.props
+    const { data, mode, columnNum, hasBorder } = this.props
 
     if (Array.isArray(data) && data.length === 0) {
       return null
@@ -34,6 +34,10 @@ export default class AtGrid extends AtComponent {
       'at-grid-item',
       `at-grid-item--${mode}`
     ]
+
+    if (!hasBorder) {
+      rootClass.push('at-grid-item--no-border')
+    }
 
     return (
       <View className={this.getClassName('at-grid', this.props.className)}>
@@ -81,12 +85,14 @@ export default class AtGrid extends AtComponent {
 AtGrid.defaultProps = {
   data: [],
   columnNum: 3,
-  mode: 'square'
+  mode: 'square',
+  hasBorder: true
 }
 
 AtGrid.propTypes = {
   mode: PropTypes.string,
   onClick: PropTypes.func,
+  hasBorder: PropTypes.bool,
   columnNum: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
   data: PropTypes.arrayOf(
     PropTypes.shape({
