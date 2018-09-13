@@ -49,5 +49,10 @@
     color: #88889C;
     font-size: 20px;
     text-align: center;
+
+    .name,
+    .hex {
+      display: block;
+    }
   }
 }
