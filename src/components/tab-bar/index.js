@@ -98,6 +98,7 @@ export default class AtTabBar extends AtComponent {
               <AtBadge dot={item.dot} value={item.text} max={item.max}>
                 <View className='at-tab-bar__icon'>
                   <AtIcon
+                    prefixClass={item.iconPrefixClass}
                     value={
                       current === i && item.selectedIconType
                         ? item.selectedIconType

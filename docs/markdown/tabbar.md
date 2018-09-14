@@ -91,6 +91,27 @@ import { AtTabBar } from 'taro-ui'
 
 :::
 
+## 使用自定义图标
+
+在 `AtTabBar` 使用自定义图标，需要对 `AtIcon` 进行拓展，具体请查看 [拓展图标库详细](/#/docs/icon)
+
+:::demo
+
+```html
+<AtTabBar
+  fixed
+  tabList={[
+    { title: '自定义图标', iconPrefixClass:'fa', iconType: 'clock', text: 'new' },
+    { title: '拍照', iconType: 'camera' },
+    { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
+  ]}
+  onClick={this.handleClick}
+  current={this.state.current}
+/>
+```
+
+:::
+
 ## 参数
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
@@ -109,8 +130,9 @@ import { AtTabBar } from 'taro-ui'
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   | 可选或必填
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |-------- |
 | title | 标题  | String  | - | 0 | 必填 |
-| iconType | 未选中时展示的 icon 类型，仅支持 AtIcon 支持的类型  | String | - | - | 可选 |
-| selectedIconType  | 选中时展示的 icon 类型，仅支持 AtIcon 支持的类型  | String | - | - |可选 |
+| iconPrefixClass |  icon className 前缀，用于第三方字体图标库，比如想使用'fa fa-clock' 的图标，则 传入`iconPrefixClass='fa' iconType='clock'`,[拓展图标库详细](/#/docs/icon) | String | - | - | - |
+| iconType | 未选中时展示的 icon 类型，可扩展第三方字体图标库，[拓展图标库详细](/#/docs/icon)  | String | - | - | 可选 |
+| selectedIconType  | 选中时展示的 icon 类型，可扩展第三方字体图标库，[拓展图标库详细](/#/docs/icon)  | String | - | - |可选 |
 | text | 右上角显示到文本，可以为数字或文字，如果有 dot，优先显示 dot | String  | - | - | 可选 |
 | max | text 可显示的最大数字，超过则显示最大数字加'+'，如'99+' | Number  | - | - | 可选 |
 | dot | 是否显示红点，优先级比 text 高 | Boolean  | - | false |可选 |

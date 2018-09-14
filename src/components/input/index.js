@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Label } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
@@ -10,7 +11,8 @@ const defaultFunc = () => { }
 
 export default class AtInput extends AtComponent {
   static defaultProps = {
-    style: '',
+    className: '',
+    customStyle: '',
     value: '',
     name: '',
     placeholder: '',
@@ -38,7 +40,14 @@ export default class AtInput extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    className: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ]),
+    customStyle: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
@@ -99,6 +108,8 @@ export default class AtInput extends AtComponent {
 
   render () {
     const {
+      className,
+      customStyle,
       name,
       cursorSpacing,
       confirmType,
@@ -116,82 +127,82 @@ export default class AtInput extends AtComponent {
       value
     } = this.props
     let {
-      style,
       maxlength,
       type,
       disabled
     } = this.props
 
-    const containerCls = ['at-input__container']
-    if (error) {
-      containerCls.push('at-input--error')
-    }
-    if (disabled) {
-      containerCls.push('at-input--disabled')
-    }
-
     if (type === 'phone') {
       maxlength = 11
       type = 'number'
     }
-
     if (!disabled && !editable) {
       disabled = true
     }
 
-    if (!border) {
-      style += 'border: none;'
-    }
-
-    return <View className='at-input' style={style}>
+    return (
       <View
-        className={containerCls}
-        onClick={this.onClick.bind(this)}
+        className={
+          classNames({
+            'at-input': true,
+            'at-input--without-border': !border
+          }, className)
+        }
+        style={customStyle}
       >
-        {
-          title
-            ? <Label className='at-input__title' for={name}>{title}</Label>
-            : null
-        }
-        <Input className='at-input__input'
-          id={name}
-          type={type}
-          placeholderClass='placeholder'
-          placeholder={placeholder}
-          cursorSpacing={cursorSpacing}
-          maxlength={maxlength}
-          autoFocus={autoFocus}
-          value={value}
-          confirmType={confirmType}
-          cursor={cursor}
-          selectionStart={selectionStart}
-          selectionEnd={selectionEnd}
-          adjustPosition={adjustPosition}
-          disabled={disabled}
-          onInput={this.onInput.bind(this)}
-          onChange={this.onInput.bind(this)}
-          onFocus={this.onFocus.bind(this)}
-          onBlur={this.onBlur.bind(this)}
-          onConfirm={this.onConfirm.bind(this)}
-        />
-        {
-          clear && value
-            ? <View className='at-input__icon' onTouchStart={this.clearValue.bind(this)} >
-              <AtIcon value='close-circle' color='#ccc' size='15' />
-            </View>
-            : null
-        }
-        {
-          error
-            ? <View className='at-input__icon' onTouchStart={this.onErrorClick.bind(this)} >
-              <AtIcon value='alert-circle' color='#FF4949' size='15' />
-            </View>
-            : null
-        }
-        <View className='at-input__children'>
-          {this.props.children}
+        <View
+          className={classNames({
+            'at-input__container': true,
+            'at-input--error': error,
+            'at-input--disabled': disabled
+          })}
+          onClick={this.onClick.bind(this)}
+        >
+          {
+            title
+              ? <Label className='at-input__title' for={name}>{title}</Label>
+              : null
+          }
+          <Input className='at-input__input'
+            id={name}
+            type={type}
+            placeholderClass='placeholder'
+            placeholder={placeholder}
+            cursorSpacing={cursorSpacing}
+            maxlength={maxlength}
+            autoFocus={autoFocus}
+            value={value}
+            confirmType={confirmType}
+            cursor={cursor}
+            selectionStart={selectionStart}
+            selectionEnd={selectionEnd}
+            adjustPosition={adjustPosition}
+            disabled={disabled}
+            onInput={this.onInput.bind(this)}
+            onChange={this.onInput.bind(this)}
+            onFocus={this.onFocus.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            onConfirm={this.onConfirm.bind(this)}
+          />
+          {
+            clear && value
+              ? <View className='at-input__icon' onTouchStart={this.clearValue.bind(this)} >
+                <AtIcon value='close-circle' color='#ccc' size='15' />
+              </View>
+              : null
+          }
+          {
+            error
+              ? <View className='at-input__icon' onTouchStart={this.onErrorClick.bind(this)} >
+                <AtIcon value='alert-circle' color='#FF4949' size='15' />
+              </View>
+              : null
+          }
+          <View className='at-input__children'>
+            {this.props.children}
+          </View>
         </View>
       </View>
-    </View>
+    )
   }
 }

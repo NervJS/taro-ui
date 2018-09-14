@@ -6,6 +6,7 @@ export interface TabItem {
   dot?: boolean
   text?: string
   title: string
+  iconPrefixClass?: string
   iconType?: string
   selectedIconType?: string
 }
