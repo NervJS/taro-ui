@@ -1,12 +1,16 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { Text } from '@tarojs/components'
+
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtIcon extends AtComponent {
   static defaultProps = {
+    customStyle: '',
+    className: '',
     prefixClass: 'at-icon',
     value: '',
     color: '',
@@ -15,6 +19,14 @@ export default class AtIcon extends AtComponent {
   }
 
   static propTypes = {
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     prefixClass: PropTypes.string,
     value: PropTypes.string,
     color: PropTypes.string,
@@ -31,6 +43,8 @@ export default class AtIcon extends AtComponent {
 
   render () {
     const {
+      customStyle,
+      className,
       prefixClass,
       value,
       size,
@@ -41,12 +55,15 @@ export default class AtIcon extends AtComponent {
       fontSize: `${size}px`,
       color
     }
-    const rootClassName = [prefixClass, `${prefixClass}-${value}`]
 
     return (
       <Text
-        className={this.getClassName(rootClassName)}
-        style={rootStyle}
+        className={classNames(
+          prefixClass,
+          `${prefixClass}-${value}`,
+          className
+        )}
+        style={this.mergeStyle(rootStyle, customStyle)}
         onClick={this.handleClick.bind(this)}
       >
       </Text>
