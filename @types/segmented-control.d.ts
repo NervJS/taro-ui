@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtSegmentedControlProps {
+import AtComponent from './base'
+
+export interface AtSegmentedControlProps extends AtComponent{
   style?: string
 
   current?: number

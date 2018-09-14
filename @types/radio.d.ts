@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
+import AtComponent from './base'
+
 export interface Option<T> {
   value: T
   label: string

@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtTextareaProps {
+import AtComponent from './base'
+
+export interface AtTextareaProps extends AtComponent{
   style?: string
 
   value?: string

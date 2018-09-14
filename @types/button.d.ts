@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtButtonProps {
+import AtComponent from './base'
+
+export interface AtButtonProps extends AtComponent{
   size?: 'normal' | 'small'
 
   type?: 'primary' | 'secondary'

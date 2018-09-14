@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtBadgeProps {
+import AtComponent from './base'
+
+export interface AtBadgeProps extends AtComponent{
   dot?: boolean
 
   value?: string | number

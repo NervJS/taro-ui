@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtDrawerProps {
+import AtComponent from './base'
+
+export interface AtDrawerProps extends AtComponent{
   show: boolean
 
   mask?: boolean

@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtNavBarProps {
+import AtComponent from './base'
+
+export interface AtNavBarProps extends AtComponent{
   style?: string
 
   title?: string

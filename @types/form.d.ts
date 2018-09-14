@@ -3,7 +3,9 @@ import { BaseEvent } from '@tarojs/components/types/common'
 
 declare type FormFunction = (event: BaseEvent) => void
 
-export interface AtFormProps {
+import AtComponent from './base'
+
+export interface AtFormProps extends AtComponent{
   style?: string
 
   reportSubmit?: boolean

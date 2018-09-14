@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtPaginationProps {
+import AtComponent from './base'
+
+export interface AtPaginationProps extends AtComponent{
   total: number
 
   current?: number

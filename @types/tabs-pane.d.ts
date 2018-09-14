@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtTabsPaneProps {
+import AtComponent from './base'
+
+export interface AtTabsPaneProps extends AtComponent{
   current?: number
 
   index?: number

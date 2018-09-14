@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtIconProps {
+import AtComponent from './base'
+
+export interface AtIconProps extends AtComponent{
   prefixClass: string
 
   value: string

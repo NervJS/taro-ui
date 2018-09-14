@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtFloatLayoutProps {
+import AtComponent from './base'
+
+export interface AtFloatLayoutProps extends AtComponent{
   isOpened: boolean
 
   title?: string

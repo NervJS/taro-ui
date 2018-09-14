@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtActivityIndicatorProps {
+import AtComponent from './base'
+
+export interface AtActivityIndicatorProps extends AtComponent{
   size?: number
 
   mode?: 'center' | 'normal'
