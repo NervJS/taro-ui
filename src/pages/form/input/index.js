@@ -133,10 +133,10 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtForm>
-                  <AtInput title='验证码' type='text' maxlength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
+                  <AtInput name='value14' title='验证码' type='text' maxlength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
                     <Image src={verificationCode} />
                   </AtInput>
-                  <AtInput border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>
+                  <AtInput name='value15' border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>
                     <View
                       style={{
                         'color': this.state.disabled ? '#FF4949' : '',
