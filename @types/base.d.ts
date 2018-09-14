@@ -1,5 +1,6 @@
 export interface AtComponent {
-  className?: string | object | string[]
+  className?: string | string[]
+  customStyle?: string | object
 }
 
 export default AtComponent
