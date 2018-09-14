@@ -1,10 +1,30 @@
 import Taro, { Component } from '@tarojs/taro'
 
-import PropTypes from 'prop-types'
+const objectToString = style => {
+  if (typeof style === 'object') {
+    let styleStr = ''
+    Object.keys(style).forEach(key => {
+      const lowerCaseKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+      styleStr += `${lowerCaseKey}: ${style[key]};`
+    })
+    return styleStr
+  }
+  return style
+}
 
 export default class AtComponent extends Component {
   static options = {
     addGlobalClass: true
+  }
+
+  /**
+   * 合并 style
+   * @param {Object|String} style1
+   * @param {Object|String} style2
+   * @returns {String}
+   */
+  mergeStyle (style1, style2) {
+    return objectToString(style1) + objectToString(style2)
   }
 
   getClassName (arg) {
@@ -27,8 +47,4 @@ export default class AtComponent extends Component {
 
     return componentClass.concat(propsClass)
   }
-}
-
-AtComponent.propTypes = {
-  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 }
