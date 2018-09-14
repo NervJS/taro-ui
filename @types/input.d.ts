@@ -27,6 +27,10 @@ export interface AtInputProps {
 
   placeholder?: string
 
+  placeholderStyle?: string
+
+  placeholderClass?: string
+
   editable?: boolean
 
   confirmType?: string

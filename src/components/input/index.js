@@ -16,6 +16,8 @@ export default class AtInput extends AtComponent {
     value: '',
     name: '',
     placeholder: '',
+    placeholderStyle: '',
+    placeholderClass: '',
     title: '',
     cursorSpacing: 50,
     confirmType: '完成',
@@ -54,6 +56,8 @@ export default class AtInput extends AtComponent {
     ]),
     name: '',
     placeholder: PropTypes.string,
+    placeholderStyle: PropTypes.string,
+    placeholderClass: PropTypes.string,
     title: PropTypes.string,
     confirmType: PropTypes.string,
     cursor: PropTypes.number,
@@ -123,6 +127,8 @@ export default class AtInput extends AtComponent {
       error,
       clear,
       placeholder,
+      placeholderStyle,
+      placeholderClass,
       autoFocus,
       value
     } = this.props
@@ -166,7 +172,8 @@ export default class AtInput extends AtComponent {
           <Input className='at-input__input'
             id={name}
             type={type}
-            placeholderClass='placeholder'
+            placeholderStyle={placeholderStyle}
+            placeholderClass={classNames('placeholder', placeholderClass)}
             placeholder={placeholder}
             cursorSpacing={cursorSpacing}
             maxlength={maxlength}

@@ -170,6 +170,8 @@ import { AtInput, AtForm } from 'taro-ui'
 | type     | 输入框类型 | String | `text`,`number`,`password`,`phone`,`idcard`,`digit` | `text` |
 | value | 输入框值 | String  | - | - |
 | placeholder | 占位符  | String  | - | - |
+| placeholderStyle | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
+| placeholderClass | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
 | title     | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
 | maxlength | 最大长度 | Number  | -  | 140      |
 | cursorSpacing | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
