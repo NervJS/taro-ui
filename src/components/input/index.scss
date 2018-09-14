@@ -78,4 +78,8 @@
   &--disabled {
     opacity: $opacity-disabled;
   }
+
+  &--without-border {
+    border: none;
+  }
 }
