@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
+import AtComponent from './base'
+
 export interface Item {
   title: string
 
@@ -11,7 +13,7 @@ export interface Item {
   color?: string
 }
 
-export interface AtTimeLineProps {
+export interface AtTimeLineProps extends AtComponent{
   pending?: boolean
 
   items: Array<Item>

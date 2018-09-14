@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../../common/component'
 
@@ -9,11 +10,13 @@ import './index.scss'
 
 export default class AtModalAction extends AtComponent {
   render () {
-    const rootClass = ['at-modal-footer']
-
-    if (this.props.isSimple) {
-      rootClass.push('at-modal-footer--simple')
-    }
+    const rootClass = classNames(
+      'at-modal-footer',
+      {
+        'at-modal-footer--simple': this.props.isSimple
+      },
+      this.props.className
+    )
 
     return (
       <View className={rootClass}>

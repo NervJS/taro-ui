@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
+import AtComponent from './base'
+
 export interface TabItem {
   max?: number
   dot?: boolean
@@ -11,7 +13,7 @@ export interface TabItem {
   selectedIconType?: string
 }
 
-export interface AtTabBarProps {
+export interface AtTabBarProps extends AtComponent{
   style?: string
 
   fixed?: boolean

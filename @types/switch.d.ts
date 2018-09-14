@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtSwitchProps {
+import AtComponent from './base'
+
+export interface AtSwitchProps extends AtComponent{
   style?: string
 
   title?: string

@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtCardProps {
+import AtComponent from './base'
+
+export interface AtCardProps extends AtComponent{
   note?: string
 
   isFull?: boolean

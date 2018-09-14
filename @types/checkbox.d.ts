@@ -1,5 +1,7 @@
 import { MouseEvent, ComponentClass } from 'react'
 
+import AtComponent from './base'
+
 export interface Option<T> {
   value: T
   label: string

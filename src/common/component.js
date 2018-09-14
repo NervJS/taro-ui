@@ -5,7 +5,7 @@ const objectToString = style => {
     let styleStr = ''
     Object.keys(style).forEach(key => {
       const lowerCaseKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-      styleStr += `${lowerCaseKey}: ${style[key]};`
+      styleStr += `${lowerCaseKey}:${style[key]};`
     })
     return styleStr
   }

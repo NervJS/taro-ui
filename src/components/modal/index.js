@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
@@ -37,11 +38,13 @@ export default class AtModal extends AtComponent {
     const { _isOpened } = this.state
     const { title, content, cancelText, confirmText } = this.props
 
-    const rootClass = ['at-modal']
-
-    if (_isOpened) {
-      rootClass.push('at-modal--active')
-    }
+    const rootClass = classNames(
+      'at-modal',
+      {
+        'at-modal--active': _isOpened
+      },
+      this.props.className
+    )
 
     if (title || content) {
       const isRenderAction = cancelText || confirmText
@@ -77,7 +80,10 @@ export default class AtModal extends AtComponent {
     }
 
     return (
-      <View className={rootClass} onTouchMove={this.handleTouchMove}>
+      <View
+        onTouchMove={this.handleTouchMove}
+        className={this.getClassName(rootClass, this.props.className)}
+      >
         <View className='at-modal__overlay' />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>

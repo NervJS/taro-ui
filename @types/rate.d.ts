@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtRateProps {
+import AtComponent from './base'
+
+export interface AtRateProps extends AtComponent{
   style?: string
 
   size?: number

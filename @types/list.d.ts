@@ -1,11 +1,13 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
+import AtComponent from './base'
+
 export interface AtList {
   hasBorder?: boolean
 }
 
-export interface AtListItemProps {
+export interface AtListItemProps extends AtComponent{
   hasBorder?: boolean
 
   note?: string

@@ -4,7 +4,9 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 declare type InputValue = string | number
 declare type InputFunction = (value: string | number, event: BaseEvent) => void
 
-export interface AtInputProps {
+import AtComponent from './base'
+
+export interface AtInputProps extends AtComponent{
   style?: string
 
   name: string

@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction } from '@tarojs/components/types/common'
 
-export interface AtNoticeBarProps {
+import AtComponent from './base'
+
+export interface AtNoticeBarProps extends AtComponent{
   close?: boolean
 
   single?: boolean

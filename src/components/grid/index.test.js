@@ -52,6 +52,11 @@ describe('Grid Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render no border of image Grid', () => {
+    const component = renderToString(<AtGrid data={IMAGE_DATA} />)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render rect image Grid', () => {
     const component = renderToString(<AtGrid mode='rect' data={IMAGE_DATA} />)
     expect(component).toMatchSnapshot()

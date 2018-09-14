@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import { View, Text, ScrollView } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
@@ -53,14 +54,16 @@ export default class AtFloatLayout extends AtComponent {
     const { _isOpened } = this.state
     const { title } = this.props
 
-    const rootClassNames = ['at-float-layout']
-
-    if (_isOpened) {
-      rootClassNames.push('at-float-layout--active')
-    }
+    const rootClass = classNames(
+      'at-float-layout',
+      {
+        'at-float-layout--active': _isOpened
+      },
+      this.props.className
+    )
 
     return (
-      <View className={rootClassNames} onTouchMove={this.handleTouchMove}>
+      <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           <View className='layout-header'>

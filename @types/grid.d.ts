@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEvent } from '@tarojs/components/types/common'
 
+import AtComponent from './base'
+
 export interface Item {
   icon?: string
   image?: string
@@ -9,10 +11,12 @@ export interface Item {
   iconColor?: string
 }
 
-export interface AtGridProps {
+export interface AtGridProps extends AtComponent{
   data: Array<Item>
 
   columnNum: number
+
+  hasBorder?: boolean
 
   mode?: 'square' | 'rect'
 

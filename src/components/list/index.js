@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 
@@ -9,11 +10,14 @@ import './index.scss'
 
 export default class AtList extends AtComponent {
   render () {
-    const rootClass = ['at-list']
+    const rootClass = classNames(
+      'at-list',
+      {
+        'at-list--no-border': !this.props.hasBorder
+      },
+      this.props.className
+    )
 
-    if (!this.props.hasBorder) {
-      rootClass.push('at-list--no-border')
-    }
     return <View className={rootClass}>{this.props.children}</View>
   }
 }

@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtTagProps {
+import AtComponent from './base'
+
+export interface AtTagProps extends AtComponent{
   size?: string
 
   type?: string

@@ -1,6 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
 
-export interface AtInputNumberProps {
+import AtComponent from './base'
+
+export interface AtInputNumberProps extends AtComponent{
   style?: string
 
   min?: number

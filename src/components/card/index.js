@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
@@ -18,14 +19,16 @@ export default class AtCard extends AtComponent {
   render () {
     const { title, note, extra, thumb, isFull } = this.props
 
-    const rootClass = ['at-card']
-
-    if (isFull) {
-      rootClass.push('at-card--full')
-    }
+    const rootClass = classNames(
+      'at-card',
+      {
+        'at-card--full': isFull
+      },
+      this.props.className
+    )
 
     return (
-      <View className={rootClass} onClick={this.handleClick}>
+      <View onClick={this.handleClick} className={rootClass}>
         <View className='at-card-header'>
           {thumb && (
             <View className='at-card-header__thumb'>

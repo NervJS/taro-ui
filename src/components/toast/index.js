@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
@@ -94,24 +95,20 @@ export default class AtToast extends AtComponent {
     const realImg = image || statusImg[status] || null
     const isRenderIcon = !!(icon && !(image || statusImg[status]))
 
-    const rootClass = ['toast-body']
-
-    if (!realImg && !icon) {
-      rootClass.push('toast-body--text')
-    }
-
-    if (status) {
-      rootClass.push(`at-toast-body--${status}`)
-    }
-
-    if (image) {
-      rootClass.push('at-toast-body--custom-image')
-    }
+    const bodyClass = classNames(
+      'toast-body',
+      {
+        'at-toast-body--custom-image': image,
+        'toast-body--text': !realImg && !icon,
+        [`at-toast-body--${status}`]: !!status
+      },
+      this.props.className
+    )
 
     return _isOpened ? (
-      <View className='at-toast'>
+      <View className={this.getClassName('at-toast', this.props.className)}>
         {hasMask && <View className='at-toast-overlay' />}
-        <View className={rootClass} onClick={this.handleClick}>
+        <View className={bodyClass} onClick={this.handleClick}>
           <View className='toast-body-content'>
             {realImg && (
               <View className='toast-body-content__img'>

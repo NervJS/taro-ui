@@ -76,6 +76,15 @@ export default class GridPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          <View className='panel'>
+            <View className='panel__title'>没有边框</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtGrid mode='rect' data={this.state.data} hasBorder={false} />
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     )

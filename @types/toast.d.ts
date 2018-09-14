@@ -1,7 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-export interface AtTimeLineProps {
+import AtComponent from './base'
+
+export interface AtTimeLineProps extends AtComponent{
   isOpened: boolean
 
   text?: string
