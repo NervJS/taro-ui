@@ -18,6 +18,7 @@ class App extends Component {
       'pages/view/avatar/index',
       'pages/view/article/index',
       'pages/view/timeline/index',
+      'pages/view/swiper/index',
       'pages/action/toast/index',
       'pages/action/modal/index',
       'pages/action/progress/index',
@@ -40,7 +41,10 @@ class App extends Component {
       'pages/form/radio/index',
       'pages/form/textarea/index',
       'pages/form/switch/index',
-      'pages/form/rate/index'
+      'pages/form/rate/index',
+      'pages/form/picker/index',
+      'pages/form/picker-view/index',
+      'pages/form/slider/index'
     ],
     window: {
       backgroundTextStyle: 'light',

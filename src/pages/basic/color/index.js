@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
 
@@ -143,8 +143,8 @@ export default class BasicColor extends Taro.Component {
                           <View className='inner-circle-2' style={`border-color: ${color.hex}`}></View>
                         </View>
                         <View className='color-item__info'>
-                          <View className='name'>{color.name}</View>
-                          <View className='hex'>{color.hex}</View>
+                          <Text className='name'>{color.name}</Text>
+                          <Text className='hex' selectable>{color.hex}</Text>
                         </View>
                       </View>
                     )

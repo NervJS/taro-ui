@@ -88,6 +88,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Timeline',
             name: '时间轴'
+          },
+          {
+            id: 'Swiper',
+            name: '滑块视图容器'
           }
         ],
         'action': [
@@ -140,6 +144,18 @@ export default class PanelBasic extends Component {
           {
             id: 'Textarea',
             name: '多行文本框'
+          },
+          {
+            id: 'Picker',
+            name: '选择器'
+          },
+          {
+            id: 'Picker-View',
+            name: '滚动选择器'
+          },
+          {
+            id: 'Slider',
+            name: '滑动条'
           }
         ],
         'layout': [
