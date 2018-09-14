@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtActionSheetBody from './body/index'
@@ -60,20 +61,19 @@ export default class AtActionSheet extends AtComponent {
   }
 
   render () {
-    const { title, cancelText } = this.props
+    const { title, cancelText, className } = this.props
     const { _isOpened } = this.state
 
-    const rootClassNames = ['at-action-sheet']
-
-    if (_isOpened) {
-      rootClassNames.push('at-action-sheet--active')
-    }
+    const rootClass = classNames(
+      'at-action-sheet',
+      {
+        'at-action-sheet--active': _isOpened
+      },
+      className
+    )
 
     return (
-      <View
-        onTouchMove={this.handleTouchMove}
-        className={this.getClassName(rootClassNames, this.props.className)}
-      >
+      <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-action-sheet__overlay' />
         <View className='at-action-sheet__container'>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}

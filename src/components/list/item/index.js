@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Image, Switch } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../../icon/index'
@@ -39,25 +40,18 @@ export default class AtListItem extends AtComponent {
       switchIsCheck
     } = this.props
 
-    const rootClass = ['at-list__item']
-
-    if (thumb) {
-      rootClass.push('at-list__item--thumb')
-    }
-
-    if (!hasBorder) {
-      rootClass.push('at-list__item--no-border')
-    }
-
-    if (note) {
-      rootClass.push('at-list__item--multiple')
-    }
+    const rootClass = classNames(
+      'at-list__item',
+      {
+        'at-list__item--thumb': thumb,
+        'at-list__item--multiple': note,
+        'at-list__item--no-border': !hasBorder
+      },
+      this.props.className
+    )
 
     return (
-      <View
-        onClick={this.handleClick}
-        className={this.getClassName(rootClass, this.props.className)}
-      >
+      <View className={rootClass} onClick={this.handleClick}>
         {thumb && (
           <View className='at-list__item-thumb item-thumb'>
             <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />

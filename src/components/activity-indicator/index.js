@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtLoading from '../loading/index'
 import AtComponent from '../../common/component'
@@ -12,14 +13,16 @@ export default class AtActivityIndicator extends AtComponent {
   render () {
     const { color, size, mode, content } = this.props
 
-    const rootClassName = ['at-activity-indicator']
-
-    if (mode === 'center') {
-      rootClassName.push('at-activity-indicator--center')
-    }
+    const rootClass = classNames(
+      'at-activity-indicator',
+      {
+        'at-activity-indicator--center': mode === 'center'
+      },
+      this.props.className
+    )
 
     return (
-      <View className={this.getClassName(rootClassName, this.props.className)}>
+      <View className={rootClass}>
         <View className='at-activity-indicator__body'>
           <AtLoading size={size} color={color} />
         </View>

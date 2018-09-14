@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../../common/component'
@@ -35,15 +36,17 @@ export default class AtActionSheetFooter extends AtComponent {
 
   render () {
     const { isIPhoneX } = this.state
-    const footerClassName = isIPhoneX
-      ? 'at-action-sheet-footer at-action-sheet-footer--ipx'
-      : 'at-action-sheet-footer'
+
+    const rootClass = classNames(
+      'at-action-sheet-footer',
+      {
+        'at-action-sheet-footer--ipx': isIPhoneX
+      },
+      this.props.className
+    )
 
     return (
-      <View
-        onClick={this.handleClick}
-        className={this.getClassName(footerClassName, this.props.className)}
-      >
+      <View onClick={this.handleClick} className={rootClass}>
         {this.props.children}
       </View>
     )

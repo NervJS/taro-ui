@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import classNames from 'classnames'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
@@ -16,14 +17,10 @@ export default class AtActionSheetItem extends AtComponent {
   }
 
   render () {
+    const rootClass = classNames('at-action-sheet-item', this.props.className)
+
     return (
-      <View
-        className={this.getClassName(
-          'at-action-sheet-item',
-          this.props.className
-        )}
-        onClick={this.handleClick}
-      >
+      <View className={rootClass} onClick={this.handleClick}>
         {this.props.children}
       </View>
     )

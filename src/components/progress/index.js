@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
@@ -22,11 +23,13 @@ export default class AtProgress extends AtComponent {
       percent = 100
     }
 
-    const rootClass = ['at-progress']
-
-    if (status) {
-      rootClass.push(`at-progress--${status}`)
-    }
+    const rootClass = classNames(
+      'at-progress',
+      {
+        [`at-progress--${status}`]: !!status
+      },
+      this.props.className
+    )
 
     if (status === 'error') {
       iconInfo = {
