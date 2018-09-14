@@ -18,6 +18,7 @@ class App extends Component {
       'pages/view/avatar/index',
       'pages/view/article/index',
       'pages/view/timeline/index',
+      'pages/view/swiper/index',
       'pages/action/toast/index',
       'pages/action/modal/index',
       'pages/action/progress/index',

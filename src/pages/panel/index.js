@@ -88,6 +88,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Timeline',
             name: '时间轴'
+          },
+          {
+            id: 'Swiper',
+            name: '滑块视图容器'
           }
         ],
         'action': [
