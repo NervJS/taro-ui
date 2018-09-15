@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
@@ -10,7 +11,8 @@ const defaultFunc = () => {}
 
 export default class AtNavBar extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     fixed: false,
     color: '#6190E8',
     leftIconType: '',
@@ -24,7 +26,14 @@ export default class AtNavBar extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     fixed: PropTypes.bool,
     color: PropTypes.string,
     leftIconType: PropTypes.string,
@@ -51,7 +60,8 @@ export default class AtNavBar extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       color,
       fixed,
       leftIconType,
@@ -64,11 +74,12 @@ export default class AtNavBar extends AtComponent {
 
     return <View
       className={
-        fixed
-          ? 'at-nav-bar at-nav-bar--fixed'
-          : 'at-nav-bar'
+        classNames({
+          'at-nav-bar': true,
+          'at-nav-bar--fixed': fixed
+        }, className)
       }
-      style={style}
+      style={customStyle}
     >
       <View
         className='at-nav-bar__left_view'
@@ -82,9 +93,10 @@ export default class AtNavBar extends AtComponent {
       <View className='at-nav-bar__right_view'>
         <View
           className={
-            rightSecondIconType
-              ? 'at-nav-bar__container'
-              : 'at-nav-bar__container--hide'
+            classNames({
+              'at-nav-bar__container': true,
+              'at-nav-bar__container--hide': !rightSecondIconType
+            })
           }
           style={linkStyle}
           onClick={this.handleClickNd.bind(this)}
@@ -93,9 +105,10 @@ export default class AtNavBar extends AtComponent {
         </View>
         <View
           className={
-            rightFirstIconType
-              ? 'at-nav-bar__container'
-              : 'at-nav-bar__container--hide'
+            classNames({
+              'at-nav-bar__container': true,
+              'at-nav-bar__container--hide': !rightFirstIconType
+            })
           }
           style={linkStyle}
           onClick={this.handleClickSt.bind(this)}

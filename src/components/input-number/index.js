@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Input } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
@@ -8,7 +9,8 @@ import './index.scss'
 
 export default class AtInputNumber extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     disabled: false,
     value: 1,
     width: 80,
@@ -20,7 +22,14 @@ export default class AtInputNumber extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     disabled: PropTypes.bool,
     value: PropTypes.number,
     width: PropTypes.number,
@@ -86,42 +95,58 @@ export default class AtInputNumber extends AtComponent {
   }
 
   render () {
-    const { style, width, disabled, value, min, max, size } = this.props
-    const inputStyle = `width: ${Taro.pxTransform(width)}`
-    const rootCls = ['at-input-number']
-    if (size) {
-      rootCls.push('at-input-number--lg')
-    }
+    const {
+      customStyle,
+      className,
+      width,
+      disabled,
+      value,
+      min,
+      max,
+      size
+    } = this.props
 
-    return <View className={rootCls} style={style}>
+    const inputStyle = `width: ${Taro.pxTransform(width)}`
+
+    return (
       <View
         className={
-          value <= min || disabled
-            ? 'at-input-number__btn at-input-number--disabled'
-            : 'at-input-number__btn'
+          classNames({
+            'at-input-number': true,
+            'at-input-number--lg': size
+          }, className)
         }
-        onClick={this.handleMinus.bind(this)}
+        style={customStyle}
       >
-        <AtIcon value='subtract' size='18' />
+        <View
+          className={
+            value <= min || disabled
+              ? 'at-input-number__btn at-input-number--disabled'
+              : 'at-input-number__btn'
+          }
+          onClick={this.handleMinus.bind(this)}
+        >
+          <AtIcon value='subtract' size='18' />
+        </View>
+        <Input
+          className='at-input-number__input'
+          style={inputStyle}
+          type='digit'
+          value={value}
+          disabled={disabled}
+          onInput={this.handleInput.bind(this)}
+        />
+        <View
+          className={
+            value >= max || disabled
+              ? 'at-input-number__btn at-input-number--disabled'
+              : 'at-input-number__btn'
+          }
+          onClick={this.handlePlus.bind(this)}
+        >
+          <AtIcon value='add' size='18' />
+        </View>
       </View>
-      <Input
-        className='at-input-number__input'
-        style={inputStyle}
-        type='digit'
-        value={value}
-        disabled={disabled}
-        onInput={this.handleInput.bind(this)}
-      />
-      <View
-        className={
-          value >= max || disabled
-            ? 'at-input-number__btn at-input-number--disabled'
-            : 'at-input-number__btn'
-        }
-        onClick={this.handlePlus.bind(this)}
-      >
-        <AtIcon value='add' size='18' />
-      </View>
-    </View>
+    )
   }
 }

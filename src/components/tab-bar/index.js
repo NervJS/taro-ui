@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../../components/icon/index'
 import AtBadge from '../../components/badge/index'
@@ -9,7 +10,8 @@ import './index.scss'
 
 export default class AtTabBar extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     fixed: false,
     backgroundColor: '#fff',
     current: 0,
@@ -23,7 +25,14 @@ export default class AtTabBar extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     fixed: PropTypes.bool,
     backgroundColor: PropTypes.string,
     current: PropTypes.number,
@@ -60,7 +69,8 @@ export default class AtTabBar extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       fixed,
       backgroundColor,
       tabList,
@@ -74,19 +84,19 @@ export default class AtTabBar extends AtComponent {
     const defaultStyle = `color: ${color};`
     const selectedStyle = `color: ${selectedColor};`
     const titleStyle = `font-size: ${fontSize}px;`
-    const rootStyle = `background-color: ${backgroundColor};${style}`
-    const rootClassName = ['at-tab-bar']
-
-    if (fixed) {
-      rootClassName.push('at-tab-bar--fixed')
-    }
-
-    if (isIPhoneX) {
-      rootClassName.push('at-tab-bar--ipx')
-    }
+    const rootStyle = `background-color: ${backgroundColor};`
 
     return (
-      <View className={rootClassName} style={rootStyle}>
+      <View
+        className={
+          classNames({
+            'at-tab-bar': true,
+            'at-tab-bar--fixed': fixed,
+            'at-tab-bar--ipx': isIPhoneX
+          }, className)
+        }
+        style={this.mergeStyle(rootStyle, customStyle)}
+      >
         {tabList.map((item, i) => (
           <View
             className='at-tab-bar__item'

@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { Form } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
@@ -9,14 +10,22 @@ const defaultFunc = () => { }
 
 export default class AtForm extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     reportSubmit: false,
     onSubmit: defaultFunc,
     onReset: defaultFunc
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     reportSubmit: PropTypes.bool,
     onSubmit: PropTypes.func,
     onReset: PropTypes.func
@@ -35,11 +44,20 @@ export default class AtForm extends AtComponent {
   }
 
   render () {
-    const { style, reportSubmit } = this.props
+    const {
+      customStyle,
+      className,
+      reportSubmit
+    } = this.props
 
     return <Form
-      className='at-form'
-      style={style}
+      className={
+        classNames(
+          'at-form',
+          className
+        )
+      }
+      style={customStyle}
       onSubmit={this.onSubmit.bind(this)}
       reportSubmit={reportSubmit}
       onReset={this.onReset.bind(this)}

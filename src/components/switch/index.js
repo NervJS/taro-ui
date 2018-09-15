@@ -1,13 +1,15 @@
 import Taro from '@tarojs/taro'
 import { View, Switch } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtSwitch extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     title: '',
     color: '#6190e8',
     border: true,
@@ -17,7 +19,14 @@ export default class AtSwitch extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     title: PropTypes.string,
     color: PropTypes.string,
     checked: PropTypes.bool,
@@ -32,42 +41,51 @@ export default class AtSwitch extends AtComponent {
 
   render () {
     const {
+      customStyle,
+      className,
       disabled,
       border,
       title,
       checked,
       color
     } = this.props
-    let { style } = this.props
 
-    if (!border) {
-      style += 'border: none;'
-    }
-
-    const containerCls = ['at-switch__container']
-    if (disabled) {
-      containerCls.push('at-switch--disabled')
-    }
-
-    return <View className='at-switch' style={style}>
-      <View className='at-switch__title'>{title}</View>
-      <View className={containerCls}>
-        <View className='at-switch__mask'></View>
-        {
-          checked
-            ? <Switch
-              className='at-switch__switch'
-              checked
-              color={color}
-              onChange={this.handleChange.bind(this)}
-            />
-            : <Switch
-              className='at-switch__switch'
-              color={color}
-              onChange={this.handleChange.bind(this)}
-            />
+    return (
+      <View
+        className={
+          classNames({
+            'at-switch': true,
+            'at-switch--without-border': !border
+          }, className)
         }
+        style={customStyle}
+      >
+        <View className='at-switch__title'>{title}</View>
+        <View
+          className={
+            classNames({
+              'at-switch__container': true,
+              'at-switch--disabled': disabled
+            })
+          }
+        >
+          <View className='at-switch__mask'></View>
+          {
+            checked
+              ? <Switch
+                className='at-switch__switch'
+                checked
+                color={color}
+                onChange={this.handleChange.bind(this)}
+              />
+              : <Switch
+                className='at-switch__switch'
+                color={color}
+                onChange={this.handleChange.bind(this)}
+              />
+          }
+        </View>
       </View>
-    </View>
+    )
   }
 }

@@ -1,13 +1,15 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtSegmentedControl extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     current: 0,
     color: '#fff',
     fontSize: '28',
@@ -18,7 +20,14 @@ export default class AtSegmentedControl extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     current: PropTypes.number,
     color: PropTypes.string,
     fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -34,7 +43,8 @@ export default class AtSegmentedControl extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       disabled,
       values,
       selectedColor,
@@ -42,7 +52,7 @@ export default class AtSegmentedControl extends AtComponent {
       color,
       fontSize
     } = this.props
-    const rootStyle = `border-color: ${selectedColor};${style}`
+    const rootStyle = `border-color: ${selectedColor};`
     const itemStyle = `
       color: ${selectedColor};
       background-color:${color};
@@ -55,24 +65,30 @@ export default class AtSegmentedControl extends AtComponent {
       border-color: ${selectedColor};
       font-size: ${Taro.pxTransform(fontSize)};
     `
-    const rootClassName = ['at-segmented-control']
-    if (disabled) {
-      rootClassName.push('at-segmented-control--disabled')
-    }
 
-    return <View className={rootClassName} style={rootStyle}>
-      {
-        values.map((value, i) => (
-          <View
-            className='at-segmented-control__item'
-            style={current === i ? selectedItemStyle : itemStyle}
-            key={value}
-            onClick={this.handleClick.bind(this, i, disabled)}
-          >
-            {value}
-          </View>)
-        )
-      }
-    </View>
+    return (
+      <View
+        className={
+          classNames({
+            'at-segmented-control': true,
+            'at-segmented-control--disabled': disabled
+          }, className)
+        }
+        style={this.mergeStyle(rootStyle, customStyle)}
+      >
+        {
+          values.map((value, i) => (
+            <View
+              className='at-segmented-control__item'
+              style={current === i ? selectedItemStyle : itemStyle}
+              key={value}
+              onClick={this.handleClick.bind(this, i, disabled)}
+            >
+              {value}
+            </View>)
+          )
+        }
+      </View>
+    )
   }
 }

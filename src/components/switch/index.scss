@@ -46,4 +46,8 @@
       display: block;
     }
   }
+
+  &--without-border {
+    border: none;
+  }
 }

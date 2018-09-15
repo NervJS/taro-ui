@@ -2,13 +2,15 @@
 import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtTabs extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     current: 0,
     swipeable: true,
     scroll: false,
@@ -17,7 +19,14 @@ export default class AtTabs extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     current: PropTypes.number,
     swipeable: PropTypes.bool,
     scroll: PropTypes.bool,
@@ -104,7 +113,8 @@ export default class AtTabs extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       tabList,
       scroll,
       current
@@ -114,17 +124,14 @@ export default class AtTabs extends AtComponent {
       scrollIntoView
     } = this.state
 
-    const headerCls = ['at-tabs__header']
-    if (scroll) {
-      headerCls.push('at-tabs__header--scroll')
-    }
     const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
     const tabItems = tabList.map((item, i) => (
       <View
         className={
-          current === i
-            ? 'at-tabs__item at-tabs__item--active'
-            : 'at-tabs__item'
+          classNames({
+            'at-tabs__item': true,
+            'at-tabs__item--active': current === i
+          })
         }
         id={`tab${i}`}
         key={item.title}
@@ -134,31 +141,48 @@ export default class AtTabs extends AtComponent {
       </View>)
     )
 
-    return <View className='at-tabs' style={style}>
-      {
-        scroll
-          ? <ScrollView
-            className={headerCls}
-            scrollX
-            scrollWithAnimation
-            scrollLeft={scrollLeft}
-            scrollIntoView={scrollIntoView}
-            ref='refTabHeader'
-          >
-            {tabItems}
-          </ScrollView>
-          : <View className={headerCls}>
-            {tabItems}
-          </View>
-      }
-      <View className='at-tabs__body'
-        onTouchStart={this.handleTouchStart.bind(this)}
-        onTouchEnd={this.handleTouchEnd.bind(this)}
-        onTouchMove={this.handleTouchMove.bind(this)}
-        style={animationStyle}
+    return (
+      <View
+        className={classNames('at-tabs', className)}
+        style={customStyle}
       >
-        {this.props.children}
+        {
+          scroll
+            ? <ScrollView
+              className={
+                classNames({
+                  'at-tabs__header': true,
+                  'at-tabs__header--scroll': scroll
+                })
+              }
+              scrollX
+              scrollWithAnimation
+              scrollLeft={scrollLeft}
+              scrollIntoView={scrollIntoView}
+              ref='refTabHeader'
+            >
+              {tabItems}
+            </ScrollView>
+            : <View
+              className={
+                classNames({
+                  'at-tabs__header': true,
+                  'at-tabs__header--scroll': scroll
+                })
+              }
+            >
+              {tabItems}
+            </View>
+        }
+        <View className='at-tabs__body'
+          onTouchStart={this.handleTouchStart.bind(this)}
+          onTouchEnd={this.handleTouchEnd.bind(this)}
+          onTouchMove={this.handleTouchMove.bind(this)}
+          style={animationStyle}
+        >
+          {this.props.children}
+        </View>
       </View>
-    </View>
+    )
   }
 }

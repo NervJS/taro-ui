@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
@@ -8,7 +9,8 @@ import './index.scss'
 
 export default class AtRate extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     size: 20,
     value: 0,
     max: 5,
@@ -17,7 +19,14 @@ export default class AtRate extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     size: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
@@ -34,14 +43,15 @@ export default class AtRate extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       value,
       max,
       size,
       margin
     } = this.props
     const iconStyle = {
-      margin: Taro.pxTransform(margin)
+      marginRight: Taro.pxTransform(margin)
     }
     // 生成星星颜色 className 数组，方便在jsx中直接map
     const classNameArr = []
@@ -57,20 +67,25 @@ export default class AtRate extends AtComponent {
       }
     }
 
-    return <View className='at-rate' style={style} >
-      {
-        classNameArr.map((cls, i) => <View
-          className={cls}
-          key={i}
-          style={iconStyle}
-          onClick={this.handleClick.bind(this, i)}
-        >
-          <AtIcon value='star-2' size={size} />
-          <View className='at-rate__left'>
+    return (
+      <View
+        className={classNames('at-rate', className)}
+        style={customStyle}
+      >
+        {
+          classNameArr.map((cls, i) => <View
+            className={cls}
+            key={i}
+            style={iconStyle}
+            onClick={this.handleClick.bind(this, i)}
+          >
             <AtIcon value='star-2' size={size} />
-          </View>
-        </View>)
-      }
-    </View>
+            <View className='at-rate__left'>
+              <AtIcon value='star-2' size={size} />
+            </View>
+          </View>)
+        }
+      </View>
+    )
   }
 }
