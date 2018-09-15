@@ -108,6 +108,7 @@ export default class PageSlider extends Taro.Component {
                       </View>
                       <View className='slider-list__item-body'>
                         <Slider
+                          activeColor='#6190e8'
                           showValue
                           step={1}
                           min={500}
@@ -123,6 +124,7 @@ export default class PageSlider extends Taro.Component {
                       </View>
                       <View className='slider-list__item-body'>
                         <Slider
+                          activeColor='#6190e8'
                           showValue
                           step={1}
                           min={2000}

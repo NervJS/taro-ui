@@ -31,13 +31,13 @@ export default class Index extends Taro.Component {
     })
   }
 
-  onTimeChange = e => {
+  handleTimeChange = e => {
     this.setState({
       timeSel: e.detail.value
     })
   }
 
-  onDateChange = e => {
+  handleDateChange = e => {
     this.setState({
       dateSel: e.detail.value
     })
@@ -109,7 +109,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtList>
-                  <Picker mode='date' value={dateSel} onChange={this.handleTimeChange}>
+                  <Picker mode='date' value={dateSel} onChange={this.handleDateChange}>
                     <AtListItem title='请选择日期' extraText={dateSel} />
                   </Picker>
                 </AtList>
