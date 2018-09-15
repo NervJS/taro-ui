@@ -6,6 +6,8 @@ components:
         name: Introduction
       - title: 快速上手
         name: Quickstart
+      - title: 自定义主题
+        name: CustomizeTheme
       - title: 更新日志
         name: Changelog
   - title: 组件
