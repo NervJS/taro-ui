@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text, Picker } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtButton from '../button/index'
@@ -78,10 +78,14 @@ export default class AtPagination extends AtComponent {
   render () {
     const {
       icon,
-      pickerSelect,
+      // pickerSelect,
       customStyle,
     } = this.props
-    const { current, maxPage } = this.state
+    const {
+      current,
+      maxPage,
+      // pickerRange,
+    } = this.state
 
     const rootClassName = ['at-pagination']
     if (icon) rootClassName.push('at-pagination--icon')
@@ -90,7 +94,8 @@ export default class AtPagination extends AtComponent {
     const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
     return (
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        // className={this.getClassName(rootClassName, this.props.className)}
+        className={rootClassName}
         style={customStyle}
       >
         <View className='at-pagination__operate'>
@@ -105,14 +110,17 @@ export default class AtPagination extends AtComponent {
             </View>
           </View>
         </View>
-        {pickerSelect && <View className='at-pagination__number'>
-          {<Picker mode='selector' range={this.state.pickerRange} value={this.state.current - 1} onChange={this.onPickerChange.bind(this)}>
+        {/* {pickerSelect && <View className='at-pagination__number'>
+          {<Picker mode='selector' range={pickerRange} value={current - 1} onChange={this.onPickerChange.bind(this)}>
             <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
           </Picker>}
-        </View>}
-        {!pickerSelect && <View className='at-pagination__number'>
+        </View>} */}
+        {/* {!pickerSelect && <View className='at-pagination__number'>
           <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
-        </View>}
+        </View>} */}
+        <View className='at-pagination__number'>
+          <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+        </View>
       </View>
     )
   }
