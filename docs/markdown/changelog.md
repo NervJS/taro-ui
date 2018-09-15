@@ -11,6 +11,22 @@
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>
       <div class="at-timeline__content">
+        <p class="head">v1.2.0</p>
+        <p class="time">
+          <span>2018-09-15</span>
+        </p>
+        <ul class="content">
+          <li><span>AtButton</span>, <span>AtInput</span>, <span>AtTextarea</span>, <span>AtForm</span> 组件属性和小程序对齐，例如支持 <span>open-type</span></li>
+          <li><span>AtIcon</span>, <span>AtTabBar</span> 支持自定义图标</li>
+          <li><span>AtTabs</span> 组件支持自动滑动到选中项 </li>
+          <li><span>AtGrid</span> 组件增加 <span>noBorder</span> 配置 </li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
         <p class="head">v1.1.0</p>
         <p class="time">
           <span>2018-08-29</span>
