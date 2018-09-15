@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "UI KIT for Taro",
   "main": "dist/index.js",
   "types": "./@types/index.d.ts",
@@ -75,7 +75,7 @@
     "@tarojs/taro": "1.0.0-beta.26",
     "@tarojs/taro-h5": "1.0.0-beta.26",
     "@tarojs/taro-weapp": "1.0.0-beta.26",
-    "@tarojs/webpack-runner": "^1.0.0-beta.26",
+    "@tarojs/webpack-runner": "1.0.0-beta.26",
     "at-ui-style": "^1.5.1",
     "autoprefixer": "^9.0.2",
     "babel-core": "^7.0.0-0",
