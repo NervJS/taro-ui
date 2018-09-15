@@ -55,6 +55,8 @@ import { AtTextarea } from 'taro-ui'
 | value | 输入框当前值 | String  | - | - |
 | maxlength | 最大长度  | Number  | - | 200 |
 | placeholder | 占位符  | String | - | - |
+| placeholderStyle | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
+| placeholderClass | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
 | disabled | 是否禁用  | String | - | false |
 | autoFocus| 是否自动聚焦  | Boolean | - | false |
 | focus| 获取焦点  | Boolean | - | false |

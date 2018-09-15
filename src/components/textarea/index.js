@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
@@ -9,7 +10,8 @@ const defaultFunc = () => { }
 
 export default class AtTextarea extends AtComponent {
   static defaultProps = {
-    style: '',
+    customStyle: '',
+    className: '',
     value: '',
     cursorSpacing: 100,
     maxlength: 200,
@@ -32,13 +34,22 @@ export default class AtTextarea extends AtComponent {
   }
 
   static propTypes = {
-    style: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     value: PropTypes.string,
     cursorSpacing: PropTypes.number,
     maxlength: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
     ]),
+    placeholderClass: PropTypes.string,
+    placeholderStyle: PropTypes.string,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     autoFocus: PropTypes.bool,
@@ -79,10 +90,13 @@ export default class AtTextarea extends AtComponent {
 
   render () {
     const {
-      style,
+      customStyle,
+      className,
       value,
       cursorSpacing,
       placeholder,
+      placeholderStyle,
+      placeholderClass,
       maxlength,
       count,
       disabled,
@@ -101,42 +115,49 @@ export default class AtTextarea extends AtComponent {
     }
     const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
 
-    return <View className='at-textarea' style={style}>
-      <Textarea
-        style={textareaStyle}
-        placeholderClass='placeholder'
-        cursorSpacing={cursorSpacing}
-        className='at-textarea__textarea'
-        value={value}
-        confirmType='完成'
-        maxlength={actualMaxlength}
-        placeholder={placeholder}
-        disabled={disabled}
-        autoFocus={autoFocus}
-        focus={focus}
-        showConfirmBar={showConfirmBar}
-        selectionStart={selectionStart}
-        selectionEnd={selectionEnd}
-        fixed={fixed}
-        onInput={this.handleInput.bind(this)}
-        onFocus={this.handleFocus.bind(this)}
-        onBlur={this.handleBlur.bind(this)}
-        onConfirm={this.handleConfirm.bind(this)}
-        onLinechange={this.handleLinechange.bind(this)}
-      />
-      {
-        count
-          ? <View
-            className={
-              maxlength < value.length
-                ? 'at-textarea__bottom at-textarea--error'
-                : 'at-textarea__bottom'
-            }
-          >
-            {value.length}/{maxlength}
-          </View>
-          : null
-      }
-    </View>
+    return (
+      <View
+        className={classNames('at-textarea', className)}
+        style={customStyle}
+      >
+        <Textarea
+          style={textareaStyle}
+          placeholderStyle={placeholderStyle}
+          placeholderClass={classNames('placeholder', placeholderClass)}
+          cursorSpacing={cursorSpacing}
+          className='at-textarea__textarea'
+          value={value}
+          confirmType='完成'
+          maxlength={actualMaxlength}
+          placeholder={placeholder}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          focus={focus}
+          showConfirmBar={showConfirmBar}
+          selectionStart={selectionStart}
+          selectionEnd={selectionEnd}
+          fixed={fixed}
+          onInput={this.handleInput.bind(this)}
+          onFocus={this.handleFocus.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
+          onConfirm={this.handleConfirm.bind(this)}
+          onLinechange={this.handleLinechange.bind(this)}
+        />
+        {
+          count
+            ? <View
+              className={
+                classNames({
+                  'at-textarea__bottom': true,
+                  'at-textarea--error': maxlength < value.length
+                })
+              }
+            >
+              {value.length}/{maxlength}
+            </View>
+            : null
+        }
+      </View>
+    )
   }
 }
