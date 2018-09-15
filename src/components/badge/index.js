@@ -27,13 +27,17 @@ export default class AtBadge extends AtComponent {
       dot,
       value,
       maxValue,
+      customStyle,
     } = this.props
     const rootClassName = ['at-badge']
 
     const val = this.formatValue(value, maxValue)
 
     return (
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
+      >
         {this.props.children}
         {dot ? <View className='at-badge__dot'></View> : val !== '' && <View className='at-badge__num'>{val}</View>}
       </View>
@@ -45,6 +49,7 @@ AtBadge.defaultProps = {
   dot: false,
   value: '',
   maxValue: 99,
+  customStyle: {},
 }
 
 AtBadge.propTypes = {
@@ -54,4 +59,5 @@ AtBadge.propTypes = {
     PropTypes.number
   ]),
   maxValue: PropTypes.number,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }

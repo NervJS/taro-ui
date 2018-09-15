@@ -9,6 +9,12 @@ export interface AtAvatarProps extends AtComponent{
   circle?: boolean
 
   image?: string
+
+  openData?: object
+
+  className?: string | Array<string>
+
+  customStyle?: object | string
 }
 
 declare const AtAvatar: ComponentClass<AtAvatarProps>

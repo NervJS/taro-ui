@@ -9,6 +9,10 @@ export interface AtBadgeProps extends AtComponent{
   value?: string | number
 
   maxValue?: number
+
+  className?: string | Array<string>
+
+  customStyle?: object | string
 }
 
 declare const AtBadge: ComponentClass<AtBadgeProps>

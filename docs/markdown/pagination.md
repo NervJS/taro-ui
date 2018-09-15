@@ -37,12 +37,13 @@ import { AtPagination } from 'taro-ui'
 
 ## Pagination 参数
 
-| 参数     | 说明                   | 类型    | 可选值 | 默认值 |
-|:---------|:-----------------------|:--------|:-------|:-------|
-| current  | 当前页                 | Number  | -      | 1      |
-| total    | 数据总量               | Number  | -      | 0      |
-| pageSize | 每页数据量             | Number  | -      | 20     |
-| icon     | 是否以 icon 形式展示按钮 | Boolean | -      | false  |
+| 参数         | 说明                             | 类型    | 可选值 | 默认值 |
+|:-------------|:---------------------------------|:--------|:-------|:-------|
+| current      | 当前页                           | Number  | -      | 1      |
+| total        | 数据总量                         | Number  | -      | 0      |
+| pageSize     | 每页数据量                       | Number  | -      | 20     |
+| icon         | 是否以 icon 形式展示按钮         | Boolean | -      | false  |
+| pickerSelect | 点击页码处是否出现picker快速选择 | Boolean | -      | false  |
 
 ## Pagination 事件
 

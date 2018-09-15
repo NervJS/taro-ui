@@ -104,6 +104,27 @@ export default class AvatarPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* openData 头像（仅小程序支持） */}
+          {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && <View className='panel'>
+            <View className='panel__title'>openData 头像（仅小程序支持）</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <View className='subitem'>
+                  <AtAvatar openData={{ type: 'userAvatarUrl' }} size='small'></AtAvatar>
+                </View>
+                <View className='subitem'>
+                  <AtAvatar openData={{ type: 'userAvatarUrl' }}></AtAvatar>
+                </View>
+                <View className='subitem'>
+                  <AtAvatar size='large' openData={{ type: 'userAvatarUrl' }}></AtAvatar>
+                </View>
+                <View className='subitem'>
+                  <AtAvatar size='large' circle openData={{ type: 'userAvatarUrl' }}></AtAvatar>
+                </View>
+              </View>
+            </View>
+          </View>}
         </View>
         {/* E Body */}
       </View>

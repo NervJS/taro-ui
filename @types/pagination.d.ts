@@ -11,6 +11,12 @@ export interface AtPaginationProps extends AtComponent{
   pageSize?: number
 
   icon?: boolean
+  
+  pickerSelect?: boolean
+
+  className?: string | Array<string>
+
+  customStyle?: object | string
 
   onPageChange?: (data: {type: 'prev' | 'next', current: number}) => void
 }

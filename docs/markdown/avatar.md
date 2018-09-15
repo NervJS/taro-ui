@@ -30,9 +30,12 @@ import { AtAvatar } from 'taro-ui'
 
 ## Avatar 参数
 
-| 参数   | 说明               | 类型    | 可选值                     | 默认值   |
-|:-------|:-------------------|:--------|:---------------------------|:---------|
-| size   | 头像大小           | String  | `large`, `normal`, `small` | `normal` |
-| circle | 头像是否圆形       | Boolean | -                          | false    |
-| image  | 头像图片地址       | String  | -                          | -        |
-| text   | 以文字形式展示头像 | String  | -                          | -        |
+| 微信 | H5 | 参数     | 说明                                                                                          | 类型    | 可选值                           | 默认值   |
+|:-----|:---|:---------|:----------------------------------------------------------------------------------------------|:--------|:---------------------------------|:---------|
+| √    | √  | size     | 头像大小                                                                                      | String  | `large`, `normal`, `small`       | `normal` |
+| √    | √  | circle   | 头像是否圆形                                                                                  | Boolean | -                                | false    |
+| √    | √  | image    | 头像图片地址                                                                                  | String  | -                                | -        |
+| √    | √  | text     | 以文字形式展示头像                                                                            | String  | -                                | -        |
+| √    | -  | openData | 参考微信[开放数据](https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html) | Object  | {'{ type: \\'userAvatarUrl\\'}'} | -        |
+
+> 注意：openData 仅支持 type 为 userAvatarUrl

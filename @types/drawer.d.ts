@@ -14,6 +14,8 @@ export interface AtDrawerProps extends AtComponent{
 
   items?: Array<string>
 
+  className?: string | Array<string>
+
   onItemClick?: (index: number) => void
 
   onClose?: () => void

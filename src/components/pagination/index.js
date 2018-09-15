@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Picker } from '@tarojs/components'
 import PropTypes from 'prop-types'
 
 import AtButton from '../button/index'
@@ -13,13 +13,20 @@ const getMaxPage = (maxPage = 0) => {
   return maxPage
 }
 
+const createPickerRange = max => {
+  const range = new Array(max).fill(0).map((val, index) => index + 1)
+  return range
+}
+
 export default class AtPagination extends AtComponent {
   constructor () {
     super(...arguments)
     const { current, pageSize, total } = this.props
+    const maxPage = getMaxPage(Math.ceil(total / pageSize))
     this.state = {
       current,
-      maxPage: getMaxPage(Math.ceil(total / pageSize)),
+      maxPage,
+      pickerRange: createPickerRange(maxPage),
     }
   }
 
@@ -48,16 +55,31 @@ export default class AtPagination extends AtComponent {
     const { total, pageSize, current } = props
     const maxPage = getMaxPage(Math.ceil(total / pageSize))
     if (maxPage !== this.state.maxPage) {
-      this.setState({ maxPage })
+      this.setState({
+        maxPage,
+        pickerRange: createPickerRange(maxPage),
+      })
     }
     if (current !== this.state.current) {
       this.setState({ current })
     }
   }
 
+  onPickerChange (evt) {
+    const { value } = evt.detail
+    const current = +value + 1
+    if (current === this.state.current) return
+    this.props.onPageChange && this.props.onPageChange({ type: 'pick', current })
+    this.setState({
+      current,
+    })
+  }
+
   render () {
     const {
       icon,
+      pickerSelect,
+      customStyle,
     } = this.props
     const { current, maxPage } = this.state
 
@@ -67,7 +89,10 @@ export default class AtPagination extends AtComponent {
     const prevDisabled = maxPage === MIN_MAXPAGE || current === 1
     const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
     return (
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
+      >
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
@@ -80,10 +105,14 @@ export default class AtPagination extends AtComponent {
             </View>
           </View>
         </View>
-        <View className='at-pagination__number'>
+        {pickerSelect && <View className='at-pagination__number'>
+          {<Picker mode='selector' range={this.state.pickerRange} value={this.state.current - 1} onChange={this.onPickerChange.bind(this)}>
+            <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+          </Picker>}
+        </View>}
+        {!pickerSelect && <View className='at-pagination__number'>
           <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
-        </View>
-
+        </View>}
       </View>
     )
   }
@@ -94,6 +123,8 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
+  pickerSelect: false,
+  customStyle: {},
   onPageChange: () => {},
 }
 
@@ -102,5 +133,7 @@ AtPagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
+  pickerSelect: PropTypes.bool,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onPageChange: PropTypes.func,
 }

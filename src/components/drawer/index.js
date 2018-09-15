@@ -82,7 +82,9 @@ export default class AtDrawer extends AtComponent {
     rootClassName = rootClassName.filter(str => str !== '')
 
     return (
-      show && <View className={rootClassName}>
+      show && <View
+        className={this.getClassName(rootClassName, this.props.className)}
+      >
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>

@@ -10,8 +10,9 @@ export default class AtTimeline extends AtComponent {
     const {
       pending,
       items,
+      customStyle,
     } = this.props
-    
+
     const rootClassName = ['at-timeline']
     if (pending) rootClassName.push('at-timeline--pending')
 
@@ -22,13 +23,13 @@ export default class AtTimeline extends AtComponent {
         icon,
         content = [],
       } = item
-      
+
       const itemRootClassName = ['at-timelineitem']
       if (color) itemRootClassName.push(`at-timelineitem--${color}`)
-      
+
       const dotClass = ['at-timelineitem__dot']
       if (icon) dotClass.push('at-timelineitem__icon')
-      
+
       return (
         <View className={itemRootClassName} key={index}>
           <View className='at-timelineitem__tail'></View>
@@ -41,7 +42,8 @@ export default class AtTimeline extends AtComponent {
               content.map((sub, subIndex) => (
                 <View
                   className='at-timelineitem__content-item at-timelineitem__content--sub'
-                  key={subIndex}>
+                  key={subIndex}
+                >
                   {sub}
                 </View>
               ))
@@ -51,7 +53,10 @@ export default class AtTimeline extends AtComponent {
       )
     })
     return (
-      <View className={rootClassName}>
+      <View
+        className={this.getClassName(rootClassName, this.props.className)}
+        style={customStyle}
+      >
         {itemElems}
       </View>
     )
@@ -61,9 +66,11 @@ export default class AtTimeline extends AtComponent {
 AtTimeline.defaultProps = {
   pending: false,
   items: [],
+  customStyle: {},
 }
 
 AtTimeline.propTypes = {
   pending: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }

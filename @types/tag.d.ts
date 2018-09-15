@@ -14,6 +14,10 @@ export interface AtTagProps extends AtComponent{
 
   disabled?: boolean
 
+  className?: string | Array<string>
+
+  customStyle?: object | string
+
   onClick?: (event: BaseEventFunction) => void
 }
 

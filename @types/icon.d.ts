@@ -12,6 +12,8 @@ export interface AtIconProps extends AtComponent{
 
   color?: string
 
+  className?: string | Array<string>
+
   onClick?: (event: BaseEventFunction) => void
 }
 

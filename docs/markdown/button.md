@@ -44,17 +44,33 @@ import { AtButton } from 'taro-ui'
 
 ## Button 参数
 
-| 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
-|:---------|:-----------------------------|:--------|:-----------------------|:---------|
-| type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
-| size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
-| icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
-| circle   | 设置按钮圆角                 | Boolean | -                      | false    |
-| loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
-| disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
+| 微信 | H5 | 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
+|:-----|:---|:---------|:-----------------------------|:--------|:-----------------------|:---------|
+| √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
+| √    | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
+| √    | √  | icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
+| √    | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
+| √    | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
+| √    | √  | disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
+| √    | -  | formType | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `submit`, `reset`                      | -    |
+| √    | -  | openType | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `contact`, `share`, `getUserInfo`, `getPhoneNumber`, `launchApp`, `openSetting`, `feedback`, `getRealnameAuthInfo`                      | -    |
+| √    | -  | lang | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | en    |
+| √    | -  | sessionFrom | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -    |
+| √    | -  | sendMessageTitle | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -    |
+| √    | -  | sendMessagePath | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -    |
+| √    | -  | sendMessageImg | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -    |
+| √    | -  | showMessageCard | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | Boolean | -                      | false   |
+| √    | -  | appParameter | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -   |
+
+> 注意：由于微信 button 的部分样式属性和 AtButton 有冲突，所以暂未被 AtButton 支持。支持的属性以上表为准
 
 ## Button 事件
 
-| 事件名称 | 说明           | 返回参数  |
-|:---------|:---------------|:----------|
-| onClick  | 点击按钮时触发 | event 对象 |
+| 微信 | H5 | 事件名称         | 说明                                                                                         | 返回参数   |
+|:-----|:---|:-----------------|:---------------------------------------------------------------------------------------------|:-----------|
+| √    | √  | onClick          | 点击按钮时触发                                                                               | event 对象 |
+| √    | -  | onGetUserInfo    | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
+| √    | -  | onContact        | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
+| √    | -  | onGetPhoneNumber | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
+| √    | -  | onError          | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
+| √    | -  | onOpenSetting    | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
