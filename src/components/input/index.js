@@ -171,6 +171,7 @@ export default class AtInput extends AtComponent {
           }
           <Input className='at-input__input'
             id={name}
+            name={name}
             type={type}
             placeholderStyle={placeholderStyle}
             placeholderClass={classNames('placeholder', placeholderClass)}
