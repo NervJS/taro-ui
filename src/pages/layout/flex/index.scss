@@ -3,8 +3,7 @@
 .flex-page .at-row {
   margin-bottom: 40px;
 
-  .at-col,
-  at-flex-item { // stylelint-disable-line
+  .at-col {
     padding: $spacing-v-md $spacing-h-md;
     color: $color-white;
     font-size: $font-size-base;

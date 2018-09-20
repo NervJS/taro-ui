@@ -17,8 +17,31 @@ export default class FlexPage extends Taro.Component {
       <View className='page flex-page'>
         <DocsHeader title='Flex 弹性布局' />
 
-        <View className='doc-body'>
+        {/* <View className='at-row'>
+          <Text className='at-col at-col--wrap'>
+            自动换行这样用就行了，可是换行换的不对，在有逗号的地方就换行了，后面还有很多空白
+          </Text>
+        </View>
 
+        <View className='at-row'>
+          <Text className='at-col at-col--wrap'>
+            AAAAAAAAAAA,AAAAAAAAAA,AAAAAAAAAA,AAAAAAA,AAAAAAAA,AAAAAAAAA,
+          </Text>
+        </View>
+
+        <View className='at-row'>
+          <Text className='at-col at-col-1 at-col--auto'>
+            AA,,A,,,,,
+          </Text>
+        </View>
+
+        <View className='at-row'>
+          <Text className='at-col at-col-1 at-col--auto'>
+          自动换行这样用就行了，可是换行换的不对，在有逗号的地方就换行了，后面还有很多空白
+          </Text>
+        </View> */}
+
+        <View className='doc-body'>
           {/* 基本案例 */}
           <View className='panel'>
             <View className='panel__title'>基本案例</View>
@@ -54,12 +77,8 @@ export default class FlexPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='at-row'>
-                  <View className='at-col at-col__offset-2'>
-                    A
-                  </View>
-                  <View className='at-col at-col__offset-3'>
-                    B
-                  </View>
+                  <View className='at-col at-col__offset-2'>A</View>
+                  <View className='at-col at-col__offset-3'>B</View>
                   <View className='at-col'>C</View>
                 </View>
               </View>
@@ -117,25 +136,33 @@ export default class FlexPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='at-row'>
-                  <View style='height:100px' className='at-col'>A</View>
+                  <View style='height:100px' className='at-col'>
+                    A
+                  </View>
                   <View className='at-col'>默认对齐方式 -- stretch</View>
                 </View>
               </View>
               <View className='example-item'>
                 <View className='at-row at-row__align--start'>
-                  <View style='height:100px' className='at-col'>B</View>
+                  <View style='height:100px' className='at-col'>
+                    B
+                  </View>
                   <View className='at-col'>顶部对齐 -- start</View>
                 </View>
               </View>
               <View className='example-item'>
                 <View className='at-row at-row__align--center'>
-                  <View style='height:100px' className='at-col'>C</View>
+                  <View style='height:100px' className='at-col'>
+                    C
+                  </View>
                   <View className='at-col'>居中对齐 -- center</View>
                 </View>
               </View>
               <View className='example-item'>
                 <View className='at-row at-row__align--end'>
-                  <View style='height:100px' className='at-col'>D</View>
+                  <View style='height:100px' className='at-col'>
+                    D
+                  </View>
                   <View className='at-col'>底部对齐 -- end</View>
                 </View>
               </View>
@@ -177,7 +204,6 @@ export default class FlexPage extends Taro.Component {
               </View>
             </View>
           </View>
-
         </View>
       </View>
     )
