@@ -12,7 +12,7 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onButtonClick () {
-    const content = arguments.length === 2 ? arguments[0] : ''
+    const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
     if (ENV === 'WEAPP') Taro.showModal({ content: content || '您点击了！', showCancel: false })
     else if (ENV === 'WEB') alert(content || '您点击了！')
