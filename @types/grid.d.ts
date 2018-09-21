@@ -14,7 +14,7 @@ export interface Item {
 export interface AtGridProps extends AtComponent{
   data: Array<Item>
 
-  columnNum: number
+  columnNum?: number
 
   hasBorder?: boolean
 
