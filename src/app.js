@@ -23,6 +23,7 @@ class App extends Component {
       'pages/action/modal/index',
       'pages/action/progress/index',
       'pages/action/action-sheet/index',
+      'pages/action/swipe-action/index',
       'pages/action/activity-indicator/index',
       'pages/navigation/drawer/index',
       'pages/navigation/pagination/index',
