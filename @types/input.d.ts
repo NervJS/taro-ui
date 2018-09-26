@@ -37,7 +37,15 @@ export interface AtInputProps extends AtComponent{
 
   confirmType?: string
 
+  cursor?: number
+
+  selectionStart?: number
+
+  selectionEnd?: number
+
   cursorSpacing?: number
+
+  adjustPosition?: boolean
 
   backgroundColor?: string
 
@@ -50,6 +58,8 @@ export interface AtInputProps extends AtComponent{
   onChange?: InputFunction
 
   onConfirm?: InputFunction
+
+  onClick?: InputFunction
 
   onErrorClick?: BaseEventFunction
 }
