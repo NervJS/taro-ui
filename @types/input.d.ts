@@ -50,6 +50,8 @@ export interface AtInputProps extends AtComponent{
   onChange?: InputFunction
 
   onConfirm?: InputFunction
+  
+  onClick?: InputFunction
 
   onErrorClick?: BaseEventFunction
 }
