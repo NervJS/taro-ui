@@ -1,14 +1,12 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
-declare type InputValue = string | number
+declare type InputProp = string | number
 declare type InputFunction = (value: string | number, event: BaseEvent) => void
 
 import AtComponent from './base'
 
 export interface AtInputProps extends AtComponent{
-  style?: string
-
   name: string
 
   title?: string
@@ -23,9 +21,9 @@ export interface AtInputProps extends AtComponent{
 
   disabled?: boolean
 
-  maxlength?: number
+  maxlength?: InputProp
 
-  value?: InputValue
+  value?: InputProp
 
   placeholder?: string
 
@@ -37,13 +35,13 @@ export interface AtInputProps extends AtComponent{
 
   confirmType?: string
 
-  cursor?: number
+  cursor?: InputProp
 
-  selectionStart?: number
+  selectionStart?: InputProp
 
-  selectionEnd?: number
+  selectionEnd?: InputProp
 
-  cursorSpacing?: number
+  cursorSpacing?: InputProp
 
   adjustPosition?: boolean
 
