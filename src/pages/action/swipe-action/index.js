@@ -27,6 +27,29 @@ const OPTIONS = [
 ]
 
 export default class SwipeActionPage extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      list: [
+        {
+          title: 'item1',
+          isClose: false,
+          options: OPTIONS
+        },
+        {
+          title: 'item2',
+          isClose: false,
+          options: OPTIONS
+        },
+        {
+          title: 'item2',
+          isClose: false,
+          options: OPTIONS
+        }
+      ]
+    }
+  }
+
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -35,7 +58,27 @@ export default class SwipeActionPage extends Taro.Component {
     console.log('触发了点击', item, key, e)
   }
 
+  handleSingle = index => {
+    const list = this.state.list.map((item, key) => {
+      item.isClose = key !== index
+      return item
+    })
+    this.setState({
+      list
+    })
+  }
+
+  handleOpened = () => {
+    console.log('handleOpened')
+  }
+
+  handleClosed = () => {
+    console.log('handleClosed')
+  }
+
   render () {
+    const { list } = this.state
+
     return (
       <View className='page swipe-action-page'>
         {/* S Header */}
@@ -46,7 +89,7 @@ export default class SwipeActionPage extends Taro.Component {
         <View className='doc-body'>
           {/* 无 Title */}
           <View className='panel'>
-            <View className='panel__title'>普通使用</View>
+            <View className='panel__title'>一般用法</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtSwipeAction options={OPTIONS}>
@@ -72,7 +115,7 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtSwipeAction autoClose options={OPTIONS}>
-                  <View className='normal'>自动关闭展示</View>
+                  <View className='normal'>点击按钮自动关闭</View>
                 </AtSwipeAction>
               </View>
             </View>
@@ -83,7 +126,22 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtSwipeAction onClick={this.handleClick} options={OPTIONS}>
-                  <View className='normal'>点击事件展示</View>
+                  <View className='normal'>点击事件触发</View>
+                </AtSwipeAction>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>开启和关闭事件</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtSwipeAction
+                  options={OPTIONS}
+                  onOpened={this.handleOpened}
+                  onClosed={this.handleClosed}
+                >
+                  <View className='normal'>开启和关闭时触发事件</View>
                 </AtSwipeAction>
               </View>
             </View>
@@ -112,6 +170,26 @@ export default class SwipeActionPage extends Taro.Component {
                   >
                     <AtListItem title='Item3' />
                   </AtSwipeAction>
+                </AtList>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>控制只显示单个</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtList>
+                  {list.map((item, index) => (
+                    <AtSwipeAction
+                      key={index}
+                      onOpened={this.handleSingle.bind(this, index)}
+                      isClose={item.isClose}
+                      options={item.options}
+                    >
+                      <AtListItem title={item.title} />
+                    </AtSwipeAction>
+                  ))}
                 </AtList>
               </View>
             </View>

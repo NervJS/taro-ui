@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
+import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 ```
 
 :::
@@ -65,3 +65,10 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 | confirmText | 确认按钮的文本         | String   | -      | -      |
 | onCancel    | 点击取消按钮触发的样式 | Function | -      | -      |
 | onConfirm   | 点击确认按钮触发的事件 | Function | -      | -      |
+
+## AtModal 事件
+
+| 事件名称  | 说明                   | 返回参数 |
+| --------- | ---------------------- | -------- |
+| onCancel  | 点击取消按钮触发的样式 | -        |
+| onConfirm | 点击确认按钮触发的事件 | -        |

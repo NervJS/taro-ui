@@ -33,7 +33,6 @@ export default class AtSwiperActionOptions extends AtComponent {
           size: true
         })
         .exec(res => {
-          console.log(res[0])
           this.props.onQueryedDom(res[0])
         })
     })

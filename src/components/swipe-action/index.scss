@@ -10,7 +10,10 @@
     position: relative;
     z-index: 2;
     font-size: $font-size-lg;
-    transition: transform 200ms $timing-func;
+
+    &.animtion {
+      transition: transform 300ms $timing-func;
+    }
   }
 
   &__option {

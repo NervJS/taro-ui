@@ -20,7 +20,23 @@ export default class AtSwipeAction extends AtComponent {
     this.endValue = 0
 
     this.state = {
-      offsetSize: 0
+      offsetSize: 0,
+      isOpened: false
+    }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { isClose } = nextProps
+    const { isOpened } = this.state
+
+    if (isClose && isOpened) {
+      this.endValue = 0
+      this.isTouching = false
+      this.handleClosed()
+      this.setState({
+        isOpened: false,
+        offsetSize: 0
+      })
     }
   }
 
@@ -31,6 +47,18 @@ export default class AtSwipeAction extends AtComponent {
 
     this.startX = clientX
     this.isTouching = true
+  }
+
+  handleOpened = () => {
+    if (_isFunction(this.props.onOpened) && !this.state.isOpened) {
+      this.props.onOpened()
+    }
+  }
+
+  handleClosed = () => {
+    if (_isFunction(this.props.onClosed) && this.state.isOpened) {
+      this.props.onClosed()
+    }
   }
 
   handleTouchEnd = () => {
@@ -45,14 +73,17 @@ export default class AtSwipeAction extends AtComponent {
 
     if (absOffsetSize > breakpoint) {
       this.endValue = -this.maxOffsetSize
+      this.handleOpened()
       return this.setState({
+        isOpened: true,
         offsetSize: -this.maxOffsetSize
       })
     }
 
     this.endValue = 0
-
+    this.handleClosed()
     this.setState({
+      isOpened: false,
       offsetSize: 0
     })
   }
@@ -101,7 +132,9 @@ export default class AtSwipeAction extends AtComponent {
         onTouchStart={this.handleTouchStart}
       >
         <View
-          className='at-swipe-action__content'
+          className={classNames('at-swipe-action__content', {
+            animtion: !this.isTouching
+          })}
           style={{
             transform: `translate3d(${offsetSize}px,0,0)`
           }}
@@ -131,10 +164,19 @@ export default class AtSwipeAction extends AtComponent {
   }
 }
 
-AtSwipeAction.defaultProps = {}
+AtSwipeAction.defaultProps = {
+  options: [],
+  isClose: false,
+  disabled: false,
+  autoClose: false
+}
 
 AtSwipeAction.propTypes = {
+  isClose: PropTypes.bool,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  onOpened: PropTypes.func,
+  onClosed: PropTypes.func,
   autoClose: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({

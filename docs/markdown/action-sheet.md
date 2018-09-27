@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
+import { AtActionSheet, AtActionSheetItem } from "taro-ui"
 ```
 
 :::
@@ -69,16 +69,21 @@ import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 
 ## AtActionSheet 参数
 
-| 参数       | 说明                         | 类型     | 可选值 | 默认值 |
-| ---------- | ---------------------------- | -------- | ------ | ------ |
-| title      | 元素的标题                   | String   | -      | -      |
-| isOpened   | 是否展示元素                 | Boolean  | -      | `false`  |
-| cancelText | 取消按钮的内容               | String   | -      | -      |
-| onClose    | 元素被关闭触发的事件         | Function | -      | -      |
-| onCancel   | 点击了底部取消按钮触发的事件 | Function | -      | -      |
+| 参数       | 说明           | 类型    | 可选值 | 默认值  |
+| ---------- | -------------- | ------- | ------ | ------- |
+| title      | 元素的标题     | String  | -      | -       |
+| isOpened   | 是否展示元素   | Boolean | -      | `false` |
+| cancelText | 取消按钮的内容 | String  | -      | -       |
 
-## AtActionSheetItem 参数
+## AtActionSheet 事件
 
-| 参数    | 说明                 | 类型     | 可选值 | 默认值 |
-| ------- | -------------------- | -------- | ------ | ------ |
-| onClick | 点击 Item 触发的事件 | Function | -      | -      |
+| 事件名称 | 说明                         | 返回参数 |
+| -------- | ---------------------------- | -------- |
+| onClose  | 元素被关闭触发的事件         | -        |
+| onCancel | 点击了底部取消按钮触发的事件 | -        |
+
+## AtActionSheetItem 事件
+
+| 事件名称 | 说明                 | 返回参数 |
+| -------- | -------------------- | -------- |
+| onClick  | 点击 Item 触发的事件 | -        |
