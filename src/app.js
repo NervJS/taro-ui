@@ -45,7 +45,8 @@ class App extends Component {
       'pages/form/rate/index',
       'pages/form/picker/index',
       'pages/form/picker-view/index',
-      'pages/form/slider/index'
+      'pages/form/slider/index',
+      'pages/form/search-bar/index'
     ],
     window: {
       backgroundTextStyle: 'light',
