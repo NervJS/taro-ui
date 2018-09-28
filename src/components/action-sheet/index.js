@@ -19,6 +19,7 @@ export default class AtActionSheet extends AtComponent {
     const { isOpened } = props
 
     this.state = {
+      isIPhoneX: false,
       _isOpened: isOpened
     }
   }
@@ -31,6 +32,17 @@ export default class AtActionSheet extends AtComponent {
       })
 
       !isOpened && this.handleClose()
+    }
+  }
+
+  componentDidMount () {
+    const curEnv = Taro.getEnv()
+
+    if (
+      curEnv === Taro.ENV_TYPE.WEAPP &&
+      Taro.getSystemInfoSync().model.indexOf('iPhone X') >= 0
+    ) {
+      this.setState({ isIPhoneX: true })
     }
   }
 
@@ -62,12 +74,13 @@ export default class AtActionSheet extends AtComponent {
 
   render () {
     const { title, cancelText, className } = this.props
-    const { _isOpened } = this.state
+    const { _isOpened, isIPhoneX } = this.state
 
     const rootClass = classNames(
       'at-action-sheet',
       {
-        'at-action-sheet--active': _isOpened
+        'at-action-sheet--active': _isOpened,
+        'at-action-sheet--ipx': isIPhoneX
       },
       className
     )
