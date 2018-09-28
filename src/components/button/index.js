@@ -140,15 +140,15 @@ AtButton.defaultProps = {
 
 AtButton.propTypes = {
   size: PropTypes.oneOf(['normal', 'small']),
-  type: PropTypes.oneOf(['primary', 'secondary']),
+  type: PropTypes.oneOf(['primary', 'secondary', '']),
   circle: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 
-  formType: PropTypes.oneOf(['submit', 'reset']),
-  openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo']),
+  formType: PropTypes.oneOf(['submit', 'reset', '']),
+  openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo', '']),
   lang: PropTypes.string,
   sessionFrom: PropTypes.string,
   sendMessageTitle: PropTypes.string,
