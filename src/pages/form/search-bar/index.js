@@ -19,7 +19,6 @@ export default class Index extends Taro.Component {
     }
   }
   onChange (stateName, value) {
-    console.log(stateName, value)
     this.setState({
       [stateName]: value
     })
@@ -47,7 +46,6 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
-                  placeholder='搜一下'
                   value={this.state.value1}
                   onChange={this.onChange.bind(this, 'value1')}
                 />
@@ -61,8 +59,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
-                  actionName='完成'
-                  placeholder='搜一下'
+                  actionName='搜一下'
                   value={this.state.value2}
                   onChange={this.onChange.bind(this, 'value2')}
                   onActionClick={this.onActionClick.bind(this)}
@@ -78,8 +75,6 @@ export default class Index extends Taro.Component {
               <View className='component-item'>
                 <AtSearchBar
                   showActionButton
-                  actionName='完成'
-                  placeholder='搜一下'
                   value={this.state.value3}
                   onChange={this.onChange.bind(this, 'value3')}
                   onActionClick={this.onActionClick.bind(this)}

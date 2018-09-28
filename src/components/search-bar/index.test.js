@@ -1,6 +1,5 @@
-import Nerv, { findDOMNode } from 'nervjs'
+import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-import { Simulate, renderIntoDocument } from 'nerv-test-utils'
 
 import AtSearchBar from '../../../.temp/components/search-bar/index'
 
@@ -48,16 +47,5 @@ describe('AtSearchBar Snap', () => {
   it('render AtSearchBar -- props actionName', () => {
     const componet1 = renderToString(<AtSearchBar actionName='actionName' />)
     expect(componet1).toMatchSnapshot()
-  })
-})
-
-describe('AtSearchBar Event', () => {
-  it('AtSearchBar onChange', () => {
-    const fn = jest.fn()
-    const component = renderIntoDocument(<AtSearchBar onChange={fn} />)
-    const items = findDOMNode(component, 'at-search-bar').querySelectorAll('.at-search-bar__input')
-    const item0 = items[0]
-    Simulate.change(item0)
-    expect(fn).toBeCalled()
   })
 })

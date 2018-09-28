@@ -19,17 +19,18 @@ export default class AtSearchBar extends AtComponent {
 
   static defaultProps = {
     value: '',
-    placeholder: '',
+    placeholder: '搜索',
     maxlength: 120,
     fixed: false,
     focus: false,
     disabled: false,
     showActionButton: false,
-    actionName: '取消',
+    actionName: '搜索',
     onChange: defaultFunc,
     onFocus: defaultFunc,
     onBlur: defaultFunc,
     onConfirm: defaultFunc,
+    onActionClick: defaultFunc
   }
 
   static propTypes = {
@@ -75,14 +76,7 @@ export default class AtSearchBar extends AtComponent {
   }
 
   handleActionClick (e) {
-    if (!this.props.onActionClick) {
-      this.setState({
-        isFocus: false
-      })
-      this.handleClear(e)
-    } else {
-      this.props.onActionClick(e)
-    }
+    this.props.onActionClick(e)
   }
 
   render () {
@@ -101,13 +95,13 @@ export default class AtSearchBar extends AtComponent {
     const placeholderStyle = {}
     const actionStyle = {}
     if (isFocus || (!isFocus && value)) {
-      placeholderStyle.width = `${(placeholder.length + 2) * 14}px`
+      placeholderStyle.width = `${(placeholder.length + 2.5) * 14}px`
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
     } else if (!isFocus && !value) {
       placeholderStyle.width = '100%'
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${((actionName.length) * 14) + 7}px`
+      actionStyle.marginRight = `-${((actionName.length + 1) * 14) + 7}px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1

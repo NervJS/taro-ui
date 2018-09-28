@@ -3,23 +3,25 @@
 $height: 28PX;
 $inputPadding: 25PX;
 $fontSize: 14PX;
+$placeholderPadding: 5PX;
 
 .at-search-bar {
   display: flex;
   align-items: center;
   height: $height;
-  padding: $spacing-v-sm 0;
+  padding: $fontSize / 2;
   box-sizing: content-box;
-  background-color: $color-border-lighter;
+  background-color: $color-bg;
+  @include border-thin-bottom;
 
   &__container {
     position: relative;
     flex: 1;
     overflow: hidden;
     width: 100%;
-    margin: 0 $fontSize / 2;
     height: $height;
-    background-color: #fff;
+    background-color: $color-bg-grey;
+    border-radius: 13PX;
   }
 
   &__placeholder_wrap {
@@ -36,11 +38,12 @@ $fontSize: 14PX;
     width: 100%;
     height: $height;
     line-height: 0;
+    padding: 0 $placeholderPadding;
     transition: width 0.3s;
   }
 
   &__placeholder {
-    margin-left: 10px;
+    margin-left: $placeholderPadding;
     color: $color-grey-2;
     font-size: $fontSize;
   }
@@ -53,7 +56,7 @@ $fontSize: 14PX;
     left: 0;
     display: block;
     font-size: $fontSize;
-    padding: 5PX $inputPadding;
+    padding: 5PX $inputPadding + $placeholderPadding;
     z-index: $zindex-form;
     transition: width 0.3s;
     text-align: left;
@@ -68,7 +71,7 @@ $fontSize: 14PX;
     align-items: center;
     justify-content: center;
     top: 0;
-    right: 0;
+    right: $placeholderPadding;
     z-index: $zindex-form;
     height: $height;
     width: $inputPadding;
@@ -79,13 +82,16 @@ $fontSize: 14PX;
   &__action {
     display: block;
     flex: none;
+    background-color: #6190E8;
     opacity: 0;
     height: $height;
     line-height: $height;
     font-size: $fontSize;
-    padding-right: $fontSize / 2;
-    color: $color-brand-dark;
+    padding: 0 $fontSize / 2;
+    margin-left: $fontSize / 2;
+    color: #fff;
     text-align: right;
+    border-radius: 5PX;
     transition: margin-right 0.3s, opacity 0.3s;
   }
 
