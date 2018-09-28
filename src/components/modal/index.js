@@ -93,6 +93,7 @@ export default class AtModal extends AtComponent {
 
 AtModal.propTypes = {
   title: PropTypes.string,
+  isOpened: PropTypes.bool,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   content: PropTypes.string,

@@ -65,11 +65,16 @@ export default class AtToast extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened, duration } = nextProps
-    if (!isOpened) return
+    if (!isOpened && this.state._isOpened) {
+      this.setState({
+        _isOpened: false
+      })
+      return
+    }
 
     if (!this.state._isOpened) {
       this.setState({
-        _isOpened: isOpened
+        _isOpened: true
       })
     } else {
       this.clearTimmer()
