@@ -1,0 +1,99 @@
+@import '../../style/mixins/index.scss';
+@import '../../style/theme/default.scss';
+$height: 28PX;
+$inputPadding: 25PX;
+$fontSize: 14PX;
+
+.at-search-bar {
+  display: flex;
+  align-items: center;
+  height: $height;
+  padding: $spacing-v-sm 0;
+  box-sizing: content-box;
+  background-color: $color-border-lighter;
+
+  &__container {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 $fontSize / 2;
+    height: $height;
+    background-color: #fff;
+  }
+
+  &__placeholder_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: $height;
+    line-height: 0;
+    transition: width 0.3s;
+  }
+
+  &__placeholder {
+    margin-left: 10px;
+    color: $color-grey-2;
+    font-size: $fontSize;
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    height: $height;
+    top: 0;
+    left: 0;
+    display: block;
+    font-size: $fontSize;
+    padding: 5PX $inputPadding;
+    z-index: $zindex-form;
+    transition: width 0.3s;
+    text-align: left;
+    box-sizing: border-box;
+    color: $color-black-0;
+    background-color: transparent;
+  }
+
+  &__clear {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    z-index: $zindex-form;
+    height: $height;
+    width: $inputPadding;
+    line-height: 0;
+    vertical-align: middle;
+  }
+
+  &__action {
+    display: block;
+    flex: none;
+    opacity: 0;
+    height: $height;
+    line-height: $height;
+    font-size: $fontSize;
+    padding-right: $fontSize / 2;
+    color: $color-brand-dark;
+    text-align: right;
+    transition: margin-right 0.3s, opacity 0.3s;
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}

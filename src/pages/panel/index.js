@@ -156,6 +156,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Slider',
             name: '滑动条'
+          },
+          {
+            id: 'Search-Bar',
+            name: '搜索框'
           }
         ],
         'layout': [
