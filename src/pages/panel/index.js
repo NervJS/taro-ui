@@ -178,6 +178,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Float-Layout',
             name: '浮动弹层'
+          },
+          {
+            id: 'Accordion',
+            name: '手风琴'
           }
         ],
         'navigation': [

@@ -1,0 +1,28 @@
+@import '../../style/theme/default.scss';
+@import '../../style/mixins/index.scss';
+
+.at-accordion {
+  &__header {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: $font-size-lg;
+    font-size: $font-size-lg;
+    padding: $spacing-v-lg $spacing-h-lg;
+    @include border-thin-bottom($width: 1PX);
+    @include active;
+  }
+
+  &__title {
+    flex: 1;
+    text-align: left;
+    @include line;
+  }
+
+  &__content {
+    width: 100%;
+    transition: height 0.3s;
+    overflow: hidden;
+  }
+}
