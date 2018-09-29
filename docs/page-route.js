@@ -8,6 +8,7 @@ export default {
   floatlayout: 'layout/float-layout',
   toast: 'action/toast',
   modal: 'action/modal',
+  swipeaction: 'action/swipe-action',
   progress: 'action/progress',
   actionsheet: 'action/action-sheet',
   activityindicator: 'action/activity-indicator',
@@ -29,5 +30,5 @@ export default {
   pagination: 'navigation/pagination',
   segmentedcontrol: 'navigation/segmented-control',
   tabbar: 'navigation/tabbar',
-  tabs: 'navigation/tabs',
+  tabs: 'navigation/tabs'
 }

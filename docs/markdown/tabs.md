@@ -33,13 +33,13 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
   ]}
   onClick={this.handleClick}>
   <AtTabsPane current={this.state.current} index={0}>
-    <View className='tab-content'>标签页一的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页一的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={1}>
-    <View className='tab-content'>标签页二的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页二的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={2}>
-    <View className='tab-content'>标签页三的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页三的内容</View>
   </AtTabsPane>
 </AtTabs>
 ```
@@ -67,31 +67,31 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
   ]}
   onClick={this.handleClick}>
   <AtTabsPane current={this.state.current} index={0}>
-    <View className='tab-content'>标签页一的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页一的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={1}>
-    <View className='tab-content'>标签页二的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页二的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={2}>
-    <View className='tab-content'>标签页三的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页三的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={3}>
-    <View className='tab-content'>标签页四的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页四的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={4}>
-    <View className='tab-content'>标签页五的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页五的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={5}>
-    <View className='tab-content'>标签页六的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页六的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={6}>
-    <View className='tab-content'>标签页七的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页七的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={7}>
-    <View className='tab-content'>标签页八的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页八的内容</View>
   </AtTabsPane>
   <AtTabsPane current={this.state.current} index={8}>
-    <View className='tab-content'>标签页九的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页九的内容</View>
   </AtTabsPane>
 </AtTabs>
 ```
@@ -114,19 +114,19 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
 </AtTabs>
 {current === 0
   ？ <AtTabsPane>
-    <View className='tab-content'>标签页一的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页一的内容</View>
   </AtTabsPane>
   : null
 }
 {current === 1
   ？ <AtTabsPane>
-    <View className='tab-content'>标签页二的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页二的内容</View>
   </AtTabsPane>
   : null
 }
 {current === 2
   ？ <AtTabsPane>
-    <View className='tab-content'>标签页三的内容</View>
+    <View style='font-size:18px;text-align:center;height:100px;'>标签页三的内容</View>
   </AtTabsPane>
   : null
 }

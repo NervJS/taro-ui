@@ -32,6 +32,9 @@ import { AtIcon } from 'taro-ui'
 
 ## 使用第三方字体图标库
 
+可自行下载 [Ionicons](https://ionicons.com/) 或 [Font Awesome](http://fontawesome.dashgame.com/) 等字体图标库，并按照以下步骤自行扩展字体图标库。
+拓展字体图标库，并不影响原有图标的使用。
+
 ### 步骤一：配置 postcss 小程序端样式引用本地资源内联
 
 :::demo
@@ -82,7 +85,7 @@ module.exports = {
 
 :::
 
-### 步骤二：编写字体图标库 css
+### 步骤二：编写字体图标库 css (以下代码为 demo，请自行参考第三方库按照下面方式引入)
 
 :::demo
 
@@ -90,14 +93,18 @@ module.exports = {
 /* icon.scss */
 @font-face {
   font-family: 'FontAwesome';
+  /* 自行安装第三方字体图标库 */
   src: url('./assets/fonts/fontawesome-webfont.eot?v=4.7.0');
   src: url('./assets/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('./assets/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('./assets/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+/* 根据第三方字体图标库编写 */
+/* 举例：fa 就是 prefixClass 的值，下面的的图标 css class 命名都要用 fa- 开头  */
 .fa {
   display: inline-block;
+  /* 以下的 font 与上面 @font-face 的 font-family 要一致*/
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
@@ -150,22 +157,29 @@ import './icon.scss'
 ## 图标示例
 
 ### 主要
+
 <IconList type='main'></IconList>
 
 ### 文件
+
 <IconList type='file'></IconList>
 
 ### 文本
+
 <IconList type='text'></IconList>
 
 ### 箭头
+
 <IconList type='arrow'></IconList>
 
 ### 媒体控制
+
 <IconList type='media'></IconList>
 
 ### 多媒体
+
 <IconList type='photo'></IconList>
 
 ### Logo
+
 <IconList type='logo'></IconList>

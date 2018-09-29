@@ -11,7 +11,7 @@
 :::demo
 
 ```js
-import { AtFloatLayout } from 'taro-ui'
+import { AtFloatLayout } from "taro-ui"
 ```
 
 :::
@@ -35,8 +35,13 @@ import { AtFloatLayout } from 'taro-ui'
 
 ## AtFloatLayout 参数
 
-| 参数     | 说明                     | 类型     | 可选值 | 默认值  |
-| -------- | ------------------------ | -------- | ------ | ------- |
-| title    | 元素的标题               | String   | -      | -       |
-| isOpened | 控制是否出现在页面上     | Boolean  | -      | `false` |
-| onClose  | 元素被关闭时候触发的事件 | Function | -      | -       |
+| 参数     | 说明                 | 类型    | 可选值 | 默认值  |
+| -------- | -------------------- | ------- | ------ | ------- |
+| title    | 元素的标题           | String  | -      | -       |
+| isOpened | 控制是否出现在页面上 | Boolean | -      | `false` |
+
+## AtFloatLayout 事件
+
+| 事件名称 | 说明                     | 返回参数 |
+| -------- | ------------------------ | -------- |
+| onClose  | 元素被关闭时候触发的事件 | -        |

@@ -18,34 +18,6 @@ const config = {
         'transform-decorators-legacy',
         'transform-object-rest-spread'
       ]
-    },
-    typescript: {
-      compilerOptions: {
-        allowSyntheticDefaultImports: true,
-        baseUrl: '.',
-        declaration: false,
-        experimentalDecorators: true,
-        jsx: 'react',
-        jsxFactory: 'Nerv.createElement',
-        module: 'commonjs',
-        moduleResolution: 'node',
-        noImplicitAny: false,
-        noUnusedLocals: true,
-        outDir: './dist/',
-        preserveConstEnums: true,
-        removeComments: false,
-        rootDir: '.',
-        sourceMap: true,
-        strictNullChecks: true,
-        target: 'es6'
-      },
-      include: [
-        'src/**/*'
-      ],
-      exclude: [
-        'node_modules'
-      ],
-      compileOnSave: false
     }
   },
   defineConstants: {
@@ -66,38 +38,52 @@ const config = {
 }
 
 if (process.env.TARO_BUILD_TYPE === 'component') {
-  config.h5.webpack = customConfig => {
-    customConfig.output = {
-      path: path.join(process.cwd(), 'dist', 'h5'),
-      filename: 'index.js',
-      libraryTarget: 'umd',
-      library: 'taro-ui'
-    }
-    customConfig.externals = {
-      nervjs: 'commonjs2 nervjs',
-      classnames: 'commonjs2 classnames',
-      '@tarojs/components': 'commonjs2 @tarojs/components',
-      '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
-      'weui': 'commonjs2 weui'
-    }
-    customConfig.plugins.splice(1)
-    customConfig.plugins[0] = new MiniCssExtractPlugin({
-      filename: 'css/index.css',
-      chunkFilename: 'css/[id].css'
-    })
-
-    const copySassLoader = { ...customConfig.module.rules[1].oneOf[0] }
-    copySassLoader.use = [...copySassLoader.use]
+  Object.assign(config.h5, {
+    enableSourceMap: false,
+    enableExtract: false,
+  })
+  config.h5.webpackChain = chain => {
+    const sassLoader = chain.toConfig().module.rules[4]
+    const copySassLoader = { ...sassLoader }
     delete copySassLoader.exclude
     copySassLoader.include = [
       path.resolve(__dirname, '..', './.temp/components/article/index.scss'),
       path.resolve(__dirname, '..', './.temp/components/flex/index.scss'),
       path.resolve(__dirname, '..', './.temp/components/flex/item/index.scss')
     ]
-    customConfig.module.rules[1].oneOf.forEach(item => item.use.splice(0, 1, require.resolve('style-loader')))
-    customConfig.module.rules[1].oneOf.unshift(copySassLoader)
-
-    return customConfig
+    copySassLoader.use[0] = {
+      loader: MiniCssExtractPlugin.loader
+    }
+    chain.plugins.delete('htmlWebpackPlugin')
+    chain.merge({
+      output: {
+        path: path.join(process.cwd(), 'dist', 'h5'),
+        filename: 'index.js',
+        libraryTarget: 'umd',
+        library: 'taro-ui'
+      },
+      externals: {
+        nervjs: 'commonjs2 nervjs',
+        classnames: 'commonjs2 classnames',
+        '@tarojs/components': 'commonjs2 @tarojs/components',
+        '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
+        'weui': 'commonjs2 weui'
+      },
+      module: {
+        rule: {
+          specialSass: copySassLoader
+        }
+      },
+      plugin: {
+        extractCSS: {
+          plugin: MiniCssExtractPlugin,
+          args: [{
+            filename: 'css/index.css',
+            chunkFilename: 'css/[id].css'
+          }]
+        }
+      }
+    })
   }
 }
 

@@ -1,15 +1,17 @@
 import Taro, { Component } from '@tarojs/taro'
 
 const objectToString = style => {
-  if (typeof style === 'object') {
+  if (style && typeof style === 'object') {
     let styleStr = ''
     Object.keys(style).forEach(key => {
       const lowerCaseKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
       styleStr += `${lowerCaseKey}:${style[key]};`
     })
     return styleStr
+  } else if (style && typeof style === 'string') {
+    return style
   }
-  return style
+  return ''
 }
 
 export default class AtComponent extends Component {

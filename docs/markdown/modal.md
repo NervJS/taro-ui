@@ -11,10 +11,12 @@
 :::demo
 
 ```js
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
+import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 ```
 
 :::
+
+> 由于微信小程序的限制，在 `Modal` 组件中使用一些客户端创建的原生组件（如：`textarea`、`input`等）时，即使 `Modal` 组件处于隐藏状态，原生组件依然会在页面上显示，具体参见微信小程序文档：[原生组件](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)。
 
 ## 一般用法
 
@@ -65,3 +67,10 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 | confirmText | 确认按钮的文本         | String   | -      | -      |
 | onCancel    | 点击取消按钮触发的样式 | Function | -      | -      |
 | onConfirm   | 点击确认按钮触发的事件 | Function | -      | -      |
+
+## AtModal 事件
+
+| 事件名称  | 说明                   | 返回参数 |
+| --------- | ---------------------- | -------- |
+| onCancel  | 点击取消按钮触发的样式 | -        |
+| onConfirm | 点击确认按钮触发的事件 | -        |

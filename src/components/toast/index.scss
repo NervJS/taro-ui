@@ -20,6 +20,7 @@ $toast-loading-size: 100px;
 
     position: fixed;
     opacity: 0;
+    z-index: $zindex-toast;
   }
 }
 

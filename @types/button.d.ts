@@ -25,7 +25,7 @@ export interface AtButtonProps extends AtComponent{
   openType?: 'contact' | 'share' | 'getUserInfo' | 'getPhoneNumber' | 'launchApp' | 'openSetting' | 'feedback' | 'getRealnameAuthInfo'
   lang?: string
   sessionFrom?: string
-  sendMessageTitle: string,
+  sendMessageTitle?: string,
   sendMessagePath?: string,
   sendMessageImg?: string,
   showMessageCard?: boolean,

@@ -7,7 +7,6 @@
   width: 100%;
   display: block;
   white-space: nowrap;
-  word-break: keep-all;
   box-sizing: border-box;
 
   @for $col from 1 through 12 {
@@ -40,6 +39,7 @@
 
   &--auto {
     max-width: initial;
+    word-break: keep-all;
   }
 
   &--wrap {

@@ -45,6 +45,8 @@ components:
             name: Progress
           - title: 轻提示
             name: Toast
+          - title: 滑动操作
+            name: SwipeAction
       - title: 表单组件
         items:
           - title: 表单

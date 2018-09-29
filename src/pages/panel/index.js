@@ -46,7 +46,7 @@ export default class PanelBasic extends Component {
         }
       },
       list: {
-        'basic': [
+        basic: [
           {
             id: 'Color',
             name: '颜色'
@@ -64,7 +64,7 @@ export default class PanelBasic extends Component {
             name: '按钮'
           }
         ],
-        'view': [
+        view: [
           {
             id: 'Avatar',
             name: '头像'
@@ -94,7 +94,7 @@ export default class PanelBasic extends Component {
             name: '滑块视图容器'
           }
         ],
-        'action': [
+        action: [
           {
             id: 'Action-Sheet',
             name: '动作面板'
@@ -114,9 +114,13 @@ export default class PanelBasic extends Component {
           {
             id: 'Toast',
             name: '轻提示'
+          },
+          {
+            id: 'Swipe-Action',
+            name: '滑动按钮'
           }
         ],
-        'form': [
+        form: [
           {
             id: 'Input',
             name: '输入框'
@@ -156,9 +160,13 @@ export default class PanelBasic extends Component {
           {
             id: 'Slider',
             name: '滑动条'
+          },
+          {
+            id: 'Search-Bar',
+            name: '搜索框'
           }
         ],
-        'layout': [
+        layout: [
           {
             id: 'Flex',
             name: '弹性布局'
@@ -184,7 +192,7 @@ export default class PanelBasic extends Component {
             name: '手风琴'
           }
         ],
-        'navigation': [
+        navigation: [
           {
             id: 'NavBar',
             name: '导航栏'
@@ -239,10 +247,11 @@ export default class PanelBasic extends Component {
         {/* S Header */}
         <View className='panel-header'>
           <View className='panel-header__icon'>
-            {
-              icon ? <Image src={icon} className='img' mode='widthFix' />
-                : <Text className='at-icon at-icon-list'></Text>
-            }
+            {icon ? (
+              <Image src={icon} className='img' mode='widthFix' />
+            ) : (
+              <Text className='at-icon at-icon-list' />
+            )}
           </View>
           <View className='panel-header__title'>{title}</View>
         </View>
@@ -260,7 +269,7 @@ export default class PanelBasic extends Component {
                 onClick={this.gotoComponent}
               >
                 <Text className='name'>{`${item.id} ${item.name}`}</Text>
-                <Text className='at-icon at-icon-chevron-right'></Text>
+                <Text className='at-icon at-icon-chevron-right' />
               </View>
             ))}
           </View>

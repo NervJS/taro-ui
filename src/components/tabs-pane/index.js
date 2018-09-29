@@ -39,9 +39,9 @@ export default class AtTabsPane extends AtComponent {
       <View
         className={
           classNames({
-            'tabs-pane': true,
-            'tabs-pane--active': index === current,
-            'tabs-pane--inactive': index !== current
+            'at-tabs-pane': true,
+            'at-tabs-pane--active': index === current,
+            'at-tabs-pane--inactive': index !== current
           }, className)
         }
         style={customStyle}
