@@ -32,13 +32,13 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtActivityIndicator size='20' ></AtActivityIndicator>
+                  <AtActivityIndicator size={20} ></AtActivityIndicator>
                 </View>
                 <View className='subitem'>
-                  <AtActivityIndicator size='24' />
+                  <AtActivityIndicator size={24} />
                 </View>
                 <View className='subitem'>
-                  <AtActivityIndicator size='32' />
+                  <AtActivityIndicator size={32} />
                 </View>
               </View>
             </View>

@@ -29,9 +29,7 @@ export default class ToastPage extends Component {
 
   handleClick = (text, icon, image, hasMask, status) => {
     if (this.state.isOpened) {
-      return this.setState({
-        isOpened: false
-      })
+      return this.setState(INIT_STATE)
     }
     const state = Object.assign(
       { ...INIT_STATE, isOpened: true },
@@ -210,6 +208,7 @@ export default class ToastPage extends Component {
           hasMask={hasMask}
           isOpened={isOpened}
           duration={duration}
+          onClose={this.handleClose}
         />
       </View>
     )

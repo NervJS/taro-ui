@@ -33,6 +33,8 @@ components:
             name: Tag
           - title: 时间轴
             name: Timeline
+          - title: 滑动视图容器
+            name: Swiper
       - title: 操作反馈
         items:
           - title: 动作面板
@@ -63,6 +65,8 @@ components:
             name: Switch
           - title: 多行文本框
             name: Textarea
+          - title: 选择器
+            name: Picker
       - title: 布局组件
         items:
           - title: 弹性布局

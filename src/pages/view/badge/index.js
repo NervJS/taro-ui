@@ -36,12 +36,12 @@ export default class BadgePage extends Taro.Component {
             <View className='panel__content'>
               <View className='badge-item'>
                 <View className='subitem'>
-                  <AtBadge value='10' maxValue='99'>
+                  <AtBadge value='10' maxValue={99}>
                     <AtButton size='small' circle>按钮</AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
-                  <AtBadge value='100' maxValue='99'>
+                  <AtBadge value='100' maxValue={99}>
                     <AtButton size='small'>按钮</AtButton>
                   </AtBadge>
                 </View>
