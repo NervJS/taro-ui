@@ -25,6 +25,7 @@ import { AtList, AtListItem } from "taro-ui"
   <AtListItem title='标题文字' onClick={this.handleClick} />
   <AtListItem title='标题文字' arrow='right' />
   <AtListItem title='标题文字' extraText='详细信息' />
+  <AtListItem title='禁用状态' disabled extraText='详细信息' />
 </AtList>
 ```
 
@@ -128,13 +129,14 @@ import { AtList, AtListItem } from "taro-ui"
 | 参数           | 说明                       | 类型     | 可选值                 | 默认值  |
 | -------------- | -------------------------- | -------- | ---------------------- | ------- |
 | title          | 元素的标题                 | String   | -                      | -       |
+| disabled       | 是否禁用                   | Boolean  | -                      | `false` |
 | note           | 元素的描述信息             | String   | -                      | -       |
 | thumb          | 元素的主要缩略图           | String   | -                      | -       |
 | arrow          | 箭头的方向                 | String   | `right`,`top`,`bottom` | -       |
 | extraText      | 额外信息的文本             | String   | -                      | -       |
 | extraThumb     | 额外信息的缩略图           | String   | -                      | -       |
 | isSwitch       | 额外信息是否开关           | Boolean  | -                      | `false` |
-| switchIsCheck    | 额外信息开关的值           | Boolean  | -                      | `false` |
+| switchIsCheck  | 额外信息开关的值           | Boolean  | -                      | `false` |
 | hasBorder      | 是否有边框                 | Boolean  | -                      | `true`  |
 | onClick        | 用户点击元素触发的事件     | Function | -                      | -       |
 | onSwitchChange | 用户点击切换 Switch 时触发 | Function | -                      | -       |

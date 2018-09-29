@@ -10,6 +10,8 @@ export interface AtList {
 export interface AtListItemProps extends AtComponent{
   hasBorder?: boolean
 
+  disabled?: boolean
+
   note?: string
 
   title?: string

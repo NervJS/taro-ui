@@ -12,6 +12,7 @@ describe('List Snap', () => {
         <AtListItem title='标题文字' />
         <AtListItem title='标题文字' arrow='right' />
         <AtListItem title='标题文字' note='描述信息' />
+        <AtListItem title='禁用状态' disabled extraText='详细信息' />
         <AtListItem title='标题文字' note='描述信息' arrow='right' />
         <AtListItem title='标题文字' extraText='详细信息' arrow='right' />
         <AtListItem
@@ -112,6 +113,40 @@ describe('List Behavior ', () => {
     Simulate.click(itemDom)
     expect(onClick).toBeCalled()
     expect(onChange).not.toBeCalled()
+  })
+
+  it('ListItem disabled onSwitchChange && onClick', () => {
+    const onClick = jest.fn()
+    const onChange = jest.fn()
+
+    const component = renderIntoDocument(
+      <AtList>
+        <AtListItem
+          isSwitch
+          disabled
+          title='标题文字'
+          onClick={onClick}
+          onSwitchChange={onChange}
+        />
+      </AtList>
+    )
+
+    const componentDom = findDOMNode(component, 'at-list')
+    const itemDom = componentDom.querySelector('.at-list__item').children[0]
+    const itemSwitchDom = componentDom.querySelector(
+      '.at-list__item .item-extra__switch'
+    ).children[0]
+
+    itemSwitchDom.value = true
+
+    Simulate.change(itemSwitchDom)
+    expect(onChange).not.toBeCalled()
+
+    onClick.mockReset()
+    onChange.mockReset()
+
+    Simulate.click(itemDom)
+    expect(onClick).not.toBeCalled()
   })
 
   it('ListItem switch was checked', () => {

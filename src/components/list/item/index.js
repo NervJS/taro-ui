@@ -12,7 +12,7 @@ import './index.scss'
 
 export default class AtListItem extends AtComponent {
   handleClick = (...args) => {
-    if (_isFunction(this.props.onClick)) {
+    if (_isFunction(this.props.onClick) && !this.props.disabled) {
       this.props.onClick(...args)
     }
   }
@@ -22,7 +22,7 @@ export default class AtListItem extends AtComponent {
   }
 
   handleSwitchChange = (...args) => {
-    if (_isFunction(this.props.onSwitchChange)) {
+    if (_isFunction(this.props.onSwitchChange) && !this.props.disabled) {
       this.props.onSwitchChange(...args)
     }
   }
@@ -33,11 +33,12 @@ export default class AtListItem extends AtComponent {
       arrow,
       title,
       thumb,
+      disabled,
       isSwitch,
       extraText,
       hasBorder,
       extraThumb,
-      switchIsCheck
+      switchIsCheck,
     } = this.props
 
     const rootClass = classNames(
@@ -45,6 +46,7 @@ export default class AtListItem extends AtComponent {
       {
         'at-list__item--thumb': thumb,
         'at-list__item--multiple': note,
+        'at-list__item--disabled': disabled,
         'at-list__item--no-border': !hasBorder
       },
       this.props.className
@@ -105,11 +107,13 @@ export default class AtListItem extends AtComponent {
 
 AtListItem.defaultProps = {
   hasBorder: true,
-  isSwitch: false
+  isSwitch: false,
+  disabled: false,
 }
 
 AtListItem.propTypes = {
   note: PropTypes.string,
+  disabled: PropTypes.bool,
   title: PropTypes.string,
   thumb: PropTypes.string,
   onClick: PropTypes.func,
