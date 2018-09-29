@@ -65,11 +65,14 @@ export default class AtToast extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened, duration } = nextProps
-    if (!isOpened) return
+    if (!isOpened) {
+      this.close()
+      return
+    }
 
     if (!this.state._isOpened) {
       this.setState({
-        _isOpened: isOpened
+        _isOpened: true
       })
     } else {
       this.clearTimmer()
@@ -150,5 +153,5 @@ AtToast.propTypes = {
   image: PropTypes.string,
   isOpened: PropTypes.bool,
   duration: PropTypes.number,
-  status: PropTypes.oneOf(['error', 'loading', 'success'])
+  status: PropTypes.oneOf(['', 'error', 'loading', 'success'])
 }

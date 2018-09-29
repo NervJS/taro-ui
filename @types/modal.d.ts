@@ -5,6 +5,8 @@ import AtComponent from './base'
 
 export interface AtModalProps extends AtComponent{
   title?: string
+  
+  isOpened: boolean
 
   content?: string
 

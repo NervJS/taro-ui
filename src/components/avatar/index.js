@@ -43,7 +43,7 @@ export default class AtAvatar extends AtComponent {
     if (text) letter = text[0]
 
     let elem
-    if (openData.type === 'userAvatarUrl' && Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
+    if (openData && openData.type === 'userAvatarUrl' && Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
       elem = (<OpenData type={openData.type}></OpenData>)
     } else if (image) {
       elem = (<Image className='at-avatar__img' src={image} />)

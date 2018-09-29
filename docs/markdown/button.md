@@ -33,11 +33,10 @@ import { AtButton } from 'taro-ui'
 ```
 :::
 
-## 带Icon
+## 带 loading icon
 
 :::demo
 ```html
-<AtButton icon='clock' type='primary' size='normal'>按钮文案</AtButton>
 <AtButton loading type='primary'>按钮文案</AtButton>
 ```
 :::
@@ -48,7 +47,6 @@ import { AtButton } from 'taro-ui'
 |:-----|:---|:---------|:-----------------------------|:--------|:-----------------------|:---------|
 | √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
 | √    | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
-| √    | √  | icon     | 按钮的图标名字               | String  | 见文档 `Icon 图标`     | -        |
 | √    | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
 | √    | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
 | √    | √  | disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |

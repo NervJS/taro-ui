@@ -26,6 +26,10 @@ export default class ButtonPage extends Taro.Component {
     }
   }
 
+  onContact () {
+    console.log('呼起客服回调')
+  }
+
   render () {
     return (
       <View className='page'>
@@ -171,7 +175,7 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton openType='share' type='primary' onClick={this.onButtonClick.bind(this, '打开分享（仅小程序版支持）')}>分享</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')}>联系 Taro UI 客服</AtButton>
+                <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
               </View>
             </View>
           </View>

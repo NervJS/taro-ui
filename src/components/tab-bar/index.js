@@ -105,7 +105,7 @@ export default class AtTabBar extends AtComponent {
             onClick={this.handleClick.bind(this, i)}
           >
             {item.iconType ? (
-              <AtBadge dot={item.dot} value={item.text} max={item.max}>
+              <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
                 <View className='at-tab-bar__icon'>
                   <AtIcon
                     prefixClass={item.iconPrefixClass}
@@ -122,7 +122,7 @@ export default class AtTabBar extends AtComponent {
             ) : null}
             <View>
               <AtBadge
-                dot={item.iconType ? '' : item.dot}
+                dot={item.iconType ? false : !!item.dot}
                 value={item.iconType ? '' : item.text}
                 max={item.iconType ? '' : item.max}
               >

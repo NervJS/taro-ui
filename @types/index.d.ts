@@ -1,3 +1,6 @@
+import { ComponentClass } from 'react'
+import { InterfaceType } from 'typescript'
+
 export { default as AtActionSheet } from './action-sheet'
 export { default as AtActivityIndicator } from './activity-indicator'
 export { default as AtAvatar } from './avatar'
@@ -29,3 +32,9 @@ export { default as AtTextarea } from './textarea'
 export { default as AtTimeline } from './timeline'
 export { default as AtToast } from './toast'
 export { default as AtTabsPane } from './tabs-pane'
+
+export declare const AtModalHeader: ComponentClass
+export declare const AtModalAction: ComponentClass
+export declare const AtModalContent: ComponentClass
+
+export declare const AtActionSheetItem: ComponentClass
