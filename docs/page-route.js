@@ -19,6 +19,7 @@ export default {
   switch: 'form/switch',
   textarea: 'form/textarea',
   picker: 'form/picker',
+  searchbar: 'form/search-bar',
   article: 'view/article',
   avatar: 'view/avatar',
   badge: 'view/badge',

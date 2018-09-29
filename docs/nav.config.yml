@@ -67,6 +67,8 @@ components:
             name: Textarea
           - title: 选择器
             name: Picker
+          - title: 搜索框
+            name: SearchBar
       - title: 布局组件
         items:
           - title: 弹性布局
