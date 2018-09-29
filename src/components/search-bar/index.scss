@@ -51,11 +51,11 @@ $placeholderPadding: 5PX;
   &__input {
     position: absolute;
     width: 100%;
-    height: $height;
+    height: $height !important;
     top: 0;
     left: 0;
     display: block;
-    font-size: $fontSize;
+    font-size: $fontSize !important;
     padding: 5PX $inputPadding + $placeholderPadding;
     z-index: $zindex-form;
     transition: width 0.3s;
