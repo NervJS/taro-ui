@@ -9,8 +9,10 @@ import './index.scss'
 
 export default class AtAccordion extends AtComponent {
   static defaultProps = {
+    isTest: false,
     customStyle: '',
     className: '',
+    title: '',
     onClick: () => {}
   }
 
@@ -23,7 +25,9 @@ export default class AtAccordion extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
-
+    title: PropTypes.string,
+    icon: PropTypes.object,
+    onClick: PropTypes.func
   }
 
   constructor () {
@@ -72,6 +76,7 @@ export default class AtAccordion extends AtComponent {
     const {
       customStyle,
       className,
+      isTest,
       title,
       icon,
     } = this.props
@@ -90,6 +95,11 @@ export default class AtAccordion extends AtComponent {
     if (this.isOpen) {
       animatedStyle.transform = 'rotate(180deg)'
     }
+
+    const contentCls = {
+      'at-accordion__content': true,
+    }
+    contentCls[this.elemId] = !isTest
 
     return (
       <View
@@ -124,9 +134,7 @@ export default class AtAccordion extends AtComponent {
         </View>
         <View
           className={
-            classNames({
-              'at-accordion__content': true,
-            }, this.elemId)
+            classNames(contentCls)
           }
           style={contentStyle}
         >
