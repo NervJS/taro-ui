@@ -6,6 +6,7 @@ export default {
   flex: 'layout/flex',
   grid: 'layout/grid',
   floatlayout: 'layout/float-layout',
+  accordion: 'layout/accordion',
   toast: 'action/toast',
   modal: 'action/modal',
   swipeaction: 'action/swipe-action',

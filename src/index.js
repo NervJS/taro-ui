@@ -42,6 +42,7 @@ export { default as AtTag } from './components/tag'
 export { default as AtTextarea } from './components/textarea'
 export { default as AtTimeline } from './components/timeline'
 export { default as AtToast } from './components/toast'
+export { default as AtAccordion } from './components/accordion'
 
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'

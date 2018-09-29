@@ -77,6 +77,8 @@ components:
             name: Card
           - title: 浮动弹层
             name: FloatLayout
+          - title: 手风琴
+            name: Accordion
       - title: 导航组件
         items:
           - title: 导航栏
