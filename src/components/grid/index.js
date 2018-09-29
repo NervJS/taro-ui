@@ -91,7 +91,7 @@ AtGrid.propTypes = {
   mode: PropTypes.string,
   onClick: PropTypes.func,
   hasBorder: PropTypes.bool,
-  columnNum: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  columnNum: PropTypes.number,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string,

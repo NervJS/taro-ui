@@ -20,7 +20,7 @@ export default class AtSearchBar extends AtComponent {
   static defaultProps = {
     value: '',
     placeholder: '搜索',
-    maxlength: 120,
+    maxlength: 140,
     fixed: false,
     focus: false,
     disabled: false,

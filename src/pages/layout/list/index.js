@@ -35,6 +35,7 @@ export default class ListPage extends Component {
                   <AtListItem title='标题文字' onClick={this.handleClick} />
                   <AtListItem title='标题文字' arrow='right' />
                   <AtListItem title='标题文字' extraText='详细信息' />
+                  <AtListItem title='禁用状态' disabled extraText='详细信息' />
                 </AtList>
               </View>
             </View>

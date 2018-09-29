@@ -45,6 +45,14 @@ $item-horizontal-padding: 24px;
     }
   }
 
+  &--disabled {
+    opacity: $opacity-disabled;
+
+    &:active {
+      background-color: transparent !important;
+    }
+  }
+
   &--no-border::after {
     content: initial;
   }

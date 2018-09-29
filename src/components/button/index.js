@@ -22,13 +22,6 @@ export default class AtButton extends AtComponent {
     super(...arguments)
     this.state = {
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
-      BUTTON_PROPS_FUNC: {
-        ONGETUSERINFO: 'onGetUserInfo',
-        ONGETPHONENUMBER: 'onGetPhoneNumber',
-        ONCONTACT: 'onContact',
-        ONERROR: 'onError',
-        ONOPENSETTING: 'onOpenSetting'
-      }
     }
   }
 
@@ -39,11 +32,25 @@ export default class AtButton extends AtComponent {
     }
   }
 
-  onButtonCall () {
-    const _arg = [...arguments]
-    const type = _arg.shift()
-    if (!type || this.props.disabled) return
-    this.props[type] && this.props[type](..._arg)
+  onGetUserInfo () {
+    console.log('getuserinfo', arguments)
+    this.props.onGetUserInfo && this.props.onGetUserInfo(...arguments)
+  }
+
+  onContact () {
+    this.props.onContact && this.props.onContact(...arguments)
+  }
+
+  onGetPhoneNumber () {
+    this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(...arguments)
+  }
+
+  onError () {
+    this.props.onError && this.props.onError(...arguments)
+  }
+
+  onOpenSetting () {
+    this.props.onOpenSetting && this.props.onOpenSetting(...arguments)
   }
 
   render () {
@@ -67,7 +74,6 @@ export default class AtButton extends AtComponent {
     } = this.props
     const {
       isWEAPP,
-      BUTTON_PROPS_FUNC,
     } = this.state
     let rootClassName = ['at-button']
     const sizeClass = SIZE_CLASS[size] || ''
@@ -100,11 +106,11 @@ export default class AtButton extends AtComponent {
           sendMessageImg={sendMessageImg}
           showMessageCard={showMessageCard}
           appParameter={appParameter}
-          onGetUserInfo={this.onButtonCall.bind(this, BUTTON_PROPS_FUNC.ONGETUSERINFO)}
-          onGetPhoneNumber={this.onButtonCall.bind(this, BUTTON_PROPS_FUNC.ONGETPHONENUMBER)}
-          onOpenSetting={this.onButtonCall.bind(this, BUTTON_PROPS_FUNC.ONOPENSETTING)}
-          onError={this.onButtonCall.bind(this, BUTTON_PROPS_FUNC.ONERROR)}
-          onContact={this.onButtonCall.bind(this, BUTTON_PROPS_FUNC.ONCONTACT)}
+          onGetUserInfo={this.onGetUserInfo.bind(this)}
+          onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
+          onOpenSetting={this.onOpenSetting.bind(this)}
+          onError={this.onError.bind(this)}
+          onContact={this.onContact.bind(this)}
         >
         </Button>}
         {component}<View className='at-button__text'>{this.props.children}</View>
@@ -140,15 +146,15 @@ AtButton.defaultProps = {
 
 AtButton.propTypes = {
   size: PropTypes.oneOf(['normal', 'small']),
-  type: PropTypes.oneOf(['primary', 'secondary']),
+  type: PropTypes.oneOf(['primary', 'secondary', '']),
   circle: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 
-  formType: PropTypes.oneOf(['submit', 'reset']),
-  openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo']),
+  formType: PropTypes.oneOf(['submit', 'reset', '']),
+  openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo', '']),
   lang: PropTypes.string,
   sessionFrom: PropTypes.string,
   sendMessageTitle: PropTypes.string,

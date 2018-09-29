@@ -41,6 +41,7 @@ if (process.env.TARO_BUILD_TYPE === 'component') {
   Object.assign(config.h5, {
     enableSourceMap: false,
     enableExtract: false,
+    enableDll: false
   })
   config.h5.webpackChain = chain => {
     const sassLoader = chain.toConfig().module.rules[4]
@@ -55,6 +56,7 @@ if (process.env.TARO_BUILD_TYPE === 'component') {
       loader: MiniCssExtractPlugin.loader
     }
     chain.plugins.delete('htmlWebpackPlugin')
+    chain.plugins.delete('addAssetHtmlWebpackPlugin')
     chain.merge({
       output: {
         path: path.join(process.cwd(), 'dist', 'h5'),
