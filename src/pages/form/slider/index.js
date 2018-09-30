@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
-import { View, Slider } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
+import AtSlider from '../../../components/slider/index'
 import './index.scss'
 
 export default class PageSlider extends Taro.Component {
@@ -25,7 +26,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1</View>
-                <Slider activeColor={sliderColor} step={1} value={50}></Slider>
+                <AtSlider activeColor={sliderColor} step={1} value={50}></AtSlider>
               </View>
             </View>
           </View>
@@ -36,7 +37,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1</View>
-                <Slider activeColor={sliderColor} step={1} value={50} showValue></Slider>
+                <AtSlider activeColor={sliderColor} step={1} value={50} showValue></AtSlider>
               </View>
             </View>
           </View>
@@ -47,7 +48,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, min=50, max=200</View>
-                <Slider activeColor={sliderColor} step={1} value={100} min={50} max={200} showValue></Slider>
+                <AtSlider activeColor={sliderColor} step={1} value={100} min={50} max={200} showValue></AtSlider>
               </View>
             </View>
           </View>
@@ -58,7 +59,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, blockSize=24</View>
-                <Slider step={1} value={50} activeColor='#4285F4' backgroundColor='#BDBDBD' blockColor='#4285F4' blockSize={24}></Slider>
+                <AtSlider step={1} value={50} activeColor='#4285F4' backgroundColor='#BDBDBD' blockColor='#4285F4' blockSize={24}></AtSlider>
               </View>
             </View>
           </View>
@@ -69,7 +70,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, blockSize=24</View>
-                <Slider activeColor={sliderColor} step={1} value={50} disabled></Slider>
+                <AtSlider activeColor={sliderColor} step={1} value={50} showValue disabled></AtSlider>
               </View>
             </View>
           </View>
