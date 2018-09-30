@@ -11,6 +11,41 @@
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>
       <div class="at-timeline__content">
+        <p class="head">v1.2.3</p>
+        <p class="time">
+          <span>2018-09-30</span>
+        </p>
+        <ul class="content">
+          <li><span>AtListItem</span> 组件新增 <span>disabled</span> 属性（<a href="https://github.com/NervJS/taro-ui/issues/90">#90</a>）</li>
+          <li>开放 <span>AtButton</span> 小程序开放能力的回调</li>
+          <li>完善声明文件 <span>.d.ts</span></li>
+          <li>修复 <span>AtActionSheet</span> 组件的样式问题（<a href="https://github.com/NervJS/taro-ui/issues/78">#78</a>）</li>
+          <li>修复 <span>style prop</span> 传空时报错的问题（<a href="https://github.com/NervJS/taro-ui/issues/84">#84</a>） </li>
+          <li>修复 <span>AtToast</span> 无法自动关闭的问题</li>
+          <li>修复组件参数报 <span>warning</span> 的问题</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
+        <p class="head">v1.2.2</p>
+        <p class="time">
+          <span>2018-09-20</span>
+        </p>
+        <ul class="content">
+          <li><span>AtInput</span> 组件添加 <span>name</span> 参数支持</li>
+          <li>修复 <span>AtFlex</span> 无法换行的问题</li>
+          <li>修复 <span>AtToast</span> 组件的遮罩层无效的问题 </li>
+          <li>跳转 <span>AtToast</span> 组件的样式层级 </li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
         <p class="head">v1.2.1</p>
         <p class="time">
           <span>2018-09-15</span>
