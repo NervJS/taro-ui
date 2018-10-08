@@ -67,6 +67,8 @@ components:
             name: Textarea
           - title: 选择器
             name: Picker
+          - title: 滑动条
+            name: Slider
       - title: 布局组件
         items:
           - title: 弹性布局
