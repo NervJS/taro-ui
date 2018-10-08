@@ -10,8 +10,6 @@ export default class PageSlider extends Taro.Component {
   }
 
   render () {
-    const sliderColor = '#6190e8'
-
     return (
       <View className='page'>
         {/* S Header */}
@@ -26,7 +24,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1</View>
-                <AtSlider activeColor={sliderColor} step={1} value={50}></AtSlider>
+                <AtSlider step={1} value={50}></AtSlider>
               </View>
             </View>
           </View>
@@ -37,7 +35,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1</View>
-                <AtSlider activeColor={sliderColor} step={1} value={50} showValue></AtSlider>
+                <AtSlider step={1} value={50} showValue></AtSlider>
               </View>
             </View>
           </View>
@@ -48,7 +46,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, min=50, max=200</View>
-                <AtSlider activeColor={sliderColor} step={1} value={100} min={50} max={200} showValue></AtSlider>
+                <AtSlider step={1} value={100} min={50} max={200} showValue></AtSlider>
               </View>
             </View>
           </View>
@@ -70,7 +68,7 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, blockSize=24</View>
-                <AtSlider activeColor={sliderColor} step={1} value={50} showValue disabled></AtSlider>
+                <AtSlider step={1} value={50} showValue disabled></AtSlider>
               </View>
             </View>
           </View>

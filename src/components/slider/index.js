@@ -7,10 +7,13 @@ import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtSlider extends AtComponent {
-  constructor () {
+  constructor (props) {
     super(...arguments)
-    const { value } = this.props
-    this.setState({ value })
+
+    const { value } = props
+    this.state = {
+      _value: value
+    }
   }
 
   static defaultProps = {
@@ -54,19 +57,30 @@ export default class AtSlider extends AtComponent {
   }
 
   handleChanging (e) {
+    const { _value } = this.state
     const { value } = e.detail
-    this.setState({ value })
-    this.props.onChanging(e.detail.value)
+
+    if (value !== _value) {
+      this.setState({ _value: value })
+    }
+    this.props.onChanging(value)
+  }
+
+  handleChange (e) {
+    const { value } = e.detail
+
+    this.setState({ _value: value })
+    this.props.onChange(value)
   }
 
   render () {
+    const { _value } = this.state
     const {
       customStyle,
       className,
       min,
       max,
       step,
-      value,
       disabled,
       activeColor,
       backgroundColor,
@@ -86,10 +100,22 @@ export default class AtSlider extends AtComponent {
         style={customStyle}
       >
         <View className='at-slider__inner'>
-          <Slider min={min} max={max} step={step} value={value} disabled={disabled} activeColor={activeColor} backgroundColor={backgroundColor} blockSize={blockSize} blockColor={blockColor} onChanging={this.handleChanging.bind(this)}></Slider>
+          <Slider
+            min={min}
+            max={max}
+            step={step}
+            value={_value}
+            disabled={disabled}
+            activeColor={activeColor}
+            backgroundColor={backgroundColor}
+            blockSize={blockSize}
+            blockColor={blockColor}
+            onChanging={this.handleChanging.bind(this)}
+            onChange={this.handleChange.bind(this)}
+          ></Slider>
         </View>
         {
-          showValue && <View className='at-slider__text'>{value}</View>
+          showValue && <View className='at-slider__text'>{`${_value}`}</View>
         }
       </View>
     )
