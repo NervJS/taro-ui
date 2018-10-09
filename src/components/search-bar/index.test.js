@@ -25,27 +25,27 @@ describe('AtSearchBar Snap', () => {
   })
 
   it('render AtSearchBar -- props disabled', () => {
-    const componet1 = renderToString(<AtSearchBar fixed />)
-    expect(componet1).toMatchSnapshot()
+    const componet = renderToString(<AtSearchBar fixed />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtSearchBar -- props focus', () => {
-    const componet1 = renderToString(<AtSearchBar focus />)
-    expect(componet1).toMatchSnapshot()
+    const componet = renderToString(<AtSearchBar focus />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtSearchBar -- props disabled', () => {
-    const componet1 = renderToString(<AtSearchBar disabled />)
-    expect(componet1).toMatchSnapshot()
+    const componet = renderToString(<AtSearchBar disabled />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtSearchBar -- props showActionButton', () => {
-    const componet1 = renderToString(<AtSearchBar showActionButton />)
-    expect(componet1).toMatchSnapshot()
+    const componet = renderToString(<AtSearchBar showActionButton />)
+    expect(componet).toMatchSnapshot()
   })
 
   it('render AtSearchBar -- props actionName', () => {
-    const componet1 = renderToString(<AtSearchBar actionName='actionName' />)
-    expect(componet1).toMatchSnapshot()
+    const componet = renderToString(<AtSearchBar actionName='actionName' />)
+    expect(componet).toMatchSnapshot()
   })
 })
