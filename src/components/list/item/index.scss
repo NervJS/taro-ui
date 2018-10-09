@@ -8,15 +8,13 @@ $item-horizontal-padding: 24px;
   width: $size;
   height: $size;
 
-  &-info {
+  &__info {
     width: 100%;
     height: 100%;
   }
 }
 
 .at-list__item {
-  @include display-flex;
-  @include align-items(center);
   @include active;
 
   padding: $spacing-v-lg $spacing-h-lg;
@@ -38,6 +36,11 @@ $item-horizontal-padding: 24px;
     left: $spacing-h-lg;
   }
 
+  &-container {
+    @include display-flex;
+    @include align-items(center);
+  }
+
   &--thumb {
     .item-thumb {
       margin-right: $item-horizontal-padding;
@@ -46,7 +49,9 @@ $item-horizontal-padding: 24px;
   }
 
   &--disabled {
-    opacity: $opacity-disabled;
+    .at-list__item-container {
+      opacity: $opacity-disabled;
+    }
 
     &:active {
       background-color: transparent !important;
