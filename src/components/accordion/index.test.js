@@ -21,6 +21,14 @@ describe('AtAccordion Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtAccordion -- props open', () => {
+    const component = renderToString(
+      <AtAccordion isTest open>
+      </AtAccordion>
+    )
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtAccordion -- props icon', () => {
     const component = renderToString(
       <AtAccordion isTest icon={{ value: 'chevron-down', color: 'red' }}>

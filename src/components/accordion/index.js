@@ -26,6 +26,7 @@ export default class AtAccordion extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
+    open: PropTypes.bool,
     title: PropTypes.string,
     icon: PropTypes.object,
     onClick: PropTypes.func
