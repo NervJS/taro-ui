@@ -92,7 +92,6 @@ export default class AtAccordion extends AtComponent {
       bodyHeight,
     } = this.state
 
-    console.log(bodyHeight)
     const contentStyle = {
       height: `${bodyHeight}px`
     }
