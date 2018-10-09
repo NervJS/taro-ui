@@ -71,6 +71,8 @@ components:
             name: Picker
           - title: 搜索框
             name: SearchBar
+          - title: 滑动条
+            name: Slider
       - title: 布局组件
         items:
           - title: 弹性布局
