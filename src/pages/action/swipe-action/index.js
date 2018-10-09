@@ -71,10 +71,12 @@ export default class SwipeActionPage extends Taro.Component {
   }
 
   handleOpened = () => {
+    this.showToast('Handle Opened')
     console.log('handleOpened')
   }
 
   handleClosed = () => {
+    this.showToast('Handle Closed')
     console.log('handleClosed')
   }
 
@@ -101,7 +103,7 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__title'>一般用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
-                <AtSwipeAction options={OPTIONS}>
+                <AtSwipeAction onClick={this.handleClick} options={OPTIONS}>
                   <View className='normal'>AtSwipeAction 一般使用场景</View>
                 </AtSwipeAction>
               </View>
@@ -123,7 +125,7 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__title'>自动关闭</View>
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
-                <AtSwipeAction autoClose options={OPTIONS}>
+                <AtSwipeAction onClick={this.handleClick} autoClose options={OPTIONS}>
                   <View className='normal'>点击按钮自动关闭</View>
                 </AtSwipeAction>
               </View>
@@ -147,6 +149,7 @@ export default class SwipeActionPage extends Taro.Component {
               <View className='example-item example-item--border'>
                 <AtSwipeAction
                   options={OPTIONS}
+                  onClick={this.handleClick}
                   onOpened={this.handleOpened}
                   onClosed={this.handleClosed}
                 >
