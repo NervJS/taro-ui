@@ -7,6 +7,25 @@
 
 <div class="row changelog">
   <div class="at-timeline">
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
+        <p class="head">v1.3.0</p>
+        <p class="time">
+          <span>2018-10-09</span>
+        </p>
+        <ul class="content">
+          <li>新增 <span>AtSlider</span> 组件</li>
+          <li>新增 <span>AtSwipeAction</span> 组件</li>
+          <li>新增 <span>AtSearchBar</span> 组件</li>
+          <li>新增 <span>AtAccordion</span> 组件</li>
+          <li>修复 <span>AtSwitch</span> 在禁用状态仍然可以切换的问题（<a href="https://github.com/NervJS/taro-ui/issues/95">#95</a>）</li>
+        </ul>
+      </div>
+    </div>
     <div class="at-timeline__item at-timeline__item--default">
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>
