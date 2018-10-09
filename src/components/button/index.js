@@ -26,14 +26,12 @@ export default class AtButton extends AtComponent {
   }
 
   onClick () {
-    console.log(...arguments)
     if (!this.props.disabled) {
       this.props.onClick && this.props.onClick(...arguments)
     }
   }
 
   onGetUserInfo () {
-    console.log('getuserinfo', arguments)
     this.props.onGetUserInfo && this.props.onGetUserInfo(...arguments)
   }
 
