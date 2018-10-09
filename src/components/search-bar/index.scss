@@ -11,6 +11,7 @@ $placeholderPadding: 5PX;
   height: $height;
   padding: $fontSize / 2;
   box-sizing: content-box;
+  overflow: hidden;
   background-color: $color-bg;
   @include border-thin-bottom;
 
