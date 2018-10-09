@@ -117,7 +117,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Swipe-Action',
-            name: '滑动按钮'
+            name: '滑动操作'
           }
         ],
         form: [
@@ -163,7 +163,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Search-Bar',
-            name: '搜索框'
+            name: '搜索栏'
           }
         ],
         layout: [

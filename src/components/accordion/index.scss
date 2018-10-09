@@ -21,8 +21,20 @@
   }
 
   &__content {
+    position: relative;
     width: 100%;
     transition: height 0.3s;
     overflow: hidden;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1PX;
+      position: absolute;
+      bottom: -1PX;
+      left: 0;
+      @include border-thin-top($width: 1PX);
+    }
   }
 }

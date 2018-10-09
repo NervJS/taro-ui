@@ -1,4 +1,4 @@
-# SearchBar 搜索框
+# SearchBar 搜索栏
 
 ---
 可用于用户输入搜索信息

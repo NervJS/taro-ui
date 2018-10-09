@@ -22,6 +22,7 @@ export default {
   textarea: 'form/textarea',
   picker: 'form/picker',
   searchbar: 'form/search-bar',
+  slider: 'form/slider',
   article: 'view/article',
   avatar: 'view/avatar',
   badge: 'view/badge',

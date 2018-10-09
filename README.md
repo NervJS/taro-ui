@@ -20,7 +20,7 @@ Taro 是由 [凹凸实验室](https://aotu.io) 倾力打造的多端开发解决
 
 请使用微信扫一扫以下体验码
 
-![QRCode](https://user-images.githubusercontent.com/1240899/44580574-fe838800-a7cc-11e8-890d-73cf048ef8c2.jpg)
+![QRCode](https://user-images.githubusercontent.com/1240899/46650700-25a4e600-cbd0-11e8-90ff-905edb39c340.jpg)
 
 ## 相关链接
 

@@ -1,4 +1,4 @@
-# Accordion 手风琴组件
+# Accordion 手风琴
 
 ---
 可以折叠 / 展开的内容区域。

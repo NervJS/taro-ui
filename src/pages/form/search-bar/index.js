@@ -36,7 +36,7 @@ export default class Index extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='搜索框'></DocsHeader>
+        <DocsHeader title='SearchBar 搜索栏'></DocsHeader>
         {/* E Header */}
         {/* S Body */}
         <View className='doc-body'>
@@ -48,6 +48,7 @@ export default class Index extends Taro.Component {
                 <AtSearchBar
                   value={this.state.value1}
                   onChange={this.onChange.bind(this, 'value1')}
+                  onActionClick={this.onActionClick.bind(this)}
                 />
               </View>
             </View>
@@ -68,9 +69,9 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
-          {/* 一直显示按钮 */}
+          {/* 始终显示按钮 */}
           <View className='panel'>
-            <View className='panel__title'>一直显示按钮</View>
+            <View className='panel__title'>始终显示按钮</View>
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
