@@ -52,7 +52,7 @@ export default class CardPage extends Taro.Component {
                     />
                   </AtList>
                 </AtAccordion>
-                <AtAccordion title='标题二'>
+                <AtAccordion open title='默认开启'>
                   <AtList hasBorder={false}>
                     <AtListItem
                       title='标题文字'

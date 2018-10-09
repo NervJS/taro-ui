@@ -10,6 +10,7 @@ import './index.scss'
 export default class AtAccordion extends AtComponent {
   static defaultProps = {
     isTest: false,
+    open: false,
     customStyle: '',
     className: '',
     title: '',
@@ -33,15 +34,17 @@ export default class AtAccordion extends AtComponent {
   constructor () {
     super(...arguments)
     // body 元素id
-    this.elemId = `at-accordion_body_${Math.ceil(Math.random() * 10e5).toString(36)}`
+    const randomId = `${(new Date()).getTime()}${Math.ceil(Math.random() * 10e5).toString(36)}`
+    this.elemId = `at-accordion_body_${randomId}`
     // body 高度
     this.bodyHeight = 0
     // 组件是否展开
-    this.isOpen = false
+    this.isOpen = this.props.open
     this.state = {
       bodyHeight: '',
     }
   }
+
   handleClick (e) {
     this.switch()
     this.props.onClick(e)
@@ -53,16 +56,19 @@ export default class AtAccordion extends AtComponent {
     if (env === Taro.ENV_TYPE.WEB) {
       setTimeout(() => {
         this.bodyHeight = document.getElementsByClassName(`${this.elemId}`)[0].scrollHeight
+        this.setState({
+          bodyHeight: this.isOpen ? this.bodyHeight : 0
+        })
       })
     } else if (env === Taro.ENV_TYPE.WEAPP) {
       const query = Taro.createSelectorQuery().in(this.$scope)
       query.select(`.${this.elemId}`).boundingClientRect(res => {
         this.bodyHeight = res.height
+        this.setState({
+          bodyHeight: this.isOpen ? this.bodyHeight : 0
+        })
       }).exec()
     }
-    this.setState({
-      bodyHeight: this.isOpen ? this.bodyHeight : 0
-    })
   }
 
   switch () {
@@ -85,6 +91,7 @@ export default class AtAccordion extends AtComponent {
       bodyHeight,
     } = this.state
 
+    console.log(bodyHeight)
     const contentStyle = {
       height: `${bodyHeight}px`
     }

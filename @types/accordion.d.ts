@@ -12,6 +12,8 @@ export interface Icon {
 }
 
 export interface AtAccordionProps extends AtComponent {
+  open?: boolean
+
   title?: string
 
   icon?: Icon
