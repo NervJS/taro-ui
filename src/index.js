@@ -43,6 +43,9 @@ export { default as AtTextarea } from './components/textarea'
 export { default as AtTimeline } from './components/timeline'
 export { default as AtToast } from './components/toast'
 export { default as AtAccordion } from './components/accordion'
+export { default as AtSlider } from './components/slider'
+export { default as AtSwipeAction } from './components/swipe-action'
+export { default as AtSearchBar } from './components/search-bar'
 
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'
