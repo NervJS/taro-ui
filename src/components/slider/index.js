@@ -63,14 +63,14 @@ export default class AtSlider extends AtComponent {
     if (value !== _value) {
       this.setState({ _value: value })
     }
-    this.props.onChanging(value)
+    this.props.onChanging({ value })
   }
 
   handleChange (e) {
     const { value } = e.detail
 
     this.setState({ _value: value })
-    this.props.onChange(value)
+    this.props.onChange({ value })
   }
 
   render () {
