@@ -15,13 +15,14 @@ const OPTIONS = [
   {
     text: '取消',
     style: {
-      backgroundColor: '#6190E8'
+      color: '#333',
+      backgroundColor: '#F7F7F7'
     }
   },
   {
     text: '确认',
     style: {
-      backgroundColor: '#FF4949'
+      backgroundColor: '#E93B3D'
     }
   }
 ]
@@ -56,6 +57,7 @@ export default class SwipeActionPage extends Taro.Component {
 
   handleClick = (item, key, e) => {
     console.log('触发了点击', item, key, e)
+    this.showToast(`点击了${item.text}按钮`)
   }
 
   handleSingle = index => {
@@ -76,6 +78,13 @@ export default class SwipeActionPage extends Taro.Component {
     console.log('handleClosed')
   }
 
+  showToast = name => {
+    Taro.showToast({
+      icon: 'none',
+      title: name
+    })
+  }
+
   render () {
     const { list } = this.state
 
@@ -90,8 +99,8 @@ export default class SwipeActionPage extends Taro.Component {
           {/* 无 Title */}
           <View className='panel'>
             <View className='panel__title'>一般用法</View>
-            <View className='panel__content'>
-              <View className='example-item'>
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
                 <AtSwipeAction options={OPTIONS}>
                   <View className='normal'>AtSwipeAction 一般使用场景</View>
                 </AtSwipeAction>
@@ -101,8 +110,8 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>禁止滑动</View>
-            <View className='panel__content'>
-              <View className='example-item'>
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
                 <AtSwipeAction disabled options={OPTIONS}>
                   <View className='normal'>禁止滑动展示</View>
                 </AtSwipeAction>
@@ -112,8 +121,8 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>自动关闭</View>
-            <View className='panel__content'>
-              <View className='example-item'>
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
                 <AtSwipeAction autoClose options={OPTIONS}>
                   <View className='normal'>点击按钮自动关闭</View>
                 </AtSwipeAction>
@@ -123,8 +132,8 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>传递点击事件</View>
-            <View className='panel__content'>
-              <View className='example-item'>
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
                 <AtSwipeAction onClick={this.handleClick} options={OPTIONS}>
                   <View className='normal'>点击事件触发</View>
                 </AtSwipeAction>
@@ -134,8 +143,8 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>开启和关闭事件</View>
-            <View className='panel__content'>
-              <View className='example-item'>
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
                 <AtSwipeAction
                   options={OPTIONS}
                   onOpened={this.handleOpened}
@@ -149,7 +158,7 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>与List组件使用</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtList>
                   <AtSwipeAction options={OPTIONS}>
@@ -177,7 +186,7 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>控制只显示单个</View>
-            <View className='panel__content'>
+            <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtList>
                   {list.map((item, index) => (
