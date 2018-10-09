@@ -125,6 +125,13 @@ export default class ListPage extends Component {
                   />
                   <AtListItem
                     isSwitch
+                    disabled
+                    switchIsCheck
+                    title='禁用状态'
+                    onSwitchChange={this.handleChange}
+                  />
+                  <AtListItem
+                    isSwitch
                     switchIsCheck
                     title='标题文字'
                     onSwitchChange={this.handleChange}

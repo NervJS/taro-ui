@@ -38,7 +38,7 @@ export default class AtListItem extends AtComponent {
       extraText,
       hasBorder,
       extraThumb,
-      switchIsCheck,
+      switchIsCheck
     } = this.props
 
     const rootClass = classNames(
@@ -54,51 +54,58 @@ export default class AtListItem extends AtComponent {
 
     return (
       <View className={rootClass} onClick={this.handleClick}>
-        {thumb && (
-          <View className='at-list__item-thumb item-thumb'>
-            <Image className='item-thumb-info' mode='scaleToFill' src={thumb} />
-          </View>
-        )}
-        <View className='at-list__item-content item-content'>
-          <View className='item-content__info'>
-            <View className='item-content__info-title'>{title}</View>
-            {note && <View className='item-content__info-note'>{note}</View>}
-          </View>
-        </View>
-        <View className='at-list__item-extra item-extra'>
-          {extraText && <View className='item-extra__info'>{extraText}</View>}
-
-          {extraThumb &&
-            !extraText && (
-            <View className='item-extra__image'>
+        <View className='at-list__item-container'>
+          {thumb && (
+            <View className='at-list__item-thumb item-thumb'>
               <Image
-                className='item-extra__image-info'
-                mode='aspectFit'
-                src={extraThumb}
+                className='item-thumb__info'
+                mode='scaleToFill'
+                src={thumb}
               />
             </View>
           )}
-
-          {isSwitch &&
-            !extraThumb &&
-            !extraText && (
-            <View
-              className='item-extra__switch'
-              onClick={this.handleSwitchClick}
-            >
-              <Switch
-                color='#6190E8'
-                checked={switchIsCheck}
-                onChange={this.handleSwitchChange}
-              />
+          <View className='at-list__item-content item-content'>
+            <View className='item-content__info'>
+              <View className='item-content__info-title'>{title}</View>
+              {note && <View className='item-content__info-note'>{note}</View>}
             </View>
-          )}
+          </View>
+          <View className='at-list__item-extra item-extra'>
+            {extraText && <View className='item-extra__info'>{extraText}</View>}
 
-          {arrow && (
-            <View className='item-extra__icon'>
-              <AtIcon value={`chevron-${arrow}`} color='#c7c7cc' />
-            </View>
-          )}
+            {extraThumb &&
+              !extraText && (
+              <View className='item-extra__image'>
+                <Image
+                  className='item-extra__image-info'
+                  mode='aspectFit'
+                  src={extraThumb}
+                />
+              </View>
+            )}
+
+            {isSwitch &&
+              !extraThumb &&
+              !extraText && (
+              <View
+                className='item-extra__switch'
+                onClick={this.handleSwitchClick}
+              >
+                <Switch
+                  color='#6190E8'
+                  disabled={disabled}
+                  checked={switchIsCheck}
+                  onChange={this.handleSwitchChange}
+                />
+              </View>
+            )}
+
+            {arrow && (
+              <View className='item-extra__icon'>
+                <AtIcon value={`chevron-${arrow}`} color='#c7c7cc' />
+              </View>
+            )}
+          </View>
         </View>
       </View>
     )
@@ -108,7 +115,7 @@ export default class AtListItem extends AtComponent {
 AtListItem.defaultProps = {
   hasBorder: true,
   isSwitch: false,
-  disabled: false,
+  disabled: false
 }
 
 AtListItem.propTypes = {
