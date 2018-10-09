@@ -69,7 +69,7 @@ components:
             name: Textarea
           - title: 选择器
             name: Picker
-          - title: 搜索框
+          - title: 搜索栏
             name: SearchBar
           - title: 滑动条
             name: Slider

@@ -91,7 +91,7 @@ export default class SwipeActionPage extends Taro.Component {
     return (
       <View className='page swipe-action-page'>
         {/* S Header */}
-        <DocsHeader title='SwipeAction 滑动按钮' />
+        <DocsHeader title='SwipeAction 滑动操作' />
         {/* E Header */}
 
         {/* S Body */}
