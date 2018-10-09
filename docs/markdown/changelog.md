@@ -13,7 +13,7 @@
         <i class="icon icon-award"></i>
       </div>
       <div class="at-timeline__content">
-        <p class="head">v1.3.0</p>
+        <p class="head">v1.3.1</p>
         <p class="time">
           <span>2018-10-09</span>
         </p>
