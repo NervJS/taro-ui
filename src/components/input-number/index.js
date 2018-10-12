@@ -9,6 +9,7 @@ import './index.scss'
 
 export default class AtInputNumber extends AtComponent {
   static defaultProps = {
+    isTest: false,
     customStyle: '',
     className: '',
     disabled: false,
@@ -96,6 +97,7 @@ export default class AtInputNumber extends AtComponent {
 
   render () {
     const {
+      isTest,
       customStyle,
       className,
       width,
@@ -106,6 +108,9 @@ export default class AtInputNumber extends AtComponent {
       size
     } = this.props
 
+    if (isTest) {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
     const inputStyle = `width: ${Taro.pxTransform(width)}`
 
     return (
