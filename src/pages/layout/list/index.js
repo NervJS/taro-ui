@@ -89,6 +89,39 @@ export default class ListPage extends Component {
             </View>
           </View>
 
+          {/* 图标 */}
+          <View className='panel'>
+            <View className='panel__title'>支持图标(不能与thumb同时存在)</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtList>
+                  <AtListItem
+                    title='标题文字'
+                    note='描述信息'
+                    arrow='right'
+                    iconInfo={{
+                      size: 25,
+                      color: '#78A4FA',
+                      value: 'calendar',
+                    }}
+                  />
+                  <AtListItem
+                    title='标题文字'
+                    note='描述信息'
+                    extraText='详细信息'
+                    arrow='right'
+                    iconInfo={{
+                      size: 25,
+                      color: '#FF4949',
+                      value: 'bookmark',
+                    }}
+                  />
+                </AtList>
+              </View>
+            </View>
+          </View>
+
+          {/* 无边框 */}
           <View className='panel'>
             <View className='panel__title'>无边框</View>
             <View className='panel__content no-padding'>

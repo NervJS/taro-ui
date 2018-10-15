@@ -3,4 +3,14 @@ export interface AtComponent {
   customStyle?: string | object
 }
 
+export interface AtIconBaseProps {
+  value: string
+
+  color?: string
+
+  prefixClass?: string
+
+  size?: number | string
+}
+
 export default AtComponent
