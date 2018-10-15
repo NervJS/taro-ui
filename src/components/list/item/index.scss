@@ -41,6 +41,10 @@ $item-horizontal-padding: 24px;
     @include align-items(center);
   }
 
+  &--icon {
+    margin-right: $item-horizontal-padding;
+  }
+
   &--thumb {
     .item-thumb {
       margin-right: $item-horizontal-padding;

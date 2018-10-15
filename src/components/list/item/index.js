@@ -33,6 +33,7 @@ export default class AtListItem extends AtComponent {
       arrow,
       title,
       thumb,
+      iconInfo,
       disabled,
       isSwitch,
       extraText,
@@ -55,6 +56,18 @@ export default class AtListItem extends AtComponent {
     return (
       <View className={rootClass} onClick={this.handleClick}>
         <View className='at-list__item-container'>
+          {iconInfo.value && !thumb ? (
+            <View className='at-list__item--icon'>
+              <AtIcon
+                size={iconInfo.size}
+                value={iconInfo.value}
+                color={iconInfo.color}
+                className={iconInfo.className}
+                customStyle={iconInfo.customStyle}
+                prefixClass={iconInfo.prefixClass}
+              />
+            </View>
+          ) : null}
           {thumb && (
             <View className='at-list__item-thumb item-thumb'>
               <Image
@@ -115,7 +128,8 @@ export default class AtListItem extends AtComponent {
 AtListItem.defaultProps = {
   hasBorder: true,
   isSwitch: false,
-  disabled: false
+  disabled: false,
+  iconInfo: {}
 }
 
 AtListItem.propTypes = {
@@ -130,5 +144,19 @@ AtListItem.propTypes = {
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
   onSwitchChange: PropTypes.func,
-  arrow: PropTypes.oneOf(['up', 'down', 'right'])
+  arrow: PropTypes.oneOf(['up', 'down', 'right']),
+  iconInfo: PropTypes.shape({
+    size: PropTypes.number,
+    value: PropTypes.string,
+    color: PropTypes.string,
+    prefixClass: PropTypes.string,
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
+  })
 }
