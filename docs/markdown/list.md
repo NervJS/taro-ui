@@ -84,6 +84,38 @@ import { AtList, AtListItem } from "taro-ui"
 :::demo
 
 ```html
+ <AtList>
+  <AtListItem
+    title='标题文字'
+    note='描述信息'
+    arrow='right'
+    iconInfo={{
+      size: 25,
+      color: '#78A4FA',
+      value: 'calendar',
+    }}
+  />
+  <AtListItem
+    title='标题文字'
+    note='描述信息'
+    extraText='详细信息'
+    arrow='right'
+    iconInfo={{
+      size: 25,
+      color: '#FF4949',
+      value: 'bookmark',
+    }}
+  />
+</AtList>
+```
+
+:::
+
+## 无边框的 Item
+
+:::demo
+
+```html
  <AtList hasBorder={false}>
   <AtListItem
     isSwitch
@@ -126,17 +158,18 @@ import { AtList, AtListItem } from "taro-ui"
 
 ## AtListItem 参数
 
-| 参数           | 说明                       | 类型     | 可选值                 | 默认值  |
-| -------------- | -------------------------- | -------- | ---------------------- | ------- |
-| title          | 元素的标题                 | String   | -                      | -       |
-| disabled       | 是否禁用                   | Boolean  | -                      | `false` |
-| note           | 元素的描述信息             | String   | -                      | -       |
-| thumb          | 元素的主要缩略图           | String   | -                      | -       |
-| arrow          | 箭头的方向                 | String   | `right`,`top`,`bottom` | -       |
-| extraText      | 额外信息的文本             | String   | -                      | -       |
-| extraThumb     | 额外信息的缩略图           | String   | -                      | -       |
-| isSwitch       | 额外信息是否开关           | Boolean  | -                      | `false` |
-| switchIsCheck  | 额外信息开关的值           | Boolean  | -                      | `false` |
-| hasBorder      | 是否有边框                 | Boolean  | -                      | `true`  |
-| onClick        | 用户点击元素触发的事件     | Function | -                      | -       |
-| onSwitchChange | 用户点击切换 Switch 时触发 | Function | -                      | -       |
+| 参数           | 说明                       | 类型                                                                 | 可选值                 | 默认值  |
+| -------------- | -------------------------- | -------------------------------------------------------------------- | ---------------------- | ------- |
+| title          | 元素的标题                 | String                                                               | -                      | -       |
+| disabled       | 是否禁用                   | Boolean                                                              | -                      | `false` |
+| note           | 元素的描述信息             | String                                                               | -                      | -       |
+| thumb          | 元素的主要缩略图           | String                                                               | -                      | -       |
+| arrow          | 箭头的方向                 | String                                                               | `right`,`top`,`bottom` | -       |
+| extraText      | 额外信息的文本             | String                                                               | -                      | -       |
+| extraThumb     | 额外信息的缩略图           | String                                                               | -                      | -       |
+| isSwitch       | 额外信息是否开关           | Boolean                                                              | -                      | `false` |
+| switchIsCheck  | 额外信息开关的值           | Boolean                                                              | -                      | `false` |
+| hasBorder      | 是否有边框                 | Boolean                                                              | -                      | `true`  |
+| iconInfo       | icon 信息                  | {'{ value , size? , color?, prefixClass?,className?,customStyle? }'} | -                      | `true`  |
+| onClick        | 用户点击元素触发的事件     | Function                                                             | -                      | -       |
+| onSwitchChange | 用户点击切换 Switch 时触发 | Function                                                             | -                      | -       |
