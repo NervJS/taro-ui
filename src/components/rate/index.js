@@ -9,6 +9,7 @@ import './index.scss'
 
 export default class AtRate extends AtComponent {
   static defaultProps = {
+    isTest: false,
     customStyle: '',
     className: '',
     size: 20,
@@ -43,6 +44,7 @@ export default class AtRate extends AtComponent {
 
   render () {
     const {
+      isTest,
       customStyle,
       className,
       value,
@@ -50,6 +52,10 @@ export default class AtRate extends AtComponent {
       size,
       margin
     } = this.props
+
+    if (isTest) {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
     const iconStyle = {
       marginRight: Taro.pxTransform(margin)
     }
