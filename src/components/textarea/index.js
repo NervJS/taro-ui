@@ -10,6 +10,7 @@ const defaultFunc = () => { }
 
 export default class AtTextarea extends AtComponent {
   static defaultProps = {
+    isTest: false,
     customStyle: '',
     className: '',
     value: '',
@@ -90,6 +91,7 @@ export default class AtTextarea extends AtComponent {
 
   render () {
     const {
+      isTest,
       customStyle,
       className,
       value,
@@ -109,6 +111,10 @@ export default class AtTextarea extends AtComponent {
       textOverflowForbidden,
       height
     } = this.props
+
+    if (isTest) {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
     let actualMaxlength = maxlength
     if (!textOverflowForbidden) {
       actualMaxlength += 500
