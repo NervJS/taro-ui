@@ -1,17 +1,17 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { BaseEvent } from '@tarojs/components/types/common'
 
-import AtComponent from './base'
+import AtComponent, { AtIconBaseProps } from './base'
 
 export interface Item {
-  icon?: string
   image?: string
+
   value?: string
-  iconSize?: number
-  iconColor?: string
+
+  iconInfo?: AtIconBaseProps
 }
 
-export interface AtGridProps extends AtComponent{
+export interface AtGridProps extends AtComponent {
   data: Array<Item>
 
   columnNum?: number
