@@ -11,7 +11,7 @@ $gird-img-size-sm: 50px;
     position: relative;
     @include border-thin-bottom($width: 1px);
 
-    &:not(:last-child)::after {
+    &::after {
       content: " ";
       position: absolute;
       right: 0;
@@ -48,6 +48,12 @@ $gird-img-size-sm: 50px;
   &__img {
     width: $grid-img-size;
     height: $grid-img-size;
+  }
+}
+
+.at-grid-item--last {
+  &::after {
+    content: initial;
   }
 }
 

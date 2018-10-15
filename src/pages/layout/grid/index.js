@@ -41,9 +41,12 @@ export default class GridPage extends Taro.Component {
           value: '领京豆'
         },
         {
-          image:
-            'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-          value: '手机馆'
+          value: '支持Icon',
+          iconInfo: {
+            size: 30,
+            color: 'red',
+            value: 'bookmark'
+          }
         }
       ]
     }
@@ -72,7 +75,17 @@ export default class GridPage extends Taro.Component {
             <View className='panel__title'>矩形案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtGrid mode='rect' data={this.state.data} />
+                <AtGrid
+                  mode='rect'
+                  data={[
+                    ...this.state.data,
+                    {
+                      image:
+                        'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+                      value: '手机馆'
+                    }
+                  ]}
+                />
               </View>
             </View>
           </View>
@@ -81,7 +94,18 @@ export default class GridPage extends Taro.Component {
             <View className='panel__title'>没有边框</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtGrid mode='rect' data={this.state.data} hasBorder={false} />
+                <AtGrid
+                  mode='rect'
+                  data={[
+                    ...this.state.data,
+                    {
+                      image:
+                        'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+                      value: '手机馆'
+                    }
+                  ]}
+                  hasBorder={false}
+                />
               </View>
             </View>
           </View>
