@@ -8,6 +8,8 @@ components:
         name: Quickstart
       - title: 自定义主题
         name: CustomizeTheme
+      - title: 常见问题
+        name: Questions
       - title: 更新日志
         name: Changelog
   - title: 组件
