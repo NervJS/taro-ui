@@ -8,6 +8,7 @@ import './index.scss'
 
 export default class AtSegmentedControl extends AtComponent {
   static defaultProps = {
+    isTest: false,
     customStyle: '',
     className: '',
     current: 0,
@@ -43,6 +44,7 @@ export default class AtSegmentedControl extends AtComponent {
 
   render () {
     const {
+      isTest,
       customStyle,
       className,
       disabled,
@@ -52,6 +54,10 @@ export default class AtSegmentedControl extends AtComponent {
       color,
       fontSize
     } = this.props
+
+    if (isTest) {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
     const rootStyle = `border-color: ${selectedColor};`
     const itemStyle = `
       color: ${selectedColor};
