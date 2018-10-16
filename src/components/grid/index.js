@@ -4,6 +4,7 @@ import { View, Text, Image } from '@tarojs/components'
 import _chunk from 'lodash/chunk'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
@@ -39,13 +40,19 @@ export default class AtGrid extends AtComponent {
 
     return (
       <View className={classNames('at-grid', this.props.className)}>
+        {this.props.children}
         {gridGroup.map((item, i) => (
           <View className='at-grid__flex' key={i}>
             {item.map((childItem, index) => (
               <View
                 key={index}
-                className={bodyClass}
+                className={classNames(bodyClass, {
+                  'at-grid-item--last': index === columnNum - 1
+                })}
                 onClick={this.handleClick.bind(this, childItem, index, i)}
+                style={{
+                  flex: `0 0 ${100 / columnNum}%`
+                }}
               >
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>
@@ -57,12 +64,15 @@ export default class AtGrid extends AtComponent {
                           mode='scaleToFill'
                         />
                       )}
-                      {childItem.icon &&
+                      {_isObject(childItem.iconInfo) &&
                         !childItem.image && (
                         <AtIcon
-                          value={childItem.icon}
-                          color={childItem.iconColor}
-                          size={childItem.iconSize}
+                          size={childItem.iconInfo.size}
+                          value={childItem.iconInfo.value}
+                          color={childItem.iconInfo.color}
+                          className={childItem.iconInfo.className}
+                          customStyle={childItem.iconInfo.customStyle}
+                          prefixClass={childItem.iconInfo.prefixClass}
                         />
                       )}
                     </View>
@@ -94,11 +104,16 @@ AtGrid.propTypes = {
   columnNum: PropTypes.number,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string,
       image: PropTypes.string,
       value: PropTypes.string,
-      iconSize: PropTypes.number,
-      iconColor: PropTypes.string
+      iconInfo: PropTypes.shape({
+        size: PropTypes.number,
+        value: PropTypes.string,
+        color: PropTypes.string,
+        prefixClass: PropTypes.string,
+        customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+        className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+      })
     })
   )
 }

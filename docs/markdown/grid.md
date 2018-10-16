@@ -129,12 +129,12 @@ import { AtGrid } from "taro-ui"
 
 ## AtGrid 参数
 
-| 参数      | 说明           | 类型                              | 可选值 | 默认值  |
-| --------- | -------------- | --------------------------------- | ------ | ------- |
-| data      | 宫格布局数据源 | [{'{ icon? , value? , image? }'}] | -      | -       |
-| mode      | 元素的标题     | String                            | -      | -       |
-| hasBorder | 是否有边框     | Boolean                           | -      | `false` |
-| columnNum | 每一列有多少个 | Number                            | -      | -       |
+| 参数      | 说明           | 类型                                  | 可选值 | 默认值  |
+| --------- | -------------- | ------------------------------------- | ------ | ------- |
+| data      | 宫格布局数据源 | [{'{ iconInfo? , value? , image? }'}] | -      | -       |
+| mode      | 元素的标题     | String                                | -      | -       |
+| hasBorder | 是否有边框     | Boolean                               | -      | `false` |
+| columnNum | 每一列有多少个 | Number                                | -      | -       |
 
 ## AtGrid 事件
 

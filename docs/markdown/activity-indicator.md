@@ -56,7 +56,7 @@ import { AtActivityIndicator } from 'taro-ui'
 
 :::
 
-## 垂直水平居中
+## 垂直水平居中（当设置 center 时需要给父容器提供 position: relative 属性）
 
 :::demo
 
