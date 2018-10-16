@@ -17,20 +17,36 @@ import { AtSearchBar } from 'taro-ui'
 
 ## 一般用法
 
+说明：用户需要通过 onChange 事件来更新值变化，onChange 函数必填
+
 :::demo
 
 ```js
-/*
+import Taro from '@tarojs/taro'
+import { AtSearchBar } from 'taro-ui'
+
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
   onChange (value) {
     this.setState({
       value: value
     })
   }
-*/
-<AtSearchBar
-  value={this.state.value}
-  onChange={this.onChange.bind(this)}
-/>
+  render () {
+    return (
+      <AtSearchBar
+        value={this.state.value}
+        onChange={this.onChange.bind(this)}
+      />
+    )
+  }
+}
+
 ```
 
 :::
@@ -40,22 +56,35 @@ import { AtSearchBar } from 'taro-ui'
 :::demo
 
 ```js
-/*
+import Taro from '@tarojs/taro'
+import { AtSearchBar } from 'taro-ui'
+
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
   onChange (value) {
     this.setState({
       value: value
     })
   }
   onActionClick () {
-    console.log('click')
+    console.log('开始搜索')
   }
-*/
-<AtSearchBar
-  actionName='搜一下'
-  value={this.state.value}
-  onChange={this.onChange.bind(this)}
-  onActionClick={this.onActionClick.bind(this)}
-/>
+  render () {
+    return (
+      <AtSearchBar
+        actionName='搜一下'
+        value={this.state.value}
+        onChange={this.onChange.bind(this)}
+        onActionClick={this.onActionClick.bind(this)}
+      />
+    )
+  }
+}
 ```
 
 :::
@@ -65,22 +94,35 @@ import { AtSearchBar } from 'taro-ui'
 :::demo
 
 ```js
-/*
+import Taro from '@tarojs/taro'
+import { AtSearchBar } from 'taro-ui'
+
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
   onChange (value) {
     this.setState({
       value: value
     })
   }
   onActionClick () {
-    console.log('click')
+    console.log('开始搜索')
   }
-*/
-<AtSearchBar
-  showActionButton
-  value={this.state.value}
-  onChange={this.onChange.bind(this)}
-  onActionClick={this.onActionClick.bind(this)}
-/>
+  render () {
+    return (
+      <AtSearchBar
+        showActionButton
+        value={this.state.value}
+        onChange={this.onChange.bind(this)}
+        onActionClick={this.onActionClick.bind(this)}
+      />
+    )
+  }
+}
 ```
 
 :::
