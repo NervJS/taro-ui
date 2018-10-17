@@ -4,11 +4,15 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface AtTabsProps extends AtComponent{
-  style?: string
+  tabDirection?: 'horizontal'|'vertical'
+
+  height?: string
 
   current?: number
 
   scroll?: boolean
+
+  animated?: boolean
 
   swipeable?: boolean
 

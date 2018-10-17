@@ -10,6 +10,7 @@ export default class AtTabsPane extends AtComponent {
   static defaultProps = {
     customStyle: '',
     className: '',
+    tabDirection: 'horizontal',
     index: 0,
     current: 0
   }
@@ -23,6 +24,7 @@ export default class AtTabsPane extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
+    tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
     index: PropTypes.number,
     current: PropTypes.number
   }
@@ -31,6 +33,7 @@ export default class AtTabsPane extends AtComponent {
     const {
       customStyle,
       className,
+      tabDirection,
       index,
       current
     } = this.props
@@ -40,6 +43,7 @@ export default class AtTabsPane extends AtComponent {
         className={
           classNames({
             'at-tabs-pane': true,
+            'at-tabs-pane--vertical': tabDirection === 'vertical',
             'at-tabs-pane--active': index === current,
             'at-tabs-pane--inactive': index !== current
           }, className)

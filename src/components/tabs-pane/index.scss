@@ -13,4 +13,10 @@
     height: 0;
     overflow: visible;
   }
+
+  &--vertical {
+    display: block;
+    height: 100%;
+    overflow: scroll;
+  }
 }

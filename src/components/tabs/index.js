@@ -11,9 +11,12 @@ export default class AtTabs extends AtComponent {
   static defaultProps = {
     customStyle: '',
     className: '',
+    tabDirection: 'horizontal',
+    height: '',
     current: 0,
     swipeable: true,
     scroll: false,
+    animated: true,
     tabList: [],
     onClick: () => { }
   }
@@ -27,9 +30,12 @@ export default class AtTabs extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
+    height: PropTypes.string,
+    tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
     current: PropTypes.number,
     swipeable: PropTypes.bool,
     scroll: PropTypes.bool,
+    animated: PropTypes.bool,
     tabList: PropTypes.array,
     onClick: PropTypes.func
   }
@@ -38,6 +44,7 @@ export default class AtTabs extends AtComponent {
     super(...arguments)
     this.state = {
       scrollLeft: 0,
+      scrollTop: 0,
       scrollIntoView: ''
     }
     // 触摸时的原点
@@ -63,8 +70,10 @@ export default class AtTabs extends AtComponent {
         })
       } else if (env === Taro.ENV_TYPE.WEB) {
         // web环境
+        const prevTabItem = this.refs.refTabHeader.vnode.dom.childNodes[i - 1]
         this.setState({
-          scrollLeft: this.refs.refTabHeader.vnode.dom.childNodes[i - 1].offsetLeft
+          scrollTop: prevTabItem.offsetTop,
+          scrollLeft: prevTabItem.offsetLeft
         })
       }
     }
@@ -72,7 +81,7 @@ export default class AtTabs extends AtComponent {
   }
 
   handleTouchStart (e) {
-    if (!this.props.swipeable) return
+    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
 
     // 获取触摸时的原点
     this.touchDot = e.touches[0].pageX
@@ -83,7 +92,7 @@ export default class AtTabs extends AtComponent {
   }
 
   handleTouchMove (e) {
-    if (!this.props.swipeable) return
+    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
 
     const { current } = this.props
     const touchMove = e.touches[0].pageX
@@ -104,7 +113,7 @@ export default class AtTabs extends AtComponent {
   }
 
   handleTouchEnd () {
-    if (!this.props.swipeable) return
+    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
 
     clearInterval(this.interval)
     this.time = 0
@@ -115,16 +124,34 @@ export default class AtTabs extends AtComponent {
     const {
       customStyle,
       className,
+      height,
+      tabDirection,
+      animated,
       tabList,
       scroll,
       current
     } = this.props
     const {
       scrollLeft,
+      scrollTop,
       scrollIntoView
     } = this.state
 
-    const animationStyle = `transform: translate3d(-${current * 100}%, 0px, 0px);`
+    const heightStyle = { height }
+    const underlineStyle = {
+      height: tabDirection === 'vertical' ? `${tabList.length * 100}%` : '1PX',
+      width: tabDirection === 'horizontal' ? `${tabList.length * 100}%` : '1PX'
+    }
+    const bodyStyle = { }
+    if (tabDirection === 'horizontal') {
+      bodyStyle.transform = `translate3d(-${current * 100}%, 0px, 0px)`
+    } else {
+      bodyStyle.transform = `translate3d(0px, -${current * 100}%, 0px)`
+    }
+    if (!animated) {
+      bodyStyle.transition = 'unset'
+    }
+
     const tabItems = tabList.map((item, i) => (
       <View
         className={
@@ -143,8 +170,13 @@ export default class AtTabs extends AtComponent {
 
     return (
       <View
-        className={classNames('at-tabs', className)}
-        style={customStyle}
+        className={
+          classNames({
+            'at-tabs': true,
+            'at-tabs--vertical': tabDirection === 'vertical',
+          }, className)
+        }
+        style={this.mergeStyle(heightStyle, customStyle)}
       >
         {
           scroll
@@ -155,9 +187,12 @@ export default class AtTabs extends AtComponent {
                   'at-tabs__header--scroll': scroll
                 })
               }
-              scrollX
+              style={heightStyle}
+              scrollX={tabDirection === 'horizontal'}
+              scrollY={tabDirection === 'vertical'}
               scrollWithAnimation
               scrollLeft={scrollLeft}
+              scrollTop={scrollTop}
               scrollIntoView={scrollIntoView}
               ref='refTabHeader'
             >
@@ -174,12 +209,14 @@ export default class AtTabs extends AtComponent {
               {tabItems}
             </View>
         }
-        <View className='at-tabs__body'
+        <View
+          className='at-tabs__body'
           onTouchStart={this.handleTouchStart.bind(this)}
           onTouchEnd={this.handleTouchEnd.bind(this)}
           onTouchMove={this.handleTouchMove.bind(this)}
-          style={animationStyle}
+          style={this.mergeStyle(bodyStyle, heightStyle)}
         >
+          <View className='at-tabs__underline' style={underlineStyle}></View>
           {this.props.children}
         </View>
       </View>

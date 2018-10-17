@@ -16,7 +16,8 @@ export default class Index extends Taro.Component {
       current1: 0,
       current2: 0,
       current3: 0,
-      current4: 0
+      current4: 0,
+      current5: 0
     }
   }
   handleClick (stateName, value) {
@@ -25,7 +26,7 @@ export default class Index extends Taro.Component {
     })
   }
   render () {
-    const { current1, current2, current3, current4 } = this.state
+    const { current1, current2, current3, current4, current5 } = this.state
     const tabList1 = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
     const tabList2 = [
       { title: '标签页1' },
@@ -33,10 +34,7 @@ export default class Index extends Taro.Component {
       { title: '标签页3' },
       { title: '标签页4' },
       { title: '标签页5' },
-      { title: '标签页6' },
-      { title: '标签页7' },
-      { title: '标签页8' },
-      { title: '标签页9' }
+      { title: '标签页6' }
     ]
 
     return (
@@ -83,15 +81,6 @@ export default class Index extends Taro.Component {
                 <AtTabsPane current={current2} index={5}>
                   <View className='tab-content'>标签页六的内容</View>
                 </AtTabsPane>
-                <AtTabsPane current={current2} index={6}>
-                  <View className='tab-content'>标签页七的内容</View>
-                </AtTabsPane>
-                <AtTabsPane current={current2} index={7}>
-                  <View className='tab-content'>标签页八的内容</View>
-                </AtTabsPane>
-                <AtTabsPane current={current2} index={8}>
-                  <View className='tab-content'>标签页九的内容</View>
-                </AtTabsPane>
               </AtTabs>
             </View>
           </View>
@@ -111,28 +100,50 @@ export default class Index extends Taro.Component {
               </AtTabs>
             </View>
           </View>
+
+          <View className='panel'>
+            <View className='panel__title'>垂直模式</View>
+            <View className='panel__content'>
+              <AtTabs height='200px' scroll tabDirection='vertical' current={current4} tabList={tabList2} onClick={this.handleClick.bind(this, 'current4')}>
+                <AtTabsPane tabDirection='vertical' current={current4} index={0}>
+                  <View className='tab-content--vertical'>标签页一的内容</View>
+                </AtTabsPane>
+                <AtTabsPane tabDirection='vertical' current={current4} index={1}>
+                  <View className='tab-content--vertical'>标签页二的内容</View>
+                </AtTabsPane>
+                <AtTabsPane tabDirection='vertical' current={current4} index={2}>
+                  <View className='tab-content--vertical'>标签页三的内容</View>
+                </AtTabsPane>
+                <AtTabsPane tabDirection='vertical' current={current4} index={3}>
+                  <View className='tab-content--vertical'>标签页四的内容</View>
+                </AtTabsPane>
+                <AtTabsPane tabDirection='vertical' current={current4} index={4}>
+                  <View className='tab-content--vertical'>标签页五的内容</View>
+                </AtTabsPane>
+                <AtTabsPane tabDirection='vertical' current={current4} index={5}>
+                  <View className='tab-content--vertical'>标签页六的内容</View>
+                </AtTabsPane>
+              </AtTabs>
+            </View>
+          </View>
+
           <View className='panel'>
             <View className='panel__title'>禁止内容切换动画</View>
             <View className='panel__content'>
-              <AtTabs current={current4} tabList={tabList1} onClick={this.handleClick.bind(this, 'current4')} />
-              {current4 === 0
-                ? <AtTabsPane>
+              <AtTabs current={current5} animated={false} tabList={tabList1} onClick={this.handleClick.bind(this, 'current5')}>
+                <AtTabsPane current={current5} index={0}>
                   <View className='tab-content'>标签页一的内容</View>
                 </AtTabsPane>
-                : null
-              }
-              {current4 === 1
-                ? <AtTabsPane>
+                <AtTabsPane current={current5} index={1}>
                   <View className='tab-content'>标签页二的内容</View>
                 </AtTabsPane>
-                : null
-              }
-              {current4 === 2
-                ? <AtTabsPane>
+                <AtTabsPane current={current5} index={2}>
                   <View className='tab-content'>标签页三的内容</View>
                 </AtTabsPane>
-                : null
-              }
+                <AtTabsPane current={current5} index={3}>
+                  <View className='tab-content'>标签页四的内容</View>
+                </AtTabsPane>
+              </AtTabs>
             </View>
           </View>
         </View>
