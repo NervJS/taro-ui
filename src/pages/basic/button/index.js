@@ -1,7 +1,8 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Form } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
+// import AtForm from '../../../components/form/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -28,6 +29,10 @@ export default class ButtonPage extends Taro.Component {
 
   onContact () {
     console.log('呼起客服回调')
+  }
+
+  onSubmit () {
+    Taro.showModal({ content: `submit event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
   }
 
   render () {
@@ -176,6 +181,12 @@ export default class ButtonPage extends Taro.Component {
               </View>
               <View className='btn-item'>
                 <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+              </View>
+
+              <View className='btn-item'>
+                <Form reportSubmit onSubmit={this.onSubmit.bind(this)}>
+                  <AtButton type='secondary' formType='submit'>form提交</AtButton>
+                </Form>
               </View>
             </View>
           </View>

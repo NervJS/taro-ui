@@ -1,6 +1,6 @@
 
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Form } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtLoading from '../loading/index'
 
@@ -51,6 +51,13 @@ export default class AtButton extends AtComponent {
     this.props.onOpenSetting && this.props.onOpenSetting(...arguments)
   }
 
+  onSumit () {
+    this.$scope.triggerEvent('submit', arguments[0].detail, {
+      bubbles: true,
+      composed: true,
+    })
+  }
+
   render () {
     const {
       size = 'normal',
@@ -94,7 +101,7 @@ export default class AtButton extends AtComponent {
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEAPP && !disabled && <Button className='at-button__wxbutton'
+        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)}><Button className='at-button__wxbutton'
           formType={formType}
           openType={openType}
           lang={lang}
@@ -110,7 +117,7 @@ export default class AtButton extends AtComponent {
           onError={this.onError.bind(this)}
           onContact={this.onContact.bind(this)}
         >
-        </Button>}
+        </Button></Form>}
         {component}<View className='at-button__text'>{this.props.children}</View>
       </View>
     )
