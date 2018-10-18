@@ -30,14 +30,18 @@ export default class AtSwipeAction extends AtComponent {
     const { isOpened } = this.state
 
     if (isClose && isOpened) {
-      this.endValue = 0
-      this.isTouching = false
-      this.handleClosed()
-      this.setState({
-        isOpened: false,
-        offsetSize: 0
-      })
+      this._reset()
     }
+  }
+
+  _reset () {
+    this.endValue = 0
+    this.isTouching = false
+    this.handleClosed()
+    this.setState({
+      isOpened: false,
+      offsetSize: 0
+    })
   }
 
   handleTouchStart = e => {
@@ -113,9 +117,7 @@ export default class AtSwipeAction extends AtComponent {
       onClick(item, index, ...arg)
     }
     if (autoClose) {
-      this.setState({
-        offsetSize: 0
-      })
+      this._reset()
     }
   }
 
