@@ -49,6 +49,8 @@ export interface AtInputProps extends AtComponent{
 
   autoFocus?: boolean
 
+  focus?: boolean
+
   onBlur?: InputFunction
 
   onFocus?: InputFunction

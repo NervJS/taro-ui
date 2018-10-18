@@ -20,18 +20,40 @@ import { AtInput, AtForm } from 'taro-ui'
 
 ## 一般用法
 
+说明：
+
+* 开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填
+
 :::demo
 
-```html
-<AtInput
-  name='value'
-  title='标准五个字'
-  type='text'
-  placeholder='标准五个字'
-  value={this.state.value}
-  onChange={this.handleChange}
-/>
-
+```js
+import Taro from '@tarojs/taro'
+import AtInput from 'taro-ui'
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
+  handleChange (value) {
+    this.setState({
+      value
+    })
+  }
+  render () {
+    return (
+      <AtInput
+        name='value'
+        title='标准五个字'
+        type='text'
+        placeholder='标准五个字'
+        value={this.state.value}
+        onChange={this.handleChange.bind(this)}
+      />
+    )
+  }
+}
 ```
 
 :::
@@ -48,7 +70,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='单行文本'
     value={this.state.value1}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     name='value2'
@@ -56,7 +78,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='number'
     placeholder='请输入数字'
     value={this.state.value2}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     name='value3'
@@ -64,7 +86,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='password'
     placeholder='密码不能少于10位数'
     value={this.state.value3}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     name='value4'
@@ -72,7 +94,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='idcard'
     placeholder='身份证号码'
     value={this.state.value4}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     name='value5'
@@ -80,7 +102,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='digit'
     placeholder='请输入小数'
     value={this.state.value5}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     name='value6'
@@ -89,7 +111,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='phone'
     placeholder='手机号码'
     value={this.state.value6}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
 </AtForm>
 ```
@@ -108,7 +130,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='禁止输入'
     value={this.state.value1}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     error
@@ -117,7 +139,7 @@ import { AtInput, AtForm } from 'taro-ui'
     placeholder='点击按钮触发回调'
     value={this.state.value2}
     onChange={this.handleChange}
-    onErrorClick={this.handleClick}
+    onErrorClick={this.handleClick.bind(this)}
   />
   <AtInput
     editable={false}
@@ -125,7 +147,7 @@ import { AtInput, AtForm } from 'taro-ui'
     type='text'
     placeholder='不可编辑'
     value={this.state.value3}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
   <AtInput
     clear
@@ -134,7 +156,7 @@ import { AtInput, AtForm } from 'taro-ui'
     placeholder='点击清除按钮清空内容'
     type='text'
     value={this.state.value4}
-    onChange={this.handleChange}
+    onChange={this.handleChange.bind(this)}
   />
 </AtForm>
 ```
@@ -154,7 +176,7 @@ import { AtInput, AtForm } from 'taro-ui'
   maxlength='4'
   placeholder='验证码'
   value={this.state.value}
-  onChange={this.handleChange}
+  onChange={this.handleChange.bind(this)}
 >
   <Image src='https://aotu.io/img.png' />
 </AtInput>
@@ -164,36 +186,37 @@ import { AtInput, AtForm } from 'taro-ui'
 
 ## Input 参数
 
-| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
-| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| name       | 输入框的唯一标识，有传入点击 title 会聚焦输入框 | String  | - | - |
-| type     | 输入框类型 | String | `text`,`number`,`password`,`phone`,`idcard`,`digit` | `text` |
-| value | 输入框值 | String  | - | - |
-| placeholder | 占位符  | String  | - | - |
-| placeholderStyle | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
-| placeholderClass | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
-| title     | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
-| maxlength | 最大长度 | Number  | -  | 140      |
-| cursorSpacing | 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
-| confirmType | 设置键盘右下角按钮的文字,只在小程序有效| String | - | '完成' |
-| cursor | 指定 focus 时的光标位置 | Number | - | - |
-| selectionStart | 光标起始位置，自动聚集时有效，需与 selection-end 搭配使用 | Number | - | -1 |
-| selectionEnd | 光标结束位置，自动聚集时有效，需与 selection-start 搭配使用 | Number | - | -1 |
-| adjustPosition | 键盘弹起时，是否自动上推页面 | Boolean | - | true |
-| disabled    | 是否禁止输入，禁止点击按钮  | Boolean | - | false    |
-| border    | 是否显示下划线边框  | Boolean | - | true    |
-| editable  | 是否可编辑 | Boolean | - | True |
-| error     | 是否出现错误 | Boolean | - | false |
-| clear     | 是否显示清除按钮 | Boolean | - | false |
-| autoFocus     | 是否自动聚焦 | Boolean | - | false |
+| 参数   |  微信小程序 |  h5 | 说明   | 类型    | 可选值 | 默认值   |
+| ---   | ----  | ---- | ---- | ------- | ------- | ------ |
+| name  | √ | √ | 输入框的唯一标识，有传入点击 title 会聚焦输入框 | String  | - | - |
+| type  | √ | √ | 输入框类型 | String | `text`,`number`,`password`,`phone`,`idcard`,`digit` | `text` |
+| value | √ | √ | 输入框值 | String  | - | - |
+| placeholder | √ | √ | 占位符  | String  | - | - |
+| placeholderStyle | √ | x | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
+| placeholderClass | √ | x | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
+| title     | √ | √ | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
+| maxlength | √ | √ |最大长度 | Number  | -  | 140      |
+| cursorSpacing | √ | x |指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
+| confirmType | √ | x |设置键盘右下角按钮的文字,只在小程序有效| String | - | '完成' |
+| cursor | √ | x |指定 focus 时的光标位置 | Number | - | - |
+| selectionStart | √ | x |光标起始位置，自动聚集时有效，需与 selection-end 搭配使用 | Number | - | -1 |
+| selectionEnd | √ | x |光标结束位置，自动聚集时有效，需与 selection-start 搭配使用 | Number | - | -1 |
+| adjustPosition | √ | x |键盘弹起时，是否自动上推页面 | Boolean | - | true |
+| disabled    | √ | √ |是否禁止输入，禁止点击按钮  | Boolean | - | false    |
+| border    | √ | √ | 是否显示下划线边框  | Boolean | - | true    |
+| editable  | √ | √ | 是否可编辑 | Boolean | - | True |
+| error     | √ | √ | 是否出现错误 | Boolean | - | false |
+| clear     | √ | √ | 是否显示清除按钮，需要传入 onChange 事件来改变value | Boolean | - | false |
+| autoFocus  | √ | x | 是否自动聚焦 | Boolean | - | false |
+| focus     | √ | x | 是否聚焦 | Boolean | - | false |
 
 ## Input 事件
 
-| 事件名称 | 说明          | 返回参数  |
-|---------- |-------------- |---------- |
-| onChange | 输入框值改变时触发的事件 | 输入框当前值 value  |
-| onFocus | 输入框被选中时触发的事件 | 输入框当前值 value  |
-| onBlur | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
-| onConfirm | 点击完成按钮时触发 | 输入框当前值 value  |
-| onErrorClick | 点击错误按钮触发的事件 | -  |
-| onClick | 当 editable 为 false时，点击组件触发的事件  | event |
+| 事件名称 |  微信小程序 |  h5 | 说明  | 返回参数  |
+|------- |---  |----- |---- | -------- |
+| onChange | √ | √ | 输入框值改变时触发的事件 | 输入框当前值 value  |
+| onFocus | √ | √ | 输入框被选中时触发的事件 | 输入框当前值 value  |
+| onBlur | √ | √ | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
+| onConfirm | √ | x | 点击完成按钮时触发 | 输入框当前值 value  |
+| onErrorClick | √ | √ | 点击错误按钮触发的事件 | -  |
+| onClick | √ | √ | 当 editable 为 false时，点击组件触发的事件  | event |
