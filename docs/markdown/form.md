@@ -1,9 +1,7 @@
 # Form 表单组件
 
 ---
-将组件内的用户输入的值提交。当点击 表单中 formType 为 submit 的 button 组件时，会将表单组件中的 value 值进行提交，需要在表单组件中加上 name 来作为 key。
-
-**目前该组件只对 AtInput 组件有效**
+将组件内的用户输入的值提交。由于小程序组件化的限制，要触发onSubmit，必须使用AtButton 且设置 `formType='submit'`，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取
 
 ## 使用指南
 
@@ -12,7 +10,7 @@
 :::demo
 
 ```js
-import { AtForm, AtInput } from 'taro-ui'
+import { AtForm } from 'taro-ui'
 ```
 
 :::
@@ -21,21 +19,48 @@ import { AtForm, AtInput } from 'taro-ui'
 
 :::demo
 
-```html
+```js
+import Taro from '@tarojs/taro'
+import { AtForm, AtInput, AtButton } from 'taro-ui'
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
+  handleChange (value) {
+    this.setState({
+      value
+    })
+  }
+  onSubmit (event) {
+    console.log(event)
+  }
+  onReset (event) {
+    console.log(event)
+  }
+  render () {
+    return (
+      <AtForm
+        onSubmit={this.onSubmit.bind(this)}
+        onReset={this.onReset.bind(this)}
+      >
+        <AtInput
+          name='value'
+          title='文本'
+          type='text'
+          placeholder='单行文本'
+          value={this.state.value}
+          onChange={this.handleChange.bind(this)}
+        />
+        <AtButton formType='submit'>提交</AtButton>
+        <AtButton formType='reset'>重置</AtButton>
+      </AtForm>
+    )
+  }
+}
 
-<AtForm
-  onSubmit={this.onSubmit.bind(this)}
-  onReset={this.onReset.bind(this)}
->
-  <AtInput
-    name='value1'
-    title='文本'
-    type='text'
-    placeholder='单行文本'
-    value={this.state.value1}
-    onChange={this.handleChange.bind(this)}
-  />
-</AtForm>
 
 ```
 
@@ -53,5 +78,5 @@ import { AtForm, AtInput } from 'taro-ui'
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onSubmit | 携带 form 中的数据触发 submit 事件 | event  |
+| onSubmit | 携带 form 中的数据触发 submit 事件，由于小程序组件化的限制，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取 | event  |
 | onReset | 表单重置时会触发 reset 事件 | event  |
