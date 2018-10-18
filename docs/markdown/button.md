@@ -62,6 +62,7 @@ import { AtButton } from 'taro-ui'
 | √    | -  | appParameter | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -   |
 
 > 注1：由于微信 button 的部分样式属性和 AtButton 有冲突，所以暂未被 AtButton 支持。支持的属性以上表为准
+
 > 注2：formType 为 submit、reset 都可以触发 Form 或 AtForm 的 submit、reset 事件，但是由于微信的限制，只能取到 event.detail 的部分值，比如 formid，不能取到 value。而 reset 也不会使 AtForm 里的 AtInput 等重置
 
 ## Button 事件
