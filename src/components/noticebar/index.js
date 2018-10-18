@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
+import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
 
 import AtComponent from '../../common/component'
@@ -14,6 +15,8 @@ export default class AtNoticebar extends AtComponent {
       show: true,
       animElemId,
       dura: 15,
+      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
     }
   }
 
@@ -28,16 +31,31 @@ export default class AtNoticebar extends AtComponent {
     this.props.onGotoMore && this.props.onGotoMore(...arguments)
   }
 
+  componentWillReceiveProps () {
+    if (!this.timeout) {
+      this.interval && clearInterval(this.interval)
+      this.initAnimation()
+    }
+  }
+
   componentDidMount () {
     if (!this.props.marquee) return
-    setTimeout(() => {
-      if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
-        const width = document.querySelector(`.${this.state.animElemId}`).getBoundingClientRect().width
+    this.initAnimation()
+  }
+
+  initAnimation () {
+    this.timeout = setTimeout(() => {
+      this.timeout = null
+      if (this.state.isWEB) {
+        const elem = document.querySelector(`.${this.state.animElemId}`)
+        if (!elem) return
+        const width = elem.getBoundingClientRect().width
         const dura = width / (+this.props.speed)
         this.setState({ dura })
-      } else if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
+      } else if (this.state.isWEAPP) {
         const query = Taro.createSelectorQuery().in(this.$scope)
         query.select(`.${this.state.animElemId}`).boundingClientRect(res => {
+          if (!res) return
           const { width } = res
           const dura = width / (+this.props.speed)
           const animation = Taro.createAnimation({
@@ -57,7 +75,7 @@ export default class AtNoticebar extends AtComponent {
             }, 100)
           }
           animBody()
-          setInterval(animBody, (dura * 1000) + 100)
+          this.interval = setInterval(animBody, (dura * 1000) + 100)
         }).exec()
       }
     }, 100)
@@ -86,28 +104,28 @@ export default class AtNoticebar extends AtComponent {
     const innerClassName = ['at-noticebar__content-inner']
     if (marquee) {
       close = false
-      rootClassName.push('at-noticebar--marquee')
       style['animation-duration'] = `${dura}s`
-      if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
-        rootClassName.push('at-noticebar--weapp')
-      }
       innerClassName.push(this.state.animElemId)
-    } else {
-      if (showMore) rootClassName.push('at-noticebar--more')
-      if (single) rootClassName.push('at-noticebar--single')
+    }
+
+    const classObject = {
+      'at-noticebar--marquee': marquee,
+      'at-noticebar--weapp': marquee && this.state.isWEAPP,
+      'at-noticebar--more': !marquee && showMore,
+      'at-noticebar--single': !marquee && single,
     }
 
     return (
       this.state.show &&
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >
         {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon value='close' size='16' color='#ccc'></AtIcon></View>}
         <View className='at-noticebar__content'>
           {icon && <View className='at-noticebar__content-icon'><AtIcon value={icon} size='16'></AtIcon></View>}
           <View className='at-noticebar__content-text'>
-            <Text animation={this.state.animationData} className={innerClassName} style={style}>{this.props.children}</Text>
+            <View animation={this.state.animationData} className={innerClassName} style={style}>{this.props.children}</View>
           </View>
         </View>
         {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}

@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import './index.scss'
@@ -36,19 +37,19 @@ export default class AtTag extends AtComponent {
       active = false,
       customStyle,
     } = this.props
-    let rootClassName = ['at-tag']
-    const sizeClass = SIZE_CLASS[size] || ''
-    const disabledClass = disabled ? 'at-tag--disabled' : ''
-    const typeClass = TYPE_CLASS[type] ? `at-tag--${type}` : ''
-    const activeClass = active ? 'at-tag--active' : ''
-    const circleClass = circle ? 'at-tag--circle' : ''
+    const rootClassName = ['at-tag']
 
-    rootClassName.push(`at-tag--${sizeClass}`, typeClass, activeClass, circleClass, disabledClass)
-    rootClassName = rootClassName.filter(str => str !== '')
+    const classObject = {
+      [`at-tag--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
+      [`at-tag--${type}`]: TYPE_CLASS[type],
+      'at-tag--disabled': disabled,
+      'at-tag--active': active,
+      'at-tag--circle': circle
+    }
 
     return (
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >

@@ -48,9 +48,10 @@ import { AtButton } from 'taro-ui'
 | √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
 | √    | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
 | √    | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
+| √    | √  | full    | 是否通栏样式（即按钮宽度为屏幕宽度时的样式）   | Boolean | -                      | false    |
 | √    | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
-| √    | √  | disabled | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
-| √    | -  | formType | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `submit`, `reset`                      | -    |
+| √    | √  | disabled[1] | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
+| √    | -  | formType[2] | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `submit`, `reset`                      | -    |
 | √    | -  | openType | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `contact`, `share`, `getUserInfo`, `getPhoneNumber`, `launchApp`, `openSetting`, `feedback`, `getRealnameAuthInfo`                      | -    |
 | √    | -  | lang | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | en    |
 | √    | -  | sessionFrom | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -    |
@@ -60,7 +61,8 @@ import { AtButton } from 'taro-ui'
 | √    | -  | showMessageCard | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | Boolean | -                      | false   |
 | √    | -  | appParameter | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | -                      | -   |
 
-> 注意：由于微信 button 的部分样式属性和 AtButton 有冲突，所以暂未被 AtButton 支持。支持的属性以上表为准
+> 注1：由于微信 button 的部分样式属性和 AtButton 有冲突，所以暂未被 AtButton 支持。支持的属性以上表为准
+> 注2：formType 为 submit、reset 都可以触发 Form 或 AtForm 的 submit、reset 事件，但是由于微信的限制，只能取到 event.detail 的部分值，比如 formid，不能取到 value。而 reset 也不会使 AtForm 里的 AtInput 等重置
 
 ## Button 事件
 
