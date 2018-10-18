@@ -25,8 +25,8 @@
     flex: 1;
     display: inline-block;
     padding-right: $spacing-v-md;
-    font-size: $font-size-lg;
-    line-height: $line-height-zh;
+    font-size: $font-size-lg !important;
+    line-height: $line-height-zh !important;
     vertical-align: middle;
     @include placeholder;
   }

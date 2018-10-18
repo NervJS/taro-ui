@@ -33,6 +33,7 @@ export default class AtInput extends AtComponent {
     error: false,
     clear: false,
     autoFocus: false,
+    focus: false,
     onChange: defaultFunc,
     onFocus: defaultFunc,
     onBlur: defaultFunc,
@@ -89,6 +90,7 @@ export default class AtInput extends AtComponent {
     clear: PropTypes.bool,
     backgroundColor: PropTypes.string,
     autoFocus: PropTypes.bool,
+    focus: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -145,6 +147,7 @@ export default class AtInput extends AtComponent {
       placeholderStyle,
       placeholderClass,
       autoFocus,
+      focus,
       value
     } = this.props
     let {
@@ -194,6 +197,7 @@ export default class AtInput extends AtComponent {
             cursorSpacing={cursorSpacing}
             maxlength={maxlength}
             autoFocus={autoFocus}
+            focus={focus}
             value={value}
             confirmType={confirmType}
             cursor={cursor}
