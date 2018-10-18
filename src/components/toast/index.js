@@ -98,18 +98,14 @@ export default class AtToast extends AtComponent {
     const realImg = image || statusImg[status] || null
     const isRenderIcon = !!(icon && !(image || statusImg[status]))
 
-    const bodyClass = classNames(
-      'toast-body',
-      {
-        'at-toast-body--custom-image': image,
-        'toast-body--text': !realImg && !icon,
-        [`at-toast-body--${status}`]: !!status
-      },
-      this.props.className
-    )
+    const bodyClass = classNames('toast-body', {
+      'at-toast-body--custom-image': image,
+      'toast-body--text': !realImg && !icon,
+      [`at-toast-body--${status}`]: !!status
+    })
 
     return _isOpened ? (
-      <View className={this.getClassName('at-toast', this.props.className)}>
+      <View className={classNames('at-toast', this.props.className)}>
         {hasMask && <View className='at-toast-overlay' />}
         <View className={bodyClass} onClick={this.handleClick}>
           <View className='toast-body-content'>
