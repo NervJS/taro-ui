@@ -49,6 +49,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
   title='标题'
   cancelText='取消'
   confirmText='确认'
+  onClose={ this.handleClose }
   onCancel={ this.handleCancel }
   onConfirm={ this.handleConfirm }
   content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
@@ -59,18 +60,17 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 
 ## AtModal 参数
 
-| 参数        | 说明                   | 类型     | 可选值 | 默认值 |
-| ----------- | ---------------------- | -------- | ------ | ------ |
-| title       | 元素的标题             | String   | -      | -      |
-| content     | 元素的内容             | String   | -      | -      |
-| cancelText  | 取消按钮的文本         | String   | -      | -      |
-| confirmText | 确认按钮的文本         | String   | -      | -      |
-| onCancel    | 点击取消按钮触发的样式 | Function | -      | -      |
-| onConfirm   | 点击确认按钮触发的事件 | Function | -      | -      |
+| 参数        | 说明           | 类型   | 可选值 | 默认值 |
+| ----------- | -------------- | ------ | ------ | ------ |
+| title       | 元素的标题     | String | -      | -      |
+| content     | 元素的内容     | String | -      | -      |
+| cancelText  | 取消按钮的文本 | String | -      | -      |
+| confirmText | 确认按钮的文本 | String | -      | -      |
 
 ## AtModal 事件
 
 | 事件名称  | 说明                   | 返回参数 |
 | --------- | ---------------------- | -------- |
+| onClose   | 触发关闭时的事件       | -        |
 | onCancel  | 点击取消按钮触发的样式 | -        |
 | onConfirm | 点击确认按钮触发的事件 | -        |

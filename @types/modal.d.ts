@@ -3,9 +3,9 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-export interface AtModalProps extends AtComponent{
+export interface AtModalProps extends AtComponent {
   title?: string
-  
+
   isOpened: boolean
 
   content?: string
@@ -13,6 +13,8 @@ export interface AtModalProps extends AtComponent{
   cancelText?: string
 
   confirmText?: string
+
+  onClose?: BaseEventFunction
 
   onCancel?: BaseEventFunction
 

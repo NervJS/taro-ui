@@ -3,6 +3,7 @@ import { View, Button, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import _isFunction from 'lodash/isFunction'
 
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
@@ -30,6 +31,33 @@ export default class AtModal extends AtComponent {
     }
   }
 
+  close = () => {
+    this.setState(
+      {
+        _isOpened: false
+      },
+      this.handleClose
+    )
+  }
+
+  handleClose = () => {
+    if (_isFunction(this.props.onClose)) {
+      this.props.onClose()
+    }
+  }
+
+  handleCancel = () => {
+    if (_isFunction(this.props.onCancel)) {
+      this.props.onCancel()
+    }
+  }
+
+  handleConfirm = () => {
+    if (_isFunction(this.props.onConfirm)) {
+      this.props.onConfirm()
+    }
+  }
+
   handleTouchMove = e => {
     e.stopPropagation()
   }
@@ -50,7 +78,7 @@ export default class AtModal extends AtComponent {
       const isRenderAction = cancelText || confirmText
       return (
         <View className={rootClass} onTouchMove={this.handleTouchMove}>
-          <View className='at-modal__overlay' />
+          <View onClick={this.close} className='at-modal__overlay' />
           <View className='at-modal__container'>
             {title && (
               <AtModalHeader>
@@ -67,10 +95,10 @@ export default class AtModal extends AtComponent {
             {isRenderAction && (
               <AtModalAction isSimple>
                 {cancelText && (
-                  <Button onClick={this.props.onCancel}>{cancelText}</Button>
+                  <Button onClick={this.handleCancel}>{cancelText}</Button>
                 )}
                 {confirmText && (
-                  <Button onClick={this.props.onConfirm}>{confirmText}</Button>
+                  <Button onClick={this.handleConfirm}>{confirmText}</Button>
                 )}
               </AtModalAction>
             )}
@@ -80,11 +108,8 @@ export default class AtModal extends AtComponent {
     }
 
     return (
-      <View
-        onTouchMove={this.handleTouchMove}
-        className={this.getClassName(rootClass, this.props.className)}
-      >
-        <View className='at-modal__overlay' />
+      <View onTouchMove={this.handleTouchMove} className={rootClass}>
+        <View className='at-modal__overlay' onClick={this.close} />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>
     )

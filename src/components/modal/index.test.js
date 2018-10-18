@@ -97,6 +97,7 @@ describe('Modal Behavior ', () => {
   it('Modal onClose & onCancel & onClick', () => {
     const onCancel = jest.fn()
     const onConfirm = jest.fn()
+    const onClose = jest.fn()
 
     const component = renderIntoDocument(
       <AtModal
@@ -104,6 +105,7 @@ describe('Modal Behavior ', () => {
         title='标题'
         cancelText='取消'
         confirmText='确认'
+        onClose={onClose}
         onCancel={onCancel}
         onConfirm={onConfirm}
         content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
@@ -117,11 +119,19 @@ describe('Modal Behavior ', () => {
     const confirmDom = componentDom.querySelector(
       '.at-modal-footer__action button:last-child'
     )
+    const overlayDom = componentDom.querySelector('.at-modal__overlay')
 
     Simulate.click(cancelDom)
     expect(onCancel).toBeCalled()
 
     Simulate.click(confirmDom)
     expect(onConfirm).toBeCalled()
+
+    expect(component.state._isOpened).toBeTruthy()
+    Simulate.click(overlayDom)
+    process.nextTick(() => {
+      expect(onClose).toBeCalled()
+      expect(component.state._isOpened).toBeFalsy()
+    })
   })
 })
