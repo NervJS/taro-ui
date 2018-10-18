@@ -40,4 +40,19 @@ describe('AtTabs Snap', () => {
     const componet = renderToString(<AtTabs scroll tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
+
+  it('render AtTabs -- props tabDirection', () => {
+    const componet = renderToString(<AtTabs scroll tabDirection='vertical' tabList={tabList} />)
+    expect(componet).toMatchSnapshot()
+  })
+
+  it('render AtTabs -- props animated', () => {
+    const componet = renderToString(<AtTabs animated={false} tabList={tabList} />)
+    expect(componet).toMatchSnapshot()
+  })
+
+  it('render AtTabs -- props height', () => {
+    const componet = renderToString(<AtTabs height='300px' tabDirection='vertical' tabList={tabList} />)
+    expect(componet).toMatchSnapshot()
+  })
 })
