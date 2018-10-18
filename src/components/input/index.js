@@ -206,7 +206,6 @@ export default class AtInput extends AtComponent {
             adjustPosition={adjustPosition}
             disabled={disabled}
             onInput={this.onInput.bind(this)}
-            onChange={this.onInput.bind(this)}
             onFocus={this.onFocus.bind(this)}
             onBlur={this.onBlur.bind(this)}
             onConfirm={this.onConfirm.bind(this)}
