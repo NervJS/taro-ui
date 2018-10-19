@@ -14,10 +14,10 @@ export default class AtSwipeAction extends AtComponent {
   constructor () {
     super(...arguments)
 
-    this.startX = null
-    this.maxOffsetSize = 0
-    this.isTouching = false
     this.endValue = 0
+    this.startX = null
+    this.isTouching = false
+    this.maxOffsetSize = 0
 
     this.state = {
       offsetSize: 0,
@@ -31,26 +31,17 @@ export default class AtSwipeAction extends AtComponent {
 
     if (isClose && isOpened) {
       this._reset()
+      this.handleClosed()
     }
   }
 
   _reset () {
     this.endValue = 0
     this.isTouching = false
-    this.handleClosed()
     this.setState({
-      isOpened: false,
-      offsetSize: 0
+      offsetSize: 0,
+      isOpened: false
     })
-  }
-
-  handleTouchStart = e => {
-    const { clientX } = e.touches[0]
-
-    if (this.props.disabled) return
-
-    this.startX = clientX
-    this.isTouching = true
   }
 
   handleOpened = () => {
@@ -63,6 +54,15 @@ export default class AtSwipeAction extends AtComponent {
     if (_isFunction(this.props.onClosed) && this.state.isOpened) {
       this.props.onClosed()
     }
+  }
+
+  handleTouchStart = e => {
+    const { clientX } = e.touches[0]
+
+    if (this.props.disabled) return
+
+    this.startX = clientX
+    this.isTouching = true
   }
 
   handleTouchEnd = () => {
@@ -113,11 +113,13 @@ export default class AtSwipeAction extends AtComponent {
 
   handleClick = (item, index, ...arg) => {
     const { onClick, autoClose } = this.props
+
     if (_isFunction(onClick)) {
       onClick(item, index, ...arg)
     }
     if (autoClose) {
       this._reset()
+      this.handleClosed()
     }
   }
 
