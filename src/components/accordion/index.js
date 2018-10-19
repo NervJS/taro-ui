@@ -101,6 +101,8 @@ export default class AtAccordion extends AtComponent {
     }
     if (this.isOpen) {
       animatedStyle.transform = 'rotate(180deg)'
+    } else {
+      animatedStyle.transform = 'rotate(0)'
     }
 
     const contentCls = {
