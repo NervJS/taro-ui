@@ -30,6 +30,11 @@ describe('AtButton Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtButton -- props full', () => {
+    const component = renderToString(<AtButton full>按钮</AtButton>)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtButton -- props loading', () => {
     const component = renderToString(<AtButton loading>按钮</AtButton>)
     expect(component).toMatchSnapshot()

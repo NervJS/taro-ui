@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import classNames from 'classnames'
+
 import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
@@ -15,6 +17,10 @@ export default class AtTimeline extends AtComponent {
 
     const rootClassName = ['at-timeline']
     if (pending) rootClassName.push('at-timeline--pending')
+
+    const rootClassObject = {
+      'at-timeline--pending': pending,
+    }
 
     const itemElems = items.map((item, index) => {
       const {
@@ -54,7 +60,7 @@ export default class AtTimeline extends AtComponent {
     })
     return (
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, rootClassObject, this.props.className)}
         style={customStyle}
       >
         {itemElems}

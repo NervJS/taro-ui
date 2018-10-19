@@ -88,4 +88,10 @@ $at-button-height-sm: 60px;
       display: none;
     }
   }
+
+  &--full {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
 }

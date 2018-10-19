@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
@@ -65,7 +66,7 @@ export default class AtDrawer extends AtComponent {
       animShow,
       show,
     } = this.state
-    let rootClassName = ['at-drawer']
+    const rootClassName = ['at-drawer']
 
     const maskStyle = {
       display: mask ? 'block' : 'none',
@@ -75,15 +76,16 @@ export default class AtDrawer extends AtComponent {
       width,
       transition: animShow ? 'all 225ms cubic-bezier(0, 0, 0.2, 1)' : 'all 195ms cubic-bezier(0.4, 0, 0.6, 1)',
     }
-    if (right) rootClassName.push('at-drawer--right')
-    else rootClassName.push('at-drawer--left')
 
-    if (animShow) rootClassName.push('at-drawer--show')
-    rootClassName = rootClassName.filter(str => str !== '')
+    const classObject = {
+      'at-drawer--show': animShow,
+      'at-drawer--right': right,
+      'at-drawer--left': !right,
+    }
 
     return (
       show && <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, classObject, this.props.className)}
       >
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 

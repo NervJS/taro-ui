@@ -1,7 +1,8 @@
 
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Form } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import AtLoading from '../loading/index'
 
 import AtComponent from '../../common/component'
@@ -51,11 +52,26 @@ export default class AtButton extends AtComponent {
     this.props.onOpenSetting && this.props.onOpenSetting(...arguments)
   }
 
+  onSumit () {
+    this.$scope.triggerEvent('submit', arguments[0].detail, {
+      bubbles: true,
+      composed: true,
+    })
+  }
+
+  onReset () {
+    this.$scope.triggerEvent('reset', arguments[0].detail, {
+      bubbles: true,
+      composed: true,
+    })
+  }
+
   render () {
     const {
       size = 'normal',
       type = '',
       circle,
+      full,
       loading,
       disabled,
       customStyle,
@@ -73,14 +89,14 @@ export default class AtButton extends AtComponent {
     const {
       isWEAPP,
     } = this.state
-    let rootClassName = ['at-button']
-    const sizeClass = SIZE_CLASS[size] || ''
-    const disabledClass = disabled ? 'at-button--disabled' : ''
-    const typeClass = TYPE_CLASS[type] ? `at-button--${type}` : ''
-    const circleClass = circle ? 'at-button--circle' : ''
-
-    rootClassName.push(`at-button--${sizeClass}`, typeClass, circleClass, disabledClass)
-    rootClassName = rootClassName.filter(str => str !== '')
+    const rootClassName = ['at-button']
+    const classObject = {
+      [`at-button--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
+      'at-button--disabled': disabled,
+      [`at-button--${type}`]: TYPE_CLASS[type],
+      'at-button--circle': circle,
+      'at-button--full': full,
+    }
     const loadingColor = type === 'primary' ? '#fff' : '#6190E8'
     const loadingSize = size === 'small' ? '16' : '18'
     let component
@@ -90,11 +106,11 @@ export default class AtButton extends AtComponent {
     }
     return (
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEAPP && !disabled && <Button className='at-button__wxbutton'
+        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}><Button className='at-button__wxbutton'
           formType={formType}
           openType={openType}
           lang={lang}
@@ -110,7 +126,7 @@ export default class AtButton extends AtComponent {
           onError={this.onError.bind(this)}
           onContact={this.onContact.bind(this)}
         >
-        </Button>}
+        </Button></Form>}
         {component}<View className='at-button__text'>{this.props.children}</View>
       </View>
     )
@@ -121,6 +137,7 @@ AtButton.defaultProps = {
   size: 'normal',
   type: '',
   circle: false,
+  full: false,
   loading: false,
   disabled: false,
   customStyle: {},
@@ -146,6 +163,7 @@ AtButton.propTypes = {
   size: PropTypes.oneOf(['normal', 'small']),
   type: PropTypes.oneOf(['primary', 'secondary', '']),
   circle: PropTypes.bool,
+  full: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,

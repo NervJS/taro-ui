@@ -10,6 +10,8 @@ export interface AtButtonProps extends AtComponent{
 
   circle?: boolean
 
+  full?: boolean
+
   loading?: boolean
 
   disabled?: boolean

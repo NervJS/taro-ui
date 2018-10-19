@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Image, Text, OpenData } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 
@@ -16,7 +17,7 @@ export default class AtAvatar extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
-
+      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
     }
   }
 
@@ -32,18 +33,18 @@ export default class AtAvatar extends AtComponent {
       openData,
       customStyle,
     } = this.props
-    let rootClassName = ['at-avatar']
-    const sizeClass = SIZE_CLASS[size] || ''
-    const circleClass = circle ? 'at-avatar--circle' : ''
+    const rootClassName = ['at-avatar']
 
-    rootClassName.push(`at-avatar--${sizeClass}`, circleClass)
-    rootClassName = rootClassName.filter(str => str !== '')
+    const classObject = {
+      [`at-avatar--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
+      'at-avatar--circle': circle,
+    }
 
     let letter = ''
     if (text) letter = text[0]
 
     let elem
-    if (openData && openData.type === 'userAvatarUrl' && Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
+    if (openData && openData.type === 'userAvatarUrl' && this.state.isWEAPP) {
       elem = (<OpenData type={openData.type}></OpenData>)
     } else if (image) {
       elem = (<Image className='at-avatar__img' src={image} />)
@@ -52,7 +53,7 @@ export default class AtAvatar extends AtComponent {
     }
     return (
       <View
-        className={this.getClassName(rootClassName, this.props.className)}
+        className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >{elem}</View>
     )

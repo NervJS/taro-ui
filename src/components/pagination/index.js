@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import AtButton from '../button/index'
 import AtIcon from '../icon/index'
@@ -88,14 +89,17 @@ export default class AtPagination extends AtComponent {
     } = this.state
 
     const rootClassName = ['at-pagination']
-    if (icon) rootClassName.push('at-pagination--icon')
 
     const prevDisabled = maxPage === MIN_MAXPAGE || current === 1
     const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
+
+    const classObject = {
+      'at-pagination--icon': icon,
+    }
+
     return (
       <View
-        // className={this.getClassName(rootClassName, this.props.className)}
-        className={rootClassName}
+        className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >
         <View className='at-pagination__operate'>

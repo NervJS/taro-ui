@@ -1,7 +1,8 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Form } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
+// import AtForm from '../../../components/form/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
@@ -28,6 +29,18 @@ export default class ButtonPage extends Taro.Component {
 
   onContact () {
     console.log('呼起客服回调')
+  }
+
+  onSubmit () {
+    Taro.showModal({ content: `submit event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
+  }
+
+  onReset () {
+    Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
+  }
+
+  onGetUserInfo () {
+    console.log('onGetUserInfo', arguments)
   }
 
   render () {
@@ -83,6 +96,24 @@ export default class ButtonPage extends Taro.Component {
               </View>
               <View className='btn-item'>
                 <AtButton disabled>不可操作</AtButton>
+              </View>
+            </View>
+          </View>
+          {/* 通栏 */}
+          <View className='panel'>
+            <View className='panel__title'>通栏按钮</View>
+            <View className='panel__content' style='padding:0'>
+              <View className='btn-item'>
+                <AtButton type='primary' full>主操作按钮</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton type='secondary' full>次操作按钮</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton full>次次要操作按钮</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton disabled full>不可操作</AtButton>
               </View>
             </View>
           </View>
@@ -176,6 +207,17 @@ export default class ButtonPage extends Taro.Component {
               </View>
               <View className='btn-item'>
                 <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+              </View>
+
+              <View className='btn-item'>
+                <Form reportSubmit onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
+                  <View className='btn-item'>
+                    <AtButton type='primary' formType='submit'>form submit</AtButton>
+                  </View>
+                  <View className='btn-item'>
+                    <AtButton type='secondary' formType='reset'>form reset</AtButton>
+                  </View>
+                </Form>
               </View>
             </View>
           </View>
