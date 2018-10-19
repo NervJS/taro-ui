@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: start;
   background-color: $color-bg;
-  @include border-thin-top($width: 1PX);
+  @include border-thin-top($width: 1px);
 
   &__item {
     flex: 1;

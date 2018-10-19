@@ -3,7 +3,7 @@
 
 .at-list {
   /* prettier-ignore */
-  @include border-thin-top($width: 1PX);
+  @include border-thin-top($width: 1px);
 
   position: relative;
   background-color: white;
@@ -15,10 +15,10 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    background-color: $color-border-lighter;
+    background-color: $color-border-light;
 
     /* prettier-ignore */
-    height: 1PX;
+    height: 1px;
   }
 
   &::before {
@@ -30,7 +30,7 @@
     background-color: transparent;
 
     /* prettier-ignore */
-    height: calc(100% - 1PX);
+    height: calc(100% - 1px);
     top: 0;
   }
 

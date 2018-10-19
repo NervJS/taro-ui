@@ -23,7 +23,15 @@ const config = {
   defineConstants: {
   },
   weapp: {
-
+    module: {
+      postcss: {
+        pxtransform: {
+          config: {
+            onePxTransform: true
+          }
+        }
+      }
+    }
   },
   h5: {
     staticDirectory: 'static',
@@ -31,6 +39,11 @@ const config = {
       postcss: {
         autoprefixer: {
           enable: true
+        },
+        pxtransform: {
+          config: {
+            onePxTransform: false
+          }
         }
       }
     }

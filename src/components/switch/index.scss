@@ -7,7 +7,7 @@
   align-items: center;
   background-color: $color-bg;
   padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
-  @include border-thin-bottom($width: 1PX);
+  @include border-thin-bottom($width: 1px);
 
   &__title {
     flex: 6;

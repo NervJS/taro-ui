@@ -9,5 +9,5 @@
   line-height: $line-height-zh;
 
   /* prettier-ignore */
-  @include border-thin-bottom($width: 1PX);
+  @include border-thin-bottom($width: 1px);
 }
