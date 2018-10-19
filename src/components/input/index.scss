@@ -5,7 +5,7 @@
   padding: $spacing-v-lg 0;
   background-color: $color-bg;
   color: $color-text-base;
-  @include border-thin-bottom($width: 1PX);
+  @include border-thin-bottom($width: 1px);
 
   &__container {
     display: flex;

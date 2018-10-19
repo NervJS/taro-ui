@@ -79,7 +79,7 @@ $checkbox-icon-px-size: 20PX;
 
   &__option + &__option {
     .at-checkbox__option_wrap {
-      @include border-thin-top($width: 1PX);
+      @include border-thin-top($width: 1px);
     }
   }
 }

@@ -6,5 +6,5 @@
   padding-left: $spacing-h-xl;
   background-color: $color-bg;
   overflow: hidden;
-  @include border-thin($directions: bottom top, $width: 1PX);
+  @include border-thin($directions: bottom top, $width: 1px);
 }
