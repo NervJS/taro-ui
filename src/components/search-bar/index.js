@@ -89,6 +89,8 @@ export default class AtSearchBar extends AtComponent {
       disabled,
       showActionButton,
       actionName,
+      className,
+      customStyle
     } = this.props
     const { isFocus } = this.state
 
@@ -113,8 +115,9 @@ export default class AtSearchBar extends AtComponent {
           classNames({
             'at-search-bar': true,
             'at-search-bar--fixed': fixed
-          })
+          }, className)
         }
+        style={customStyle}
       >
         <View className='at-search-bar__container'>
           <View

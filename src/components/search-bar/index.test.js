@@ -9,6 +9,16 @@ describe('AtSearchBar Snap', () => {
     expect(componet).toMatchSnapshot()
   })
 
+  it('render AtSearchBar -- props className', () => {
+    const componet = renderToString(<AtSearchBar className='test' />)
+    expect(componet).toMatchSnapshot()
+  })
+
+  it('render AtSearchBar -- props customStyle', () => {
+    const componet = renderToString(<AtSearchBar customStyle='color:red;' />)
+    expect(componet).toMatchSnapshot()
+  })
+
   it('render AtSearchBar -- props value', () => {
     const componet = renderToString(<AtSearchBar value='value' />)
     expect(componet).toMatchSnapshot()
