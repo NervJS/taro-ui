@@ -30,8 +30,8 @@ $item-horizontal-padding: 24px;
     width: calc(100% - #{$spacing-h-lg});
 
     /* prettier-ignore */
-    height: 1PX;
-    background-color: $color-border-lighter;
+    height: 1px;
+    background-color: $color-border-light;
     bottom: 0;
     left: $spacing-h-lg;
   }

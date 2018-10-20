@@ -10,7 +10,7 @@
     min-height: $font-size-lg;
     font-size: $font-size-lg;
     padding: $spacing-v-lg $spacing-h-lg;
-    @include border-thin-bottom($width: 1PX);
+    @include border-thin-bottom($width: 1px);
     @include active;
   }
 
@@ -30,11 +30,11 @@
       content: '';
       display: block;
       width: 100%;
-      height: 1PX;
+      height: 1px;
       position: absolute;
-      bottom: -1PX;
+      bottom: -1px;
       left: 0;
-      @include border-thin-top($width: 1PX);
+      @include border-thin-top($width: 1px);
     }
   }
 }

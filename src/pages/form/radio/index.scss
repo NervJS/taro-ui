@@ -1,5 +1,5 @@
 @import '../../../style/mixins/index.scss';
 
 .radio-container {
-  @include border-thin($directions: top bottom, $width: 1PX);
+  @include border-thin($directions: top bottom, $width: 1px);
 }

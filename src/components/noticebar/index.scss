@@ -28,6 +28,10 @@ $noticebar-icon-size: 26px;
       display: inline;
       font-size: $font-size-sm;
     }
+
+    &-inner {
+      display: inline;
+    }
   }
 
   &__close {
