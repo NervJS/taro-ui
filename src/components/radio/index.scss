@@ -3,6 +3,7 @@
 
 .at-radio {
   background-color: $color-bg;
+  @include hairline-top-bottom();
 
   &__option_wrap {
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
@@ -60,7 +61,7 @@
 
   &__option + &__option {
     .at-radio__option_wrap {
-      @include border-thin-top($width: 1px);
+      @include hairline-top();
     }
   }
 }

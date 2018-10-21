@@ -13,7 +13,7 @@ $placeholderPadding: 5PX;
   box-sizing: content-box;
   overflow: hidden;
   background-color: $color-bg;
-  @include border-thin-bottom;
+  @include hairline-bottom();
 
   &__container {
     position: relative;

@@ -7,7 +7,5 @@
   font-size: $font-size-base;
   text-align: center;
   line-height: $line-height-zh;
-
-  /* prettier-ignore */
-  @include border-thin-bottom($width: 1px);
+  @include hairline-bottom();
 }

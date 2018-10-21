@@ -5,7 +5,7 @@
   padding: $spacing-v-lg 0;
   background-color: $color-bg;
   color: $color-text-base;
-  @include border-thin-bottom($width: 1px);
+  @include hairline-bottom();
 
   &__container {
     display: flex;
@@ -46,7 +46,7 @@
 
   &__children {
     display: inline-flex;
-    @include border-thin-left;
+    @include hairline-left();
 
     > view,
     div,

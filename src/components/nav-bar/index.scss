@@ -13,7 +13,7 @@ $font-size: 18PX;
   box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
-  @include border-thin-bottom($width: 1px);
+  @include hairline-bottom();
 
   &--fixed {
     position: fixed;

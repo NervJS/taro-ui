@@ -2,8 +2,7 @@
 @import "../../../style/theme/default";
 
 .at-modal-footer {
-  /* prettier-ignore */
-  @include border-thin-top($color:$color-grey-4,$width: 1px);
+  @include hairline-top($color: $color-grey-4);
 
   .at-modal-action {
     @include display-flex;
@@ -26,11 +25,12 @@
       &::after {
         border: 0;
         border-radius: 0;
+        width: initial;
+        height: initial;
       }
 
       &:not(:first-child) {
-        /* prettier-ignore */
-        @include border-thin-left($color: $color-grey-4,$width:1px);
+        @include hairline-left-relative($color: $color-grey-4);
       }
 
       &:first-child:last-child {
