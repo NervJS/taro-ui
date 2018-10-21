@@ -23,18 +23,7 @@ $item-horizontal-padding: 24px;
   color: $color-text-base;
   font-size: $font-size-lg;
   line-height: $line-height-zh;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    width: calc(100% - #{$spacing-h-lg});
-
-    /* prettier-ignore */
-    height: 1px;
-    background-color: $color-border-light;
-    bottom: 0;
-    left: $spacing-h-lg;
-  }
+  @include hairline-bottom-relative($left: $spacing-h-lg);
 
   &-container {
     @include display-flex;

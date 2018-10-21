@@ -1,4 +1,5 @@
 @import '../../components/icon/index.scss';
+@import '../../style/mixins/index.scss';
 @import '../../style/theme/default.scss';
 
 /**
@@ -50,7 +51,7 @@
     align-items: center;
     justify-content: space-between;
     height: 120px;
-    border-bottom: 1px solid $color-border-lighter;
+    @include hairline-bottom();
 
     .name {
       color: #1d1d26;

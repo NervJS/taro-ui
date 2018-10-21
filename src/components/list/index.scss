@@ -2,37 +2,8 @@
 @import "../../style/theme/default.scss";
 
 .at-list {
-  /* prettier-ignore */
-  @include border-thin-top($width: 1px);
-
-  position: relative;
   background-color: white;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background-color: $color-border-light;
-
-    /* prettier-ignore */
-    height: 1px;
-  }
-
-  &::before {
-    content: " ";
-    left: 0;
-    width: $spacing-v-lg;
-    z-index: 100;
-    position: absolute;
-    background-color: transparent;
-
-    /* prettier-ignore */
-    height: calc(100% - 1px);
-    top: 0;
-  }
+  @include hairline-top-bottom();
 
   &--no-border {
     border-top: none;

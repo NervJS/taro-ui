@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: start;
   background-color: $color-bg;
-  @include border-thin-top($width: 1px);
+  @include hairline-top();
 
   &__item {
     flex: 1;

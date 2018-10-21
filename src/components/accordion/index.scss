@@ -10,7 +10,7 @@
     min-height: $font-size-lg;
     font-size: $font-size-lg;
     padding: $spacing-v-lg $spacing-h-lg;
-    @include border-thin-bottom($width: 1px);
+    @include hairline-bottom();
     @include active;
   }
 
@@ -25,16 +25,6 @@
     width: 100%;
     transition: height 0.3s;
     overflow: hidden;
-
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      @include border-thin-top($width: 1px);
-    }
+    @include hairline-top();
   }
 }

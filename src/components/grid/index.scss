@@ -9,23 +9,16 @@ $gird-img-size-sm: 50px;
 
   &-item {
     position: relative;
-    @include border-thin-bottom($width: 1px);
+    @include hairline-surround();
 
     &::after {
-      content: " ";
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-color: $color-border-lighter;
-
-      /* prettier-ignore */
-      width: 1px;
-      height: 100%;
+      border-top: none;
+      border-left: none;
     }
   }
 
   &:last-child {
-    .at-grid__flex-item {
+    .at-grid__flex-item::after {
       border-bottom: none;
     }
   }
@@ -53,7 +46,7 @@ $gird-img-size-sm: 50px;
 
 .at-grid-item--last {
   &::after {
-    content: initial;
+    border-right: none;
   }
 }
 
@@ -118,10 +111,8 @@ $gird-img-size-sm: 50px;
   }
 
   &--no-border {
-    border-bottom: initial;
-
     &::after {
-      content: initial;
+      border: none;
     }
   }
 

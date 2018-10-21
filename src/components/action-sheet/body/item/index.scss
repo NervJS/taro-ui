@@ -4,10 +4,7 @@
 .at-action-sheet-item {
   padding: $spacing-v-lg $spacing-h-lg;
   font-size: $font-size-xl;
-
-  /* prettier-ignore */
-  @include border-thin-bottom($width: 1px);
-
   @include active();
   @include line(1);
+  @include hairline-bottom-relative();
 }

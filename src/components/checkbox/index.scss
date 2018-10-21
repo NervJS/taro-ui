@@ -6,6 +6,7 @@ $checkbox-icon-px-size: 20PX;
 
 .at-checkbox {
   background-color: $color-bg;
+  @include hairline-top-bottom();
 
   &__option_wrap {
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
@@ -79,7 +80,7 @@ $checkbox-icon-px-size: 20PX;
 
   &__option + &__option {
     .at-checkbox__option_wrap {
-      @include border-thin-top($width: 1px);
+      @include hairline-top();
     }
   }
 }
