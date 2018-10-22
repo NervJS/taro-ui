@@ -5,6 +5,5 @@
   display: block;
   padding-left: $spacing-h-xl;
   background-color: $color-bg;
-  overflow: hidden;
   @include hairline-top-bottom();
 }

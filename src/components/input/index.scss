@@ -80,6 +80,8 @@
   }
 
   &--without-border {
-    border: none;
+    &::after {
+      border: none;
+    }
   }
 }

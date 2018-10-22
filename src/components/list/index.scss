@@ -6,11 +6,10 @@
   @include hairline-top-bottom();
 
   &--no-border {
-    border-top: none;
-
     &::after,
     &::before {
       content: initial;
+      border: none;
     }
   }
 }

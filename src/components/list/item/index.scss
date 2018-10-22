@@ -53,6 +53,7 @@ $item-horizontal-padding: 24px;
 
   &--no-border::after {
     content: initial;
+    border: none;
   }
 
   &-content {
