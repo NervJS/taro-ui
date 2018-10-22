@@ -3,7 +3,7 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-export interface AtTimeLineProps extends AtComponent{
+export interface AtToastProps extends AtComponent{
   isOpened: boolean
 
   text?: string
@@ -23,6 +23,6 @@ export interface AtTimeLineProps extends AtComponent{
   onClose?: BaseEventFunction
 }
 
-declare const AtTimeLine: ComponentClass<AtTimeLineProps>
+declare const AtToast: ComponentClass<AtToastProps>
 
-export default AtTimeLine
+export default AtToast
