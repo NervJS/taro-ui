@@ -19,6 +19,7 @@ class App extends Component {
       'pages/view/article/index',
       'pages/view/timeline/index',
       'pages/view/swiper/index',
+      'pages/view/load-more/index',
       'pages/action/toast/index',
       'pages/action/modal/index',
       'pages/action/progress/index',
