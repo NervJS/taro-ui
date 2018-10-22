@@ -35,6 +35,7 @@ export { default as AtToast } from './toast'
 export { default as AtTabsPane } from './tabs-pane'
 export { default as AtSwipeAction } from './swipe-action'
 export { default as AtAccordion } from './accordion'
+export { default as AtLoadMore } from './load-more'
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass

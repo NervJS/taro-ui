@@ -29,6 +29,8 @@ components:
             name: Article
           - title: 徽标
             name: Badge
+          - title: 页面提示
+            name: LoadMore
           - title: 通告栏
             name: Noticebar
           - title: 标签
