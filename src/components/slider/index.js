@@ -10,9 +10,9 @@ export default class AtSlider extends AtComponent {
   constructor (props) {
     super(...arguments)
 
-    const { value } = props
+    const { value, min, max } = props
     this.state = {
-      _value: value
+      _value: AtSlider.clampNumber(value, min, max)
     }
   }
 
@@ -56,6 +56,10 @@ export default class AtSlider extends AtComponent {
     onChanging: PropTypes.func
   }
 
+  static clampNumber (value, lower, upper) {
+    return Math.max(lower, Math.min(upper, value))
+  }
+
   handleChanging (e) {
     const { _value } = this.state
     const { value } = e.detail
@@ -71,6 +75,13 @@ export default class AtSlider extends AtComponent {
 
     this.setState({ _value: value })
     this.props.onChange({ value })
+  }
+
+  componentWillReceiveProps (props) {
+    const { value, min, max } = props
+    this.setState({
+      _value: AtSlider.clampNumber(value, min, max)
+    })
   }
 
   render () {
