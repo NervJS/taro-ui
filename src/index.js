@@ -47,6 +47,8 @@ export { default as AtSlider } from './components/slider'
 export { default as AtSwipeAction } from './components/swipe-action'
 export { default as AtSearchBar } from './components/search-bar'
 export { default as AtLoadMore } from './components/load-more'
+export { default as AtDivider } from './components/divider'
+
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'
 export { default as AtComponent } from './common/component'

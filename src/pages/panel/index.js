@@ -96,6 +96,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Load-More',
             name: '页面提示'
+          },
+          {
+            id: 'Divider',
+            name: '分割线'
           }
         ],
         action: [
