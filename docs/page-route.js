@@ -26,6 +26,7 @@ export default {
   article: 'view/article',
   avatar: 'view/avatar',
   badge: 'view/badge',
+  countdown: 'view/countdown',
   divider: 'view/divider',
   loadmore: 'view/load-more',
   noticebar: 'view/noticebar',
