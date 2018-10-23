@@ -1,0 +1,29 @@
+@import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
+
+.at-count-down {
+  display: inline-block;
+  font-size: $font-size-base;
+  min-height: $font-size-base;
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__time {
+    display: inline-block;
+  }
+
+  &__separator {
+    display: inline-block;
+    padding: $spacing-h-sm;
+  }
+
+  &--card {
+    .at-count-down__time {
+      padding: $spacing-v-xs;
+      border: 1PX solid $color-border-lighter;
+      border-radius: $border-radius-md;
+    }
+  }
+}
