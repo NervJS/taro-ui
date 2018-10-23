@@ -35,7 +35,7 @@ export default class LoadMorePage extends Taro.Component {
             <View className='panel__content no-padding'>
               <AtDivider content='没有更多了' fontColor='#ed3f14' lineColor='#ed3f14' />
               <AtDivider content='没有更多了' fontColor='#ff9900' lineColor='#ff9900' />
-              <AtDivider content='没有更多了' color='#2d8cf0' lineColor='#2d8cf0' />
+              <AtDivider content='没有更多了' fontColor='#2d8cf0' lineColor='#2d8cf0' />
             </View>
           </View>
 

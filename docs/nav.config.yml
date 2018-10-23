@@ -39,6 +39,8 @@ components:
             name: Timeline
           - title: 滑动视图容器
             name: Swiper
+          - title: 分隔符
+            name: Divider
       - title: 操作反馈
         items:
           - title: 动作面板
