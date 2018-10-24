@@ -17,7 +17,11 @@ import { AtSearchBar } from 'taro-ui'
 
 ## 一般用法
 
-说明：用户需要通过 onChange 事件来更新值变化，onChange 函数必填
+说明：
+
+* 该组件为受控组件，开发者需要通过 onChange 事件来更新 value 值变化，value 与 onChange 函数必填
+
+* 由于此组件是基于小程序的 Input 进行封装，该组件是原生组件，使用前请阅读[使用限制](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
 
 :::demo
 
@@ -129,23 +133,23 @@ export default class Index extends Taro.Component {
 
 ## 参数
 
-| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
-| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| value | 输入框值 | String  | - | - |
-| placeholder | 占位符  | String  | - | - |
-| maxlength | 最大长度 | Number  | -  | 140 |
-| fixed | 是否固定顶部 | Boolean  | -  | false |
-| focus | 是否聚焦 | Boolean  | -  | false |
-| disabled | 是否禁止输入 | Boolean  | -  | false |
-| showActionButton | 是否一直显示右侧按钮 | Boolean  | -  | false |
-| actionName | 右侧按钮文案 | String  | -  | '搜索' |
+| 参数   |  微信小程序 |  h5 | 说明   | 类型    | 可选值 | 默认值   |
+| ---   | ----  | ---- | ---- | ------- | ------- | ------ |
+| value | √ | √ | 必填，输入框当前值，开发者需要通过 onChange 事件来更新 value 值 | String  | - | - |
+| placeholder | √ | √ |  占位符  | String  | - | - |
+| maxlength | √ | √ | 最大长度 | Number  | -  | 140 |
+| fixed | √ | √ | 是否固定顶部 | Boolean  | -  | false |
+| focus | √ | √ | 是否聚焦 | Boolean  | -  | false |
+| disabled | √ | √ | 是否禁止输入 | Boolean  | -  | false |
+| showActionButton | √ | √ | 是否一直显示右侧按钮 | Boolean  | -  | false |
+| actionName | √ | √ | 右侧按钮文案 | String  | -  | '搜索' |
 
 ## 事件
 
-| 事件名称 | 说明          | 返回参数  |
-|---------- |-------------- |---------- |
-| onChange | 输入框值改变时触发的事件 | 输入框当前值 value  |
-| onFocus | 输入框值聚焦时触发的事件 | event  |
-| onBlur | 输入框值失去焦点时触发的事件 | event  |
-| onConfirm | 键盘点击完成时触发的事件 | event  |
-| onActionClick | 右侧按钮点击触发事件 | event  |
+| 事件名称 | 微信小程序 |  h5 | 说明          | 返回参数  |
+|-------- |----  | ---- |------------- |---------- |
+| onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填 | 输入框当前值 value  |
+| onFocus | √ | √ | 输入框聚焦时触发，height 参数在基础库 1.9.90 起支持 | event  |
+| onBlur | √ | √ | 输入框值失去焦点时触发的事件 | event  |
+| onConfirm | √ | x  | 点击完成按钮时触发。H5 版中目前需借用 Form 组件的onSubmit事件来替代 | event  |
+| onActionClick | √ | √ | 右侧按钮点击触发事件 | event  |

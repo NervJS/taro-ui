@@ -17,15 +17,29 @@ import { AtForm, AtSwitch } from 'taro-ui'
 
 ## 一般用法
 
+说明：
+
+* 该组件为非受控组件，开发者只能通过 checked 来初始化组件开关状态，后续开关状态开发者无法控制，切换开关时会触发 onChange 函数
+
 :::demo
 
-```html
-<AtForm>
-  <AtSwitch title='开启中' checked onChange={this.handleChange} />
-  <AtSwitch title='已禁止' disabled onChange={this.handleChange} />
-  <AtSwitch border={false} title='已关闭' />
-</AtForm>
-
+```js
+import Taro from '@tarojs/taro'
+import { AtForm, AtSwitch }  from 'taro-ui'
+export default class Index extends Taro.Component {
+  handleChange (value) {
+    console.log(value)
+  }
+  render () {
+    return (
+      <AtForm>
+        <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
+        <AtSwitch title='已禁止' disabled onChange={this.handleChange.bind(this)} />
+        <AtSwitch border={false} title='已关闭' />
+      </AtForm>
+    )
+  }
+}
 
 ```
 
