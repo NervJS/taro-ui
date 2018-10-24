@@ -14,7 +14,7 @@ export interface AtCheckboxProps<T> {
 
   selectedList: Array<T>
 
-  onChange?: (selectedList: Array<T>) => void
+  onChange: (selectedList: Array<T>) => void
 }
 
 declare const AtCheckbox: ComponentClass<AtCheckboxProps<any>>

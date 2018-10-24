@@ -20,7 +20,7 @@ export interface AtTabBarProps extends AtComponent{
 
   backgroundColor?: string
 
-  current?: number
+  current: number
 
   iconSize?: number
 
@@ -32,7 +32,7 @@ export interface AtTabBarProps extends AtComponent{
 
   tabList: TabItem[]
 
-  onClick?: (index: number, event: BaseEvent) => void
+  onClick: (index: number, event: BaseEvent) => void
 }
 
 declare const AtTabBar: ComponentClass<AtTabBarProps>

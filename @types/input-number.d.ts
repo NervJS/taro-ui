@@ -19,7 +19,7 @@ export interface AtInputNumberProps extends AtComponent{
 
   disabled?: boolean
 
-  onChange?: (value: number) => void
+  onChange: (value: number) => void
 }
 
 declare const AtInputNumber: ComponentClass<AtInputNumberProps>

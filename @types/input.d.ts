@@ -55,7 +55,7 @@ export interface AtInputProps extends AtComponent{
 
   onFocus?: InputFunction
 
-  onChange?: InputFunction
+  onChange: InputFunction
 
   onConfirm?: InputFunction
 
