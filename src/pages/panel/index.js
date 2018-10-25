@@ -82,6 +82,10 @@ export default class PanelBasic extends Component {
             name: '倒计时'
           },
           {
+            id: 'Curtain',
+            name: '幕布'
+          },
+          {
             id: 'Divider',
             name: '分割线'
           },
