@@ -8,7 +8,7 @@ export interface AtTabsProps extends AtComponent{
 
   height?: string
 
-  current?: number
+  current: number
 
   scroll?: boolean
 
@@ -18,7 +18,7 @@ export interface AtTabsProps extends AtComponent{
 
   tabList: Array<{ title: string }>
 
-  onClick?: (index: number, event: BaseEvent) => void
+  onClick: (index: number, event: BaseEvent) => void
 }
 
 declare const AtTabs: ComponentClass<AtTabsProps>

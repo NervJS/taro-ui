@@ -43,7 +43,7 @@ export default class AtTextarea extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
     cursorSpacing: PropTypes.number,
     maxlength: PropTypes.oneOfType([
       PropTypes.string,
@@ -63,7 +63,7 @@ export default class AtTextarea extends AtComponent {
     fixed: PropTypes.bool,
     height: PropTypes.string,
     onLinechange: PropTypes.func,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onConfirm: PropTypes.func

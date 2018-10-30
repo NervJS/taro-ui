@@ -51,5 +51,5 @@ import { AtNavBar } from 'taro-ui'
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
 | onClickLeftIcon | 左边第一个图标类型点击事件 | -  |
-| onClickRightFirstIcon | 从右到左第一个图标类型点击事件 | -  |
-| onClickRightSecondIcon | 从右到左第二个图标类型点击事件 | -  |
+| onClickRgIconSt | 从右到左第一个图标类型点击事件 | -  |
+| onClickRgIconNd | 从右到左第二个图标类型点击事件 | -  |
