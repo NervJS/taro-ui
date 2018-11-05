@@ -30,6 +30,7 @@ export default {
   tag: 'view/tag',
   timeline: 'view/timeline',
   swiper: 'view/swiper',
+  steps: 'view/steps',
   drawer: 'navigation/drawer',
   navbar: 'navigation/navbar',
   pagination: 'navigation/pagination',
