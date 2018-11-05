@@ -49,6 +49,7 @@ export default class AtCountDown extends AtComponent {
     const { day, hours, minutes, seconds } = this.props
     this.seconds = (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
     this.state = { day, hours, minutes, seconds }
+    this.timer = null
   }
 
   formatNum (num) {
@@ -56,7 +57,7 @@ export default class AtCountDown extends AtComponent {
   }
 
   componentDidMount () {
-    const timer = setInterval(() => {
+    this.timer = setInterval(() => {
       let [day, hours, minutes, seconds] = [0, 0, 0, 0]
       if (this.seconds > 0) {
         day = Math.floor(this.seconds / (60 * 60 * 24))
@@ -67,10 +68,17 @@ export default class AtCountDown extends AtComponent {
       this.setState({ day, hours, minutes, seconds })
       this.seconds--
       if (this.seconds < 0) {
-        clearInterval(timer)
+        clearInterval(this.timer)
+        this.timer = null
         this.props.onTimeUp()
       }
     }, 1000)
+  }
+
+  componentWillUnmount () {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
   }
 
   render () {
