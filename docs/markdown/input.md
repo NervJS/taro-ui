@@ -22,10 +22,12 @@ import { AtInput, AtForm } from 'taro-ui'
 
 说明：
 
-* 开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填
-
+* 由于微信开发者工具的问题，Input 的 placeholder 在 value 存在的情况下，会出现重叠，在真机上不会出现此问题，可以忽略
+* 该组件为受控组件，开发者需要通过 onChange 事件来更新 value 值变化，value 与 onChange 函数必填
 * 由于小程序组件化的限制，AtInput 嵌套在 AtForm 或原生小程序组件 Form 中的时候，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取
 
+* 由于此组件是基于小程序的 Input 进行封装，该组件是原生组件，使用前请阅读[使用限制](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
+  
 :::demo
 
 ```js
@@ -192,7 +194,7 @@ export default class Index extends Taro.Component {
 | ---   | ----  | ---- | ---- | ------- | ------- | ------ |
 | name  | √ | √ | 输入框的唯一标识，有传入点击 title 会聚焦输入框 | String  | - | - |
 | type  | √ | √ | 输入框类型 | String | `text`,`number`,`password`,`phone`,`idcard`,`digit` | `text` |
-| value | √ | √ | 输入框值 | String  | - | - |
+| value | √ | √ | 输入框当前值，开发者需要通过 onChange 事件来更新 value 值，必填 | String  | - | - |
 | placeholder | √ | √ | 占位符  | String  | - | - |
 | placeholderStyle | √ | x | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
 | placeholderClass | √ | x | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
@@ -216,7 +218,7 @@ export default class Index extends Taro.Component {
 
 | 事件名称 |  微信小程序 |  h5 | 说明  | 返回参数  |
 |------- |---  |----- |---- | -------- |
-| onChange | √ | √ | 输入框值改变时触发的事件 | 输入框当前值 value  |
+| onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填  | 输入框当前值 value  |
 | onFocus | √ | √ | 输入框被选中时触发的事件 | 输入框当前值 value  |
 | onBlur | √ | √ | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
 | onConfirm | √ | x | 点击完成按钮时触发 | 输入框当前值 value  |

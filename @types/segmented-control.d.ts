@@ -6,7 +6,7 @@ import AtComponent from './base'
 export interface AtSegmentedControlProps extends AtComponent{
   style?: string
 
-  current?: number
+  current: number
 
   color?: string
 
@@ -18,7 +18,7 @@ export interface AtSegmentedControlProps extends AtComponent{
 
   values: string[]
 
-  onClick?: (index: number, BaseEvent) => void
+  onClick: (index: number, BaseEvent) => void
 }
 
 declare const AtSegmentedControl: ComponentClass<AtSegmentedControlProps>

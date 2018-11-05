@@ -104,6 +104,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Load-More',
             name: '页面提示'
+          },
+          {
+            id: 'Steps',
+            name: '步骤条'
           }
         ],
         action: [

@@ -5,7 +5,7 @@
 
 ## 使用指南
 
-在 Taro 文件中引入组件
+Taro-UI 版本需要在 `v1.3.1` 以上，在 Taro 文件中引入组件
 
 :::demo
 
@@ -16,6 +16,8 @@ import { AtAccordion } from 'taro-ui'
 :::
 
 ## 一般用法
+
+说明
 
 :::demo
 

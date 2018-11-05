@@ -20,7 +20,7 @@ export interface AtSearchBarProps extends AtComponent {
 
   actionName?: string
 
-  onChange?: (value: string, event: BaseEvent) => void
+  onChange: (value: string, event: BaseEvent) => void
 
   onFocus?: BaseEventFunction
 

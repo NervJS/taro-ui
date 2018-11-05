@@ -43,6 +43,8 @@ components:
             name: Swiper
           - title: 分隔符
             name: Divider
+          - title: 步骤条
+            name: Steps
       - title: 操作反馈
         items:
           - title: 动作面板

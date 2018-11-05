@@ -6,9 +6,9 @@ import AtComponent from './base'
 export interface AtTabsPaneProps extends AtComponent{
   tabDirection?: 'horizontal' | 'vertical'
 
-  current?: number
+  current: number
 
-  index?: number
+  index: number
 }
 
 declare const AtTabsPane: ComponentClass<AtTabsPaneProps>

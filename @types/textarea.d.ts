@@ -6,7 +6,7 @@ import AtComponent from './base'
 export interface AtTextareaProps extends AtComponent{
   style?: string
 
-  value?: string
+  value: string
 
   maxlength?: string
 
@@ -34,7 +34,7 @@ export interface AtTextareaProps extends AtComponent{
 
   cursorSpacing?: number
 
-  onChange?: BaseEventFunction
+  onChange: BaseEventFunction
 
   onFocus?: BaseEventFunction
 

@@ -17,7 +17,11 @@ import { AtCheckbox } from 'taro-ui'
 
 ## 一般用法
 
-说明：用户需要通过 onChange 事件来更新值变化
+说明：
+
+* 该组件为受控组件，开发者需要通过 onChange 事件来更新 selectedList 值变化，selectedList 与 onChange 函数必填
+
+* 由于小程序组件化的限制，AtCheckbox 嵌套在 AtForm 或原生小程序组件 Form 中的时候，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取
 
 :::demo
 
@@ -76,14 +80,14 @@ export default class Index extends Taro.Component {
 
 | 参数         | 说明                                  | 类型  | 可选值 | 默认值 |
 | ------------ | ------------------------------------- | ----- | ------ | ------ |
-| selectedList | 被选中的选项列表 eg: `['list1']`      | Array | -      | -      |
+| selectedList | 被选中的选项列表 eg: `['list1']`，开发者需要通过 onChange 事件来更新 selectedList 值，必填       | Array | -      | -      |
 | options      | object选项列表，object 字段详细看下表 | Array | -      | -      |
 
 ## options object 字段详解
 
-| 参数     | 说明                           | 类型    | 可选值 | 默认值 | 可选或必填 |
-| -------- | ------------------------------ | ------- | ------ | ------ | ---------- |
-| value    | 选项标识符，必须保证唯一       | String  | -      | -      | 必填       |
+| 参数     | 说明     | 类型    | 可选值 | 默认值 | 可选或必填 |
+| -------- | -------| ------- | ------ | ------ | ------- |
+| value    | 选项标识符，必须保证唯一       | String  | -  | -  | 必填       |
 | label    | 选项标题                       | String  | -      | -      | 必填       |
 | desc     | 选项描述，显示在标题下方的文字 | String  | -      | -      | 可选       |
 | disabled | 是否禁止点击                   | Boolean | -      | false  | 可选       |

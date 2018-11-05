@@ -22,6 +22,7 @@ class App extends Component {
       'pages/view/load-more/index',
       'pages/view/divider/index',
       'pages/view/countdown/index',
+      'pages/view/steps/index',
       'pages/action/toast/index',
       'pages/action/modal/index',
       'pages/action/progress/index',
