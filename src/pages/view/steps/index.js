@@ -17,7 +17,7 @@ export default class TimelinePage extends Taro.Component {
       current2: 0,
       current3: 0,
       current4: 0,
-      current5: 0,
+      current5: 1,
     }
   }
 
@@ -39,7 +39,7 @@ export default class TimelinePage extends Taro.Component {
     ]
 
     const items3 = [
-      { 'title': '步骤一', 'desc': '这里是额外的信息，最多两行这里是额外的信息，最多两行这里是额外的信息，最多两行' },
+      { 'title': '步骤一', 'desc': '这里是额外的信息，最多两行' },
       { 'title': '步骤二', 'desc': '这里是额外的信息，最多两行' },
       { 'title': '步骤三', 'desc': '这里是额外的信息，最多两行' }
     ]

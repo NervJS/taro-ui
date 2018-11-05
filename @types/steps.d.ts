@@ -26,7 +26,7 @@ export interface Item {
 }
 
 export interface AtStepsProps extends AtComponent {
-  current?: number
+  current: number
 
   items?: Array<Item>
 
