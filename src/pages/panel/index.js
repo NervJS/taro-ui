@@ -92,6 +92,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Swiper',
             name: '滑块视图容器'
+          },
+          {
+            id: 'Steps',
+            name: '步骤条'
           }
         ],
         action: [
