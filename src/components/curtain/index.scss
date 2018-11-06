@@ -1,7 +1,7 @@
 @import "../../style/theme/default.scss";
 @import "../../style/mixins/index.scss";
 
-$animated-timer: 500ms;
+$spacing-v: -50PX;
 
 .at-curtain {
   display: block;
@@ -12,7 +12,6 @@ $animated-timer: 500ms;
   right: 0;
   background-color: rgba($color: #000, $alpha: 0.3);
   z-index: $zindex-toast;
-  transition: visibility $animated-timer $ease-out-quad;
 
   &__container {
     display: flex;
@@ -25,28 +24,26 @@ $animated-timer: 500ms;
     margin: 0 auto;
     padding: 150px 0;
     opacity: 1;
-    transition: opacity $animated-timer $ease-out-cubic;
   }
 
   &__body {
-    overflow: scroll;
-    min-height: 60%;
-    max-width: 90%;
-    transform: translate3d(0, 0, 0);
-    transition: transform $animated-timer $ease-out-quart;
+    position: relative;
+    overflow: visible;
+    min-height: 70%;
+    max-height: 90%;
   }
 
-  &__close {
+  &__close-box {
     display: flex;
     position: absolute;
     width: 100%;
-    bottom: 50PX;
+    bottom: $spacing-v;
     justify-content: center;
     align-items: center;
     z-index: $zindex-toast + 1;
 
     &--top {
-      top: 50PX;
+      top: $spacing-v;
       justify-content: flex-end;
       bottom: auto;
     }
@@ -57,10 +54,6 @@ $animated-timer: 500ms;
 
     .at-curtain__container {
       opacity: 0;
-    }
-
-    .at-curtain__body {
-      transform: translate3d(0, 150%, 0);
     }
   }
 }

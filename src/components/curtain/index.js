@@ -9,78 +9,65 @@ import './index.scss'
 
 export default class AtCurtain extends AtComponent {
   static defaultProps = {
-    isOpened: true,
+    customStyle: '',
+    className: '',
+    isOpened: false,
     closeBtnPosition: 'bottom',
-    size: '18',
-    color: '#fff',
     onClose: () => {}
   }
 
   static propTypes = {
-    size: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
     ]),
-    color: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     onClose: PropTypes.func
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-      isOpened: this.props.isOpened
-    }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { isOpened } = nextProps
-    if (isOpened !== this.state.isOpened) {
-      this.setState({
-        isOpened
-      })
-    }
-  }
-
-  closeCurtain () {
-    this.setState({
-      isOpened: false
-    })
+  onClose () {
     this.props.onClose(...arguments)
   }
 
   render () {
-    const { closeBtnPosition } = this.props
+    const {
+      className,
+      customStyle,
+      isOpened,
+      closeBtnPosition
+    } = this.props
 
     return (
       <View
         className={
           classNames({
             'at-curtain': true,
-            'at-curtain--closed': !this.state.isOpened
-          })
+            'at-curtain--closed': !isOpened
+          }, className)
         }
+        style={customStyle}
       >
         <View className='at-curtain__container'>
           <View className='at-curtain__body'>
             {this.props.children}
-          </View>
-          <View
-            className={
-              classNames({
-                'at-curtain__close': true,
-                'at-curtain__close--top': closeBtnPosition === 'top'
-              })
-            }
-          >
-            <AtIcon
-              onClick={this.closeCurtain.bind(this)}
-              value='close-circle'
-              color='#fff'
-              size='30'
-            />
+            <View
+              className={
+                classNames({
+                  'at-curtain__close-box': true,
+                  'at-curtain__close-box--top': closeBtnPosition === 'top'
+                })
+              }
+            >
+              <AtIcon
+                onClick={this.onClose.bind(this)}
+                value='close-circle'
+                color='#fff'
+                size='30'
+              />
+            </View>
           </View>
         </View>
       </View>

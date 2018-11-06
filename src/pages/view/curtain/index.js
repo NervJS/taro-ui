@@ -18,7 +18,6 @@ export default class TagPage extends Taro.Component {
     this.state = {
       isOpened: false,
       closeBtnPosition: 'bottom',
-      duration: 10
     }
   }
 
@@ -36,7 +35,7 @@ export default class TagPage extends Taro.Component {
   }
 
   render () {
-    const { isOpened, closeBtnPosition, duration } = this.state
+    const { isOpened, closeBtnPosition } = this.state
 
     return (
       <View className='page'>
@@ -49,10 +48,9 @@ export default class TagPage extends Taro.Component {
           <AtCurtain
             isOpened={isOpened}
             closeBtnPosition={closeBtnPosition}
-            duration={duration}
             onClose={this.onClose.bind(this)}
           >
-            <Image src={curtainPng} width='400px' height='400px'></Image>
+            <Image src={curtainPng} width='100%' height='100%'></Image>
           </AtCurtain>
           {/* 右上关闭 */}
           <View className='panel'>
