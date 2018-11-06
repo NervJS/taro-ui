@@ -53,10 +53,9 @@ export default class TagPage extends Taro.Component {
         onClose={this.onClose.bind(this)}
       >
         <Image
+          style='width:100%;height:250px'
           src={curtainPng}
-          width='264px'
-          height='100%'>
-        </Image>
+        />
       </AtCurtain>
       <AtButton
         onClick={this.handleChange.bind(this)}>
