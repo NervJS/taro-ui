@@ -27,6 +27,7 @@ export default {
   avatar: 'view/avatar',
   badge: 'view/badge',
   countdown: 'view/countdown',
+  curtain: 'view/curtain',
   divider: 'view/divider',
   loadmore: 'view/load-more',
   noticebar: 'view/noticebar',
