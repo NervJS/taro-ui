@@ -33,7 +33,7 @@ export default class Index extends Taro.Component {
       current: 0
     }
   }
-  handleChange (value) {
+  handleClick (value) {
     this.setState({
       current: value
     })
