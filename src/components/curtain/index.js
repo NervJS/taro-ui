@@ -62,9 +62,9 @@ export default class AtCurtain extends AtComponent {
                   'at-curtain__close-box--top': closeBtnPosition === 'top'
                 })
               }
+              onClick={this.onClose.bind(this)}
             >
               <AtIcon
-                onClick={this.onClose.bind(this)}
                 value='close-circle'
                 color='#fff'
                 size='30'
