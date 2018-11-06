@@ -31,6 +31,8 @@ components:
             name: Badge
           - title: 倒计时
             name: CountDown
+          - title: 幕布
+            name: Curtain
           - title: 页面提示
             name: LoadMore
           - title: 通告栏
