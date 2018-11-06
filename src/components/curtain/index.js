@@ -25,6 +25,8 @@ export default class AtCurtain extends AtComponent {
       PropTypes.array,
       PropTypes.string
     ]),
+    isOpened: PropTypes.bool,
+    closeBtnPosition: PropTypes.string,
     onClose: PropTypes.func
   }
 

@@ -38,6 +38,7 @@ export { default as AtAccordion } from './accordion'
 export { default as AtLoadMore } from './load-more'
 export { default as AtDivider } from './divider'
 export { default as AtCountDown } from './count-down'
+export { default as AtCurtain } from './curtain'
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass
