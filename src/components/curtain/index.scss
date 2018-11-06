@@ -1,7 +1,7 @@
 @import "../../style/theme/default.scss";
 @import "../../style/mixins/index.scss";
 
-$spacing-v: -50PX;
+$spacing-v: 50PX;
 
 .at-curtain {
   display: block;
@@ -22,7 +22,7 @@ $spacing-v: -50PX;
     align-items: center;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 150px 0;
+    padding: $spacing-v * 2 0;
     opacity: 1;
   }
 
@@ -30,20 +30,20 @@ $spacing-v: -50PX;
     position: relative;
     overflow: visible;
     min-height: 70%;
-    max-height: 90%;
+    width: 100%;
   }
 
   &__close-box {
     display: flex;
     position: absolute;
     width: 100%;
-    bottom: $spacing-v;
+    bottom: -$spacing-v;
     justify-content: center;
     align-items: center;
     z-index: $zindex-toast + 1;
 
     &--top {
-      top: $spacing-v;
+      top: -$spacing-v;
       justify-content: flex-end;
       bottom: auto;
     }

@@ -50,7 +50,7 @@ export default class TagPage extends Taro.Component {
             closeBtnPosition={closeBtnPosition}
             onClose={this.onClose.bind(this)}
           >
-            <Image src={curtainPng} width='100%' height='100%'></Image>
+            <Image src={curtainPng} width='200px' height='100%'></Image>
           </AtCurtain>
           {/* 右上关闭 */}
           <View className='panel'>
