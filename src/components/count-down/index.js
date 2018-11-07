@@ -108,21 +108,37 @@ export default class AtCountDown extends AtComponent {
         {
           isShowDay
             ? <View className='at-count-down__item'>
-              <Text className='at-count-down__time'>{this.formatNum(day)}</Text>
+              <View className='at-count-down__time-box'>
+                <Text className='at-count-down__time'>
+                  {this.formatNum(day)}
+                </Text>
+              </View>
               <Text className='at-count-down__separator'>{format.day}</Text>
             </View>
             : null
         }
         <View className='at-count-down__item'>
-          <Text className='at-count-down__time'>{this.formatNum(hours)}</Text>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(hours)}
+            </Text>
+          </View>
           <Text className='at-count-down__separator'>{format.hours}</Text>
         </View>
         <View className='at-count-down__item'>
-          <Text className='at-count-down__time'>{this.formatNum(minutes)}</Text>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(minutes)}
+            </Text>
+          </View>
           <Text className='at-count-down__separator'>{format.minutes}</Text>
         </View>
         <View className='at-count-down__item'>
-          <Text className='at-count-down__time'>{this.formatNum(seconds)}</Text>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(seconds)}
+            </Text>
+          </View>
           <Text className='at-count-down__separator'>{format.seconds}</Text>
         </View>
       </View>
