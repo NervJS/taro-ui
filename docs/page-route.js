@@ -13,6 +13,7 @@ export default {
   progress: 'action/progress',
   actionsheet: 'action/action-sheet',
   activityindicator: 'action/activity-indicator',
+  message: 'action/message',
   checkbox: 'form/checkbox',
   input: 'form/input',
   inputnumber: 'form/input-number',

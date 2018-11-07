@@ -13,13 +13,10 @@ export default class ToastPage extends Component {
   }
 
   handleClick (type) {
-    Taro.eventCenter.trigger(
-      'atMessage',
-      {
-        'message': '消息通知',
-        'type': type,
-      }
-    )
+    Taro.atMessage({
+      'message': '消息通知',
+      'type': type,
+    })
   }
 
   render () {
