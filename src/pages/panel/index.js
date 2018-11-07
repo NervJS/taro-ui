@@ -78,6 +78,18 @@ export default class PanelBasic extends Component {
             name: '徽标'
           },
           {
+            id: 'CountDown',
+            name: '倒计时'
+          },
+          {
+            id: 'Curtain',
+            name: '幕布'
+          },
+          {
+            id: 'Divider',
+            name: '分割线'
+          },
+          {
             id: 'NoticeBar',
             name: '通告栏'
           },
@@ -92,6 +104,14 @@ export default class PanelBasic extends Component {
           {
             id: 'Swiper',
             name: '滑块视图容器'
+          },
+          {
+            id: 'Load-More',
+            name: '页面提示'
+          },
+          {
+            id: 'Steps',
+            name: '步骤条'
           }
         ],
         action: [

@@ -7,6 +7,8 @@
   } @else {
     display: -webkit-box;
     -webkit-line-clamp: $num;
+
+    /* autoprefixer: off */
     -webkit-box-orient: vertical;
   }
 }

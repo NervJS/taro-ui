@@ -90,7 +90,8 @@ $at-button-height-sm: 60px;
   }
 
   &--full {
-    width: 100%;
+    width: 1000px;
+    max-width: 100%;
     border-radius: 0;
     border-left: none;
     border-right: none;

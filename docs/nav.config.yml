@@ -29,6 +29,12 @@ components:
             name: Article
           - title: 徽标
             name: Badge
+          - title: 倒计时
+            name: CountDown
+          - title: 幕布
+            name: Curtain
+          - title: 页面提示
+            name: LoadMore
           - title: 通告栏
             name: Noticebar
           - title: 标签
@@ -37,6 +43,10 @@ components:
             name: Timeline
           - title: 滑动视图容器
             name: Swiper
+          - title: 分隔符
+            name: Divider
+          - title: 步骤条
+            name: Steps
       - title: 操作反馈
         items:
           - title: 动作面板
