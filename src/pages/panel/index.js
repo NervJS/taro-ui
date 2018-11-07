@@ -138,6 +138,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Swipe-Action',
             name: '滑动操作'
+          },
+          {
+            id: 'Message',
+            name: '消息通知'
           }
         ],
         form: [
