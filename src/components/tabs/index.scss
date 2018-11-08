@@ -2,6 +2,8 @@
 @import '../../style/theme/default.scss';
 
 .at-tabs {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   &__item {
@@ -67,6 +69,8 @@
     white-space: nowrap;
     transition: all 0.3s;
     width: 100%;
+    overflow: visible;
+    will-change: transform, left, top;
   }
 
   &__underline {

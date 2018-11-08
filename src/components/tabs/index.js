@@ -144,9 +144,13 @@ export default class AtTabs extends AtComponent {
     }
     const bodyStyle = { }
     if (tabDirection === 'horizontal') {
-      bodyStyle.transform = `translate3d(-${current * 100}%, 0px, 0px)`
+      const transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
+      bodyStyle.transform = transformStyle
+      bodyStyle['-webkit-transform'] = transformStyle
     } else {
-      bodyStyle.transform = `translate3d(0px, -${current * 100}%, 0px)`
+      const transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
+      bodyStyle.transform = transformStyle
+      bodyStyle['-webkit-transform'] = transformStyle
     }
     if (!animated) {
       bodyStyle.transition = 'unset'
