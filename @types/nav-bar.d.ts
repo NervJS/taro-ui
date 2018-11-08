@@ -10,6 +10,8 @@ export interface AtNavBarProps extends AtComponent{
 
   fixed?: boolean
 
+  border?: boolean
+
   color?: string
 
   leftIconType?: string

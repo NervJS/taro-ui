@@ -14,6 +14,7 @@ export default class AtNavBar extends AtComponent {
     customStyle: '',
     className: '',
     fixed: false,
+    border: true,
     color: '#6190E8',
     leftIconType: '',
     leftText: '',
@@ -35,6 +36,7 @@ export default class AtNavBar extends AtComponent {
       PropTypes.string
     ]),
     fixed: PropTypes.bool,
+    border: PropTypes.bool,
     color: PropTypes.string,
     leftIconType: PropTypes.string,
     leftText: PropTypes.string,
@@ -64,6 +66,7 @@ export default class AtNavBar extends AtComponent {
       className,
       color,
       fixed,
+      border,
       leftIconType,
       leftText,
       title,
@@ -76,7 +79,8 @@ export default class AtNavBar extends AtComponent {
       className={
         classNames({
           'at-nav-bar': true,
-          'at-nav-bar--fixed': fixed
+          'at-nav-bar--fixed': fixed,
+          'at-nav-bar--no-border': !border
         }, className)
       }
       style={customStyle}
