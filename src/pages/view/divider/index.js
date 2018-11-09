@@ -16,7 +16,7 @@ export default class LoadMorePage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='LoadMore 页面提示'></DocsHeader>
+        <DocsHeader title='Divider 分隔线'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}

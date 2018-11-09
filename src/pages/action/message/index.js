@@ -23,7 +23,7 @@ export default class ToastPage extends Component {
     return (
       <View className='page toast-page'>
         {/* S Header */}
-        <DocsHeader title='Message 全局消息' />
+        <DocsHeader title='Message 消息通知' />
         {/* E Header */}
 
         {/* S Body */}
