@@ -43,6 +43,10 @@ export default class PanelBasic extends Component {
         navigation: {
           name: '导航',
           icon: iconNavigation
+        },
+        advanced: {
+          name: '高阶组件',
+          icon: iconNavigation
         }
       },
       list: {
@@ -240,6 +244,12 @@ export default class PanelBasic extends Component {
           {
             id: 'Drawer',
             name: '抽屉'
+          }
+        ],
+        advanced: [
+          {
+            id: 'Calendar',
+            name: '日历'
           }
         ]
       }
