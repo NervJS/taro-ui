@@ -1,7 +1,7 @@
-# Curtain 幕布
+# Curtain 幕帘
 
 ---
-幕布组件，可以用来放置广告提示内容
+幕帘组件，可以用来放置广告提示内容
 
 ## 使用指南
 
@@ -19,7 +19,7 @@ import { AtCurtain } from 'taro-ui'
 
 说明：
 
-* 该组件为受控组件，组件的开关状态由 isOpened 来控制，开发者需要通过 onClose 事件来更新 isOpened 值变化,从而关闭幕布。
+* 该组件为受控组件，组件的开关状态由 isOpened 来控制，开发者需要通过 onClose 事件来更新 isOpened 值变化,从而关闭幕帘。
 
 :::demo
 
@@ -59,7 +59,7 @@ export default class TagPage extends Taro.Component {
       </AtCurtain>
       <AtButton
         onClick={this.handleChange.bind(this)}>
-        右上关闭幕布
+        右上关闭幕帘
       </AtButton>
     )
   }

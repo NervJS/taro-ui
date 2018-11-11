@@ -31,7 +31,7 @@ components:
             name: Badge
           - title: 倒计时
             name: CountDown
-          - title: 幕布
+          - title: 幕帘
             name: Curtain
           - title: 页面提示
             name: LoadMore
@@ -61,7 +61,7 @@ components:
             name: Toast
           - title: 滑动操作
             name: SwipeAction
-          - title: 消息组件
+          - title: 消息通知
             name: Message
       - title: 表单组件
         items:
