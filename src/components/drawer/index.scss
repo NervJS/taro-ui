@@ -25,6 +25,8 @@ $drawer-content-width: 460px;
     text-align: left;
     background-color: $color-bg;
     opacity: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 1;
   }
 
