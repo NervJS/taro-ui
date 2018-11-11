@@ -9,10 +9,17 @@ import AtComponent from '../../common/component'
 import './index.scss'
 
 export default class AtDrawer extends AtComponent {
-  constructor () {
+  constructor (props) {
     super(...arguments)
-    this.state = { animShow: false }
-    if (this.props.show) this.animShow()
+    this.state = {
+      animShow: false,
+      _show: props.show
+    }
+  }
+
+  componentDidMount () {
+    const { _show } = this.state
+    if (_show) this.animShow()
   }
 
   onItemClick (index, e) {
@@ -21,8 +28,9 @@ export default class AtDrawer extends AtComponent {
   }
 
   onHide () {
-    this.setState({ show: false })
-    this.props.onClose && this.props.onClose()
+    this.setState({ _show: false }, () => {
+      this.props.onClose && this.props.onClose()
+    })
   }
 
   animHide () {
@@ -35,7 +43,7 @@ export default class AtDrawer extends AtComponent {
   }
 
   animShow () {
-    this.setState({ show: true })
+    this.setState({ _show: true })
     setTimeout(() => {
       this.setState({
         animShow: true,
@@ -47,11 +55,10 @@ export default class AtDrawer extends AtComponent {
     this.animHide(...arguments)
   }
 
-  componentWillReceiveProps (props) {
-    const { show } = props
-    if (show !== this.props.show) {
-      if (show) this.animShow()
-      else this.animHide(...arguments)
+  componentWillReceiveProps (nextProps) {
+    const { show } = nextProps
+    if (show !== this.props._show) {
+      show ? this.animShow() : this.animHide(...arguments)
     }
   }
 
@@ -64,7 +71,7 @@ export default class AtDrawer extends AtComponent {
     } = this.props
     const {
       animShow,
-      show,
+      _show,
     } = this.state
     const rootClassName = ['at-drawer']
 
@@ -84,7 +91,7 @@ export default class AtDrawer extends AtComponent {
     }
 
     return (
-      show && <View
+      _show && <View
         className={classNames(rootClassName, classObject, this.props.className)}
       >
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
