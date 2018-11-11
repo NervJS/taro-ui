@@ -57,7 +57,7 @@ export default class AtDrawer extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { show } = nextProps
-    if (show !== this.props._show) {
+    if (show !== this.state._show) {
       show ? this.animShow() : this.animHide(...arguments)
     }
   }
