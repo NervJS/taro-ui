@@ -21,11 +21,9 @@ export interface Props {
 
   selectedDate: number
 
-  onPreMonth: () => void
-
-  onNextMonth: () => void
-
   onClick: (item: Calendar.Item) => void
+
+  onSwipeMonth: (vectorCount: number) => void
 
   onLongClick: (item: Calendar.Item) => void
 }

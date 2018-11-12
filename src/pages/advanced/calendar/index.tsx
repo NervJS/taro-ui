@@ -5,6 +5,7 @@ import bind from 'bind-decorator'
 
 import './index.scss'
 
+import DocsHeader from '../../components/doc-header'
 import AtCalendar from '../../../components/calendar/index'
 
 export default class Index extends Component {
@@ -58,22 +59,20 @@ export default class Index extends Component {
   render () {
     const { now, minDate, maxDate, mark } = this.state
     return (
-      <View className='main-page page'>
-        <View className='page-header'>
-          <Text className='page-header__title'>Taro 日历组件</Text>
-        </View>
+      <View className='page calendar-page'>
+        <DocsHeader title='Calendar 日历' />
 
-        <View className='main-page__body'>
-          <View className='example'>
-            <View className='example__title'>一般案例</View>
-            <View className='example__body'>
+        <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>一般案例</View>
+            <View className='panel__content'>
               <AtCalendar />
             </View>
           </View>
 
-          <View className='example'>
-            <View className='example__title'>跳转到指定日期</View>
-            <View className='example__body'>
+          <View className='panel'>
+            <View className='panel__title'>跳转到指定日期</View>
+            <View className='panel__content'>
               <AtCalendar currentDate={now} />
               <View className='body_controllers'>
                 <Button
@@ -94,9 +93,9 @@ export default class Index extends Component {
             </View>
           </View>
 
-          <View className='example'>
-            <View className='example__title'>指定最小日期和最大日期</View>
-            <View className='example__body'>
+          <View className='panel'>
+            <View className='panel__title'>指定最小日期和最大日期</View>
+            <View className='panel__content'>
               <AtCalendar minDate={minDate} maxDate={maxDate} />
               <View className='body_controllers'>
                 <Button
@@ -117,9 +116,9 @@ export default class Index extends Component {
             </View>
           </View>
 
-          <View className='example'>
-            <View className='example__title'>标记时间</View>
-            <View className='example__body'>
+          <View className='panel'>
+            <View className='panel__title'>标记时间</View>
+            <View className='panel__content'>
               <AtCalendar marks={mark} />
               <View className='body_controllers'>
                 <Button
@@ -137,16 +136,16 @@ export default class Index extends Component {
             </View>
           </View>
 
-          <View className='example'>
-            <View className='example__title'>禁止滑动</View>
-            <View className='example__body'>
+          <View className='panel'>
+            <View className='panel__title'>禁止滑动</View>
+            <View className='panel__content'>
               <AtCalendar isSwiper={false} />
             </View>
           </View>
 
-          <View className='example'>
-            <View className='example__title'>垂直滑动</View>
-            <View className='example__body'>
+          <View className='panel'>
+            <View className='panel__title'>垂直滑动</View>
+            <View className='panel__content'>
               <AtCalendar isVertical />
             </View>
           </View>

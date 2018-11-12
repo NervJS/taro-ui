@@ -5,6 +5,8 @@
   @include align-items(center);
   @include justify-content(center);
 
+  margin-bottom: 20px;
+
   .controller__arrow {
     @include flex(0 0 40px);
 

@@ -13,7 +13,6 @@ import { getGenerateDate } from './common/helper'
 import AtCalendarController from './controller/index'
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
-
 import './index.scss'
 
 const defaultProps: DefaultProps = {
@@ -57,19 +56,24 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  private handleClickPreMonth (isMinMonth?: boolean): void {
+  setGenerateDate (vectorCount: number) {
     const { generateDate } = this.state
 
+    const _generateDate: number = dayjs(generateDate)
+      .add(vectorCount, 'month')
+      .valueOf()
+    this.setState({
+      generateDate: _generateDate
+    })
+  }
+
+  @bind
+  handleClickPreMonth (isMinMonth?: boolean): void {
     if (isMinMonth === true) {
       return
     }
 
-    const _generateDate: Dayjs = dayjs(generateDate).subtract(1, 'month')
-
-    this.triggerChangeDate(_generateDate)
-    this.setState({
-      generateDate: _generateDate.valueOf()
-    })
+    this.setGenerateDate(-1)
 
     if (_isFunction(this.props.onClickPreMonth)) {
       this.props.onClickPreMonth()
@@ -77,19 +81,12 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  private handleClickNextMonth (isMaxMonth?: boolean): void {
-    const { generateDate } = this.state
-
+  handleClickNextMonth (isMaxMonth?: boolean): void {
     if (isMaxMonth === true) {
       return
     }
 
-    const _generateDate: Dayjs = dayjs(generateDate).add(1, 'month')
-
-    this.triggerChangeDate(_generateDate)
-    this.setState({
-      generateDate: _generateDate.valueOf()
-    })
+    this.setGenerateDate(1)
 
     if (_isFunction(this.props.onClickNextMonth)) {
       this.props.onClickNextMonth()
@@ -97,7 +94,7 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  private handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
+  handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
     const { value } = e.detail
 
     const _generateDate: Dayjs = dayjs(value)
@@ -112,7 +109,7 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  private handleClick (item: Calendar.Item) {
+  handleClick (item: Calendar.Item) {
     const { generateDate } = this.state
     const { isDisabled, value } = item
 
@@ -140,7 +137,7 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  private handleDayLongClick (item: Calendar.Item) {
+  handleDayLongClick (item: Calendar.Item) {
     if (_isFunction(this.props.onDayLongClick)) {
       this.props.onDayLongClick(item)
     }
@@ -162,18 +159,16 @@ export default class AtCalendar extends Taro.Component<Props, State> {
 
     return (
       <View className={classnames('at-calendar', className)}>
-        <View className='at-calendar__controller'>
-          <AtCalendarController
-            minDate={minDate}
-            maxDate={maxDate}
-            hideArrow={hideArrow}
-            monthFormat={monthFormat}
-            generateDate={generateDate}
-            onPreMonth={this.handleClickPreMonth}
-            onNextMonth={this.handleClickNextMonth}
-            onSelectDate={this.handleSelectDate}
-          />
-        </View>
+        <AtCalendarController
+          minDate={minDate}
+          maxDate={maxDate}
+          hideArrow={hideArrow}
+          monthFormat={monthFormat}
+          generateDate={generateDate}
+          onPreMonth={this.handleClickPreMonth}
+          onNextMonth={this.handleClickNextMonth}
+          onSelectDate={this.handleSelectDate}
+        />
         <View className='at-calendar__body'>
           <AtCalendarBody
             marks={marks}
@@ -186,8 +181,7 @@ export default class AtCalendar extends Taro.Component<Props, State> {
             selectedDate={selectedDate}
             generateDate={generateDate}
             onLongClick={this.handleDayLongClick}
-            onPreMonth={this.handleClickPreMonth}
-            onNextMonth={this.handleClickNextMonth}
+            onSwipeMonth={this.setGenerateDate}
           />
         </View>
       </View>

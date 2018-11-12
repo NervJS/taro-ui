@@ -3,7 +3,7 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
 
-export interface AtList {
+export interface AtListProps {
   hasBorder?: boolean
 }
 
@@ -19,11 +19,11 @@ export interface AtListItemProps extends AtComponent {
   thumb?: string
 
   isSwitch?: boolean
-  
+
   extraText?: string
-  
+
   extraThumb?: string
-  
+
   switchIsCheck?: boolean
 
   iconInfo?: AtIconBaseProps
@@ -35,7 +35,7 @@ export interface AtListItemProps extends AtComponent {
   onSwitchChange?: BaseEventFunction
 }
 
-export const AtList: ComponentClass<AtList>
+export const AtList: ComponentClass<AtListProps>
 
 declare const AtListItem: ComponentClass<AtListItemProps>
 
