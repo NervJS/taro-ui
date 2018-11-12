@@ -10,6 +10,8 @@ export interface AtTagProps extends AtComponent{
 
   name?: string
 
+  circle?: boolean
+
   active?: boolean
 
   disabled?: boolean

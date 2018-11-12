@@ -40,7 +40,7 @@ export default class TagPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='Curtain 幕布'></DocsHeader>
+        <DocsHeader title='Curtain 幕帘'></DocsHeader>
         {/* E Header */}
 
         {/* S Body */}
@@ -60,7 +60,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>右上关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top')}>右上关闭幕布</AtButton>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top')}>右上关闭幕帘</AtButton>
               </View>
             </View>
           </View>
@@ -70,7 +70,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>底部关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom')}>底部关闭幕布</AtButton>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom')}>底部关闭幕帘</AtButton>
               </View>
             </View>
           </View>

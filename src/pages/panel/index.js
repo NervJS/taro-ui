@@ -87,7 +87,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Curtain',
-            name: '幕布'
+            name: '幕帘'
           },
           {
             id: 'Divider',

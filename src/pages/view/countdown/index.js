@@ -23,7 +23,7 @@ export default class CountDownPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='倒计时'></DocsHeader>
+        <DocsHeader title='CountDown 倒计时'></DocsHeader>
         {/* E Header */}
         {/* S Body */}
         <View className='doc-body'>
