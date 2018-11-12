@@ -93,6 +93,7 @@ export default class AtInputNumber extends AtComponent {
     let nextValue = value < max ? value : max
     nextValue = nextValue > min ? nextValue : min
     this.props.onChange(AtInputNumber.parseValue(nextValue))
+    return nextValue
   }
 
   render () {
