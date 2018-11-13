@@ -41,5 +41,6 @@ export default {
   pagination: 'navigation/pagination',
   segmentedcontrol: 'navigation/segmented-control',
   tabbar: 'navigation/tabbar',
-  tabs: 'navigation/tabs'
+  tabs: 'navigation/tabs',
+  calendar: 'advanced/calendar'
 }
