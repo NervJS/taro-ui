@@ -1,8 +1,6 @@
-import { DefaultProps as _DefaultProps } from '../interface'
-
 import Calendar from '../types'
 
-export type ListGroup = Array<Calendar.List<Calendar.Item>>
+export type ListGroup = Array<Calendar.ListInfo<Calendar.Item>>
 
 export interface Props {
   format: string
@@ -19,9 +17,11 @@ export interface Props {
 
   generateDate: number
 
-  selectedDate: number
+  selectedDate: Calendar.SelectedDate
 
-  onClick: (item: Calendar.Item) => void
+  selectedDates: Array<Calendar.SelectedDate> | []
+
+  onDayClick: (item: Calendar.Item) => void
 
   onSwipeMonth: (vectorCount: number) => void
 
@@ -34,8 +34,4 @@ export interface State {
   offsetSize: number
 
   listGroup: ListGroup
-}
-
-export interface Cache {
-  [key: number]: Calendar.List<Calendar.Item>
 }

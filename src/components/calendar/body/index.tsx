@@ -22,10 +22,12 @@ const ANIMTE_DURATION: number = 300
 
 const defaultProps: Partial<Props> = {
   marks: [],
+  selectedDate: {
+    end: Date.now(),
+    start: Date.now()
+  },
   format: 'YYYY-MM-DD',
-  generateDate: Date.now(),
-  selectedDate: Date.now(),
-  onClick: () => {}
+  generateDate: Date.now()
 }
 
 export default class AtCalendarBody extends Taro.Component<
@@ -44,9 +46,9 @@ export default class AtCalendarBody extends Taro.Component<
 
   private generateFunc: (
     generateDate: number,
-    selectedDate: number,
+    selectedDate: Calendar.SelectedDate,
     isShowStatus?: boolean
-  ) => Calendar.List<Calendar.Item>
+  ) => Calendar.ListInfo<Calendar.Item>
 
   constructor (props) {
     super(...arguments)
@@ -56,14 +58,16 @@ export default class AtCalendarBody extends Taro.Component<
       minDate,
       maxDate,
       generateDate,
-      selectedDate
+      selectedDate,
+      selectedDates
     } = props
 
     this.generateFunc = generateCalendarGroup({
       format,
       minDate,
       maxDate,
-      marks
+      marks,
+      selectedDates
     })
     const listGroup = this.getGroups(generateDate, selectedDate)
 
@@ -75,21 +79,24 @@ export default class AtCalendarBody extends Taro.Component<
   }
 
   @bind
-  private getGroups (generateDate: number, selectedDate: number): ListGroup {
+  private getGroups (
+    generateDate: number,
+    selectedDate: Calendar.SelectedDate
+  ): ListGroup {
     const dayjsDate = dayjs(generateDate)
     const arr: ListGroup = []
-    const preList: Calendar.List<Calendar.Item> = this.generateFunc(
+    const preList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
       dayjsDate.subtract(1, 'month').valueOf(),
       selectedDate
     )
 
-    const nowList: Calendar.List<Calendar.Item> = this.generateFunc(
+    const nowList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
       generateDate,
       selectedDate,
       true
     )
 
-    const nextList: Calendar.List<Calendar.Item> = this.generateFunc(
+    const nextList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
       dayjsDate.add(1, 'month').valueOf(),
       selectedDate
     )
@@ -113,14 +120,16 @@ export default class AtCalendarBody extends Taro.Component<
       minDate,
       maxDate,
       generateDate,
-      selectedDate
+      selectedDate,
+      selectedDates
     } = nextProps
 
     this.generateFunc = generateCalendarGroup({
       format,
       minDate,
       maxDate,
-      marks
+      marks,
+      selectedDates
     })
     const listGroup = this.getGroups(generateDate, selectedDate)
 
@@ -256,8 +265,9 @@ export default class AtCalendarBody extends Taro.Component<
         >
           <AtCalendarDayList />
           <View className='main__body body'>
-            <View className='body__slider body__slider--now' />
-            <AtCalendarDateList list={listGroup[1]} />
+            <View className='body__slider body__slider--now'>
+              <AtCalendarDateList list={listGroup[1].list} />
+            </View>
           </View>
         </View>
       )
@@ -291,17 +301,19 @@ export default class AtCalendarBody extends Taro.Component<
                 : ''
             }}
           >
-            <View className='body__slider body__slider--pre' />
-            <AtCalendarDateList list={listGroup[0]} />
+            <View className='body__slider body__slider--pre'>
+              <AtCalendarDateList list={listGroup[0].list} />
+            </View>
             <View className='body__slider body__slider--now'>
               <AtCalendarDateList
-                list={listGroup[1]}
-                onClick={this.props.onClick}
+                list={listGroup[1].list}
+                onClick={this.props.onDayClick}
                 onLongClick={this.props.onLongClick}
               />
             </View>
-            <View className='body__slider body__slider--next' />
-            <AtCalendarDateList list={listGroup[2]} />
+            <View className='body__slider body__slider--next'>
+              <AtCalendarDateList list={listGroup[2].list} />
+            </View>
           </View>
         </View>
       )
@@ -326,11 +338,11 @@ export default class AtCalendarBody extends Taro.Component<
           onTouchEnd={this.handleSwipeTouchEnd}
           onTouchStart={this.handleSwipeTouchStart}
         >
-          {listGroup.map((item, key) => (
-            <SwiperItem key={key} itemId={key.toString()}>
+          {listGroup.map(item => (
+            <SwiperItem key={item.value} itemId={item.value.toString()}>
               <AtCalendarDateList
-                list={item}
-                onClick={this.props.onClick}
+                list={item.list}
+                onClick={this.props.onDayClick}
                 onLongClick={this.props.onLongClick}
               />
             </SwiperItem>

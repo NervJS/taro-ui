@@ -17,6 +17,7 @@ $markSize: 8px;
     font-size: 30px;
     text-align: center;
     position: relative;
+    margin: 5px 0;
 
     &-container {
       @include align-items(center);
@@ -57,25 +58,36 @@ $markSize: 8px;
       }
     }
 
-    &--active {
-      .flex__item-extra .extra-marks .mark {
-        background-color: white;
-      }
-
-      .flex__item-container {
-        color: white;
-        background-color: rgba($color: $color-brand, $alpha: 0.7);
-      }
-    }
-
     &--today {
       color: $color-brand;
-      font-weight: bold;
+      font-weight: bolder;
     }
 
     &--blur {
-      color: black;
-      opacity: 0.2;
+      color: #e1e4e7;
+    }
+
+    &--selected {
+      color: white;
+      background-color: rgba($color: $color-brand, $alpha: 0.7);
+
+      &-head {
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+      }
+
+      &-tail {
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+      }
+
+      &-head.flex__item--selected-tail {
+        background-color: transparent;
+
+        .flex__item-container {
+          background-color: rgba($color: $color-brand, $alpha: 0.7);
+        }
+      }
     }
   }
 }

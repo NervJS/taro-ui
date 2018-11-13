@@ -34,6 +34,12 @@ declare namespace Calendar {
     isAfterMax?: boolean
 
     isDisabled?: boolean
+
+    isSelected?: boolean
+
+    isSelectedHead?: boolean
+
+    isSelectedTail?: boolean
   }
 
   export interface GroupOptions {
@@ -41,10 +47,24 @@ declare namespace Calendar {
 
     format: string
 
+    selectedDates: Array<SelectedDate>
+
     minDate?: DateArg
 
     maxDate?: DateArg
   }
 
   export type List < T > = Array<T>
+
+  export type ListInfo < T > = {
+    value: number
+
+    list: List<T>
+  }
+
+  export interface SelectedDate {
+    end?: Calendar.DateArg
+
+    start: Calendar.DateArg
+  }
 }

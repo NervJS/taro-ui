@@ -1,6 +1,7 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
+import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
 import { BaseEvent } from '@tarojs/components/types/common'
 
@@ -9,8 +10,8 @@ import { View } from '@tarojs/components'
 
 import Calendar from './types'
 import AtCalendarBody from './body/index'
-import { getGenerateDate } from './common/helper'
 import AtCalendarController from './controller/index'
+
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
 import './index.scss'
@@ -20,30 +21,124 @@ const defaultProps: DefaultProps = {
   isSwiper: true,
   hideArrow: false,
   isVertical: false,
+  selectedDates: [],
+  isMultiSelect: false,
   format: 'YYYY-MM-DD',
   currentDate: Date.now(),
   monthFormat: 'YYYY年MM月'
 }
 
-export default class AtCalendar extends Taro.Component<Props, State> {
+export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   static defaultProps: DefaultProps = defaultProps
 
-  readonly state: Readonly<State> = {
-    selectedDate: dayjs(this.props.currentDate)
-      .startOf('day')
-      .valueOf(),
-    generateDate: getGenerateDate(this.props.currentDate).valueOf()
+  constructor (props: Props) {
+    super(...arguments)
+
+    const { currentDate, isMultiSelect } = props as PropsWithDefaults
+
+    this.state = this.getInitializeState(currentDate, isMultiSelect)
   }
 
-  componentWillReceiveProps (nextProps) {
-    const { currentDate } = nextProps
-    if (currentDate === this.props.currentDate) return
-    this.setState({
-      selectedDate: dayjs(currentDate)
+  componentWillReceiveProps (nextProps: Props) {
+    const { currentDate, isMultiSelect } = nextProps
+    if (!currentDate || currentDate === this.props.currentDate) return
+
+    if (isMultiSelect && this.props.isMultiSelect) {
+      const { start, end } = currentDate as Calendar.SelectedDate
+      const { start: preStart, end: preEnd } = this.props
+        .currentDate as Calendar.SelectedDate
+
+      if (start === preStart && preEnd === end) {
+        return
+      }
+    }
+
+    const stateValue: State = this.getInitializeState(
+      currentDate,
+      isMultiSelect
+    )
+
+    this.setState(stateValue)
+  }
+
+  @bind
+  private getSingleSelectdState (value: Dayjs): Partial<State> {
+    const { generateDate } = this.state
+
+    const stateValue: Partial<State> = {
+      selectedDate: this.getSelectedDate(value.valueOf())
+    }
+
+    const dayjsGenerateDate: Dayjs = value.startOf('month')
+    const generateDateValue: number = dayjsGenerateDate.valueOf()
+
+    if (generateDateValue !== generateDate) {
+      this.triggerChangeDate(dayjsGenerateDate)
+      stateValue.generateDate = generateDateValue
+    }
+
+    return stateValue
+  }
+
+  @bind
+  private getMultiSelectedState (value: Dayjs): Partial<State> {
+    const { selectedDate } = this.state
+    const { end } = selectedDate
+
+    const valueUnix: number = value.valueOf()
+    const state: Partial<State> = {}
+
+    if (end) {
+      state.selectedDate = this.getSelectedDate(valueUnix, 0)
+    } else {
+      selectedDate.end = valueUnix
+      state.selectedDate = selectedDate
+    }
+
+    return state
+  }
+
+  private getSelectedDate (start: number, end?: number): Calendar.SelectedDate {
+    const stateValue: Calendar.SelectedDate = {
+      start,
+      end: start
+    }
+
+    if (typeof end !== 'undefined') {
+      stateValue.end = end
+    }
+
+    return stateValue
+  }
+
+  private getInitializeState (
+    currentDate: Calendar.DateArg | Calendar.SelectedDate,
+    isMultiSelect?: boolean
+  ): State {
+    let end: number
+    let start: number
+
+    if (isMultiSelect) {
+      const { start: cStart, end: cEnd } = currentDate as Calendar.SelectedDate
+      start = dayjs(cStart)
         .startOf('day')
-        .valueOf(),
-      generateDate: getGenerateDate(currentDate).valueOf()
-    })
+        .valueOf()
+      end = cEnd
+        ? dayjs(cEnd)
+          .startOf('day')
+          .valueOf()
+        : start
+    } else {
+      start = dayjs(currentDate as Calendar.DateArg)
+        .startOf('day')
+        .valueOf()
+      end = start
+    }
+
+    return {
+      generateDate: start,
+      selectedDate: this.getSelectedDate(start, end)
+    }
   }
 
   @bind
@@ -109,27 +204,23 @@ export default class AtCalendar extends Taro.Component<Props, State> {
   }
 
   @bind
-  handleClick (item: Calendar.Item) {
-    const { generateDate } = this.state
+  handleDayClick (item: Calendar.Item) {
+    const { isMultiSelect } = this.props
     const { isDisabled, value } = item
 
     if (isDisabled) return
 
-    const dayjsValue = dayjs(value)
+    const dayjsDate: Dayjs = dayjs(value)
 
-    const _state: Partial<State> = {
-      selectedDate: dayjsValue.valueOf()
+    let stateValue: Partial<State> = {}
+
+    if (isMultiSelect) {
+      stateValue = this.getMultiSelectedState(dayjsDate)
+    } else {
+      stateValue = this.getSingleSelectdState(dayjsDate)
     }
 
-    const _generateDate: Dayjs = dayjsValue.startOf('month')
-    const _generateDateValue: number = _generateDate.valueOf()
-
-    if (_generateDateValue !== generateDate) {
-      this.triggerChangeDate(_generateDate)
-      _state.generateDate = _generateDateValue
-    }
-
-    this.setState(_state as State)
+    this.setState(stateValue as State)
 
     if (_isFunction(this.props.onDayClick)) {
       this.props.onDayClick(item)
@@ -154,7 +245,8 @@ export default class AtCalendar extends Taro.Component<Props, State> {
       className,
       hideArrow,
       isVertical,
-      monthFormat
+      monthFormat,
+      selectedDates
     } = this.props as PropsWithDefaults
 
     return (
@@ -169,21 +261,20 @@ export default class AtCalendar extends Taro.Component<Props, State> {
           onNextMonth={this.handleClickNextMonth}
           onSelectDate={this.handleSelectDate}
         />
-        <View className='at-calendar__body'>
-          <AtCalendarBody
-            marks={marks}
-            format={format}
-            minDate={minDate}
-            maxDate={maxDate}
-            isSwiper={isSwiper}
-            isVertical={isVertical}
-            onClick={this.handleClick}
-            selectedDate={selectedDate}
-            generateDate={generateDate}
-            onLongClick={this.handleDayLongClick}
-            onSwipeMonth={this.setGenerateDate}
-          />
-        </View>
+        <AtCalendarBody
+          marks={marks}
+          format={format}
+          minDate={minDate}
+          maxDate={maxDate}
+          isSwiper={isSwiper}
+          isVertical={isVertical}
+          selectedDate={selectedDate}
+          selectedDates={selectedDates}
+          generateDate={generateDate}
+          onDayClick={this.handleDayClick}
+          onSwipeMonth={this.setGenerateDate}
+          onLongClick={this.handleDayLongClick}
+        />
       </View>
     )
   }

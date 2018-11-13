@@ -1,5 +1,5 @@
 import { ComponentClass } from 'react'
-import { InterfaceType } from 'typescript'
+import { Props } from '../src/components/calendar/interface'
 
 export { default as AtActionSheet } from './action-sheet'
 export { default as AtActivityIndicator } from './activity-indicator'
@@ -40,6 +40,8 @@ export { default as AtDivider } from './divider'
 export { default as AtCountDown } from './count-down'
 export { default as AtSteps } from './steps'
 export { default as AtCurtain } from './curtain'
+
+export declare const AtCalendar: ComponentClass<Props>
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass

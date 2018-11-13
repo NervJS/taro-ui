@@ -1,6 +1,6 @@
 import Calendar from './types'
 
-export interface Props {
+export interface PropsBase {
   format?: string
 
   minDate?: Calendar.DateArg
@@ -17,8 +17,6 @@ export interface Props {
 
   isVertical?: boolean
 
-  currentDate?: Calendar.DateArg
-
   className?: Calendar.classNameType
 
   onClickPreMonth?: () => void
@@ -32,6 +30,20 @@ export interface Props {
   onMonthChange?: (value: string) => void
 }
 
+export interface SingleSelectedProps extends PropsBase {
+  isMultiSelect?: false
+
+  currentDate?: Calendar.DateArg
+}
+
+export interface MutilSelectedProps extends PropsBase {
+  isMultiSelect?: true
+
+  currentDate?: Calendar.SelectedDate
+}
+
+export type Props = SingleSelectedProps | MutilSelectedProps
+
 export interface DefaultProps {
   format: string
 
@@ -39,19 +51,23 @@ export interface DefaultProps {
 
   marks: Array<Calendar.Mark>
 
-  currentDate: Calendar.DateArg
+  currentDate: Calendar.DateArg | Calendar.SelectedDate
 
   monthFormat: string
 
   hideArrow: boolean
 
   isVertical: boolean
+
+  isMultiSelect: boolean
+
+  selectedDates: Array<Calendar.SelectedDate>
 }
 
 export interface State {
   generateDate: number
 
-  selectedDate: number
+  selectedDate: Calendar.SelectedDate
 }
 
 export type PropsWithDefaults = Props & DefaultProps

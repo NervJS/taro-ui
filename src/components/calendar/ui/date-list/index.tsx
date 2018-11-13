@@ -26,14 +26,14 @@ export interface Props {
 
 export default class AtCalendarList extends Taro.Component<Props> {
   @bind
-  private handleClick (item) {
+  handleClick (item) {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(item)
     }
   }
 
   @bind
-  private handleLongClick (item) {
+  handleLongClick (item) {
     if (_isFunction(this.props.onLongClick)) {
       this.props.onLongClick(item)
     }
@@ -57,6 +57,9 @@ export default class AtCalendarList extends Taro.Component<Props> {
               {
                 'flex__item--today': item.isToday,
                 'flex__item--active': item.isActive,
+                'flex__item--selected': item.isSelected,
+                'flex__item--selected-head': item.isSelectedHead,
+                'flex__item--selected-tail': item.isSelectedTail,
                 'flex__item--blur':
                   item.isDisabled ||
                   item.type === constant.TYPE_PRE_MONTH ||

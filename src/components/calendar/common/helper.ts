@@ -10,7 +10,7 @@ const TOTAL = 7 * 6
 function getFullItem (
   item: Partial<Calendar.Item>,
   options: Calendar.GroupOptions,
-  selectedDate: number,
+  selectedDate: Calendar.SelectedDate,
   isShowStatus?: boolean
 ) {
   if (!isShowStatus) return item
@@ -25,14 +25,14 @@ export default function generateCalendarGroup (
   options: Calendar.GroupOptions
 ): (
     generateDate: number,
-    selectedDate: number,
+    selectedDate: Calendar.SelectedDate,
     isShowStatus?: boolean
-  ) => Calendar.List<Calendar.Item> {
+  ) => Calendar.ListInfo<Calendar.Item> {
   return function (
     generateDate: number,
-    selectedDate: number,
+    selectedDate: Calendar.SelectedDate,
     isShowStatus?: boolean
-  ): Calendar.List<Calendar.Item> {
+  ): Calendar.ListInfo<Calendar.Item> {
     const date = dayjs(generateDate)
 
     const { format } = options
@@ -99,7 +99,10 @@ export default function generateCalendarGroup (
       list.push(item)
     }
 
-    return list
+    return {
+      list,
+      value: generateDate
+    }
   }
 }
 

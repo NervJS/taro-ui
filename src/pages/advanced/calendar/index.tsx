@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Button } from '@tarojs/components'
 
 import bind from 'bind-decorator'
 
@@ -17,6 +17,9 @@ export default class Index extends Component {
     now: Date.now(),
     minDate: '2018/06/11',
     maxDate: '2018/12/12',
+    multiCurentDate: {
+      start: Date.now()
+    },
     mark: [
       {
         value: '2018/11/11'
@@ -57,7 +60,7 @@ export default class Index extends Component {
   }
 
   render () {
-    const { now, minDate, maxDate, mark } = this.state
+    const { now, minDate, maxDate, mark, multiCurentDate } = this.state
     return (
       <View className='page calendar-page'>
         <DocsHeader title='Calendar 日历' />
@@ -147,6 +150,25 @@ export default class Index extends Component {
             <View className='panel__title'>垂直滑动</View>
             <View className='panel__content'>
               <AtCalendar isVertical />
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>范围选择</View>
+            <View className='panel__content'>
+              <AtCalendar isMultiSelect currentDate={multiCurentDate} />
+              <View className='body_controllers'>
+                <Button
+                  size='mini'
+                  className='button'
+                  onClick={this.handleClick.bind(this, 'multiCurentDate', {
+                    start: '2018/10/28',
+                    end: '2018/11/11'
+                  })}
+                >
+                  设置选择区间为 2018/10/28 - 2018/11/11
+                </Button>
+              </View>
             </View>
           </View>
         </View>
