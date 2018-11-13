@@ -1,8 +1,15 @@
-import { CSSProperties } from 'react'
+import { CSSProperties } from "react"
 
 export interface AtComponent {
-  className?: string | string[]
+  className?: string | string[] | { [key: string]: boolean }
+
   customStyle?: string | CSSProperties
+}
+
+export interface AtIconBaseProps2 extends AtComponent {
+  value: string
+
+  color?: string
 }
 
 export interface AtIconBaseProps extends AtComponent {

@@ -3,13 +3,15 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-export interface AtActionSheetProps extends AtComponent{
+export interface AtActionSheetProps extends AtComponent {
   isOpened: boolean
 
   title?: string
+
   cancelText?: string
 
   onClose?: (event: BaseEventFunction) => void
+
   onCancel?: (event: BaseEventFunction) => void
 }
 
