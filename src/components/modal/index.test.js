@@ -134,4 +134,32 @@ describe('Modal Behavior ', () => {
       expect(component.state._isOpened).toBeFalsy()
     })
   })
+
+  it('Modal onClose will not be called', () => {
+    const onClose = jest.fn()
+
+    const component = renderIntoDocument(
+      <AtModal
+        isOpened
+        title='标题'
+        cancelText='取消'
+        closeOnClickOverlay={false}
+        confirmText='确认'
+        onClose={onClose}
+        content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+      />
+    )
+    const componentDom = findDOMNode(component, 'at-modal')
+
+    const overlayDom = componentDom.querySelector('.at-modal__overlay')
+
+    expect(component.state._isOpened).toBeTruthy()
+
+    Simulate.click(overlayDom)
+
+    process.nextTick(() => {
+      expect(onClose).not.toBeCalled()
+      expect(component.state._isOpened).toBeTruthy()
+    })
+  })
 })

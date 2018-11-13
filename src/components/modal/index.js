@@ -31,13 +31,15 @@ export default class AtModal extends AtComponent {
     }
   }
 
-  close = () => {
-    this.setState(
-      {
-        _isOpened: false
-      },
-      this.handleClose
-    )
+  handleClickOverlay = () => {
+    if (this.props.closeOnClickOverlay) {
+      this.setState(
+        {
+          _isOpened: false
+        },
+        this.handleClose
+      )
+    }
   }
 
   handleClose = () => {
@@ -78,7 +80,10 @@ export default class AtModal extends AtComponent {
       const isRenderAction = cancelText || confirmText
       return (
         <View className={rootClass} onTouchMove={this.handleTouchMove}>
-          <View onClick={this.close} className='at-modal__overlay' />
+          <View
+            onClick={this.handleClickOverlay}
+            className='at-modal__overlay'
+          />
           <View className='at-modal__container'>
             {title && (
               <AtModalHeader>
@@ -109,11 +114,15 @@ export default class AtModal extends AtComponent {
 
     return (
       <View onTouchMove={this.handleTouchMove} className={rootClass}>
-        <View className='at-modal__overlay' onClick={this.close} />
+        <View className='at-modal__overlay' onClick={this.handleClickOverlay} />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>
     )
   }
+}
+
+AtModal.defaultProps = {
+  closeOnClickOverlay: true
 }
 
 AtModal.propTypes = {
@@ -122,6 +131,7 @@ AtModal.propTypes = {
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   content: PropTypes.string,
+  closeOnClickOverlay: PropTypes.bool,
   cancelText: PropTypes.string,
   confirmText: PropTypes.string
 }

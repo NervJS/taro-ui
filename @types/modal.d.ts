@@ -1,7 +1,7 @@
-import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { MouseEvent, ComponentClass } from "react"
+import { BaseEventFunction } from "@tarojs/components/types/common"
 
-import AtComponent from './base'
+import AtComponent from "./base"
 
 export interface AtModalProps extends AtComponent {
   title?: string
@@ -9,6 +9,8 @@ export interface AtModalProps extends AtComponent {
   isOpened: boolean
 
   content?: string
+
+  closeOnClickOverlay?: boolean
 
   cancelText?: string
 
