@@ -24,7 +24,7 @@ export interface AtTextareaProps extends AtComponent{
 
   selectionEnd?: number
 
-  count?: number
+  count?: boolean
 
   fixed?: boolean
 
