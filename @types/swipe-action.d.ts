@@ -16,6 +16,8 @@ export interface AtSwipeActionProps extends AtComponent {
 
   disabled?: boolean
 
+  onClick?：BaseEventFunction
+  
   onOpened?: BaseEventFunction
 
   onClosed?: BaseEventFunction
