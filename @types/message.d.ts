@@ -3,10 +3,16 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-export interface AtMessageProps extends AtComponent {
+declare const AtMessage: ComponentClass<AtComponent>
 
+interface Options {
+  message: string
+
+  type?: 'info' | 'success' | 'error' | 'warning'
+
+  duration?: number
 }
 
-declare const AtMessage: ComponentClass<AtMessageProps>
+declare function message({ }: Options ): void
 
-export default AtMessage
+export { AtMessage, message }
