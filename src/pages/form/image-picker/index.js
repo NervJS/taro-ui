@@ -12,7 +12,15 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      files: []
+      files: [{
+        url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
+      },
+      {
+        url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
+      },
+      {
+        url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
+      }]
     }
   }
   onChange (files) {
@@ -74,7 +82,7 @@ export default class Index extends Taro.Component {
               <View className='example-item'>
                 <AtImagePicker
                   multiple
-                  length={5}
+                  length={3}
                   files={this.state.files}
                   onChange={this.onChange.bind(this)}
                 />
@@ -88,9 +96,8 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtImagePicker
-                  mode='top'
+                  mode='aspectFill'
                   multiple
-                  length={5}
                   files={this.state.files}
                   onChange={this.onChange.bind(this)}
                 />

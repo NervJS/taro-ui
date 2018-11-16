@@ -75,7 +75,7 @@ export default class AtImagePicker extends AtComponent {
       'bottom left',
       'bottom right'
     ]),
-    showAddBtn: PropTypes.number,
+    showAddBtn: PropTypes.bool,
     multiple: PropTypes.bool,
     length: PropTypes.number,
     onChange: PropTypes.func,
