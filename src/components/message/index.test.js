@@ -1,7 +1,7 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
 
-import AtMessage from '../../../.temp/components/message/index'
+import { AtMessage } from '../../../.temp/components/message/index'
 
 describe('AtMessage Snap', () => {
   it('render initial AtMessage', () => {
