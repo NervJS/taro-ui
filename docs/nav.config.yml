@@ -87,6 +87,8 @@ components:
             name: SearchBar
           - title: 滑动条
             name: Slider
+          - title: 图片选择器
+            name: ImagePicker
       - title: 布局组件
         items:
           - title: 弹性布局

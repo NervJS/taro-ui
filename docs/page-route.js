@@ -24,6 +24,7 @@ export default {
   picker: 'form/picker',
   searchbar: 'form/search-bar',
   slider: 'form/slider',
+  imagepicker: 'form/image-picker',
   article: 'view/article',
   avatar: 'view/avatar',
   badge: 'view/badge',
