@@ -52,6 +52,7 @@ export { default as AtCountDown } from './components/count-down'
 export { default as AtSteps } from './components/steps'
 export { default as AtCurtain } from './components/curtain'
 export { AtMessage, message } from './components/message'
+export { default as AtImagePicker } from './components/image-picker'
 
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'

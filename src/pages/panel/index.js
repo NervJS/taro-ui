@@ -188,6 +188,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Search-Bar',
             name: '搜索栏'
+          },
+          {
+            id: 'Image-Picker',
+            name: '图片选择器'
           }
         ],
         layout: [

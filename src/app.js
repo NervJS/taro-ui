@@ -53,7 +53,8 @@ class App extends Component {
       'pages/form/picker/index',
       'pages/form/picker-view/index',
       'pages/form/slider/index',
-      'pages/form/search-bar/index'
+      'pages/form/search-bar/index',
+      'pages/form/image-picker/index'
     ],
     window: {
       backgroundTextStyle: 'light',
