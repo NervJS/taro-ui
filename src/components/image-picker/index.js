@@ -60,6 +60,21 @@ export default class AtImagePicker extends AtComponent {
       PropTypes.object
     ]),
     files: PropTypes.array,
+    mode: PropTypes.oneOf([
+      'scaleToFill',
+      'aspectFit',
+      'aspectFill',
+      'widthFix',
+      'top',
+      'bottom',
+      'center',
+      'left',
+      'right',
+      'top left',
+      'top right',
+      'bottom left',
+      'bottom right'
+    ]),
     showAddBtn: PropTypes.number,
     multiple: PropTypes.bool,
     length: PropTypes.number,
