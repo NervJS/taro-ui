@@ -117,4 +117,6 @@ components:
             name: Pagination
           - title: 抽屉
             name: Drawer
+          - title: 索引选择器
+            name: Indexes
 
