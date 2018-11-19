@@ -6,6 +6,8 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 import './index.scss'
 
+const toSeconds = (day, hours, minutes, seconds) => (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
+
 export default class AtCountDown extends AtComponent {
   static defaultProps = {
     customStyle: '',
@@ -47,7 +49,7 @@ export default class AtCountDown extends AtComponent {
   constructor () {
     super(...arguments)
     const { day, hours, minutes, seconds } = this.props
-    this.seconds = (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
+    this.seconds = toSeconds(day, hours, minutes, seconds)
     this.state = { day, hours, minutes, seconds }
     this.timer = null
   }
@@ -56,7 +58,7 @@ export default class AtCountDown extends AtComponent {
     return num <= 9 ? `0${num}` : `${num}`
   }
 
-  componentDidMount () {
+  setTimer () {
     this.timer = setInterval(() => {
       let [day, hours, minutes, seconds] = [0, 0, 0, 0]
       if (this.seconds > 0) {
@@ -75,10 +77,32 @@ export default class AtCountDown extends AtComponent {
     }, 1000)
   }
 
-  componentWillUnmount () {
+  clearTimer () {
     if (this.timer) {
       clearInterval(this.timer)
     }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const props = this.props
+    if (nextProps.day === props.day
+      && nextProps.hours === props.hours
+      && nextProps.minutes === props.minutes
+      && nextProps.seconds === props.seconds
+    ) return
+
+    const { day, hours, minutes, seconds } = nextProps
+    this.seconds = toSeconds(day, hours, minutes, seconds)
+    this.clearTimer()
+    this.setTimer()
+  }
+
+  componentDidMount () {
+    this.setTimer()
+  }
+
+  componentWillUnmount () {
+    this.clearTimer()
   }
 
   render () {
