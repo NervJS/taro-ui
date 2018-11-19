@@ -2,6 +2,7 @@
 @import "../../style/mixins/index.scss";
 
 .at-image-picker {
+  position: relative;
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
