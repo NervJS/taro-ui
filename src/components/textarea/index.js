@@ -69,29 +69,35 @@ export default class AtTextarea extends AtComponent {
     onConfirm: PropTypes.func
   }
 
-  handleInput (e) {
-    this.props.onChange(e, ...arguments)
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
   }
 
-  handleFocus (e) {
-    this.props.onFocus(e, ...arguments)
+  handleInput () {
+    this.props.onChange(...arguments)
   }
 
-  handleBlur (e) {
-    this.props.onBlur(e, ...arguments)
+  handleFocus () {
+    this.props.onFocus(...arguments)
   }
 
-  handleConfirm (e) {
-    this.props.onConfirm(e, ...arguments)
+  handleBlur () {
+    this.props.onBlur(...arguments)
   }
 
-  handleLinechange (e) {
-    this.props.onLinechange(e, ...arguments)
+  handleConfirm () {
+    this.props.onConfirm(...arguments)
+  }
+
+  handleLinechange () {
+    this.props.onLinechange(...arguments)
   }
 
   render () {
     const {
-      isTest,
       customStyle,
       className,
       value,
@@ -112,9 +118,6 @@ export default class AtTextarea extends AtComponent {
       height
     } = this.props
 
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
     let actualMaxlength = maxlength
     if (!textOverflowForbidden) {
       actualMaxlength += 500
