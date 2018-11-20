@@ -8,7 +8,6 @@ import './index.scss'
 
 export default class AtDivider extends AtComponent {
   static defaultProps = {
-    isTest: false,
     content: '',
     height: 112,
     fontColor: '#6190E8',
@@ -38,9 +37,15 @@ export default class AtDivider extends AtComponent {
     lineColor: PropTypes.string
   }
 
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   render () {
     const {
-      isTest,
       className,
       customStyle,
       content,
@@ -49,10 +54,6 @@ export default class AtDivider extends AtComponent {
       fontSize,
       lineColor
     } = this.props
-
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
 
     const rootStyle = {
       height: `${Taro.pxTransform(height)}`
