@@ -36,7 +36,7 @@ export default class AtSwitch extends AtComponent {
   }
 
   handleChange (e) {
-    this.props.onChange(e.detail.value)
+    this.props.onChange(e.detail.value, ...arguments)
   }
 
   render () {
