@@ -63,8 +63,8 @@ export default class AtTabBar extends AtComponent {
     }
   }
 
-  handleClick (i) {
-    this.props.onClick(i, ...arguments)
+  handleClick () {
+    this.props.onClick(...arguments)
   }
 
   render () {
