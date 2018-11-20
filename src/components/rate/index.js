@@ -38,13 +38,19 @@ export default class AtRate extends AtComponent {
     onChange: PropTypes.func
   }
 
-  handleClick (i) {
-    this.props.onChange(i + 1, ...arguments)
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
+  handleClick () {
+    this.props.onChange(...arguments)
   }
 
   render () {
     const {
-      isTest,
       customStyle,
       className,
       value,
@@ -53,9 +59,6 @@ export default class AtRate extends AtComponent {
       margin
     } = this.props
 
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
     const iconStyle = {
       marginRight: Taro.pxTransform(margin)
     }
@@ -83,7 +86,7 @@ export default class AtRate extends AtComponent {
             className={cls}
             key={i}
             style={iconStyle}
-            onClick={this.handleClick.bind(this, i)}
+            onClick={this.handleClick.bind(this, i + 1)}
           >
             <AtIcon value='star-2' size={size} />
             <View className='at-rate__left'>
