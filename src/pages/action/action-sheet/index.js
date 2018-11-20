@@ -48,6 +48,8 @@ export default class ActionSheetPage extends Taro.Component {
     })
   }
 
+  testActionSheetClick = e => console.log(e)
+
   render () {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
@@ -100,15 +102,12 @@ export default class ActionSheetPage extends Taro.Component {
           cancelText='取消'
           isOpened={isOpened1}
           onClose={this.handleClose.bind(this, 1)}
+          onClick={this.testActionSheetClick}
         >
-          <AtActionSheetItem
-            onClick={this.showToast.bind(this, '点击了按钮一')}
-          >
+          <AtActionSheetItem>
             按钮一
           </AtActionSheetItem>
-          <AtActionSheetItem
-            onClick={this.showToast.bind(this, '点击了按钮二')}
-          >
+          <AtActionSheetItem>
             按钮二
           </AtActionSheetItem>
         </AtActionSheet>

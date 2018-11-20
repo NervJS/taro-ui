@@ -85,6 +85,10 @@ export default class AtActionSheet extends AtComponent {
       className
     )
 
+    this.props.children.foreach(element => {
+      element.props.onClick = this.props.onClick
+    })
+
     return (
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-action-sheet__overlay' />
