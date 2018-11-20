@@ -44,6 +44,7 @@ export { default as AtSlider } from "./slider"
 export { AtMessage, message } from "./message"
 export { default as AtImagePicker } from "./image-picker"
 export { default as AtIndexes } from "./indexes"
+export { default as AtRange } from "./range"
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass
