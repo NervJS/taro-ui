@@ -75,6 +75,13 @@ export default class AtInputNumber extends AtComponent {
     return num.toString()
   }
 
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   handleMinus () {
     const { disabled, value, min, step } = this.props
     const currentValue = parseFloat(value)
@@ -119,7 +126,6 @@ export default class AtInputNumber extends AtComponent {
 
   render () {
     const {
-      isTest,
       customStyle,
       className,
       width,
@@ -130,9 +136,6 @@ export default class AtInputNumber extends AtComponent {
       size
     } = this.props
 
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
     const inputStyle = `width: ${Taro.pxTransform(width)}`
     const inputValue = this.handleValue(value)
 
