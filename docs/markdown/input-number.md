@@ -113,7 +113,7 @@ export default class Index extends Taro.Component {
 
 | 参数   |  微信小程序 |  h5 | 说明   | 类型    | 可选值 | 默认值   |
 | ---   | ----  | ---- | ---- | ------- | ------- | ------ |
-| value | √ | √ | 输入框当前值，开发者需要通过 onChange 事件来更新 value 值，必填  | Number  | - | 1 |
+| value | √ | √ | 输入框当前值，开发者需要通过 onChange 事件来更新 value 值，必填  | Number or String  | - | 1 |
 | width | √ | √ | input 宽度,不包括两侧按钮，单位根据环境转为 `rpx` 或 `rem`  | Number  | - | 120 |
 | min   | √ | √ | 最小值  | Number  | - | 0 |
 | max   | √ | √ | 最大值  | Number | - | 100 |

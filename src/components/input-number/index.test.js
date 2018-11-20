@@ -39,3 +39,15 @@ describe('AtInputNumber Snap', () => {
     expect(component).toMatchSnapshot()
   })
 })
+
+describe('AtInputNumber function', () => {
+  it('AtInputNumber#addNum', () => {
+    expect(AtInputNumber.addNum(1.2, 1.12)).toBe(2.32)
+    expect(AtInputNumber.addNum(1.12, 1.2)).toBe(2.32)
+  })
+  it('AtInputNumber#parseValue', () => {
+    expect(AtInputNumber.parseValue('')).toBe('0')
+    expect(AtInputNumber.parseValue('01')).toBe('1')
+    expect(AtInputNumber.parseValue('1.')).toBe('1.')
+  })
+})

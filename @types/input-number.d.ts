@@ -3,6 +3,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import AtComponent from './base'
 
 export interface AtInputNumberProps extends AtComponent{
+  value: number | string
+
   style?: string
 
   min?: number
@@ -12,8 +14,6 @@ export interface AtInputNumberProps extends AtComponent{
   step?: number
 
   size?: string
-
-  value?: number
 
   width?: number
 
