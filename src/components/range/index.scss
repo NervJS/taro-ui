@@ -1,0 +1,54 @@
+@import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
+
+$height: 22PX;
+
+.at-range {
+  position: relative;
+  width: 100%;
+  padding: 0 $height;
+  box-sizing: border-box;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $height;
+    box-sizing: content-box;
+  }
+
+  &__rail {
+    position: absolute;
+    z-index: $zindex-form - 1;
+    width: 100%;
+    height: 2PX;
+    background-color: $color-grey-3;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__track {
+    position: absolute;
+    width: 20%;
+    height: 2PX;
+    background-color: $color-brand;
+    z-index: $zindex-form;
+  }
+
+  &__slider {
+    position: absolute;
+    z-index: $zindex-form + 1;
+    width: $height;
+    height: $height;
+    border-radius: 50%;
+    border: 1px solid $color-border-grey;
+    box-shadow: 0 4px 4px 0 $color-border-grey;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+}

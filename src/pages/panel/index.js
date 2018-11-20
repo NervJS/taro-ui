@@ -192,6 +192,10 @@ export default class PanelBasic extends Component {
           {
             id: 'Image-Picker',
             name: '图片选择器'
+          },
+          {
+            id: 'Range',
+            name: '区域选择器'
           }
         ],
         layout: [
