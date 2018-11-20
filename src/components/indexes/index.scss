@@ -1,0 +1,52 @@
+@import "../../style/theme/default.scss";
+@import "../../style/mixins/index.scss";
+
+.at-indexes {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &__content {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    overflow: hidden;
+    z-index: $zindex-indexes;
+  }
+
+  &__menu-item {
+    font-size: $font-size-base;
+    color: $color-link;
+    padding: 0 $spacing-h-sm;
+    text-align: center;
+  }
+
+  &__body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &__list {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__list-title {
+    font-size: $font-size-lg;
+    background-color: $color-grey-5;
+    color: $color-black-2;
+    padding: $spacing-h-sm $spacing-v-lg;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}

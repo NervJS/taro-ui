@@ -158,6 +158,14 @@ export default class AtImagePicker extends AtComponent {
         }
         style={customStyle}
       >
+        <Input
+          className='at-image-picker__file-input'
+          ref={this.refFileInput}
+          type='file'
+          accept='image/*'
+          multiple={multiple ? 'multiple' : ''}
+          onChange={this.handleImgChoose.bind(this)}
+        />
         {
           matrix.map((row, i) => (
             <View
@@ -169,7 +177,7 @@ export default class AtImagePicker extends AtComponent {
                   item.url
                     ? <View
                       className='at-image-picker__flex-item'
-                      key={item}
+                      key={(i * length) + j}
                     >
                       <View className='at-image-picker__item'>
                         <View
@@ -198,14 +206,6 @@ export default class AtImagePicker extends AtComponent {
                       >
                         <View className='at-image-picker__item at-image-picker__choose-btn'>
                           <AtIcon value='add' size='30' />
-                          <Input
-                            className='at-image-picker__file-input'
-                            ref={this.refFileInput}
-                            type='file'
-                            accept='image/*'
-                            multiple={multiple ? 'multiple' : ''}
-                            onChange={this.handleImgChoose.bind(this)}
-                          />
                         </View>
                       </View>
                 ))

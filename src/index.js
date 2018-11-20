@@ -54,6 +54,7 @@ export { default as AtCurtain } from './components/curtain'
 export { AtMessage, message } from './components/message'
 export { default as AtImagePicker } from './components/image-picker'
 export { default as AtRange } from './components/range'
+export { default as AtIndexes } from './components/indexes'
 
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'

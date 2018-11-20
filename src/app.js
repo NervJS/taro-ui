@@ -37,6 +37,7 @@ class App extends Component {
       'pages/navigation/tabbar/index',
       'pages/navigation/segmented-control/index',
       'pages/navigation/navbar/index',
+      'pages/navigation/indexes/index',
       'pages/layout/flex/index',
       'pages/layout/grid/index',
       'pages/layout/float-layout/index',

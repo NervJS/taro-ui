@@ -41,8 +41,9 @@ export { default as AtCountDown } from "./count-down"
 export { default as AtSteps } from "./steps"
 export { default as AtCurtain } from "./curtain"
 export { default as AtSlider } from "./slider"
-export { AtMessage, message } from './message'
+export { AtMessage, message } from "./message"
 export { default as AtImagePicker } from "./image-picker"
+export { default as AtIndexes } from "./indexes"
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass
