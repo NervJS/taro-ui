@@ -109,6 +109,7 @@ interface SelectDate {
 | monthFormat | 月份格式       | `string`                        | `YYYY年MM月` |
 | hideArrow   | 是否隐藏箭头   | `boolean`                       | `false`      |
 | isVertical  | 是否垂直滑动   | `boolean`                       | `false`      |
+| isMultiSelect  | 是否范围选择   | `boolean`                       | `false`      |
 
 ## AtCalendar 事件
 
