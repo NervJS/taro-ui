@@ -85,8 +85,10 @@ export default class AtActionSheet extends AtComponent {
       className
     )
 
-    this.props.children.foreach(element => {
-      element.props.onClick = this.props.onClick
+    this.props.children.forEach(element => {
+      if (!element.props.onClick) {
+        element.props.onClick = this.props.onClick
+      }
     })
 
     return (
