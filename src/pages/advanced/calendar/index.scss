@@ -1,0 +1,45 @@
+.calendar-page .body_controllers {
+  margin-bottom: 20px;
+  text-align: center;
+
+  .button {
+    width: initial;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border-color: #dcdfe6;
+    color: #606266;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: 0.1s;
+    font-weight: 500;
+    padding: 20px 36px;
+    font-size: 24px;
+    border-radius: 0;
+    border-left: none;
+
+    // prettier-ignore
+    border: 1PX solid #dcdfe6;
+
+    &::after {
+      content: initial;
+    }
+
+    &:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+
+      // prettier-ignore
+      border-left: 1PX solid #dcdfe6;
+    }
+
+    &:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}

@@ -44,5 +44,6 @@ export default {
   segmentedcontrol: 'navigation/segmented-control',
   tabbar: 'navigation/tabbar',
   tabs: 'navigation/tabs',
-  indexes: 'navigation/indexes'
+  indexes: 'navigation/indexes',
+  calendar: 'advanced/calendar'
 }
