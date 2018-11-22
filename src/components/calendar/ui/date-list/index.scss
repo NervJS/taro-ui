@@ -81,6 +81,11 @@ $markSize: 8px;
         border-bottom-right-radius: 40px;
       }
 
+      /* stylelint-disable-next-line */
+      .extra-marks .mark {
+        background-color: white;
+      }
+
       &-head.flex__item--selected-tail {
         background-color: transparent;
 
