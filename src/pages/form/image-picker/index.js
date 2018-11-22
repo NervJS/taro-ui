@@ -12,20 +12,56 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      files: [{
-        url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
-      },
-      {
-        url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
-      },
-      {
-        url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
-      }]
+      files1: [
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
+        }
+      ],
+      files2: [
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
+        }
+      ],
+      files3: [
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
+        }
+      ],
+      files4: [
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki1.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki2.jpeg',
+        },
+        {
+          url: 'https://jimczj.gitee.io/lazyrepay/aragaki3.png',
+        }
+      ]
     }
   }
-  onChange (files) {
+
+  onChange (stateName, files) {
     this.setState({
-      files
+      [stateName]: files
     })
   }
 
@@ -52,8 +88,8 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtImagePicker
-                  files={this.state.files}
-                  onChange={this.onChange.bind(this)}
+                  files={this.state.files1}
+                  onChange={this.onChange.bind(this, 'files1')}
                 />
               </View>
             </View>
@@ -66,8 +102,8 @@ export default class Index extends Taro.Component {
               <View className='example-item'>
                 <AtImagePicker
                   multiple
-                  files={this.state.files}
-                  onChange={this.onChange.bind(this)}
+                  files={this.state.files2}
+                  onChange={this.onChange.bind(this, 'files2')}
                   onFail={this.onFail.bind(this)}
                   onImageClick={this.onImageClick.bind(this)}
                 />
@@ -75,16 +111,16 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
-          {/* 自定义数量 */}
+          {/* 自定义每行数量 */}
           <View className='panel'>
-            <View className='panel__title'>自定义数量</View>
+            <View className='panel__title'>自定义每行数量</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtImagePicker
                   multiple
                   length={3}
-                  files={this.state.files}
-                  onChange={this.onChange.bind(this)}
+                  files={this.state.files3}
+                  onChange={this.onChange.bind(this, 'files3')}
                 />
               </View>
             </View>
@@ -98,8 +134,8 @@ export default class Index extends Taro.Component {
                 <AtImagePicker
                   mode='aspectFill'
                   multiple
-                  files={this.state.files}
-                  onChange={this.onChange.bind(this)}
+                  files={this.state.files4}
+                  onChange={this.onChange.bind(this, 'files4')}
                 />
               </View>
             </View>

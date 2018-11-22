@@ -41,7 +41,7 @@ export default class AtImagePicker extends AtComponent {
     className: '',
     customStyle: '',
     files: [],
-    mode: 'scaleToFill',
+    mode: 'aspectFill',
     showAddBtn: true,
     multiple: false,
     length: 4,
@@ -184,7 +184,7 @@ export default class AtImagePicker extends AtComponent {
                           className='at-image-picker__remove-btn'
                           onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
                         >
-                          <AtIcon value='close' size='14' color='#fff' />
+                          <AtIcon value='close' size='10' color='#fff' />
                         </View>
                         <Image
                           mode={mode}

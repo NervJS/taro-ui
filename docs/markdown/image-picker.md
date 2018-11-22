@@ -122,7 +122,7 @@ export default class Index extends Taro.Component {
 | 参数       | 说明       | 类型    | 可选值    | 默认值   |
 | ---------- | -------- | ------- | -------- | -------- |
 | files | 图片文件数组, 元素为对象, 包含属性 url（必选) | Array  | - | [] |
-| mode | 图片预览模式，详见(微信开发者文档)[https://developers.weixin.qq.com/miniprogram/dev/component/image.html] | String  | ```'scaleToFill'|'aspectFit'|'aspectFill'|'widthFix'|'top'|'bottom'|'center'|'left'|'right'|'top left'|'top right'|'bottom left'|'bottom right'``` | scaleToFill |
+| mode | 图片预览模式，详见(微信开发者文档)[https://developers.weixin.qq.com/miniprogram/dev/component/image.html] | String  | ```'scaleToFill'|'aspectFit'|'aspectFill'|'widthFix'|'top'|'bottom'|'center'|'left'|'right'|'top left'|'top right'|'bottom left'|'bottom right'``` | aspectFill |
 | showAddBtn | 是否显示添加图片按钮 | Boolean  | - | true |
 | multiple | 是否支持多选 | Boolean  | - | false |
 | length | 单行的图片数量 | Number  | - | 4 |
