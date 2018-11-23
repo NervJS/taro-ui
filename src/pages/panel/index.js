@@ -7,6 +7,7 @@ import iconAction from '../../assets/images/icon-list-action.png'
 import iconForm from '../../assets/images/icon-list-form.png'
 import iconLayout from '../../assets/images/icon-list-layout.png'
 import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
@@ -46,7 +47,7 @@ export default class PanelBasic extends Component {
         },
         advanced: {
           name: '高阶组件',
-          icon: iconNavigation
+          icon: iconHOC
         }
       },
       list: {

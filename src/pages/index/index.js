@@ -8,6 +8,7 @@ import iconAction from '../../assets/images/icon-list-action.png'
 import iconForm from '../../assets/images/icon-list-form.png'
 import iconLayout from '../../assets/images/icon-list-layout.png'
 import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
@@ -60,7 +61,7 @@ export default class Index extends Taro.Component {
           id: 'Advanced',
           title: '高阶组件',
           content: '包含日历等',
-          icon: iconNavigation
+          icon: iconHOC
         }
       ]
     }
