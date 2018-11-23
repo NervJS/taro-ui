@@ -16,24 +16,26 @@ Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多
 > 当开放了全局样式类，存在外部样式无意间污染组件样式的风险。由于 Taro UI 的组件样式采用 BEM 的命名方式，从一定程度上避免了样式污染的问题。
 
 :::demo
-```js
-/* CustomComp.js */
-export default CustomComp extends Component {
-  static options = {
-    addGlobalClass: true
-  }
-  
+```jsx
+/* page/index/index.js   */
+import Taro from '@tarojs/taro'
+
+import { AtButton } from 'taro-ui'
+
+import "./index.scss"
+
+export default IndexPage extends Taro.Component {  
   render () {
-    return <View className="red-text">这段文本的颜色由组件外的 class 决定</View>
+    return <AtButton className='my-button' />
   }
 }
 ```
 :::
 
 :::demo
-```js
-/* 组件外的样式定义 */
-.red-text {
+```scss
+/* page/index/index.scss 必须在 Page 上 */
+.my-button.at-button {
   color: red;
 }
 ```
