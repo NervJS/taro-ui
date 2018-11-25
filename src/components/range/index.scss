@@ -41,6 +41,7 @@ $height: 22PX;
     z-index: $zindex-form + 1;
     width: $height;
     height: $height;
+    margin-left: - $height / 2;
     border-radius: 50%;
     border: 1px solid $color-border-grey;
     box-shadow: 0 4px 4px 0 $color-border-grey;

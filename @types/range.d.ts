@@ -15,6 +15,8 @@ interface AtRangeProps extends AtComponent{
 
   max?: number
 
+  blockSize?: number
+
   disabled?: boolean
 
   onChange?: (value: []) => void

@@ -69,6 +69,7 @@ export default class Index extends Taro.Component {
 | value | 当前取值 | Array  | - | [0, 0] |
 | min | 最小值 | Number  | - | 0 |
 | max | 最大值 | Number  | - | 100 |
+| blockSize | 滑块大小 | Number  | - | 22 |
 | disabled | 是否禁用 | Boolean  | - | false |
 
 ## 事件
