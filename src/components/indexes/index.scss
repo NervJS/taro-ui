@@ -15,16 +15,17 @@
 
   &__menu {
     position: fixed;
-    top: 100px;
-    right: 10px;
+    top: 50%;
+    right: 0;
     overflow: hidden;
+    transform: translate3d(0, -50%, 0);
     z-index: $zindex-indexes;
   }
 
   &__menu-item {
-    font-size: $font-size-base;
+    padding: 2px $spacing-h-sm;
     color: $color-link;
-    padding: 0 $spacing-h-sm;
+    font-size: $font-size-sm;
     text-align: center;
   }
 
@@ -41,11 +42,11 @@
   }
 
   &__list-title {
-    font-size: $font-size-lg;
-    background-color: $color-grey-5;
-    color: $color-black-2;
     padding: $spacing-h-sm $spacing-v-lg;
     width: 100%;
+    color: $color-black-2;
+    font-size: $font-size-sm;
+    background-color: $color-grey-6;
     box-sizing: border-box;
     overflow: hidden;
   }
