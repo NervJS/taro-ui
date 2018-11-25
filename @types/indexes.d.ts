@@ -21,6 +21,10 @@ interface AtIndexesProps extends AtComponent {
 
   topKey?: string
 
+  isVibrate?: boolean
+
+  isShowToast?: boolean
+
   list: Array<ListItem>
 
   onClick?: (item: Item) => void
