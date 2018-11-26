@@ -90,9 +90,9 @@ export default class AtIndexes extends AtComponent {
       })
     } else if (env === Taro.ENV_TYPE.WEB) {
       // web环境
-      const bodyOffsetTop = this.indexesRef.vnode.dom.offsetTop
+      const bodyOffsetTop = this.indexesRef.vnode.dom.getBoundingClientRect().top
       // 目标节点offsetTop
-      const targetOffsetTop = this.listRef.vnode.dom.childNodes[i].offsetTop
+      const targetOffsetTop = this.listRef.vnode.dom.childNodes[i].getBoundingClientRect().top
       this.setState({
         targetOffsetTop: targetOffsetTop - bodyOffsetTop
       })
@@ -119,8 +119,8 @@ export default class AtIndexes extends AtComponent {
           this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
         }).exec()
       } else if (env === Taro.ENV_TYPE.WEB) {
-        this.menuHeight = this.menuRef.vnode.dom.offsetHeight
-        this.startTop = this.menuRef.vnode.dom.offsetTop
+        this.menuHeight = this.menuRef.vnode.dom.getBoundingClientRect().height
+        this.startTop = this.menuRef.vnode.dom.getBoundingClientRect().top
         this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
       }
     }, 1000)
