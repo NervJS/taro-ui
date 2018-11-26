@@ -13,7 +13,7 @@ export interface PropsBase {
 
   monthFormat?: string
 
-  hideArrow?: boolean
+  // hideArrow?: boolean
 
   isVertical?: boolean
 
@@ -55,7 +55,7 @@ export interface DefaultProps {
 
   monthFormat: string
 
-  hideArrow: boolean
+  // hideArrow: boolean
 
   isVertical: boolean
 

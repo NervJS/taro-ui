@@ -19,7 +19,7 @@ import './index.scss'
 const defaultProps: DefaultProps = {
   marks: [],
   isSwiper: true,
-  hideArrow: false,
+  // hideArrow: false,
   isVertical: false,
   selectedDates: [],
   isMultiSelect: false,
@@ -168,31 +168,31 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     })
   }
 
-  @bind
-  handleClickPreMonth (isMinMonth?: boolean): void {
-    if (isMinMonth === true) {
-      return
-    }
+  // @bind
+  // handleClickPreMonth (isMinMonth?: boolean): void {
+  //   if (isMinMonth === true) {
+  //     return
+  //   }
 
-    this.setGenerateDate(-1)
+  //   this.setGenerateDate(-1)
 
-    if (_isFunction(this.props.onClickPreMonth)) {
-      this.props.onClickPreMonth()
-    }
-  }
+  //   if (_isFunction(this.props.onClickPreMonth)) {
+  //     this.props.onClickPreMonth()
+  //   }
+  // }
 
-  @bind
-  handleClickNextMonth (isMaxMonth?: boolean): void {
-    if (isMaxMonth === true) {
-      return
-    }
+  // @bind
+  // handleClickNextMonth (isMaxMonth?: boolean): void {
+  //   if (isMaxMonth === true) {
+  //     return
+  //   }
 
-    this.setGenerateDate(1)
+  //   this.setGenerateDate(1)
 
-    if (_isFunction(this.props.onClickNextMonth)) {
-      this.props.onClickNextMonth()
-    }
-  }
+  //   if (_isFunction(this.props.onClickNextMonth)) {
+  //     this.props.onClickNextMonth()
+  //   }
+  // }
 
   @bind
   handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
@@ -249,7 +249,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
       maxDate,
       isSwiper,
       className,
-      hideArrow,
+      // hideArrow,
       isVertical,
       monthFormat,
       selectedDates
@@ -260,11 +260,11 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
         <AtCalendarController
           minDate={minDate}
           maxDate={maxDate}
-          hideArrow={hideArrow}
+          // hideArrow={hideArrow}
           monthFormat={monthFormat}
           generateDate={generateDate}
-          onPreMonth={this.handleClickPreMonth}
-          onNextMonth={this.handleClickNextMonth}
+          // onPreMonth={this.handleClickPreMonth}
+          // onNextMonth={this.handleClickNextMonth}
           onSelectDate={this.handleSelectDate}
         />
         <AtCalendarBody
