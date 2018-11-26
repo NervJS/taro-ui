@@ -57,6 +57,8 @@ export default class AtIndexes extends AtComponent {
   }
 
   handleTouchMove (e) {
+    e.stopPropagation()
+    e.preventDefault()
     const { list } = this.props
     let pageY = e.touches[0].pageY
     const env = Taro.getEnv()
