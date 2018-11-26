@@ -13,6 +13,25 @@
         <i class="icon icon-award"></i>
       </div>
       <div class="at-timeline__content">
+        <p class="head">v1.5.0</p>
+        <p class="time">
+          <span>2018-11-27</span>
+        </p>
+        <ul class="content">
+          <li>新增<span>AtImagePicker</span>图片选择器组件</li>
+          <li>新增<span>AtRange</span>范围选择器组件</li>
+          <li>新增<span>AtIndexes</span>索引选择器组件</li>
+          <li>新增<span>AtCalendar</span>日历组件</li>
+          <li>修复<span>AtInputNumber</span> max 值失效的问题（<a href="https://github.com/NervJS/taro-ui/issues/141">#141</a>）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
         <p class="head">v1.4.0</p>
         <p class="time">
           <span>2018-11-11</span>
