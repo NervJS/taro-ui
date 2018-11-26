@@ -19,7 +19,7 @@ export default class AtRange extends AtComponent {
     min: 0,
     max: 100,
     disabled: false,
-    blockSize: 22,
+    blockSize: 28,
     onChange: defaultFunc,
     onAfterChange: defaultFunc
   }
