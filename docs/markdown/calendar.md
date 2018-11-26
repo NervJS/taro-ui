@@ -107,7 +107,6 @@ interface SelectDate {
 | marks       | 需要标记的时间 | `Array<{'{ value: DateArg }'}>` | `[]`         |
 | format      | 日期格式       | `string`                        | `YYYY-MM-DD` |
 | monthFormat | 月份格式       | `string`                        | `YYYY年MM月` |
-| hideArrow   | 是否隐藏箭头   | `boolean`                       | `false`      |
 | isVertical  | 是否垂直滑动   | `boolean`                       | `false`      |
 | isMultiSelect  | 是否范围选择   | `boolean`                       | `false`      |
 
@@ -115,8 +114,6 @@ interface SelectDate {
 
 | 参数             | 说明                         | 类型                      | 默认值 |
 | ---------------- | ---------------------------- | ------------------------- | ------ |
-| onClickPreMonth  | 点击箭头去上一个月的时候触发 | `() => void`              | -      |
-| onClickNextMonth | 点击箭头去下一个月的时候触发 | `() => void`              | -      |
 | onDayClick       | 点击日期时候触发             | `(item: Item) => void`    | -      |
 | onDayLongClick   | 长安日期时触发               | `(item: Item) => void`    | -      |
 | onMonthChange    | 月份改变时触发               | `(value: string) => void` | -      |
