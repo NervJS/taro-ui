@@ -13,7 +13,7 @@ export default class AtIndexes extends AtComponent {
   static defaultProps = {
     customStyle: '',
     className: '',
-    animation: true,
+    animation: false,
     topKey: 'Top',
     isVibrate: true,
     isShowToast: true,
@@ -57,6 +57,8 @@ export default class AtIndexes extends AtComponent {
   }
 
   handleTouchMove (e) {
+    e.stopPropagation()
+    e.preventDefault()
     const { list } = this.props
     let pageY = e.touches[0].pageY
     const env = Taro.getEnv()
