@@ -56,6 +56,7 @@ export { default as message } from './components/message/utils'
 export { default as AtImagePicker } from './components/image-picker'
 export { default as AtRange } from './components/range'
 export { default as AtIndexes } from './components/indexes'
+export { default as AtCalendar } from './components/calendar'
 
 /* 私有的组件  */
 export { default as AtLoading } from './components/loading'
