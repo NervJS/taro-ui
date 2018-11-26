@@ -5,8 +5,6 @@ import AtFloatLayout from '../../../components/float-layout/index'
 import AtButton from '../../../components/button/index'
 import DocsHeader from '../../components/doc-header'
 
-import AtTabBar from '../../../components/tab-bar/index'
-
 import './index.scss'
 
 export default class FloatLayoutPage extends Taro.Component {
@@ -41,15 +39,6 @@ export default class FloatLayoutPage extends Taro.Component {
     return (
       <View className='page float-layout-page'>
         <DocsHeader title='Float Layout 浮动弹层' />
-
-        <AtTabBar
-          tabList={[
-            { title: '待办事项', iconType: 'bullet-list', text: 'new' },
-            { title: '拍照', iconType: 'camera' },
-            { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
-          ]}
-          current={0}
-        />
 
         <View className='doc-body'>
           {/* 基本用法 */}
