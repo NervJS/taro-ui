@@ -83,6 +83,7 @@ export default class AtRange extends AtComponent {
 
   handleTouchMove (sliderName, event) {
     if (this.props.disabled) return
+    event.stopPropagation()
 
     const clientX = event.touches[0].clientX
     this.setSliderValue(sliderName, clientX - this.left, 'onChange')
