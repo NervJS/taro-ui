@@ -333,6 +333,7 @@ export default class AtCalendarBody extends Taro.Component<
         <Swiper
           circular
           current={1}
+          skipHiddenItemLayout
           className={classnames('main__body')}
           onChange={this.handleChange}
           vertical={this.props.isVertical}
