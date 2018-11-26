@@ -9,13 +9,13 @@ export interface Props {
 
   maxDate?: Calendar.DateArg
 
-  // hideArrow: boolean
+  hideArrow: boolean
 
   monthFormat: string
 
-  // onPreMonth: () => void
+  onPreMonth: () => void
 
-  // onNextMonth: () => void
+  onNextMonth: () => void
 
   onSelectDate: (e: BaseEvent) => void
 }

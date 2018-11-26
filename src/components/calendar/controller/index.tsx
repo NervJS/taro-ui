@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs'
-// import classnames from 'classnames'
+import classnames from 'classnames'
 
 import Taro from '@tarojs/taro'
 import { Text, View, Picker } from '@tarojs/components'
@@ -15,18 +15,18 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
       minDate,
       maxDate,
       monthFormat,
-      // hideArrow
+      hideArrow
     } = this.props
 
     const dayjsDate: Dayjs = dayjs(generateDate)
     const dayjsMinDate: Dayjs | boolean = !!minDate && dayjs(minDate)
     const dayjsMaxDate: Dayjs | boolean = !!maxDate && dayjs(maxDate)
 
-    // const isMinMonth: boolean =
-    //   dayjsMinDate && dayjsMinDate.startOf('month').isSame(dayjsDate)
+    const isMinMonth: boolean =
+      dayjsMinDate && dayjsMinDate.startOf('month').isSame(dayjsDate)
 
-    // const isMaxMonth: boolean =
-    //   dayjsMaxDate && dayjsMaxDate.startOf('month').isSame(dayjsDate)
+    const isMaxMonth: boolean =
+      dayjsMaxDate && dayjsMaxDate.startOf('month').isSame(dayjsDate)
 
     const minDateValue: string = dayjsMinDate
       ? dayjsMinDate.format('YYYY-MM')
@@ -37,14 +37,14 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
 
     return (
       <View className='at-calendar__controller controller'>
-        {/* {hideArrow ? null : (
+        {hideArrow ? null : (
           <View
             className={classnames('controller__arrow controller__arrow--left', {
               'controller__arrow--disabled': isMinMonth
             })}
             onClick={this.props.onPreMonth.bind(this, isMinMonth)}
           />
-        )} */}
+        )}
         <Picker
           className='controller__info'
           mode='date'
@@ -56,7 +56,7 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
         >
           <Text>{dayjsDate.format(monthFormat)}</Text>
         </Picker>
-        {/* {hideArrow ? null : (
+        {hideArrow ? null : (
           <View
             className={classnames(
               'controller__arrow controller__arrow--right',
@@ -66,7 +66,7 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
             )}
             onClick={this.props.onNextMonth.bind(this, isMaxMonth)}
           />
-        )} */}
+        )}
       </View>
     )
   }
