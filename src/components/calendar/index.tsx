@@ -117,26 +117,32 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   ): State {
     let end: number
     let start: number
+    let generateDateValue: number
 
     if (isMultiSelect) {
       const { start: cStart, end: cEnd } = currentDate as Calendar.SelectedDate
-      start = dayjs(cStart)
-        .startOf('day')
-        .valueOf()
+
+      const dayjsStart = dayjs(cStart)
+
+      start = dayjsStart.startOf('day').valueOf()
+      generateDateValue = dayjsStart.startOf('month').valueOf()
+
       end = cEnd
         ? dayjs(cEnd)
           .startOf('day')
           .valueOf()
         : start
     } else {
-      start = dayjs(currentDate as Calendar.DateArg)
-        .startOf('day')
-        .valueOf()
+      const dayjsStart = dayjs(currentDate as Calendar.DateArg)
+
+      start = dayjsStart.startOf('day').valueOf()
+      generateDateValue = dayjsStart.startOf('month').valueOf()
+
       end = start
     }
 
     return {
-      generateDate: start,
+      generateDate: generateDateValue,
       selectedDate: this.getSelectedDate(start, end)
     }
   }

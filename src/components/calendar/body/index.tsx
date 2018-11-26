@@ -215,15 +215,17 @@ export default class AtCalendarBody extends Taro.Component<
   }
 
   @bind
-  private handleChange (e: BaseEvent & { detail: { current: number } }) {
-    const { current } = e.detail
-    this.currentSwiperIndex = current
-    this.changeCount = this.changeCount + 1
+  private handleChange (e: BaseEvent) {
+    const { current, source } = e.detail
+
+    if (source === 'touch') {
+      this.currentSwiperIndex = current
+      this.changeCount = this.changeCount + 1
+    }
   }
 
   @bind
   private handleAnimateFinish () {
-    console.log(this.currentSwiperIndex)
     if (this.changeCount > 0) {
       this.props.onSwipeMonth(
         this.isPreMonth ? -this.changeCount : this.changeCount

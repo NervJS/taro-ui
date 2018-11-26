@@ -5,7 +5,6 @@
     @include display-flex;
 
     width: 100%;
-    margin-bottom: 20px;
 
     &--animate {
       transition: transform 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
@@ -18,8 +17,7 @@
 
   &--weapp {
     .main__body {
-      // prettier-ignore
-      height: 235PX;
+      height: 480px;
     }
   }
 }
