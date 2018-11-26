@@ -200,7 +200,7 @@ export default class PanelBasic extends Component {
           },
           {
             id: 'Range',
-            name: '区域选择器'
+            name: '范围选择器'
           }
         ],
         layout: [

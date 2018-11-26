@@ -15,15 +15,23 @@
     box-sizing: border-box;
     outline: none;
     margin: 0;
-    transition: 0.1s;
     font-weight: 500;
     padding: 20px 36px;
     font-size: 24px;
     border-radius: 0;
     border-left: none;
+    transition: background-color 0.3s;
 
     // prettier-ignore
     border: 1PX solid #dcdfe6;
+
+    + .button {
+      border-left: none;
+    }
+
+    &:active {
+      background-color: #F0F0F0;
+    }
 
     &::after {
       content: initial;

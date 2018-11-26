@@ -19,7 +19,7 @@ export default class AtRange extends AtComponent {
     min: 0,
     max: 100,
     disabled: false,
-    blockSize: 22,
+    blockSize: 28,
     onChange: defaultFunc,
     onAfterChange: defaultFunc
   }
@@ -83,6 +83,7 @@ export default class AtRange extends AtComponent {
 
   handleTouchMove (sliderName, event) {
     if (this.props.disabled) return
+    event.stopPropagation()
 
     const clientX = event.touches[0].clientX
     this.setSliderValue(sliderName, clientX - this.left, 'onChange')

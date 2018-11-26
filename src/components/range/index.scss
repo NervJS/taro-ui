@@ -1,7 +1,7 @@
 @import "../../style/theme/default.scss";
 @import "../../style/mixins/index.scss";
 
-$height: 22PX;
+$height: 28PX;
 
 .at-range {
   position: relative;
@@ -43,9 +43,8 @@ $height: 22PX;
     height: $height;
     margin-left: - $height / 2;
     border-radius: 50%;
-    border: 1px solid $color-border-grey;
-    box-shadow: 0 4px 4px 0 $color-border-grey;
     background-color: #fff;
+    box-shadow: 0 0 4PX 0 rgba(0, 0, 0, 0.30);
     box-sizing: border-box;
   }
 
