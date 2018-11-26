@@ -76,7 +76,7 @@ export default class Index extends Taro.Component {
 
 | 参数       | 说明    | 类型    | 可选值   | 默认值   |
 | ---------- | ------- | ------- | ------- | --- |
-| animation | 是否开启跳转过渡动画 | Boolean  | - | true |
+| animation | 是否开启跳转过渡动画 | Boolean  | - | false |
 | isVibrate | 是否切换 key 的震动，只在微信小程序有效 | Boolean  | - | true |
 | isShowToast | 是否用弹框显示当前 key | Boolean  | - | true |
 | topKey | 右侧导航第一个名称 | String  | - | Top |

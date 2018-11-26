@@ -13,7 +13,7 @@ export default class AtIndexes extends AtComponent {
   static defaultProps = {
     customStyle: '',
     className: '',
-    animation: true,
+    animation: false,
     topKey: 'Top',
     isVibrate: true,
     isShowToast: true,
