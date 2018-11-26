@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 import './index.scss'
 
-class AtMessage extends AtComponent {
+export default class AtMessage extends AtComponent {
   static defaultProps = {
     customStyle: '',
     className: ''
@@ -77,12 +77,4 @@ class AtMessage extends AtComponent {
       </View>
     )
   }
-}
-
-// 全局消息事件
-const message = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
-
-export {
-  AtMessage,
-  message
 }

@@ -4,6 +4,8 @@
 .at-message {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: $zindex-toast;
   width: 100%;
   font-size: $font-size-base;

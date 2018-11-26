@@ -2,7 +2,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
-import { AtMessage, message } from '../../../components/message/index'
+import AtMessage from '../../../components/message/index'
+import message from '../../../components/message/utils/index'
 import AtButton from '../../../components/button/index'
 
 import './index.scss'
@@ -21,7 +22,7 @@ export default class ToastPage extends Component {
 
   render () {
     return (
-      <View className='page toast-page'>
+      <View className='page toast-page' style='padding:100px;'>
         {/* S Header */}
         <DocsHeader title='Message 消息通知' />
         {/* E Header */}
