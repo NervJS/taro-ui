@@ -22,7 +22,7 @@ export default class ToastPage extends Component {
 
   render () {
     return (
-      <View className='page toast-page' style='padding:100px;'>
+      <View className='page toast-page'>
         {/* S Header */}
         <DocsHeader title='Message 消息通知' />
         {/* E Header */}
