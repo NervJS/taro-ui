@@ -3,7 +3,6 @@ import { View } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
 import AtMessage from '../../../components/message/index'
-import message from '../../../components/message/utils/index'
 import AtButton from '../../../components/button/index'
 
 import './index.scss'
@@ -14,7 +13,7 @@ export default class ToastPage extends Component {
   }
 
   handleClick (type) {
-    message({
+    Taro.atMessage({
       'message': '消息通知',
       'type': type,
     })
