@@ -45,6 +45,8 @@ export default class AtMessage extends AtComponent {
         })
       }, this.state.duration)
     })
+    // 绑定函数
+    Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
   }
 
   componentWillUnmount () {
