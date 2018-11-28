@@ -34,7 +34,7 @@ export default class AtMessage extends AtComponent {
     this._timer = null
   }
 
-  componentDidMount () {
+  bindMessageListener () {
     Taro.eventCenter.on('atMessage', (options = {}) => {
       options.isOpened = true
       this.setState(options)
@@ -47,6 +47,18 @@ export default class AtMessage extends AtComponent {
     })
     // 绑定函数
     Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
+  }
+
+  componentDidShow () {
+    this.bindMessageListener()
+  }
+
+  componentDidMount () {
+    this.bindMessageListener()
+  }
+
+  componentDidHide () {
+    Taro.eventCenter.off('atMessage')
   }
 
   componentWillUnmount () {
