@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -85,6 +85,14 @@ export default class AtCheckbox extends AtComponent {
                       <AtIcon value='check' size='14' color='#fff' />
                     </View>
                   </View>
+
+                  {option.thumb && (
+                    <Image
+                      className='at-checkbox__thumb'
+                      mode='scaleToFill'
+                      src={option.thumb}
+                    />
+                  )}
                   <View className='at-checkbox__title'>{option.label}</View>
                 </View>
                 {

@@ -91,6 +91,7 @@ export default class Index extends Taro.Component {
 | label    | 选项标题                       | String  | -      | -      | 必填       |
 | desc     | 选项描述，显示在标题下方的文字 | String  | -      | -      | 可选       |
 | disabled | 是否禁止点击                   | Boolean | -      | false  | 可选       |
+| thumb    | 元素的主要缩略图                | String  | -      | -      | 可选       |
 
 ## 事件
 

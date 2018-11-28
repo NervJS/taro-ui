@@ -3,6 +3,7 @@
 
 $checkbox-icon-size: 40px;
 $checkbox-icon-px-size: 20PX;
+$thumb-size: 56px;
 
 .at-checkbox {
   background-color: $color-bg;
@@ -14,6 +15,12 @@ $checkbox-icon-px-size: 20PX;
 
   &__option_container {
     display: flex;
+  }
+
+  &__thumb {
+    margin-right: 24px;
+    width: $thumb-size;
+    height: $thumb-size;
   }
 
   &__title {

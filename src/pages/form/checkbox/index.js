@@ -15,6 +15,7 @@ export default class Index extends Taro.Component {
       checkedList1: ['list1'],
       checkedList2: ['list1'],
       checkedList3: ['list1', 'list4'],
+      checkedList4: ['list1', 'list4'],
       checkboxOption1: [
         { value: 'list1', label: 'iPhone X' },
         { value: 'list2', label: 'HUAWEI P20' },
@@ -30,6 +31,13 @@ export default class Index extends Taro.Component {
         { value: 'list2', label: 'HUAWEI P20' },
         { value: 'list3', label: 'OPPO Find X', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true },
         { value: 'list4', label: 'vivo NEX', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true }
+      ],
+      checkboxOption4: [
+        { value: 'list1', label: 'iPhone X', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。' },
+        { value: 'list2', label: 'HUAWEI P20', thumb: 'http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png' },
+        { value: 'list3', label: 'OPPO Find X', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', thumb: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png' },
+        { value: 'list4', label: 'vivo NEX', desc: '部分地区提供电子普通发票，用户可自行打印，效力等同纸质普通发票，具体以实际出具的发票类型为准。', disabled: true, thumb: 'http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png' },
+        { value: 'list5', label: 'vivo NEX', disabled: true, thumb: 'http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png' }
       ]
     }
   }
@@ -49,6 +57,12 @@ export default class Index extends Taro.Component {
   handleChangeThd (value) {
     this.setState({
       checkedList3: value
+    })
+  }
+
+  handleChangeFourth (value) {
+    this.setState({
+      checkedList4: value
     })
   }
 
@@ -105,6 +119,22 @@ export default class Index extends Taro.Component {
                     onChange={this.handleChangeThd.bind(this)}
                   />
                 </View>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* 包含图片 */}
+        <View className='panel'>
+          <View className='panel__title'>含描图片</View>
+          <View className='panel__content no-padding'>
+            <View className='example-item'>
+              <View className='checkbox-container'>
+                <AtCheckbox
+                  options={this.state.checkboxOption4}
+                  selectedList={this.state.checkedList4}
+                  onChange={this.handleChangeFourth.bind(this)}
+                />
               </View>
             </View>
           </View>
