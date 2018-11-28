@@ -19,6 +19,16 @@ describe('AtInputNumber Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtInputNumber -- props type=number', () => {
+    const component = renderToString(<AtInputNumber type='number' />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtInputNumber -- props type=digit', () => {
+    const component = renderToString(<AtInputNumber type='digit' />)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtInputNumber -- props disabled', () => {
     const component = renderToString(<AtInputNumber disabled />)
     expect(component).toMatchSnapshot()
