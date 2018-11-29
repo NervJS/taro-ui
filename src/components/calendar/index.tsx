@@ -1,12 +1,14 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
+
+import _pick from 'lodash/pick'
 import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
-import { BaseEvent } from '@tarojs/components/types/common'
 
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import { BaseEvent } from '@tarojs/components/types/common'
 
 import Calendar from './types'
 import AtCalendarBody from './body/index'
@@ -229,14 +231,14 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     this.setState(stateValue as State)
 
     if (_isFunction(this.props.onDayClick)) {
-      this.props.onDayClick(item)
+      this.props.onDayClick({ value: item.value })
     }
   }
 
   @bind
   handleDayLongClick (item: Calendar.Item) {
     if (_isFunction(this.props.onDayLongClick)) {
-      this.props.onDayLongClick(item)
+      this.props.onDayLongClick({ value: item.value })
     }
   }
 

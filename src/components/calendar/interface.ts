@@ -23,9 +23,9 @@ export interface PropsBase {
 
   onClickNextMonth?: () => void
 
-  onDayClick?: (item: Calendar.Item) => void
+  onDayClick?: (item: { value: string }) => void
 
-  onDayLongClick?: (item: Calendar.Item) => void
+  onDayLongClick?: (item: { value: string }) => void
 
   onMonthChange?: (value: string) => void
 }
