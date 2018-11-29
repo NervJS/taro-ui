@@ -45,23 +45,23 @@ export default class AtTabBar extends AtComponent {
     onClick: PropTypes.func
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-      isIPhoneX: false
-    }
-  }
+  // constructor () {
+  //   super(...arguments)
+  //   this.state = {
+  //     isIPhoneX: false
+  //   }
+  // }
 
-  componentDidMount () {
-    const curEnv = Taro.getEnv()
+  // componentDidMount () {
+  //   const curEnv = Taro.getEnv()
 
-    if (
-      curEnv === Taro.ENV_TYPE.WEAPP &&
-      Taro.getSystemInfoSync().model.indexOf('iPhone X') >= 0
-    ) {
-      this.setState({ isIPhoneX: true })
-    }
-  }
+  //   if (
+  //     curEnv === Taro.ENV_TYPE.WEAPP &&
+  //     Taro.getSystemInfoSync().model.indexOf('iPhone X') >= 0
+  //   ) {
+  //     this.setState({ isIPhoneX: true })
+  //   }
+  // }
 
   handleClick () {
     this.props.onClick(...arguments)
@@ -80,7 +80,7 @@ export default class AtTabBar extends AtComponent {
       fontSize,
       selectedColor
     } = this.props
-    const { isIPhoneX } = this.state
+    // const { isIPhoneX } = this.state
     const defaultStyle = `color: ${color};`
     const selectedStyle = `color: ${selectedColor};`
     const titleStyle = `font-size: ${fontSize}px;`
@@ -92,7 +92,7 @@ export default class AtTabBar extends AtComponent {
           classNames({
             'at-tab-bar': true,
             'at-tab-bar--fixed': fixed,
-            'at-tab-bar--ipx': isIPhoneX
+            // 'at-tab-bar--ipx': isIPhoneX
           }, className)
         }
         style={this.mergeStyle(rootStyle, customStyle)}
