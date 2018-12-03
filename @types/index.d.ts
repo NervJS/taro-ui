@@ -2,6 +2,7 @@ import { ComponentClass } from 'react'
 import { Props } from '../src/components/calendar/interface'
 
 export { default as AtActionSheet } from './action-sheet'
+export { default as AtActionSheetItem } from './action-sheet-item'
 export { default as AtActivityIndicator } from './activity-indicator'
 export { default as AtAvatar } from './avatar'
 export { default as AtBadge } from './badge'
@@ -52,4 +53,3 @@ export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass
 export declare const AtModalContent: ComponentClass
 
-export declare const AtActionSheetItem: ComponentClass
