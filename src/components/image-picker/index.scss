@@ -74,8 +74,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 0;
-    height: 0;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   &__preview-img {
