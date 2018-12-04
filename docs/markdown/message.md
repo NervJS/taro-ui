@@ -26,7 +26,7 @@ import { AtMessage } from 'taro-ui'
 ```js
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtMessage, message } from 'taro-ui'
+import { AtMessage } from 'taro-ui'
 
 export default class LoadMorePage extends Taro.Component {
   handleClick (type) {
