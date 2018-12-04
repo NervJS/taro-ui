@@ -15,9 +15,7 @@ function delay (): Promise<null> {
       }, REM_LAYOUT_DELAY)
       return
     }
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
-      resolve()
-    }
+    resolve()
   })
 }
 
@@ -31,7 +29,7 @@ function delayQuerySelector (
     delay().then(() => {
       selector
         .select(selectorStr)
-        .fields(options)
+        .boundingClientRect()
         .exec((res: Array<execObject>) => {
           reslove(res)
         })
