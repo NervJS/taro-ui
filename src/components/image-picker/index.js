@@ -86,40 +86,43 @@ export default class AtImagePicker extends AtComponent {
   chooseFile () {
     const { onChange, files, onFail, multiple } = this.props
     const env = Taro.getEnv()
-    if (env === Taro.ENV_TYPE.WEB) {
-      this.fileInput.vnode.dom.click()
-    } else if (env === Taro.ENV_TYPE.WEAPP) {
-      // 微信小程序图片选择逻辑
-      Taro.chooseImage({
-        count: multiple ? 99 : 1
-      }).then(res => {
-        const targetFiles = res.tempFilePaths.map((path, i) => (
-          {
-            url: path,
-            file: res.tempFiles[i]
-          }
-        ))
-        onChange(files.concat(targetFiles), 'add')
-      }).catch(onFail)
+    switch (env) {
+      case Taro.ENV_TYPE.WEB:
+        this.fileInput.vnode.dom.click()
+        break
+
+      case Taro.ENV_TYPE.WEAPP:
+        Taro.chooseImage({
+          count: multiple ? 99 : 1
+        }).then(res => {
+          const targetFiles = res.tempFilePaths.map(
+            (path, i) => ({
+              url: path,
+              file: res.tempFiles[i]
+            })
+          )
+          onChange(files.concat(targetFiles), 'add')
+        }).catch(onFail)
+        break
+
+      default:
+        console.log('暂未支持该环境')
+        break
     }
   }
 
   handleImgChoose (event) {
     // h5 图片监听逻辑
-    const { onChange, files, onFail } = this.props
+    const { onChange, files } = this.props
     const targetFiles = event.target.files
     if (targetFiles) {
       for (let i = 0; i < targetFiles.length; i++) {
-        const reader = new FileReader()
-        reader.onload = function (e) {
-          if (!e.target.result) {
-            onFail(`Fail to get the ${i} image`)
-          }
-          files.push({ url: e.target.result, file: targetFiles[i] })
-          onChange(files, 'add')
-        }
-        reader.readAsDataURL(targetFiles[i])
+        files.push({
+          url: window.URL.createObjectURL(targetFiles[i]),
+          file: targetFiles[i]
+        })
       }
+      onChange(files, 'add')
     }
   }
 
@@ -130,6 +133,10 @@ export default class AtImagePicker extends AtComponent {
 
   handleRemoveImg (i) {
     const { onChange, files } = this.props
+    const env = Taro.getEnv()
+    if (env === Taro.ENV_TYPE.WEB) {
+      window.URL.revokeObjectURL(files[i].url)
+    }
     files.splice(i, 1)
     onChange(files, 'remove', i)
   }
