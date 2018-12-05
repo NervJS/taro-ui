@@ -120,5 +120,5 @@ interface SelectDate {
 | onClickPreMonth  | 点击箭头去上一个月的时候触发 | `() => void`              | -      |
 | onClickNextMonth | 点击箭头去下一个月的时候触发 | `() => void`              | -      |
 | onDayClick       | 点击日期时候触发             | `(item: {'{ value: string }'}) => void`    | -      |
-| onDayLongClick   | 长安日期时触发               | `(item: {'{ value: string }'}) => void`    | -      |
+| onDayLongClick   | 长按日期时触发               | `(item: {'{ value: string }'}) => void`    | -      |
 | onMonthChange    | 月份改变时触发               | `(value: string) => void` | -      |
