@@ -1,0 +1,9 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+.at-form {
+  display: block;
+  padding-left: $spacing-h-xl;
+  background-color: $color-bg;
+  @include hairline-top-bottom();
+}

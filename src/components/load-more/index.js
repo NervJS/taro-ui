@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import AtActivityIndicator from '../../components/activity-indicator/index'
 import AtButton from '../../components/button/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtLoadMore extends AtComponent {
   static defaultProps = {

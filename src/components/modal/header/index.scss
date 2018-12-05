@@ -1,5 +1,5 @@
 @import "../../../style/mixins/index";
-@import "../../../style/theme/default";
+@import "../../../style/variables/default";
 
 .at-modal-header {
   @include hairline-bottom($color: $color-grey-4);

@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import AtLoading from '../loading/index'
 
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',

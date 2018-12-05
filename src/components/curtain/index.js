@@ -5,7 +5,6 @@ import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import AtIcon from '../../components/icon'
-import './index.scss'
 
 export default class AtCurtain extends AtComponent {
   static defaultProps = {

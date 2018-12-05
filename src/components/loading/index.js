@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtLoading extends AtComponent {
   static defaultProps = {

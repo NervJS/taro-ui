@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Text } from '@tarojs/components'
 
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtIcon extends AtComponent {
   static defaultProps = {

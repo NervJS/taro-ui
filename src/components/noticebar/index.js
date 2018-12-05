@@ -5,7 +5,6 @@ import { View, Text } from '@tarojs/components'
 
 import AtComponent from '../../common/component'
 import AtIcon from '../icon/index'
-import './index.scss'
 
 export default class AtNoticebar extends AtComponent {
   constructor () {

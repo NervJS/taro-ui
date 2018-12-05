@@ -7,8 +7,6 @@ import AtComponent from '../../common/component'
 import AtList from '../../components/list/index'
 import AtListItem from '../../components/list/item/index'
 
-import './index.scss'
-
 export default class AtIndexes extends AtComponent {
   static defaultProps = {
     customStyle: '',

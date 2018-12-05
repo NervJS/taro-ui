@@ -5,7 +5,6 @@ import classNames from 'classnames'
 
 import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTimeline extends AtComponent {
   render () {

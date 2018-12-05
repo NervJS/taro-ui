@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import AtButton from '../button/index'
 import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const MIN_MAXPAGE = 1
 const getMaxPage = (maxPage = 0) => {

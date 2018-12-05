@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 
 import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const defaultFunc = () => { }
 

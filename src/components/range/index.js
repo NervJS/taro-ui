@@ -4,7 +4,6 @@ import { View } from '@tarojs/components'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const defaultFunc = () => {}
 

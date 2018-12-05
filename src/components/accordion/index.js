@@ -5,7 +5,6 @@ import { View } from '@tarojs/components'
 
 import AtComponent from '../../common/component'
 import AtIcon from '../../components/icon'
-import './index.scss'
 
 export default class AtAccordion extends AtComponent {
   static defaultProps = {

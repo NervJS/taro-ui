@@ -5,8 +5,6 @@ import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 
-import './index.scss'
-
 const SIZE_CLASS = {
   large: 'large',
   normal: 'normal',

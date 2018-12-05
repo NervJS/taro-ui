@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtDrawer extends AtComponent {
   constructor (props) {

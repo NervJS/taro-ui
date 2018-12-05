@@ -1,16 +1,12 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-
 import statusImg from './img.json'
-
-import './index.scss'
 
 export default class AtToast extends AtComponent {
   constructor (props) {

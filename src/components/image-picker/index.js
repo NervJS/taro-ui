@@ -6,7 +6,6 @@ import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 import AtIcon from '../../components/icon/index'
-import './index.scss'
 
 // 生成 jsx 二维矩阵
 const generateMatrix = (files, col, showAddBtn) => {

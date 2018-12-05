@@ -3,7 +3,7 @@ import { View, Image } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
-import '../../../components/article/index.scss'
+import '../../../style/components/article.scss'
 
 export default class ArticlePage extends Taro.Component {
   config = {

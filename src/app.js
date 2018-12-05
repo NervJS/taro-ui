@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import Index from './pages/index/index'
 
+import './style/index.scss'
 import './app.scss'
 
 class App extends Component {
@@ -25,10 +26,10 @@ class App extends Component {
       'pages/view/steps/index',
       'pages/view/curtain/index',
       'pages/action/toast/index',
-      'pages/action/modal/index',
+      // 'pages/action/modal/index',
       'pages/action/progress/index',
-      'pages/action/action-sheet/index',
-      'pages/action/swipe-action/index',
+      // 'pages/action/action-sheet/index',
+      // 'pages/action/swipe-action/index',
       'pages/action/activity-indicator/index',
       'pages/action/message/index',
       'pages/navigation/drawer/index',
@@ -38,11 +39,11 @@ class App extends Component {
       'pages/navigation/segmented-control/index',
       'pages/navigation/navbar/index',
       'pages/navigation/indexes/index',
-      'pages/layout/flex/index',
+      // 'pages/layout/flex/index',
       'pages/layout/grid/index',
       'pages/layout/float-layout/index',
       'pages/layout/card/index',
-      'pages/layout/list/index',
+      // 'pages/layout/list/index',
       'pages/layout/accordion/index',
       'pages/form/checkbox/index',
       'pages/form/input/index',
@@ -56,8 +57,8 @@ class App extends Component {
       'pages/form/slider/index',
       'pages/form/search-bar/index',
       'pages/form/image-picker/index',
-      'pages/form/range/index',
-      'pages/advanced/calendar/index'
+      'pages/form/range/index'
+      // 'pages/advanced/calendar/index'
     ],
     window: {
       backgroundTextStyle: 'light',

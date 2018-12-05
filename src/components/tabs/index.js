@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTabs extends AtComponent {
   static defaultProps = {

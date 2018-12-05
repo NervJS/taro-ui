@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import AtIcon from '../../components/icon/index'
 import AtBadge from '../../components/badge/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTabBar extends AtComponent {
   static defaultProps = {

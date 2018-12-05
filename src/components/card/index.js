@@ -1,13 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtCard extends AtComponent {
   handleClick = (...args) => {

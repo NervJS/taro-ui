@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
-import AtCountDown from '../../../components/count-down/index'
+import AtCountDown from '../../../components/countdown/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
