@@ -127,6 +127,9 @@ export default class AtSwipeAction extends AtComponent {
     const { offsetSize } = this.state
     const { options } = this.props
     const rootClass = classNames('at-swipe-action', this.props.className)
+    const transformStyle = offsetSize > -20 ? {} : {
+      transform: `translate3d(${offsetSize}px,0,0)`
+    }
 
     return (
       <View
@@ -139,9 +142,7 @@ export default class AtSwipeAction extends AtComponent {
           className={classNames('at-swipe-action__content', {
             animtion: !this.isTouching
           })}
-          style={{
-            transform: `translate3d(${offsetSize}px,0,0)`
-          }}
+          style={transformStyle}
         >
           {this.props.children}
         </View>
