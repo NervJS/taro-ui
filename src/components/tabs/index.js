@@ -77,7 +77,7 @@ export default class AtTabs extends AtComponent {
         })
       }
     }
-    this.props.onClick(i, ...arguments)
+    this.props.onClick(...arguments)
   }
 
   handleTouchStart (e) {

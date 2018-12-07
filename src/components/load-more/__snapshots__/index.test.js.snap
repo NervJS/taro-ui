@@ -6,9 +6,13 @@ exports[`AtLoadMore Snap render AtLoadMore -- props customStyle 1`] = `"<div sty
 
 exports[`AtLoadMore Snap render AtLoadMore -- props loadingText  1`] = `"<div class=\\"at-load-more\\"><div class=\\"at-activity-indicator at-activity-indicator--center\\"><div class=\\"at-activity-indicator__body\\"><div style=\\"width:24px;height:24px;\\" class=\\"at-loading\\"><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div></div></div><span class=\\"taro-text at-activity-indicator__content\\">loadingText</span></div></div>"`;
 
+exports[`AtLoadMore Snap render AtLoadMore -- props moreBtnStyle 1`] = `"<div class=\\"at-load-more\\"><div style=\\"color:red\\" class=\\"at-button at-button--normal at-button--full\\">undefinedundefined<div class=\\"at-button__text\\">查看更多</div></div></div>"`;
+
 exports[`AtLoadMore Snap render AtLoadMore -- props moreText  1`] = `"<div class=\\"at-load-more\\"><div class=\\"at-button at-button--normal at-button--full\\">undefinedundefined<div class=\\"at-button__text\\">moreText</div></div></div>"`;
 
 exports[`AtLoadMore Snap render AtLoadMore -- props noMoreText  1`] = `"<div class=\\"at-load-more\\"><span class=\\"taro-text at-load-more__tip\\">noMoreText</span></div>"`;
+
+exports[`AtLoadMore Snap render AtLoadMore -- props noMoreTextStyle 1`] = `"<div class=\\"at-load-more\\"><div class=\\"at-button at-button--normal at-button--full\\">undefinedundefined<div class=\\"at-button__text\\">查看更多</div></div></div>"`;
 
 exports[`AtLoadMore Snap render AtLoadMore -- props status === loading 1`] = `"<div class=\\"at-load-more\\"><div class=\\"at-activity-indicator at-activity-indicator--center\\"><div class=\\"at-activity-indicator__body\\"><div style=\\"width:24px;height:24px;\\" class=\\"at-loading\\"><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:24px;height:24px;\\" class=\\"at-loading__ring\\"></div></div></div><span class=\\"taro-text at-activity-indicator__content\\">加载中</span></div></div>"`;
 

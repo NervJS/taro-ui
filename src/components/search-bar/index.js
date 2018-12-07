@@ -49,34 +49,34 @@ export default class AtSearchBar extends AtComponent {
     onActionClick: PropTypes.func
   }
 
-  handleFocus (e) {
+  handleFocus () {
     this.setState({
       isFocus: true
     })
-    this.props.onFocus(e, ...arguments)
+    this.props.onFocus(...arguments)
   }
 
-  handleBlur (e) {
+  handleBlur () {
     this.setState({
       isFocus: false
     })
-    this.props.onBlur(e, ...arguments)
+    this.props.onBlur(...arguments)
   }
 
   handleChange (e) {
-    this.props.onChange(e.target.value, e, ...arguments)
+    this.props.onChange(e.target.value, ...arguments)
   }
 
-  handleClear (e) {
-    this.props.onChange('', e, ...arguments)
+  handleClear () {
+    this.props.onChange('', ...arguments)
   }
 
-  handleConfirm (e) {
-    this.props.onConfirm(e, ...arguments)
+  handleConfirm () {
+    this.props.onConfirm(...arguments)
   }
 
-  handleActionClick (e) {
-    this.props.onActionClick(e)
+  handleActionClick () {
+    this.props.onActionClick(...arguments)
   }
 
   render () {

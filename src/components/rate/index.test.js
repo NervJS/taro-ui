@@ -10,32 +10,32 @@ describe('AtRate Snap', () => {
   })
 
   it('render AtRate -- props customStyle', () => {
-    const componet = renderToString(<AtRate isTest customStyle='color:red;' />)
+    const componet = renderToString(<AtRate customStyle='color:red;' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtRate -- props className', () => {
-    const componet = renderToString(<AtRate isTest className='test' />)
+    const componet = renderToString(<AtRate className='test' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtRate -- props size', () => {
-    const componet = renderToString(<AtRate isTest size='10' />)
+    const componet = renderToString(<AtRate size='10' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtRate -- props value', () => {
-    const componet = renderToString(<AtRate isTest value='2' />)
+    const componet = renderToString(<AtRate value='2' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtRate -- props max', () => {
-    const componet = renderToString(<AtRate isTest max='10' />)
+    const componet = renderToString(<AtRate max='10' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtRate -- props margin', () => {
-    const componet = renderToString(<AtRate isTest margin='10' />)
+    const componet = renderToString(<AtRate margin='10' />)
     expect(componet).toMatchSnapshot()
   })
 })

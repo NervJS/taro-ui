@@ -32,9 +32,9 @@ $action-sheet-timer: 300ms;
     transition: transform $action-sheet-timer $timing-func;
   }
 
-  &--ipx &__container {
-    padding-bottom: 68px;
-  }
+  // &--ipx &__container {
+  //   padding-bottom: 68px;
+  // }
 }
 
 .at-action-sheet--active {

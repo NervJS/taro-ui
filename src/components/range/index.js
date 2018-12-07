@@ -19,6 +19,7 @@ export default class AtRange extends AtComponent {
     min: 0,
     max: 100,
     disabled: false,
+    blockSize: 28,
     onChange: defaultFunc,
     onAfterChange: defaultFunc
   }
@@ -48,6 +49,7 @@ export default class AtRange extends AtComponent {
     min: PropTypes.number,
     max: PropTypes.number,
     disabled: PropTypes.bool,
+    blockSize: PropTypes.number,
     onChange: PropTypes.func
   }
 
@@ -81,6 +83,7 @@ export default class AtRange extends AtComponent {
 
   handleTouchMove (sliderName, event) {
     if (this.props.disabled) return
+    event.stopPropagation()
 
     const clientX = event.touches[0].clientX
     this.setSliderValue(sliderName, clientX - this.left, 'onChange')
@@ -180,16 +183,28 @@ export default class AtRange extends AtComponent {
       sliderStyle,
       railStyle,
       trackStyle,
+      blockSize,
       disabled
     } = this.props
 
     const { slider1X, slider2X } = this.state
+    const sliderCommonStyle = {
+      width: `${blockSize}PX`,
+      height: `${blockSize}PX`,
+      marginLeft: `${-blockSize / 2}PX`
+    }
     const slider1Style = {
+      ...sliderCommonStyle,
       left: `${slider1X}%`
     }
     const slider2Style = {
+      ...sliderCommonStyle,
       left: `${slider2X}%`
     }
+    const containerStyle = {
+      height: `${blockSize}PX`,
+    }
+
     const smallX = slider1X > slider2X ? slider2X : slider1X
     const deltaX = Math.abs(slider1X - slider2X)
     const atTrackStyle = {
@@ -209,6 +224,7 @@ export default class AtRange extends AtComponent {
       >
         <View
           className='at-range__container'
+          style={containerStyle}
           ref={this.getRangeRef}
         >
           <View

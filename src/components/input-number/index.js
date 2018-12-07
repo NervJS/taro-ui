@@ -14,6 +14,7 @@ export default class AtInputNumber extends AtComponent {
     className: '',
     disabled: false,
     value: 1,
+    type: 'number',
     width: 80,
     min: 0,
     max: 100,
@@ -35,6 +36,7 @@ export default class AtInputNumber extends AtComponent {
       PropTypes.number,
       PropTypes.string
     ]),
+    type: PropTypes.oneOf(['number', 'digit']),
     disabled: PropTypes.bool,
     width: PropTypes.number,
     min: PropTypes.number,
@@ -73,6 +75,13 @@ export default class AtInputNumber extends AtComponent {
       return parseFloat(num).toString()
     }
     return num.toString()
+  }
+
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
   }
 
   handleMinus () {
@@ -119,20 +128,17 @@ export default class AtInputNumber extends AtComponent {
 
   render () {
     const {
-      isTest,
       customStyle,
       className,
       width,
       disabled,
       value,
+      type,
       min,
       max,
       size
     } = this.props
 
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
     const inputStyle = `width: ${Taro.pxTransform(width)}`
     const inputValue = this.handleValue(value)
 
@@ -159,7 +165,7 @@ export default class AtInputNumber extends AtComponent {
         <Input
           className='at-input-number__input'
           style={inputStyle}
-          type='digit'
+          type={type}
           value={inputValue}
           disabled={disabled}
           onInput={this.handleInput.bind(this)}

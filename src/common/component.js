@@ -28,25 +28,4 @@ export default class AtComponent extends Component {
   mergeStyle (style1, style2) {
     return objectToString(style1) + objectToString(style2)
   }
-
-  getClassName (arg) {
-    const { className } = this.props
-
-    if (!className) {
-      return arg
-    }
-
-    let componentClass = arg
-    let propsClass = className
-
-    if (!Array.isArray(propsClass)) {
-      propsClass = [propsClass]
-    }
-
-    if (!Array.isArray(componentClass)) {
-      componentClass = [componentClass]
-    }
-
-    return componentClass.concat(propsClass)
-  }
 }

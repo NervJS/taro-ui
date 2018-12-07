@@ -8,6 +8,7 @@ import iconAction from '../../assets/images/icon-list-action.png'
 import iconForm from '../../assets/images/icon-list-form.png'
 import iconLayout from '../../assets/images/icon-list-layout.png'
 import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
@@ -56,6 +57,11 @@ export default class Index extends Taro.Component {
           title: '导航',
           content: '包含标签栏、导航栏、分段器等',
           icon: iconNavigation
+        }, {
+          id: 'Advanced',
+          title: '高阶组件',
+          content: '包含日历等',
+          icon: iconHOC
         }
       ]
     }
@@ -103,7 +109,7 @@ export default class Index extends Taro.Component {
                 <View className='content'>{item.content}</View>
               </View>
               <View className='module-list__arrow'>
-                <Text className='at-icon at-icon-chevron-right'></Text>
+                <Text className='at-icon at-icon-chevron-right' />
               </View>
             </View>
           ))}

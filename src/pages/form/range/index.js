@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import AtRange from '../../../components/range/index'
-import AtToast from '../../../components/toast/index'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -13,31 +12,20 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false,
-      text: '',
+      value1: [20, 60],
+      value2: [20, 60],
     }
   }
 
-  handleChange (value) {
+  handleChange (stateName, value) {
     this.setState({
-      isOpened: true,
-      text: `${value[0]}~${value[1]}`
+      [stateName]: value
     })
   }
 
-  handleClose () {
-    this.setState({
-      isOpened: false
-    })
-  }
   render () {
     return (
       <View className='page'>
-        <AtToast
-          text={this.state.text}
-          isOpened={this.state.isOpened}
-          onClose={this.handleClose.bind(this)}
-        />
         {/* S Header */}
         <DocsHeader title='Range 范围选择器'></DocsHeader>
         {/* E Header */}
@@ -48,10 +36,12 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
+              <View className='example-item'>
+                数值范围：{this.state.value1[0]}~{this.state.value1[1]}
+              </View>
               <AtRange
                 value={[20, 60]}
-                onAfterChange={this.handleChange.bind(this)}
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChange.bind(this, 'value1')}
               />
             </View>
           </View>
@@ -59,9 +49,13 @@ export default class Index extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>自定义样式</View>
             <View className='panel__content'>
+              <View className='example-item'>
+                数值范围：{this.state.value2[0]}~{this.state.value2[1]}
+              </View>
               <AtRange
                 sliderStyle={{ backgroundColor: '#6190E8' }}
-                value={[20, 40]}
+                value={this.state.value2}
+                onChange={this.handleChange.bind(this, 'value2')}
               />
             </View>
           </View>

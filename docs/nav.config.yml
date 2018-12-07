@@ -87,10 +87,10 @@ components:
             name: SearchBar
           - title: 滑动条
             name: Slider
-          - title: 范围选择器
-            name: Range
           - title: 图片选择器
             name: ImagePicker
+          - title: 范围选择器
+            name: Range
       - title: 布局组件
         items:
           - title: 弹性布局
@@ -121,4 +121,7 @@ components:
             name: Drawer
           - title: 索引选择器
             name: Indexes
-
+      - title: 高阶组件
+        items:
+          - title: 日历
+            name: Calendar

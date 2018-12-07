@@ -34,13 +34,14 @@
     transform: translateY(-50%);
     width: 100%;
     height: 100%;
+    border-radius: $border-radius-md;
+    overflow: hidden;
   }
 
   &__choose-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5PX;
     color: $color-grey-2;
     font-size: 0;
     box-sizing: border-box;
@@ -73,8 +74,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 0;
-    height: 0;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   &__preview-img {

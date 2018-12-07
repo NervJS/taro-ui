@@ -10,6 +10,10 @@ import './index.scss'
 
 export default class AtLoadMore extends AtComponent {
   static defaultProps = {
+    customStyle: '',
+    className: '',
+    noMoreTextStyle: '',
+    moreBtnStyle: '',
     status: 'more',
     loadingText: '加载中',
     moreText: '查看更多',
@@ -24,6 +28,14 @@ export default class AtLoadMore extends AtComponent {
     ]),
     className: PropTypes.oneOfType([
       PropTypes.array,
+      PropTypes.string
+    ]),
+    noMoreTextStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    moreBtnStyle: PropTypes.oneOfType([
+      PropTypes.object,
       PropTypes.string
     ]),
     status: PropTypes.oneOf(['more', 'loading', 'noMore']),
@@ -44,6 +56,8 @@ export default class AtLoadMore extends AtComponent {
       loadingText,
       moreText,
       status,
+      moreBtnStyle,
+      noMoreTextStyle,
       noMoreText
     } = this.props
 
@@ -51,9 +65,20 @@ export default class AtLoadMore extends AtComponent {
     if (status === 'loading') {
       component = <AtActivityIndicator mode='center' content={loadingText} />
     } else if (status === 'more') {
-      component = <AtButton onClick={this.onClick.bind(this)} full>{moreText}</AtButton>
+      component = <AtButton
+        full
+        onClick={this.onClick.bind(this)}
+        customStyle={moreBtnStyle}
+      >
+        {moreText}
+      </AtButton>
     } else {
-      component = <Text className='at-load-more__tip'>{noMoreText}</Text>
+      component = <Text
+        className='at-load-more__tip'
+        style={noMoreTextStyle}
+      >
+        {noMoreText}
+      </Text>
     }
 
     return (

@@ -35,10 +35,6 @@ export default class AtForm extends AtComponent {
     this.props.onSubmit(...arguments)
   }
 
-  reportSubmit () {
-    this.props.reportSubmit(...arguments)
-  }
-
   onReset () {
     this.props.onReset(...arguments)
   }

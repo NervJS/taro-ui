@@ -3,6 +3,8 @@ import { MouseEvent, ComponentClass } from 'react'
 import AtComponent from './base'
 
 export interface AtInputNumberProps extends AtComponent{
+  type: 'number' | 'digit'
+
   value: number | string
 
   style?: string
