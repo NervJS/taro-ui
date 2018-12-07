@@ -37,13 +37,14 @@ export default class AtMessage extends AtComponent {
   bindMessageListener () {
     Taro.eventCenter.on('atMessage', (options = {}) => {
       options.isOpened = true
-      this.setState(options)
-      clearTimeout(this._timer)
-      this._timer = setTimeout(() => {
-        this.setState({
-          isOpened: false
-        })
-      }, this.state.duration)
+      this.setState(options, () => {
+        clearTimeout(this._timer)
+        this._timer = setTimeout(() => {
+          this.setState({
+            isOpened: false
+          })
+        }, this.state.duration)
+      })
     })
     // 绑定函数
     Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
