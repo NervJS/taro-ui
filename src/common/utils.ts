@@ -21,8 +21,7 @@ function delay (): Promise<null> {
 
 function delayQuerySelector (
   $scope,
-  selectorStr: string,
-  options: fieldsObject = { size: true }
+  selectorStr: string
 ): Promise<Array<execObject>> {
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
   return new Promise(reslove => {
