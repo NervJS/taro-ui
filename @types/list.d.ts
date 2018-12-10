@@ -26,6 +26,8 @@ export interface AtListItemProps extends AtComponent {
 
   switchIsCheck?: boolean
 
+  switchColor?: string
+
   iconInfo?: AtIconBaseProps
 
   arrow?: 'up' | 'down' | 'right'

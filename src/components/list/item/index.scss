@@ -28,10 +28,10 @@ $item-horizontal-padding: 24px;
   &-container {
     @include display-flex;
     @include align-items(center);
-  }
 
-  &--icon {
-    margin-right: $item-horizontal-padding;
+    .item-icon {
+      margin-right: $item-horizontal-padding;
+    }
   }
 
   &--thumb {
@@ -66,6 +66,7 @@ $item-horizontal-padding: 24px;
   &-extra {
     @include flex(0, 0, 235px);
 
+    width: 235px;
     text-align: right;
   }
 }
@@ -99,15 +100,20 @@ $item-horizontal-padding: 24px;
   &__info {
     @include line(1);
 
+    max-width: 100%;
     color: $color-grey-2;
-    max-width: 160px;
+    padding-right: 20px;
     font-size: $font-size-lg;
     vertical-align: middle;
   }
 
   &__icon {
-    margin-left: $spacing-h-sm;
-    margin-right: -$spacing-h-sm;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    // margin-left: $spacing-h-sm;
+    // margin-right: -$spacing-h-sm;
   }
 
   &__switch {

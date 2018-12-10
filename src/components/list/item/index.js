@@ -39,6 +39,7 @@ export default class AtListItem extends AtComponent {
       extraText,
       hasBorder,
       extraThumb,
+      switchColor,
       switchIsCheck
     } = this.props
 
@@ -56,8 +57,17 @@ export default class AtListItem extends AtComponent {
     return (
       <View className={rootClass} onClick={this.handleClick}>
         <View className='at-list__item-container'>
-          {iconInfo.value && !thumb ? (
-            <View className='at-list__item--icon'>
+          {thumb ? (
+            <View className='at-list__item-thumb item-thumb'>
+              <Image
+                className='item-thumb__info'
+                mode='scaleToFill'
+                src={thumb}
+              />
+            </View>
+          ) : null}
+          {iconInfo.value ? (
+            <View className='at-list__item-icon item-icon'>
               <AtIcon
                 size={iconInfo.size}
                 value={iconInfo.value}
@@ -68,15 +78,6 @@ export default class AtListItem extends AtComponent {
               />
             </View>
           ) : null}
-          {thumb && (
-            <View className='at-list__item-thumb item-thumb'>
-              <Image
-                className='item-thumb__info'
-                mode='scaleToFill'
-                src={thumb}
-              />
-            </View>
-          )}
           <View className='at-list__item-content item-content'>
             <View className='item-content__info'>
               <View className='item-content__info-title'>{title}</View>
@@ -86,8 +87,7 @@ export default class AtListItem extends AtComponent {
           <View className='at-list__item-extra item-extra'>
             {extraText && <View className='item-extra__info'>{extraText}</View>}
 
-            {extraThumb &&
-              !extraText && (
+            {extraThumb && !extraText && (
               <View className='item-extra__image'>
                 <Image
                   className='item-extra__image-info'
@@ -97,15 +97,13 @@ export default class AtListItem extends AtComponent {
               </View>
             )}
 
-            {isSwitch &&
-              !extraThumb &&
-              !extraText && (
+            {isSwitch && !extraThumb && !extraText && (
               <View
                 className='item-extra__switch'
                 onClick={this.handleSwitchClick}
               >
                 <Switch
-                  color='#6190E8'
+                  color={switchColor}
                   disabled={disabled}
                   checked={switchIsCheck}
                   onChange={this.handleSwitchChange}
@@ -129,7 +127,8 @@ AtListItem.defaultProps = {
   hasBorder: true,
   isSwitch: false,
   disabled: false,
-  iconInfo: {}
+  iconInfo: {},
+  switchColor: '#6190E8'
 }
 
 AtListItem.propTypes = {
@@ -140,6 +139,7 @@ AtListItem.propTypes = {
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
   hasBorder: PropTypes.bool,
+  switchColor: PropTypes.string,
   switchIsCheck: PropTypes.bool,
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
@@ -150,13 +150,7 @@ AtListItem.propTypes = {
     value: PropTypes.string,
     color: PropTypes.string,
     prefixClass: PropTypes.string,
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
+    customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
   })
 }
