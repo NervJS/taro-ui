@@ -4,17 +4,16 @@ import _forEach from 'lodash/forEach'
 import Calendar from '../types'
 
 interface PluginArg {
-  item: Calendar.Item
-
   options: Calendar.GroupOptions
 
   selectedDate: Calendar.SelectedDate
-
-  selectedDates: Array<Calendar.SelectedDate>
 }
 
-export function handleActive (args: PluginArg): PluginArg {
-  const { item, selectedDate } = args
+export function handleActive (
+  args: PluginArg,
+  item: Calendar.Item
+): Calendar.Item {
+  const { selectedDate } = args
   const { _value } = item
 
   const selectedDateValue = Object.values(selectedDate)
@@ -35,11 +34,14 @@ export function handleActive (args: PluginArg): PluginArg {
 
   item.isToday = _value.diff(dayjs(Date.now()).startOf('day'), 'day') === 0
 
-  return args
+  return item
 }
 
-export function handleMarks (args: PluginArg): PluginArg {
-  const { item, options } = args
+export function handleMarks (
+  args: PluginArg,
+  item: Calendar.Item
+): Calendar.Item {
+  const { options } = args
   const { _value } = item
   const { marks } = options
 
@@ -51,43 +53,46 @@ export function handleMarks (args: PluginArg): PluginArg {
 
   item.marks = markList.slice(0, 1)
 
-  return args
+  return item
 }
 
-export function handleSelectedDates (args: PluginArg): PluginArg {
-  // const { item, options } = args
-  // const { _value } = item
-  // const { selectedDates } = options
+// export function handleSelectedDates (args: PluginArg): Calendar.Item {
+// const { item, options } = args
+// const { _value } = item
+// const { selectedDates } = options
 
-  // if (selectedDates.length === 0) return args
+// if (selectedDates.length === 0) return args
 
-  // _forEach(selectedDates, date => {
-  //   const { isSelected, isHead, isTail } = item
+// _forEach(selectedDates, date => {
+//   const { isSelected, isHead, isTail } = item
 
-  //   // 如果当前 Item 已经具备了 三种状态下 无需继续判断 跳出循环
-  //   if (isSelected) {
-  //     return false
-  //   }
+//   // 如果当前 Item 已经具备了 三种状态下 无需继续判断 跳出循环
+//   if (isSelected) {
+//     return false
+//   }
 
-  //   const { start, end } = date
+//   const { start, end } = date
 
-  //   const dayjsEnd = dayjs(end).startOf('day')
-  //   const dayjsStart = dayjs(start).startOf('day')
+//   const dayjsEnd = dayjs(end).startOf('day')
+//   const dayjsStart = dayjs(start).startOf('day')
 
-  //   item.isSelected =
-  //     item.isSelected ||
-  //     (_value.isAfter(dayjsStart) && _value.isBefore(dayjsEnd))
+//   item.isSelected =
+//     item.isSelected ||
+//     (_value.isAfter(dayjsStart) && _value.isBefore(dayjsEnd))
 
-  //   item.isHead = item.isHead || _value.isSame(dayjsStart)
+//   item.isHead = item.isHead || _value.isSame(dayjsStart)
 
-  //   item.isTail = item.isTail || _value.isSame(dayjsEnd)
-  // })
+//   item.isTail = item.isTail || _value.isSame(dayjsEnd)
+// })
 
-  return args
-}
+//   return item
+// }
 
-export function handleDisabled (args: PluginArg): Calendar.Item {
-  const { item, options } = args
+export function handleDisabled (
+  args: PluginArg,
+  item: Calendar.Item
+): Calendar.Item {
+  const { options } = args
   const { _value } = item
   const { minDate, maxDate } = options
 
@@ -99,7 +104,8 @@ export function handleDisabled (args: PluginArg): Calendar.Item {
     !!(maxDate && _value.isAfter(dayjsMaxDate))
 
   delete item._value
+
   return item
 }
 
-export default [handleActive, handleMarks, handleSelectedDates, handleDisabled]
+export default [handleActive, handleMarks, handleDisabled]

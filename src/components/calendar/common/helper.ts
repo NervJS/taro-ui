@@ -14,11 +14,14 @@ function getFullItem (
   isShowStatus?: boolean
 ) {
   if (!isShowStatus) return item
-  return _flow(plugins)({
-    item,
-    options,
-    selectedDate
-  })
+
+  const bindedPlugins = plugins.map(fn =>
+    fn.bind(null, {
+      options,
+      selectedDate
+    })
+  )
+  return _flow(bindedPlugins)(item)
 }
 
 export default function generateCalendarGroup (
