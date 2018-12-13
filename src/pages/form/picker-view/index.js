@@ -88,7 +88,7 @@ export default class Index extends Taro.Component {
                         </PickerViewColumn>
                       </PickerView>
                     </View>
-                  ) : <View className='title-date'>暂不支持 H5 端</View>
+                  ) : <View className='title-date'>暂时仅支持微信小程序</View>
                 }
               </View>
             </View>

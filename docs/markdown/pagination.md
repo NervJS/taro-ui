@@ -19,17 +19,17 @@ import { AtPagination } from 'taro-ui'
 :::demo
 ```html
 <AtPagination 
-  total='50' 
-  pageSize='10' 
-  current='1'
+  total={50} 
+  pageSize={10}
+  current={1}
 >
 </AtPagination>
 
 <AtPagination 
   icon 
-  total='50' 
-  pageSize='10' 
-  current='1'
+  total={50} 
+  pageSize={10}
+  current={1}
 >
 </AtPagination>
 ```
