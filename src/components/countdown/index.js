@@ -104,6 +104,14 @@ export default class AtCountdown extends AtComponent {
     this.clearTimer()
   }
 
+  componentDidHide () {
+    this.clearTimer()
+  }
+
+  componentDidShow () {
+    this.setTimer()
+  }
+
   render () {
     const {
       className,

@@ -4,7 +4,7 @@
 
 ## 安装 Taro
 
-安装 `Taro` 开发工具 `@tarojs/cli`，`Taro` 版本需要在 `1.0.0-beta.18` 以上
+安装 `Taro` 开发工具 `@tarojs/cli`，`Taro` 版本需要在 `1.1.0` 以上
 
 使用 `npm` 或者 `yarn` 全局安装，或者直接使用 [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 

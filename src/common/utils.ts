@@ -15,23 +15,20 @@ function delay (): Promise<null> {
       }, REM_LAYOUT_DELAY)
       return
     }
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
-      resolve()
-    }
+    resolve()
   })
 }
 
 function delayQuerySelector (
   $scope,
-  selectorStr: string,
-  options: fieldsObject = { size: true }
+  selectorStr: string
 ): Promise<Array<execObject>> {
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
   return new Promise(reslove => {
     delay().then(() => {
       selector
         .select(selectorStr)
-        .fields(options)
+        .boundingClientRect()
         .exec((res: Array<execObject>) => {
           reslove(res)
         })

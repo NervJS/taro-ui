@@ -109,7 +109,7 @@ export default class Index extends Taro.Component {
 | selectedColor  | 选中的标签背景色与边框颜色  | String | - | `#6190E8` |
 | values | 选项数组，值是字符串，eg: ['标签页1', '标签页2' ] | Array  | - | false |
 | disabled | 是否禁止点击 | Boolean  | - | false |
-| fontSize | 字体大小，单位 h5 为 `rem`，小程序为 `rem` | Number  | - | 28 |
+| fontSize | 字体大小，单位 h5 为 `rem`，小程序为 `rem` | Number / String  | - | 28 |
 
 ## 事件
 

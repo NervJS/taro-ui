@@ -260,15 +260,19 @@ export default class AtCalendarBody extends Taro.Component<
       return (
         <View
           className={classnames(
-            'at-calendar-slider__main',
             'main',
+            'at-calendar-slider__main',
             `at-calendar-slider__main--${process.env.TARO_ENV}`
           )}
         >
           <AtCalendarDayList />
           <View className='main__body body'>
             <View className='body__slider body__slider--now'>
-              <AtCalendarDateList list={listGroup[1].list} />
+              <AtCalendarDateList
+                list={listGroup[1].list}
+                onClick={this.props.onDayClick}
+                onLongClick={this.props.onLongClick}
+              />
             </View>
           </View>
         </View>

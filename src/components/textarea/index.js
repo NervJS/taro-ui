@@ -136,7 +136,7 @@ export default class AtTextarea extends AtComponent {
           className='at-textarea__textarea'
           value={value}
           confirmType='完成'
-          maxlength={actualMaxlength}
+          maxLength={actualMaxlength}
           placeholder={placeholder}
           disabled={disabled}
           autoFocus={autoFocus}

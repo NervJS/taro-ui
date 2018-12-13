@@ -7,6 +7,22 @@
 
 <div class="row changelog">
   <div class="at-timeline">
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
+        <p class="head">v1.5.2</p>
+        <p class="time">
+          <span>2018-12.13</span>
+        </p>
+        <ul class="content">
+          <li>修复<span>Calendar</span>组件在禁止滑动状态下无法点击日期的问题</li>
+          <li>修复<span>Textarea</span>组件配置 maxLength 无效的问题</li>
+          <li>修复<span>CountDown</span>组件在页面隐藏时倒计时未停止的问题</li>
+          <li>修复<span>Indexes</span>组件在 H5 下锚点定位错乱的问题</li>
+        </ul>
+      </div>
+    </div>
     <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot">

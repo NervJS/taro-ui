@@ -90,8 +90,8 @@ export default class Index extends Taro.Component {
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
 | value | 当前评分,开发者需要通过 onChange 事件来更新 value 值，必填   | Number  | - | 0 |
 | max     | 最大评分  | Number | - | 5 |
-| size | 评分星星大小 | `Number` 或 `String`  | - | 20 |
-| margin | 星星间隔,单位根据环境自动转为 `rpx` 或 `rem`  | `Number` 或 `String`  | - | 5 |
+| size | 评分星星大小 | Number / String | - | 20 |
+| margin | 星星间隔,单位根据环境自动转为 `rpx` 或 `rem`  | Number / String | - | 5 |
 
 ## 事件
 

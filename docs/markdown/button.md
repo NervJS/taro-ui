@@ -18,9 +18,9 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```html
+<AtButton>按钮文案</AtButton>
 <AtButton type='primary'>按钮文案</AtButton>
 <AtButton type='secondary'>按钮文案</AtButton>
-<AtButton>按钮文案</AtButton>
 ```
 :::
 
