@@ -160,7 +160,7 @@ export default class AtInputNumber extends AtComponent {
           }
           onClick={this.handleMinus.bind(this)}
         >
-          <AtIcon value='subtract' size='18' />
+          <AtIcon customStyle={{ fontSize: '18px' }} value='subtract' />
         </View>
         <Input
           className='at-input-number__input'
@@ -178,7 +178,7 @@ export default class AtInputNumber extends AtComponent {
           }
           onClick={this.handlePlus.bind(this)}
         >
-          <AtIcon value='add' size='18' />
+          <AtIcon customStyle={{ fontSize: '18px' }} value='add' />
         </View>
       </View>
     )

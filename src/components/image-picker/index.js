@@ -191,7 +191,7 @@ export default class AtImagePicker extends AtComponent {
                           className='at-image-picker__remove-btn'
                           onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
                         >
-                          <AtIcon value='close' size='10' color='#fff' />
+                          <AtIcon customStyle={{ fontSize: '10px' }} value='close' color='#fff' />
                         </View>
                         <Image
                           mode={mode}
@@ -212,7 +212,7 @@ export default class AtImagePicker extends AtComponent {
                         onClick={this.chooseFile.bind(this)}
                       >
                         <View className='at-image-picker__item at-image-picker__choose-btn'>
-                          <AtIcon value='add' size='30' />
+                          <AtIcon value='add' customStyle={{ fontSize: '30px' }} />
                         </View>
                       </View>
                 ))

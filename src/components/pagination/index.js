@@ -105,11 +105,11 @@ export default class AtPagination extends AtComponent {
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
-              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}><AtIcon value='chevron-left' color='#000' size='20'></AtIcon></AtButton>}
+              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}><AtIcon customStyle={{ fontSize: '20px' }} value='chevron-left' color='#000'></AtIcon></AtButton>}
               {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
             </View>
             <View className='at-pagination__btns-next'>
-              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}><AtIcon value='chevron-right' color='#000' size='20'></AtIcon></AtButton>}
+              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}><AtIcon customStyle={{ fontSize: '20px' }} value='chevron-right' color='#000'></AtIcon></AtButton>}
               {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
             </View>
           </View>

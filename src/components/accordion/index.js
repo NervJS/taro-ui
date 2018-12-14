@@ -124,11 +124,13 @@ export default class AtAccordion extends AtComponent {
           {
             icon
               ? <AtIcon
-                customStyle={{ marginRight: '15px' }}
+                customStyle={{
+                  marginRight: '15px',
+                  fontSize: `${icon.size || 24}px`
+                }}
                 className='at-accordion__icon'
                 value={icon.value}
                 color={icon.color}
-                size={icon.size}
               />
               : null
           }
@@ -136,7 +138,13 @@ export default class AtAccordion extends AtComponent {
             {title}
           </View>
           <AtIcon
-            customStyle={animatedStyle}
+            customStyle={
+              this.mergeStyle(
+                {
+                  fontSize: '24px',
+                }, animatedStyle
+              )
+            }
             value='chevron-down'
             color='#c7c7cc'
           />

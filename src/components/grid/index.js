@@ -66,11 +66,15 @@ export default class AtGrid extends AtComponent {
                       {_isObject(childItem.iconInfo) &&
                         !childItem.image && (
                         <AtIcon
-                          size={childItem.iconInfo.size}
+                          customStyle={
+                            this.mergeStyle(
+                              { fontSize: `${childItem.iconInfo.size || 24}px` },
+                              childItem.iconInfo.customStyle
+                            )
+                          }
                           value={childItem.iconInfo.value}
                           color={childItem.iconInfo.color}
                           className={childItem.iconInfo.className}
-                          customStyle={childItem.iconInfo.customStyle}
                           prefixClass={childItem.iconInfo.prefixClass}
                         />
                       )}

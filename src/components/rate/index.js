@@ -88,9 +88,9 @@ export default class AtRate extends AtComponent {
             style={iconStyle}
             onClick={this.handleClick.bind(this, i + 1)}
           >
-            <AtIcon value='star-2' size={size} />
+            <AtIcon customStyle={{ fontSize: `${size}px` }} value='star-2' />
             <View className='at-rate__left'>
-              <AtIcon value='star-2' size={size} />
+              <AtIcon customStyle={{ fontSize: `${size}px` }} value='star-2' />
             </View>
           </View>)
         }

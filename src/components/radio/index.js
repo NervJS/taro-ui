@@ -75,7 +75,7 @@ export default class AtRadio extends AtComponent {
                     })
                   }
                 >
-                  <AtIcon value='check' size='16' color='#6190E8' />
+                  <AtIcon customStyle={{ fontSize: '16px' }} value='check' color='#6190E8' />
                 </View>
               </View>
               {

@@ -69,7 +69,7 @@ export default class AtFloatLayout extends AtComponent {
           <View className='layout-header'>
             <Text className='layout-header__title'>{title}</Text>
             <View className='layout-header__icon' onClick={this.close}>
-              <AtIcon value='close' size='18' color='#CCC' />
+              <AtIcon customStyle={{ fontSize: '18px' }} value='close' color='#CCC' />
             </View>
           </View>
           <View className='layout-body'>
