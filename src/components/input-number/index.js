@@ -7,6 +7,7 @@ import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 import './index.scss'
 
+const defaultFunc = () => {}
 export default class AtInputNumber extends AtComponent {
   static defaultProps = {
     isTest: false,
@@ -20,7 +21,8 @@ export default class AtInputNumber extends AtComponent {
     max: 100,
     step: 1,
     size: '',
-    onChange: () => { }
+    onChange: defaultFunc,
+    onBlur: defaultFunc
   }
 
   static propTypes = {
@@ -126,6 +128,10 @@ export default class AtInputNumber extends AtComponent {
     return nextValue.toString()
   }
 
+  handleBlur () {
+    this.props.onBlur(...arguments)
+  }
+
   render () {
     const {
       customStyle,
@@ -169,6 +175,7 @@ export default class AtInputNumber extends AtComponent {
           value={inputValue}
           disabled={disabled}
           onInput={this.handleInput.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
         />
         <View
           className={
