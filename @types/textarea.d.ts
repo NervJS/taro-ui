@@ -8,7 +8,7 @@ export interface AtTextareaProps extends AtComponent{
 
   value: string
 
-  maxlength?: string
+  maxLength?: number
 
   placeholder?: string
 
