@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import AtList from '../../../components/list/index'
+import AtButton from '../../../components/button/index'
 import AtListItem from '../../../components/list/item/index'
 import AtSwipeAction from '../../../components/swipe-action/index'
 
@@ -31,20 +32,21 @@ export default class SwipeActionPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
+      isOpened: false,
       list: [
         {
           title: 'item1',
-          isClose: false,
+          isOpened: false,
           options: OPTIONS
         },
         {
           title: 'item2',
-          isClose: false,
+          isOpened: false,
           options: OPTIONS
         },
         {
           title: 'item2',
-          isClose: false,
+          isOpened: false,
           options: OPTIONS
         }
       ]
@@ -60,9 +62,29 @@ export default class SwipeActionPage extends Taro.Component {
     this.showToast(`点击了${item.text}按钮`)
   }
 
+  handleStatusClick = () => {
+    this.setState({
+      isOpened: !this.state.isOpened
+    })
+  }
+
+  handleStatusOpened = () => {
+    console.log('handleStatusOpened')
+    this.setState({
+      isOpened: true
+    })
+  }
+
+  handleStatusClosed = () => {
+    console.log('handleStatusClosed')
+    this.setState({
+      isOpened: false
+    })
+  }
+
   handleSingle = index => {
     const list = this.state.list.map((item, key) => {
-      item.isClose = key !== index
+      item.isOpened = key === index
       return item
     })
     this.setState({
@@ -88,7 +110,7 @@ export default class SwipeActionPage extends Taro.Component {
   }
 
   render () {
-    const { list } = this.state
+    const { list, isOpened } = this.state
 
     return (
       <View className='page swipe-action-page'>
@@ -103,7 +125,11 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__title'>一般用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
-                <AtSwipeAction onClick={this.handleClick} options={OPTIONS}>
+                <AtSwipeAction
+                  isOpened
+                  onClick={this.handleClick}
+                  options={OPTIONS}
+                >
                   <View className='normal'>AtSwipeAction 一般使用场景</View>
                 </AtSwipeAction>
               </View>
@@ -122,10 +148,36 @@ export default class SwipeActionPage extends Taro.Component {
           </View>
 
           <View className='panel'>
+            <View className='panel__title'>使用变量控制开关</View>
+            <View className='panel__controller'>
+              <AtButton size='small' onClick={this.handleStatusClick}>
+                当前状态: {isOpened ? '开' : '关'}{' '}
+              </AtButton>
+            </View>
+
+            <View className='panel__content no-padding'>
+              <View className='example-item example-item--border'>
+                <AtSwipeAction
+                  options={OPTIONS}
+                  isOpened={isOpened}
+                  onClosed={this.handleStatusClosed}
+                  onOpened={this.handleStatusOpened}
+                >
+                  <View className='normal'>使用变量控制开关</View>
+                </AtSwipeAction>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
             <View className='panel__title'>自动关闭</View>
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
-                <AtSwipeAction onClick={this.handleClick} autoClose options={OPTIONS}>
+                <AtSwipeAction
+                  onClick={this.handleClick}
+                  autoClose
+                  options={OPTIONS}
+                >
                   <View className='normal'>点击按钮自动关闭</View>
                 </AtSwipeAction>
               </View>
@@ -195,9 +247,9 @@ export default class SwipeActionPage extends Taro.Component {
                   {list.map((item, index) => (
                     <AtSwipeAction
                       key={index}
-                      onOpened={this.handleSingle.bind(this, index)}
-                      isClose={item.isClose}
                       options={item.options}
+                      isOpened={item.isOpened}
+                      onOpened={this.handleSingle.bind(this, index)}
                     >
                       <AtListItem title={item.title} />
                     </AtSwipeAction>

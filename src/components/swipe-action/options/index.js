@@ -10,10 +10,25 @@ import { delayQuerySelector } from '../../../common/utils'
 import './index.scss'
 
 export default class AtSwiperActionOptions extends AtComponent {
+  constructor () {
+    super(...arguments)
+
+    this.ref = {}
+  }
+
   componentDidMount () {
-    delayQuerySelector(this.$scope, '.at-swipe-action__options').then(res => {
+    delayQuerySelector(
+      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this.ref : this.$scope,
+      '.at-swipe-action__options'
+    ).then(res => {
       this.props.onQueryedDom(res[0])
     })
+  }
+
+  getRef = ref => {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      this.ref = ref
+    }
   }
 
   render () {
@@ -22,7 +37,11 @@ export default class AtSwiperActionOptions extends AtComponent {
       this.props.className
     )
 
-    return <View className={rootClass}>{this.props.children}</View>
+    return (
+      <View ref={this.getRef} className={rootClass}>
+        {this.props.children}
+      </View>
+    )
   }
 }
 
