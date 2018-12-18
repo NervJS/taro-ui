@@ -37,6 +37,13 @@ export default class AtIcon extends AtComponent {
     onClick: PropTypes.func,
   }
 
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   handleClick () {
     this.props.onClick(...arguments)
   }
@@ -52,10 +59,9 @@ export default class AtIcon extends AtComponent {
     } = this.props
 
     const rootStyle = {
-      fontSize: `${size}px`,
+      fontSize: `${Taro.pxTransform(parseInt(size) * 2)}`,
       color
     }
-
     return (
       <Text
         className={classNames(

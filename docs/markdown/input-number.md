@@ -127,3 +127,4 @@ export default class Index extends Taro.Component {
 | 事件名称 |  微信小程序 |  h5 | 说明  | 返回参数  |
 |------- |---  |----- |---- | -------- |
 | onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填  | 输入框当前值 value  |
+| onBlur | √ | √ | 输入框值失去焦点时触发的事件 | event |

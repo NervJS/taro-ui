@@ -213,14 +213,14 @@ export default class AtInput extends AtComponent {
           {
             clear && value
               ? <View className='at-input__icon' onTouchStart={this.clearValue.bind(this)} >
-                <AtIcon value='close-circle' color='#ccc' size='15' />
+                <AtIcon customStyle={{ fontSize: '15px' }} value='close-circle' color='#ccc' />
               </View>
               : null
           }
           {
             error
               ? <View className='at-input__icon' onTouchStart={this.onErrorClick.bind(this)} >
-                <AtIcon value='alert-circle' color='#FF4949' size='15' />
+                <AtIcon customStyle={{ fontSize: '15px' }} value='alert-circle' color='#FF4949' />
               </View>
               : null
           }

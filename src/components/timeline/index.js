@@ -40,7 +40,7 @@ export default class AtTimeline extends AtComponent {
         <View className={itemRootClassName} key={index}>
           <View className='at-timelineitem__tail'></View>
           <View className={dotClass}>
-            {icon && <AtIcon value={icon} size='16'></AtIcon>}
+            {icon && <AtIcon customStyle={{ fontSize: '16px' }} value={icon} ></AtIcon>}
           </View>
           <View className='at-timelineitem__content'>
             <View className='at-timelineitem__content-item'>{title}</View>

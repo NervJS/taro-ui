@@ -1,4 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
+import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -22,6 +23,8 @@ export interface AtInputNumberProps extends AtComponent{
   disabled?: boolean
 
   onChange: (value: number) => void
+
+  onBlur: BaseEventFunction
 }
 
 declare const AtInputNumber: ComponentClass<AtInputNumberProps>

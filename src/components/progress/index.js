@@ -67,7 +67,7 @@ export default class AtProgress extends AtComponent {
             {!status || status === 'progress' ? (
               percent + '%' /* eslint-disable-line prefer-template */
             ) : (
-              <AtIcon value={iconInfo.value} color={iconInfo.color} size='18' />
+              <AtIcon customStyle={{ fontSize: '18px' }} value={iconInfo.value} color={iconInfo.color} />
             )}
           </View>
         )}

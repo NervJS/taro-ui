@@ -82,7 +82,7 @@ export default class AtCheckbox extends AtComponent {
                     }
                   >
                     <View className='at-checkbox__icon_container'>
-                      <AtIcon value='check' size='14' color='#fff' />
+                      <AtIcon customStyle={{ fontSize: '14px' }} value='check' color='#fff' />
                     </View>
                   </View>
                   <View className='at-checkbox__title'>{option.label}</View>

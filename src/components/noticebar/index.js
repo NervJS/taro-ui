@@ -121,14 +121,14 @@ export default class AtNoticebar extends AtComponent {
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >
-        {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon value='close' size='16' color='#ccc'></AtIcon></View>}
+        {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon customStyle={{ fontSize: '16px' }} value='close' color='#ccc'></AtIcon></View>}
         <View className='at-noticebar__content'>
-          {icon && <View className='at-noticebar__content-icon'><AtIcon value={icon} size='16'></AtIcon></View>}
+          {icon && <View className='at-noticebar__content-icon'><AtIcon customStyle={{ fontSize: '16px' }} value={icon}></AtIcon></View>}
           <View className='at-noticebar__content-text'>
             <View animation={this.state.animationData} className={innerClassName} style={style}>{this.props.children}</View>
           </View>
         </View>
-        {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon value='chevron-right' size='16'></AtIcon></View></View>}
+        {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon customStyle={{ fontSize: '16px' }} value='chevron-right'></AtIcon></View></View>}
       </View>
     )
   }

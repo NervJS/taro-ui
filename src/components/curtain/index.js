@@ -65,9 +65,9 @@ export default class AtCurtain extends AtComponent {
               onClick={this.onClose.bind(this)}
             >
               <AtIcon
+                customStyle={{ fontSize: '30px' }}
                 value='close-circle'
                 color='#fff'
-                size='30'
               />
             </View>
           </View>
