@@ -359,7 +359,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
   top: 90px;
   right: 25px;
   width: 375px;
-  height: 756px;
+  height: 656px;
   background-color: #fff;
   box-shadow: 0 4px 30px 0 rgba(4, 59, 85, 0.1);
   border-radius: 60px;
@@ -374,7 +374,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
   iframe {
     padding: 58px 22px 18px;
     width: 375px;
-    height: 758px;
+    height: 658px;
   }
 
   .iphone-frame {
@@ -382,9 +382,9 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
     top: 0;
     left: 0;
     width: 375px;
-    height: 758px;
+    height: 658px;
     background: url('../iframe_iphonex.png') no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     pointer-events: none;
   }
 }
