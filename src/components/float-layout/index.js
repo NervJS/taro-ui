@@ -27,7 +27,7 @@ export default class AtFloatLayout extends AtComponent {
       this.setState({
         _isOpened: isOpened
       })
-      !isOpened && this.handleClose()
+      // !isOpened && this.handleClose()
     }
   }
 
@@ -79,7 +79,11 @@ export default class AtFloatLayout extends AtComponent {
           <View className='layout-header'>
             <Text className='layout-header__title'>{title}</Text>
             <View className='layout-header__icon' onClick={this.close}>
-              <AtIcon customStyle={{ fontSize: '18px' }} value='close' color='#CCC' />
+              <AtIcon
+                customStyle={{ fontSize: '18px' }}
+                value='close'
+                color='#CCC'
+              />
             </View>
           </View>
           <View className='layout-body'>

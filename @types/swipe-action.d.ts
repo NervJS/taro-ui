@@ -12,7 +12,7 @@ export interface Option {
 }
 
 export interface AtSwipeActionProps extends AtComponent {
-  isClose?: boolean
+  isOpened?: boolean
 
   disabled?: boolean
 
