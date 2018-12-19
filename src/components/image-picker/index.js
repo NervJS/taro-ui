@@ -124,6 +124,8 @@ export default class AtImagePicker extends AtComponent {
       }
       onChange(files, 'add')
     }
+    // fix 上传第二次不能选择同一文件
+    event.target.value = ''
   }
 
   handleImageClick (i) {
