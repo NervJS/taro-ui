@@ -41,14 +41,7 @@ export default class ActionSheetPage extends Taro.Component {
     this.showToast('点击了取消按钮')
   }
 
-  showToast = e => {
-    Taro.showToast({
-      icon: 'none',
-      title: e.target.innerHTML
-    })
-  }
-
-  clearPosition = name => {
+  showToast = name => {
     Taro.showToast({
       icon: 'none',
       title: name
@@ -107,12 +100,15 @@ export default class ActionSheetPage extends Taro.Component {
           cancelText='取消'
           isOpened={isOpened1}
           onClose={this.handleClose.bind(this, 1)}
-          onClick={this.showToast}
         >
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
             按钮一
           </AtActionSheetItem>
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
             按钮二
           </AtActionSheetItem>
         </AtActionSheet>
@@ -122,12 +118,15 @@ export default class ActionSheetPage extends Taro.Component {
           isOpened={isOpened2}
           onClose={this.handleClose.bind(this, 2)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
-          onClick={this.showToast}
         >
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
             按钮一
           </AtActionSheetItem>
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
             按钮二
           </AtActionSheetItem>
         </AtActionSheet>
@@ -138,16 +137,19 @@ export default class ActionSheetPage extends Taro.Component {
           onCancel={this.handleCancel}
           onClose={this.handleClose.bind(this, 3)}
           title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
-          onClick={this.showToast}
         >
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+          >
             按钮一
           </AtActionSheetItem>
-          <AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+          >
             按钮二
           </AtActionSheetItem>
           <AtActionSheetItem
-            onClick={this.clearPosition.bind(this, '成功清除位置')}
+            onClick={this.showToast.bind(this, '成功清除位置')}
           >
             <Text className='danger'>清除位置信息并退出</Text>
           </AtActionSheetItem>
