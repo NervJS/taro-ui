@@ -39,9 +39,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View>
                 <AtSegmentedControl onClick={this.handleClick.bind(this, 1)} selectedColor='#6190E8' current={current1} values={tabList2} />
-                {current1 === 0 ? <View className='tab-content'>标签1的内容</View> : null}
-                {current1 === 1 ? <View className='tab-content'>标签2的内容</View> : null}
-                {current1 === 2 ? <View className='tab-content'>标签3的内容</View> : null}
+                <View className='tab-content'>标签 {current1 + 1} 的内容</View>
               </View>
             </View>
           </View>
@@ -52,9 +50,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View>
                 <AtSegmentedControl onClick={this.handleClick.bind(this, 2)} selectedColor='#FF4949' fontSize='30' current={current2} values={tabList2} />
-                {current2 === 0 ? <View className='tab-content'>标签1的内容</View> : null}
-                {current2 === 1 ? <View className='tab-content'>标签2的内容</View> : null}
-                {current2 === 2 ? <View className='tab-content'>标签3的内容</View> : null}
+                <View className='tab-content'>标签 {current2 + 1} 的内容</View>
               </View>
             </View>
           </View>
