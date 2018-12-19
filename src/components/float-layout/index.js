@@ -27,7 +27,7 @@ export default class AtFloatLayout extends AtComponent {
       this.setState({
         _isOpened: isOpened
       })
-      !isOpened && this.handleClose()
+      // !isOpened && this.handleClose()
     }
   }
 
@@ -52,7 +52,17 @@ export default class AtFloatLayout extends AtComponent {
 
   render () {
     const { _isOpened } = this.state
-    const { title } = this.props
+    const {
+      title,
+
+      scrollY,
+      scrollX,
+      scrollTop,
+      scrollLeft,
+      upperThreshold,
+      lowerThreshold,
+      scrollWithAnimation
+    } = this.props
 
     const rootClass = classNames(
       'at-float-layout',
@@ -69,11 +79,27 @@ export default class AtFloatLayout extends AtComponent {
           <View className='layout-header'>
             <Text className='layout-header__title'>{title}</Text>
             <View className='layout-header__icon' onClick={this.close}>
-              <AtIcon value='close' size='18' color='#CCC' />
+              <AtIcon
+                customStyle={{ fontSize: '18px' }}
+                value='close'
+                color='#CCC'
+              />
             </View>
           </View>
           <View className='layout-body'>
-            <ScrollView scrollY className='layout-body__content'>
+            <ScrollView
+              scrollY={scrollY}
+              scrollX={scrollX}
+              scrollTop={scrollTop}
+              scrollLeft={scrollLeft}
+              upperThreshold={upperThreshold}
+              lowerThreshold={lowerThreshold}
+              scrollWithAnimation={scrollWithAnimation}
+              onScroll={this.props.onScroll}
+              onScrollToLower={this.props.onScrollToLower}
+              onScrollToUpper={this.props.onScrollToUpper}
+              className='layout-body__content'
+            >
               {this.props.children}
             </ScrollView>
           </View>
@@ -84,11 +110,25 @@ export default class AtFloatLayout extends AtComponent {
 }
 
 AtFloatLayout.defaultProps = {
-  isOpened: false
+  isOpened: false,
+
+  scrollY: true
 }
 
-AtFloatLayout.propTypes = {
-  onClose: PropTypes.func,
+AtFloatLayout.propType = {
   title: PropTypes.string,
-  isOpened: PropTypes.bool
+  isOpened: PropTypes.bool,
+
+  scrollY: PropTypes.bool,
+  scrollX: PropTypes.bool,
+  scrollTop: PropTypes.number,
+  scrollLeft: PropTypes.number,
+  upperThreshold: PropTypes.number,
+  lowerThreshold: PropTypes.number,
+  scrollWithAnimation: PropTypes.bool,
+
+  onClose: PropTypes.func,
+  onScroll: PropTypes.func,
+  onScrollToLower: PropTypes.func,
+  onScrollToUpper: PropTypes.func
 }

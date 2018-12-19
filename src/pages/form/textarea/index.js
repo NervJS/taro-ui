@@ -42,7 +42,7 @@ export default class Index extends Taro.Component {
                 <AtTextarea
                   value={this.state.value1}
                   onChange={this.handleChange.bind(this, 'value1')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -56,7 +56,7 @@ export default class Index extends Taro.Component {
                   count={false}
                   value={this.state.value2}
                   onChange={this.handleChange.bind(this, 'value2')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -70,7 +70,7 @@ export default class Index extends Taro.Component {
                   textOverflowForbidden={false}
                   value={this.state.value3}
                   onChange={this.handleChange.bind(this, 'value3')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -84,7 +84,7 @@ export default class Index extends Taro.Component {
                   height='300'
                   value={this.state.value4}
                   onChange={this.handleChange.bind(this, 'value4')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>

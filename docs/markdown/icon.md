@@ -32,8 +32,7 @@ import { AtIcon } from 'taro-ui'
 
 ## 使用第三方字体图标库
 
-可自行下载 [Ionicons](https://ionicons.com/) 或 [Font Awesome](http://fontawesome.dashgame.com/) 等字体图标库，并按照以下步骤自行扩展字体图标库。
-拓展字体图标库，并不影响原有图标的使用。
+可自行下载 [Ionicons](https://ionicons.com/) 或 [Font Awesome](http://fontawesome.dashgame.com/) 等字体图标库，并按照以下步骤自行扩展字体图标库。（拓展字体图标库，并不影响原有图标的使用）
 
 ### 步骤一：配置 postcss 小程序端样式引用本地资源内联
 
@@ -45,8 +44,7 @@ module.exports = {
   env: {
     NODE_ENV: '"development"'
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   // 小程序端专用配置
   weapp: {
     module: {
@@ -72,8 +70,7 @@ module.exports = {
   env: {
     NODE_ENV: '"production"'
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   // 小程序端专用配置
   weapp: {
     module: {
@@ -131,7 +128,7 @@ module.exports = {
 
 :::
 
-### 步骤三：在 app.js 全局引入 icon.scss
+### 步骤三：在 app.js 中全局引入 icon.scss
 
 :::demo
 
@@ -142,7 +139,9 @@ import './icon.scss'
 
 :::
 
-### 步骤四：在 `设置-项目设置-调试基础库` 设置版本 `2.2.3` 以上
+### 步骤四：更改微信基础库版本
+
+在开发者工具 `设置-项目设置-调试基础库` 设置版本 `2.2.3` 以上
 
 
 ### 步骤五：使用 `AtIcon`
@@ -162,9 +161,9 @@ import './icon.scss'
 | 参数  | 说明     | 类型   | 可选值                | 默认值 |
 |:------|:---------|:-------|:----------------------|:-------|
 | prefixClass | className 前缀，用于第三方字体图标库，比如想使用'fa fa-clock' 的图标，则 传入`prefixClass='fa' value='clock'` | String | - | 'at-icon' |
-| value | 图标图案 | String | 参考下表              | -      |
-| size  | 图标大小 | String | 大于10的整数          | 24     |
-| color | 图标颜色 | String | 可被CSS支持的颜色单位 | -      |
+| value | 图标图案 | String | 参考下表 | - |
+| size  | 图标大小 | String / Number | 大于10的整数 | 24 |
+| color | 图标颜色 | String | 可被CSS支持的颜色单位 | - |
 
 ## 图标示例
 

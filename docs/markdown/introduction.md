@@ -34,6 +34,10 @@ Taro 是由 [京东·凹凸实验室](https://aotu.io) 倾力打造的多端开�
 
 [官方微信交流群](https://github.com/NervJS/taro-ui/issues/16)
 
+## 开发计划
+
+[Taro UI 开发计划](https://github.com/NervJS/taro-ui/blob/dev/PLANS.md)
+
 ## 贡献
 
 如果你在使用 `Taro UI` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/nervjs/taro-ui/issues) 或 [Pull Request](https://github.com/nervjs/taro-ui/pulls)

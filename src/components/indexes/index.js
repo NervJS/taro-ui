@@ -42,7 +42,7 @@ export default class AtIndexes extends AtComponent {
     super(...arguments)
     this.state = {
       targetView: '',
-      targetOffsetTop: 0
+      scrollTop: 0
     }
     // 右侧导航高度
     this.menuHeight = 0
@@ -50,6 +50,7 @@ export default class AtIndexes extends AtComponent {
     this.startTop = 0
     this.itemHeight = 0
     this.currentIndex = -1
+    this._scrollTop = 0
   }
 
   handleClick () {
@@ -91,10 +92,11 @@ export default class AtIndexes extends AtComponent {
     } else if (env === Taro.ENV_TYPE.WEB) {
       // web环境
       const bodyOffsetTop = this.indexesRef.vnode.dom.getBoundingClientRect().top
-      // 目标节点offsetTop
       const targetOffsetTop = this.listRef.vnode.dom.childNodes[i].getBoundingClientRect().top
+      const targetScrollTop = this._scrollTop + targetOffsetTop - bodyOffsetTop
+
       this.setState({
-        targetOffsetTop: targetOffsetTop - bodyOffsetTop
+        scrollTop: targetScrollTop
       })
     }
     if (this.props.isShowToast) {
@@ -142,6 +144,11 @@ export default class AtIndexes extends AtComponent {
 
   getMenuRef = node => (this.menuRef = node)
 
+  handleScroll (ev) {
+    const { scrollTop } = ev.detail
+    this._scrollTop = scrollTop
+  }
+
   render () {
     const {
       className,
@@ -187,8 +194,9 @@ export default class AtIndexes extends AtComponent {
           className='at-indexes__body'
           scrollY
           scrollWithAnimation={animation}
-          scrollTop={this.state.targetOffsetTop}
+          scrollTop={this.state.scrollTop}
           scrollIntoView={this.state.targetView}
+          onScroll={this.handleScroll.bind(this)}
           ref={this.getListRef}
         >
           <View

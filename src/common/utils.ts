@@ -1,9 +1,5 @@
 import Taro from '@tarojs/taro'
-import {
-  execObject,
-  fieldsObject,
-  SelectorQuery
-} from '@tarojs/taro/types/index'
+import { execObject, SelectorQuery } from '@tarojs/taro/types/index'
 
 const REM_LAYOUT_DELAY: number = 500
 
@@ -15,25 +11,26 @@ function delay (): Promise<null> {
       }, REM_LAYOUT_DELAY)
       return
     }
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
-      resolve()
-    }
+    resolve()
   })
 }
 
 function delayQuerySelector (
   $scope,
-  selectorStr: string,
-  options: fieldsObject = { size: true }
+  selectorStr: string
 ): Promise<Array<execObject>> {
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
-  return new Promise(reslove => {
+
+  return new Promise(resolve => {
     delay().then(() => {
+      if (Taro.getEnv() === Taro.ENV_TYPE.WEB && $scope) {
+        return resolve([$scope.vnode.dom.getBoundingClientRect()])
+      }
       selector
         .select(selectorStr)
-        .fields(options)
+        .boundingClientRect()
         .exec((res: Array<execObject>) => {
-          reslove(res)
+          resolve(res)
         })
     })
   })

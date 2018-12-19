@@ -31,9 +31,9 @@ import { AtProgress } from 'taro-ui'
 :::demo
 
 ```html
-<AtProgress percent='25' />
-<AtProgress percent='50' />
-<AtProgress percent='75' />
+<AtProgress percent={25} />
+<AtProgress percent={50} />
+<AtProgress percent={75} />
 ```
 
 :::
@@ -43,8 +43,8 @@ import { AtProgress } from 'taro-ui'
 :::demo
 
 ```html
-<AtProgress percent='25' isHidePercent />
-<AtProgress percent='75' isHidePercent />
+<AtProgress percent={25} isHidePercent />
+<AtProgress percent={75} isHidePercent />
 ```
 
 :::
@@ -54,9 +54,9 @@ import { AtProgress } from 'taro-ui'
 :::demo
 
 ```html
-<AtProgress percent='25' strokeWidth='6' />
-<AtProgress percent='50' strokeWidth='8' />
-<AtProgress percent='75' strokeWidth='10' />
+<AtProgress percent={25} strokeWidth={6} />
+<AtProgress percent={50} strokeWidth={8} />
+<AtProgress percent={75} strokeWidth={10} />
 ```
 
 :::
@@ -66,9 +66,9 @@ import { AtProgress } from 'taro-ui'
 :::demo
 
 ```html
-<AtProgress percent='25' color='#FF4949' />
-<AtProgress percent='50' color='#13CE66' />
-<AtProgress percent='75' color='#FFC82C' />
+<AtProgress percent={25} color='#FF4949' />
+<AtProgress percent={50} color='#13CE66' />
+<AtProgress percent={75} color='#FFC82C' />
 ```
 
 :::
@@ -78,9 +78,9 @@ import { AtProgress } from 'taro-ui'
 :::demo
 
 ```html
-<AtProgress percent='75' status='error' />
-<AtProgress percent='50' status='progress' />
-<AtProgress percent='100' status='success' />
+<AtProgress percent={75} status='error' />
+<AtProgress percent={50} status='progress' />
+<AtProgress percent={100} status='success' />
 ```
 
 :::

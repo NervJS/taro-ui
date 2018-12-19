@@ -69,21 +69,21 @@ export default class AtSteps extends AtComponent {
                 {
                   item.success || item.error
                     ? <AtIcon
+                      customStyle={{ fontSize: '28px' }}
                       value={item.success ? 'check-circle' : 'close-circle'}
                       color={item.success ? '#6190E8' : '#FF4949'}
-                      size='28'
                     />
                     : <View className='at-steps__circular'>
                       {
                         item.icon
                           ? <AtIcon
+                            customStyle={{ fontSize: `${item.icon.size || 24}px` }}
                             value={item.icon.value}
                             color={
                               i === current
                                 ? item.icon.activeColor
                                 : item.icon.inactiveColor
                             }
-                            size={item.icon.size}
                           />
                           : <Text className='at-steps__num'>{i + 1}</Text>
                       }

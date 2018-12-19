@@ -124,7 +124,7 @@ export default class AtSearchBar extends AtComponent {
             className='at-search-bar__placeholder_wrap'
             style={placeholderStyle}
           >
-            <AtIcon value='search' size='15' color='#999' />
+            <AtIcon customStyle={{ fontSize: '15px' }} value='search' color='#999' />
             <Text
               className='at-search-bar__placeholder'
               style={
@@ -155,7 +155,7 @@ export default class AtSearchBar extends AtComponent {
             }
             onTouchStart={this.handleClear.bind(this)}
           >
-            <AtIcon value='close-circle' size='15' color='#999' />
+            <AtIcon customStyle={{ fontSize: '15px' }} value='close-circle' color='#999' />
           </View>
         </View>
         <View

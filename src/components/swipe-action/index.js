@@ -3,66 +3,128 @@ import { View, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import _inRange from 'lodash/inRange'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
 import AtSwipeActionOptions from './options/index'
+import { delayQuerySelector } from '../../common/utils'
 
 import './index.scss'
 
 export default class AtSwipeAction extends AtComponent {
-  constructor () {
+  constructor (props) {
     super(...arguments)
+
+    const { isOpened } = props
 
     this.endValue = 0
     this.startX = null
-    this.isTouching = false
+    this.startY = null
     this.maxOffsetSize = 0
+    this.ref = {}
+
+    this.domInfo = {}
+    this.isMoving = false
+    this.isTouching = false
 
     this.state = {
       offsetSize: 0,
-      isOpened: false
+      _isOpened: isOpened
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-    const { isClose } = nextProps
-    const { isOpened } = this.state
-
-    if (isClose && isOpened) {
-      this._reset()
-      this.handleClosed()
-    }
-  }
-
-  _reset () {
-    this.endValue = 0
-    this.isTouching = false
-    this.setState({
-      offsetSize: 0,
-      isOpened: false
+  componentDidMount () {
+    delayQuerySelector(
+      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this.ref : this.$scope,
+      '.at-swipe-action'
+    ).then(res => {
+      this.domInfo = res[0]
     })
   }
 
+  componentWillReceiveProps (nextProps) {
+    const { isOpened } = nextProps
+    const { _isOpened } = this.state
+
+    if (isOpened !== _isOpened) {
+      this._reset(isOpened)
+    }
+  }
+
+  getRef = ref => {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      this.ref = ref
+    }
+  }
+
+  _reset (isOpened) {
+    this.isMoving = false
+    this.isTouching = false
+
+    if (isOpened) {
+      this.endValue = -this.maxOffsetSize
+      this.setState({
+        _isOpened: true,
+        offsetSize: -this.maxOffsetSize
+      })
+    } else {
+      this.endValue = 0
+      this.setState({
+        offsetSize: 0,
+        _isOpened: false
+      })
+    }
+  }
+
   handleOpened = () => {
-    if (_isFunction(this.props.onOpened) && !this.state.isOpened) {
+    if (_isFunction(this.props.onOpened) && !this.state._isOpened) {
       this.props.onOpened()
     }
   }
 
   handleClosed = () => {
-    if (_isFunction(this.props.onClosed) && this.state.isOpened) {
+    if (_isFunction(this.props.onClosed) && this.state._isOpened) {
       this.props.onClosed()
     }
   }
 
   handleTouchStart = e => {
-    const { clientX } = e.touches[0]
+    const { clientX, clientY } = e.touches[0]
 
     if (this.props.disabled) return
 
     this.startX = clientX
+    this.startY = clientY
     this.isTouching = true
+  }
+
+  handleTouchMove = e => {
+    const { startX, startY } = this
+    const { top, bottom, left, right } = this.domInfo
+    const { clientX, clientY, pageX, pageY } = e.touches[0]
+
+    const x = Math.abs(clientX - startX)
+    const y = Math.abs(clientY - startY)
+
+    const inDom = _inRange(pageX, left, right) && _inRange(pageY, top, bottom)
+
+    if (!this.isMoving && inDom) {
+      this.isMoving =
+        y === 0 || x / y >= Math.tan((45 * Math.PI) / 180).toFixed(2)
+    }
+
+    if (this.isTouching && this.isMoving) {
+      const offsetSize = clientX - this.startX
+      const isRight = offsetSize > 0
+
+      if (this.state.offsetSize === 0 && isRight) return
+
+      const value = this.endValue + offsetSize
+      this.setState({
+        offsetSize: value >= 0 ? 0 : value
+      })
+    }
   }
 
   handleTouchEnd = () => {
@@ -76,39 +138,20 @@ export default class AtSwipeAction extends AtComponent {
     const absOffsetSize = Math.abs(offsetSize)
 
     if (absOffsetSize > breakpoint) {
-      this.endValue = -this.maxOffsetSize
-      this.handleOpened()
-      return this.setState({
-        isOpened: true,
-        offsetSize: -this.maxOffsetSize
-      })
+      this._reset(true)
+      return this.handleOpened()
     }
 
-    this.endValue = 0
+    this._reset()
     this.handleClosed()
-    this.setState({
-      isOpened: false,
-      offsetSize: 0
-    })
-  }
-
-  handleTouchMove = e => {
-    const { clientX } = e.touches[0]
-    if (this.isTouching) {
-      const offsetSize = clientX - this.startX
-      const isRight = offsetSize > 0
-
-      if (this.state.offsetSize === 0 && isRight) return
-
-      const value = this.endValue + offsetSize
-      this.setState({
-        offsetSize: value >= 0 ? 0 : value
-      })
-    }
   }
 
   handleDomInfo = ({ width }) => {
+    const { _isOpened } = this.state
+
+    console.log('handleDomInfo')
     this.maxOffsetSize = width
+    this._reset(_isOpened)
   }
 
   handleClick = (item, index, ...arg) => {
@@ -130,6 +173,7 @@ export default class AtSwipeAction extends AtComponent {
 
     return (
       <View
+        ref={this.getRef}
         className={rootClass}
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
@@ -140,7 +184,7 @@ export default class AtSwipeAction extends AtComponent {
             animtion: !this.isTouching
           })}
           style={{
-            transform: `translate3d(${offsetSize}px,0,0)`
+            transform: offsetSize ? `translate3d(${offsetSize}px,0,0)` : null
           }}
         >
           {this.props.children}
@@ -170,17 +214,14 @@ export default class AtSwipeAction extends AtComponent {
 
 AtSwipeAction.defaultProps = {
   options: [],
-  isClose: false,
+  isOpened: false,
   disabled: false,
   autoClose: false
 }
 
 AtSwipeAction.propTypes = {
-  isClose: PropTypes.bool,
+  isOpened: PropTypes.bool,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  onOpened: PropTypes.func,
-  onClosed: PropTypes.func,
   autoClose: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -192,5 +233,9 @@ AtSwipeAction.propTypes = {
         PropTypes.array
       ])
     })
-  )
+  ),
+
+  onClick: PropTypes.func,
+  onOpened: PropTypes.func,
+  onClosed: PropTypes.func
 }

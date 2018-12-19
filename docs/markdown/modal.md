@@ -30,7 +30,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
     这里是正文内容，欢迎加入京东凹凸实验室
     这里是正文内容，欢迎加入京东凹凸实验室
   </AtModalContent>
-  <AtModalAction> <button>取消</button> <button>确定</button> </AtModalAction>
+  <AtModalAction> <Button>取消</Button> <Button>确定</Button> </AtModalAction>
 </AtModal>
 ```
 
@@ -64,6 +64,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 | cancelText          | 取消按钮的文本             | String  | -      | -       |
 | closeOnClickOverlay | 点击浮层的时候时候自动关闭 | Boolean | -      | `true` |
 | confirmText         | 确认按钮的文本             | String  | -      | -       |
+| isOpened            | 是否显示模态框             | String  | -      | `false`       |
 
 ## AtModal 事件
 

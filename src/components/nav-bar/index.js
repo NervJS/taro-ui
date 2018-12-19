@@ -90,7 +90,7 @@ export default class AtNavBar extends AtComponent {
         onClick={this.handleClickLeftView.bind(this)}
         style={linkStyle}
       >
-        <AtIcon value={leftIconType} />
+        <AtIcon customStyle={{ fontSize: '24px' }} value={leftIconType} />
         <Text className='at-nav-bar__text'>{leftText}</Text>
       </View>
       <View className='at-nav-bar__title'>{title}</View>
@@ -105,7 +105,7 @@ export default class AtNavBar extends AtComponent {
           style={linkStyle}
           onClick={this.handleClickNd.bind(this)}
         >
-          <AtIcon value={rightSecondIconType} />
+          <AtIcon customStyle={{ fontSize: '24px' }} value={rightSecondIconType} />
         </View>
         <View
           className={
@@ -117,7 +117,7 @@ export default class AtNavBar extends AtComponent {
           style={linkStyle}
           onClick={this.handleClickSt.bind(this)}
         >
-          <AtIcon value={rightFirstIconType} />
+          <AtIcon customStyle={{ fontSize: '24px' }} value={rightFirstIconType} />
         </View>
       </View>
     </View>

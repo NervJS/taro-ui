@@ -41,7 +41,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator color=‘#13CE66’></AtActivityIndicator>
+<AtActivityIndicator color='#13CE66'></AtActivityIndicator>
 ```
 
 :::
@@ -51,7 +51,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator content=‘加载中...’></AtActivityIndicator>
+<AtActivityIndicator content='加载中...'></AtActivityIndicator>
 ```
 
 :::
@@ -61,7 +61,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator mode=‘center’></AtActivityIndicator>
+<AtActivityIndicator mode='center'></AtActivityIndicator>
 ```
 
 :::
