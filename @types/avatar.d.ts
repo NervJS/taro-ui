@@ -8,6 +8,8 @@ export interface AtAvatarProps extends AtComponent{
 
   circle?: boolean
 
+  text?: string
+  
   image?: string
 
   openData?: object
