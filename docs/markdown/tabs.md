@@ -22,6 +22,8 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
 
 * 该用法适合等宽标签，标签数不建议超过4个，超过4个建议使用**滚动标签栏**，增加 `scroll` 参数(见下)。
 
+* 请勿在 AtTab 组件内嵌套 `position:fixed` 布局的组件，比如：curtain,message,toast,action-sheet,modal,float-layout,drawer,picker。
+
 * 开发者需要通过 `onClick` 事件来改变 `current` 的值切换 tab
 
 * 由于小程序的限制，无法遍历 `this.props.children`, `AtTabsPane` 需要用户自行传入 `current` 和 `index` 参数。
