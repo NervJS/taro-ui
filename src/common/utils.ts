@@ -23,9 +23,6 @@ function delayQuerySelector (
 
   return new Promise(resolve => {
     delay().then(() => {
-      if (Taro.getEnv() === Taro.ENV_TYPE.WEB && $scope) {
-        return resolve([$scope.vnode.dom.getBoundingClientRect()])
-      }
       selector
         .select(selectorStr)
         .boundingClientRect()

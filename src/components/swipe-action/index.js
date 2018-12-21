@@ -22,7 +22,6 @@ export default class AtSwipeAction extends AtComponent {
     this.startX = null
     this.startY = null
     this.maxOffsetSize = 0
-    this.ref = {}
 
     this.domInfo = {}
     this.isMoving = false
@@ -36,7 +35,7 @@ export default class AtSwipeAction extends AtComponent {
 
   componentDidMount () {
     delayQuerySelector(
-      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this.ref : this.$scope,
+      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
       '.at-swipe-action'
     ).then(res => {
       this.domInfo = res[0]
@@ -49,12 +48,6 @@ export default class AtSwipeAction extends AtComponent {
 
     if (isOpened !== _isOpened) {
       this._reset(isOpened)
-    }
-  }
-
-  getRef = ref => {
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
-      this.ref = ref
     }
   }
 
@@ -173,7 +166,6 @@ export default class AtSwipeAction extends AtComponent {
 
     return (
       <View
-        ref={this.getRef}
         className={rootClass}
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
