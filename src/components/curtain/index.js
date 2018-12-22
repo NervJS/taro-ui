@@ -29,8 +29,13 @@ export default class AtCurtain extends AtComponent {
     onClose: PropTypes.func
   }
 
-  onClose () {
+  onClose (e) {
+    e.stopPropagation()
     this.props.onClose(...arguments)
+  }
+
+  _stopPropagation (e) {
+    e.stopPropagation()
   }
 
   render () {
@@ -50,6 +55,7 @@ export default class AtCurtain extends AtComponent {
           }, className)
         }
         style={customStyle}
+        onClick={this._stopPropagation}
       >
         <View className='at-curtain__container'>
           <View className='at-curtain__body'>
@@ -61,12 +67,12 @@ export default class AtCurtain extends AtComponent {
                   'at-curtain__close-box--top': closeBtnPosition === 'top'
                 })
               }
-              onClick={this.onClose.bind(this)}
             >
               <AtIcon
+                customStyle={{ fontSize: '30px' }}
                 value='close-circle'
                 color='#fff'
-                size='30'
+                onClick={this.onClose.bind(this)}
               />
             </View>
           </View>

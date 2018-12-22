@@ -116,7 +116,7 @@ export default class AtToast extends AtComponent {
             )}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
-                <AtIcon value={icon} color='white' size='50' />
+                <AtIcon customStyle={{ fontSize: '50px' }} value={icon} color='white' />
               </View>
             )}
             {text && (

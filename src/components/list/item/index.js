@@ -69,11 +69,15 @@ export default class AtListItem extends AtComponent {
           {iconInfo.value ? (
             <View className='at-list__item-icon item-icon'>
               <AtIcon
-                size={iconInfo.size}
+                customStyle={
+                  this.mergeStyle(
+                    { fontSize: `${iconInfo.size || 24}px` },
+                    iconInfo.customStyle
+                  )
+                }
                 value={iconInfo.value}
                 color={iconInfo.color}
                 className={iconInfo.className}
-                customStyle={iconInfo.customStyle}
                 prefixClass={iconInfo.prefixClass}
               />
             </View>
@@ -113,7 +117,7 @@ export default class AtListItem extends AtComponent {
 
             {arrow && (
               <View className='item-extra__icon'>
-                <AtIcon value={`chevron-${arrow}`} color='#c7c7cc' />
+                <AtIcon customStyle={{ fontSize: '24px' }} value={`chevron-${arrow}`} color='#c7c7cc' />
               </View>
             )}
           </View>

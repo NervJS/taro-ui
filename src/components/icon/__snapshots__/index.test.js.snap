@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AtIcon Snap render AtIcon -- props className 1`] = `"<span style=\\"font-size:24px;color:;\\" class=\\"taro-text at-icon at-icon- test\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props className 1`] = `"<span style=\\"font-size:1.024rem;color:;\\" class=\\"taro-text at-icon at-icon- test\\"></span>"`;
 
-exports[`AtIcon Snap render AtIcon -- props color 1`] = `"<span style=\\"font-size:24px;color:#fff;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props color 1`] = `"<span style=\\"font-size:1.024rem;color:#fff;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
 
-exports[`AtIcon Snap render AtIcon -- props customStyle 1`] = `"<span style=\\"font-size:24px;color:;color:red;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props customStyle 1`] = `"<span style=\\"font-size:1.024rem;color:;color:red;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
 
-exports[`AtIcon Snap render AtIcon -- props prefixClass 1`] = `"<span style=\\"font-size:24px;color:;\\" class=\\"taro-text prefixClass prefixClass-star\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props prefixClass 1`] = `"<span style=\\"font-size:1.024rem;color:;\\" class=\\"taro-text prefixClass prefixClass-star\\"></span>"`;
 
-exports[`AtIcon Snap render AtIcon -- props size 1`] = `"<span style=\\"font-size:14px;color:;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props size 1`] = `"<span style=\\"font-size:0.5974rem;color:;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
 
-exports[`AtIcon Snap render AtIcon -- props value 1`] = `"<span style=\\"font-size:24px;color:;\\" class=\\"taro-text at-icon at-icon-star\\"></span>"`;
+exports[`AtIcon Snap render AtIcon -- props value 1`] = `"<span style=\\"font-size:1.024rem;color:;\\" class=\\"taro-text at-icon at-icon-star\\"></span>"`;
 
-exports[`AtIcon Snap render initial AtIcon 1`] = `"<span style=\\"font-size:24px;color:;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
+exports[`AtIcon Snap render initial AtIcon 1`] = `"<span style=\\"font-size:1.024rem;color:;\\" class=\\"taro-text at-icon at-icon-\\"></span>"`;
