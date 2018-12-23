@@ -3,8 +3,7 @@ import { View } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
 
-import '../../../components/flex/index.scss'
-import '../../../components/flex/item/index.scss'
+import '../../../style/components/flex.scss'
 import './index.scss'
 
 export default class FlexPage extends Taro.Component {

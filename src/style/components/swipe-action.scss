@@ -1,5 +1,5 @@
-@import "../../style/mixins/index.scss";
-@import "../../style/variables/default.scss";
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
 
 .at-swipe-action {
   position: relative;
@@ -27,5 +27,16 @@
     font-size: $font-size-base;
     padding: 0 $spacing-h-xl;
     text-align: center;
+  }
+
+  &__options {
+    @include align-items(center);
+
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
   }
 }

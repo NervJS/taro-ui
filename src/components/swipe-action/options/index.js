@@ -1,13 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-// import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../../common/component'
 import { delayQuerySelector } from '../../../common/utils'
-
-import './index.scss'
 
 export default class AtSwiperActionOptions extends AtComponent {
   componentDidMount () {

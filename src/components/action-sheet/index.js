@@ -1,6 +1,5 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
@@ -8,10 +7,7 @@ import _isFunction from 'lodash/isFunction'
 import AtActionSheetBody from './body/index'
 import AtActionSheetHeader from './header/index'
 import AtActionSheetFooter from './footer/index'
-
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtActionSheet extends AtComponent {
   constructor (props) {
