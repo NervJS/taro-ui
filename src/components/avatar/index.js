@@ -2,7 +2,6 @@ import Taro from '@tarojs/taro'
 import { View, Image, Text, OpenData } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
 
 const SIZE_CLASS = {
@@ -17,9 +16,6 @@ export default class AtAvatar extends AtComponent {
     this.state = {
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
     }
-  }
-
-  onClick () {
   }
 
   render () {

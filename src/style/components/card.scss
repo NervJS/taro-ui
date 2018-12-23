@@ -1,23 +1,18 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$card-thumb-size: 32px;
+$at-card-thumb-size: 32px;
+$at-card-icon-size: 32px;
 
 .at-card {
   @include border-thin($color: $color-border-light, $width: 1PX);
 
   margin: 0 $spacing-h-lg;
-  background-color: $color-bg;
   border-radius: $border-radius-lg;
+  background-color: $color-bg;
 
-  &--full {
-    margin: 0;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-  }
-
-  &-header {
+  /* elements */
+  &__header {
     @include display-flex;
     @include align-items(center);
     @include border-thin-bottom($width: 1PX);
@@ -25,17 +20,17 @@ $card-thumb-size: 32px;
     padding: $spacing-v-md $spacing-h-lg;
     position: relative;
 
-    &__title,
-    &__extra {
+    &-title,
+    &-extra {
       @include line;
 
       line-height: $line-height-zh;
     }
 
-    &__thumb {
-      @include flex(0, 0, $card-thumb-size);
+    &-thumb {
+      @include flex(0, 0, $at-card-thumb-size);
 
-      height: $card-thumb-size;
+      height: $at-card-thumb-size;
       display: block;
       line-height: 0;
       margin-right: $spacing-h-md;
@@ -46,14 +41,19 @@ $card-thumb-size: 32px;
       }
     }
 
-    &__title {
+    &-icon {
+      margin-right: $spacing-h-md;
+      font-size: $at-card-icon-size;
+    }
+
+    &-title {
       @include flex(auto);
 
       display: block;
       font-size: $font-size-lg;
     }
 
-    &__extra {
+    &-extra {
       @include flex(0, 0, auto);
 
       max-width: 200px;
@@ -62,17 +62,25 @@ $card-thumb-size: 32px;
     }
   }
 
-  &-content {
+  &__content {
     padding: $spacing-v-lg $spacing-h-lg;
 
-    &__info {
+    &-info {
       font-size: $font-size-base;
     }
 
-    &__note {
+    &-note {
       margin-top: $spacing-v-md;
       color: $color-grey-2;
       font-size: $font-size-sm;
     }
+  }
+
+  /* modifiers */
+  &--full {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }

@@ -4,8 +4,6 @@ import { View, Text, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
 
 export default class AtFloatLayout extends AtComponent {
@@ -75,13 +73,7 @@ export default class AtFloatLayout extends AtComponent {
         <View className='at-float-layout__container layout'>
           <View className='layout-header'>
             <Text className='layout-header__title'>{title}</Text>
-            <View className='layout-header__icon' onClick={this.close}>
-              <AtIcon
-                customStyle={{ fontSize: '18px' }}
-                value='close'
-                color='#CCC'
-              />
-            </View>
+            <View className='layout-header__btn-close' onClick={this.close}></View>
           </View>
           <View className='layout-body'>
             <ScrollView
@@ -108,14 +100,12 @@ export default class AtFloatLayout extends AtComponent {
 
 AtFloatLayout.defaultProps = {
   isOpened: false,
-
-  scrollY: true
+  scrollY: true,
 }
 
 AtFloatLayout.propType = {
   title: PropTypes.string,
   isOpened: PropTypes.bool,
-
   scrollY: PropTypes.bool,
   scrollX: PropTypes.bool,
   scrollTop: PropTypes.number,
@@ -123,9 +113,8 @@ AtFloatLayout.propType = {
   upperThreshold: PropTypes.number,
   lowerThreshold: PropTypes.number,
   scrollWithAnimation: PropTypes.bool,
-
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
-  onScrollToUpper: PropTypes.func
+  onScrollToUpper: PropTypes.func,
 }

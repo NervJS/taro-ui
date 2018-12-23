@@ -15,7 +15,7 @@ export default class AtActionSheetFooter extends AtComponent {
 
   render () {
     const rootClass = classNames(
-      'at-action-sheet-footer',
+      'at-action-sheet__footer',
       this.props.className
     )
 

@@ -1,29 +1,32 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$at-image-picker-btn-add-color: #ccc;
+
 .at-image-picker {
   position: relative;
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
 
+  /* elements */
   &__flex-box {
     display: flex;
+    padding: $spacing-h-sm;
     overflow: hidden;
     box-sizing: border-box;
-    padding: $spacing-h-sm;
   }
 
   &__flex-item {
     position: relative;
+    margin-left: $spacing-h-sm;
     flex: 1;
     height: 100%;
     box-sizing: border-box;
-    margin-left: $spacing-h-sm;
 
     &::after {
+      content: '';
       display: block;
-      content: " ";
       padding-bottom: 100%;
     }
   }
@@ -31,10 +34,10 @@
   &__item {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     width: 100%;
     height: 100%;
     border-radius: $border-radius-md;
+    transform: translateY(-50%);
     overflow: hidden;
   }
 
@@ -46,6 +49,25 @@
     font-size: 0;
     box-sizing: border-box;
     @include border-thin($width: 1PX);
+
+    .add-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 60px;
+      height: 2PX;
+      border-radius: 1PX;
+      background: $at-image-picker-btn-add-color;
+
+      &:nth-child(1) {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
+
+      &:nth-child(2) {
+        transform: translate3d(-50%, -50%, 0) rotate(0);
+      }
+    }
   }
 
   &__remove-btn {
@@ -56,7 +78,6 @@
     top: 6PX;
     right: 6PX;
     z-index: 2;
-    color: #fff;
     width: 18PX;
     height: 18PX;
     font-size: 0;
@@ -66,6 +87,27 @@
     background-color: $color-grey-2;
     opacity: 0.8;
     box-sizing: border-box;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 10PX;
+      height: 1PX;
+      border-radius: 1PX;
+      background: $color-white;
+    }
+
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+    }
   }
 
   &__file-input {

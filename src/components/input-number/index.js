@@ -1,52 +1,10 @@
 import Taro from '@tarojs/taro'
-import { View, Input } from '@tarojs/components'
+import { View, Input, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 
-const defaultFunc = () => {}
 export default class AtInputNumber extends AtComponent {
-  static defaultProps = {
-    isTest: false,
-    customStyle: '',
-    className: '',
-    disabled: false,
-    value: 1,
-    type: 'number',
-    width: 80,
-    min: 0,
-    max: 100,
-    step: 1,
-    size: '',
-    onChange: defaultFunc,
-    onBlur: defaultFunc
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    value: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
-    type: PropTypes.oneOf(['number', 'digit']),
-    disabled: PropTypes.bool,
-    width: PropTypes.number,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    step: PropTypes.number,
-    size: PropTypes.string,
-    onChange: PropTypes.func
-  }
-
   // 实现两数相加并保留小数点后最短尾数
   static addNum (num1, num2) {
     let sq1, sq2
@@ -165,7 +123,7 @@ export default class AtInputNumber extends AtComponent {
           }
           onClick={this.handleMinus.bind(this)}
         >
-          <AtIcon customStyle={{ fontSize: '18px' }} value='subtract' />
+          <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
         </View>
         <Input
           className='at-input-number__input'
@@ -184,9 +142,48 @@ export default class AtInputNumber extends AtComponent {
           }
           onClick={this.handlePlus.bind(this)}
         >
-          <AtIcon customStyle={{ fontSize: '18px' }} value='add' />
+          <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
         </View>
       </View>
     )
   }
+}
+
+AtInputNumber.defaultProps = {
+  customStyle: '',
+  className: '',
+  disabled: false,
+  value: 1,
+  type: 'number',
+  width: 80,
+  min: 0,
+  max: 100,
+  step: 1,
+  size: '',
+  onChange: () => {},
+  onBlur: () => {},
+}
+
+AtInputNumber.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
+  type: PropTypes.oneOf(['number', 'digit']),
+  disabled: PropTypes.bool,
+  width: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  size: PropTypes.string,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
 }

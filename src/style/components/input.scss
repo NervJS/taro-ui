@@ -3,10 +3,11 @@
 
 .at-input {
   padding: $spacing-v-lg 0;
-  background-color: $color-bg;
   color: $color-text-base;
+  background-color: $color-bg;
   @include hairline-bottom();
 
+  /* elements */
   &__container {
     display: flex;
     align-items: center;
@@ -39,9 +40,19 @@
   &__icon {
     display: inline-block;
     padding: $spacing-v-xs $spacing-v-md $spacing-v-xs 0;
+    width: 30px;
+    height: 100%;
+    font-size: $font-size-lg;
     text-align: center;
     line-height: 1;
-    font-size: $font-size-lg;
+
+    &-close {
+      color: #ccc;
+    }
+
+    &-alert {
+      color: #FF4949;
+    }
   }
 
   &__children {
@@ -71,6 +82,7 @@
     }
   }
 
+  /* modifiers */
   &--error {
     color: $color-error;
   }

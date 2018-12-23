@@ -1,18 +1,20 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$checkbox-icon-size: 40px;
-$checkbox-icon-px-size: 20PX;
+$at-checkbox-icon-size: 40px;
+$at-checkbox-icon-color: $color-brand;
+$at-checkbox-icon-color-checked: $color-white;
 
 .at-checkbox {
   background-color: $color-bg;
   @include hairline-top-bottom();
 
-  &__option_wrap {
+  /* elements */
+  &__option-wrap {
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
   }
 
-  &__option_container {
+  &__option-container {
     display: flex;
   }
 
@@ -23,38 +25,32 @@ $checkbox-icon-px-size: 20PX;
     text-align: left;
   }
 
-  &__icon {
+  &__icon-cnt {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: $spacing-h-lg;
-    width: $checkbox-icon-px-size;
-    height: $checkbox-icon-px-size;
-    font-size: $font-size-lg;
-    line-height: 0;
-    border: 2px solid $color-brand;
+    width: $at-checkbox-icon-size;
+    height: $at-checkbox-icon-size;
+    color: transparent;
+    font-size: $font-size-sm;
+    line-height: 1;
+    border: 2px solid $at-checkbox-icon-color;
     border-radius: $border-radius-circle;
     background-color: $color-bg;
     box-sizing: border-box;
     transition: all 0.2s;
 
     &--selected {
-      background-color: $color-brand;
+      color: $at-checkbox-icon-color-checked;
       border: none;
+      background-color: $at-checkbox-icon-color;
     }
-  }
-
-  &__icon_container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $checkbox-icon-px-size;
-    height: $checkbox-icon-px-size;
   }
 
   &__desc {
     display: block;
-    padding-left: $checkbox-icon-size + $spacing-h-lg;
+    padding-left: $at-checkbox-icon-size + $spacing-h-lg;
     color: $color-grey-2;
     font-size: $font-size-sm;
     text-align: left;
@@ -67,7 +63,7 @@ $checkbox-icon-px-size: 20PX;
     @include active;
 
     &--disabled {
-      .at-checkbox__option_container,
+      .at-checkbox__option-container,
       .at-checkbox__desc {
         opacity: $opacity-disabled;
       }
@@ -79,7 +75,7 @@ $checkbox-icon-px-size: 20PX;
   }
 
   &__option + &__option {
-    .at-checkbox__option_wrap {
+    .at-checkbox__option-wrap {
       @include hairline-top();
     }
   }

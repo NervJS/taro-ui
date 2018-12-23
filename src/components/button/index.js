@@ -4,7 +4,6 @@ import { View, Button, Form } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtLoading from '../loading/index'
-
 import AtComponent from '../../common/component'
 
 const SIZE_CLASS = {
@@ -21,7 +20,9 @@ export default class AtButton extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
     }
   }
 
@@ -74,7 +75,6 @@ export default class AtButton extends AtComponent {
       loading,
       disabled,
       customStyle,
-
       formType,
       openType,
       lang,
@@ -86,7 +86,7 @@ export default class AtButton extends AtComponent {
       appParameter,
     } = this.props
     const {
-      isWEAPP,
+      isWEB,
     } = this.state
     const rootClassName = ['at-button']
     const classObject = {
@@ -109,7 +109,7 @@ export default class AtButton extends AtComponent {
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}><Button className='at-button__wxbutton'
+        {!isWEB && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}><Button className='at-button__wxbutton'
           formType={formType}
           openType={openType}
           lang={lang}
@@ -167,7 +167,6 @@ AtButton.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-
   formType: PropTypes.oneOf(['submit', 'reset', '']),
   openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo', '']),
   lang: PropTypes.string,

@@ -6,7 +6,7 @@ import AtComponent from '../../../common/component'
 
 export default class AtActionSheetHeader extends AtComponent {
   render () {
-    const rootClass = classNames('at-action-sheet-header', this.props.className)
+    const rootClass = classNames('at-action-sheet__header', this.props.className)
 
     return (
       <View className={rootClass}>

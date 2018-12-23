@@ -12,6 +12,11 @@ export default class ButtonPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
+  state = {
+    isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+    isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
+  }
+
   onButtonClick () {
     const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
@@ -44,6 +49,8 @@ export default class ButtonPage extends Taro.Component {
   }
 
   render () {
+    const { isWEAPP, isALIPAY } = this.state
+
     return (
       <View className='page'>
         {/* S Header */}
@@ -198,15 +205,15 @@ export default class ButtonPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 小程序 button 属性（仅部分支持） */}
-          <View className='panel'>
-            <View className='panel__title'>小程序 button 属性</View>
+          {/* 微信小程序 button 属性（仅部分支持） */}
+          {isWEAPP && <View className='panel'>
+            <View className='panel__title'>微信小程序 button 属性</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton openType='share' type='primary' onClick={this.onButtonClick.bind(this, '打开分享（仅小程序版支持）')}>分享</AtButton>
+                <AtButton openType='share' type='primary'>分享</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+                <AtButton type='secondary' openType='contact' onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
               </View>
 
               <View className='btn-item'>
@@ -220,7 +227,17 @@ export default class ButtonPage extends Taro.Component {
                 </Form>
               </View>
             </View>
-          </View>
+          </View>}
+
+          {/* 支付宝小程序 button 属性（仅部分支持） */}
+          {isALIPAY && <View className='panel'>
+            <View className='panel__title'>支付宝小程序 button 属性</View>
+            <View className='panel__content'>
+              <View className='btn-item'>
+                <AtButton openType='share' type='primary'>分享</AtButton>
+              </View>
+            </View>
+          </View>}
         </View>
         {/* E Body */}
       </View>

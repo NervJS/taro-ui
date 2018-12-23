@@ -2,6 +2,8 @@
  * Components
  */
 
+@import './icon.scss';
+@import './flex.scss';
 @import './accordion.scss';
 @import './activity-indicator.scss';
 @import './acton-sheet.scss';
@@ -16,11 +18,9 @@
 @import './curtain.scss';
 @import './divider.scss';
 @import './drawer.scss';
-@import './flex.scss';
 @import './float-layout.scss';
 @import './form.scss';
 @import './grid.scss';
-@import './icon.scss';
 @import './image-picker.scss';
 @import './indexes.scss';
 @import './input-number.scss';
@@ -37,7 +37,6 @@
 @import './radio.scss';
 @import './range.scss';
 @import './rate.scss';
-@import './row.scss';
 @import './search-bar.scss';
 @import './segmented-control.scss';
 @import './slider.scss';

@@ -50,6 +50,7 @@ export default class ActionSheetPage extends Taro.Component {
 
   render () {
     const { isOpened1, isOpened2, isOpened3 } = this.state
+    const titleText = '清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
 
     return (
       <View className='page'>
@@ -117,7 +118,7 @@ export default class ActionSheetPage extends Taro.Component {
           cancelText='取消'
           isOpened={isOpened2}
           onClose={this.handleClose.bind(this, 2)}
-          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+          title={titleText}
         >
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}
@@ -136,7 +137,7 @@ export default class ActionSheetPage extends Taro.Component {
           isOpened={isOpened3}
           onCancel={this.handleCancel}
           onClose={this.handleClose.bind(this, 3)}
-          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+          title={titleText}
         >
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}

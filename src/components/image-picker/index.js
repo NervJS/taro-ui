@@ -3,9 +3,7 @@ import Taro from '@tarojs/taro'
 import { View, Input, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import AtIcon from '../../components/icon/index'
 
 // 生成 jsx 二维矩阵
 const generateMatrix = (files, col, showAddBtn) => {
@@ -33,55 +31,7 @@ const generateMatrix = (files, col, showAddBtn) => {
   return matrix
 }
 
-const defaultFunc = () => {}
-
 export default class AtImagePicker extends AtComponent {
-  static defaultProps = {
-    className: '',
-    customStyle: '',
-    files: [],
-    mode: 'aspectFill',
-    showAddBtn: true,
-    multiple: false,
-    length: 4,
-    onChange: defaultFunc,
-    onImageClick: defaultFunc,
-    onFail: defaultFunc
-  }
-
-  static propTypes = {
-    className: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ]),
-    customStyle: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object
-    ]),
-    files: PropTypes.array,
-    mode: PropTypes.oneOf([
-      'scaleToFill',
-      'aspectFit',
-      'aspectFill',
-      'widthFix',
-      'top',
-      'bottom',
-      'center',
-      'left',
-      'right',
-      'top left',
-      'top right',
-      'bottom left',
-      'bottom right'
-    ]),
-    showAddBtn: PropTypes.bool,
-    multiple: PropTypes.bool,
-    length: PropTypes.number,
-    onChange: PropTypes.func,
-    onImageClick: PropTypes.func,
-    onFail: PropTypes.func
-  }
-
   chooseFile () {
     const { onChange, files, onFail, multiple } = this.props
     const env = Taro.getEnv()
@@ -191,9 +141,7 @@ export default class AtImagePicker extends AtComponent {
                         <View
                           className='at-image-picker__remove-btn'
                           onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
-                        >
-                          <AtIcon customStyle={{ fontSize: '10px' }} value='close' color='#fff' />
-                        </View>
+                        ></View>
                         <Image
                           mode={mode}
                           onClick={this.handleImageClick.bind(this, (i * length) + j)}
@@ -213,7 +161,8 @@ export default class AtImagePicker extends AtComponent {
                         onClick={this.chooseFile.bind(this)}
                       >
                         <View className='at-image-picker__item at-image-picker__choose-btn'>
-                          <AtIcon value='add' customStyle={{ fontSize: '30px' }} />
+                          <View className='add-bar'></View>
+                          <View className='add-bar'></View>
                         </View>
                       </View>
                 ))
@@ -224,4 +173,50 @@ export default class AtImagePicker extends AtComponent {
       </View>
     )
   }
+}
+
+AtImagePicker.defaultProps = {
+  className: '',
+  customStyle: '',
+  files: [],
+  mode: 'aspectFill',
+  showAddBtn: true,
+  multiple: false,
+  length: 4,
+  onChange: () => {},
+  onImageClick: () => {},
+  onFail: () => {},
+}
+
+AtImagePicker.propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  customStyle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
+  files: PropTypes.array,
+  mode: PropTypes.oneOf([
+    'scaleToFill',
+    'aspectFit',
+    'aspectFill',
+    'widthFix',
+    'top',
+    'bottom',
+    'center',
+    'left',
+    'right',
+    'top left',
+    'top right',
+    'bottom left',
+    'bottom right'
+  ]),
+  showAddBtn: PropTypes.bool,
+  multiple: PropTypes.bool,
+  length: PropTypes.number,
+  onChange: PropTypes.func,
+  onImageClick: PropTypes.func,
+  onFail: PropTypes.func,
 }

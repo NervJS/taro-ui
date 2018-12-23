@@ -13,7 +13,7 @@ export default class AtActionSheetItem extends AtComponent {
   }
 
   render () {
-    const rootClass = classNames('at-action-sheet-item', this.props.className)
+    const rootClass = classNames('at-action-sheet__item', this.props.className)
 
     return (
       <View className={rootClass} onClick={this.handleClick}>

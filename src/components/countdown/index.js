@@ -2,49 +2,11 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
 
 const toSeconds = (day, hours, minutes, seconds) => (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
 
 export default class AtCountdown extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    isCard: false,
-    isShowDay: false,
-    format: {
-      day: '天',
-      hours: '时',
-      minutes: '分',
-      seconds: '秒'
-    },
-    day: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    onTimeUp: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    isCard: PropTypes.bool,
-    isShowDay: PropTypes.bool,
-    format: PropTypes.object,
-    day: PropTypes.number,
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-    seconds: PropTypes.number,
-    onTimeUp: PropTypes.func
-  }
-
   constructor () {
     super(...arguments)
     const { day, hours, minutes, seconds } = this.props
@@ -185,4 +147,41 @@ export default class AtCountdown extends AtComponent {
       </View>
     )
   }
+}
+
+AtCountdown.defaultProps = {
+  customStyle: '',
+  className: '',
+  isCard: false,
+  isShowDay: false,
+  format: {
+    day: '天',
+    hours: '时',
+    minutes: '分',
+    seconds: '秒'
+  },
+  day: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  onTimeUp () {},
+}
+
+AtCountdown.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  isCard: PropTypes.bool,
+  isShowDay: PropTypes.bool,
+  format: PropTypes.object,
+  day: PropTypes.number,
+  hours: PropTypes.number,
+  minutes: PropTypes.number,
+  seconds: PropTypes.number,
+  onTimeUp: PropTypes.func,
 }

@@ -2,7 +2,6 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtComponent from '../../common/component'

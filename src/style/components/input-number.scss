@@ -1,10 +1,12 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$input-number-btn-padding: 12px;
-$input-number-btn-padding-lg: 20px;
-$input-number-size-min: 80px;
-$input-number-size-min-lg: 120px;
+$at-input-number-btn-size: 30px;
+$at-input-number-btn-size-lg: 36px;
+$at-input-number-btn-padding: 12px;
+$at-input-number-btn-padding-lg: 20px;
+$at-input-number-size-min: 80px;
+$at-input-number-size-min-lg: 120px;
 
 .at-input-number {
   display: inline-flex;
@@ -15,23 +17,30 @@ $input-number-size-min-lg: 120px;
   background-color: $color-bg;
   overflow: hidden;
 
+  /* elements */
   &__btn {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: $input-number-btn-padding;
+    padding: $at-input-number-btn-padding;
     font-size: 0;
     color: $color-brand;
     text-align: center;
     line-height: $line-height-base;
     overflow: hidden;
     @include active;
+
+    &-subtract,
+    &-add {
+      font-size: $at-input-number-btn-size;
+      line-height: $at-input-number-btn-size;
+    }
   }
 
   &__input {
     display: inline-block;
-    width: $input-number-size-min;
+    width: $at-input-number-size-min;
     height: auto;
     border-radius: 0;
     font-size: $font-size-base;
@@ -40,6 +49,7 @@ $input-number-size-min-lg: 120px;
     @include border-thin($width: 1PX, $directions: left right);
   }
 
+  /* modifiers */
   &--disabled {
     color: $color-text-disabled;
 
@@ -50,8 +60,13 @@ $input-number-size-min-lg: 120px;
 
   &--lg {
     .at-input-number__btn {
-      padding: $input-number-btn-padding-lg;
+      padding: $at-input-number-btn-padding-lg;
       font-size: $font-size-xl;
+
+      &-subtract,
+      &-add {
+        font-size: $at-input-number-btn-size-lg;
+      }
     }
 
     .at-input-number__input {

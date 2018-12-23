@@ -15,6 +15,7 @@ $float-layout-height-max: 950px;
   z-index: $zindex-flot-layout;
   transition: visibility $float-layout-timer cubic-bezier(0.36, 0.66, 0.04, 1);
 
+  /* elements */
   &__overlay {
     @include overlay;
 
@@ -32,55 +33,79 @@ $float-layout-height-max: 950px;
     transform: translate3d(0, 100%, 0);
     transition: transform $float-layout-timer cubic-bezier(0.36, 0.66, 0.04, 1);
   }
-}
 
-.at-float-layout .layout {
-  &-header {
-    position: relative;
-    padding: $spacing-v-md;
-    line-height: $line-height-zh;
-    background-color: $color-bg-grey;
+  .layout {
+    &-header {
+      position: relative;
+      padding: $spacing-v-md;
+      line-height: $line-height-zh;
+      background-color: $color-bg-grey;
 
-    &__title {
-      @include line(1);
+      &__title {
+        @include line(1);
 
-      color: $color-text-base;
-      font-size: $font-size-lg;
-      display: block;
-      padding-right: 80px;
+        color: $color-text-base;
+        font-size: $font-size-lg;
+        display: block;
+        padding-right: 80px;
+      }
+
+      &__btn-close {
+        position: absolute;
+        padding: $spacing-h-sm;
+        top: 50%;
+        right: 0;
+        width: 40px;
+        height: 100%;
+        line-height: 1;
+        transform: translate(0, -50%);
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: inline-block;
+          width: 36px;
+          height: 2PX;
+          border-radius: 1PX;
+          background: #CCC;
+        }
+
+        &::before {
+          transform: translate3d(-50%, -50%, 0) rotate(45deg);
+        }
+
+        &::after {
+          transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+        }
+      }
     }
 
-    &__icon {
-      line-height: 1;
-      position: absolute;
-      top: 50%;
-      right: $spacing-v-md;
-      padding: $spacing-h-sm;
-      transform: translate(0, -50%);
+    &-body {
+      font-size: $font-size-base;
+      padding: $spacing-v-md;
+      max-height: 828px;
+      min-height: 514px;
+
+      &__content {
+        max-height: 798px;
+        min-height: 484px;
+      }
     }
   }
 
-  &-body {
-    font-size: $font-size-base;
-    padding: $spacing-v-md;
-    max-height: 828px;
-    min-height: 514px;
+  /* modifiers */
+  &--active {
+    visibility: visible;
 
-    &__content {
-      max-height: 798px;
-      min-height: 484px;
+    .at-float-layout__overlay {
+      opacity: 1;
     }
-  }
-}
 
-.at-float-layout--active {
-  visibility: visible;
-
-  .at-float-layout__overlay {
-    opacity: 1;
-  }
-
-  .at-float-layout__container {
-    transform: translate3d(0, 0, 0);
+    .at-float-layout__container {
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
