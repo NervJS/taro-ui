@@ -2,9 +2,7 @@ import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
-
 import AtComponent from '../../common/component'
-import AtIcon from '../icon/index'
 
 export default class AtNoticebar extends AtComponent {
   constructor () {
@@ -142,14 +140,29 @@ export default class AtNoticebar extends AtComponent {
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >
-        {close && <View className='at-noticebar__close' onClick={this.onClose.bind(this)}><AtIcon customStyle={{ fontSize: '16px' }} value='close' color='#ccc'></AtIcon></View>}
+        {close && (
+          <View className='at-noticebar__close' onClick={this.onClose.bind(this)}>
+            <Text className='at-icon at-icon-close'></Text>
+          </View>
+        )}
         <View className='at-noticebar__content'>
-          {icon && <View className='at-noticebar__content-icon'><AtIcon customStyle={{ fontSize: '16px' }} value={icon}></AtIcon></View>}
+          {icon && (
+            <View className='at-noticebar__content-icon'>
+              <Text className={classNames('at-icon', { [`at-icon-${icon}`]: icon })}></Text>
+            </View>
+          )}
           <View className='at-noticebar__content-text'>
             <View animation={this.state.animationData} className={classNames(innerClassName)} style={style}>{this.props.children}</View>
           </View>
         </View>
-        {showMore && <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}><Text className='text'>{_moreText}</Text><View className='at-noticebar__more-icon'><AtIcon customStyle={{ fontSize: '16px' }} value='chevron-right'></AtIcon></View></View>}
+        {showMore && (
+          <View className='at-noticebar__more' onClick={this.onGotoMore.bind(this)}>
+            <Text className='text'>{_moreText}</Text>
+            <View className='at-noticebar__more-icon'>
+              <Text className='at-icon at-icon-chevron-right'></Text>
+            </View>
+          </View>
+        )}
       </View>
     )
   }

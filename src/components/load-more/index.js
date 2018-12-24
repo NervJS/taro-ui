@@ -8,42 +8,6 @@ import AtButton from '../../components/button/index'
 import AtComponent from '../../common/component'
 
 export default class AtLoadMore extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    noMoreTextStyle: '',
-    moreBtnStyle: '',
-    status: 'more',
-    loadingText: '加载中',
-    moreText: '查看更多',
-    noMoreText: '没有更多',
-    onClick: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    noMoreTextStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    moreBtnStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    status: PropTypes.oneOf(['more', 'loading', 'noMore']),
-    loadingText: PropTypes.string,
-    moreText: PropTypes.string,
-    noMoreText: PropTypes.string,
-    onClick: PropTypes.func
-  }
-
   onClick () {
     this.props.onClick(...arguments)
   }
@@ -89,4 +53,40 @@ export default class AtLoadMore extends AtComponent {
       </View>
     )
   }
+}
+
+AtLoadMore.defaultProps = {
+  customStyle: '',
+  className: '',
+  noMoreTextStyle: '',
+  moreBtnStyle: '',
+  status: 'more',
+  loadingText: '加载中',
+  moreText: '查看更多',
+  noMoreText: '没有更多',
+  onClick: () => {},
+}
+
+AtLoadMore.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  noMoreTextStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  moreBtnStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  status: PropTypes.oneOf(['more', 'loading', 'noMore']),
+  loadingText: PropTypes.string,
+  moreText: PropTypes.string,
+  noMoreText: PropTypes.string,
+  onClick: PropTypes.func,
 }

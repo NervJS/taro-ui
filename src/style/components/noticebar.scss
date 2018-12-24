@@ -1,17 +1,20 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$noticebar-color-bg: #FCF6ED;
-$noticebar-color-font: #DE8C17;
-$noticebar-icon-size: 26px;
+$at-noticebar-color: #DE8C17;
+$at-noticebar-bg-color: #FCF6ED;
+$at-noticebar-icon-size: 30px;
+$at-noticebar-btn-close-color: #ccc;
+$at-noticebar-marquee-height: 36px;
 
 .at-noticebar {
   position: relative;
   padding: $spacing-v-sm $spacing-h-lg;
-  color: $noticebar-color-font;
+  color: $at-noticebar-color;
   font-size: 0;
-  background: $noticebar-color-bg;
+  background: $at-noticebar-bg-color;
 
+  /* elements */
   &__content {
     line-height: $line-height-zh;
     word-break: break-all;
@@ -19,9 +22,13 @@ $noticebar-icon-size: 26px;
 
     &-icon {
       display: inline-block;
+      margin-top: 4px;
       margin-right: 12px;
       vertical-align: top;
-      margin-top: 4px;
+
+      .at-icon {
+        font-size: 32px;
+      }
     }
 
     &-text {
@@ -35,41 +42,72 @@ $noticebar-icon-size: 26px;
   }
 
   &__close {
-    width: $noticebar-icon-size;
-    height: $noticebar-icon-size;
     position: absolute;
-    left: $spacing-h-lg;
     top: 50%;
-    margin-top: -($noticebar-icon-size / 2 + 4);
+    left: $spacing-h-lg;
+    margin-top: -($at-noticebar-icon-size / 2 + 4);
+    width: $at-noticebar-icon-size;
+    height: $at-noticebar-icon-size;
+
+    .at-icon {
+      color: $at-noticebar-btn-close-color;
+      font-size: $at-noticebar-icon-size;
+    }
 
     + .at-noticebar__content {
       margin-left: 50px;
     }
   }
 
+  &__more {
+    position: absolute;
+    top: $spacing-v-sm;
+    right: $spacing-h-lg;
+    color: $color-grey-2;
+    font-size: 0;
+
+    .text {
+      font-size: $font-size-sm;
+      line-height: $line-height-zh;
+      vertical-align: middle;
+    }
+
+    &-icon {
+      display: inline-block;
+      width: $at-noticebar-icon-size;
+      vertical-align: middle;
+      overflow: hidden;
+
+      .at-icon {
+        font-size: $at-noticebar-icon-size;
+      }
+    }
+  }
+
+  /* modifiers */
   &--marquee {
     .at-noticebar__content-text {
-      height: 36px;
-      line-height: 36px;
-      overflow: hidden;
       display: block;
+      height: $at-noticebar-marquee-height;
+      line-height: $at-noticebar-marquee-height;
+      overflow: hidden;
     }
 
     .at-noticebar__content-icon {
       position: absolute;
 
       + .at-noticebar__content-text {
-        margin-left: 45px;
+        margin-left: 40px;
       }
     }
 
     .at-noticebar__content-inner {
       display: inline-block;
-      height: 36px;
+      padding-left: 100%;
+      height: $at-noticebar-marquee-height;
       white-space: nowrap;
       animation: marquee 1s linear infinite both;
       transform: translateZ(0);
-      padding-left: 100%;
     }
   }
 
@@ -98,32 +136,10 @@ $noticebar-icon-size: 26px;
       animation: none;
     }
   }
-
-  &__more {
-    position: absolute;
-    right: $spacing-h-lg;
-    top: $spacing-v-sm;
-    color: $color-grey-2;
-    font-size: 0;
-
-    .text {
-      font-size: $font-size-sm;
-      line-height: $line-height-zh;
-      vertical-align: middle;
-    }
-
-    &-icon {
-      display: inline-block;
-      width: $noticebar-icon-size;
-      vertical-align: middle;
-      overflow: hidden;
-    }
-  }
 }
 
 @keyframes marquee {
   100% {
     transform: translate3d(-100%, 0, 0);
-    // transform: translateX(-100%);
   }
 }

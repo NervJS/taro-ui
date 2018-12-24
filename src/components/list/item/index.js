@@ -1,10 +1,8 @@
 import Taro from '@tarojs/taro'
-import { View, Image, Switch } from '@tarojs/components'
+import { View, Image, Switch, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../../icon/index'
 import AtComponent from '../../../common/component'
 
 export default class AtListItem extends AtComponent {
@@ -50,11 +48,18 @@ export default class AtListItem extends AtComponent {
       },
       this.props.className
     )
+    const iconClass = classNames(
+      iconInfo.prefixClass || 'at-icon',
+      {
+        [`${iconInfo.prefixClass || 'at-icon'}-${iconInfo.value}`]: iconInfo.value,
+      },
+      iconInfo.className
+    )
 
     return (
       <View className={rootClass} onClick={this.handleClick}>
         <View className='at-list__item-container'>
-          {thumb ? (
+          {thumb && (
             <View className='at-list__item-thumb item-thumb'>
               <Image
                 className='item-thumb__info'
@@ -62,23 +67,20 @@ export default class AtListItem extends AtComponent {
                 src={thumb}
               />
             </View>
-          ) : null}
-          {iconInfo.value ? (
+          )}
+          {iconInfo.value && (
             <View className='at-list__item-icon item-icon'>
-              <AtIcon
-                customStyle={
-                  this.mergeStyle(
-                    { fontSize: `${iconInfo.size || 24}px` },
-                    iconInfo.customStyle
-                  )
+              <Text
+                className={iconClass}
+                style={
+                  this.mergeStyle({
+                    color: iconInfo.color || '',
+                    fontSize: `${iconInfo.size || 24}px`,
+                  }, iconInfo.customStyle)
                 }
-                value={iconInfo.value}
-                color={iconInfo.color}
-                className={iconInfo.className}
-                prefixClass={iconInfo.prefixClass}
-              />
+              ></Text>
             </View>
-          ) : null}
+          )}
           <View className='at-list__item-content item-content'>
             <View className='item-content__info'>
               <View className='item-content__info-title'>{title}</View>
@@ -114,7 +116,7 @@ export default class AtListItem extends AtComponent {
 
             {arrow && (
               <View className='item-extra__icon'>
-                <AtIcon customStyle={{ fontSize: '24px' }} value={`chevron-${arrow}`} color='#c7c7cc' />
+                <Text className={classNames('at-icon', { [`at-icon-chevron-${arrow}`]: arrow }, 'item-extra__icon-arrow')}></Text>
               </View>
             )}
           </View>
