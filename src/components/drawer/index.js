@@ -95,7 +95,7 @@ export default class AtDrawer extends AtComponent {
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
-          <AtList>
+          {items.length ? <AtList>
             {
               items.map((name, index) =>
                 <AtListItem
@@ -107,7 +107,7 @@ export default class AtDrawer extends AtComponent {
                 >
                 </AtListItem>)
             }
-          </AtList>
+          </AtList> : this.props.children}
         </View>
       </View>
     )

@@ -53,17 +53,21 @@ export default class AtButton extends AtComponent {
   }
 
   onSumit () {
-    this.$scope.triggerEvent('submit', arguments[0].detail, {
-      bubbles: true,
-      composed: true,
-    })
+    if (this.state.isWEAPP) {
+      this.$scope.triggerEvent('submit', arguments[0].detail, {
+        bubbles: true,
+        composed: true,
+      })
+    }
   }
 
   onReset () {
-    this.$scope.triggerEvent('reset', arguments[0].detail, {
-      bubbles: true,
-      composed: true,
-    })
+    if (this.state.isWEAPP) {
+      this.$scope.triggerEvent('reset', arguments[0].detail, {
+        bubbles: true,
+        composed: true,
+      })
+    }
   }
 
   render () {
@@ -86,7 +90,8 @@ export default class AtButton extends AtComponent {
       appParameter,
     } = this.props
     const {
-      isWEB,
+      isWEAPP,
+      isALIPAY,
     } = this.state
     const rootClassName = ['at-button']
     const classObject = {
@@ -103,29 +108,31 @@ export default class AtButton extends AtComponent {
       component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>
       rootClassName.push('at-button--icon')
     }
+    const button = <Button className='at-button__wxbutton'
+      formType={formType}
+      openType={openType}
+      lang={lang}
+      sessionFrom={sessionFrom}
+      sendMessageTitle={sendMessageTitle}
+      sendMessagePath={sendMessagePath}
+      sendMessageImg={sendMessageImg}
+      showMessageCard={showMessageCard}
+      appParameter={appParameter}
+      onGetUserInfo={this.onGetUserInfo.bind(this)}
+      onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
+      onOpenSetting={this.onOpenSetting.bind(this)}
+      onError={this.onError.bind(this)}
+      onContact={this.onContact.bind(this)}
+    >
+    </Button>
     return (
       <View
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {!isWEB && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}><Button className='at-button__wxbutton'
-          formType={formType}
-          openType={openType}
-          lang={lang}
-          sessionFrom={sessionFrom}
-          sendMessageTitle={sendMessageTitle}
-          sendMessagePath={sendMessagePath}
-          sendMessageImg={sendMessageImg}
-          showMessageCard={showMessageCard}
-          appParameter={appParameter}
-          onGetUserInfo={this.onGetUserInfo.bind(this)}
-          onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
-          onOpenSetting={this.onOpenSetting.bind(this)}
-          onError={this.onError.bind(this)}
-          onContact={this.onContact.bind(this)}
-        >
-        </Button></Form>}
+        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
+        {isALIPAY && !disabled && button}
         {component}<View className='at-button__text'>{this.props.children}</View>
       </View>
     )

@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Form } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
+import AtForm from '../../../components/form/index'
 // import AtForm from '../../../components/form/index'
 import DocsHeader from '../../components/doc-header'
 
@@ -41,7 +42,7 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onReset () {
-    Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
+    Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail || '无数据')}`, showCancel: false })
   }
 
   onGetUserInfo () {
@@ -236,6 +237,14 @@ export default class ButtonPage extends Taro.Component {
               <View className='btn-item'>
                 <AtButton openType='share' type='primary'>分享</AtButton>
               </View>
+              <AtForm onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
+                <View className='btn-item'>
+                  <AtButton formType='submit' type='primary'>form submit</AtButton>
+                </View>
+                <View className='btn-item'>
+                  <AtButton formType='reset' type='primary'>form reset</AtButton>
+                </View>
+              </AtForm>
             </View>
           </View>}
         </View>
