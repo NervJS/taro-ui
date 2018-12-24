@@ -19,8 +19,8 @@ export default class NoticebarPage extends Taro.Component {
   }
 
   onGotoMore () {
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content: '点击了更多!' })
-    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert('您点击了更多!')
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert('您点击了更多!')
+    else Taro.showModal({ content: '点击了更多!' })
   }
 
   render () {

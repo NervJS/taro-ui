@@ -36,9 +36,9 @@ export default class AtTimeline extends AtComponent {
       if (icon) dotClass.push('at-timelineitem__icon')
 
       return (
-        <View className={itemRootClassName} key={index}>
+        <View className={classNames(itemRootClassName)} key={index}>
           <View className='at-timelineitem__tail'></View>
-          <View className={dotClass}>
+          <View className={classNames(dotClass)}>
             {icon && <AtIcon customStyle={{ fontSize: '16px' }} value={icon} ></AtIcon>}
           </View>
           <View className='at-timelineitem__content'>

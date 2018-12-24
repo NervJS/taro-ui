@@ -58,6 +58,7 @@ AtAvatar.defaultProps = {
   size: 'normal',
   circle: false,
   image: '',
+  text: '',
   openData: {},
   customStyle: {},
 }
@@ -66,6 +67,7 @@ AtAvatar.propTypes = {
   size: PropTypes.oneOf(['large', 'normal', 'small']),
   circle: PropTypes.bool,
   image: PropTypes.string,
+  text: PropTypes.string,
   openData: PropTypes.object,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }
