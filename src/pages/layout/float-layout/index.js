@@ -105,7 +105,7 @@ export default class FloatLayoutPage extends Taro.Component {
         <AtFloatLayout
           title='这是个标题'
           isOpened={isOpened2}
-          onClose={this.handleClose.bind(this, '3')}
+          onClose={this.handleClose.bind(this, '2')}
         >
           <View className='content-wrapper'>
             《诗人继续沉默》收录了耶霍舒亚的十二个中短篇小说。它们以梦境一般的笔法塑造了一个个既敏感又迟钝的角色。故事有时在城市，有时在战场，有时在遥远的山村，有时完全囿于家庭，并总是从司空见惯中生出离奇。每个故事的主线带来不断加剧的紧张感，即使从表面上看，根本没有重要的事情发生：
