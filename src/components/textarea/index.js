@@ -150,6 +150,7 @@ export default class AtTextarea extends AtComponent {
           onBlur={this.handleBlur.bind(this)}
           onConfirm={this.handleConfirm.bind(this)}
           onLinechange={this.handleLinechange.bind(this)}
+          showCount={false}
         />
         {
           count
