@@ -3,42 +3,9 @@ import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
 
 export default class AtTabs extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    tabDirection: 'horizontal',
-    height: '',
-    current: 0,
-    swipeable: true,
-    scroll: false,
-    animated: true,
-    tabList: [],
-    onClick: () => { }
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    height: PropTypes.string,
-    tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
-    current: PropTypes.number,
-    swipeable: PropTypes.bool,
-    scroll: PropTypes.bool,
-    animated: PropTypes.bool,
-    tabList: PropTypes.array,
-    onClick: PropTypes.func
-  }
-
   constructor () {
     super(...arguments)
     this.state = {
@@ -225,4 +192,36 @@ export default class AtTabs extends AtComponent {
       </View>
     )
   }
+}
+
+AtTabs.defaultProps = {
+  customStyle: '',
+  className: '',
+  tabDirection: 'horizontal',
+  height: '',
+  current: 0,
+  swipeable: true,
+  scroll: false,
+  animated: true,
+  tabList: [],
+  onClick: () => {},
+}
+
+AtTabs.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  height: PropTypes.string,
+  tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
+  current: PropTypes.number,
+  swipeable: PropTypes.bool,
+  scroll: PropTypes.bool,
+  animated: PropTypes.bool,
+  tabList: PropTypes.array,
+  onClick: PropTypes.func,
 }

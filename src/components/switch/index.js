@@ -6,34 +6,6 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
 export default class AtSwitch extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    title: '',
-    color: '#6190e8',
-    border: true,
-    disabled: false,
-    checked: false,
-    onChange: () => { }
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    title: PropTypes.string,
-    color: PropTypes.string,
-    checked: PropTypes.bool,
-    border: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func
-  }
-
   handleChange (e) {
     this.props.onChange(e.detail.value, ...arguments)
   }
@@ -87,4 +59,32 @@ export default class AtSwitch extends AtComponent {
       </View>
     )
   }
+}
+
+AtSwitch.defaultProps = {
+  customStyle: '',
+  className: '',
+  title: '',
+  color: '#6190e8',
+  border: true,
+  disabled: false,
+  checked: false,
+  onChange: () => {},
+}
+
+AtSwitch.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  title: PropTypes.string,
+  color: PropTypes.string,
+  checked: PropTypes.bool,
+  border: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
 }
