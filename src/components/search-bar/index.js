@@ -135,7 +135,8 @@ export default class AtSearchBar extends AtComponent {
           </View>
           <Input
             className='at-search-bar__input'
-            type='search'
+            type='text'
+            confirmType='search'
             value={value}
             focus={focus}
             disabled={disabled}

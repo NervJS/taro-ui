@@ -11,7 +11,7 @@ $placeholderPadding: 5PX;
   align-items: center;
   height: $height;
   padding: $fontSize / 2;
-  box-sizing: content-box;
+  box-sizing: content-box !important;
   overflow: hidden;
   background-color: $color-bg;
   @include hairline-bottom();
