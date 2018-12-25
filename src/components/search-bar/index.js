@@ -2,11 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Text, Input } from '@tarojs/components'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-
-import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
-
-const defaultFunc = () => { }
 
 export default class AtSearchBar extends AtComponent {
   constructor (props) {
@@ -14,38 +10,6 @@ export default class AtSearchBar extends AtComponent {
     this.state = {
       isFocus: props.focus
     }
-  }
-
-  static defaultProps = {
-    value: '',
-    placeholder: '搜索',
-    maxlength: 140,
-    fixed: false,
-    focus: false,
-    disabled: false,
-    showActionButton: false,
-    actionName: '搜索',
-    onChange: defaultFunc,
-    onFocus: defaultFunc,
-    onBlur: defaultFunc,
-    onConfirm: defaultFunc,
-    onActionClick: defaultFunc
-  }
-
-  static propTypes = {
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    maxlength: PropTypes.number,
-    fixed: PropTypes.bool,
-    focus: PropTypes.bool,
-    disabled: PropTypes.bool,
-    showActionButton: PropTypes.bool,
-    actionName: PropTypes.string,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onConfirm: PropTypes.func,
-    onActionClick: PropTypes.func
   }
 
   handleFocus () {
@@ -118,12 +82,12 @@ export default class AtSearchBar extends AtComponent {
         }
         style={customStyle}
       >
-        <View className='at-search-bar__container'>
+        <View className='at-search-bar__input-cnt'>
           <View
-            className='at-search-bar__placeholder_wrap'
+            className='at-search-bar__placeholder-wrap'
             style={placeholderStyle}
           >
-            <AtIcon customStyle={{ fontSize: '15px' }} value='search' color='#999' />
+            <Text className='at-icon at-icon-search'></Text>
             <Text
               className='at-search-bar__placeholder'
               style={
@@ -155,7 +119,7 @@ export default class AtSearchBar extends AtComponent {
             }
             onTouchStart={this.handleClear.bind(this)}
           >
-            <AtIcon customStyle={{ fontSize: '15px' }} value='close-circle' color='#999' />
+            <Text className='at-icon at-icon-close-circle'></Text>
           </View>
         </View>
         <View
@@ -168,4 +132,36 @@ export default class AtSearchBar extends AtComponent {
       </View>
     )
   }
+}
+
+AtSearchBar.defaultProps = {
+  value: '',
+  placeholder: '搜索',
+  maxlength: 140,
+  fixed: false,
+  focus: false,
+  disabled: false,
+  showActionButton: false,
+  actionName: '搜索',
+  onChange: () => {},
+  onFocus: () => {},
+  onBlur: () => {},
+  onConfirm: () => {},
+  onActionClick: () => {},
+}
+
+AtSearchBar.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  maxlength: PropTypes.number,
+  fixed: PropTypes.bool,
+  focus: PropTypes.bool,
+  disabled: PropTypes.bool,
+  showActionButton: PropTypes.bool,
+  actionName: PropTypes.string,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onConfirm: PropTypes.func,
+  onActionClick: PropTypes.func
 }

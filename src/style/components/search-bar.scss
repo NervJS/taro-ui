@@ -1,70 +1,83 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$height: 28PX;
-$inputPadding: 25PX;
-$fontSize: 14PX;
-$placeholderPadding: 5PX;
+$at-search-bar-font-size: 14PX;
+$at-search-bar-bg-color: $color-bg;
+
+$at-search-bar-input-height: 30PX;
+$at-search-bar-input-padding: 25PX;
+$at-search-bar-input-bg-color: $color-bg-grey;
+$at-search-bar-input-color: $color-black-0;
+
+$at-search-bar-btn-padding: 10PX;
+$at-search-bar-btn-color: $color-white;
+$at-search-bar-btn-bg-color: $color-brand;
+
+$at-search-bar-placholder-color: $color-grey-2;
+$at-search-bar-placeholder-padding: 5PX;
 
 .at-search-bar {
   display: flex;
   align-items: center;
-  height: $height;
-  padding: $fontSize / 2;
-  box-sizing: content-box !important;
+  padding: $spacing-v-sm $spacing-v-md;
+  background-color: $at-search-bar-bg-color;
   overflow: hidden;
-  background-color: $color-bg;
+  box-sizing: border-box;
   @include hairline-bottom();
 
-  &__container {
+  /* elements */
+  &__input-cnt {
     position: relative;
     flex: 1;
-    overflow: hidden;
     width: 100%;
-    height: $height;
-    background-color: $color-bg-grey;
-    border-radius: 13PX;
+    height: $at-search-bar-input-height;
+    background-color: $at-search-bar-input-bg-color;
+    border-radius: $at-search-bar-input-height / 2;
+    overflow: hidden;
   }
 
-  &__placeholder_wrap {
+  &__placeholder-wrap {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    opacity: 1;
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
+    padding: 0 $at-search-bar-placeholder-padding;
     width: 100%;
-    height: $height;
+    height: $at-search-bar-input-height;
     line-height: 0;
-    padding: 0 $placeholderPadding;
+    vertical-align: middle;
+    opacity: 1;
     transition: width 0.3s;
+
+    .at-icon {
+      color: $at-search-bar-placholder-color;
+      font-size: $at-search-bar-font-size;
+    }
   }
 
   &__placeholder {
-    margin-left: $placeholderPadding;
-    color: $color-grey-2;
-    font-size: $fontSize;
+    margin-left: $at-search-bar-placeholder-padding;
+    color: $at-search-bar-placholder-color;
+    font-size: $at-search-bar-font-size;
   }
 
   &__input {
     position: absolute;
-    width: 100%;
-    height: $height !important;
+    display: block;
     top: 0;
     left: 0;
-    display: block;
-    font-size: $fontSize !important;
-    padding: 5PX $inputPadding + $placeholderPadding;
-    z-index: $zindex-form;
-    transition: width 0.3s;
+    width: 100%;
+    height: $at-search-bar-input-height !important;
+    padding: $at-search-bar-placeholder-padding $at-search-bar-input-padding + $at-search-bar-placeholder-padding;
+    color: $at-search-bar-input-color;
+    font-size: $at-search-bar-font-size !important;
     text-align: left;
-    box-sizing: border-box;
-    color: $color-black-0;
     background-color: transparent;
+    transition: width 0.3s;
+    box-sizing: border-box;
   }
 
   &__clear {
@@ -73,35 +86,36 @@ $placeholderPadding: 5PX;
     align-items: center;
     justify-content: center;
     top: 0;
-    right: $placeholderPadding;
-    z-index: $zindex-form;
-    height: $height;
-    width: $inputPadding;
+    right: $at-search-bar-placeholder-padding;
+    height: $at-search-bar-input-height;
+    width: $at-search-bar-input-padding;
+    color: $at-search-bar-placholder-color;
+    font-size: $at-search-bar-font-size;
     line-height: 0;
     vertical-align: middle;
   }
 
   &__action {
-    display: block;
     flex: none;
-    background-color: #6190E8;
-    opacity: 0;
-    height: $height;
-    line-height: $height;
-    font-size: $fontSize;
-    padding: 0 $fontSize / 2;
-    margin-left: $fontSize / 2;
-    color: #fff;
-    text-align: right;
-    border-radius: 5PX;
+    display: block;
+    margin-left: 10PX;
+    padding: 0 $at-search-bar-btn-padding;
+    height: $at-search-bar-input-height;
+    color: $at-search-bar-btn-color;
+    font-size: $at-search-bar-font-size;
+    line-height: $at-search-bar-input-height;
+    border-radius: 4PX;
+    background-color: $at-search-bar-btn-bg-color;
     transition: margin-right 0.3s, opacity 0.3s;
+    opacity: 0;
   }
 
+  /* modifiers */
   &--fixed {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: $zindex-nav;
+    z-index: $zindex-search-bar;
   }
 }
