@@ -26,7 +26,6 @@ export default class DrawerPage extends Taro.Component {
   }
 
   leftDrawerClick () {
-    console.log('click====')
     this.setState({
       leftDrawerShow: !this.state.leftDrawerShow,
     })
@@ -45,7 +44,6 @@ export default class DrawerPage extends Taro.Component {
   }
 
   onItemClick (index) {
-    console.log('====', index)
     const ENV = Taro.getEnv()
     let content
     if (typeof index !== 'number') {
