@@ -58,24 +58,26 @@ export default class AtGrid extends AtComponent {
                           mode='scaleToFill'
                         />
                       )}
-                      {_isObject(childItem.iconInfo) &&
-                        !childItem.image && (
+                      {_isObject(childItem.iconInfo) && !childItem.image && (
                         <Text
-                          className={
-                            classNames(childItem.iconInfo.prefixClass || 'at-icon', {
-                              [`${childItem.iconInfo.prefixClass || 'at-icon'}-${childItem.iconInfo.value}`]: childItem.iconInfo.value
-                            }, childItem.iconInfo.className)
-                          }
-                          style={
-                            this.mergeStyle(
-                              {
-                                color: childItem.iconInfo.color,
-                                fontSize: `${childItem.iconInfo.size || 24}px`
-                              },
-                              childItem.iconInfo.customStyle
-                            )
-                          }
-                        ></Text>
+                          className={classNames(
+                            childItem.iconInfo.prefixClass || 'at-icon',
+                            {
+                              [`${childItem.iconInfo.prefixClass ||
+                                'at-icon'}-${
+                                childItem.iconInfo.value
+                              }`]: childItem.iconInfo.value
+                            },
+                            childItem.iconInfo.className
+                          )}
+                          style={this.mergeStyle(
+                            {
+                              color: childItem.iconInfo.color,
+                              fontSize: `${childItem.iconInfo.size || 24}px`
+                            },
+                            childItem.iconInfo.customStyle
+                          )}
+                        />
                       )}
                     </View>
                     <Text className='content-inner__text'>
