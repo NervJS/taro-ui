@@ -1,24 +1,32 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$timeline-margin-left: 40px;
-$timeline-dot-size: 24px;
+$at-timeline-offset-left: 40px;
+$at-timeline-dot-size: 24px;
+$at-timeline-title-color: $color-grey-0;
+$at-timeline-title-font-size: $font-size-base;
+$at-timeline-desc-color: $color-grey-1;
+$at-timeline-desc-font-size: $font-size-sm;
+$at-timeline-dot-color: $color-bg;
+$at-timeline-dot-bg-color: $color-info;
+$at-timeline-line-color: $color-border-lighter;
 
-.at-timelineitem {
+.at-timeline-item {
   position: relative;
   padding: 0 0 $spacing-v-sm;
 
+  /* elements */
   &__content {
-    margin-left: $timeline-margin-left;
+    margin-left: $at-timeline-offset-left;
     min-height: 56px;
-    color: $color-grey-0;
-    font-size: $font-size-base;
+    color: $at-timeline-title-color;
+    font-size: $at-timeline-title-font-size;
     line-height: $line-height-zh;
     text-align: left;
 
     &--sub {
-      color: $color-grey-1;
-      font-size: $font-size-sm;
+      color: $at-timeline-desc-color;
+      font-size: $at-timeline-desc-font-size;
     }
   }
 
@@ -27,49 +35,59 @@ $timeline-dot-size: 24px;
     position: absolute;
     left: 0;
     top: 5px;
-    width: 32px;
-    height: 32px;
+    width: $at-timeline-dot-size;
+    height: $at-timeline-dot-size;
     font-size: 0;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
+    border-radius: $border-radius-circle;
+    background: $at-timeline-dot-color;
     box-sizing: border-box;
-    background-color: $color-bg;
     z-index: 1;
+
+    .at-icon {
+      font-size: $at-timeline-dot-size;
+    }
   }
 
   &__dot {
-    left: -1px;
-
     &::after {
       content: '';
-      margin-top: 5px;
       display: inline-block;
       box-sizing: border-box;
-      width: $timeline-dot-size;
-      height: $timeline-dot-size;
+      width: $at-timeline-dot-size;
+      height: $at-timeline-dot-size;
       border: 1PX solid transparent;
       border-radius: $border-radius-circle;
-      border-color: $color-info;
+      border-color: $at-timeline-dot-bg-color;
     }
 
-    &.at-timelineitem__icon {
+    &.at-timeline-item__icon {
       &::after {
-        display: none;
+        border-color: transparent;
       }
     }
   }
 
   &__icon {
-    left: -4px;
-    color: $color-info;
+    color: $at-timeline-dot-bg-color;
   }
 
+  &__tail {
+    position: absolute;
+    top: $at-timeline-dot-size / 2;
+    bottom: -$at-timeline-dot-size / 2;
+    left: $at-timeline-dot-size / 2 - 2px;
+    border-left: 1PX solid $at-timeline-line-color;
+  }
+
+  /* modifiers */
   &--green {
-    .at-timelineitem__icon {
+    .at-timeline-item__icon {
       color: $color-success;
     }
 
-    .at-timelineitem__dot {
+    .at-timeline-item__dot {
       &::after {
         border-color: $color-success;
       }
@@ -77,11 +95,11 @@ $timeline-dot-size: 24px;
   }
 
   &--red {
-    .at-timelineitem__icon {
+    .at-timeline-item__icon {
       color: $color-error;
     }
 
-    .at-timelineitem__dot {
+    .at-timeline-item__dot {
       &::after {
         border-color: $color-error;
       }
@@ -89,40 +107,32 @@ $timeline-dot-size: 24px;
   }
 
   &--yellow {
-    .at-timelineitem__icon {
+    .at-timeline-item__icon {
       color: $color-warning;
     }
 
-    .at-timelineitem__dot {
+    .at-timeline-item__dot {
       &::after {
         border-color: $color-warning;
       }
     }
   }
-
-  &__tail {
-    position: absolute;
-    top: 18px;
-    bottom: -10px;
-    left: 10px;
-    border-left: 2px solid $color-border-lighter;
-  }
 }
 
 .at-timeline {
-  .at-timelineitem:last-child {
-    .at-timelineitem__tail {
+  .at-timeline-item:last-child {
+    .at-timeline-item__tail {
       display: none;
     }
   }
 
   &--pending {
-    .at-timelineitem:nth-last-child(2) {
-      .at-timelineitem__content {
+    .at-timeline-item:nth-last-child(2) {
+      .at-timeline-item__content {
         min-height: 80px;
       }
 
-      .at-timelineitem__tail {
+      .at-timeline-item__tail {
         border-left-style: dotted;
       }
     }

@@ -32,7 +32,7 @@ export default class SwipeActionPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false,
+      isOpened2: false,
       list: [
         {
           title: 'item1',
@@ -64,21 +64,21 @@ export default class SwipeActionPage extends Taro.Component {
 
   handleStatusClick = () => {
     this.setState({
-      isOpened: !this.state.isOpened
+      isOpened2: !this.state.isOpened2
     })
   }
 
   handleStatusOpened = () => {
     console.log('handleStatusOpened')
     this.setState({
-      isOpened: true
+      isOpened2: true
     })
   }
 
   handleStatusClosed = () => {
     console.log('handleStatusClosed')
     this.setState({
-      isOpened: false
+      isOpened2: false
     })
   }
 
@@ -110,7 +110,7 @@ export default class SwipeActionPage extends Taro.Component {
   }
 
   render () {
-    const { list, isOpened } = this.state
+    const { list, isOpened2 } = this.state
 
     return (
       <View className='page swipe-action-page'>
@@ -151,7 +151,7 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__title'>使用变量控制开关</View>
             <View className='panel__controller'>
               <AtButton size='small' onClick={this.handleStatusClick}>
-                当前状态: {isOpened ? '开' : '关'}{' '}
+                当前状态: {isOpened2 ? '开' : '关'}{' '}
               </AtButton>
             </View>
 
@@ -159,7 +159,7 @@ export default class SwipeActionPage extends Taro.Component {
               <View className='example-item example-item--border'>
                 <AtSwipeAction
                   options={OPTIONS}
-                  isOpened={isOpened}
+                  isOpened={isOpened2}
                   onClosed={this.handleStatusClosed}
                   onOpened={this.handleStatusOpened}
                 >
@@ -232,7 +232,7 @@ export default class SwipeActionPage extends Taro.Component {
                       }
                     ]}
                   >
-                    <AtListItem title='Item3' />
+                    <AtListItem title='Item3123123123123' />
                   </AtSwipeAction>
                 </AtList>
               </View>

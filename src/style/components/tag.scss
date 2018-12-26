@@ -1,29 +1,39 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$at-tag-height: 60px;
+$at-tag-height-sm: 40px;
+$at-tag-color: $color-grey-1;
+$at-tag-color-active: $color-brand-light;
+$at-tag-font-size: $font-size-base;
+$at-tag-font-size-sm: $font-size-xs;
+$at-tag-bg-color: $color-bg-grey;
+$at-tag-border-size: 1PX;
+
 .at-tag {
   display: inline-block;
   padding: 0 $spacing-h-xl;
-  height: 60px;
-  color: $color-grey-1;
-  font-size: $font-size-base;
+  height: $at-tag-height;
+  color: $at-tag-color;
+  font-size: $at-tag-font-size;
   text-align: center;
-  line-height: calc(60px - 2PX);
+  line-height: $at-tag-height - 2px;
   vertical-align: middle;
-  border: 1PX solid $color-grey-6;
+  border: $at-tag-border-size solid $at-tag-bg-color;
   border-radius: $border-radius-md;
-  background-color: $color-bg-grey;
+  background-color: $at-tag-bg-color;
   box-sizing: border-box;
 
+  /* modifiers */
   &--active {
-    color: $color-brand-light;
-    border: 1PX solid $color-brand-light;
+    color: $at-tag-color-active;
+    border-color: $at-tag-color-active;
     background-color: $color-bg;
 
     &.at-tag--primary {
       color: $color-text-base-inverse;
-      border: 1PX solid $color-brand-light;
-      background-color: $color-brand-light;
+      border-color: $at-tag-color-active;
+      background-color: $at-tag-color-active;
     }
   }
 
@@ -31,16 +41,20 @@
     opacity: $opacity-disabled;
   }
 
-  &--small {
-    padding: 0 $spacing-h-md;
-    height: 40px;
-    font-size: $font-size-xs;
-    line-height: calc(40px - 2PX);
-  }
-
   &--circle {
-    border-radius: 30px;
+    border-radius: $at-tag-height / 2;
     background-clip: border-box;
     overflow: hidden;
+  }
+
+  &--small {
+    padding: 0 $spacing-h-md;
+    height: $at-tag-height-sm;
+    font-size: $at-tag-font-size-sm;
+    line-height: $at-tag-height-sm - 2px;
+
+    &.at-tag--circle {
+      border-radius: $at-tag-height-sm / 2;
+    }
   }
 }

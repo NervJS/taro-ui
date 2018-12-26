@@ -1,40 +1,13 @@
 .calendar-page .body_controllers {
-  margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
 
-  .button {
-    width: initial;
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    background: #fff;
-    border-color: #dcdfe6;
-    color: #606266;
-    text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    margin: 0;
-    font-weight: 500;
-    padding: 20px 36px;
+  .at-button {
     font-size: 24px;
     border-radius: 0;
-    border-left: none;
-    transition: background-color 0.3s;
 
-    // prettier-ignore
-    border: 1PX solid #dcdfe6;
-
-    + .button {
+    + .at-button {
       border-left: none;
-    }
-
-    &:active {
-      background-color: #F0F0F0;
-    }
-
-    &::after {
-      content: initial;
     }
 
     &:first-child {
@@ -50,4 +23,8 @@
       border-bottom-right-radius: 8px;
     }
   }
+}
+
+.test {
+  margin-left: 20px;
 }

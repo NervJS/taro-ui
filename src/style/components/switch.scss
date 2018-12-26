@@ -9,6 +9,7 @@
   padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
   @include hairline-bottom();
 
+  /* elements */
   &__title {
     flex: 6;
     font-size: $font-size-base;
@@ -37,6 +38,7 @@
     z-index: $zindex-form;
   }
 
+  /* modifiers */
   &--disabled {
     .at-switch__switch {
       opacity: $opacity-disabled;

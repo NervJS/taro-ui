@@ -2,79 +2,9 @@ import Taro from '@tarojs/taro'
 import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
 
-const defaultFunc = () => { }
-
 export default class AtTextarea extends AtComponent {
-  static defaultProps = {
-    isTest: false,
-    customStyle: '',
-    className: '',
-    value: '',
-    cursorSpacing: 100,
-    maxlength: 200,
-    placeholder: '',
-    disabled: false,
-    autoFocus: false,
-    focus: false,
-    showConfirmBar: false,
-    selectionStart: -1,
-    selectionEnd: -1,
-    count: true,
-    fixed: false,
-    height: '',
-    textOverflowForbidden: true,
-    onLinechange: defaultFunc,
-    onChange: defaultFunc,
-    onFocus: defaultFunc,
-    onBlur: defaultFunc,
-    onConfirm: defaultFunc
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    value: PropTypes.string.isRequired,
-    cursorSpacing: PropTypes.number,
-    maxlength: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    placeholderClass: PropTypes.string,
-    placeholderStyle: PropTypes.string,
-    placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    autoFocus: PropTypes.bool,
-    focus: PropTypes.bool,
-    showConfirmBar: PropTypes.bool,
-    selectionStart: PropTypes.number,
-    selectionEnd: PropTypes.number,
-    count: PropTypes.bool,
-    textOverflowForbidden: PropTypes.bool,
-    fixed: PropTypes.bool,
-    height: PropTypes.string,
-    onLinechange: PropTypes.func,
-    onChange: PropTypes.func.isRequired,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onConfirm: PropTypes.func
-  }
-
-  constructor () {
-    super(...arguments)
-    if (process.env.NODE_ENV === 'test') {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
-  }
-
   handleInput () {
     this.props.onChange(...arguments)
   }
@@ -169,4 +99,63 @@ export default class AtTextarea extends AtComponent {
       </View>
     )
   }
+}
+
+AtTextarea.defaultProps = {
+  customStyle: '',
+  className: '',
+  value: '',
+  cursorSpacing: 100,
+  maxlength: 200,
+  placeholder: '',
+  disabled: false,
+  autoFocus: false,
+  focus: false,
+  showConfirmBar: false,
+  selectionStart: -1,
+  selectionEnd: -1,
+  count: true,
+  fixed: false,
+  height: '',
+  textOverflowForbidden: true,
+  onLinechange: () => {},
+  onChange: () => {},
+  onFocus: () => {},
+  onBlur: () => {},
+  onConfirm: () => {},
+}
+
+AtTextarea.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  value: PropTypes.string.isRequired,
+  cursorSpacing: PropTypes.number,
+  maxlength: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  placeholderClass: PropTypes.string,
+  placeholderStyle: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  autoFocus: PropTypes.bool,
+  focus: PropTypes.bool,
+  showConfirmBar: PropTypes.bool,
+  selectionStart: PropTypes.number,
+  selectionEnd: PropTypes.number,
+  count: PropTypes.bool,
+  textOverflowForbidden: PropTypes.bool,
+  fixed: PropTypes.bool,
+  height: PropTypes.string,
+  onLinechange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onConfirm: PropTypes.func,
 }

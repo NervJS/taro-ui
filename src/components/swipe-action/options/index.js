@@ -8,7 +8,7 @@ export default class AtSwiperActionOptions extends AtComponent {
   componentDidMount () {
     delayQuerySelector(
       Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
-      '.at-swipe-action__options'
+      `#swipeActionOptions-${this.props.componentId}`
     ).then(res => {
       this.props.onQueryedDom(res[0])
     })
@@ -21,7 +21,7 @@ export default class AtSwiperActionOptions extends AtComponent {
     )
 
     return (
-      <View className={rootClass}>
+      <View id={`swipeActionOptions-${this.props.componentId}`} className={rootClass}>
         {this.props.children}
       </View>
     )

@@ -1,7 +1,14 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$circularH: 28PX;
+$at-steps-circle-size: 56px;
+$at-steps-icon-size: 24px;
+$at-steps-color: $color-white;
+$at-steps-bg-color: $color-grey-4;
+$at-steps-color-active: $color-grey-2;
+$at-steps-bg-color-active: $color-brand;
+$at-steps-line-color: $color-grey-3;
+$at-steps-desc-color: $color-grey-3;
 
 .at-steps {
   display: flex;
@@ -10,17 +17,15 @@ $circularH: 28PX;
   justify-content: center;
   box-sizing: border-box;
 
+  /* elements */
   &__circular {
-    border-radius: 50%;
     align-items: center;
     justify-content: center;
-    line-height: $circularH;
-    // 为了让图标垂直水平居中
-    font-size: 0;
-    height: $circularH;
-    width: $circularH;
+    width: $at-steps-circle-size;
+    height: $at-steps-circle-size;
     text-align: center;
-    z-index: $zindex-steps;
+    line-height: $at-steps-circle-size;
+    border-radius: 50%;
     transition: all 0.3s;
   }
 
@@ -32,15 +37,15 @@ $circularH: 28PX;
 
     &--active {
       .at-steps__circular {
-        color: $color-white;
-        background-color: $color-brand;
+        color: $at-steps-color;
+        background-color: $at-steps-bg-color-active;
       }
     }
 
     &--inactive {
       .at-steps__circular {
-        color: $color-grey-2;
-        background-color: $color-grey-4;
+        color: $at-steps-color-active;
+        background-color: $at-steps-bg-color;
       }
     }
   }
@@ -53,14 +58,29 @@ $circularH: 28PX;
     font-size: 0;
   }
 
+  &__single-icon {
+    font-size: $at-steps-circle-size;
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--error {
+      color: $color-error;
+    }
+  }
+
+  &__circle-icon {
+    font-size: $at-steps-icon-size;
+  }
+
   &__left-line {
     position: absolute;
     width: 30%;
     top: 50%;
     right: 70%;
     height: 1Px;
-    background-color: $color-grey-3;
-    z-index: $zindex-steps - 1;
+    background-color: $at-steps-line-color;
   }
 
   &__right-line {
@@ -69,8 +89,7 @@ $circularH: 28PX;
     top: 50%;
     left: 70%;
     height: 1Px;
-    background-color: $color-grey-3;
-    z-index: $zindex-steps - 1;
+    background-color: $at-steps-line-color;
   }
 
   &__num {
@@ -85,8 +104,8 @@ $circularH: 28PX;
   }
 
   &__desc {
+    color: $at-steps-desc-color;
     font-size: $font-size-sm;
-    color: $color-grey-3;
     @include line(2);
   }
 }

@@ -1,10 +1,15 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-.at-rate {
-  line-height: 0;
-  font-size: 0;
+$at-rate-icon-size: 20PX;
+$at-rate-star-color: #ececec;
+$at-rate-star-color-on: #ffca3e;
 
+.at-rate {
+  font-size: 0;
+  line-height: 0;
+
+  /* elements */
   &__left {
     display: inline-block;
     position: absolute;
@@ -19,23 +24,27 @@
 
   &__icon {
     position: relative;
-    line-height: 0;
-    font-size: 0;
     display: inline-block;
-    color: #ececec;
+    color: $at-rate-star-color;
+    font-size: 0;
+    line-height: 0;
     transition: all 0.2s;
 
+    .at-icon {
+      font-size: $at-rate-icon-size;
+    }
+
     &--on {
-      color: #ffca3e;
+      color: $at-rate-star-color-on;
     }
 
     &--off {
-      color: #ececec;
+      color: $at-rate-star-color;
     }
 
     &--half {
       .at-rate__left {
-        color: #ffca3e;
+        color: $at-rate-star-color-on;
       }
     }
   }

@@ -44,7 +44,6 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
           />
         )}
         <Picker
-          className='controller__info'
           mode='date'
           fields='month'
           end={maxDateValue}
@@ -52,7 +51,9 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
           onChange={this.props.onSelectDate}
           value={dayjsDate.format('YYYY-MM')}
         >
-          <Text>{dayjsDate.format(monthFormat)}</Text>
+          <Text className='controller__info'>
+            {dayjsDate.format(monthFormat)}
+          </Text>
         </Picker>
         {hideArrow ? null : (
           <View
