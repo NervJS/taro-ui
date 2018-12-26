@@ -33,7 +33,6 @@ export default class AtNoticebar extends AtComponent {
     if (!this.timeout) {
       this.interval && clearInterval(this.interval)
       this.initAnimation()
-      console.log('componentWillReceiveProps===')
     }
   }
 

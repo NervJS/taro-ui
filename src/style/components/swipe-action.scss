@@ -1,15 +1,21 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$at-swipe-action-color: $color-white;
+$at-swipe-action-font-size: $font-size-base;
+$at-swipe-action-bg-color: $color-white;
+$at-swipe-action-option-bg-color: $color-grey-2;
+
 .at-swipe-action {
   position: relative;
   overflow: hidden;
 
+  /* elements */
   &__content {
-    background-color: white;
     position: relative;
-    z-index: 2;
     font-size: $font-size-lg;
+    background-color: $at-swipe-action-bg-color;
+    z-index: 2;
 
     &.animtion {
       transition: transform 300ms $timing-func;
@@ -20,13 +26,13 @@
     @include active;
     @include align-items(center);
 
-    height: 100%;
-    background-color: $color-grey-2;
     display: inline-flex;
-    color: $color-white;
-    font-size: $font-size-base;
     padding: 0 $spacing-h-xl;
+    height: 100%;
+    color: $at-swipe-action-color;
+    font-size: $at-swipe-action-font-size;
     text-align: center;
+    background-color: $at-swipe-action-option-bg-color;
   }
 
   &__options {
@@ -36,7 +42,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1;
     height: 100%;
+    z-index: 1;
   }
 }

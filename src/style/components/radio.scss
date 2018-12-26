@@ -1,46 +1,58 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$at-radio-bg-color: $color-bg;
+$at-radio-title-color: $color-text-base;
+$at-radio-title-size: $font-size-lg;
+$at-radio-desc-color: $color-grey-2;
+$at-radio-desc-size: $font-size-sm;
+$at-radio-check-color: $color-brand;
+
 .at-radio {
-  background-color: $color-bg;
+  background-color: $at-radio-bg-color;
   @include hairline-top-bottom();
 
-  &__option_wrap {
+  /* elements */
+  &__option-wrap {
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
   }
 
-  &__option_container {
+  &__option-container {
     display: flex;
   }
 
   &__title {
     flex: 6;
-    color: $color-text-base;
-    font-size: $font-size-lg;
+    color: $at-radio-title-color;
+    font-size: $at-radio-title-size;
     text-align: left;
     line-height: $line-height-zh;
   }
 
   &__icon {
     flex: 1;
+    font-size: $at-radio-title-size;
     text-align: right;
-    font-size: $font-size-lg;
     overflow: hidden;
     visibility: hidden;
 
     &--checked {
       visibility: visible;
     }
+
+    .at-icon {
+      color: $at-radio-check-color;
+    }
   }
 
   &__desc {
     display: block;
     width: 86%;
+    color: $at-radio-desc-color;
+    font-size: $at-radio-desc-size;
     text-align: left;
-    font-size: $font-size-sm;
-    color: $color-grey-2;
-    letter-spacing: 0;
     line-height: $line-height-zh;
+    letter-spacing: 0;
   }
 
   &__option {
@@ -48,19 +60,19 @@
     @include active;
 
     &--disabled {
-      .at-radio__option_container,
+      .at-radio__option-container,
       .at-radio__desc {
         opacity: $opacity-disabled;
       }
 
       &:active {
-        background-color: $color-bg;
+        background-color: inherit;
       }
     }
   }
 
   &__option + &__option {
-    .at-radio__option_wrap {
+    .at-radio__option-wrap {
       @include hairline-top();
     }
   }
