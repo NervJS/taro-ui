@@ -3,8 +3,6 @@ import { View, Text, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
 import statusImg from './img.json'
 
@@ -95,14 +93,18 @@ export default class AtToast extends AtComponent {
     const isRenderIcon = !!(icon && !(image || statusImg[status]))
 
     const bodyClass = classNames('toast-body', {
-      'at-toast-body--custom-image': image,
+      'at-toast__body--custom-image': image,
       'toast-body--text': !realImg && !icon,
-      [`at-toast-body--${status}`]: !!status
+      [`at-toast__body--${status}`]: !!status
+    })
+
+    const iconClass = classNames('at-icon', {
+      [`at-icon-${icon}`]: icon,
     })
 
     return _isOpened ? (
       <View className={classNames('at-toast', this.props.className)}>
-        {hasMask && <View className='at-toast-overlay' />}
+        {hasMask && <View className='at-toast__overlay' />}
         <View className={bodyClass} onClick={this.handleClick}>
           <View className='toast-body-content'>
             {realImg && (
@@ -116,7 +118,7 @@ export default class AtToast extends AtComponent {
             )}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
-                <AtIcon customStyle={{ fontSize: '50px' }} value={icon} color='white' />
+                <Text className={iconClass}></Text>
               </View>
             )}
             {text && (
