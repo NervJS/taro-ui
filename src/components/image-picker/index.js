@@ -123,7 +123,7 @@ export default class AtImagePicker extends AtComponent {
     } = this.props
     // 行数
     const matrix = generateMatrix(files, length, showAddBtn)
-    console.log(matrix)
+
     return (
       <View
         className={
