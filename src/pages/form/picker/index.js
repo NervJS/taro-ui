@@ -54,7 +54,7 @@ export default class Index extends Taro.Component {
     } = this.state
 
     return (
-      <View className='page'>
+      <View className='page picker__page'>
         {/* S Header */}
         <DocsHeader title='Picker 选择器'></DocsHeader>
         {/* E Header */}
