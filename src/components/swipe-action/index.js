@@ -142,7 +142,6 @@ export default class AtSwipeAction extends AtComponent {
   handleDomInfo = ({ width }) => {
     const { _isOpened } = this.state
 
-    console.log('handleDomInfo')
     this.maxOffsetSize = width
     this._reset(_isOpened)
   }
