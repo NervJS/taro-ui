@@ -58,6 +58,7 @@ export default class AtActionSheet extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
+    e.preventDefault()
   }
 
   render () {

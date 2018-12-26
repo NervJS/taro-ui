@@ -62,6 +62,7 @@ export default class AtModal extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
+    e.preventDefault()
   }
 
   render () {
