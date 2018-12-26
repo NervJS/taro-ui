@@ -3,10 +3,13 @@ import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _inRange from 'lodash/inRange'
+import _isNil from 'lodash/isNil'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../common/component'
 import AtSwipeActionOptions from './options/index'
 import { delayQuerySelector } from '../../common/utils'
+
+let id = 0
 
 export default class AtSwipeAction extends AtComponent {
   constructor (props) {
@@ -24,6 +27,7 @@ export default class AtSwipeAction extends AtComponent {
     this.isTouching = false
 
     this.state = {
+      componentId: ++id,
       offsetSize: 0,
       _isOpened: isOpened
     }
@@ -32,7 +36,7 @@ export default class AtSwipeAction extends AtComponent {
   componentDidMount () {
     delayQuerySelector(
       Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
-      '.at-swipe-action'
+      `#swipeAction-${this.state.componentId}`
     ).then(res => {
       this.domInfo = res[0]
     })
@@ -138,7 +142,6 @@ export default class AtSwipeAction extends AtComponent {
   handleDomInfo = ({ width }) => {
     const { _isOpened } = this.state
 
-    console.log('handleDomInfo')
     this.maxOffsetSize = width
     this._reset(_isOpened)
   }
@@ -156,12 +159,13 @@ export default class AtSwipeAction extends AtComponent {
   }
 
   render () {
-    const { offsetSize } = this.state
+    const { offsetSize, componentId } = this.state
     const { options } = this.props
     const rootClass = classNames('at-swipe-action', this.props.className)
 
     return (
       <View
+        id={`swipeAction-${componentId}`}
         className={rootClass}
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
@@ -172,14 +176,16 @@ export default class AtSwipeAction extends AtComponent {
             animtion: !this.isTouching
           })}
           style={{
-            transform: offsetSize ? `translate3d(${offsetSize}px,0,0)` : null
+            transform: !_isNil(offsetSize)
+              ? `translate3d(${offsetSize}px,0,0)`
+              : null
           }}
         >
           {this.props.children}
         </View>
 
         {Array.isArray(options) && options.length > 0 ? (
-          <AtSwipeActionOptions onQueryedDom={this.handleDomInfo}>
+          <AtSwipeActionOptions componentId={id} onQueryedDom={this.handleDomInfo}>
             {options.map((item, key) => (
               <View
                 key={key}

@@ -1,5 +1,5 @@
-@import '../mixins/index.scss';
-@import '../variables/default.scss';
+@import "../mixins/index.scss";
+@import "../variables/default.scss";
 
 $at-list-thumb-size: 56px;
 $at-list-item-horizontal-padding: 24px;
@@ -80,6 +80,8 @@ $at-list-arrow-color: #c7c7cc;
     }
 
     .item-extra {
+      position: relative;
+
       &__info,
       &__icon,
       &__image,
@@ -92,18 +94,33 @@ $at-list-arrow-color: #c7c7cc;
 
         max-width: 100%;
         color: $color-grey-2;
-        padding-right: 20px;
+        padding-right: 30px;
         font-size: $font-size-lg;
         vertical-align: middle;
+        box-sizing: border-box;
       }
 
+      // &__icon {
+      //   margin-right: -12px;
+
+      //   &-arrow {
+      //     color: $at-list-arrow-color;
+      //     font-size: 48px;
+      //   }
+      // }
+
       &__icon {
-        margin-right: -12px;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
 
         &-arrow {
           color: $at-list-arrow-color;
           font-size: 48px;
         }
+        // margin-left: $spacing-h-sm;
+        // margin-right: -$spacing-h-sm;
       }
 
       &__switch {
