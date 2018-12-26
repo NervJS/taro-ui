@@ -6,12 +6,13 @@
   height: 100%;
   overflow: hidden;
 
+  /* elements */
   &__item {
     position: relative;
     flex: 1;
     padding: $spacing-v-lg $spacing-h-lg;
-    font-size: $font-size-base;
     color: $color-text-base;
+    font-size: $font-size-base;
     text-overflow: ellipsis;
     overflow: hidden;
 
@@ -25,7 +26,6 @@
       background-color: $color-brand;
       transform: scaleX(0);
       transition: all 0.15s;
-      z-index: $zindex-tab;
     }
 
     &--active {
@@ -83,9 +83,9 @@
     right: auto;
     width: 600%;
     height: 1PX;
-    z-index: $zindex-tab - 1;
   }
 
+  /* modifiers */
   &--vertical {
     display: flex;
     flex: 1;
@@ -104,7 +104,6 @@
       bottom: auto;
       width: 1PX;
       height: 100%;
-      z-index: $zindex-tab - 1;
     }
 
     .at-tabs__header {
@@ -126,7 +125,6 @@
         width: 1PX;
         height: 100%;
         transform: scaleY(0);
-        z-index: $zindex-tab;
       }
     }
 
@@ -144,6 +142,7 @@
   font-size: 28px;
   box-sizing: border-box;
 
+  /* modifiers */
   &--active {
     height: auto;
   }

@@ -1,3 +1,6 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
 @keyframes loading {
   0% {
     transform: rotate(0deg);
@@ -8,18 +11,20 @@
   }
 }
 
+$at-loading-size: 18PX;
+
 .at-loading {
   display: inline-block;
   position: relative;
-  width: 18PX;
-  height: 18PX;
+  width: $at-loading-size;
+  height: $at-loading-size;
 
   &__ring {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 18PX;
-    height: 18PX;
+    width: $at-loading-size;
+    height: $at-loading-size;
     margin: 1PX;
     border: 1PX solid #fff;
     border-radius: 50%;

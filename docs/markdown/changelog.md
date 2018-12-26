@@ -11,6 +11,22 @@
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>
       <div class="at-timeline__content">
+        <p class="head">v1.5.3</p>
+        <p class="time">
+          <span>2018-12.25</span>
+        </p>
+        <ul class="content">
+          <li><span>FloatLayout</span>组件新增 ScrollView 的属性配置（<a href="https://github.com/NervJS/taro-ui/issues/258">#258</a>）</li>
+          <li><span>InputNumber</span>组件新增 onBlur 事件</li>
+          <li>修复<span>ICON</span>组件的 rpx 转换问题（<a href="https://github.com/NervJS/taro-ui/issues/112">#112</a>）</li>
+          <li>修复<span>ImagePicker</span>组件不能选择同一文件的问题</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
         <p class="head">v1.5.2</p>
         <p class="time">
           <span>2018-12.13</span>

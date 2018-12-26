@@ -5,7 +5,7 @@ import AtComponent from '../../../common/component'
 
 export default class AtModalContent extends AtComponent {
   render () {
-    const rootClass = classNames('at-modal-content', this.props.className)
+    const rootClass = classNames('at-modal__content', this.props.className)
     return <View className={rootClass}>{this.props.children}</View>
   }
 }

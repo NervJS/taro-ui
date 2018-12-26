@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
 
+  /* elements */
   &__inner {
     flex: 1;
   }
@@ -16,6 +17,7 @@
     text-align: center;
   }
 
+  /* modifiers */
   &--disabled {
     .at-slider__inner {
       opacity: $opacity-disabled;

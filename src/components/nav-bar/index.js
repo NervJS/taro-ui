@@ -2,51 +2,9 @@ import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
 
-const defaultFunc = () => {}
-
 export default class AtNavBar extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    fixed: false,
-    border: true,
-    color: '#6190E8',
-    leftIconType: '',
-    leftText: '',
-    title: '',
-    rightFirstIconType: '',
-    rightSecondIconType: '',
-    onClickLeftIcon: defaultFunc,
-    onClickRgIconSt: defaultFunc,
-    onClickRgIconNd: defaultFunc
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    fixed: PropTypes.bool,
-    border: PropTypes.bool,
-    color: PropTypes.string,
-    leftIconType: PropTypes.string,
-    leftText: PropTypes.string,
-    title: PropTypes.string,
-    rightFirstIconType: PropTypes.string,
-    rightSecondIconType: PropTypes.string,
-    onClickLeftIcon: PropTypes.func,
-    onClickRgIconSt: PropTypes.func,
-    onClickRgIconNd: PropTypes.func
-  }
-
   handleClickLeftView () {
     this.props.onClickLeftIcon(...arguments)
   }
@@ -74,6 +32,16 @@ export default class AtNavBar extends AtComponent {
     } = this.props
     const linkStyle = `color: ${color};`
 
+    const leftIconClass = classNames('at-icon', {
+      [`at-icon-${leftIconType}`]: leftIconType
+    })
+    const rightFirstIconClass = classNames('at-icon', {
+      [`at-icon-${rightFirstIconType}`]: rightFirstIconType
+    })
+    const rightSecondIconClass = classNames('at-icon', {
+      [`at-icon-${rightSecondIconType}`]: rightSecondIconType
+    })
+
     return <View
       className={
         classNames({
@@ -85,15 +53,15 @@ export default class AtNavBar extends AtComponent {
       style={customStyle}
     >
       <View
-        className='at-nav-bar__left_view'
+        className='at-nav-bar__left-view'
         onClick={this.handleClickLeftView.bind(this)}
         style={linkStyle}
       >
-        <AtIcon customStyle={{ fontSize: '24px' }} value={leftIconType} />
+        {leftIconType && <Text className={leftIconClass}></Text>}
         <Text className='at-nav-bar__text'>{leftText}</Text>
       </View>
       <View className='at-nav-bar__title'>{title}</View>
-      <View className='at-nav-bar__right_view'>
+      <View className='at-nav-bar__right-view'>
         <View
           className={
             classNames({
@@ -104,7 +72,7 @@ export default class AtNavBar extends AtComponent {
           style={linkStyle}
           onClick={this.handleClickNd.bind(this)}
         >
-          <AtIcon customStyle={{ fontSize: '24px' }} value={rightSecondIconType} />
+          {rightSecondIconType && <Text className={rightSecondIconClass}></Text>}
         </View>
         <View
           className={
@@ -116,9 +84,47 @@ export default class AtNavBar extends AtComponent {
           style={linkStyle}
           onClick={this.handleClickSt.bind(this)}
         >
-          <AtIcon customStyle={{ fontSize: '24px' }} value={rightFirstIconType} />
+          {rightFirstIconType && <Text className={rightFirstIconClass}></Text>}
         </View>
       </View>
     </View>
   }
+}
+
+AtNavBar.defaultProps = {
+  customStyle: '',
+  className: '',
+  fixed: false,
+  border: true,
+  color: '#6190E8',
+  leftIconType: '',
+  leftText: '',
+  title: '',
+  rightFirstIconType: '',
+  rightSecondIconType: '',
+  onClickLeftIcon: () => {},
+  onClickRgIconSt: () => {},
+  onClickRgIconNd: () => {},
+}
+
+AtNavBar.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  fixed: PropTypes.bool,
+  border: PropTypes.bool,
+  color: PropTypes.string,
+  leftIconType: PropTypes.string,
+  leftText: PropTypes.string,
+  title: PropTypes.string,
+  rightFirstIconType: PropTypes.string,
+  rightSecondIconType: PropTypes.string,
+  onClickLeftIcon: PropTypes.func,
+  onClickRgIconSt: PropTypes.func,
+  onClickRgIconNd: PropTypes.func,
 }

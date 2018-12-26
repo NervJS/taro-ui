@@ -2,56 +2,9 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
 
-const defaultFunc = () => {}
-
 export default class AtRange extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    sliderStyle: '',
-    railStyle: '',
-    trackStyle: '',
-    value: [0, 0],
-    min: 0,
-    max: 100,
-    disabled: false,
-    blockSize: 28,
-    onChange: defaultFunc,
-    onAfterChange: defaultFunc
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    sliderStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    railStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    trackStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    value: PropTypes.array,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    disabled: PropTypes.bool,
-    blockSize: PropTypes.number,
-    onChange: PropTypes.func
-  }
-
   constructor (props) {
     super(...arguments)
     const { max, min } = props
@@ -188,9 +141,9 @@ export default class AtRange extends AtComponent {
 
     const { slider1X, slider2X } = this.state
     const sliderCommonStyle = {
-      width: `${blockSize}PX`,
-      height: `${blockSize}PX`,
-      marginLeft: `${-blockSize / 2}PX`
+      width: blockSize ? `${blockSize}PX` : '',
+      height: blockSize ? `${blockSize}PX` : '',
+      marginLeft: blockSize ? `${-blockSize / 2}PX` : '',
     }
     const slider1Style = {
       ...sliderCommonStyle,
@@ -201,7 +154,7 @@ export default class AtRange extends AtComponent {
       left: `${slider2X}%`
     }
     const containerStyle = {
-      height: `${blockSize}PX`,
+      height: blockSize ? `${blockSize}PX` : '',
     }
 
     const smallX = slider1X > slider2X ? slider2X : slider1X
@@ -253,4 +206,49 @@ export default class AtRange extends AtComponent {
       </View>
     )
   }
+}
+
+AtRange.defaultProps = {
+  customStyle: '',
+  className: '',
+  sliderStyle: '',
+  railStyle: '',
+  trackStyle: '',
+  value: [0, 0],
+  min: 0,
+  max: 100,
+  disabled: false,
+  blockSize: 0,
+  onChange: () => {},
+  onAfterChange: () => {},
+}
+
+AtRange.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  sliderStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  railStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  trackStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  value: PropTypes.array,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  disabled: PropTypes.bool,
+  blockSize: PropTypes.number,
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
 }

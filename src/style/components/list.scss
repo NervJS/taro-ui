@@ -1,8 +1,9 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$image-size: 56px;
-$item-horizontal-padding: 24px;
+$at-list-thumb-size: 56px;
+$at-list-item-horizontal-padding: 24px;
+$at-list-arrow-color: #c7c7cc;
 
 @mixin squareImg($size: 56px) {
   width: $size;
@@ -19,30 +20,29 @@ $item-horizontal-padding: 24px;
   @include hairline-top-bottom();
 
   /* elements */
-  &__item {
-    @include active;
+  &__item-container {
+    @include display-flex;
+    @include align-items(center);
 
+    .item-icon {
+      margin-right: $at-list-item-horizontal-padding;
+    }
+  }
+
+  &__item {
     padding: $spacing-v-lg $spacing-h-lg;
     position: relative;
     box-sizing: border-box;
     color: $color-text-base;
     font-size: $font-size-lg;
     line-height: $line-height-zh;
+    @include active;
     @include hairline-bottom-relative($left: $spacing-h-lg);
-
-    &-container {
-      @include display-flex;
-      @include align-items(center);
-
-      .item-icon {
-        margin-right: $item-horizontal-padding;
-      }
-    }
 
     &--thumb {
       .item-thumb {
-        margin-right: $item-horizontal-padding;
-        @include squareImg($image-size);
+        margin-right: $at-list-item-horizontal-padding;
+        @include squareImg($at-list-thumb-size);
       }
     }
 
@@ -59,20 +59,6 @@ $item-horizontal-padding: 24px;
     &--no-border::after {
       content: initial;
       border: none;
-    }
-
-    &-content {
-      @include flex(1);
-
-      overflow: hidden;
-      margin-right: 40px;
-    }
-
-    &-extra {
-      @include flex(0, 0, 235px);
-
-      width: 235px;
-      text-align: right;
     }
 
     .item-content {
@@ -112,12 +98,12 @@ $item-horizontal-padding: 24px;
       }
 
       &__icon {
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        position: absolute;
-        // margin-left: $spacing-h-sm;
-        // margin-right: -$spacing-h-sm;
+        margin-right: -12px;
+
+        &-arrow {
+          color: $at-list-arrow-color;
+          font-size: 48px;
+        }
       }
 
       &__switch {
@@ -125,11 +111,25 @@ $item-horizontal-padding: 24px;
       }
 
       &__image {
-        @include squareImg($image-size);
+        @include squareImg($at-list-thumb-size);
 
         vertical-align: middle;
       }
     }
+  }
+
+  &__item-content {
+    @include flex(1);
+
+    overflow: hidden;
+    margin-right: 40px;
+  }
+
+  &__item-extra {
+    @include flex(0, 0, 235px);
+
+    width: 235px;
+    text-align: right;
   }
 
   /* modifiers */

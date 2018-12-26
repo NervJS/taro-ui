@@ -7,16 +7,16 @@ import AtComponent from '../../../common/component'
 export default class AtModalAction extends AtComponent {
   render () {
     const rootClass = classNames(
-      'at-modal-footer',
+      'at-modal__footer',
       {
-        'at-modal-footer--simple': this.props.isSimple
+        'at-modal__footer--simple': this.props.isSimple
       },
       this.props.className
     )
 
     return (
       <View className={rootClass}>
-        <View className='at-modal-footer__action at-modal-action'>
+        <View className='at-modal__action'>
           {this.props.children}
         </View>
       </View>
@@ -24,6 +24,10 @@ export default class AtModalAction extends AtComponent {
   }
 }
 
+AtModalAction.defaultProps = {
+  isSimple: false,
+}
+
 AtModalAction.propTypes = {
-  isSimple: PropTypes.bool
+  isSimple: PropTypes.bool,
 }

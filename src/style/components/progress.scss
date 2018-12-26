@@ -13,12 +13,16 @@
   }
 }
 
-$progress-height: 16px;
+$at-progress-height: 16px;
+$at-progress-inner-bg-color: $color-grey-6;
+$at-progress-bar-bg-color: $color-brand-light;
+$at-progress-text-size: $font-size-sm;
 
 .at-progress {
   display: flex;
   align-items: center;
 
+  /* elements */
   &__outer {
     flex: 1 1 100%;
     margin-right: 0;
@@ -26,16 +30,16 @@ $progress-height: 16px;
 
     &-inner {
       width: 100%;
-      background-color: $color-grey-6;
-      border-radius: 100px;
+      background-color: $at-progress-inner-bg-color;
+      border-radius: $at-progress-height / 2;
       vertical-align: middle;
 
       &-background {
-        height: $progress-height;
-        border-radius: 100px;
-        background-color: $color-brand-light;
-        transition: all 0.3s $ease-in-out-quad;
         position: relative;
+        height: $at-progress-height;
+        border-radius: $at-progress-height / 2;
+        background-color: $at-progress-bar-bg-color;
+        transition: all 0.3s $ease-in-out-quad;
         overflow: hidden;
       }
     }
@@ -43,23 +47,48 @@ $progress-height: 16px;
 
   &__content {
     flex: 1 1 70px;
-    font-size: $font-size-sm;
     margin-left: 10px;
+    font-size: $at-progress-text-size;
     text-align: center;
-  }
-}
 
-.at-progress--progress {
-  .at-progress__outer-inner-background::before {
-    content: "";
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #fff;
-    border-radius: 100px;
-    animation: progress-active 2s $ease-out-quad infinite;
+    .at-icon {
+      font-size: 36px;
+    }
+  }
+
+  /* modifiers */
+  &--progress {
+    .at-progress__outer-inner-background::before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-radius: $at-progress-height / 2;
+      animation: progress-active 2s $ease-out-quad infinite;
+    }
+  }
+
+  &--error {
+    .at-progress__outer-inner-background {
+      background: $color-error;
+    }
+
+    .at-icon {
+      color: $color-error;
+    }
+  }
+
+  &--success {
+    .at-progress__outer-inner-background {
+      background: $color-success;
+    }
+
+    .at-icon {
+      color: $color-success;
+    }
   }
 }
