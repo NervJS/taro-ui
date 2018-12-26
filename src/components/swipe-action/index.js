@@ -70,6 +70,13 @@ export default class AtSwipeAction extends AtComponent {
     }
   }
 
+  computeTransform = value => {
+    if (Taro.getEnv() === Taro.ENV_TYPE.ALIPAY) {
+      return !_isNil(value) ? `translate3d(${value}px,0,0)` : null
+    }
+    return value ? `translate3d(${value}px,0,0)` : null
+  }
+
   handleOpened = () => {
     if (_isFunction(this.props.onOpened) && !this.state._isOpened) {
       this.props.onOpened()
@@ -176,16 +183,17 @@ export default class AtSwipeAction extends AtComponent {
             animtion: !this.isTouching
           })}
           style={{
-            transform: !_isNil(offsetSize)
-              ? `translate3d(${offsetSize}px,0,0)`
-              : null
+            transform: this.computeTransform(offsetSize)
           }}
         >
           {this.props.children}
         </View>
 
         {Array.isArray(options) && options.length > 0 ? (
-          <AtSwipeActionOptions componentId={id} onQueryedDom={this.handleDomInfo}>
+          <AtSwipeActionOptions
+            componentId={id}
+            onQueryedDom={this.handleDomInfo}
+          >
             {options.map((item, key) => (
               <View
                 key={key}
