@@ -32,7 +32,7 @@ const generateMatrix = (files, col, showAddBtn) => {
   return matrix
 }
 
-const env = Taro.getEnv()
+const ENV = Taro.getEnv()
 
 export default class AtImagePicker extends AtComponent {
   constructor () {
@@ -43,7 +43,7 @@ export default class AtImagePicker extends AtComponent {
 
   chooseFile () {
     const { files, multiple } = this.props
-    switch (env) {
+    switch (ENV) {
       case Taro.ENV_TYPE.WEB:
         this.fileInput.click()
         break
@@ -53,7 +53,7 @@ export default class AtImagePicker extends AtComponent {
         const filePathName = {
           'ALIPAY': 'apFilePaths',
           'WEAPP': 'tempFiles'
-        }[env]
+        }[ENV]
         Taro.chooseImage({
           count: multiple ? 99 : 1
         }).then(res => {
@@ -98,7 +98,7 @@ export default class AtImagePicker extends AtComponent {
 
   handleRemoveImg (i) {
     const { files } = this.props
-    if (env === Taro.ENV_TYPE.WEB) {
+    if (ENV === Taro.ENV_TYPE.WEB) {
       window.URL.revokeObjectURL(files[i].url)
     }
     files.splice(i, 1)
@@ -106,7 +106,7 @@ export default class AtImagePicker extends AtComponent {
   }
 
   componentDidMount () {
-    if (env === Taro.ENV_TYPE.WEB) {
+    if (ENV === Taro.ENV_TYPE.WEB) {
       this.fileInput = document.getElementById(this.inputId)
     }
   }
