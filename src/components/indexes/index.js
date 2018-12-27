@@ -6,36 +6,11 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 import AtList from '../../components/list/index'
 import AtListItem from '../../components/list/item/index'
+import { delayQuerySelector, uuid } from '../../common/utils'
 
-export default class AtIndexes extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    animation: false,
-    topKey: 'Top',
-    isVibrate: true,
-    isShowToast: true,
-    list: [],
-    onClick: () => {}
-  }
+const ENV = Taro.getEnv()
 
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    animation: PropTypes.bool,
-    isVibrate: PropTypes.bool,
-    isShowToast: PropTypes.bool,
-    topKey: PropTypes.string,
-    list: PropTypes.array,
-    onClick: PropTypes.func
-  }
-
+class AtIndexes extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
@@ -49,6 +24,9 @@ export default class AtIndexes extends AtComponent {
     this.itemHeight = 0
     this.currentIndex = -1
     this._scrollTop = 0
+    this.indexesId = `indexes-${uuid()}`
+    this.listId = `list-${uuid()}`
+    this.menuId = `menu-${uuid()}`
   }
 
   handleClick () {
@@ -59,13 +37,13 @@ export default class AtIndexes extends AtComponent {
     e.stopPropagation()
     e.preventDefault()
     const { list } = this.props
-    let pageY = e.touches[0].pageY
-    const env = Taro.getEnv()
-    if (env === Taro.ENV_TYPE.WEB) {
-      pageY = e.touches[0].clientY
-    }
+    const pageY = e.touches[0].pageY
     const index = Math.floor((pageY - this.startTop) / this.itemHeight)
-    if (index >= 0 && index <= list.length && this.currentIndex !== index) {
+    if (
+      index >= 0
+      && index <= list.length
+      && this.currentIndex !== index
+    ) {
       this.currentIndex = index
       let touchView = 'at-indexes__top'
       if (index > 0) {
@@ -80,50 +58,74 @@ export default class AtIndexes extends AtComponent {
   }
 
   jumpTarget (targetView, i) {
-    const { topKey, list } = this.props
-    const env = Taro.getEnv()
-    if (env === Taro.ENV_TYPE.WEAPP) {
-      // 小程序环境
-      this.setState({
-        targetView
-      })
-    } else if (env === Taro.ENV_TYPE.WEB) {
-      // web环境
-      const bodyOffsetTop = this.indexesRef.vnode.dom.getBoundingClientRect().top
-      const targetOffsetTop = this.listRef.vnode.dom.childNodes[i].getBoundingClientRect().top
-      const targetScrollTop = this._scrollTop + targetOffsetTop - bodyOffsetTop
+    const {
+      topKey,
+      list,
+      isShowToast,
+      isVibrate
+    } = this.props
 
-      this.setState({
-        scrollTop: targetScrollTop
-      })
+    switch (ENV) {
+      case Taro.ENV_TYPE.WEAPP:
+      case Taro.ENV_TYPE.ALIPAY:
+        this.setState({
+          targetView
+        })
+        break
+
+      case Taro.ENV_TYPE.WEB: {
+        const bodyOffsetTop = this.indexesRef.getBoundingClientRect().top
+        const targetOffsetTop = this.listRef.childNodes[i].getBoundingClientRect().top
+        const targetScrollTop = this._scrollTop + targetOffsetTop - bodyOffsetTop
+
+        this.setState({
+          scrollTop: targetScrollTop
+        })
+        break
+      }
+      default:
+        console.warn('AtIndexes 暂未适配该环境')
+        break
     }
-    if (this.props.isShowToast) {
+
+    if (isShowToast) {
       Taro.showToast({
         title: i === 0 ? topKey : list[i - 1].key,
         icon: 'none',
         duration: 2000
       })
     }
-    if (this.props.isVibrate) {
+
+    if (isVibrate) {
       Taro.vibrateShort()
     }
   }
 
   initData () {
-    const env = Taro.getEnv()
-    setTimeout(() => {
-      if (env === Taro.ENV_TYPE.WEAPP) {
-        this.menuRef.boundingClientRect(rect => {
-          this.menuHeight = rect.height
-          this.startTop = rect.top
+    switch (ENV) {
+      case Taro.ENV_TYPE.WEAPP:
+      case Taro.ENV_TYPE.ALIPAY:
+        delayQuerySelector(this, `#${this.menuId}`)
+          .then(rect => {
+            this.menuHeight = rect[0].height
+            this.startTop = rect[0].top
+            this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
+          })
+        break
+
+      case Taro.ENV_TYPE.WEB: {
+        setTimeout(() => {
+          const menuRect = this.menuRef.getBoundingClientRect()
+          this.menuHeight = menuRect.height
+          this.startTop = menuRect.top
           this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
-        }).exec()
-      } else if (env === Taro.ENV_TYPE.WEB) {
-        this.menuHeight = this.menuRef.vnode.dom.getBoundingClientRect().height
-        this.startTop = this.menuRef.vnode.dom.getBoundingClientRect().top
-        this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
+        }, 500)
+        break
       }
-    }, 1000)
+      default:
+        console.warn('AtIndexes 暂未适配该环境')
+        break
+    }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -133,14 +135,13 @@ export default class AtIndexes extends AtComponent {
   }
 
   componentDidMount () {
+    if (ENV === Taro.ENV_TYPE.WEB) {
+      this.menuRef = document.getElementById(this.menuId)
+      this.indexesRef = document.getElementById(this.indexesId)
+      this.listRef = document.getElementById(this.listId)
+    }
     this.initData()
   }
-
-  getListRef = node => (this.listRef = node)
-
-  getIndexesRef = node => (this.indexesRef = node)
-
-  getMenuRef = node => (this.menuRef = node)
 
   handleScroll (ev) {
     const { scrollTop } = ev.detail
@@ -155,20 +156,21 @@ export default class AtIndexes extends AtComponent {
       topKey,
       list
     } = this.props
+
     return (
       <View
+        id={this.indexesId}
         className={
           classNames({
             'at-indexes': true,
           }, className)}
         style={customStyle}
-        ref={this.getIndexesRef}
       >
         <View
+          id={this.menuId}
           className='at-indexes__menu'
           onTouchMove={this.handleTouchMove.bind(this)}
           onTouchEnd={this.handleTouchEnd.bind(this)}
-          ref={this.getMenuRef}
         >
           <View
             className='at-indexes__menu-item'
@@ -189,13 +191,13 @@ export default class AtIndexes extends AtComponent {
           }
         </View>
         <ScrollView
+          id={this.listId}
           className='at-indexes__body'
           scrollY
           scrollWithAnimation={animation}
           scrollTop={this.state.scrollTop}
           scrollIntoView={this.state.targetView}
           onScroll={this.handleScroll.bind(this)}
-          ref={this.getListRef}
         >
           <View
             className='at-indexes__content'
@@ -232,3 +234,33 @@ export default class AtIndexes extends AtComponent {
     )
   }
 }
+
+AtIndexes.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  animation: PropTypes.bool,
+  isVibrate: PropTypes.bool,
+  isShowToast: PropTypes.bool,
+  topKey: PropTypes.string,
+  list: PropTypes.array,
+  onClick: PropTypes.func
+}
+
+AtIndexes.defaultProps = {
+  customStyle: '',
+  className: '',
+  animation: false,
+  topKey: 'Top',
+  isVibrate: true,
+  isShowToast: true,
+  list: [],
+  onClick: () => { }
+}
+
+export default AtIndexes
