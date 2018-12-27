@@ -95,6 +95,7 @@ export default class AtInput extends AtComponent {
             id={name}
             name={name}
             type={type}
+            password={type === 'password'}
             placeholderStyle={placeholderStyle}
             placeholderClass={classNames('placeholder', placeholderClass)}
             placeholder={placeholder}
