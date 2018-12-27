@@ -69,7 +69,7 @@ export default class AtImagePicker extends AtComponent {
         break
 
       default:
-        console.log('暂未支持该环境')
+        console.warn('暂未支持该环境')
         break
     }
   }
@@ -123,7 +123,6 @@ export default class AtImagePicker extends AtComponent {
     } = this.props
     // 行数
     const matrix = generateMatrix(files, length, showAddBtn)
-    console.log(matrix)
     return (
       <View
         className={
