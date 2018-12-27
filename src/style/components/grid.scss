@@ -1,30 +1,12 @@
-@import '../mixins/index.scss';
-@import '../variables/default.scss';
+@import "../mixins/index.scss";
+@import "../variables/default.scss";
 
 $at-grid-img-size: 80px;
 $at-gird-img-size-sm: 50px;
 
 .at-grid {
-  &-item {
-    &--last {
-      &::after {
-        border-right: none;
-      }
-    }
-
-    &--rect {
-      .content-inner {
-        &__text {
-          margin-left: 12px;
-          margin-top: initial;
-        }
-      }
-    }
-  }
-
   /* elements */
   &__flex-item {
-    position: relative;
     @include hairline-surround();
 
     &::after {
@@ -86,11 +68,9 @@ $at-gird-img-size-sm: 50px;
         }
       }
 
-      &--square {
-        &::before {
-          display: block;
-          content: " ";
-          padding-bottom: 100%;
+      &--last {
+        &::after {
+          border-right: none;
         }
       }
 
@@ -112,6 +92,21 @@ $at-gird-img-size-sm: 50px;
             width: $at-gird-img-size-sm;
             height: $at-gird-img-size-sm;
           }
+        }
+
+        .content-inner {
+          &__text {
+            margin-left: 12px;
+            margin-top: initial;
+          }
+        }
+      }
+
+      &--square {
+        &::before {
+          display: block;
+          content: " ";
+          padding-bottom: 100%;
         }
       }
 

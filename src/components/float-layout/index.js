@@ -43,6 +43,7 @@ export default class AtFloatLayout extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
+    e.preventDefault()
   }
 
   render () {

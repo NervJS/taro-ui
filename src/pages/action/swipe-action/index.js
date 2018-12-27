@@ -126,7 +126,6 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
                 <AtSwipeAction
-                  isOpened
                   onClick={this.handleClick}
                   options={OPTIONS}
                 >
