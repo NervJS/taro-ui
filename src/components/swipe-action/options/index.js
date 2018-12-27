@@ -7,7 +7,7 @@ import { delayQuerySelector } from '../../../common/utils'
 export default class AtSwiperActionOptions extends AtComponent {
   componentDidMount () {
     delayQuerySelector(
-      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
+      this,
       `#swipeActionOptions-${this.props.componentId}`
     ).then(res => {
       this.props.onQueryedDom(res[0])

@@ -35,7 +35,7 @@ export default class AtSwipeAction extends AtComponent {
 
   componentDidMount () {
     delayQuerySelector(
-      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
+      this,
       `#swipeAction-${this.state.componentId}`
     ).then(res => {
       this.domInfo = res[0]

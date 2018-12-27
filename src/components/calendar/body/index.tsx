@@ -139,7 +139,7 @@ export default class AtCalendarBody extends Taro.Component<
   }
 
   componentDidMount () {
-    delayQuerySelector(this.$scope, '.at-calendar-slider__main').then(res => {
+    delayQuerySelector(this, '.at-calendar-slider__main').then(res => {
       this.maxWidth = res[0].width
     })
   }

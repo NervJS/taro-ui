@@ -1,11 +1,12 @@
 import Taro from '@tarojs/taro'
 import { execObject, SelectorQuery } from '@tarojs/taro/types/index'
 
+const ENV = Taro.getEnv()
 const REM_LAYOUT_DELAY: number = 500
 
 function delay (): Promise<null> {
   return new Promise(resolve => {
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+    if (ENV === Taro.ENV_TYPE.WEB) {
       setTimeout(() => {
         resolve()
       }, REM_LAYOUT_DELAY)
@@ -16,9 +17,10 @@ function delay (): Promise<null> {
 }
 
 function delayQuerySelector (
-  $scope,
+  self,
   selectorStr: string
 ): Promise<Array<execObject>> {
+  const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
 
   return new Promise(resolve => {
@@ -38,7 +40,7 @@ function uuid (
   radix = 16
 ): string {
 
-  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
   var uuid: string[] = []
   var i = 0
   radix = radix || chars.length
