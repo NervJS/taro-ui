@@ -2,14 +2,13 @@ import Taro from '@tarojs/taro'
 import { execObject, SelectorQuery } from '@tarojs/taro/types/index'
 
 const ENV = Taro.getEnv()
-const REM_LAYOUT_DELAY: number = 500
 
-function delay (): Promise<null> {
+function delay (delayTime = 500): Promise<null> {
   return new Promise(resolve => {
     if (ENV === Taro.ENV_TYPE.WEB) {
       setTimeout(() => {
         resolve()
-      }, REM_LAYOUT_DELAY)
+      }, delayTime)
       return
     }
     resolve()
@@ -18,13 +17,14 @@ function delay (): Promise<null> {
 
 function delayQuerySelector (
   self,
-  selectorStr: string
+  selectorStr: string,
+  delayTime = 500,
 ): Promise<Array<execObject>> {
   const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
 
   return new Promise(resolve => {
-    delay().then(() => {
+    delay(delayTime).then(() => {
       selector
         .select(selectorStr)
         .boundingClientRect()
@@ -69,8 +69,79 @@ function uuid (
   return uuid.join('')
 }
 
+interface EventDetail {
+  pageX: number
+  pageY: number
+  clientX: number
+  clientY: number
+  offsetX: number
+  offsetY: number
+  x: number
+  y: number
+}
+
+function getEventDetail(event:any) {
+  let detail: EventDetail
+  switch (ENV) {
+    case Taro.ENV_TYPE.WEB:
+      detail = {
+        pageX: event.pageX,
+        pageY: event.pageY,
+        clientX: event.clientX,
+        clientY: event.clientY,
+        offsetX: event.offsetX,
+        offsetY: event.offsetY,
+        x: event.x,
+        y: event.y
+      }
+      break;
+
+    case Taro.ENV_TYPE.WEAPP:
+      detail = {
+        pageX: event.target.pageX,
+        pageY: event.target.pageY,
+        clientX: event.touches[0].clientX,
+        clientY: event.touches[0].clientY,
+        offsetX: event.target.offsetLeft,
+        offsetY: event.target.offsetTop,
+        x: event.target.x,
+        y: event.target.y
+      }
+      break;
+
+    case Taro.ENV_TYPE.ALIPAY:
+      detail = {
+        pageX: event.target.pageX,
+        pageY: event.target.pageY,
+        clientX: event.target.clientX,
+        clientY: event.target.clientY,
+        offsetX: event.target.offsetLeft,
+        offsetY: event.target.offsetTop,
+        x: event.target.x,
+        y: event.target.y
+      }
+      break;
+
+    default:
+      detail = {
+        pageX: 0,
+        pageY: 0,
+        clientX: 0,
+        clientY: 0,
+        offsetX: 0,
+        offsetY: 0,
+        x: 0,
+        y: 0,
+      }
+      console.warn('getEventDetail暂未支持该环境')
+      break;
+  }
+  return detail
+}
+
 export {
   delay,
   delayQuerySelector,
-  uuid
+  uuid,
+  getEventDetail
 }

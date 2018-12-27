@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
+import { uuid, delayQuerySelector, getEventDetail } from '../../common/utils'
 import AtComponent from '../../common/component'
 
 export default class AtRange extends AtComponent {
@@ -14,6 +15,7 @@ export default class AtRange extends AtComponent {
     this.left = 0
     this.deltaValue = max - min
     this.currentSlider = ''
+    this.rangeId = uuid()
     this.state = {
       slider1X: 0,
       slider2X: 0
@@ -22,13 +24,9 @@ export default class AtRange extends AtComponent {
 
   handleClick (event) {
     if (this.currentSlider && !this.props.disabled) {
-      const env = Taro.getEnv()
       let sliderValue = 0
-      if (env === Taro.ENV_TYPE.WEB) {
-        sliderValue = event.pageX - this.left
-      } else if (env === Taro.ENV_TYPE.WEAPP) {
-        sliderValue = event.target.x - this.left
-      }
+      const detail = getEventDetail(event)
+      sliderValue = detail.x - this.left
       this.setSliderValue(this.currentSlider, sliderValue, 'onChange')
     }
   }
@@ -108,25 +106,14 @@ export default class AtRange extends AtComponent {
 
   componentDidMount () {
     // 获取 range 宽度
-    const env = Taro.getEnv()
     const { value } = this.props
-    // 异步解决获取 offsetWidth 不准确问题
-    setTimeout(() => {
-      if (env === Taro.ENV_TYPE.WEB) {
-        this.width = Math.round(this.rangeRef.vnode.dom.offsetWidth)
-        this.left = Math.round(this.rangeRef.vnode.dom.offsetLeft)
+    delayQuerySelector(this, `#${this.rangeId}`, 0)
+      .then(rect => {
+        this.width = Math.round(rect[0].width)
+        this.left = Math.round(rect[0].left)
         this.setValue(value)
-      } else if (env === Taro.ENV_TYPE.WEAPP) {
-        this.rangeRef.boundingClientRect(rect => {
-          this.width = Math.round(rect.width)
-          this.left = Math.round(rect.left)
-          this.setValue(value)
-        }).exec()
-      }
-    })
+      })
   }
-
-  getRangeRef = node => (this.rangeRef = node)
 
   render () {
     const {
@@ -175,9 +162,9 @@ export default class AtRange extends AtComponent {
         onClick={this.handleClick.bind(this)}
       >
         <View
+          id={this.rangeId}
           className='at-range__container'
           style={containerStyle}
-          ref={this.getRangeRef}
         >
           <View
             className='at-range__rail'
