@@ -4,6 +4,31 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
+function getInputProps (props) {
+  const actualProps = {
+    type: props.type,
+    maxLength: props.maxLength,
+    disabled: props.disabled,
+    password: false,
+  }
+
+  switch (actualProps.type) {
+    case 'phone':
+      actualProps.type = 'number'
+      actualProps.maxLength = 11
+      break
+    case 'password':
+      actualProps.password = true
+      break
+    default:
+      break
+  }
+  if (!props.disabled && !props.editable) {
+    actualProps.disabled = true
+  }
+  return actualProps
+}
+
 export default class AtInput extends AtComponent {
   onInput (e) {
     this.props.onChange(e.target.value, ...arguments)
@@ -21,8 +46,8 @@ export default class AtInput extends AtComponent {
     this.props.onConfirm(e.target.value, ...arguments)
   }
 
-  onClick (e) {
-    !this.props.editable && this.props.onClick(e, ...arguments)
+  onClick () {
+    !this.props.editable && this.props.onClick(...arguments)
   }
 
   clearValue () {
@@ -46,7 +71,6 @@ export default class AtInput extends AtComponent {
       adjustPosition,
       border,
       title,
-      editable,
       error,
       clear,
       placeholder,
@@ -56,19 +80,13 @@ export default class AtInput extends AtComponent {
       focus,
       value
     } = this.props
-    let {
-      maxlength,
-      type,
-      disabled
-    } = this.props
 
-    if (type === 'phone') {
-      maxlength = 11
-      type = 'number'
-    }
-    if (!disabled && !editable) {
-      disabled = true
-    }
+    const {
+      type,
+      maxLength,
+      disabled,
+      password,
+    } = getInputProps(this.props)
 
     return (
       <View
@@ -81,11 +99,13 @@ export default class AtInput extends AtComponent {
         style={customStyle}
       >
         <View
-          className={classNames({
-            'at-input__container': true,
-            'at-input--error': error,
-            'at-input--disabled': disabled
-          })}
+          className={
+            classNames({
+              'at-input__container': true,
+              'at-input--error': error,
+              'at-input--disabled': disabled
+            })
+          }
           onClick={this.onClick.bind(this)}
         >
           {title && (
@@ -95,12 +115,12 @@ export default class AtInput extends AtComponent {
             id={name}
             name={name}
             type={type}
-            password={type === 'password'}
+            password={password}
             placeholderStyle={placeholderStyle}
             placeholderClass={classNames('placeholder', placeholderClass)}
             placeholder={placeholder}
             cursorSpacing={cursorSpacing}
-            maxlength={maxlength}
+            maxLength={maxLength}
             autoFocus={autoFocus}
             focus={focus}
             value={value}
@@ -149,7 +169,7 @@ AtInput.defaultProps = {
   selectionStart: -1,
   selectionEnd: -1,
   adjustPosition: true,
-  maxlength: 140,
+  maxLength: 140,
   type: 'text',
   disabled: false,
   border: true,
@@ -202,7 +222,7 @@ AtInput.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  maxlength: PropTypes.oneOfType([
+  maxLength: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
   ]),
