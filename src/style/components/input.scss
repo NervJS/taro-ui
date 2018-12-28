@@ -2,10 +2,27 @@
 @import '../variables/default.scss';
 
 .at-input {
+  position: relative;
   padding: $spacing-v-lg 0;
   color: $color-text-base;
   background-color: $color-bg;
+
+  /* 修复底线隐藏问题 */
+  margin-bottom: 1PX;
   @include hairline-bottom();
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-form;
+
+    &--hidden {
+      display: none;
+    }
+  }
 
   /* elements */
   &__container {
@@ -33,6 +50,8 @@
   }
 
   input {
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
     height: auto !important;
     min-height: auto !important;
   }

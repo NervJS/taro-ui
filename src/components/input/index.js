@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
+const ENV = Taro.getEnv()
+
 function getInputProps (props) {
   const actualProps = {
     type: props.type,
@@ -20,6 +22,11 @@ function getInputProps (props) {
     case 'password':
       actualProps.password = true
       break
+    case 'digit':
+      if (ENV === Taro.ENV_TYPE.WEB) {
+        actualProps.type = 'number'
+      }
+      break
     default:
       break
   }
@@ -31,7 +38,17 @@ function getInputProps (props) {
 
 export default class AtInput extends AtComponent {
   onInput (e) {
-    this.props.onChange(e.target.value, ...arguments)
+    let value = e.target.value
+    const { type, maxLength } = getInputProps(this.props)
+    if (
+      ENV === Taro.ENV_TYPE.WEB
+      && type === 'number'
+      && value
+      && maxLength <= value.length
+    ) {
+      value = value.substring(0, maxLength)
+    }
+    return this.props.onChange(value, ...arguments)
   }
 
   onFocus (e) {
@@ -106,12 +123,22 @@ export default class AtInput extends AtComponent {
               'at-input--disabled': disabled
             })
           }
-          onClick={this.onClick.bind(this)}
         >
+          <View
+            className={
+              classNames({
+                'at-input__overlay': true,
+                'at-input__overlay--hidden': !disabled
+              })
+            }
+            onClick={this.onClick.bind(this)}
+          >
+          </View>
           {title && (
             <Label className='at-input__title' for={name}>{title}</Label>
           )}
-          <Input className='at-input__input'
+          <Input
+            className='at-input__input'
             id={name}
             name={name}
             type={type}
@@ -129,7 +156,6 @@ export default class AtInput extends AtComponent {
             selectionStart={selectionStart}
             selectionEnd={selectionEnd}
             adjustPosition={adjustPosition}
-            disabled={disabled}
             onInput={this.onInput.bind(this)}
             onFocus={this.onFocus.bind(this)}
             onBlur={this.onBlur.bind(this)}
