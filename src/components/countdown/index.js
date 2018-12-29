@@ -1,8 +1,9 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import AtCountdownItem from './item'
 
 const toSeconds = (day, hours, minutes, seconds) => (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
 
@@ -13,10 +14,6 @@ export default class AtCountdown extends AtComponent {
     this.seconds = toSeconds(day, hours, minutes, seconds)
     this.state = { day, hours, minutes, seconds }
     this.timer = null
-  }
-
-  formatNum (num) {
-    return num <= 9 ? `0${num}` : `${num}`
   }
 
   setTimer () {
@@ -108,42 +105,10 @@ export default class AtCountdown extends AtComponent {
           }, className)}
         style={customStyle}
       >
-        {
-          isShowDay
-            ? <View className='at-countdown__item'>
-              <View className='at-countdown__time-box'>
-                <Text className='at-countdown__time'>
-                  {this.formatNum(day)}
-                </Text>
-              </View>
-              <Text className='at-countdown__separator'>{format.day}</Text>
-            </View>
-            : null
-        }
-        <View className='at-countdown__item'>
-          <View className='at-countdown__time-box'>
-            <Text className='at-countdown__time'>
-              {this.formatNum(hours)}
-            </Text>
-          </View>
-          <Text className='at-countdown__separator'>{format.hours}</Text>
-        </View>
-        <View className='at-countdown__item'>
-          <View className='at-countdown__time-box'>
-            <Text className='at-countdown__time'>
-              {this.formatNum(minutes)}
-            </Text>
-          </View>
-          <Text className='at-countdown__separator'>{format.minutes}</Text>
-        </View>
-        <View className='at-countdown__item'>
-          <View className='at-countdown__time-box'>
-            <Text className='at-countdown__time'>
-              {this.formatNum(seconds)}
-            </Text>
-          </View>
-          <Text className='at-countdown__separator'>{format.seconds}</Text>
-        </View>
+        { isShowDay && <AtCountdownItem num={day} separator={format.day} /> }
+        <AtCountdownItem num={hours} separator={format.hours} />
+        <AtCountdownItem num={minutes} separator={format.minutes} />
+        <AtCountdownItem num={seconds} separator={format.seconds} />
       </View>
     )
   }
