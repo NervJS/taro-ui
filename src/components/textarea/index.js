@@ -1,10 +1,21 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import Taro from '@tarojs/taro'
 import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
-export default class AtTextarea extends AtComponent {
+function getMaxLength (
+  maxLength,
+  textOverflowForbidden
+) {
+  if (!textOverflowForbidden) {
+    return maxLength + 500
+  }
+  return maxLength
+}
+
+class AtTextarea extends AtComponent {
   handleInput () {
     this.props.onChange(...arguments)
   }
@@ -34,7 +45,7 @@ export default class AtTextarea extends AtComponent {
       placeholder,
       placeholderStyle,
       placeholderClass,
-      maxlength,
+      maxLength,
       count,
       disabled,
       autoFocus,
@@ -46,11 +57,7 @@ export default class AtTextarea extends AtComponent {
       textOverflowForbidden,
       height
     } = this.props
-
-    let actualMaxlength = maxlength
-    if (!textOverflowForbidden) {
-      actualMaxlength += 500
-    }
+    const actualMaxLength = getMaxLength(maxLength, textOverflowForbidden)
     const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
 
     return (
@@ -66,7 +73,9 @@ export default class AtTextarea extends AtComponent {
           className='at-textarea__textarea'
           value={value}
           confirmType='完成'
-          maxlength={actualMaxlength}
+          /* 兼容之前的版本 */
+          maxlength={actualMaxLength}
+          maxLength={actualMaxLength}
           placeholder={placeholder}
           disabled={disabled}
           autoFocus={autoFocus}
@@ -82,20 +91,18 @@ export default class AtTextarea extends AtComponent {
           onLinechange={this.handleLinechange.bind(this)}
           showCount={false}
         />
-        {
-          count
-            ? <View
-              className={
-                classNames({
-                  'at-textarea__bottom': true,
-                  'at-textarea--error': maxlength < value.length
-                })
-              }
-            >
-              {value.length}/{maxlength}
-            </View>
-            : null
-        }
+        {count && (
+          <View
+            className={
+              classNames({
+                'at-textarea__bottom': true,
+                'at-textarea--error': maxLength < value.length
+              })
+            }
+          >
+            {value.length}/{maxLength}
+          </View>
+        )}
       </View>
     )
   }
@@ -106,7 +113,7 @@ AtTextarea.defaultProps = {
   className: '',
   value: '',
   cursorSpacing: 100,
-  maxlength: 200,
+  maxLength: 200,
   placeholder: '',
   disabled: false,
   autoFocus: false,
@@ -136,7 +143,7 @@ AtTextarea.propTypes = {
   ]),
   value: PropTypes.string.isRequired,
   cursorSpacing: PropTypes.number,
-  maxlength: PropTypes.oneOfType([
+  maxLength: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
   ]),
@@ -159,3 +166,5 @@ AtTextarea.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
 }
+
+export default AtTextarea
