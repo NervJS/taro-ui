@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
-const ENV = Taro.getEnv()
-
 function getInputProps (props) {
   const actualProps = {
     type: props.type,
@@ -22,11 +20,6 @@ function getInputProps (props) {
     case 'password':
       actualProps.password = true
       break
-    case 'digit':
-      if (ENV === Taro.ENV_TYPE.WEB) {
-        actualProps.type = 'number'
-      }
-      break
     default:
       break
   }
@@ -37,43 +30,19 @@ function getInputProps (props) {
 }
 
 export default class AtInput extends AtComponent {
-  onInput (e) {
-    let value = e.target.value
-    const { type, maxLength } = getInputProps(this.props)
-    if (
-      ENV === Taro.ENV_TYPE.WEB
-      && type === 'number'
-      && value
-      && maxLength <= value.length
-    ) {
-      value = value.substring(0, maxLength)
-    }
-    return this.props.onChange(value, ...arguments)
-  }
+  onInput = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
 
-  onFocus (e) {
-    this.props.onFocus(e.target.value, ...arguments)
-  }
+  onFocus = (e, ...arg) => this.props.onFocus(e.target.value, ...arg)
 
-  onBlur (e) {
-    this.props.onBlur(e.target.value, ...arguments)
-  }
+  onBlur = (e, ...arg) => this.props.onBlur(e.target.value, ...arg)
 
-  onConfirm (e) {
-    this.props.onConfirm(e.target.value, ...arguments)
-  }
+  onConfirm = (e, ...arg) => this.props.onConfirm(e.target.value, ...arg)
 
-  onClick () {
-    !this.props.editable && this.props.onClick(...arguments)
-  }
+  onClick = (...arg) => !this.props.editable && this.props.onClick(...arg)
 
-  clearValue () {
-    this.props.onChange('', ...arguments)
-  }
+  clearValue = (...arg) => this.props.onChange('', ...arg)
 
-  onErrorClick () {
-    this.props.onErrorClick(...arguments)
-  }
+  onErrorClick = (...arg) => this.props.onErrorClick(...arg)
 
   render () {
     const {
@@ -97,7 +66,6 @@ export default class AtInput extends AtComponent {
       focus,
       value
     } = this.props
-
     const {
       type,
       maxLength,
@@ -105,32 +73,35 @@ export default class AtInput extends AtComponent {
       password,
     } = getInputProps(this.props)
 
+    const rootCls = classNames(
+      'at-input',
+      {
+        'at-input--without-border': !border,
+      }, className
+    )
+    const containerCls = classNames(
+      'at-input__container',
+      {
+        'at-input--error': error,
+        'at-input--disabled': disabled
+      }
+    )
+    const overlayCls = classNames(
+      'at-input__overlay',
+      {
+        'at-input__overlay--hidden': !disabled
+      }
+    )
+    const placeholderCls = classNames('placeholder', placeholderClass)
+
     return (
       <View
-        className={
-          classNames({
-            'at-input': true,
-            'at-input--without-border': !border
-          }, className)
-        }
+        className={rootCls}
         style={customStyle}
       >
-        <View
-          className={
-            classNames({
-              'at-input__container': true,
-              'at-input--error': error,
-              'at-input--disabled': disabled
-            })
-          }
-        >
+        <View className={containerCls}>
           <View
-            className={
-              classNames({
-                'at-input__overlay': true,
-                'at-input__overlay--hidden': !disabled
-              })
-            }
+            className={overlayCls}
             onClick={this.onClick.bind(this)}
           >
           </View>
@@ -144,7 +115,7 @@ export default class AtInput extends AtComponent {
             type={type}
             password={password}
             placeholderStyle={placeholderStyle}
-            placeholderClass={classNames('placeholder', placeholderClass)}
+            placeholderClass={placeholderCls}
             placeholder={placeholder}
             cursorSpacing={cursorSpacing}
             maxLength={maxLength}
@@ -156,18 +127,18 @@ export default class AtInput extends AtComponent {
             selectionStart={selectionStart}
             selectionEnd={selectionEnd}
             adjustPosition={adjustPosition}
-            onInput={this.onInput.bind(this)}
-            onFocus={this.onFocus.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            onConfirm={this.onConfirm.bind(this)}
+            onInput={this.onInput}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            onConfirm={this.onConfirm}
           />
           {clear && value && (
-            <View className='at-input__icon' onTouchStart={this.clearValue.bind(this)}>
+            <View className='at-input__icon' onTouchStart={this.clearValue}>
               <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
             </View>
           )}
           {error && (
-            <View className='at-input__icon' onTouchStart={this.onErrorClick.bind(this)}>
+            <View className='at-input__icon' onTouchStart={this.onErrorClick}>
               <Text className='at-icon at-icon-alert-circle at-input__icon-alert'></Text>
             </View>
           )}
