@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import AtComponent from '../../common/component'
 
-export default class AtSearchBar extends AtComponent {
+class AtSearchBar extends AtComponent {
   constructor (props) {
     super(...arguments)
     this.state = {
@@ -12,41 +12,33 @@ export default class AtSearchBar extends AtComponent {
     }
   }
 
-  handleFocus () {
+  handleFocus = (...arg) => {
     this.setState({
       isFocus: true
     })
-    this.props.onFocus(...arguments)
+    this.props.onFocus(...arg)
   }
 
-  handleBlur () {
+  handleBlur = (...arg) => {
     this.setState({
       isFocus: false
     })
-    this.props.onBlur(...arguments)
+    this.props.onBlur(...arg)
   }
 
-  handleChange (e) {
-    this.props.onChange(e.target.value, ...arguments)
-  }
+  handleChange = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
 
-  handleClear () {
-    this.props.onChange('', ...arguments)
-  }
+  handleClear = (...arg) => this.props.onChange('', ...arg)
 
-  handleConfirm () {
-    this.props.onConfirm(...arguments)
-  }
+  handleConfirm = (...arg) => this.props.onConfirm(...arg)
 
-  handleActionClick () {
-    this.props.onActionClick(...arguments)
-  }
+  handleActionClick = (...arg) => this.props.onActionClick(...arg)
 
   render () {
     const {
       value,
       placeholder,
-      maxlength,
+      maxLength,
       fixed,
       focus,
       disabled,
@@ -56,46 +48,54 @@ export default class AtSearchBar extends AtComponent {
       customStyle
     } = this.props
     const { isFocus } = this.state
-
-    const placeholderStyle = {}
+    const fontSize = 14
+    const rootCls = classNames(
+      'at-search-bar',
+      {
+        'at-search-bar--fixed': fixed
+      }, className
+    )
+    const placeholderWrapStyle = {}
     const actionStyle = {}
     if (isFocus || (!isFocus && value)) {
-      placeholderStyle.width = `${(placeholder.length + 2.5) * 14}px`
+      placeholderWrapStyle.width = `${(placeholder.length + 2.5) * fontSize}px`
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
     } else if (!isFocus && !value) {
-      placeholderStyle.width = '100%'
+      placeholderWrapStyle.width = '100%'
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${((actionName.length + 1) * 14) + 7}px`
+      actionStyle.marginRight = `-${((actionName.length + 1) * fontSize) + (fontSize / 2)}px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
     }
+
+    const clearIconStyle = { display: 'flex' }
+    const placeholderStyle = { visibility: 'hidden' }
+    if (!value.length) {
+      clearIconStyle.display = 'none'
+      placeholderStyle.visibility = 'visible'
+    }
+
+
     return (
       <View
-        className={
-          classNames({
-            'at-search-bar': true,
-            'at-search-bar--fixed': fixed
-          }, className)
-        }
+        className={rootCls}
         style={customStyle}
       >
         <View className='at-search-bar__input-cnt'>
           <View
             className='at-search-bar__placeholder-wrap'
-            style={placeholderStyle}
+            style={placeholderWrapStyle}
           >
             <Text className='at-icon at-icon-search'></Text>
             <Text
               className='at-search-bar__placeholder'
-              style={
-                value.length
-                  ? 'visibility: hidden;'
-                  : 'visibility: visible;'
-              }
-            >{placeholder}</Text>
+              style={placeholderStyle}
+            >
+              {placeholder}
+            </Text>
           </View>
           <Input
             className='at-search-bar__input'
@@ -104,28 +104,24 @@ export default class AtSearchBar extends AtComponent {
             value={value}
             focus={focus}
             disabled={disabled}
-            maxlength={maxlength}
-            onInput={this.handleChange.bind(this)}
-            onFocus={this.handleFocus.bind(this)}
-            onBlur={this.handleBlur.bind(this)}
-            onConfirm={this.handleConfirm.bind(this)}
+            maxLength={maxLength}
+            onInput={this.handleChange}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onConfirm={this.handleConfirm}
           />
           <View
             className='at-search-bar__clear'
-            style={
-              value.length
-                ? 'display: flex;'
-                : 'display: none;'
-            }
-            onTouchStart={this.handleClear.bind(this)}
+            style={clearIconStyle}
+            onTouchStart={this.handleClear}
           >
             <Text className='at-icon at-icon-close-circle'></Text>
           </View>
         </View>
         <View
-          onClick={this.handleActionClick.bind(this)}
           className='at-search-bar__action'
           style={actionStyle}
+          onClick={this.handleActionClick}
         >
           {actionName}
         </View>
@@ -137,7 +133,7 @@ export default class AtSearchBar extends AtComponent {
 AtSearchBar.defaultProps = {
   value: '',
   placeholder: '搜索',
-  maxlength: 140,
+  maxLength: 140,
   fixed: false,
   focus: false,
   disabled: false,
@@ -153,7 +149,7 @@ AtSearchBar.defaultProps = {
 AtSearchBar.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  maxlength: PropTypes.number,
+  maxLength: PropTypes.number,
   fixed: PropTypes.bool,
   focus: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -165,3 +161,5 @@ AtSearchBar.propTypes = {
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func
 }
+
+export default AtSearchBar
