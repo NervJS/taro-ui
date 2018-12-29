@@ -83,7 +83,7 @@ export default class PanelBasic extends Component {
             name: '徽标'
           },
           {
-            id: 'CountDown',
+            id: 'Countdown',
             name: '倒计时'
           },
           {

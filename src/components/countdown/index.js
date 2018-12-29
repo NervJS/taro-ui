@@ -59,28 +59,37 @@ export default class AtCountDown extends AtComponent {
   }
 
   setTimer () {
-    this.timer = setInterval(() => {
-      let [day, hours, minutes, seconds] = [0, 0, 0, 0]
-      if (this.seconds > 0) {
-        day = Math.floor(this.seconds / (60 * 60 * 24))
-        hours = Math.floor(this.seconds / (60 * 60)) - (day * 24)
-        minutes = Math.floor(this.seconds / 60) - (day * 24 * 60) - (hours * 60)
-        seconds = Math.floor(this.seconds) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
-      }
-      this.setState({ day, hours, minutes, seconds })
-      this.seconds--
-      if (this.seconds < 0) {
-        clearInterval(this.timer)
-        this.timer = null
-        this.props.onTimeUp()
-      }
-    }, 1000)
+    if (!this.timer) this.countdonwn()
   }
 
   clearTimer () {
     if (this.timer) {
       clearInterval(this.timer)
     }
+  }
+
+  countdonwn () {
+    let [day, hours, minutes, seconds] = [0, 0, 0, 0]
+
+    if (this.seconds > 0) {
+      day = Math.floor(this.seconds / (60 * 60 * 24))
+      hours = Math.floor(this.seconds / (60 * 60)) - (day * 24)
+      minutes = Math.floor(this.seconds / 60) - (day * 24 * 60) - (hours * 60)
+      seconds = Math.floor(this.seconds) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
+    }
+
+    this.setState({ day, hours, minutes, seconds })
+    this.seconds--
+
+    if (this.seconds < 0) {
+      this.clearTimer()
+      this.props.onTimeUp()
+      return
+    }
+
+    this.timer = setTimeout(() => {
+      this.countdonwn()
+    }, 1000)
   }
 
   componentWillReceiveProps (nextProps) {

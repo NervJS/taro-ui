@@ -10,7 +10,7 @@
 :::demo
 
 ```js
-import { AtCountDown } from 'taro-ui'
+import { AtCountdown } from 'taro-ui'
 ```
 
 :::
@@ -24,7 +24,7 @@ import { AtCountDown } from 'taro-ui'
 ```js
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtCountDown } from 'taro-ui'
+import { AtCountdown } from 'taro-ui'
 
 export default class CountDownPage extends Taro.Component {
   onTimeUp () {
@@ -36,7 +36,7 @@ export default class CountDownPage extends Taro.Component {
   }
   render () {
     return (
-      <AtCountDown
+      <AtCountdown
         format={{ hours: ':', minutes: ':', seconds: '' }}
         seconds={10}
         onTimeUp={this.onTimeUp.bind(this)}
@@ -53,7 +53,7 @@ export default class CountDownPage extends Taro.Component {
 :::demo
 
 ```html
-<AtCountDown
+<AtCountdown
   isShowDay
   day={2}
   hours={1}
@@ -69,7 +69,7 @@ export default class CountDownPage extends Taro.Component {
 :::demo
 
 ```html
-<AtCountDown
+<AtCountdown
   isShowDay
   format={{ hours: ':', minutes: ':', seconds: '' }}
   day={2}
@@ -87,7 +87,7 @@ export default class CountDownPage extends Taro.Component {
 :::demo
 
 ```html
-<AtCountDown
+<AtCountdown
   isCard
   minutes={1}
   seconds={10}
