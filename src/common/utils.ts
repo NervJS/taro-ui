@@ -139,9 +139,16 @@ function getEventDetail(event:any) {
   return detail
 }
 
+function initTestEnv() {
+  if (process.env.NODE_ENV === 'test') {
+    Taro.initPxTransform({ designWidth: 750 })
+  }
+}
+
 export {
   delay,
   delayQuerySelector,
   uuid,
-  getEventDetail
+  getEventDetail,
+  initTestEnv
 }

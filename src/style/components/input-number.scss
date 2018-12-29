@@ -38,7 +38,8 @@ $at-input-number-size-min-lg: 120px;
     }
   }
 
-  &__input {
+  &__input,
+  input {
     display: inline-block;
     width: $at-input-number-size-min;
     height: auto;
