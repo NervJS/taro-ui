@@ -51,6 +51,7 @@ AtBadge.defaultProps = {
   value: '',
   maxValue: 99,
   customStyle: {},
+  className: '',
 }
 
 AtBadge.propTypes = {
@@ -61,4 +62,5 @@ AtBadge.propTypes = {
   ]),
   maxValue: PropTypes.number,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }

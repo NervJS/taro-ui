@@ -91,7 +91,9 @@ export default class AtActionSheet extends AtComponent {
 }
 
 AtActionSheet.defaultProps = {
-  isOpened: false
+  title: '',
+  cancelText: '',
+  isOpened: false,
 }
 
 AtActionSheet.propTypes = {
@@ -99,5 +101,5 @@ AtActionSheet.propTypes = {
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
   isOpened: PropTypes.bool,
-  cancelText: PropTypes.string
+  cancelText: PropTypes.string,
 }

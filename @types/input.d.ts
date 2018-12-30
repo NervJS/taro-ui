@@ -21,7 +21,7 @@ export interface AtInputProps extends AtComponent{
 
   disabled?: boolean
 
-  maxLength?: InputProp
+  maxlength?: InputProp
 
   value?: InputProp
 

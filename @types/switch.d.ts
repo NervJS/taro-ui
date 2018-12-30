@@ -4,8 +4,6 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface AtSwitchProps extends AtComponent{
-  style?: string
-
   title?: string
 
   color?: string

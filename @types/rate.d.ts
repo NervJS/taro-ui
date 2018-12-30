@@ -4,8 +4,6 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface AtRateProps extends AtComponent{
-  style?: string
-
   size?: number
 
   value?: number

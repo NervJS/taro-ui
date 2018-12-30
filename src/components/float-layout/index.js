@@ -111,9 +111,17 @@ export default class AtFloatLayout extends AtComponent {
 }
 
 AtFloatLayout.defaultProps = {
+  title: '',
   isOpened: false,
 
-  scrollY: true
+  scrollY: true,
+  scrollX: false,
+  scrollWithAnimation: false,
+
+  onClose: () => {},
+  onScroll: () => {},
+  onScrollToLower: () => {},
+  onScrollToUpper: () => {},
 }
 
 AtFloatLayout.propType = {
@@ -131,5 +139,5 @@ AtFloatLayout.propType = {
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
-  onScrollToUpper: PropTypes.func
+  onScrollToUpper: PropTypes.func,
 }

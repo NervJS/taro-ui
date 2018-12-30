@@ -30,6 +30,7 @@ export default class AtSegmentedControl extends AtComponent {
     ]),
     current: PropTypes.number,
     color: PropTypes.string,
+    selectedColor: PropTypes.string,
     fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     disabled: PropTypes.bool,
     values: PropTypes.array,

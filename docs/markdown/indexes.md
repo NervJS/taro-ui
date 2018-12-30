@@ -80,7 +80,6 @@ export default class Index extends Taro.Component {
 | isVibrate | 是否切换 key 的震动，只在微信小程序有效 | Boolean  | - | true |
 | isShowToast | 是否用弹框显示当前 key | Boolean  | - | true |
 | topKey | 右侧导航第一个名称 | String  | - | Top |
-| topKey | 右侧导航第一个名称 | String  | - | Top |
 | list | `[ {'{title:列表标题,key:右侧导航标题,items:[{name: 列表项内容}]}'}]` | Array  | - | - |
 
 ## 事件

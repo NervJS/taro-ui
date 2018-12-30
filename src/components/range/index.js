@@ -50,7 +50,8 @@ export default class AtRange extends AtComponent {
     max: PropTypes.number,
     disabled: PropTypes.bool,
     blockSize: PropTypes.number,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    onAfterChange: PropTypes.func,
   }
 
   constructor (props) {
