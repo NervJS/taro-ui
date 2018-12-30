@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "UI KIT for Taro",
   "main": "dist/index.js",
   "types": "./@types/index.d.ts",

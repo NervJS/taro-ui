@@ -1,12 +1,12 @@
 import * as Nerv from 'nervjs'
-import CountDownDoc from '@md/count-down.md'
+import CountdownDoc from '@md/countdown.md'
 
-class CountDownView extends Nerv.Component {
+class CountdownView extends Nerv.Component {
   render() {
     return (
-      <CountDownDoc />
+      <CountdownDoc />
     )
   }
 }
 
-export default CountDownView
+export default CountdownView
