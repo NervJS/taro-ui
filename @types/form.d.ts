@@ -6,8 +6,6 @@ declare type FormFunction = (event: BaseEvent) => void
 import AtComponent from './base'
 
 export interface AtFormProps extends AtComponent{
-  style?: string
-
   reportSubmit?: boolean
 
   onSubmit?: FormFunction

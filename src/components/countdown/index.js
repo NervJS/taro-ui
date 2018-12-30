@@ -1,13 +1,51 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
+
 import AtComponent from '../../common/component'
-import AtCountdownItem from './item'
+import './index.scss'
 
 const toSeconds = (day, hours, minutes, seconds) => (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
 
-export default class AtCountdown extends AtComponent {
+export default class AtCountDown extends AtComponent {
+  static defaultProps = {
+    customStyle: '',
+    className: '',
+    isCard: false,
+    isShowDay: false,
+    format: {
+      day: '天',
+      hours: '时',
+      minutes: '分',
+      seconds: '秒'
+    },
+    day: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    onTimeUp: () => {}
+  }
+
+  static propTypes = {
+    customStyle: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ]),
+    className: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
+    isCard: PropTypes.bool,
+    isShowDay: PropTypes.bool,
+    format: PropTypes.object,
+    day: PropTypes.number,
+    hours: PropTypes.number,
+    minutes: PropTypes.number,
+    seconds: PropTypes.number,
+    onTimeUp: PropTypes.func
+  }
+
   constructor () {
     super(...arguments)
     const { day, hours, minutes, seconds } = this.props
@@ -16,14 +54,17 @@ export default class AtCountdown extends AtComponent {
     this.timer = null
   }
 
+  formatNum (num) {
+    return num <= 9 ? `0${num}` : `${num}`
+  }
+
   setTimer () {
     if (!this.timer) this.countdonwn()
   }
 
   clearTimer () {
     if (this.timer) {
-      clearTimeout(this.timer)
-      this.timer = null
+      clearInterval(this.timer)
     }
   }
 
@@ -100,53 +141,48 @@ export default class AtCountdown extends AtComponent {
       <View
         className={
           classNames({
-            'at-countdown': true,
-            'at-countdown--card': isCard
+            'at-count-down': true,
+            'at-count-down--card': isCard
           }, className)}
         style={customStyle}
       >
-        { isShowDay && <AtCountdownItem num={day} separator={format.day} /> }
-        <AtCountdownItem num={hours} separator={format.hours} />
-        <AtCountdownItem num={minutes} separator={format.minutes} />
-        <AtCountdownItem num={seconds} separator={format.seconds} />
+        {
+          isShowDay
+            ? <View className='at-count-down__item'>
+              <View className='at-count-down__time-box'>
+                <Text className='at-count-down__time'>
+                  {this.formatNum(day)}
+                </Text>
+              </View>
+              <Text className='at-count-down__separator'>{format.day}</Text>
+            </View>
+            : null
+        }
+        <View className='at-count-down__item'>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(hours)}
+            </Text>
+          </View>
+          <Text className='at-count-down__separator'>{format.hours}</Text>
+        </View>
+        <View className='at-count-down__item'>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(minutes)}
+            </Text>
+          </View>
+          <Text className='at-count-down__separator'>{format.minutes}</Text>
+        </View>
+        <View className='at-count-down__item'>
+          <View className='at-count-down__time-box'>
+            <Text className='at-count-down__time'>
+              {this.formatNum(seconds)}
+            </Text>
+          </View>
+          <Text className='at-count-down__separator'>{format.seconds}</Text>
+        </View>
       </View>
     )
   }
-}
-
-AtCountdown.defaultProps = {
-  customStyle: '',
-  className: '',
-  isCard: false,
-  isShowDay: false,
-  format: {
-    day: '天',
-    hours: '时',
-    minutes: '分',
-    seconds: '秒'
-  },
-  day: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-  onTimeUp () {},
-}
-
-AtCountdown.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
-  isCard: PropTypes.bool,
-  isShowDay: PropTypes.bool,
-  format: PropTypes.object,
-  day: PropTypes.number,
-  hours: PropTypes.number,
-  minutes: PropTypes.number,
-  seconds: PropTypes.number,
-  onTimeUp: PropTypes.func,
 }

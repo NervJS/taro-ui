@@ -80,3 +80,12 @@ AtCard.propTypes = {
   icon: PropTypes.object,
   onClick: PropTypes.func,
 }
+
+AtCard.defaultProps = {
+  note: '',
+  isFull: false,
+  thumb: '',
+  title: '',
+  extra: '',
+  onClick: () => {},
+}

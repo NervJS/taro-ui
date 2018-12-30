@@ -57,17 +57,19 @@ export default class AtAvatar extends AtComponent {
 AtAvatar.defaultProps = {
   size: 'normal',
   circle: false,
-  image: '',
   text: '',
+  image: '',
   openData: {},
   customStyle: {},
+  className: '',
 }
 
 AtAvatar.propTypes = {
   size: PropTypes.oneOf(['large', 'normal', 'small']),
   circle: PropTypes.bool,
-  image: PropTypes.string,
   text: PropTypes.string,
+  image: PropTypes.string,
   openData: PropTypes.object,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }

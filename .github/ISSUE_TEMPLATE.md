@@ -1,41 +1,53 @@
-<!--
+---
+name: Bug report
+about: 创建一个错误报告
+---
 
-Reporting a bug?
-================
-- Always search for your issue first. It may have already been answered, planned or fixed in some branch.
+如果是提交 bug，请搜索文档和 issue，确认以下事项：
 
-- Make sure to only create issues for the newest version.
+* 该问题没有在其他 issue 和文档讨论到，不属于重复内容
 
-- Create a declarative title and describe clearly the steps necessary to reproduce the issue.
+* 分割线以下的模板除了「 补充信息」每一样都必填
 
-- If you want to show your code please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You could start with [this template](https://jsbin.com/dezafos/edit).
+如果不满足以上两点要求的 bug 报告，issue 会被直接关掉。
 
-- In case you found a solution by yourself, it could be helpful to explain how you fixed it.
+请多多理解，您现在的不便将会使 Taro 开发者更高效地定位你的问题，修复你的问题。像你一样的 Taro 的使用者也可以通过搜索找到你提供的 bug，对各方都有很大好处。
 
-- For bugs that involves build setups, you can create a reproduction repository with steps in the README.
+🙏🙏🙏
+阅读完后请在提交的issue中删除以上内容，包括分割线。
+------------------------
 
-- If your issue is resolved but still open, don’t hesitate to close it. In case you found a solution by yourself, it could be helpful to explain how you fixed it.
+**问题描述**
+[问题描述：站在其它人的角度尽可能清晰地、简洁地把问题描述清楚]
 
-Have a feature request?
-=======================
-- Remove the template from below and provide thoughtful commentary.
+**复现步骤**
+[复现问题的步骤]
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-- Answer those questions:
-  - What will it allow you to do that you can't do today?
-  - How will it make current work-arounds straightforward?
-  - What potential bugs and edge cases does it help to avoid?
+[或者可以直接贴源代码，能贴文字就不要截图]
 
--->
+```js
+// 这里可以贴代码
 
-<!-- BUG REPORT TEMPLATE -->
+```
 
-### 重现步骤
+**期望行为**
+[这里请用简洁清晰的语言描述你期望的行为]
 
-### 依赖的版本号
-<!-- Node 的版本，Taro 的版本，Taro-UI 的版本? -->
+**报错信息**
 
-### 预期结果
+[这里请贴上你的**完整**报错截图或文字]
 
-### 实际结果
+**系统信息**
+> Taro v1.2 及以上版本已添加 `taro info` 命令，方便大家查看系统及依赖信息，运行该命令后将结果贴下面即可。
 
-### 相关链接
+ - Taro 版本 [e.g. v.0.0.64]
+ - Taro UI 版本 [e.g. v.0.0.64]
+ - 报错平台 [h5, weapp]
+
+**补充信息**
+[可选]
+[根据你的调查研究，出现这个问题的原因可能在哪里？]

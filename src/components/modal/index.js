@@ -127,6 +127,7 @@ AtModal.propTypes = {
   isOpened: PropTypes.bool,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
+  onClose: PropTypes.func,
   content: PropTypes.string,
   closeOnClickOverlay: PropTypes.bool,
   cancelText: PropTypes.string,

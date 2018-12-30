@@ -1,4 +1,4 @@
-import { CSSProperties } from "react"
+import { CSSProperties } from 'react'
 
 export interface AtComponent {
   className?: string | string[] | { [key: string]: boolean }

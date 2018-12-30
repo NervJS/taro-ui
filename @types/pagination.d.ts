@@ -11,8 +11,6 @@ export interface AtPaginationProps extends AtComponent{
   pageSize?: number
 
   icon?: boolean
-  
-  pickerSelect?: boolean
 
   className?: string | Array<string>
 

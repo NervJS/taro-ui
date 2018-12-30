@@ -4,13 +4,15 @@ import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface AtTextareaProps extends AtComponent{
-  style?: string
-
   value: string
 
   maxLength?: string
 
   placeholder?: string
+
+  placeholderClass?: string
+
+  placeholderStyle?: string
 
   disabled?: boolean
 

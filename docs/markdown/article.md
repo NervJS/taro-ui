@@ -6,17 +6,14 @@
 
 ## 使用指南
 
-在 `app.js` 文件中引入样式
+在页面样式文件中引入
 
 > 由于 `app.js` 添加的样式文件 在小程序上只能影响 `page` 样式,不能影响 `component` 的样式，所以在 `component` 的时候你可能需要再次引入
 
 :::demo
-```js
-if (process.env.TARO_ENV === 'weapp') {
-  require('taro-ui/dist/weapp/css/index.css')
-} else if (process.env.TARO_ENV === 'h5') {
-  require('taro-ui/dist/h5/css/index.css')
-}
+```scss
+// page.scss
+@import "~taro-ui/dist/components/article/index.scss";
 ```
 :::
 

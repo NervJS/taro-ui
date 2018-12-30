@@ -127,11 +127,19 @@ export default class AtListItem extends AtComponent {
 }
 
 AtListItem.defaultProps = {
-  hasBorder: true,
-  isSwitch: false,
+  note: '',
   disabled: false,
+  title: '',
+  thumb: '',
+  isSwitch: false,
+  hasBorder: true,
+  switchColor: '#6190E8',
+  switchIsCheck: false,
+  extraText: '',
+  extraThumb: '',
   iconInfo: {},
-  switchColor: '#6190E8'
+  onSwitchChange: () => {},
+  onClick: () => {},
 }
 
 AtListItem.propTypes = {

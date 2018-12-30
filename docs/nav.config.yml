@@ -30,7 +30,7 @@ components:
           - title: 徽标
             name: Badge
           - title: 倒计时
-            name: CountDown
+            name: Countdown
           - title: 幕帘
             name: Curtain
           - title: 页面提示

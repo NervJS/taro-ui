@@ -11,6 +11,22 @@
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>
       <div class="at-timeline__content">
+        <p class="head">v1.5.4</p>
+        <p class="time">
+          <span>2018-12.30</span>
+        </p>
+        <ul class="content">
+          <li>组件兼容<span>taro v1.2.3</span>版本</li>
+          <li>修复<span>Countdown</span>组件 onTimeUp 事件多次触发的问题</li>
+          <li>修复<span>ActionSheet</span>组件修改 state 无法变更 Title 的问题（<a href="https://github.com/NervJS/taro-ui/issues/269">#269</a>）</li>
+          <li>修复组件中带有浮层的滑动穿透问题（<a href="https://github.com/NervJS/taro-ui/issues/286">#286</a>）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
         <p class="head">v1.5.3</p>
         <p class="time">
           <span>2018-12.25</span>

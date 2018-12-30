@@ -147,7 +147,7 @@ export default class Index extends Taro.Component {
 | fontSize | 字体大小 | Number  | - | 14 |
 | tabList | tab 列表, object 字段说明请看下表 | Array  | - | false |
 
-## tabList object字段详解
+## tabList object 字段详解
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   | 可选或必填
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |-------- |

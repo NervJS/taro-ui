@@ -1,0 +1,49 @@
+@import "../../../style/mixins/index.scss";
+@import "../../../style/theme/default.scss";
+
+.at-col {
+  @include flex(1);
+
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  @for $col from 1 through 12 {
+    $width: ($col / 12) * 100%;
+
+    &-#{$col} {
+      @include flex(0, 0, $width);
+
+      max-width: $width;
+    }
+
+    &__offset-#{$col} {
+      margin-left: $width;
+    }
+  }
+
+  &__align {
+    &--top {
+      @include align-self(flex-start);
+    }
+
+    &--bottom {
+      @include align-self(flex-end);
+    }
+
+    &--center {
+      @include align-self(center);
+    }
+  }
+
+  &--auto {
+    max-width: initial;
+    word-break: keep-all;
+  }
+
+  &--wrap {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}

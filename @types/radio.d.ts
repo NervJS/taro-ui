@@ -11,8 +11,6 @@ export interface Option<T> {
 }
 
 export interface AtRadioProps<T> {
-  style?: string
-
   value: T
 
   options: Array<Option<T>>

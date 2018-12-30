@@ -4,8 +4,6 @@ import { BaseEventFunction } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface AtNavBarProps extends AtComponent{
-  style?: string
-
   title?: string
 
   fixed?: boolean
