@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
 import AtComponent from '../../common/component'
+import { delayQuerySelector, uuid } from '../../common/utils'
 
 export default class AtAccordion extends AtComponent {
   constructor () {
     super(...arguments)
     this.bodyHeight = 0 // body 高度
+    this.accordionId = `accordion-${uuid()}`
     this.state = {
       isOpen: !!this.props.open, // 组件是否展开
       wrapperHeight: '',
@@ -31,22 +33,24 @@ export default class AtAccordion extends AtComponent {
     const { isOpen } = this.state
     const env = Taro.getEnv()
 
-    setTimeout(() => {
-      if (env === Taro.ENV_TYPE.WEB) {
-        this.bodyHeight = this.accordionRef.vnode.dom.getBoundingClientRect().height
+    if (env === Taro.ENV_TYPE.WEB) {
+      setTimeout(() => {
+        this.accordionRef = document.getElementById(this.accordionId)
+        this.bodyHeight = this.accordionRef.getBoundingClientRect().height
 
         this.setState({
           wrapperHeight: isOpen ? this.bodyHeight : 0
         })
-      } else if (env === Taro.ENV_TYPE.WEAPP) {
-        this.accordionRef.boundingClientRect(rect => {
-          this.bodyHeight = rect.height || 0
+      }, 500)
+    } else if (env === Taro.ENV_TYPE.WEAPP || env === Taro.ENV_TYPE.ALIPAY) {
+      delayQuerySelector(this, `#${this.accordionId}`)
+        .then(rect => {
+          this.bodyHeight = rect[0].height || 0
           this.setState({
             wrapperHeight: isOpen ? this.bodyHeight : 0
           })
-        }).exec()
-      }
-    }, 1000)
+        })
+    }
   }
 
   switch () {
@@ -56,8 +60,6 @@ export default class AtAccordion extends AtComponent {
       wrapperHeight: isOpen ? 0 : this.bodyHeight
     })
   }
-
-  getAccordionRef = node => (this.accordionRef = node)
 
   render () {
     const {
@@ -104,7 +106,7 @@ export default class AtAccordion extends AtComponent {
         <View
           className='at-accordion__content'
           style={contentStyle}
-          ref={this.getAccordionRef}
+          id={this.accordionId}
         >
           {this.props.children}
         </View>
