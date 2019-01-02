@@ -1,11 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import Taro from '@tarojs/taro'
-import { View, Input, Image } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { uuid } from '../../common/utils'
 import AtComponent from '../../common/component'
-
+import { uuid } from '../../common/utils'
 // 生成 jsx 二维矩阵
 const generateMatrix = (files, col, showAddBtn) => {
   const matrix = []
@@ -17,11 +16,11 @@ const generateMatrix = (files, col, showAddBtn) => {
       const lastArr = files.slice(i * col)
       if (lastArr.length < col) {
         if (showAddBtn) {
-          lastArr.push({ type: 'btn' })
+          lastArr.push({ type: 'btn', uuid: uuid() })
         }
         // 填补剩下的空列
         for (let j = lastArr.length; j < col; j++) {
-          lastArr.push({ type: 'blank' })
+          lastArr.push({ type: 'blank', uuid: uuid() })
         }
       }
       matrix.push(lastArr)
@@ -35,68 +34,30 @@ const generateMatrix = (files, col, showAddBtn) => {
 const ENV = Taro.getEnv()
 
 export default class AtImagePicker extends AtComponent {
-  constructor () {
-    super(...arguments)
-    this.inputId = this.props.isTest ? 'image-picker-AOTU2018' : uuid()
-    this.fileInput = null
-  }
-
-  chooseFile () {
+  chooseFile = () => {
     const { files, multiple } = this.props
-    switch (ENV) {
-      case Taro.ENV_TYPE.WEB:
-        this.fileInput.click()
-        break
+    const filePathName = {
+      'ALIPAY': 'apFilePaths',
+      'WEAPP': 'tempFiles',
+      'WEB': 'tempFiles'
+    }[ENV]
 
-      case Taro.ENV_TYPE.WEAPP:
-      case Taro.ENV_TYPE.ALIPAY: {
-        const filePathName = {
-          'ALIPAY': 'apFilePaths',
-          'WEAPP': 'tempFiles'
-        }[ENV]
-        Taro.chooseImage({
-          count: multiple ? 99 : 1
-        }).then(res => {
-          const targetFiles = res.tempFilePaths.map(
-            (path, i) => ({
-              url: path,
-              file: res[filePathName][i]
-            })
-          )
-          this.props.onChange(files.concat(targetFiles), 'add')
-        }).catch(this.props.onFail)
-      }
-        break
-
-      default:
-        console.warn('暂未支持该环境')
-        break
-    }
-  }
-
-  handleImgChoose (event) {
-    // h5 图片监听逻辑
-    const { files } = this.props
-    const targetFiles = event.target.files
-    if (targetFiles) {
-      for (let i = 0; i < targetFiles.length; i++) {
-        files.push({
-          url: window.URL.createObjectURL(targetFiles[i]),
-          file: targetFiles[i]
+    Taro.chooseImage({
+      count: multiple ? 99 : 1
+    }).then(res => {
+      const targetFiles = res.tempFilePaths.map(
+        (path, i) => ({
+          url: path,
+          file: res[filePathName][i]
         })
-      }
-      this.props.onChange(files, 'add')
-    }
-    // fix 上传第二次不能选择同一文件
-    event.target.value = ''
+      )
+      this.props.onChange(files.concat(targetFiles), 'add')
+    }).catch(this.props.onFail)
   }
 
-  handleImageClick (i) {
-    const { files } = this.props
-    this.props.onImageClick(i, files[i])
-  }
+  handleImageClick = i => this.props.onImageClick(i, this.props.files[i])
 
-  handleRemoveImg (i) {
+  handleRemoveImg = i => {
     const { files } = this.props
     if (ENV === Taro.ENV_TYPE.WEB) {
       window.URL.revokeObjectURL(files[i].url)
@@ -105,45 +66,29 @@ export default class AtImagePicker extends AtComponent {
     this.props.onChange(files, 'remove', i)
   }
 
-  componentDidMount () {
-    if (ENV === Taro.ENV_TYPE.WEB) {
-      this.fileInput = document.getElementById(this.inputId)
-    }
-  }
-
   render () {
     const {
       className,
       customStyle,
       files,
       mode,
-      multiple,
       length,
       showAddBtn
     } = this.props
     // 行数
     const matrix = generateMatrix(files, length, showAddBtn)
+    const rootCls = classNames('at-image-picker', className)
 
     return (
       <View
-        className={
-          classNames('at-image-picker', className)
-        }
+        className={rootCls}
         style={customStyle}
       >
-        <Input
-          id={this.inputId}
-          className='at-image-picker__file-input'
-          type='file'
-          accept='image/*'
-          multiple={multiple ? 'multiple' : ''}
-          onChange={this.handleImgChoose.bind(this)}
-        />
         {
           matrix.map((row, i) => (
             <View
-              key={i}
               className='at-image-picker__flex-box'
+              key={i}
             >
               {
                 row.map((item, j) => (
@@ -158,29 +103,27 @@ export default class AtImagePicker extends AtComponent {
                           onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
                         ></View>
                         <Image
-                          mode={mode}
-                          onClick={this.handleImageClick.bind(this, (i * length) + j)}
                           className='at-image-picker__preview-img'
+                          mode={mode}
                           src={item.url}
+                          onClick={this.handleImageClick.bind(this, (i * length) + j)}
                         />
                       </View>
                     </View>
-                    : item.type === 'blank'
-                      ? <View
-                        className='at-image-picker__flex-item'
-                        key={item}
-                      >
-                      </View>
-                      : <View
-                        className='at-image-picker__flex-item'
-                        onClick={this.chooseFile.bind(this)}
-                        key='add'
-                      >
-                        <View className='at-image-picker__item at-image-picker__choose-btn'>
+                    : <View
+                      className='at-image-picker__flex-item'
+                      key={item.uuid}
+                    >
+                      {item.type === 'btn' && (
+                        <View
+                          className='at-image-picker__item at-image-picker__choose-btn'
+                          onClick={this.chooseFile}
+                        >
                           <View className='add-bar'></View>
                           <View className='add-bar'></View>
                         </View>
-                      </View>
+                      )}
+                    </View>
                 ))
               }
             </View>
