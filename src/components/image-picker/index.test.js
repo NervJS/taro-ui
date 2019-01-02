@@ -28,42 +28,42 @@ describe('AtImagePicker Snap', () => {
     }
   ]
   it('render initial AtImagePicker', () => {
-    const component = renderToString(<AtImagePicker />)
+    const component = renderToString(<AtImagePicker isTest />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props className', () => {
-    const component = renderToString(<AtImagePicker className='test' />)
+    const component = renderToString(<AtImagePicker isTest className='test' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props customStyle', () => {
-    const component = renderToString(<AtImagePicker customStyle='color: red' />)
+    const component = renderToString(<AtImagePicker isTest customStyle='color: red' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props files', () => {
-    const component = renderToString(<AtImagePicker files={files} />)
+    const component = renderToString(<AtImagePicker isTest files={files} />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props length', () => {
-    const component = renderToString(<AtImagePicker length={5} files={files} />)
+    const component = renderToString(<AtImagePicker isTest length={5} files={files} />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props mode', () => {
-    const component = renderToString(<AtImagePicker mode='top' files={files} />)
+    const component = renderToString(<AtImagePicker isTest mode='top' files={files} />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props showAddBtn', () => {
-    const component = renderToString(<AtImagePicker showAddBtn={false} files={files} />)
+    const component = renderToString(<AtImagePicker isTest showAddBtn={false} files={files} />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtImagePicker -- props multiple', () => {
-    const component = renderToString(<AtImagePicker multiple />)
+    const component = renderToString(<AtImagePicker isTest multiple />)
     expect(component).toMatchSnapshot()
   })
 })

@@ -148,7 +148,7 @@ export default class SwipeActionPage extends Taro.Component {
 
           <View className='panel'>
             <View className='panel__title'>使用变量控制开关</View>
-            <View className='panel__controller'>
+            <View className='panel__controller' style='margin-bottom: 10px'>
               <AtButton size='small' onClick={this.handleStatusClick}>
                 当前状态: {isOpened2 ? '开' : '关'}{' '}
               </AtButton>

@@ -27,7 +27,7 @@ export default class AtSwipeAction extends AtComponent {
     this.isTouching = false
 
     this.state = {
-      componentId: ++id,
+      componentId: this.props.isTest ? 'AOTU2018' : ++id,
       offsetSize: 0,
       _isOpened: isOpened
     }
@@ -215,6 +215,7 @@ export default class AtSwipeAction extends AtComponent {
 }
 
 AtSwipeAction.defaultProps = {
+  isTest: false,
   options: [],
   isOpened: false,
   disabled: false,
@@ -222,6 +223,7 @@ AtSwipeAction.defaultProps = {
 }
 
 AtSwipeAction.propTypes = {
+  isTest: PropTypes.bool,
   isOpened: PropTypes.bool,
   disabled: PropTypes.bool,
   autoClose: PropTypes.bool,

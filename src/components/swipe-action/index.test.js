@@ -32,6 +32,7 @@ describe('SwipeAction Snap', () => {
   it('render options', () => {
     const component = renderToString(
       <AtSwipeAction
+        isTest
         disabled
         autoClose
         options={OPTIONS}
@@ -47,6 +48,7 @@ describe('SwipeAction Snap', () => {
   it('render options -- isOpened', () => {
     const component = renderToString(
       <AtSwipeAction
+        isTest
         isOpened
         disabled
         autoClose
@@ -255,7 +257,7 @@ describe('SwipeAction Props', () => {
 
   it('SwipeAction isOpened equals true', () => {
     const component = renderIntoDocument(
-      <AtSwipeAction isOpened autoClose options={OPTIONS}>
+      <AtSwipeAction isTest isOpened autoClose options={OPTIONS}>
         <View className='normal'>AtSwipeAction 一般使用场景</View>
       </AtSwipeAction>
     )
@@ -282,7 +284,7 @@ describe('SwipeAction Props', () => {
 
   it('SwipeAction isOpened equals false', () => {
     const component = renderIntoDocument(
-      <AtSwipeAction autoClose options={OPTIONS}>
+      <AtSwipeAction isTest autoClose options={OPTIONS}>
         <View className='normal'>AtSwipeAction 一般使用场景</View>
       </AtSwipeAction>
     )

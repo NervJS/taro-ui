@@ -6,8 +6,10 @@ $at-checkbox-icon-color: $color-brand;
 $at-checkbox-icon-color-checked: $color-white;
 
 .at-checkbox {
+  position: relative;
   background-color: $color-bg;
-  @include hairline-top-bottom();
+  @include hairline-top-relative();
+  @include hairline-bottom-relative();
 
   /* elements */
   &__option-wrap {
@@ -29,6 +31,7 @@ $at-checkbox-icon-color-checked: $color-white;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-top: 4px;
     margin-right: $spacing-h-lg;
     width: $at-checkbox-icon-size;
     height: $at-checkbox-icon-size;

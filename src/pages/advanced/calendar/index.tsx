@@ -19,7 +19,7 @@ export default class Index extends Component {
   state = {
     now: Date.now(),
     minDate: '2018/06/11',
-    maxDate: '2018/12/12',
+    maxDate: '2020/12/12',
     multiCurentDate: {
       start: Date.now()
     },
