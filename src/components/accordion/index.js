@@ -9,7 +9,7 @@ export default class AtAccordion extends AtComponent {
   constructor () {
     super(...arguments)
     this.bodyHeight = 0 // body 高度
-    this.accordionId = `accordion-${uuid()}`
+    this.accordionId = this.props.isTest ? 'accordion-AOTU2018' : `accordion-${uuid()}`
     this.state = {
       isOpen: !!this.props.open, // 组件是否展开
       wrapperHeight: '',
@@ -116,6 +116,7 @@ export default class AtAccordion extends AtComponent {
 }
 
 AtAccordion.defaultProps = {
+  isTest: false,
   open: false,
   customStyle: '',
   className: '',
@@ -134,6 +135,7 @@ AtAccordion.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
+  isTest: PropTypes.bool,
   open: PropTypes.bool,
   title: PropTypes.string,
   icon: PropTypes.object,

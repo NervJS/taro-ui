@@ -24,9 +24,9 @@ class AtIndexes extends AtComponent {
     this.itemHeight = 0
     this.currentIndex = -1
     this._scrollTop = 0
-    this.indexesId = `indexes-${uuid()}`
-    this.listId = `list-${uuid()}`
-    this.menuId = `menu-${uuid()}`
+    this.indexesId = this.props.isTest ? 'indexes-AOTU2018' : `indexes-${uuid()}`
+    this.listId = this.props.isTest ? 'indexes-list-AOTU2018' : `list-${uuid()}`
+    this.menuId = this.props.isTest ? 'indexes-menu-AOTU2018' : `menu-${uuid()}`
   }
 
   handleClick () {
@@ -244,6 +244,7 @@ AtIndexes.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
+  isTest: PropTypes.bool,
   animation: PropTypes.bool,
   isVibrate: PropTypes.bool,
   isShowToast: PropTypes.bool,
@@ -253,6 +254,7 @@ AtIndexes.propTypes = {
 }
 
 AtIndexes.defaultProps = {
+  isTest: false,
   customStyle: '',
   className: '',
   animation: false,

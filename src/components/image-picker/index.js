@@ -37,7 +37,7 @@ const ENV = Taro.getEnv()
 export default class AtImagePicker extends AtComponent {
   constructor () {
     super(...arguments)
-    this.inputId = uuid()
+    this.inputId = this.props.isTest ? 'image-picker-AOTU2018' : uuid()
     this.fileInput = null
   }
 
@@ -192,6 +192,7 @@ export default class AtImagePicker extends AtComponent {
 }
 
 AtImagePicker.defaultProps = {
+  isTest: false,
   className: '',
   customStyle: '',
   files: [],
@@ -213,6 +214,7 @@ AtImagePicker.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
+  isTest: PropTypes.bool,
   files: PropTypes.array,
   mode: PropTypes.oneOf([
     'scaleToFill',

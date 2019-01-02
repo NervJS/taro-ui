@@ -5,6 +5,13 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
 export default class AtDivider extends AtComponent {
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   render () {
     const {
       className,

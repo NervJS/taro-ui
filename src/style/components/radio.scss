@@ -9,8 +9,10 @@ $at-radio-desc-size: $font-size-sm;
 $at-radio-check-color: $color-brand;
 
 .at-radio {
+  position: relative;
   background-color: $at-radio-bg-color;
-  @include hairline-top-bottom();
+  @include hairline-top-relative();
+  @include hairline-bottom-relative();
 
   /* elements */
   &__option-wrap {

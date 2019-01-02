@@ -15,7 +15,7 @@ export default class AtRange extends AtComponent {
     this.left = 0
     this.deltaValue = max - min
     this.currentSlider = ''
-    this.rangeId = uuid()
+    this.rangeId = this.props.isTest ? 'range-AOTU2018' : uuid()
     this.state = {
       slider1X: 0,
       slider2X: 0
@@ -196,6 +196,7 @@ export default class AtRange extends AtComponent {
 }
 
 AtRange.defaultProps = {
+  isTest: false,
   customStyle: '',
   className: '',
   sliderStyle: '',
@@ -231,6 +232,7 @@ AtRange.propTypes = {
     PropTypes.object,
     PropTypes.string
   ]),
+  isTest: PropTypes.bool,
   value: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,

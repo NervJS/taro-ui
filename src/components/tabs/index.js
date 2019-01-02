@@ -16,7 +16,7 @@ export default class AtTabs extends AtComponent {
       scrollTop: 0,
       scrollIntoView: ''
     }
-    this.tabId = uuid()
+    this.tabId = this.props.isTest ? 'tabs-AOTU2018' : uuid()
     // 触摸时的原点
     this.touchDot = 0
     // 定时器
@@ -231,6 +231,7 @@ export default class AtTabs extends AtComponent {
 }
 
 AtTabs.defaultProps = {
+  isTest: false,
   customStyle: '',
   className: '',
   tabDirection: 'horizontal',
@@ -252,6 +253,7 @@ AtTabs.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
+  isTest: PropTypes.bool,
   height: PropTypes.string,
   tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
   current: PropTypes.number,

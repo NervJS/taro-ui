@@ -87,7 +87,7 @@ export default class PageSlider extends Taro.Component {
                   {
                     imgUrls.map((item, idx) => (
                       <SwiperItem key={idx}>
-                        <Image mode='widthFix' src={item} className='slide-image' width='355' height='150' />
+                        <Image src={item} className='slide-image' width='355' height='150' />
                       </SwiperItem>
                     ))
                   }

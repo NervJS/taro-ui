@@ -16,6 +16,13 @@ function getMaxLength (
 }
 
 class AtTextarea extends AtComponent {
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   handleInput () {
     this.props.onChange(...arguments)
   }
