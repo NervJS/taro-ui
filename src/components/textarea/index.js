@@ -4,6 +4,7 @@ import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { initTestEnv } from '../../common/utils'
 
 function getMaxLength (
   maxLength,
@@ -15,26 +16,19 @@ function getMaxLength (
   return maxLength
 }
 
+const ENV = Taro.getEnv()
+initTestEnv()
+
 class AtTextarea extends AtComponent {
-  handleInput () {
-    this.props.onChange(...arguments)
-  }
+  handleInput = (...arg) => this.props.onChange(...arg)
 
-  handleFocus () {
-    this.props.onFocus(...arguments)
-  }
+  handleFocus = (...arg) => this.props.onFocus(...arg)
 
-  handleBlur () {
-    this.props.onBlur(...arguments)
-  }
+  handleBlur = (...arg) => this.props.onBlur(...arg)
 
-  handleConfirm () {
-    this.props.onConfirm(...arguments)
-  }
+  handleConfirm = (...arg) => this.props.onConfirm(...arg)
 
-  handleLinechange () {
-    this.props.onLinechange(...arguments)
-  }
+  handleLinechange = (...arg) => this.props.onLinechange(...arg)
 
   render () {
     const {
@@ -57,20 +51,29 @@ class AtTextarea extends AtComponent {
       textOverflowForbidden,
       height
     } = this.props
+
     const actualMaxLength = getMaxLength(maxLength, textOverflowForbidden)
     const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
+    const rootCls = classNames(
+      'at-textarea',
+      `at-textarea--${ENV}`,
+      {
+        'at-textarea--error': maxLength < value.length
+      }, className
+    )
+    const placeholderCls = classNames('placeholder', placeholderClass)
 
     return (
       <View
-        className={classNames('at-textarea', className)}
+        className={rootCls}
         style={customStyle}
       >
         <Textarea
+          className='at-textarea__textarea'
           style={textareaStyle}
           placeholderStyle={placeholderStyle}
-          placeholderClass={classNames('placeholder', placeholderClass)}
+          placeholderClass={placeholderCls}
           cursorSpacing={cursorSpacing}
-          className='at-textarea__textarea'
           value={value}
           confirmType='完成'
           /* 兼容之前的版本 */
@@ -84,22 +87,15 @@ class AtTextarea extends AtComponent {
           selectionStart={selectionStart}
           selectionEnd={selectionEnd}
           fixed={fixed}
-          onInput={this.handleInput.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-          onConfirm={this.handleConfirm.bind(this)}
-          onLinechange={this.handleLinechange.bind(this)}
+          onInput={this.handleInput}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          onConfirm={this.handleConfirm}
+          onLinechange={this.handleLinechange}
           showCount={false}
         />
         {count && (
-          <View
-            className={
-              classNames({
-                'at-textarea__bottom': true,
-                'at-textarea--error': maxLength < value.length
-              })
-            }
-          >
+          <View className='at-textarea__counter'>
             {value.length}/{maxLength}
           </View>
         )}

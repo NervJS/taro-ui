@@ -6,8 +6,9 @@ $at-textarea-font-size: $font-size-lg;
 $at-textarea-bg-color: $color-bg;
 $at-textarea-tips-color: $color-text-placeholder;
 $at-textarea-tips-size: $font-size-base;
+$component: '.at-textarea';
 
-.at-textarea {
+#{$component} {
   padding: $spacing-v-md;
   width: 100%;
   font-size: $at-textarea-font-size;
@@ -21,7 +22,6 @@ $at-textarea-tips-size: $font-size-base;
     width: 100%;
     height: $at-textarea-input-height;
     font-size: $at-textarea-font-size;
-    line-height: $line-height-base;
     outline: none;
     resize: none;
     -webkit-appearance: none;
@@ -32,7 +32,7 @@ $at-textarea-tips-size: $font-size-base;
     @include placeholder;
   }
 
-  &__bottom {
+  &__counter {
     padding-top: $spacing-v-sm;
     width: 100%;
     color: $at-textarea-tips-color;
@@ -41,7 +41,16 @@ $at-textarea-tips-size: $font-size-base;
     line-height: $line-height-base;
   }
 
+  &--WEB,
+  &--WEAPP {
+    #{$component}__textarea {
+      line-height: $line-height-base;
+    }
+  }
+
   &--error {
-    color: $color-error;
+    #{$component}__counter {
+      color: $color-error;
+    }
   }
 }
