@@ -102,7 +102,7 @@ export default class AtInput extends AtComponent {
         <View className={containerCls}>
           <View
             className={overlayCls}
-            onClick={this.onClick.bind(this)}
+            onClick={this.onClick}
           >
           </View>
           {title && (
