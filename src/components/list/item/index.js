@@ -114,11 +114,13 @@ export default class AtListItem extends AtComponent {
               </View>
             )}
 
-            {arrow && (
+            {arrow ? (
               <View className='item-extra__icon'>
-                <Text className={classNames('at-icon', { [`at-icon-chevron-${arrow}`]: arrow }, 'item-extra__icon-arrow')}></Text>
+                <Text
+                  className={`at-icon item-extra__icon-arrow, at-icon-chevron-${arrow}`}
+                />
               </View>
-            )}
+            ) : null}
           </View>
         </View>
       </View>
