@@ -36,6 +36,18 @@ $ npm install taro-ui@next
 ```
 :::
 
+## 配置需要额外编译的源码模块
+
+**由于引用 `node_modules` 的模块，默认不会编译，所以需要额外给 H5 配置 `esnextModules`，在 taro 项目的 `config/index.js` 中新增如下配置项：**
+
+:::demo
+```js
+h5: {
+  esnextModules: ['taro-ui']
+}
+```
+:::
+
 ## 使用基础版本
 
 在代码中 `import` 需要的组件并按照文档说明使用
@@ -74,18 +86,6 @@ import '~taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 :::
 
 > [组件样式列表](https://github.com/NervJS/taro-ui/tree/next/src/style/components)
-
-## 配置需要额外编译的源码模块
-
-由于引用 `node_modules` 的模块，默认不会编译，所以需要额外给 H5 配置 `esnextModules`，在 taro 项目的 `confit/index.js` 中新增如下配置项：
-
-:::demo
-```js
-h5: {
-  esnextModules: ['taro-ui']
-}
-```
-:::
 
 ## 示例
 
