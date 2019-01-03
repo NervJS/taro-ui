@@ -3,7 +3,6 @@ import { View, Form } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
 import AtForm from '../../../components/form/index'
-// import AtForm from '../../../components/form/index'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
