@@ -35,7 +35,7 @@ const ENV = Taro.getEnv()
 
 export default class AtImagePicker extends AtComponent {
   chooseFile = () => {
-    const { files, multiple } = this.props
+    const { files = [], multiple } = this.props
     const filePathName = {
       'ALIPAY': 'apFilePaths',
       'WEAPP': 'tempFiles',
@@ -55,15 +55,15 @@ export default class AtImagePicker extends AtComponent {
     }).catch(this.props.onFail)
   }
 
-  handleImageClick = i => this.props.onImageClick(i, this.props.files[i])
+  handleImageClick = idx => this.props.onImageClick(idx, this.props.files[idx])
 
-  handleRemoveImg = i => {
-    const { files } = this.props
+  handleRemoveImg = idx => {
+    const { files = [] } = this.props
     if (ENV === Taro.ENV_TYPE.WEB) {
-      window.URL.revokeObjectURL(files[i].url)
+      window.URL.revokeObjectURL(files[idx].url)
     }
-    files.splice(i, 1)
-    this.props.onChange(files, 'remove', i)
+    const newFiles = files.filter((file, i) => i !== idx)
+    this.props.onChange(newFiles, 'remove', idx)
   }
 
   render () {
