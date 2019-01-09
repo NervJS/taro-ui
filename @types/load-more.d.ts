@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -16,7 +16,7 @@ export interface AtLoadMoreProps extends AtComponent{
 
   noMoreText?: string
 
-  onClick?: BaseEventFunction
+  onClick?: CommonEventFunction
 }
 
 declare const AtLoadMore: ComponentClass<AtLoadMoreProps>

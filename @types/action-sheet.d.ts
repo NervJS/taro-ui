@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -10,9 +10,9 @@ export interface AtActionSheetProps extends AtComponent {
 
   cancelText?: string
 
-  onClose?: (event: BaseEventFunction) => void
+  onClose?: CommonEventFunction
 
-  onCancel?: (event: BaseEventFunction) => void
+  onCancel?: CommonEventFunction
 }
 
 declare const AtActionSheet: ComponentClass<AtActionSheetProps>

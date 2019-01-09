@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -16,11 +16,11 @@ export interface AtSwipeActionProps extends AtComponent {
 
   disabled?: boolean
 
-  onClick?: BaseEventFunction
+  onClick?: CommonEventFunction
 
-  onOpened?: BaseEventFunction
+  onOpened?: CommonEventFunction
 
-  onClosed?: BaseEventFunction
+  onClosed?: CommonEventFunction
 
   autoClose?: boolean
 

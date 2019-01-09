@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -20,15 +20,15 @@ export interface AtSearchBarProps extends AtComponent {
 
   actionName?: string
 
-  onChange: (value: string, event: BaseEvent) => void
+  onChange: (value: string, event: CommonEvent) => void
 
-  onFocus?: BaseEventFunction
+  onFocus?: CommonEventFunction
 
-  onBlur?: BaseEventFunction
+  onBlur?: CommonEventFunction
 
-  onConfirm?: BaseEventFunction
+  onConfirm?: CommonEventFunction
 
-  onActionClick?: BaseEventFunction
+  onActionClick?: CommonEventFunction
 }
 
 declare const AtSearchBar: ComponentClass<AtSearchBarProps>

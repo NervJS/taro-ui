@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -23,13 +23,13 @@ export interface AtFloatLayoutProps extends AtComponent {
 
   scrollWithAnimation?: boolean
 
-  onClose?: BaseEventFunction
+  onClose?: CommonEventFunction
 
-  onScroll?: BaseEventFunction
+  onScroll?: CommonEventFunction
 
-  onScrollToUpper?: BaseEventFunction
+  onScrollToUpper?: CommonEventFunction
 
-  onScrollToLower?: BaseEventFunction
+  onScrollToLower?: CommonEventFunction
 }
 
 declare const AtFloatLayout: ComponentClass<AtFloatLayoutProps>

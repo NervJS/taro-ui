@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -8,7 +8,7 @@ export interface AtCurtainProps extends AtComponent {
 
   closeBtnPosition?: string
 
-  onClose: (event: BaseEventFunction) => void
+  onClose: CommonEventFunction
 }
 
 declare const AtCurtain: ComponentClass<AtCurtainProps>

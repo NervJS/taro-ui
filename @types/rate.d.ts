@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -12,7 +12,7 @@ export interface AtRateProps extends AtComponent{
 
   margin?: number
 
-  onChange?: BaseEventFunction
+  onChange?: CommonEventFunction
 }
 
 declare const AtRate: ComponentClass<AtRateProps>
