@@ -213,7 +213,7 @@ export default class Index extends Taro.Component {
 | error     | √ | √ | 是否出现错误 | Boolean | - | false |
 | clear     | √ | √ | 是否显示清除按钮，需要传入 onChange 事件来改变value | Boolean | - | false |
 | autoFocus  | √ | x | 是否自动聚焦 | Boolean | - | false |
-| focus     | √ | x | 是否聚焦 | Boolean | - | false |
+| focus     | √ | √ | 是否聚焦 | Boolean | - | false |
 
 ## Input 事件
 
