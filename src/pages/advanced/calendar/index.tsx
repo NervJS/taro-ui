@@ -5,7 +5,6 @@ import { View } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
 
-
 import './index.scss'
 
 import DocsHeader from '../../components/doc-header'
@@ -62,6 +61,11 @@ export default class Index extends Component {
     console.log('handleDateChange', arg)
   }
 
+  @bind
+  handleMonthChange (arg) {
+    console.log('handleMonthChange', arg)
+  }
+
   render () {
     const { now, minDate, maxDate, mark, multiCurentDate } = this.state
     return (
@@ -72,7 +76,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>一般案例</View>
             <View className='panel__content'>
-              <AtCalendar />
+              <AtCalendar onMonthChange={this.handleMonthChange} />
             </View>
           </View>
 

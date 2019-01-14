@@ -159,14 +159,18 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
 
   @bind
   setGenerateDate (vectorCount: number) {
+    const { format } = this.props
     const { generateDate } = this.state
 
-    const _generateDate: number = dayjs(generateDate)
-      .add(vectorCount, 'month')
-      .valueOf()
+    const _generateDate: Dayjs = dayjs(generateDate).add(vectorCount, 'month')
+
     this.setState({
-      generateDate: _generateDate
+      generateDate: _generateDate.valueOf()
     })
+
+    if (vectorCount && _isFunction(this.props.onMonthChange)) {
+      this.props.onMonthChange(_generateDate.format(format))
+    }
   }
 
   @bind
@@ -195,6 +199,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     }
   }
 
+  // picker 选择时间改变时触发
   @bind
   handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
     const { value } = e.detail
