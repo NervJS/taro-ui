@@ -52,13 +52,14 @@ class AtTextarea extends AtComponent {
       height
     } = this.props
 
-    const actualMaxLength = getMaxLength(maxLength, textOverflowForbidden)
+    const _maxLength = parseInt(maxLength)
+    const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden)
     const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
     const rootCls = classNames(
       'at-textarea',
       `at-textarea--${ENV}`,
       {
-        'at-textarea--error': maxLength < value.length
+        'at-textarea--error': _maxLength < value.length
       }, className
     )
     const placeholderCls = classNames('placeholder', placeholderClass)
@@ -96,7 +97,7 @@ class AtTextarea extends AtComponent {
         />
         {count && (
           <View className='at-textarea__counter'>
-            {value.length}/{maxLength}
+            {value.length}/{_maxLength}
           </View>
         )}
       </View>
@@ -155,7 +156,10 @@ AtTextarea.propTypes = {
   count: PropTypes.bool,
   textOverflowForbidden: PropTypes.bool,
   fixed: PropTypes.bool,
-  height: PropTypes.string,
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   onLinechange: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
