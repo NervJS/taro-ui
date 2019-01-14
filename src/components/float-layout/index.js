@@ -72,10 +72,12 @@ export default class AtFloatLayout extends AtComponent {
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
-          <View className='layout-header'>
-            <Text className='layout-header__title'>{title}</Text>
-            <View className='layout-header__btn-close' onClick={this.close}></View>
-          </View>
+          {title ? (
+            <View className='layout-header'>
+              <Text className='layout-header__title'>{title}</Text>
+              <View className='layout-header__btn-close' onClick={this.close} />
+            </View>
+          ) : null}
           <View className='layout-body'>
             <ScrollView
               scrollY={scrollY}
@@ -110,7 +112,7 @@ AtFloatLayout.defaultProps = {
   onClose: () => {},
   onScroll: () => {},
   onScrollToLower: () => {},
-  onScrollToUpper: () => {},
+  onScrollToUpper: () => {}
 }
 
 AtFloatLayout.propType = {
@@ -126,5 +128,5 @@ AtFloatLayout.propType = {
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
-  onScrollToUpper: PropTypes.func,
+  onScrollToUpper: PropTypes.func
 }

@@ -91,7 +91,6 @@ export default class FloatLayoutPage extends Taro.Component {
         </View>
 
         <AtFloatLayout
-          title='这是个标题'
           isOpened={isOpened1}
           onClose={this.handleClose.bind(this, '1')}
         >
