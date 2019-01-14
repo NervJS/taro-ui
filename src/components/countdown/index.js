@@ -12,7 +12,12 @@ export default class AtCountdown extends AtComponent {
     super(...arguments)
     const { day, hours, minutes, seconds } = this.props
     this.seconds = toSeconds(day, hours, minutes, seconds)
-    this.state = { day, hours, minutes, seconds }
+    this.state = {
+      _day: day,
+      _hours: hours,
+      _minutes: minutes,
+      _seconds: seconds
+    }
     this.timer = null
   }
 
@@ -37,7 +42,12 @@ export default class AtCountdown extends AtComponent {
       seconds = Math.floor(this.seconds) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
     }
 
-    this.setState({ day, hours, minutes, seconds })
+    this.setState({
+      _day: day,
+      _hours: hours,
+      _minutes: minutes,
+      _seconds: seconds
+    })
     this.seconds--
 
     if (this.seconds < 0) {
@@ -52,12 +62,7 @@ export default class AtCountdown extends AtComponent {
   }
 
   componentWillReceiveProps (nextProps) {
-    const props = this.props
-    if (nextProps.day === props.day
-      && nextProps.hours === props.hours
-      && nextProps.minutes === props.minutes
-      && nextProps.seconds === props.seconds
-    ) return
+    if (JSON.stringify(this.props) === JSON.stringify(nextProps)) return
 
     const { day, hours, minutes, seconds } = nextProps
     this.seconds = toSeconds(day, hours, minutes, seconds)
@@ -90,10 +95,10 @@ export default class AtCountdown extends AtComponent {
       isCard
     } = this.props
     const {
-      day,
-      hours,
-      minutes,
-      seconds
+      _day,
+      _hours,
+      _minutes,
+      _seconds
     } = this.state
 
     return (
@@ -105,10 +110,10 @@ export default class AtCountdown extends AtComponent {
           }, className)}
         style={customStyle}
       >
-        { isShowDay && <AtCountdownItem num={day} separator={format.day} /> }
-        <AtCountdownItem num={hours} separator={format.hours} />
-        <AtCountdownItem num={minutes} separator={format.minutes} />
-        <AtCountdownItem num={seconds} separator={format.seconds} />
+        {isShowDay && <AtCountdownItem num={_day} separator={format.day} /> }
+        <AtCountdownItem num={_hours} separator={format.hours} />
+        <AtCountdownItem num={_minutes} separator={format.minutes} />
+        <AtCountdownItem num={_seconds} separator={format.seconds} />
       </View>
     )
   }
