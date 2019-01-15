@@ -1,4 +1,4 @@
-# CountDown 倒计时
+# Countdown 倒计时
 
 ---
 倒计时组件
@@ -26,7 +26,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtCountdown } from 'taro-ui'
 
-export default class CountDownPage extends Taro.Component {
+export default class CountdownPage extends Taro.Component {
   onTimeUp () {
     Taro.showToast({
       title: '时间到',

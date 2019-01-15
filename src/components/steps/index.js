@@ -2,34 +2,9 @@ import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtSteps extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    current: 0,
-    items: [],
-    onChange: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    current: PropTypes.number,
-    items: PropTypes.array,
-    onChange: PropTypes.func
-  }
-
   handleClick () {
     this.props.onChange(...arguments)
   }
@@ -61,39 +36,39 @@ export default class AtSteps extends AtComponent {
               onClick={this.handleClick.bind(this, i)}
             >
               <View className='at-steps__circular-wrap'>
+                {i !== 0 && <View className='at-steps__left-line'></View>}
                 {
-                  i !== 0
-                    ? <View className='at-steps__left-line'></View>
-                    : null
-                }
-                {
-                  item.success || item.error
-                    ? <AtIcon
-                      customStyle={{ fontSize: '28px' }}
-                      value={item.success ? 'check-circle' : 'close-circle'}
-                      color={item.success ? '#6190E8' : '#FF4949'}
-                    />
+                  item.status
+                    ? (
+                      <View className={
+                        classNames({
+                          'at-icon': true,
+                          'at-icon-check-circle': item.status === 'success',
+                          'at-icon-close-circle': item.status === 'error',
+                          'at-steps__single-icon': true,
+                          'at-steps__single-icon--success': item.status === 'success',
+                          'at-steps__single-icon--error': item.status === 'error',
+                        })
+                      }
+                      ></View>
+                    )
                     : <View className='at-steps__circular'>
                       {
                         item.icon
-                          ? <AtIcon
-                            customStyle={{ fontSize: `${item.icon.size || 24}px` }}
-                            value={item.icon.value}
-                            color={
-                              i === current
-                                ? item.icon.activeColor
-                                : item.icon.inactiveColor
+                          ? (
+                            <Text className={
+                              classNames('at-icon', {
+                                [`at-icon-${item.icon.value}`]: item.icon.value,
+                                'at-steps__circle-icon': true,
+                              })
                             }
-                          />
+                            ></Text>
+                          )
                           : <Text className='at-steps__num'>{i + 1}</Text>
                       }
                     </View>
                 }
-                {
-                  i !== items.length - 1
-                    ? <View className='at-steps__right-line'></View>
-                    : null
-                }
+                {i !== items.length - 1 && <View className='at-steps__right-line'></View>}
               </View>
               <View className='at-steps__title'>
                 {item.title}
@@ -107,4 +82,26 @@ export default class AtSteps extends AtComponent {
       </View>
     )
   }
+}
+
+AtSteps.defaultProps = {
+  customStyle: '',
+  className: '',
+  current: 0,
+  items: [],
+  onChange: () => {},
+}
+
+AtSteps.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  current: PropTypes.number,
+  items: PropTypes.array,
+  onChange: PropTypes.func,
 }

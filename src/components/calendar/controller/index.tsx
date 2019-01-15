@@ -1,14 +1,12 @@
 import dayjs, { Dayjs } from 'dayjs'
 import classnames from 'classnames'
-
 import Taro from '@tarojs/taro'
 import { Text, View, Picker } from '@tarojs/components'
-
 import { Props, State } from './interface'
 
-import './index.scss'
-
 export default class AtCalendarController extends Taro.Component<Props, State> {
+  static options = { addGlobalClass: true }
+
   render () {
     const {
       generateDate,
@@ -46,7 +44,6 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
           />
         )}
         <Picker
-          className='controller__info'
           mode='date'
           fields='month'
           end={maxDateValue}
@@ -54,7 +51,9 @@ export default class AtCalendarController extends Taro.Component<Props, State> {
           onChange={this.props.onSelectDate}
           value={dayjsDate.format('YYYY-MM')}
         >
-          <Text>{dayjsDate.format(monthFormat)}</Text>
+          <Text className='controller__info'>
+            {dayjsDate.format(monthFormat)}
+          </Text>
         </Picker>
         {hideArrow ? null : (
           <View

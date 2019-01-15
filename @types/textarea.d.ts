@@ -6,7 +6,7 @@ import AtComponent from './base'
 export interface AtTextareaProps extends AtComponent{
   value: string
 
-  maxlength?: string
+  maxLength?: string | number
 
   placeholder?: string
 
@@ -32,7 +32,7 @@ export interface AtTextareaProps extends AtComponent{
 
   textOverflowForbidden?: boolean
 
-  height?: number
+  height?: string | number
 
   cursorSpacing?: number
 

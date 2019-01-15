@@ -2,23 +2,20 @@ import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { uuid } from '../../common/utils'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const ENV = Taro.getEnv()
 
-let id = 0
-
 export default class AtTabs extends AtComponent {
-  constructor (props) {
+  constructor () {
     super(...arguments)
     this.state = {
-      current: props.current,
       scrollLeft: 0,
       scrollTop: 0,
       scrollIntoView: ''
     }
-    this.tabId = ++id
+    this.tabId = this.props.isTest ? 'tabs-AOTU2018' : uuid()
     // 触摸时的原点
     this.touchDot = 0
     // 定时器
@@ -27,27 +24,25 @@ export default class AtTabs extends AtComponent {
     this.time = 0
     // 是否已经在滑动
     this.isMoving = false
-    // 最大索引
-    this.maxIndex = this.props.tabList.length
   }
 
-  handleClick (i) {
+  updateState = idx => {
     if (this.props.scroll) {
       // 标签栏滚动
       switch (ENV) {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
           this.setState({
-            current: i,
-            scrollIntoView: `tab${i - 1}`
+            _current: idx,
+            scrollIntoView: `tab${idx - 1}`
           })
           break
 
         case Taro.ENV_TYPE.WEB: {
-          const index = i > 0 ? i - 1 : 0
+          const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
           this.setState({
-            current: i,
+            _current: idx,
             scrollTop: prevTabItem.offsetTop,
             scrollLeft: prevTabItem.offsetLeft
           })
@@ -60,9 +55,13 @@ export default class AtTabs extends AtComponent {
       }
     } else {
       this.setState({
-        current: i
+        _current: idx
       })
     }
+  }
+
+  handleClick (idx) {
+    this.updateState(idx)
     this.props.onClick(...arguments)
   }
 
@@ -84,10 +83,11 @@ export default class AtTabs extends AtComponent {
     const { current } = this.state
     const touchMove = e.touches[0].pageX
     const moveDistance = touchMove - this.touchDot
+    const maxIndex = this.props.tabList.length
 
     if (!this.isMoving && this.time < 10) {
       // 向左滑动
-      if (current + 1 < this.maxIndex && moveDistance <= -40) {
+      if (current + 1 < maxIndex && moveDistance <= -40) {
         this.isMoving = true
         this.handleClick(current + 1)
 
@@ -112,9 +112,6 @@ export default class AtTabs extends AtComponent {
     if (nextProps.scroll !== this.props.scroll) {
       this.getTabHeaderRef()
     }
-    if (nextProps.current !== this.state.current) {
-      this.handleClick(nextProps.current)
-    }
   }
 
   getTabHeaderRef () {
@@ -136,10 +133,9 @@ export default class AtTabs extends AtComponent {
       animated,
       tabList,
       scroll,
-
+      current
     } = this.props
     const {
-      current,
       scrollLeft,
       scrollTop,
       scrollIntoView
@@ -151,58 +147,58 @@ export default class AtTabs extends AtComponent {
       width: tabDirection === 'horizontal' ? `${tabList.length * 100}%` : '1PX'
     }
     const bodyStyle = { }
+    let transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
     if (tabDirection === 'horizontal') {
-      const transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
-      bodyStyle.transform = transformStyle
-      bodyStyle['-webkit-transform'] = transformStyle
-    } else {
-      const transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
-      bodyStyle.transform = transformStyle
-      bodyStyle['-webkit-transform'] = transformStyle
+      transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
     }
+    Object.assign(bodyStyle, {
+      'transform': transformStyle,
+      '-webkit-transform': transformStyle
+    })
     if (!animated) {
       bodyStyle.transition = 'unset'
     }
 
-    const tabItems = tabList.map((item, i) => (
-      <View
-        className={
-          classNames({
-            'at-tabs__item': true,
-            'at-tabs__item--active': current === i
-          })
-        }
-        id={`tab${i}`}
+    const tabItems = tabList.map((item, idx) => {
+      const itemCls = classNames({
+        'at-tabs__item': true,
+        'at-tabs__item--active': current === idx
+      })
+
+      return <View
+        className={itemCls}
+        id={`tab${idx}`}
         key={item.title}
-        onClick={this.handleClick.bind(this, i)}
+        onClick={this.handleClick.bind(this, idx)}
       >
         {item.title}
-      </View>)
-    )
+      </View>
+    })
+
+    const rootCls = classNames({
+      'at-tabs': true,
+      'at-tabs--vertical': tabDirection === 'vertical',
+    }, className)
+    const headerCls = classNames({
+      'at-tabs__header': true,
+      'at-tabs__header--scroll': scroll
+    })
+    const scrollX = tabDirection === 'horizontal'
+    const scrollY = tabDirection === 'vertical'
 
     return (
       <View
-        className={
-          classNames({
-            'at-tabs': true,
-            'at-tabs--vertical': tabDirection === 'vertical',
-          }, className)
-        }
+        className={rootCls}
         style={this.mergeStyle(heightStyle, customStyle)}
       >
         {
           scroll
             ? <ScrollView
               id={this.tabId}
-              className={
-                classNames({
-                  'at-tabs__header': true,
-                  'at-tabs__header--scroll': scroll
-                })
-              }
+              className={headerCls}
               style={heightStyle}
-              scrollX={tabDirection === 'horizontal'}
-              scrollY={tabDirection === 'vertical'}
+              scrollX={scrollX}
+              scrollY={scrollY}
               scrollWithAnimation
               scrollLeft={scrollLeft}
               scrollTop={scrollTop}
@@ -233,6 +229,7 @@ export default class AtTabs extends AtComponent {
 }
 
 AtTabs.defaultProps = {
+  isTest: false,
   customStyle: '',
   className: '',
   tabDirection: 'horizontal',
@@ -254,6 +251,7 @@ AtTabs.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
+  isTest: PropTypes.bool,
   height: PropTypes.string,
   tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
   current: PropTypes.number,

@@ -1,7 +1,5 @@
 import Taro from '@tarojs/taro'
 import { View, Picker } from '@tarojs/components'
-import AtList from '../../../components/list/index'
-import AtListItem from '../../../components/list/item/index'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -17,6 +15,13 @@ export default class Index extends Taro.Component {
     mulitSelectorValues: [0, 1],
     timeSel: '06:18',
     dateSel: '2018-06-18'
+  }
+
+  componentDidMount () {
+    const env = Taro.getEnv()
+    this.setState({
+      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
+    })
   }
 
   handleChange = e => {
@@ -50,11 +55,12 @@ export default class Index extends Taro.Component {
       multiSelector,
       mulitSelectorValues,
       timeSel,
-      dateSel
+      dateSel,
+      isAlipay,
     } = this.state
 
     return (
-      <View className='page'>
+      <View className='page picker__page'>
         {/* S Header */}
         <DocsHeader title='Picker 选择器'></DocsHeader>
         {/* E Header */}
@@ -66,39 +72,44 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>普通选择器</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtList>
-                  <Picker mode='selector' range={selector} value={selectorValue} onChange={this.handleChange}>
-                    <AtListItem title='国家地区' extraText={selector[selectorValue]} />
-                  </Picker>
-                </AtList>
+                <Picker mode='selector' range={selector} value={selectorValue} onChange={this.handleChange}>
+                  <View className='demo-list-item'>
+                    <View className='demo-list-item__label'>国家地区</View>
+                    <View className='demo-list-item__value'>{selector[selectorValue]}</View>
+                  </View>
+                </Picker>
               </View>
             </View>
           </View>
 
           {/* 多列选择器 */}
-          <View className='panel'>
-            <View className='panel__title'>多列选择器</View>
-            <View className='panel__content'>
-              <View className='example-item'>
-                <AtList>
+          {!isAlipay && (
+            <View className='panel'>
+              <View className='panel__title'>多列选择器</View>
+              <View className='panel__content'>
+                <View className='example-item'>
                   <Picker mode='multiSelector' range={multiSelector} value={mulitSelectorValues} onChange={this.handleMulitChange}>
-                    <AtListItem title='请选择早餐' extraText={`${multiSelector[0][mulitSelectorValues[0]]} & ${multiSelector[1][mulitSelectorValues[1]]}`} />
+                    <View className='demo-list-item'>
+                      <View className='demo-list-item__label'>请选择早餐</View>
+                      <View className='demo-list-item__value'>{`${multiSelector[0][mulitSelectorValues[0]]} & ${multiSelector[1][mulitSelectorValues[1]]}`}</View>
+                    </View>
                   </Picker>
-                </AtList>
+                </View>
               </View>
             </View>
-          </View>
+          )}
 
           {/* 时间选择器 */}
           <View className='panel'>
             <View className='panel__title'>时间选择器</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtList>
-                  <Picker mode='time' value={timeSel} onChange={this.handleTimeChange}>
-                    <AtListItem title='请选择时间' extraText={timeSel} />
-                  </Picker>
-                </AtList>
+                <Picker mode='time' value={timeSel} onChange={this.handleTimeChange}>
+                  <View className='demo-list-item'>
+                    <View className='demo-list-item__label'>请选择时间</View>
+                    <View className='demo-list-item__value'>{timeSel}</View>
+                  </View>
+                </Picker>
               </View>
             </View>
           </View>
@@ -108,11 +119,12 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>日期选择器</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtList>
-                  <Picker mode='date' value={dateSel} onChange={this.handleDateChange}>
-                    <AtListItem title='请选择日期' extraText={dateSel} />
-                  </Picker>
-                </AtList>
+                <Picker mode='date' value={dateSel} onChange={this.handleDateChange}>
+                  <View className='demo-list-item'>
+                    <View className='demo-list-item__label'>请选择日期</View>
+                    <View className='demo-list-item__value'>{dateSel}</View>
+                  </View>
+                </Picker>
               </View>
             </View>
           </View>

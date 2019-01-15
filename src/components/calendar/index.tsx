@@ -16,8 +16,6 @@ import AtCalendarController from './controller/index'
 
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
-import './index.scss'
-
 const defaultProps: DefaultProps = {
   marks: [],
   isSwiper: true,
@@ -31,6 +29,7 @@ const defaultProps: DefaultProps = {
 }
 
 export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
+  static options = { addGlobalClass: true }
   static defaultProps: DefaultProps = defaultProps
 
   constructor (props: Props) {

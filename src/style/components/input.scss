@@ -1,0 +1,121 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+.at-input {
+  position: relative;
+  padding: $spacing-v-lg 0;
+  color: $color-text-base;
+  background-color: $color-bg;
+
+  /* 修复底线隐藏问题 */
+  margin-bottom: 1PX;
+  @include hairline-bottom();
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-form;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  /* elements */
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-right: $spacing-h-md;
+    width: 172px;
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  &__input {
+    flex: 1;
+    display: inline-block;
+    padding-right: $spacing-v-md;
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
+    vertical-align: middle;
+    @include placeholder;
+  }
+
+  input {
+    font-size: $font-size-lg;
+    line-height: $line-height-zh;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    min-width: 40px;
+    height: 100%;
+    font-size: $font-size-lg;
+    text-align: center;
+    line-height: 1;
+
+    &-close {
+      color: #ccc;
+    }
+
+    &-alert {
+      color: #FF4949;
+    }
+  }
+
+  &__children {
+    display: inline-flex;
+    @include hairline-left();
+
+    > view,
+    div,
+    span,
+    text,
+    image,
+    .taro-img {
+      display: inline-block;
+      padding: 0 $spacing-v-md;
+      color: $color-brand-dark;
+      font-size: $font-size-lg;
+      text-align: center;
+    }
+
+    > image,
+    img,
+    .taro-img {
+      display: inline-block;
+      width: 145px;
+      height: 60px;
+      vertical-align: middle;
+    }
+  }
+
+  /* modifiers */
+  &--error {
+    color: $color-error;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--without-border {
+    &::after {
+      border: none;
+    }
+  }
+}

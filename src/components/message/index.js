@@ -2,27 +2,9 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtMessage extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: ''
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-  }
-
   constructor () {
     super(...arguments)
     this.state = {
@@ -92,4 +74,20 @@ export default class AtMessage extends AtComponent {
       </View>
     )
   }
+}
+
+AtMessage.defaultProps = {
+  customStyle: '',
+  className: '',
+}
+
+AtMessage.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
 }

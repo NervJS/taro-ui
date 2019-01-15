@@ -1,13 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AtLoading from '../loading/index'
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtActivityIndicator extends AtComponent {
   render () {

@@ -139,7 +139,7 @@ export default class Index extends Taro.Component {
 | ---   | ----  | ---- | ---- | ------- | ------- | ------ |
 | value | √ | √ | 必填，输入框当前值，开发者需要通过 onChange 事件来更新 value 值 | String  | - | - |
 | placeholder | √ | √ |  占位符  | String  | - | - |
-| maxlength | √ | √ | 最大长度 | Number  | -  | 140 |
+| maxLength | √ | √ | 最大长度 | Number  | -  | 140 |
 | fixed | √ | √ | 是否固定顶部 | Boolean  | -  | false |
 | focus | √ | √ | 是否聚焦 | Boolean  | -  | false |
 | disabled | √ | √ | 是否禁止输入 | Boolean  | -  | false |

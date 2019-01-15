@@ -2,11 +2,8 @@ import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtButton from '../button/index'
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const MIN_MAXPAGE = 1
 const getMaxPage = (maxPage = 0) => {
@@ -105,11 +102,19 @@ export default class AtPagination extends AtComponent {
         <View className='at-pagination__operate'>
           <View className='at-pagination__btns'>
             <View className='at-pagination__btns-prev'>
-              {icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}><AtIcon customStyle={{ fontSize: '20px' }} value='chevron-left' color='#000'></AtIcon></AtButton>}
+              {icon && (
+                <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>
+                  <Text className='at-icon at-icon-chevron-left'></Text>
+                </AtButton>
+              )}
               {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
             </View>
             <View className='at-pagination__btns-next'>
-              {icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}><AtIcon customStyle={{ fontSize: '20px' }} value='chevron-right' color='#000'></AtIcon></AtButton>}
+              {icon && (
+                <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>
+                  <Text className='at-icon at-icon-chevron-right'></Text>
+                </AtButton>
+              )}
               {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
             </View>
           </View>

@@ -47,6 +47,20 @@ export default class CardPage extends Taro.Component {
           </View>
 
           <View className='panel'>
+            <View className='panel__title'>带图标的卡片</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtCard
+                  title='这是个标题'
+                  icon={{ value: 'tags', color: '#77a1fd' }}
+                >
+                  这也是内容区 可以随意定义功能
+                </AtCard>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
             <View className='panel__title'>带小信息的卡片</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>

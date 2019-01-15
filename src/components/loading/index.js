@@ -1,27 +1,9 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtLoading extends AtComponent {
-  static defaultProps = {
-    size: '18',
-    color: '#fff'
-  }
-
-  static propTypes = {
-    size: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    color: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ])
-  }
-
   render () {
     const { color, size } = this.props
     const sizeStyle = {
@@ -42,4 +24,20 @@ export default class AtLoading extends AtComponent {
       </View>
     )
   }
+}
+
+AtLoading.defaultProps = {
+  size: '18',
+  color: '#fff',
+}
+
+AtLoading.propTypes = {
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  color: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 }

@@ -1,16 +1,11 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-
 import _chunk from 'lodash/chunk'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtGrid extends AtComponent {
   handleClick = (item, index, row, ...arg) => {
@@ -63,19 +58,25 @@ export default class AtGrid extends AtComponent {
                           mode='scaleToFill'
                         />
                       )}
-                      {_isObject(childItem.iconInfo) &&
-                        !childItem.image && (
-                        <AtIcon
-                          customStyle={
-                            this.mergeStyle(
-                              { fontSize: `${childItem.iconInfo.size || 24}px` },
-                              childItem.iconInfo.customStyle
-                            )
-                          }
-                          value={childItem.iconInfo.value}
-                          color={childItem.iconInfo.color}
-                          className={childItem.iconInfo.className}
-                          prefixClass={childItem.iconInfo.prefixClass}
+                      {_isObject(childItem.iconInfo) && !childItem.image && (
+                        <Text
+                          className={classNames(
+                            childItem.iconInfo.prefixClass || 'at-icon',
+                            {
+                              [`${childItem.iconInfo.prefixClass ||
+                                'at-icon'}-${
+                                childItem.iconInfo.value
+                              }`]: childItem.iconInfo.value
+                            },
+                            childItem.iconInfo.className
+                          )}
+                          style={this.mergeStyle(
+                            {
+                              color: childItem.iconInfo.color,
+                              fontSize: `${childItem.iconInfo.size || 24}px`
+                            },
+                            childItem.iconInfo.customStyle
+                          )}
                         />
                       )}
                     </View>

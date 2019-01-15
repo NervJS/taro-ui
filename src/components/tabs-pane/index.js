@@ -2,33 +2,9 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTabsPane extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    tabDirection: 'horizontal',
-    index: 0,
-    current: 0
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
-    index: PropTypes.number,
-    current: PropTypes.number
-  }
-
   render () {
     const {
       customStyle,
@@ -54,4 +30,27 @@ export default class AtTabsPane extends AtComponent {
       </View>
     )
   }
+}
+
+
+AtTabsPane.defaultProps = {
+  customStyle: '',
+  className: '',
+  tabDirection: 'horizontal',
+  index: 0,
+  current: 0,
+}
+
+AtTabsPane.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
+  index: PropTypes.number,
+  current: PropTypes.number,
 }

@@ -27,11 +27,17 @@ export default class TagPage extends Taro.Component {
     const { tagList } = this.state
     const findIndex = this.state.tagList.findIndex(item => item.name === data.name)
     const active = !tagList[findIndex].active
-    tagList[findIndex].active = active
     const content = `您点击的 tag 标签名是：${data.name}，点击前是否选中：${data.active}，点击后：${active}`
+
+    tagList[findIndex].active = active
     this.setState({ tagList })
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content, showCancel: false })
-    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert(content)
+
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      alert(content)
+    } else {
+      Taro.showModal({ content, showCancel: false })
+    }
+
     console.log(data)
   }
 

@@ -1,19 +1,14 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-// import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../../common/component'
 import { delayQuerySelector } from '../../../common/utils'
-
-import './index.scss'
 
 export default class AtSwiperActionOptions extends AtComponent {
   componentDidMount () {
     delayQuerySelector(
-      Taro.getEnv() === Taro.ENV_TYPE.WEB ? this : this.$scope,
-      '.at-swipe-action__options'
+      this,
+      `#swipeActionOptions-${this.props.componentId}`
     ).then(res => {
       this.props.onQueryedDom(res[0])
     })
@@ -26,7 +21,7 @@ export default class AtSwiperActionOptions extends AtComponent {
     )
 
     return (
-      <View className={rootClass}>
+      <View id={`swipeActionOptions-${this.props.componentId}`} className={rootClass}>
         {this.props.children}
       </View>
     )

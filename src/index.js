@@ -1,8 +1,5 @@
 import Taro from '@tarojs/taro'
-
-import './components/article/index.scss'
-import './components/flex/index.scss'
-import './components/flex/item/index.scss'
+import './style/index.scss'
 
 Taro.initPxTransform({ designWidth: 750 })
 

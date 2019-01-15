@@ -18,6 +18,7 @@ module.exports = {
   h5: {
     devServer: {
       host: '0.0.0.0',
+      disableHostCheck: true,
       port: 8080
     }
   }
