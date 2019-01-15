@@ -6,24 +6,26 @@ cache:
   directories:
     - node_modules
 
-install:
-  - npm install
-
-script:
-  - npm run test:ci
-  - npm run build:doc
-
-after_script:
-  - cd site
-  - git init
-  - echo 'taro-ui.aotu.io' > CNAME
-  - git add .
-  - git commit -m "Update Document"
-  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages
-
-branches:
-  only:
-    - master
+jobs:
+  include:
+    - stage: test
+      install:
+        - npm install
+      script:
+        - npm run test:ci
+    - stage: deploy
+      if: (branch = master) AND (NOT (type IN (pull_request)))
+      install:
+        - npm install
+      script:
+        - npm run build:doc
+      after_script:
+        - cd site
+        - git init
+        - echo 'taro-ui.aotu.io' > CNAME
+        - git add .
+        - git commit -m "Update Document"
+        - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages
 
 env:
   global:
