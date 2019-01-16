@@ -16,7 +16,7 @@
     "build:alipay": "taro build --type alipay",
     "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
     "build:h5-static": "npm run build:h5 && node ./build/build-static",
-    "build:doc": "npm run build:h5-static && node ./build/build-doc",
+    "build:doc": "npm run build:h5-static && node ./build/build-docs",
     "prepublishOnly": "npm run build:component",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
