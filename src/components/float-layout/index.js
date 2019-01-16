@@ -4,7 +4,9 @@ import { View, Text, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
+
 import AtComponent from '../../common/component'
+import { handleTouchScroll } from '../../common/utils'
 
 export default class AtFloatLayout extends AtComponent {
   constructor (props) {
@@ -18,11 +20,15 @@ export default class AtFloatLayout extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
+
+    if (this.props.isOpened !== isOpened) {
+      handleTouchScroll(isOpened)
+    }
+
     if (isOpened !== this.state._isOpened) {
       this.setState({
         _isOpened: isOpened
       })
-      // !isOpened && this.handleClose()
     }
   }
 
@@ -43,7 +49,6 @@ export default class AtFloatLayout extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
-    e.preventDefault()
   }
 
   render () {
