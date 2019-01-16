@@ -27,7 +27,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -91,7 +91,6 @@
     "@types/react": "16.3.14",
     "@types/webpack-env": "^1.13.6",
     "at-ui-style": "^1.5.1",
-    "eslint-config-taro": "1.2.4",
     "autoprefixer": "^9.0.2",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.3",
@@ -112,6 +111,7 @@
     "css-loader": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-o2team": "^0.1.6",
+    "eslint-config-taro": "1.2.4",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^21.21.0",
     "eslint-plugin-react": "^7.8.2",
@@ -128,7 +128,7 @@
     "highlight.js": "^9.12.0",
     "html-webpack-plugin": "^3.2.0",
     "html-withimg-loader": "^0.1.16",
-    "husky": "^1.0.0-rc.13",
+    "husky": "^1.3.1",
     "jest": "^23.5.0",
     "json-loader": "^0.5.7",
     "lint-staged": "^7.2.0",
