@@ -4,7 +4,9 @@ import { View, Text, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
+
 import AtComponent from '../../common/component'
+import { handleTouchScroll } from '../../common/utils'
 
 export default class AtFloatLayout extends AtComponent {
   constructor (props) {
@@ -18,11 +20,15 @@ export default class AtFloatLayout extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
+
+    if (this.props.isOpened !== isOpened) {
+      handleTouchScroll(isOpened)
+    }
+
     if (isOpened !== this.state._isOpened) {
       this.setState({
         _isOpened: isOpened
       })
-      // !isOpened && this.handleClose()
     }
   }
 
@@ -43,7 +49,6 @@ export default class AtFloatLayout extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
-    e.preventDefault()
   }
 
   render () {
@@ -72,10 +77,12 @@ export default class AtFloatLayout extends AtComponent {
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
-          <View className='layout-header'>
-            <Text className='layout-header__title'>{title}</Text>
-            <View className='layout-header__btn-close' onClick={this.close}></View>
-          </View>
+          {title ? (
+            <View className='layout-header'>
+              <Text className='layout-header__title'>{title}</Text>
+              <View className='layout-header__btn-close' onClick={this.close} />
+            </View>
+          ) : null}
           <View className='layout-body'>
             <ScrollView
               scrollY={scrollY}
@@ -110,7 +117,7 @@ AtFloatLayout.defaultProps = {
   onClose: () => {},
   onScroll: () => {},
   onScrollToLower: () => {},
-  onScrollToUpper: () => {},
+  onScrollToUpper: () => {}
 }
 
 AtFloatLayout.propType = {
@@ -126,5 +133,5 @@ AtFloatLayout.propType = {
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
-  onScrollToUpper: PropTypes.func,
+  onScrollToUpper: PropTypes.func
 }

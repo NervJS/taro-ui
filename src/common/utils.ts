@@ -18,7 +18,7 @@ function delay (delayTime = 500): Promise<null> {
 function delayQuerySelector (
   self,
   selectorStr: string,
-  delayTime = 500,
+  delayTime = 500
 ): Promise<Array<execObject>> {
   const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
@@ -35,38 +35,35 @@ function delayQuerySelector (
   })
 }
 
-function uuid (
-  len = 8,
-  radix = 16
-): string {
-
-  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
-  var uuid: string[] = []
-  var i = 0
+function uuid (len = 8, radix = 16): string {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  const value: string[] = []
+  let i = 0
   radix = radix || chars.length
 
   if (len) {
     // Compact form
-    for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix]
+    for (i = 0; i < len; i++) value[i] = chars[0 | (Math.random() * radix)]
   } else {
     // rfc4122, version 4 form
-    var r
+    let r
 
     // rfc4122 requires these characters
-    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-'
-    uuid[14] = '4';
+    /* eslint-disable-next-line */
+    value[8] = value[13] = value[18] = value[23] = '-'
+    value[14] = '4'
 
     // Fill in random data.  At i==19 set the high bits of clock sequence as
     // per rfc4122, sec. 4.1.5
     for (i = 0; i < 36; i++) {
-      if (!uuid[i]) {
-        r = 0 | Math.random() * 16
-        uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r]
+      if (!value[i]) {
+        r = 0 | (Math.random() * 16)
+        value[i] = chars[i === 19 ? (r & 0x3) | 0x8 : r]
       }
     }
   }
 
-  return uuid.join('')
+  return value.join('')
 }
 
 interface EventDetail {
@@ -80,7 +77,7 @@ interface EventDetail {
   y: number
 }
 
-function getEventDetail(event:any) {
+function getEventDetail (event: any) {
   let detail: EventDetail
   switch (ENV) {
     case Taro.ENV_TYPE.WEB:
@@ -94,7 +91,7 @@ function getEventDetail(event:any) {
         x: event.x,
         y: event.y
       }
-      break;
+      break
 
     case Taro.ENV_TYPE.WEAPP:
       detail = {
@@ -107,7 +104,7 @@ function getEventDetail(event:any) {
         x: event.target.x,
         y: event.target.y
       }
-      break;
+      break
 
     case Taro.ENV_TYPE.ALIPAY:
       detail = {
@@ -120,7 +117,7 @@ function getEventDetail(event:any) {
         x: event.target.x,
         y: event.target.y
       }
-      break;
+      break
 
     default:
       detail = {
@@ -131,17 +128,39 @@ function getEventDetail(event:any) {
         offsetX: 0,
         offsetY: 0,
         x: 0,
-        y: 0,
+        y: 0
       }
       console.warn('getEventDetail暂未支持该环境')
-      break;
+      break
   }
   return detail
 }
 
-function initTestEnv() {
+function initTestEnv () {
   if (process.env.NODE_ENV === 'test') {
     Taro.initPxTransform({ designWidth: 750 })
+  }
+}
+
+let scrollTop = 0
+
+function handleTouchScroll (flag) {
+  if (ENV !== Taro.ENV_TYPE.WEB) {
+    return
+  }
+  if (flag) {
+    scrollTop = document.documentElement.scrollTop
+
+    // 使body脱离文档流
+    document.body.classList.add('at-frozen')
+
+    // 把脱离文档流的body拉上去！否则页面会回到顶部！
+    document.body.style.top = `${-scrollTop}px`
+  } else {
+    document.body.style.top = null
+    document.body.classList.remove('at-frozen')
+
+    document.documentElement.scrollTop = scrollTop
   }
 }
 
@@ -150,5 +169,6 @@ export {
   delayQuerySelector,
   uuid,
   getEventDetail,
-  initTestEnv
+  initTestEnv,
+  handleTouchScroll
 }
