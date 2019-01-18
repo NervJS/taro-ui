@@ -118,6 +118,7 @@ export default class AtTabs extends AtComponent {
 
   componentDidMount () {
     this.getTabHeaderRef()
+    this.updateState(this.props.current)
   }
 
   render () {
