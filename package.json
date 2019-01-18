@@ -22,7 +22,8 @@
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "test": "NODE_ENV=test && jest --coverage",
-    "test:ci": "npm run build:h5 && npm run test"
+    "test:ci": "npm run build:h5 && npm run test",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "husky": {
     "hooks": {
@@ -105,6 +106,7 @@
     "classnames": "^2.2.6",
     "clean-webpack-plugin": "^0.1.19",
     "commitlint": "^7.2.1",
+    "conventional-changelog-cli": "^2.0.11",
     "copy-to-clipboard": "^3.0.8",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
