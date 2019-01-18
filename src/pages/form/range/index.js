@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtRange from '../../../components/range/index'
+import { AtRange } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 

@@ -1,10 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Form } from '@tarojs/components'
-
-import AtButton from '../../../components/button/index'
-import AtForm from '../../../components/form/index'
+import { AtButton, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ButtonPage extends Taro.Component {

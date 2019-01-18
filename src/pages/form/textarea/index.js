@@ -1,7 +1,6 @@
-/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtTextarea from '../../../components/textarea/index'
+import { AtTextarea } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 

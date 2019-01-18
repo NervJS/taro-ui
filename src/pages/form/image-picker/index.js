@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtImagePicker from '../../../components/image-picker/index'
+import { AtImagePicker } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
