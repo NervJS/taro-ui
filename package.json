@@ -30,11 +30,6 @@
       "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
     }
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "eslint --quiet --cache --fix",
@@ -114,7 +109,6 @@
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-o2team": "^0.1.6",
     "eslint-config-taro": "1.2.4",
