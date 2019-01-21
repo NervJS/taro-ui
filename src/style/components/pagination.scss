@@ -1,0 +1,51 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+$at-pagination-margin: 40px;
+$at-pagination-height: 60px;
+$at-pagination-current-num-color: $color-brand;
+$at-pagination-number-width: 100px;
+
+.at-pagination {
+  position: relative;
+  margin: 0 $at-pagination-margin;
+  font-size: 0;
+  overflow: hidden;
+
+  &__btns {
+    display: flex;
+
+    &-prev {
+      flex: 1;
+      text-align: left;
+    }
+
+    &-next {
+      flex: 1;
+      text-align: right;
+    }
+
+    .at-icon {
+      color: $color-text-base;
+      font-size: 32px;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: $at-pagination-number-width;
+    height: $at-pagination-height;
+    color: $color-text-base;
+    font-size: $font-size-base;
+    text-align: center;
+    line-height: $at-pagination-height;
+    overflow: hidden;
+    transform: translateX(-50%);
+
+    &-current {
+      color: $at-pagination-current-num-color;
+    }
+  }
+}

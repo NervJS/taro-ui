@@ -1,11 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtAccordion from '../../../components/accordion/index'
-import AtList from '../../../components/list/index'
-import AtListItem from '../../../components/list/item/index'
+import { AtAccordion, AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class CardPage extends Taro.Component {
@@ -34,11 +30,6 @@ export default class CardPage extends Taro.Component {
                     <AtListItem
                       title='标题文字'
                       thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-                    />
-                    <AtListItem
-                      title='标题文字'
-                      note='描述信息'
-                      thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                     />
                     <AtListItem
                       title='标题文字'

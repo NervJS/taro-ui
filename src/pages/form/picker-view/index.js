@@ -51,12 +51,13 @@ export default class Index extends Taro.Component {
   componentDidMount () {
     const env = Taro.getEnv()
     this.setState({
-      isWeapp: env === Taro.ENV_TYPE.WEAPP
+      isWeapp: env === Taro.ENV_TYPE.WEAPP,
+      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
     })
   }
 
   render () {
-    const { years, months, days, value, year, month, day, isWeapp } = this.state
+    const { years, months, days, value, year, month, day, isWeapp, isAlipay } = this.state
 
     return (
       <View className='page'>
@@ -73,7 +74,7 @@ export default class Index extends Taro.Component {
               <View className='example-item'>
                 <View className='example-item__desc'>嵌入页面的滑动选择器</View>
                 {
-                  isWeapp ? (
+                  isWeapp || isAlipay ? (
                     <View>
                       <View className='title-date'>{year}年{month}月{day}日</View>
                       <PickerView indicatorStyle='height: 50px;' className='picker' style='width: 100%; height: 300px; text-align: center;' value={value} onChange={this.handleChange}>

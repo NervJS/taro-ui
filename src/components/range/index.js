@@ -2,58 +2,10 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
-
+import { uuid, delayQuerySelector, getEventDetail } from '../../common/utils'
 import AtComponent from '../../common/component'
-import './index.scss'
-
-const defaultFunc = () => {}
 
 export default class AtRange extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    sliderStyle: '',
-    railStyle: '',
-    trackStyle: '',
-    value: [0, 0],
-    min: 0,
-    max: 100,
-    disabled: false,
-    blockSize: 28,
-    onChange: defaultFunc,
-    onAfterChange: defaultFunc
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    sliderStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    railStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    trackStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    value: PropTypes.array,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    disabled: PropTypes.bool,
-    blockSize: PropTypes.number,
-    onChange: PropTypes.func,
-    onAfterChange: PropTypes.func,
-  }
-
   constructor (props) {
     super(...arguments)
     const { max, min } = props
@@ -63,6 +15,7 @@ export default class AtRange extends AtComponent {
     this.left = 0
     this.deltaValue = max - min
     this.currentSlider = ''
+    this.rangeId = this.props.isTest ? 'range-AOTU2018' : uuid()
     this.state = {
       slider1X: 0,
       slider2X: 0
@@ -71,13 +24,9 @@ export default class AtRange extends AtComponent {
 
   handleClick (event) {
     if (this.currentSlider && !this.props.disabled) {
-      const env = Taro.getEnv()
       let sliderValue = 0
-      if (env === Taro.ENV_TYPE.WEB) {
-        sliderValue = event.pageX - this.left
-      } else if (env === Taro.ENV_TYPE.WEAPP) {
-        sliderValue = event.target.x - this.left
-      }
+      const detail = getEventDetail(event)
+      sliderValue = detail.x - this.left
       this.setSliderValue(this.currentSlider, sliderValue, 'onChange')
     }
   }
@@ -157,25 +106,14 @@ export default class AtRange extends AtComponent {
 
   componentDidMount () {
     // 获取 range 宽度
-    const env = Taro.getEnv()
     const { value } = this.props
-    // 异步解决获取 offsetWidth 不准确问题
-    setTimeout(() => {
-      if (env === Taro.ENV_TYPE.WEB) {
-        this.width = Math.round(this.rangeRef.vnode.dom.offsetWidth)
-        this.left = Math.round(this.rangeRef.vnode.dom.offsetLeft)
+    delayQuerySelector(this, `#${this.rangeId}`, 0)
+      .then(rect => {
+        this.width = Math.round(rect[0].width)
+        this.left = Math.round(rect[0].left)
         this.setValue(value)
-      } else if (env === Taro.ENV_TYPE.WEAPP) {
-        this.rangeRef.boundingClientRect(rect => {
-          this.width = Math.round(rect.width)
-          this.left = Math.round(rect.left)
-          this.setValue(value)
-        }).exec()
-      }
-    })
+      })
   }
-
-  getRangeRef = node => (this.rangeRef = node)
 
   render () {
     const {
@@ -190,9 +128,9 @@ export default class AtRange extends AtComponent {
 
     const { slider1X, slider2X } = this.state
     const sliderCommonStyle = {
-      width: `${blockSize}PX`,
-      height: `${blockSize}PX`,
-      marginLeft: `${-blockSize / 2}PX`
+      width: blockSize ? `${blockSize}PX` : '',
+      height: blockSize ? `${blockSize}PX` : '',
+      marginLeft: blockSize ? `${-blockSize / 2}PX` : '',
     }
     const slider1Style = {
       ...sliderCommonStyle,
@@ -203,7 +141,7 @@ export default class AtRange extends AtComponent {
       left: `${slider2X}%`
     }
     const containerStyle = {
-      height: `${blockSize}PX`,
+      height: blockSize ? `${blockSize}PX` : '',
     }
 
     const smallX = slider1X > slider2X ? slider2X : slider1X
@@ -224,9 +162,9 @@ export default class AtRange extends AtComponent {
         onClick={this.handleClick.bind(this)}
       >
         <View
+          id={this.rangeId}
           className='at-range__container'
           style={containerStyle}
-          ref={this.getRangeRef}
         >
           <View
             className='at-range__rail'
@@ -255,4 +193,51 @@ export default class AtRange extends AtComponent {
       </View>
     )
   }
+}
+
+AtRange.defaultProps = {
+  isTest: false,
+  customStyle: '',
+  className: '',
+  sliderStyle: '',
+  railStyle: '',
+  trackStyle: '',
+  value: [0, 0],
+  min: 0,
+  max: 100,
+  disabled: false,
+  blockSize: 0,
+  onChange: () => {},
+  onAfterChange: () => {},
+}
+
+AtRange.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  sliderStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  railStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  trackStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  isTest: PropTypes.bool,
+  value: PropTypes.array,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  disabled: PropTypes.bool,
+  blockSize: PropTypes.number,
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
 }

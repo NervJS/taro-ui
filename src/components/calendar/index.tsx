@@ -16,8 +16,6 @@ import AtCalendarController from './controller/index'
 
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
-import './index.scss'
-
 const defaultProps: DefaultProps = {
   marks: [],
   isSwiper: true,
@@ -31,6 +29,7 @@ const defaultProps: DefaultProps = {
 }
 
 export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
+  static options = { addGlobalClass: true }
   static defaultProps: DefaultProps = defaultProps
 
   constructor (props: Props) {
@@ -83,18 +82,19 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   }
 
   @bind
-  private getMultiSelectedState (value: Dayjs): Partial<State> {
+  private getMultiSelectedState (value: Dayjs): Pick<State, 'selectedDate'> {
     const { selectedDate } = this.state
     const { end } = selectedDate
 
     const valueUnix: number = value.valueOf()
-    const state: Partial<State> = {}
+    const state: Pick<State, 'selectedDate'> = {
+      selectedDate
+    }
 
     if (end) {
       state.selectedDate = this.getSelectedDate(valueUnix, 0)
     } else {
-      selectedDate.end = valueUnix
-      state.selectedDate = selectedDate
+      state.selectedDate.end = valueUnix
     }
 
     return state
@@ -159,15 +159,19 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   }
 
   @bind
-  setGenerateDate (vectorCount: number) {
+  setMonth (vectorCount: number) {
+    const { format } = this.props
     const { generateDate } = this.state
 
-    const _generateDate: number = dayjs(generateDate)
-      .add(vectorCount, 'month')
-      .valueOf()
+    const _generateDate: Dayjs = dayjs(generateDate).add(vectorCount, 'month')
+
     this.setState({
-      generateDate: _generateDate
+      generateDate: _generateDate.valueOf()
     })
+
+    if (vectorCount && _isFunction(this.props.onMonthChange)) {
+      this.props.onMonthChange(_generateDate.format(format))
+    }
   }
 
   @bind
@@ -176,7 +180,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
       return
     }
 
-    this.setGenerateDate(-1)
+    this.setMonth(-1)
 
     if (_isFunction(this.props.onClickPreMonth)) {
       this.props.onClickPreMonth()
@@ -189,13 +193,14 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
       return
     }
 
-    this.setGenerateDate(1)
+    this.setMonth(1)
 
     if (_isFunction(this.props.onClickNextMonth)) {
       this.props.onClickNextMonth()
     }
   }
 
+  // picker 选择时间改变时触发
   @bind
   handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
     const { value } = e.detail
@@ -228,10 +233,29 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
       stateValue = this.getSingleSelectdState(dayjsDate)
     }
 
-    this.setState(stateValue as State)
+    this.setState(stateValue as State, () => {
+      this.handleSelectedDate()
+    })
 
     if (_isFunction(this.props.onDayClick)) {
       this.props.onDayClick({ value: item.value })
+    }
+  }
+
+  handleSelectedDate () {
+    const selectDate = this.state.selectedDate
+    if (_isFunction(this.props.onSelectDate)) {
+      const info: Calendar.SelectedDate = {
+        start: dayjs(selectDate.start).format(this.props.format)
+      }
+
+      if (selectDate.end) {
+        info.end = dayjs(selectDate.end).format(this.props.format)
+      }
+
+      this.props.onSelectDate({
+        value: info
+      })
     }
   }
 
@@ -280,7 +304,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
           selectedDates={selectedDates}
           generateDate={generateDate}
           onDayClick={this.handleDayClick}
-          onSwipeMonth={this.setGenerateDate}
+          onSwipeMonth={this.setMonth}
           onLongClick={this.handleDayLongClick}
         />
       </View>

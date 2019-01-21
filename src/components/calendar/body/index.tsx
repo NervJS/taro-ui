@@ -16,8 +16,6 @@ import { Props, State, ListGroup } from './interface'
 
 import { delayQuerySelector } from '../../../common/utils'
 
-import './index.scss'
-
 const ANIMTE_DURATION: number = 300
 
 const defaultProps: Partial<Props> = {
@@ -34,6 +32,7 @@ export default class AtCalendarBody extends Taro.Component<
   Props,
   Readonly<State>
   > {
+  static options = { addGlobalClass: true }
   static defaultProps: Partial<Props> = defaultProps
 
   private changeCount: number = 0
@@ -140,7 +139,7 @@ export default class AtCalendarBody extends Taro.Component<
   }
 
   componentDidMount () {
-    delayQuerySelector(this.$scope, '.at-calendar-slider__main').then(res => {
+    delayQuerySelector(this, '.at-calendar-slider__main').then(res => {
       this.maxWidth = res[0].width
     })
   }

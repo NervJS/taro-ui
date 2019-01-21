@@ -1,48 +1,18 @@
 import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { View } from '@tarojs/components'
-
+import { View, Text } from '@tarojs/components'
 import AtComponent from '../../common/component'
-import AtIcon from '../../components/icon'
-import './index.scss'
+import { delayQuerySelector, uuid } from '../../common/utils'
 
 export default class AtAccordion extends AtComponent {
-  static defaultProps = {
-    isTest: false,
-    open: false,
-    customStyle: '',
-    className: '',
-    title: '',
-    onClick: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    open: PropTypes.bool,
-    title: PropTypes.string,
-    icon: PropTypes.object,
-    onClick: PropTypes.func
-  }
-
   constructor () {
     super(...arguments)
-    // body 元素id
-    const randomId = `${(new Date()).getTime()}${Math.ceil(Math.random() * 10e5).toString(36)}`
-    this.elemId = `at-accordion_body_${randomId}`
-    // body 高度
-    this.bodyHeight = 0
-    // 组件是否展开
-    this.isOpen = this.props.open
+    this.bodyHeight = 0 // body 高度
+    this.accordionId = this.props.isTest ? 'accordion-AOTU2018' : `accordion-${uuid()}`
     this.state = {
-      bodyHeight: '',
+      isOpen: !!this.props.open, // 组件是否展开
+      wrapperHeight: '',
     }
   }
 
@@ -52,30 +22,42 @@ export default class AtAccordion extends AtComponent {
   }
 
   componentDidMount () {
-    // 获取 body 高度
+    this.initData()
+  }
+
+  componentWillReceiveProps () {
+    this.initData()
+  }
+
+  initData () {
+    const { isOpen } = this.state
     const env = Taro.getEnv()
+
     if (env === Taro.ENV_TYPE.WEB) {
       setTimeout(() => {
-        this.bodyHeight = document.getElementsByClassName(`${this.elemId}`)[0].scrollHeight
+        this.accordionRef = document.getElementById(this.accordionId)
+        this.bodyHeight = this.accordionRef.getBoundingClientRect().height
+
         this.setState({
-          bodyHeight: this.isOpen ? this.bodyHeight : 0
+          wrapperHeight: isOpen ? this.bodyHeight : 0
         })
-      })
-    } else if (env === Taro.ENV_TYPE.WEAPP) {
-      const query = Taro.createSelectorQuery().in(this.$scope)
-      query.select(`.${this.elemId}`).boundingClientRect(res => {
-        this.bodyHeight = res.height
-        this.setState({
-          bodyHeight: this.isOpen ? this.bodyHeight : 0
+      }, 500)
+    } else if (env === Taro.ENV_TYPE.WEAPP || env === Taro.ENV_TYPE.ALIPAY) {
+      delayQuerySelector(this, `#${this.accordionId}`)
+        .then(rect => {
+          this.bodyHeight = rect[0].height || 0
+          this.setState({
+            wrapperHeight: isOpen ? this.bodyHeight : 0
+          })
         })
-      }).exec()
     }
   }
 
   switch () {
-    this.isOpen = !this.isOpen
+    const { isOpen } = this.state
     this.setState({
-      bodyHeight: this.isOpen ? this.bodyHeight : 0
+      isOpen: !isOpen,
+      wrapperHeight: isOpen ? 0 : this.bodyHeight
     })
   }
 
@@ -83,81 +65,80 @@ export default class AtAccordion extends AtComponent {
     const {
       customStyle,
       className,
-      isTest,
       title,
       icon,
+      hasBorder,
     } = this.props
+    const { wrapperHeight, isOpen } = this.state
 
-    const {
-      bodyHeight,
-    } = this.state
+    const iconClass = classNames({
+      'at-icon': true,
+      [`at-icon-${icon && icon.value}`]: icon && icon.value,
+      'at-accordion__icon': true,
+    })
+    const headerClass = classNames('at-accordion__header', {
+      'at-accordion__header--noborder': !hasBorder
+    })
+    const arrowClass = classNames('at-accordion__arrow', {
+      'at-accordion__arrow--folded': !!isOpen
+    })
 
     const contentStyle = {
-      height: `${bodyHeight}px`
+      height: `${wrapperHeight}px`
     }
-
-    const animatedStyle = {
-      transition: 'transform 0.2s ease',
+    const iconStyle = {
+      color: (icon && icon.color) || '',
+      fontSize: (icon && `${icon.size}px`) || '',
     }
-    if (this.isOpen) {
-      animatedStyle.transform = 'rotate(180deg)'
-    } else {
-      animatedStyle.transform = 'rotate(0)'
-    }
-
-    const contentCls = {
-      'at-accordion__content': true,
-    }
-    contentCls[this.elemId] = !isTest
 
     return (
       <View
-        className={
-          classNames('at-accordion', className)
-        }
+        className={classNames('at-accordion', className)}
         style={customStyle}
       >
-        <View
-          className='at-accordion__header'
-          onClick={this.handleClick.bind(this)}
-        >
-          {
-            icon
-              ? <AtIcon
-                customStyle={{
-                  marginRight: '15px',
-                  fontSize: `${icon.size || 24}px`
-                }}
-                className='at-accordion__icon'
-                value={icon.value}
-                color={icon.color}
-              />
-              : null
-          }
-          <View className='at-accordion__title'>
-            {title}
+        <View className={headerClass} onClick={this.handleClick.bind(this)}>
+          {icon && icon.value && <Text className={iconClass} style={iconStyle}></Text>}
+          <View className='at-accordion__title'>{title}</View>
+          <View className={arrowClass}>
+            <Text className='at-icon at-icon-chevron-down'></Text>
           </View>
-          <AtIcon
-            customStyle={
-              this.mergeStyle(
-                {
-                  fontSize: '24px',
-                }, animatedStyle
-              )
-            }
-            value='chevron-down'
-            color='#c7c7cc'
-          />
         </View>
         <View
-          className={
-            classNames(contentCls)
-          }
+          className='at-accordion__content'
           style={contentStyle}
+          id={this.accordionId}
         >
           {this.props.children}
         </View>
       </View>
     )
   }
+}
+
+AtAccordion.defaultProps = {
+  isTest: false,
+  open: false,
+  customStyle: '',
+  className: '',
+  title: '',
+  icon: {},
+  hasBorder: true,
+  onClick: () => {},
+}
+
+AtAccordion.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  isTest: PropTypes.bool,
+  open: PropTypes.bool,
+  title: PropTypes.string,
+  icon: PropTypes.object,
+  hasBorder: PropTypes.bool,
+  onClick: PropTypes.func,
 }

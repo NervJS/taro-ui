@@ -2,10 +2,42 @@
 
 ----
 
-Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多样化的视觉需求，UI 库支持一定程度的样式定制。目前自定义主题的功能还在开发中，如果您有修改组件样式的需求，可以通过以下方式进行修改：
+Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多样化的视觉需求，UI 库支持一定程度的样式定制。（请确保微信基础库版本在 v2.2.3 以上）
 
+目前支持三种自定义主题的方式，可以进行不同程度的样式自定义：
+
+- SCSS 变量覆盖
 - globalClass 全局样式类
 - 配置 customStyle 属性（仅有部分组件支持，请查看组件文档）
+
+## SCSS 主题变量覆盖
+
+Taro UI 的组件样式是使用 SCSS 编写的，如果你的项目中也使用了 SCSS，那么可以直接在项目中改变 Taro UI 的样式变量。
+
+新建一个主题样式文件，例如 `custom-variables.scss`，并写入以下内容：
+
+:::demo
+```scss
+/* 改变主题变量，具体变量名可查看 taro-ui/dist/style/variables/default.scss 文件 */
+$color-brand: #6190E8;
+
+/* 引入 Taro UI 默认样式 */
+@import "~taro-ui/dist/style/index.scss";
+```
+:::
+
+> 覆写的变量，需要在引入 taro ui 默认样式之前定义，[默认主题变量的文件地址](https://github.com/NervJS/taro-ui/blob/next/src/style/variables/default.scss)
+
+之后在项目的入口文件中引入以上的样式文件即可（无需重复引入组件的默认样式）
+
+:::demo
+```js
+/* app.js */
+import './custom-variables.scss'
+```
+:::
+
+> Slider, Switch 组件暂时不支持 SCSS 变量覆盖的方式自定义主题
 
 ## 全局样式类
 

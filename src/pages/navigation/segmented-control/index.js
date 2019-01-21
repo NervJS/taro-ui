@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtSegmentedControl from '../../../components/segmented-control/index'
+import { AtSegmentedControl } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -38,7 +38,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
               <View>
-                <AtSegmentedControl onClick={this.handleClick.bind(this, 1)} selectedColor='#6190E8' current={current1} values={tabList2} />
+                <AtSegmentedControl onClick={this.handleClick.bind(this, 1)} current={current1} values={tabList2} />
                 <View className='tab-content'>标签 {current1 + 1} 的内容</View>
               </View>
             </View>

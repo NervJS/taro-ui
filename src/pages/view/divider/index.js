@@ -1,10 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtDivider from '../../../components/divider/index'
-import AtIcon from '../../../components/icon/index'
+import { AtDivider, AtIcon } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class LoadMorePage extends Taro.Component {

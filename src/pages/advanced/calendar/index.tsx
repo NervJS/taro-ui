@@ -1,7 +1,9 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
-
 import bind from 'bind-decorator'
+
+import Taro, { Component, Config } from '@tarojs/taro'
+import { View } from '@tarojs/components'
+
+import AtButton from '../../../components/button/index'
 
 import './index.scss'
 
@@ -59,6 +61,11 @@ export default class Index extends Component {
     console.log('handleDateChange', arg)
   }
 
+  @bind
+  handleMonthChange (arg) {
+    console.log('handleMonthChange', arg)
+  }
+
   render () {
     const { now, minDate, maxDate, mark, multiCurentDate } = this.state
     return (
@@ -69,7 +76,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>一般案例</View>
             <View className='panel__content'>
-              <AtCalendar />
+              <AtCalendar onMonthChange={this.handleMonthChange} />
             </View>
           </View>
 
@@ -78,20 +85,18 @@ export default class Index extends Component {
             <View className='panel__content'>
               <AtCalendar currentDate={now} />
               <View className='body_controllers'>
-                <Button
-                  size='mini'
-                  className='button'
+                <AtButton
+                  size='small'
                   onClick={this.handleClick.bind(this, 'now', '2018/01/01')}
                 >
                   跳转到 2018/01/01
-                </Button>
-                <Button
-                  size='mini'
-                  className='button'
+                </AtButton>
+                <AtButton
+                  size='small'
                   onClick={this.handleClick.bind(this, 'now', '2018/06/18')}
                 >
                   跳转到 2018/6/18
-                </Button>
+                </AtButton>
               </View>
             </View>
           </View>
@@ -101,20 +106,18 @@ export default class Index extends Component {
             <View className='panel__content'>
               <AtCalendar minDate={minDate} maxDate={maxDate} />
               <View className='body_controllers'>
-                <Button
-                  size='mini'
-                  className='button'
+                <AtButton
+                  size='small'
                   onClick={this.handleClick.bind(this, 'minDate', '2018/01/01')}
                 >
                   设置最小值 2018/1/1
-                </Button>
-                <Button
-                  size='mini'
-                  className='button'
+                </AtButton>
+                <AtButton
+                  size='small'
                   onClick={this.handleClick.bind(this, 'maxDate', '2018/12/31')}
                 >
                   设置最大值 2018/12/31
-                </Button>
+                </AtButton>
               </View>
             </View>
           </View>
@@ -124,8 +127,8 @@ export default class Index extends Component {
             <View className='panel__content'>
               <AtCalendar marks={mark} />
               <View className='body_controllers'>
-                <Button
-                  size='mini'
+                <AtButton
+                  size='small'
                   className='button'
                   onClick={this.handleClick.bind(this, 'mark', [
                     {
@@ -134,7 +137,7 @@ export default class Index extends Component {
                   ])}
                 >
                   标记当前时间
-                </Button>
+                </AtButton>
               </View>
             </View>
           </View>
@@ -149,17 +152,21 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>垂直滑动</View>
             <View className='panel__content'>
-              <AtCalendar isVertical />
+              <AtCalendar isVertical onSelectDate={this.handleDateChange}/>
             </View>
           </View>
 
           <View className='panel'>
             <View className='panel__title'>范围选择</View>
             <View className='panel__content'>
-              <AtCalendar isMultiSelect currentDate={multiCurentDate} />
+              <AtCalendar
+                onSelectDate={this.handleDateChange}
+                isMultiSelect
+                currentDate={multiCurentDate}
+              />
               <View className='body_controllers'>
-                <Button
-                  size='mini'
+                <AtButton
+                  size='small'
                   className='button'
                   onClick={this.handleClick.bind(this, 'multiCurentDate', {
                     start: '2018/10/28',
@@ -167,7 +174,7 @@ export default class Index extends Component {
                   })}
                 >
                   设置选择区间为 2018/10/28 - 2018/11/11
-                </Button>
+                </AtButton>
               </View>
             </View>
           </View>

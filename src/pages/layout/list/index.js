@@ -1,10 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtList from '../../../components/list/index'
-import AtListItem from '../../../components/list/item/index'
+import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ListPage extends Component {

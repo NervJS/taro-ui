@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',

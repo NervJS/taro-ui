@@ -1,8 +1,6 @@
-/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtTabs from '../../../components/tabs/index'
-import AtTabsPane from '../../../components/tabs-pane/index'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 

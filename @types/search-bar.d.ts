@@ -8,7 +8,7 @@ export interface AtSearchBarProps extends AtComponent {
 
   placeholder?: string
 
-  maxlength?: number
+  maxLength?: number
 
   fixed?: boolean
 

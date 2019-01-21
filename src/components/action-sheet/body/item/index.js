@@ -1,13 +1,9 @@
 import Taro from '@tarojs/taro'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import _isFunction from 'lodash/isFunction'
-
 import AtComponent from '../../../../common/component'
-
-import './index.scss'
 
 export default class AtActionSheetItem extends AtComponent {
   handleClick = (...args) => {
@@ -17,7 +13,7 @@ export default class AtActionSheetItem extends AtComponent {
   }
 
   render () {
-    const rootClass = classNames('at-action-sheet-item', this.props.className)
+    const rootClass = classNames('at-action-sheet__item', this.props.className)
 
     return (
       <View className={rootClass} onClick={this.handleClick}>

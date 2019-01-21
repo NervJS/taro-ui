@@ -2,9 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Slider } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtSlider extends AtComponent {
   constructor (props) {
@@ -14,46 +12,6 @@ export default class AtSlider extends AtComponent {
     this.state = {
       _value: AtSlider.clampNumber(value, min, max)
     }
-  }
-
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    min: 0,
-    max: 100,
-    step: 1,
-    value: 0,
-    disabled: false,
-    activeColor: '#6190e8',
-    backgroundColor: '#e9e9e9',
-    blockSize: 28,
-    blockColor: '#ffffff',
-    showValue: false,
-    onChange: () => {},
-    onChanging: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    min: PropTypes.number,
-    max: PropTypes.number,
-    step: PropTypes.number,
-    value: PropTypes.number,
-    disabled: PropTypes.bool,
-    activeColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    blockSize: PropTypes.number,
-    blockColor: PropTypes.string,
-    showValue: PropTypes.bool,
-    onChange: PropTypes.func,
-    onChanging: PropTypes.func
   }
 
   static clampNumber (value, lower, upper) {
@@ -131,4 +89,44 @@ export default class AtSlider extends AtComponent {
       </View>
     )
   }
+}
+
+AtSlider.defaultProps = {
+  customStyle: '',
+  className: '',
+  min: 0,
+  max: 100,
+  step: 1,
+  value: 0,
+  disabled: false,
+  activeColor: '#6190e8',
+  backgroundColor: '#e9e9e9',
+  blockSize: 28,
+  blockColor: '#ffffff',
+  showValue: false,
+  onChange: () => {},
+  onChanging: () => {},
+}
+
+AtSlider.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  value: PropTypes.number,
+  disabled: PropTypes.bool,
+  activeColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  blockSize: PropTypes.number,
+  blockColor: PropTypes.string,
+  showValue: PropTypes.bool,
+  onChange: PropTypes.func,
+  onChanging: PropTypes.func,
 }

@@ -41,6 +41,22 @@ import { AtDrawer } from 'taro-ui'
 ```
 :::
 
+## 自定义内容
+
+:::demo
+```html
+<AtDrawer
+  show={this.state.show}
+  mask
+>
+  <View className='drawer-item'>优先展示items里的数据</View>
+  <View className='drawer-item'>如果items没有数据就会展示children</View>
+  <View className='drawer-item'>这是自定义内容 <AtIcon value='home' size='20' /></View>
+  <View className='drawer-item'>这是自定义内容</View>
+</AtDrawer>
+```
+:::
+
 ## Drawer 参数
 
 | 参数  | 说明           | 类型    | 可选值            | 默认值 |

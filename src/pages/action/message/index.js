@@ -1,10 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
+import { AtMessage, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-import AtMessage from '../../../components/message/index'
-import AtButton from '../../../components/button/index'
-
 import './index.scss'
 
 export default class ToastPage extends Component {

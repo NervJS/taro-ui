@@ -1,50 +1,11 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import AtIcon from '../../components/icon/index'
 import AtBadge from '../../components/badge/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTabBar extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    fixed: false,
-    backgroundColor: '#fff',
-    current: 0,
-    iconSize: '24',
-    fontSize: '14',
-    color: '#333',
-    selectedColor: '#6190E8',
-    scroll: false,
-    tabList: [],
-    onClick: () => { }
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    fixed: PropTypes.bool,
-    backgroundColor: PropTypes.string,
-    current: PropTypes.number,
-    iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    color: PropTypes.string,
-    selectedColor: PropTypes.string,
-    scroll: PropTypes.bool,
-    tabList: PropTypes.array,
-    onClick: PropTypes.func
-  }
-
   // constructor () {
   //   super(...arguments)
   //   this.state = {
@@ -81,10 +42,18 @@ export default class AtTabBar extends AtComponent {
       selectedColor
     } = this.props
     // const { isIPhoneX } = this.state
-    const defaultStyle = `color: ${color};`
-    const selectedStyle = `color: ${selectedColor};`
-    const titleStyle = `font-size: ${fontSize}px;`
-    const rootStyle = `background-color: ${backgroundColor};`
+    const defaultStyle = {
+      color: color || ''
+    }
+    const selectedStyle = {
+      color: selectedColor || ''
+    }
+    const titleStyle = {
+      fontSize: fontSize ? `${fontSize}px` : ''
+    }
+    const rootStyle = {
+      backgroundColor: backgroundColor || ''
+    }
 
     return (
       <View
@@ -99,7 +68,7 @@ export default class AtTabBar extends AtComponent {
       >
         {tabList.map((item, i) => (
           <View
-            className='at-tab-bar__item'
+            className={classNames('at-tab-bar__item', { 'at-tab-bar__item--active': current === i })}
             style={current === i ? selectedStyle : defaultStyle}
             key={item.title}
             onClick={this.handleClick.bind(this, i)}
@@ -107,16 +76,14 @@ export default class AtTabBar extends AtComponent {
             {item.iconType ? (
               <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
                 <View className='at-tab-bar__icon'>
-                  <AtIcon
-                    customStyle={{ fontSize: `${iconSize}px` }}
-                    prefixClass={item.iconPrefixClass}
-                    value={
-                      current === i && item.selectedIconType
-                        ? item.selectedIconType
-                        : item.iconType
-                    }
-                    color={current === i ? selectedColor : color}
-                  />
+                  <Text className={classNames(`${item.iconPrefixClass || 'at-icon'}`, {
+                    [`${item.iconPrefixClass || 'at-icon'}-${item.selectedIconType}`]: current === i && item.selectedIconType,
+                    [`${item.iconPrefixClass || 'at-icon'}-${item.iconType}`]: !(current === i && item.selectedIconType),
+                  })} style={{
+                    color: current === i ? selectedColor : color,
+                    fontSize: iconSize ? `${iconSize}px` : '',
+                  }}
+                  ></Text>
                 </View>
               </AtBadge>
             ) : null}
@@ -136,4 +103,35 @@ export default class AtTabBar extends AtComponent {
       </View>
     )
   }
+}
+
+AtTabBar.defaultProps = {
+  customStyle: '',
+  className: '',
+  fixed: false,
+  current: 0,
+  scroll: false,
+  tabList: [],
+  onClick: () => {},
+}
+
+AtTabBar.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  fixed: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  current: PropTypes.number,
+  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  color: PropTypes.string,
+  selectedColor: PropTypes.string,
+  scroll: PropTypes.bool,
+  tabList: PropTypes.array,
+  onClick: PropTypes.func,
 }

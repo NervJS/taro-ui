@@ -5,32 +5,32 @@ import AtIndexes from '../../../.temp/components/indexes/index'
 
 describe('AtIndexes Snap', () => {
   it('render initial AtIndexes', () => {
-    const component = renderToString(<AtIndexes />)
+    const component = renderToString(<AtIndexes isTest />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtIndexes -- props className', () => {
-    const component = renderToString(<AtIndexes className='test' />)
+    const component = renderToString(<AtIndexes isTest className='test' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtIndexes -- props customStyle', () => {
-    const component = renderToString(<AtIndexes customStyle='color:red;' />)
+    const component = renderToString(<AtIndexes isTest customStyle='color:red;' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtIndexes -- props animation', () => {
-    const component = renderToString(<AtIndexes animation />)
+    const component = renderToString(<AtIndexes isTest animation />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtIndexes -- props topKey', () => {
-    const component = renderToString(<AtIndexes topKey='test' />)
+    const component = renderToString(<AtIndexes isTest topKey='test' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtIndexes -- props children', () => {
-    const component = renderToString(<AtIndexes>children</AtIndexes>)
+    const component = renderToString(<AtIndexes isTest>children</AtIndexes>)
     expect(component).toMatchSnapshot()
   })
 
@@ -79,7 +79,7 @@ describe('AtIndexes Snap', () => {
         ]
       }
     ]
-    const component = renderToString(<AtIndexes list={list} />)
+    const component = renderToString(<AtIndexes isTest list={list} />)
     expect(component).toMatchSnapshot()
   })
 })

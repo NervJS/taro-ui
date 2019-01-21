@@ -1,0 +1,56 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+$at-range-slider-size: 28PX;
+$at-range-rail-height: 2PX;
+$at-range-rail-bg-color: $color-grey-3;
+$at-range-track-bg-color: $color-brand;
+$at-range-slider-color: $color-white;
+$at-range-slider-shadow: 0 0 4PX 0 rgba(0, 0, 0, 0.2);
+
+.at-range {
+  position: relative;
+  padding: 0 $at-range-slider-size / 2 + 4PX;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* elements */
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $at-range-slider-size;
+    box-sizing: border-box;
+  }
+
+  &__rail {
+    width: 100%;
+    height: $at-range-rail-height;
+    background-color: $at-range-rail-bg-color;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__track {
+    position: absolute;
+    height: $at-range-rail-height;
+    background-color: $at-range-track-bg-color;
+  }
+
+  &__slider {
+    position: absolute;
+    margin-left: -$at-range-slider-size / 2;
+    width: $at-range-slider-size;
+    height: $at-range-slider-size;
+    border-radius: 50%;
+    background-color: $at-range-slider-color;
+    box-shadow: $at-range-slider-shadow;
+    box-sizing: border-box;
+  }
+
+  /* modifiers */
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+}

@@ -7,52 +7,52 @@ describe('AtTabs Snap', () => {
   const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
 
   it('render initial AtTabs', () => {
-    const componet = renderToString(<AtTabs />)
+    const componet = renderToString(<AtTabs isTest />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props customStyle', () => {
-    const componet = renderToString(<AtTabs customStyle='color:red;' />)
+    const componet = renderToString(<AtTabs isTest customStyle='color:red;' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props className', () => {
-    const componet = renderToString(<AtTabs className='test' />)
+    const componet = renderToString(<AtTabs isTest className='test' />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props tabList', () => {
-    const componet = renderToString(<AtTabs tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props current', () => {
-    const componet = renderToString(<AtTabs current={2} tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest current={2} tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props swipeable', () => {
-    const componet = renderToString(<AtTabs swipeable tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest swipeable tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props scroll', () => {
-    const componet = renderToString(<AtTabs scroll tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest scroll tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props tabDirection', () => {
-    const componet = renderToString(<AtTabs scroll tabDirection='vertical' tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest scroll tabDirection='vertical' tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props animated', () => {
-    const componet = renderToString(<AtTabs animated={false} tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest animated={false} tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props height', () => {
-    const componet = renderToString(<AtTabs height='300px' tabDirection='vertical' tabList={tabList} />)
+    const componet = renderToString(<AtTabs isTest height='300px' tabDirection='vertical' tabList={tabList} />)
     expect(componet).toMatchSnapshot()
   })
 })

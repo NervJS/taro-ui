@@ -1,9 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-import AtInput from '../../../components/input/index'
-import AtForm from '../../../components/form/index'
-import verificationCode from '../../../assets/images/verification_code.png'
+import { AtInput, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import verificationCode from '../../../assets/images/verification_code.png'
 import './index.scss'
 
 export default class Index extends Taro.Component {
@@ -133,7 +132,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtForm>
-                  <AtInput name='value14' title='验证码' type='text' maxlength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
+                  <AtInput name='value14' title='验证码' type='text' maxLength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
                     <Image src={verificationCode} />
                   </AtInput>
                   <AtInput name='value15' border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>

@@ -83,8 +83,8 @@ describe('ActionSheet Behavior ', () => {
     )
     const componentDom = findDOMNode(component, 'at-action-sheet')
 
-    const bodyItemDom = componentDom.querySelector('.at-action-sheet-item')
-    const footerDom = componentDom.querySelector('.at-action-sheet-footer')
+    const bodyItemDom = componentDom.querySelector('.at-action-sheet__item')
+    const footerDom = componentDom.querySelector('.at-action-sheet__footer')
     const overlayDom = componentDom.querySelector('.at-action-sheet__overlay')
 
     Simulate.click(bodyItemDom)
@@ -113,7 +113,7 @@ describe('ActionSheet Behavior ', () => {
       </AtActionSheet>
     )
     const componentDom = findDOMNode(component, 'at-action-sheet')
-    const footerDom = componentDom.querySelector('.at-action-sheet-footer')
+    const footerDom = componentDom.querySelector('.at-action-sheet__footer')
 
     Simulate.click(footerDom)
     process.nextTick(() => {

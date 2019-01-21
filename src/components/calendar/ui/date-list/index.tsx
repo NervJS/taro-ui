@@ -1,14 +1,10 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-
 import Calendar from '../../types'
 import * as constant from '../../common/constant'
-
-import './index.scss'
 
 const MAP: { [key: number]: string } = {
   [constant.TYPE_PRE_MONTH]: 'pre',
@@ -25,6 +21,8 @@ export interface Props {
 }
 
 export default class AtCalendarList extends Taro.Component<Props> {
+  static options = { addGlobalClass: true }
+
   @bind
   handleClick (item) {
     if (_isFunction(this.props.onClick)) {
@@ -74,7 +72,7 @@ export default class AtCalendarList extends Taro.Component<Props> {
               {item.marks && item.marks.length > 0 ? (
                 <View className='extra-marks'>
                   {item.marks.map((mark, key) => (
-                    <Text key={key} className='mark' />
+                    <Text key={key} className='mark'>{mark}</Text>
                   ))}
                 </View>
               ) : null}

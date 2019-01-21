@@ -1,16 +1,12 @@
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
 import AtModalContent from './content/index'
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtModal extends AtComponent {
   constructor (props) {

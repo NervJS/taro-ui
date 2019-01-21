@@ -1,0 +1,44 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+$at-badge-box-shadow: 0 4px 8px 0 rgba(233, 59, 61, 0.20);
+$at-badge-height: 28px;
+$at-badge-border-radius: 14px;
+$at-badge-dot-size: 20px;
+
+.at-badge {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  vertical-align: middle;
+
+  /* elements */
+  &__dot {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    width: $at-badge-dot-size;
+    height: $at-badge-dot-size;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $color-error;
+    box-shadow: $at-badge-box-shadow;
+  }
+
+  &__num {
+    position: absolute;
+    padding: 0 $spacing-h-sm;
+    top: -$at-badge-border-radius;
+    right: -6PX;
+    height: $at-badge-height;
+    color: #fff;
+    font-size: $font-size-xs;
+    line-height: $at-badge-height;
+    border-radius: $at-badge-border-radius $at-badge-border-radius $at-badge-border-radius 0;
+    background: $color-error;
+    box-shadow: $at-badge-box-shadow;
+    transform: translate(50%, 0);
+    overflow: hidden;
+    z-index: 1;
+  }
+}

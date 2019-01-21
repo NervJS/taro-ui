@@ -3,10 +3,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import isNaN from 'lodash/isNaN'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import './index.scss'
-
 
 export default class AtBadge extends AtComponent {
   constructor () {

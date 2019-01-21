@@ -22,6 +22,9 @@ const config = {
   },
   defineConstants: {
   },
+  alias: {
+    'taro-ui': path.resolve(__dirname, '../src/index.js'),
+  },
   weapp: {},
   h5: {
     staticDirectory: 'static',

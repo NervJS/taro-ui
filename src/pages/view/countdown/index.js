@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtCountdown from '../../../components/countdown/index'
+import { AtCountdown } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class CountDownPage extends Taro.Component {
@@ -23,7 +21,7 @@ export default class CountDownPage extends Taro.Component {
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='Countdown 倒计时'></DocsHeader>
+        <DocsHeader title='CountDown 倒计时'></DocsHeader>
         {/* E Header */}
         {/* S Body */}
         <View className='doc-body'>

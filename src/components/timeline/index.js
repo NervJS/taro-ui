@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types'
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
-
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtTimeline extends AtComponent {
   render () {
@@ -30,24 +27,29 @@ export default class AtTimeline extends AtComponent {
         content = [],
       } = item
 
-      const itemRootClassName = ['at-timelineitem']
-      if (color) itemRootClassName.push(`at-timelineitem--${color}`)
+      const iconClass = classNames({
+        'at-icon': true,
+        [`at-icon-${icon}`]: icon,
+      })
 
-      const dotClass = ['at-timelineitem__dot']
-      if (icon) dotClass.push('at-timelineitem__icon')
+      const itemRootClassName = ['at-timeline-item']
+      if (color) itemRootClassName.push(`at-timeline-item--${color}`)
+
+      const dotClass = ['at-timeline-item__dot']
+      if (icon) dotClass.push('at-timeline-item__icon')
 
       return (
-        <View className={itemRootClassName} key={index}>
-          <View className='at-timelineitem__tail'></View>
-          <View className={dotClass}>
-            {icon && <AtIcon customStyle={{ fontSize: '16px' }} value={icon} ></AtIcon>}
+        <View className={classNames(itemRootClassName)} key={index}>
+          <View className='at-timeline-item__tail'></View>
+          <View className={classNames(dotClass)}>
+            {icon && <Text className={iconClass}></Text>}
           </View>
-          <View className='at-timelineitem__content'>
-            <View className='at-timelineitem__content-item'>{title}</View>
+          <View className='at-timeline-item__content'>
+            <View className='at-timeline-item__content-item'>{title}</View>
             {
               content.map((sub, subIndex) => (
                 <View
-                  className='at-timelineitem__content-item at-timelineitem__content--sub'
+                  className='at-timeline-item__content-item at-timeline-item__content--sub'
                   key={subIndex}
                 >
                   {sub}

@@ -1,0 +1,47 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+$at-message-color: $color-white;
+$at-message-font-size: $font-size-base;
+
+.at-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: $spacing-v-sm $spacing-h-sm;
+  color: $at-message-color;
+  font-size: $at-message-font-size;
+  text-align: center;
+  line-height: $line-height-zh;
+  background-color: $color-info;
+  animation: ease both;
+  transform: translate3d(0, -100%, 0);
+  transition: all 300ms $ease-in-sine;
+  opacity: 0;
+  z-index: $zindex-message;
+
+  /* modifiers */
+  &--success {
+    background-color: $color-success;
+  }
+
+  &--error {
+    background-color: $color-error;
+  }
+
+  &--warning {
+    background-color: $color-warning;
+  }
+
+  &--show {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &--hidden {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}

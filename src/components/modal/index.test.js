@@ -114,10 +114,10 @@ describe('Modal Behavior ', () => {
     const componentDom = findDOMNode(component, 'at-modal')
 
     const cancelDom = componentDom.querySelector(
-      '.at-modal-footer__action button:first-child'
+      '.at-modal__footer .at-modal__action button:first-child'
     )
     const confirmDom = componentDom.querySelector(
-      '.at-modal-footer__action button:last-child'
+      '.at-modal__footer .at-modal__action button:last-child'
     )
     const overlayDom = componentDom.querySelector('.at-modal__overlay')
 

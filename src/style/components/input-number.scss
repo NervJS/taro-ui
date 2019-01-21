@@ -1,0 +1,78 @@
+@import '../mixins/index.scss';
+@import '../variables/default.scss';
+
+$at-input-number-btn-size: 30px;
+$at-input-number-btn-size-lg: 36px;
+$at-input-number-btn-padding: 12px;
+$at-input-number-btn-padding-lg: 20px;
+$at-input-number-size-min: 80px;
+$at-input-number-size-min-lg: 120px;
+
+.at-input-number {
+  display: inline-flex;
+  @include border-thin($width: 1PX);
+
+  font-size: $font-size-base;
+  border-radius: $border-radius-md;
+  background-color: $color-bg;
+  overflow: hidden;
+
+  /* elements */
+  &__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $at-input-number-btn-padding;
+    font-size: 0;
+    color: $color-brand;
+    text-align: center;
+    line-height: $line-height-base;
+    overflow: hidden;
+    @include active;
+
+    &-subtract,
+    &-add {
+      font-size: $at-input-number-btn-size;
+      line-height: $at-input-number-btn-size;
+    }
+  }
+
+  &__input,
+  input {
+    display: inline-block;
+    width: $at-input-number-size-min;
+    height: auto;
+    border-radius: 0;
+    font-size: $font-size-base;
+    text-align: center;
+    line-height: $line-height-zh;
+    @include border-thin($width: 1PX, $directions: left right);
+  }
+
+  /* modifiers */
+  &--disabled {
+    color: $color-text-disabled;
+
+    &:active {
+      background-color: inherit;
+    }
+  }
+
+  &--lg {
+    .at-input-number__btn {
+      padding: $at-input-number-btn-padding-lg;
+      font-size: $font-size-xl;
+
+      &-subtract,
+      &-add {
+        font-size: $at-input-number-btn-size-lg;
+      }
+    }
+
+    .at-input-number__input {
+      padding: $spacing-v-sm;
+      font-size: $font-size-xl;
+    }
+  }
+}

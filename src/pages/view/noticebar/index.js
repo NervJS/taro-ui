@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtNoticebar from '../../../components/noticebar/index'
+import { AtNoticebar } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class NoticebarPage extends Taro.Component {
@@ -19,8 +17,14 @@ export default class NoticebarPage extends Taro.Component {
   }
 
   onGotoMore () {
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content: '点击了更多!' })
-    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert('您点击了更多!')
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      alert('您点击了更多!')
+    } else {
+      Taro.showModal({
+        content: '点击了更多!',
+        cancelText: '取消'
+      })
+    }
   }
 
   render () {
