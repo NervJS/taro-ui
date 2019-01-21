@@ -1,11 +1,11 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
 export interface AtActionSheetItemProps extends AtComponent {
 
-  onClick?: (event: BaseEventFunction) => void
+  onClick?: CommonEventFunction
 
 }
 

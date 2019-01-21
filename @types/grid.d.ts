@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEvent } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
 
@@ -20,7 +20,7 @@ export interface AtGridProps extends AtComponent {
 
   mode?: 'square' | 'rect'
 
-  onClick?: (item: Item, index: number, event: BaseEvent) => void
+  onClick?: (item: Item, index: number, event: CommonEvent) => void
 }
 
 declare const AtGrid: ComponentClass<AtGridProps>
