@@ -1,10 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtFloatLayout from '../../../components/float-layout/index'
-import AtButton from '../../../components/button/index'
+import { AtFloatLayout, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class FloatLayoutPage extends Taro.Component {
@@ -91,7 +88,6 @@ export default class FloatLayoutPage extends Taro.Component {
         </View>
 
         <AtFloatLayout
-          title='这是个标题'
           isOpened={isOpened1}
           onClose={this.handleClose.bind(this, '1')}
         >

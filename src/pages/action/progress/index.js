@@ -1,11 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtButton from '../../../components/button/index'
-import AtIcon from '../../../components/icon/index'
-import AtProgress from '../../../components/progress/index'
+import { AtButton, AtIcon, AtProgress } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 const OFFSET = 15

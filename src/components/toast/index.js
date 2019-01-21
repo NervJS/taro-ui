@@ -99,7 +99,7 @@ export default class AtToast extends AtComponent {
     })
 
     const iconClass = classNames('at-icon', {
-      [`at-icon-${icon}`]: icon,
+      [`at-icon-${icon}`]: icon
     })
 
     return _isOpened ? (
@@ -118,7 +118,7 @@ export default class AtToast extends AtComponent {
             )}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
-                <Text className={iconClass}></Text>
+                <Text className={iconClass} />
               </View>
             )}
             {text && (
@@ -142,10 +142,10 @@ AtToast.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string,
   hasMask: PropTypes.bool,
-  onClick: PropTypes.func,
-  onClose: PropTypes.func,
   image: PropTypes.string,
   isOpened: PropTypes.bool,
   duration: PropTypes.number,
-  status: PropTypes.oneOf(['', 'error', 'loading', 'success'])
+  status: PropTypes.oneOf(['', 'error', 'loading', 'success']),
+  onClick: PropTypes.func,
+  onClose: PropTypes.func
 }

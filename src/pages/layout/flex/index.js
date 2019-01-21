@@ -1,8 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
 import DocsHeader from '../../components/doc-header'
-
 import '../../../style/components/flex.scss'
 import './index.scss'
 

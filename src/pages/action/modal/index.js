@@ -1,15 +1,7 @@
-/* eslint taro/custom-component-children: 0 */
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
-
-import AtButton from '../../../components/button/index'
-import AtModal from '../../../components/modal/index'
-import AtModalHeader from '../../../components/modal/header/index'
-import AtModalContent from '../../../components/modal/content/index'
-import AtModalAction from '../../../components/modal/action/index'
-
+import { AtButton, AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ModalPage extends Taro.Component {

@@ -21,13 +21,7 @@ import { AtToast } from "taro-ui"
 :::demo
 
 ```html
-<AtToast
-  isOpened
-  text={text}
-  iconSize={iconSize}
-  iconType={iconType}
-  iconColor={iconColor}
-  isHiddenIcon={isHiddenIcon}></AtToast>
+<AtToast isOpened text="{text}" icon="{icon}"></AtToast>
 ```
 
 :::

@@ -1,9 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-import AtInput from '../../../components/input/index'
-import AtForm from '../../../components/form/index'
-import verificationCode from '../../../assets/images/verification_code.png'
+import { AtInput, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import verificationCode from '../../../assets/images/verification_code.png'
 import './index.scss'
 
 export default class Index extends Taro.Component {

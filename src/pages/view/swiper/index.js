@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Swiper, SwiperItem, Slider, Image } from '@tarojs/components'
-import AtList from '../../../components/list/index'
-import AtListItem from '../../../components/list/item/index'
+import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 

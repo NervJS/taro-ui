@@ -1,15 +1,7 @@
-/* eslint taro/custom-component-children: 0 */
-
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtList from '../../../components/list/index'
-import AtButton from '../../../components/button/index'
-import AtListItem from '../../../components/list/item/index'
-import AtSwipeAction from '../../../components/swipe-action/index'
-
+import { AtList, AtListItem, AtButton, AtSwipeAction } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 const OPTIONS = [

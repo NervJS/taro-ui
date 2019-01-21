@@ -9,8 +9,7 @@ $section-top: 200px;
 
 .wrapper {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   width: 100%;
 }
 

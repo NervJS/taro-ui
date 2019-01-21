@@ -39,7 +39,7 @@ class Docs extends Nerv.Component {
           <div className='at-sidebar col-sm-24 col-md-6 col-lg-4'>
             <Sidebar data={data} />
           </div>
-          <div ref='atMarkdown' className='at-markdown col-sm-24 col-md-18 col-lg-20' style={ `${curDemoPath ? 'padding-right: 420px' : '' }` }>
+          <div ref='atMarkdown' className={`at-markdown col-sm-24 col-md-18 col-lg-20 ${curDemoPath ? 'at-markdown--demo' : ''}`}>
           {
             curDemoPath &&
             <div className='qrcode-menu' style='right: 420px'>

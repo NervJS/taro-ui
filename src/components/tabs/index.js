@@ -33,7 +33,6 @@ export default class AtTabs extends AtComponent {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
           this.setState({
-            _current: idx,
             scrollIntoView: `tab${idx - 1}`
           })
           break
@@ -42,7 +41,6 @@ export default class AtTabs extends AtComponent {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
           this.setState({
-            _current: idx,
             scrollTop: prevTabItem.offsetTop,
             scrollLeft: prevTabItem.offsetLeft
           })
@@ -53,15 +51,10 @@ export default class AtTabs extends AtComponent {
           console.warn('AtTab 组件在该环境还未适配')
           break
       }
-    } else {
-      this.setState({
-        _current: idx
-      })
     }
   }
 
-  handleClick (idx) {
-    this.updateState(idx)
+  handleClick () {
     this.props.onClick(...arguments)
   }
 
@@ -112,6 +105,9 @@ export default class AtTabs extends AtComponent {
     if (nextProps.scroll !== this.props.scroll) {
       this.getTabHeaderRef()
     }
+    if (nextProps.current !== this.props.current) {
+      this.updateState(nextProps.current)
+    }
   }
 
   getTabHeaderRef () {
@@ -122,6 +118,7 @@ export default class AtTabs extends AtComponent {
 
   componentDidMount () {
     this.getTabHeaderRef()
+    this.updateState(this.props.current)
   }
 
   render () {

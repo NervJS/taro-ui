@@ -84,51 +84,47 @@ export default class AtImagePicker extends AtComponent {
         className={rootCls}
         style={customStyle}
       >
-        {
-          matrix.map((row, i) => (
-            <View
-              className='at-image-picker__flex-box'
-              key={i}
-            >
-              {
-                row.map((item, j) => (
-                  item.url
-                    ? <View
-                      className='at-image-picker__flex-item'
-                      key={item.url}
+        {matrix.map((row, i) => (
+          <View
+            className='at-image-picker__flex-box'
+            key={i}
+          >
+            {row.map((item, j) => (
+              item.url
+                ? <View
+                  className='at-image-picker__flex-item'
+                  key={(i * length) + j}
+                >
+                  <View className='at-image-picker__item'>
+                    <View
+                      className='at-image-picker__remove-btn'
+                      onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
+                    ></View>
+                    <Image
+                      className='at-image-picker__preview-img'
+                      mode={mode}
+                      src={item.url}
+                      onClick={this.handleImageClick.bind(this, (i * length) + j)}
+                    />
+                  </View>
+                </View>
+                : <View
+                  className='at-image-picker__flex-item'
+                  key={(i * length) + j}
+                >
+                  {item.type === 'btn' && (
+                    <View
+                      className='at-image-picker__item at-image-picker__choose-btn'
+                      onClick={this.chooseFile}
                     >
-                      <View className='at-image-picker__item'>
-                        <View
-                          className='at-image-picker__remove-btn'
-                          onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
-                        ></View>
-                        <Image
-                          className='at-image-picker__preview-img'
-                          mode={mode}
-                          src={item.url}
-                          onClick={this.handleImageClick.bind(this, (i * length) + j)}
-                        />
-                      </View>
+                      <View className='add-bar'></View>
+                      <View className='add-bar'></View>
                     </View>
-                    : <View
-                      className='at-image-picker__flex-item'
-                      key={item.uuid}
-                    >
-                      {item.type === 'btn' && (
-                        <View
-                          className='at-image-picker__item at-image-picker__choose-btn'
-                          onClick={this.chooseFile}
-                        >
-                          <View className='add-bar'></View>
-                          <View className='add-bar'></View>
-                        </View>
-                      )}
-                    </View>
-                ))
-              }
-            </View>
-          ))
-        }
+                  )}
+                </View>
+            ))}
+          </View>
+        ))}
       </View>
     )
   }

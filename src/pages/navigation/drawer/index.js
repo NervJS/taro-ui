@@ -1,13 +1,8 @@
 import Taro from '@tarojs/taro'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
-import AtDrawer from '../../../components/drawer/index'
-import AtButton from '../../../components/button/index'
-import AtIcon from '../../../components/icon/index'
-import AtBadge from '../../../components/badge/index'
+import { AtDrawer, AtButton, AtIcon, AtBadge } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
-
 import './index.scss'
 
 export default class DrawerPage extends Taro.Component {

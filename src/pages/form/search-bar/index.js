@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtSearchBar from '../../../components/search-bar/index'
+import { AtSearchBar } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
