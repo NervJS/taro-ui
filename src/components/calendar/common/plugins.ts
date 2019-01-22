@@ -16,10 +16,7 @@ export function handleActive (
   const { selectedDate } = args
   const { _value } = item
 
-  const selectedDateValue = Object.values(selectedDate)
-
-  const end = Math.max(...selectedDateValue)
-  const start = Math.min(...selectedDateValue)
+  const { start, end } = selectedDate
 
   const dayjsEnd = dayjs(end)
   const dayjsStart = start ? dayjs(start) : dayjsEnd
