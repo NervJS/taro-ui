@@ -6,7 +6,7 @@
 
 ## 出现xx问题怎么办？
 
-在提问前，建议升级 `taro` 和 `taro-ui` 至最新版本，仍有问题请按模板提交 [Issue](https://github.com/NervJS/taro-ui/issues/new)
+在提问前，建议升级 `taro` 和 `taro-ui` 至最新版本，仍有问题请按模板提交 [Issue](https://github.com/NervJS/taro-ui/issues/new/choose)
 
 ## H5 模式下编译报错？
 
