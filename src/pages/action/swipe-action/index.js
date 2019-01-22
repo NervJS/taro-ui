@@ -37,7 +37,22 @@ export default class SwipeActionPage extends Taro.Component {
           options: OPTIONS
         },
         {
-          title: 'item2',
+          title: 'item3',
+          isOpened: false,
+          options: OPTIONS
+        },
+        {
+          title: 'item4',
+          isOpened: false,
+          options: OPTIONS
+        },
+        {
+          title: 'item5',
+          isOpened: false,
+          options: OPTIONS
+        },
+        {
+          title: 'item6',
           isOpened: false,
           options: OPTIONS
         }
@@ -52,6 +67,14 @@ export default class SwipeActionPage extends Taro.Component {
   handleClick = (item, key, e) => {
     console.log('触发了点击', item, key, e)
     this.showToast(`点击了${item.text}按钮`)
+  }
+
+  handleClicked = index => {
+    const list = this.state.list.filter((item, key) => key !== index)
+    // console.log(list)
+    this.setState({
+      list
+    })
   }
 
   handleStatusClick = () => {
@@ -117,10 +140,7 @@ export default class SwipeActionPage extends Taro.Component {
             <View className='panel__title'>一般用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item example-item--border'>
-                <AtSwipeAction
-                  onClick={this.handleClick}
-                  options={OPTIONS}
-                >
+                <AtSwipeAction onClick={this.handleClick} options={OPTIONS}>
                   <View className='normal'>AtSwipeAction 一般使用场景</View>
                 </AtSwipeAction>
               </View>
@@ -237,9 +257,10 @@ export default class SwipeActionPage extends Taro.Component {
                 <AtList>
                   {list.map((item, index) => (
                     <AtSwipeAction
-                      key={index}
+                      key={item.title}
                       options={item.options}
                       isOpened={item.isOpened}
+                      onClick={this.handleClicked.bind(this, index)}
                       onOpened={this.handleSingle.bind(this, index)}
                     >
                       <AtListItem title={item.title} />

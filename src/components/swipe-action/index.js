@@ -34,12 +34,15 @@ export default class AtSwipeAction extends AtComponent {
   }
 
   componentDidMount () {
-    delayQuerySelector(
-      this,
-      `#swipeAction-${this.state.componentId}`
-    ).then(res => {
-      this.domInfo = res[0]
-    })
+    delayQuerySelector(this, `#swipeAction-${this.state.componentId}`).then(
+      res => {
+        if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+          res[0].top += document.documentElement.scrollTop
+          res[0].bottom += document.documentElement.scrollTop
+        }
+        this.domInfo = res[0]
+      }
+    )
   }
 
   componentWillReceiveProps (nextProps) {
