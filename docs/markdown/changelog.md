@@ -7,6 +7,24 @@
 
 <div class="row changelog">
   <div class="at-timeline">
+    <div class="at-timeline__item at-timeline__item--default">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot"></div>
+      <div class="at-timeline__content">
+        <p class="head">v2.0.0-beta.2</p>
+        <p class="time">
+          <span>2019-01-17</span>
+        </p>
+        <ul class="content">
+          <li>日历组件新增<span>onSelectDate</span>方法</li>
+          <li>修复<span>Calendar</span>组件 onMonthChange 触发的问题（<a href="https://github.com/NervJS/taro-ui/issues/305">#305</a>）</li>
+          <li>修复<span>Countdown</span>组件因为 setState 引起倒计时停止的问题（<a href="https://github.com/NervJS/taro-ui/issues/333">#333</a>）</li>
+          <li>修复<span>FloatLayout</span>组件滑动穿透的问题（<a href="https://github.com/NervJS/taro-ui/issues/352">#352</a>）</li>
+          <li>新增<span>FloatLayout</span>组件标题不存在的容错处理（<a href="https://github.com/NervJS/taro-ui/issues/327">#327</a>）</li>
+          <li>修复<span>Tabs</span>组件的二次点击问题（<a href="https://github.com/NervJS/taro-ui/issues/321">#321</a>）</li>
+        </ul>
+      </div>
+    </div>
     <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot">
@@ -29,7 +47,7 @@
       <div class="at-timeline__content">
         <p class="head">v1.5.4</p>
         <p class="time">
-          <span>2018-12.30</span>
+          <span>2018-12-30</span>
         </p>
         <ul class="content">
           <li>组件兼容<span>taro v1.2.3</span>版本</li>
@@ -45,7 +63,7 @@
       <div class="at-timeline__content">
         <p class="head">v1.5.3</p>
         <p class="time">
-          <span>2018-12.25</span>
+          <span>2018-12-25</span>
         </p>
         <ul class="content">
           <li><span>FloatLayout</span>组件新增 ScrollView 的属性配置（<a href="https://github.com/NervJS/taro-ui/issues/258">#258</a>）</li>
@@ -61,7 +79,7 @@
       <div class="at-timeline__content">
         <p class="head">v1.5.2</p>
         <p class="time">
-          <span>2018-12.13</span>
+          <span>2018-12-13</span>
         </p>
         <ul class="content">
           <li>修复<span>Calendar</span>组件在禁止滑动状态下无法点击日期的问题</li>

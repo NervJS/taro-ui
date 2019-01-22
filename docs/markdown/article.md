@@ -6,14 +6,15 @@
 
 ## 使用指南
 
-在页面样式文件中引入（版本v2.0.0+ 无需单独引入，除非需要按需加载）
+如果已经全局引入了 `taro-ui` 的样式文件，则无需再次引入
 
-> 由于 `app.js` 添加的样式文件 在小程序上只能影响 `page` 样式,不能影响 `component` 的样式，所以在 `component` 的时候你可能需要再次引入
+> 由于 `app.js` 添加的样式文件 在小程序上只能影响 `page` 样式,不能影响 `component` 的样式，所以在自定义组件里面使用时，你可能需要再次引入
+
+**组件依赖的样式文件（仅按需引用时需要）**
 
 :::demo
 ```scss
-// page.scss
-@import "~taro-ui/dist/components/article/index.scss";
+@import "~taro-ui/dist/style/components/article.scss";
 ```
 :::
 

@@ -9,11 +9,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtToast } from "taro-ui"
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/toast.scss";
+```
 :::
 
 ## 一般用法

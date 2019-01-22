@@ -2,7 +2,13 @@
 
 ---
 
-## 安装 Taro
+## 使用前准备
+
+在使用之前，推荐学习 `Taro` 和 `ES2015`，并正确配置 `Node.js` v8.x 或以上版本
+
+## 如何使用
+
+### 1. 安装 Taro 脚手架工具
 
 安装 `Taro` 开发工具 `@tarojs/cli`
 
@@ -15,7 +21,7 @@ $ yarn global add @tarojs/cli
 ```
 :::
 
-## 初始化项目
+### 2. 初始化项目
 
 使用命令创建模板项目
 
@@ -25,7 +31,7 @@ $ taro init myApp
 ```
 :::
 
-## 安装 Taro UI
+### 3. 安装 Taro UI
 
 :::demo
 ```bash
@@ -36,9 +42,13 @@ $ npm install taro-ui@next
 ```
 :::
 
-## 配置需要额外编译的源码模块
+> 因为要支持自定义主题功能，需要将样式从组件中抽离出来，在微信小程序中依赖 globalClass 功能，所以需要微信基础库版本在 v2.2.3 以上。
 
-**由于引用 `node_modules` 的模块，默认不会编译，所以需要额外给 H5 配置 `esnextModules`，在 taro 项目的 `config/index.js` 中新增如下配置项：**
+**P.S.建议都升级到 next 版本，后续会取消对微信版本库 v2.2.3 以下版本的支持。**
+
+#### 配置需要额外编译的源码模块
+
+<p style="color: #f00;">由于引用 `node_modules` 的模块，默认不会编译，所以需要额外给 H5 配置 `esnextModules`，在 taro 项目的 `config/index.js` 中新增如下配置项：</p>
 
 :::demo
 ```js
@@ -48,7 +58,9 @@ h5: {
 ```
 :::
 
-## 使用基础版本
+### 4. 使用 Taro UI
+
+#### 使用旧版本（v1.5.4-）
 
 在代码中 `import` 需要的组件并按照文档说明使用
 
@@ -58,34 +70,45 @@ import { AtButton } from 'taro-ui'
 ```
 :::
 
-## 使用自定义主题版本（v2.0.0+）
+#### 使用新版本（v2.0.0+）
 
 在代码中 `import` 需要的组件并按照文档说明使用
 
 :::demo
 ```js
+// page.js
 import { AtButton } from 'taro-ui'
-import '~taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
+
+// 除了引入所需的组件，还需要手动引入组件样式
+// app.js
+import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
 ```
 :::
 
-或者在样式代码中 `import` 组件样式并按照文档说明使用
+**引入组件样式的三种方式**
 
+- **全局引入（JS中）：** 在入口文件中引入 `taro-ui` 所有的样式
+:::demo
+```js
+import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
+```
+:::
+
+- **全局引入（CSS中）：** 在 `app.scss` 样式文件中 `import` 组件样式并按照文档说明使用
 :::demo
 ```scss
 @import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 方式二
 ```
 :::
 
-或者在样式代码中 `import` 需要的组件样式
-
+- **按需引入：** 在页面样式或全局样式中 `import` 需要的组件样式
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/button.scss"; // 引入所需的组件样式 - 方式三
 ```
 :::
 
-> [组件样式列表](https://github.com/NervJS/taro-ui/tree/next/src/style/components)
+> 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/taro-ui/tree/next/src/style/components)
 
 ## 示例
 
@@ -115,11 +138,11 @@ export default class Index extends Component {
 ```
 :::
 
-在 `/myApp/src/pages/index/index.scss` 文件中添加如下代码（仅在 v2.0.0+ 版本中需要手动引入）
+在 `/myApp/src/app.scss` 文件中添加如下代码（仅在 v2.0.0+ 版本中需要手动引入）
 
 :::demo
 ```scss
-@import "~taro-ui/dist/style/index.scss"; // 引入组件样式
+@import "~taro-ui/dist/style/index.scss"; // 引入组件样式，仅需引入一次即可
 ```
 :::
 
@@ -135,7 +158,7 @@ export default class Index extends Component {
 
 ## 编译并预览
 
-进入项目目录开始开发，可以选择小程序预览模式，或者 h5 预览模式，若使用微信小程序预览模式，则需要自行下载并打开微信开发者工具，选择预览项目根目录。
+进入项目目录开始开发，可以选择小程序预览模式，或者 h5 预览模式，若使用小程序预览模式，则需要自行下载并打开对应的小程序开发者工具，并选择预览项目根目录。
 
 **微信小程序编译预览模式**
 

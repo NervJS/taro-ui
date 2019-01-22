@@ -9,11 +9,17 @@
 Taro-UI 版本需要在 `v1.3.1` 以上，在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtSwipeAction } from "taro-ui"
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/swipe-action.scss";
+```
 :::
 
 ## 一般用法
