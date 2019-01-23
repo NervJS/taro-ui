@@ -49,6 +49,8 @@ $at-modal-btn-confirm-color: $color-brand;
   &__content {
     padding: $spacing-h-xl $spacing-h-lg;
     min-height: 180px;
+    max-height: 840px;
+    overflow-y: scroll;
     color: $color-text-base;
     font-size: $font-size-base;
     box-sizing: border-box;

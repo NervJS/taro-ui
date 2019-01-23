@@ -1,13 +1,17 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import _inRange from 'lodash/inRange'
+
 import _isNil from 'lodash/isNil'
+import _isEmpty from 'lodash/isEmpty'
+import _inRange from 'lodash/inRange'
 import _isFunction from 'lodash/isFunction'
+
 import AtComponent from '../../common/component'
 import AtSwipeActionOptions from './options/index'
-import { delayQuerySelector } from '../../common/utils'
+import { delayGetClientRect, delayGetScrollOffset } from '../../common/utils'
 
 let id = 0
 
@@ -33,16 +37,20 @@ export default class AtSwipeAction extends AtComponent {
     }
   }
 
-  componentDidMount () {
-    delayQuerySelector(this, `#swipeAction-${this.state.componentId}`).then(
-      res => {
-        if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
-          res[0].top += document.documentElement.scrollTop
-          res[0].bottom += document.documentElement.scrollTop
-        }
-        this.domInfo = res[0]
-      }
-    )
+  getDomInfo () {
+    this.domInfo = {}
+    return Promise.all([
+      delayGetClientRect({
+        self: this,
+        delayTime: 0,
+        selectorStr: `#swipeAction-${this.state.componentId}`
+      }),
+      delayGetScrollOffset({ delayTime: 0 })
+    ]).then(([rect, scrollOffset]) => {
+      rect[0].top += scrollOffset[0].scrollTop
+      rect[0].bottom += scrollOffset[0].scrollTop
+      this.domInfo = rect[0]
+    })
   }
 
   componentWillReceiveProps (nextProps) {
@@ -97,12 +105,18 @@ export default class AtSwipeAction extends AtComponent {
 
     if (this.props.disabled) return
 
+    this.getDomInfo()
+
     this.startX = clientX
     this.startY = clientY
     this.isTouching = true
   }
 
   handleTouchMove = e => {
+    if (_isEmpty(this.domInfo)) {
+      return
+    }
+
     const { startX, startY } = this
     const { top, bottom, left, right } = this.domInfo
     const { clientX, clientY, pageX, pageY } = e.touches[0]
