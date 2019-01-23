@@ -8,9 +8,11 @@ Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多
 
 - SCSS 变量覆盖
 - globalClass 全局样式类
-- 配置 customStyle 属性（仅有部分组件支持，请查看组件文档）
+- 配置 customStyle 属性（仅有部分组件支持，请查看组件文档，不建议使用）
 
-## SCSS 主题变量覆盖
+> 请确保微信基础库版本再 v2.2.3+，具体原因请查看官方文档 [微信小程序组件样式说明](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
+
+## SCSS 主题变量覆盖（v2.0.0+）
 
 Taro UI 的组件样式是使用 SCSS 编写的，如果你的项目中也使用了 SCSS，那么可以直接在项目中改变 Taro UI 的样式变量。
 
@@ -26,7 +28,7 @@ $color-brand: #6190E8;
 ```
 :::
 
-> 覆写的变量，需要在引入 taro ui 默认样式之前定义，[默认主题变量的文件地址](https://github.com/NervJS/taro-ui/blob/next/src/style/variables/default.scss)
+> 覆写的变量，需要在引入 taro ui 默认样式之前定义，[默认主题变量命名](https://github.com/NervJS/taro-ui/blob/dev/src/style/variables/default.scss)
 
 之后在项目的入口文件中引入以上的样式文件即可（无需重复引入组件的默认样式）
 
@@ -37,13 +39,13 @@ import './custom-variables.scss'
 ```
 :::
 
-> Slider, Switch 组件暂时不支持 SCSS 变量覆盖的方式自定义主题
+> **P.S. Slider, Switch 组件暂时不支持 SCSS 变量覆盖的方式自定义主题**
 
 ## 全局样式类
 
 全局样式类是微信小程序定义的一套用于修改组件内部样式的方案。如果希望组件外样式类能够影响组件内部，可以在组件构造器中的 `options.addGlobalClass` 字段设置为 true（Taro UI 的组件均开启了此特性）。这个特性从小程序基础库版本 `2.2.3` 开始支持。
 
-**P.S. `addGlobalClass` 这个 API 只对 Page 上的 class 起作用。换言之，如果在自定义的组件中使用 `taro-ui`，是无法通过 `全局样式类` 的方式去更改组件样式的。**
+**P.S. `addGlobalClass` 这个 API 只对 Page 上的 class 起作用。换言之，如果在自定义的组件中使用 `taro-ui`，是无法在自定义组件内部通过 `全局样式类` 的方式去更改组件样式的。**
 
 > 当开放了全局样式类，存在外部样式无意间污染组件样式的风险。由于 Taro UI 的组件样式采用 BEM 的命名方式，从一定程度上避免了样式污染的问题。
 
@@ -66,7 +68,10 @@ export default IndexPage extends Taro.Component {
 
 :::demo
 ```scss
-/* page/index/index.scss 必须在 Page 上 */
+/**
+ * page/index/index.scss 必须在 Page 上
+ * .at-button 为组件内部类名，只需要写一样的类名去覆盖即可，但需要注意层级问题。（使用方式跟传统 CSS 一样）
+ **/
 .my-button.at-button {
   color: red;
 }

@@ -8,11 +8,18 @@
 Taro-UI 版本需要在 `v1.5.0` 以上，在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtIndexes } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/indexes.scss";
+@import "~taro-ui/dist/style/components/list.scss";
+```
 :::
 
 ## 一般用法

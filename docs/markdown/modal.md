@@ -9,14 +9,20 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 ```
-
 :::
 
 > 由于微信小程序的限制，在 `Modal` 组件中使用一些客户端创建的原生组件（如：`textarea`、`input`等）时，即使 `Modal` 组件处于隐藏状态，原生组件依然会在页面上显示，具体参见微信小程序文档：[原生组件](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)。
+
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/modal.scss";
+```
+:::
 
 ## 一般用法
 

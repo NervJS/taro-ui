@@ -8,17 +8,23 @@ imports:
 
 用于展示 ICON。该组件的 ICON 图形基于 Webfont，因此可任意放大、改变颜色。
 
+> **P.S.不推荐使用此组件，该组件是支持自定义主题功能前的产物**
+
 ## 使用指南
 
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtIcon } from 'taro-ui'
 ```
-
 :::
+
+**推荐使用新的引入方式，采用传统的类名图标方式即可，例如：**
+
+```js
+<View className='at-icon at-icon-settings'></View>
+```
 
 ## 一般用法
 
