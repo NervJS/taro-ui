@@ -1,11 +1,12 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$component: '.at-checkbox';
 $at-checkbox-icon-size: 40px;
 $at-checkbox-icon-color: $color-brand;
 $at-checkbox-icon-color-checked: $color-white;
 
-.at-checkbox {
+#{$component} {
   position: relative;
   background-color: $color-bg;
   @include hairline-top-relative();
@@ -16,7 +17,7 @@ $at-checkbox-icon-color-checked: $color-white;
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
   }
 
-  &__option-container {
+  &__option-cnt {
     display: flex;
   }
 
@@ -43,12 +44,6 @@ $at-checkbox-icon-color-checked: $color-white;
     background-color: $color-bg;
     box-sizing: border-box;
     transition: all 0.2s;
-
-    &--selected {
-      color: $at-checkbox-icon-color-checked;
-      border: none;
-      background-color: $at-checkbox-icon-color;
-    }
   }
 
   &__desc {
@@ -66,8 +61,8 @@ $at-checkbox-icon-color-checked: $color-white;
     @include active;
 
     &--disabled {
-      .at-checkbox__option-container,
-      .at-checkbox__desc {
+      #{$component}__option-cnt,
+      #{$component}__desc {
         opacity: $opacity-disabled;
       }
 
@@ -75,10 +70,18 @@ $at-checkbox-icon-color-checked: $color-white;
         background-color: $color-bg;
       }
     }
+
+    &--selected {
+      #{$component}__icon-cnt {
+        color: $at-checkbox-icon-color-checked;
+        border: none;
+        background-color: $at-checkbox-icon-color;
+      }
+    }
   }
 
   &__option + &__option {
-    .at-checkbox__option-wrap {
+    #{$component}__option-wrap {
       @include hairline-top();
     }
   }
