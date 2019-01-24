@@ -5,19 +5,19 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
 export default class AtCheckbox extends AtComponent {
-  handleClick (option) {
-    if (option.disabled) return
+  handleClick (idx) {
+    const { selectedList, options } = this.props
+    const option = options[idx]
+    const { disabled, value } = option
+    if (disabled) return
 
-    const value = option.value
-    const selectedList = new Set(this.props.selectedList)
-
-    if (!selectedList.has(value)) {
-      selectedList.add(value)
+    const selectedSet = new Set(selectedList)
+    if (!selectedSet.has(value)) {
+      selectedSet.add(value)
     } else {
-      selectedList.delete(value)
+      selectedSet.delete(value)
     }
-
-    this.props.onChange(Array.from(selectedList))
+    this.props.onChange([...selectedSet])
   }
 
   render () {
@@ -28,42 +28,29 @@ export default class AtCheckbox extends AtComponent {
       selectedList,
     } = this.props
 
-    return (
-      <View
-        className={classNames('at-checkbox', className)}
-        style={customStyle}
-      >
-        {
-          options.map(option => (
-            <View
-              key={option.value}
-              onClick={this.handleClick.bind(this, option)}
-              className={
-                option.disabled
-                  ? 'at-checkbox__option at-checkbox__option--disabled'
-                  : 'at-checkbox__option'
-              }
-            >
-              <View className='at-checkbox__option-wrap'>
-                <View className='at-checkbox__option-container'>
-                  <View
-                    className={
-                      selectedList.includes(option.value)
-                        ? 'at-checkbox__icon-cnt at-checkbox__icon-cnt--selected'
-                        : 'at-checkbox__icon-cnt'
-                    }
-                  >
-                    <Text className='at-icon at-icon-check at-checkbox__icon'></Text>
-                  </View>
-                  <View className='at-checkbox__title'>{option.label}</View>
-                </View>
-                {option.desc && <View className='at-checkbox__desc'>{option.desc}</View>}
+    const rootCls = classNames('at-checkbox', className)
+
+    return <View className={rootCls} style={customStyle}>
+      { options.map((option, idx) => {
+        const { value, disabled, label, desc } = option
+        const optionCls = classNames('at-checkbox__option', {
+          'at-checkbox__option--disabled': disabled,
+          'at-checkbox__option--selected': selectedList.includes(value)
+        })
+
+        return <View className={optionCls} key={value} onClick={this.handleClick.bind(this, idx)} >
+          <View className='at-checkbox__option-wrap'>
+            <View className='at-checkbox__option-cnt'>
+              <View className='at-checkbox__icon-cnt'>
+                <Text className='at-icon at-icon-check'></Text>
               </View>
-            </View>)
-          )
-        }
-      </View>
-    )
+              <View className='at-checkbox__title'>{label}</View>
+            </View>
+            {desc && <View className='at-checkbox__desc'>{desc}</View>}
+          </View>
+        </View>
+      })}
+    </View>
   }
 }
 
