@@ -1,8 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtTimeline from '../../../components/timeline/index'
+import { AtTimeline } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class TimelinePage extends Taro.Component {

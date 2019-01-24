@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
 
@@ -10,7 +10,7 @@ export interface AtAccordionProps extends AtComponent {
 
   icon?: AtIconBaseProps
 
-  onClick?: (event: BaseEventFunction) => void
+  onClick?: CommonEventFunction
 }
 
 declare const AtAccordion: ComponentClass<AtAccordionProps>

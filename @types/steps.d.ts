@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -30,7 +30,7 @@ export interface AtStepsProps extends AtComponent {
 
   items?: Array<Item>
 
-  onChange: (current: number, event: BaseEventFunction) => void
+  onChange: (current: number, event: CommonEventFunction) => void
 }
 
 declare const AtSteps: ComponentClass<AtStepsProps>

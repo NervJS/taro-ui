@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtNoticebar from '../../../components/noticebar/index'
+import { AtNoticebar } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class NoticebarPage extends Taro.Component {

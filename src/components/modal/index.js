@@ -1,12 +1,16 @@
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
+
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 import _isFunction from 'lodash/isFunction'
+
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
 import AtModalContent from './content/index'
 import AtComponent from '../../common/component'
+import { handleTouchScroll } from '../../common/utils'
 
 export default class AtModal extends AtComponent {
   constructor (props) {
@@ -20,6 +24,11 @@ export default class AtModal extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
+
+    if (this.props.isOpened !== isOpened) {
+      handleTouchScroll(isOpened)
+    }
+
     if (isOpened !== this.state._isOpened) {
       this.setState({
         _isOpened: isOpened
@@ -58,7 +67,6 @@ export default class AtModal extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
-    e.preventDefault()
   }
 
   render () {
@@ -76,7 +84,7 @@ export default class AtModal extends AtComponent {
     if (title || content) {
       const isRenderAction = cancelText || confirmText
       return (
-        <View className={rootClass} onTouchMove={this.handleTouchMove}>
+        <View className={rootClass}>
           <View
             onClick={this.handleClickOverlay}
             className='at-modal__overlay'

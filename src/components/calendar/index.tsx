@@ -84,7 +84,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   @bind
   private getMultiSelectedState (value: Dayjs): Pick<State, 'selectedDate'> {
     const { selectedDate } = this.state
-    const { end } = selectedDate
+    const { end, start } = selectedDate
 
     const valueUnix: number = value.valueOf()
     const state: Pick<State, 'selectedDate'> = {
@@ -94,7 +94,8 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     if (end) {
       state.selectedDate = this.getSelectedDate(valueUnix, 0)
     } else {
-      state.selectedDate.end = valueUnix
+      state.selectedDate.end = Math.max(valueUnix, +start)
+      state.selectedDate.start = Math.min(valueUnix, +start)
     }
 
     return state
@@ -164,7 +165,6 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     const { generateDate } = this.state
 
     const _generateDate: Dayjs = dayjs(generateDate).add(vectorCount, 'month')
-
     this.setState({
       generateDate: _generateDate.valueOf()
     })

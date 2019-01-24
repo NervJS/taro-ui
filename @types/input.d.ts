@@ -1,8 +1,8 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 
 declare type InputProp = string | number
-declare type InputFunction = (value: string | number, event: BaseEvent) => void
+declare type InputFunction = (value: string | number, event: CommonEvent) => void
 
 import AtComponent from './base'
 
@@ -61,7 +61,7 @@ export interface AtInputProps extends AtComponent{
 
   onClick?: InputFunction
 
-  onErrorClick?: BaseEventFunction
+  onErrorClick?: CommonEventFunction
 }
 
 declare const AtInput: ComponentClass<AtInputProps>

@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -22,9 +22,9 @@ export interface AtNoticeBarProps extends AtComponent{
 
   customStyle?: object | string
 
-  onClose?: (event: BaseEventFunction) => void
+  onClose?: (event: CommonEventFunction) => void
 
-  onGotoMore?: (event: BaseEventFunction) => void
+  onGotoMore?: (event: CommonEventFunction) => void
 }
 
 declare const AtNoticeBar: ComponentClass<AtNoticeBarProps>

@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtSwitch from '../../../components/switch/index'
-import AtForm from '../../../components/form/index'
+import { AtSwitch, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
