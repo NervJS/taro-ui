@@ -29,7 +29,7 @@ export default class ToastPage extends Component {
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleClick.bind(this)}>
+                <AtButton onClick={this.handleClick.bind(this, 'info')}>
                   普通消息
                 </AtButton>
               </View>

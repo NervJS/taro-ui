@@ -8,24 +8,30 @@ export default class AtMessage extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false,
-      message: '',
-      type: 'info',
-      duration: 3000,
+      _isOpened: false,
+      _message: '',
+      _type: 'info',
+      _duration: 3000,
     }
     this._timer = null
   }
 
   bindMessageListener () {
     Taro.eventCenter.on('atMessage', (options = {}) => {
-      options.isOpened = true
-      this.setState(options, () => {
+      const { message, type, duration } = options
+      const newState = {
+        _isOpened: true,
+        _message: message,
+        _type: type,
+        _duration: duration || this.state._duration
+      }
+      this.setState(newState, () => {
         clearTimeout(this._timer)
         this._timer = setTimeout(() => {
           this.setState({
-            isOpened: false
+            _isOpened: false
           })
-        }, this.state.duration)
+        }, this.state._duration)
       })
     })
     // 绑定函数
@@ -53,26 +59,20 @@ export default class AtMessage extends AtComponent {
       className,
       customStyle,
     } = this.props
-
     const {
-      message,
-      isOpened,
-      type,
+      _message,
+      _isOpened,
+      _type,
     } = this.state
+    const rootCls = classNames({
+      'at-message': true,
+      'at-message--show': _isOpened,
+      'at-message--hidden': !_isOpened
+    }, `at-message--${_type}`, className)
 
-    return (
-      <View
-        className={
-          classNames({
-            'at-message': true,
-            'at-message--show': isOpened,
-            'at-message--hidden': !isOpened
-          }, `at-message--${type}`, className)}
-        style={customStyle}
-      >
-        {message}
-      </View>
-    )
+    return <View className={rootCls} style={customStyle}>
+      {_message}
+    </View>
   }
 }
 
