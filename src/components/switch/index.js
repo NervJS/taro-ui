@@ -1,13 +1,16 @@
 import Taro from '@tarojs/taro'
 import { View, Switch } from '@tarojs/components'
 import PropTypes from 'prop-types'
+import _isUndefined from 'lodash/isUndefined'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
 
 export default class AtSwitch extends AtComponent {
-  handleChange (e) {
-    this.props.onChange(e.detail.value, ...arguments)
+  handleChange = (event, ...arg) => {
+    const { value, checked } = event.detail
+    const state = _isUndefined(value) ? checked : value
+    this.props.onChange(state, event, ...arg)
   }
 
   render () {
@@ -21,43 +24,25 @@ export default class AtSwitch extends AtComponent {
       color
     } = this.props
 
-    return (
-      <View
-        className={
-          classNames({
-            'at-switch': true,
-            'at-switch--without-border': !border
-          }, className)
-        }
-        style={customStyle}
-      >
-        <View className='at-switch__title'>{title}</View>
-        <View
-          className={
-            classNames({
-              'at-switch__container': true,
-              'at-switch--disabled': disabled
-            })
-          }
-        >
-          <View className='at-switch__mask'></View>
-          {
-            checked
-              ? <Switch
-                className='at-switch__switch'
-                checked
-                color={color}
-                onChange={this.handleChange.bind(this)}
-              />
-              : <Switch
-                className='at-switch__switch'
-                color={color}
-                onChange={this.handleChange.bind(this)}
-              />
-          }
-        </View>
+    const rootCls = classNames('at-switch', {
+      'at-switch--without-border': !border
+    }, className)
+    const containerCls = classNames('at-switch__container', {
+      'at-switch--disabled': disabled
+    })
+
+    return <View className={rootCls} style={customStyle}>
+      <View className='at-switch__title'>{title}</View>
+      <View className={containerCls}>
+        <View className='at-switch__mask'></View>
+        <Switch
+          className='at-switch__switch'
+          checked={checked}
+          color={color}
+          onChange={this.handleChange}
+        />
       </View>
-    )
+    </View>
   }
 }
 

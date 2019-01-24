@@ -1,12 +1,15 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-.at-switch {
+$component: '.at-switch';
+
+#{$component} {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $color-bg;
   padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
+  margin-bottom: 1PX;
   @include hairline-bottom();
 
   /* elements */
@@ -40,11 +43,11 @@
 
   /* modifiers */
   &--disabled {
-    .at-switch__switch {
+    #{$component}__switch {
       opacity: $opacity-disabled;
     }
 
-    .at-switch__mask {
+    #{$component}__mask {
       display: block;
     }
   }

@@ -8,18 +8,20 @@ export default class Index extends Taro.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
+
   constructor () {
     super(...arguments)
     this.state = {
       switchValue: false,
     }
   }
-  handleChange (value) {
-    console.log(this.state.switchValue)
+
+  handleChange = value => {
     this.setState({
       switchValue: value
     })
   }
+
   render () {
     return (
       <View className='page'>
@@ -35,7 +37,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtForm>
-                  <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
+                  <AtSwitch title='开启中' checked={this.state.switchValue} onChange={this.handleChange} />
                   <AtSwitch title='已关闭' border={false} />
                 </AtForm>
               </View>
