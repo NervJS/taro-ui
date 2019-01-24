@@ -2,6 +2,8 @@ import Taro from '@tarojs/taro'
 import { View, Input, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import _toString from 'lodash/toString'
+
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
 
@@ -9,12 +11,12 @@ import { initTestEnv } from '../../common/utils'
 function addNum (num1, num2) {
   let sq1, sq2
   try {
-    sq1 = num1.toString().split('.')[1].length
+    sq1 = _toString(num1).split('.')[1].length
   } catch (e) {
     sq1 = 0
   }
   try {
-    sq2 = num2.toString().split('.')[1].length
+    sq2 = _toString(num2).split('.')[1].length
   } catch (e) {
     sq2 = 0
   }
@@ -24,50 +26,44 @@ function addNum (num1, num2) {
 
 // 格式化数字，处理01变成1,并且不处理1. 这种情况
 function parseValue (num) {
-  if (num === '') {
-    return '0'
-  }
-  const numStr = num.toString()
+  if (num === '') return '0'
+
+  const numStr = _toString(num)
   if (numStr.indexOf('0') === 0
     && numStr.indexOf('.') === -1) {
     // 处理01变成1,并且不处理1.
-    return parseFloat(num).toString()
+    return _toString(parseFloat(num))
   }
-  return num.toString()
+  return _toString(num)
 }
 
 initTestEnv()
 
 class AtInputNumber extends AtComponent {
-  handleMinus = () => {
-    const { disabled, value, min, step } = this.props
-    const currentValue = parseFloat(value)
-    if (disabled || currentValue <= min) return
-
-    let nextValue = addNum(currentValue, -step)
-    nextValue = nextValue > min ? nextValue : min
-    this.props.onChange(parseValue(nextValue))
-  }
-
-  handlePlus = () => {
-    const { disabled, value, max, step } = this.props
-    const currentValue = parseFloat(value)
-    if (disabled || currentValue >= max) return
-
-    let nextValue = addNum(currentValue, step)
-    nextValue = nextValue < max ? nextValue : max
-    this.props.onChange(parseValue(nextValue))
+  handleClick (clickType) {
+    const { disabled, value, min, max, step } = this.props
+    if (
+      disabled
+      || (clickType === 'minus' && value <= min)
+      || (clickType === 'plus' && value >= max)
+    ) return
+    const deltaValue = clickType === 'minus' ? -step : step
+    let newValue = addNum(value, deltaValue)
+    newValue = this.handleValue(newValue)
+    this.props.onChange(newValue)
   }
 
   handleValue = value => {
     const { max, min } = this.props
     let resultValue = value === '' ? min : value
+    // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
     if (resultValue > max) {
       resultValue = max
     }
     if (resultValue < min) {
       resultValue = min
     }
+    resultValue = parseValue(resultValue)
     return resultValue
   }
 
@@ -76,9 +72,9 @@ class AtInputNumber extends AtComponent {
     const { disabled } = this.props
     if (disabled) return
 
-    const nextValue = parseValue(this.handleValue(value))
-    this.props.onChange(nextValue, e, ...arg)
-    return nextValue.toString()
+    const newValue = this.handleValue(value)
+    this.props.onChange(newValue, e, ...arg)
+    return newValue
   }
 
   handleBlur = (...arg) => this.props.onBlur(...arg)
@@ -98,53 +94,33 @@ class AtInputNumber extends AtComponent {
 
     const inputStyle = `width: ${Taro.pxTransform(width)}`
     const inputValue = this.handleValue(value)
-    const rootCls = classNames(
-      'at-input-number',
-      {
-        'at-input-number--lg': size
-      }, className
-    )
-    const minusBtnCls = classNames(
-      'at-input-number__btn',
-      {
-        'at-input-number--disabled': inputValue <= min || disabled
-      }
-    )
-    const plusBtnCls = classNames(
-      'at-input-number__btn',
-      {
-        'at-input-number--disabled': inputValue >= max || disabled
-      }
-    )
+    const rootCls = classNames('at-input-number', {
+      'at-input-number--lg': size
+    }, className)
+    const minusBtnCls = classNames('at-input-number__btn', {
+      'at-input-number--disabled': inputValue <= min || disabled
+    })
+    const plusBtnCls = classNames('at-input-number__btn', {
+      'at-input-number--disabled': inputValue >= max || disabled
+    })
 
-    return (
-      <View
-        className={rootCls}
-        style={customStyle}
-      >
-        <View
-          className={minusBtnCls}
-          onClick={this.handleMinus}
-        >
-          <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
-        </View>
-        <Input
-          className='at-input-number__input'
-          style={inputStyle}
-          type={type}
-          value={inputValue}
-          disabled={disabled}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-        />
-        <View
-          className={plusBtnCls}
-          onClick={this.handlePlus}
-        >
-          <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
-        </View>
+    return <View className={rootCls} style={customStyle}>
+      <View className={minusBtnCls} onClick={this.handleClick.bind(this, 'minus')}>
+        <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
       </View>
-    )
+      <Input
+        className='at-input-number__input'
+        style={inputStyle}
+        type={type}
+        value={inputValue}
+        disabled={disabled}
+        onInput={this.handleInput}
+        onBlur={this.handleBlur}
+      />
+      <View className={plusBtnCls} onClick={this.handleClick.bind(this, 'plus')}>
+        <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
+      </View>
+    </View>
   }
 }
 
