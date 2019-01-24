@@ -94,60 +94,47 @@ export default class AtInput extends AtComponent {
     )
     const placeholderCls = classNames('placeholder', placeholderClass)
 
-    return (
-      <View
-        className={rootCls}
-        style={customStyle}
-      >
-        <View className={containerCls}>
-          <View
-            className={overlayCls}
-            onClick={this.onClick}
-          >
+    return <View className={rootCls} style={customStyle}>
+      <View className={containerCls}>
+        <View className={overlayCls} onClick={this.onClick}></View>
+        {title && <Label className='at-input__title' for={name}>{title}</Label>}
+        <Input
+          className='at-input__input'
+          id={name}
+          name={name}
+          type={type}
+          password={password}
+          placeholderStyle={placeholderStyle}
+          placeholderClass={placeholderCls}
+          placeholder={placeholder}
+          cursorSpacing={cursorSpacing}
+          maxLength={maxLength}
+          autoFocus={autoFocus}
+          focus={focus}
+          value={value}
+          confirmType={confirmType}
+          cursor={cursor}
+          selectionStart={selectionStart}
+          selectionEnd={selectionEnd}
+          adjustPosition={adjustPosition}
+          onInput={this.onInput}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          onConfirm={this.onConfirm}
+        />
+        {clear && value && (
+          <View className='at-input__icon' onTouchStart={this.clearValue}>
+            <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
           </View>
-          {title && (
-            <Label className='at-input__title' for={name}>{title}</Label>
-          )}
-          <Input
-            className='at-input__input'
-            id={name}
-            name={name}
-            type={type}
-            password={password}
-            placeholderStyle={placeholderStyle}
-            placeholderClass={placeholderCls}
-            placeholder={placeholder}
-            cursorSpacing={cursorSpacing}
-            maxLength={maxLength}
-            autoFocus={autoFocus}
-            focus={focus}
-            value={value}
-            confirmType={confirmType}
-            cursor={cursor}
-            selectionStart={selectionStart}
-            selectionEnd={selectionEnd}
-            adjustPosition={adjustPosition}
-            onInput={this.onInput}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            onConfirm={this.onConfirm}
-          />
-          {clear && value && (
-            <View className='at-input__icon' onTouchStart={this.clearValue}>
-              <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
-            </View>
-          )}
-          {error && (
-            <View className='at-input__icon' onTouchStart={this.onErrorClick}>
-              <Text className='at-icon at-icon-alert-circle at-input__icon-alert'></Text>
-            </View>
-          )}
-          <View className='at-input__children'>
-            {this.props.children}
+        )}
+        {error && (
+          <View className='at-input__icon' onTouchStart={this.onErrorClick}>
+            <Text className='at-icon at-icon-alert-circle at-input__icon-alert'></Text>
           </View>
-        </View>
+        )}
+        <View className='at-input__children'>{this.props.children}</View>
       </View>
-    )
+    </View>
   }
 }
 
