@@ -36,22 +36,18 @@ const ENV = Taro.getEnv()
 export default class AtImagePicker extends AtComponent {
   chooseFile = () => {
     const { files = [], multiple } = this.props
-    const filePathName = {
-      'ALIPAY': 'apFilePaths',
-      'WEAPP': 'tempFiles',
-      'WEB': 'tempFiles'
-    }[ENV]
+    const filePathName = ENV === Taro.ENV_TYPE.ALIPAY ? 'apFilePaths' : 'tempFiles'
+    const count = multiple ? 99 : 1
 
-    Taro.chooseImage({
-      count: multiple ? 99 : 1
-    }).then(res => {
+    Taro.chooseImage({ count }).then(res => {
       const targetFiles = res.tempFilePaths.map(
         (path, i) => ({
           url: path,
           file: res[filePathName][i]
         })
       )
-      this.props.onChange(files.concat(targetFiles), 'add')
+      const newFiles = files.concat(targetFiles)
+      this.props.onChange(newFiles, 'add')
     }).catch(this.props.onFail)
   }
 
@@ -79,54 +75,40 @@ export default class AtImagePicker extends AtComponent {
     const matrix = generateMatrix(files, length, showAddBtn)
     const rootCls = classNames('at-image-picker', className)
 
-    return (
-      <View
-        className={rootCls}
-        style={customStyle}
-      >
-        {matrix.map((row, i) => (
-          <View
-            className='at-image-picker__flex-box'
-            key={i}
-          >
-            {row.map((item, j) => (
-              item.url
-                ? <View
-                  className='at-image-picker__flex-item'
-                  key={(i * length) + j}
-                >
-                  <View className='at-image-picker__item'>
-                    <View
-                      className='at-image-picker__remove-btn'
-                      onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
-                    ></View>
-                    <Image
-                      className='at-image-picker__preview-img'
-                      mode={mode}
-                      src={item.url}
-                      onClick={this.handleImageClick.bind(this, (i * length) + j)}
-                    />
+    return <View className={rootCls} style={customStyle}>
+      {matrix.map((row, i) => (
+        <View className='at-image-picker__flex-box' key={i}>
+          {row.map((item, j) => (
+            item.url
+              ? <View className='at-image-picker__flex-item' key={(i * length) + j}>
+                <View className='at-image-picker__item'>
+                  <View
+                    className='at-image-picker__remove-btn'
+                    onClick={this.handleRemoveImg.bind(this, (i * length) + j)}
+                  ></View>
+                  <Image
+                    className='at-image-picker__preview-img'
+                    mode={mode}
+                    src={item.url}
+                    onClick={this.handleImageClick.bind(this, (i * length) + j)}
+                  />
+                </View>
+              </View>
+              : <View className='at-image-picker__flex-item' key={(i * length) + j}>
+                {item.type === 'btn' && (
+                  <View
+                    className='at-image-picker__item at-image-picker__choose-btn'
+                    onClick={this.chooseFile}
+                  >
+                    <View className='add-bar'></View>
+                    <View className='add-bar'></View>
                   </View>
-                </View>
-                : <View
-                  className='at-image-picker__flex-item'
-                  key={(i * length) + j}
-                >
-                  {item.type === 'btn' && (
-                    <View
-                      className='at-image-picker__item at-image-picker__choose-btn'
-                      onClick={this.chooseFile}
-                    >
-                      <View className='add-bar'></View>
-                      <View className='add-bar'></View>
-                    </View>
-                  )}
-                </View>
-            ))}
-          </View>
-        ))}
-      </View>
-    )
+                )}
+              </View>
+          ))}
+        </View>
+      ))}
+    </View>
   }
 }
 
