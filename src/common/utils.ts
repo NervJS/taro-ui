@@ -175,6 +175,10 @@ function initTestEnv () {
   }
 }
 
+function isTest() {
+  return process.env.NODE_ENV === 'test'
+}
+
 let scrollTop = 0
 
 function handleTouchScroll (flag) {
@@ -203,6 +207,7 @@ export {
   uuid,
   getEventDetail,
   initTestEnv,
+  isTest,
   handleTouchScroll,
   delayGetClientRect,
   delayGetScrollOffset
