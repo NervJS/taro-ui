@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AtNoticebar Snap render AtNoticebar -- props icon 1`] = `"<div class=\\"at-noticebar\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-icon\\"><span class=\\"taro-text at-icon at-icon-volume-plus\\"></span></div><div class=\\"at-noticebar__content-text\\"><div class=\\"at-noticebar__content-inner\\">这是内容</div></div></div>undefined</div>"`;
+exports[`AtNoticebar Snap render AtNoticebar -- props icon 1`] = `"<div class=\\"at-noticebar\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-icon\\"><span class=\\"taro-text at-icon at-icon-volume-plus at-icon at-icon-volume-plus\\"></span></div><div class=\\"at-noticebar__content-text\\"><div class=\\"at-noticebar__content-inner\\">这是内容</div></div></div>undefined</div>"`;
 
 exports[`AtNoticebar Snap render AtNoticebar -- props moreText & showMore 1`] = `"<div class=\\"at-noticebar\\">undefined<div class=\\"at-noticebar__content\\"><div class=\\"at-noticebar__content-text\\"><div class=\\"at-noticebar__content-inner\\">这是内容</div></div></div>undefined</div>"`;
 
