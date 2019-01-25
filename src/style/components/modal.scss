@@ -1,10 +1,7 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-modal-width: 540px;
 $at-modal-duration: 200ms;
-$at-modal-btn-bg-color: $color-white;
-$at-modal-btn-confirm-color: $color-brand;
 
 .at-modal {
   position: fixed;
@@ -32,16 +29,16 @@ $at-modal-btn-confirm-color: $color-brand;
 
     width: $at-modal-width;
     border-radius: $border-radius-lg;
-    background-color: $color-white;
+    background-color: $at-modal-bg-color;
     overflow: hidden;
   }
 
   &__header {
-    @include hairline-bottom($color: $color-grey-4);
+    @include hairline-bottom-relative($color: $color-grey-4);
     @include line(1);
 
     padding: $spacing-v-md $spacing-h-lg;
-    color: $color-text-base;
+    color: $at-modal-header-text-color;
     font-size: $font-size-lg;
     text-align: center;
   }
@@ -51,13 +48,13 @@ $at-modal-btn-confirm-color: $color-brand;
     min-height: 180px;
     max-height: 840px;
     overflow-y: scroll;
-    color: $color-text-base;
+    color: $at-modal-content-text-color;
     font-size: $font-size-base;
     box-sizing: border-box;
   }
 
   &__footer {
-    @include hairline-top($color: $color-grey-4);
+    @include hairline-top-relative($color: $color-grey-4);
 
     .at-modal__action {
       @include display-flex;
@@ -70,12 +67,13 @@ $at-modal-btn-confirm-color: $color-brand;
         margin-top: 0;
         min-width: 160px;
         height: 88px;
+        color: $at-modal-btn-default-color;
         font-size: $font-size-base;
         line-height: 86px;
         outline: 0;
         border: 0;
         border-radius: 0;
-        background-color: $at-modal-btn-bg-color;
+        background-color: transparent;
 
         &::after {
           border: 0;
@@ -88,7 +86,7 @@ $at-modal-btn-confirm-color: $color-brand;
           @include hairline-left-relative($color: $color-grey-4);
         }
 
-        &:first-child:last-child {
+        &:last-child {
           color: $at-modal-btn-confirm-color;
         }
       }

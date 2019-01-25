@@ -99,25 +99,24 @@ export default class AtPagination extends AtComponent {
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
       >
-        <View className='at-pagination__operate'>
-          <View className='at-pagination__btns'>
-            <View className='at-pagination__btns-prev'>
-              {icon && (
-                <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>
-                  <Text className='at-icon at-icon-chevron-left'></Text>
-                </AtButton>
-              )}
-              {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
-            </View>
-            <View className='at-pagination__btns-next'>
-              {icon && (
-                <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>
-                  <Text className='at-icon at-icon-chevron-right'></Text>
-                </AtButton>
-              )}
-              {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
-            </View>
-          </View>
+        <View className='at-pagination__btn-prev'>
+          {icon && (
+            <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>
+              <Text className='at-icon at-icon-chevron-left'></Text>
+            </AtButton>
+          )}
+          {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
+        </View>
+        <View className='at-pagination__number'>
+          <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+        </View>
+        <View className='at-pagination__btn-next'>
+          {icon && (
+            <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>
+              <Text className='at-icon at-icon-chevron-right'></Text>
+            </AtButton>
+          )}
+          {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
         </View>
         {/* {pickerSelect && <View className='at-pagination__number'>
           {<Picker mode='selector' range={pickerRange} value={current - 1} onChange={this.onPickerChange.bind(this)}>
@@ -127,9 +126,6 @@ export default class AtPagination extends AtComponent {
         {/* {!pickerSelect && <View className='at-pagination__number'>
           <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
         </View>} */}
-        <View className='at-pagination__number'>
-          <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
-        </View>
       </View>
     )
   }

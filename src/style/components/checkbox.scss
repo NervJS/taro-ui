@@ -2,9 +2,6 @@
 @import '../variables/default.scss';
 
 $component: '.at-checkbox';
-$at-checkbox-icon-size: 40px;
-$at-checkbox-icon-color: $color-brand;
-$at-checkbox-icon-color-checked: $color-white;
 
 #{$component} {
   position: relative;
@@ -23,7 +20,8 @@ $at-checkbox-icon-color-checked: $color-white;
 
   &__title {
     display: inline-flex;
-    font-size: $font-size-lg;
+    color: $at-checkbox-title-color;
+    font-size: $at-checkbox-title-font-size;
     line-height: $line-height-zh;
     text-align: left;
   }
@@ -34,12 +32,12 @@ $at-checkbox-icon-color-checked: $color-white;
     justify-content: center;
     margin-top: 4px;
     margin-right: $spacing-h-lg;
-    width: $at-checkbox-icon-size;
-    height: $at-checkbox-icon-size;
+    width: $at-checkbox-circle-size;
+    height: $at-checkbox-circle-size;
     color: transparent;
-    font-size: $font-size-sm;
+    font-size: $at-checkbox-icon-size;
     line-height: 1;
-    border: 2px solid $at-checkbox-icon-color;
+    border: 2px solid rgba($color: $at-checkbox-icon-color, $alpha: 0.2);
     border-radius: $border-radius-circle;
     background-color: $color-bg;
     box-sizing: border-box;
@@ -48,9 +46,9 @@ $at-checkbox-icon-color-checked: $color-white;
 
   &__desc {
     display: block;
-    padding-left: $at-checkbox-icon-size + $spacing-h-lg;
-    color: $color-grey-2;
-    font-size: $font-size-sm;
+    padding-left: $at-checkbox-circle-size + $spacing-h-lg;
+    color: $at-checkbox-desc-color;
+    font-size: $at-checkbox-desc-font-size;
     text-align: left;
     line-height: $line-height-zh;
     letter-spacing: 0;

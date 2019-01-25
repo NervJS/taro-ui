@@ -1,9 +1,7 @@
 @import "../mixins/index.scss";
 @import "../variables/default.scss";
 
-$at-list-thumb-size: 56px;
 $at-list-item-horizontal-padding: 24px;
-$at-list-arrow-color: #c7c7cc;
 
 @mixin squareImg($size: 56px) {
   width: $size;
@@ -16,7 +14,7 @@ $at-list-arrow-color: #c7c7cc;
 }
 
 .at-list {
-  background-color: white;
+  background-color: $color-bg;
   @include hairline-top-bottom();
 
   /* elements */
@@ -33,7 +31,7 @@ $at-list-arrow-color: #c7c7cc;
     padding: $spacing-v-lg $spacing-h-lg;
     position: relative;
     box-sizing: border-box;
-    color: $color-text-base;
+    color: $at-list-text-color;
     font-size: $font-size-lg;
     line-height: $line-height-zh;
     @include active;
@@ -72,7 +70,7 @@ $at-list-arrow-color: #c7c7cc;
         }
 
         &-note {
-          color: $color-grey-2;
+          color: $at-list-content-color;
           font-size: $font-size-base;
           line-height: $line-height-zh;
         }
@@ -93,7 +91,7 @@ $at-list-arrow-color: #c7c7cc;
         @include line(1);
 
         max-width: 100%;
-        color: $color-grey-2;
+        color: $at-list-extra-color;
         padding-right: 30px;
         font-size: $font-size-lg;
         vertical-align: middle;
@@ -110,7 +108,7 @@ $at-list-arrow-color: #c7c7cc;
       // }
 
       &__icon {
-        right: -20px;
+        right: -12px;
         top: 50%;
         transform: translateY(-50%);
         position: absolute;
@@ -143,9 +141,9 @@ $at-list-arrow-color: #c7c7cc;
   }
 
   &__item-extra {
-    @include flex(0, 0, 235px);
+    @include flex(0, 0, $at-list-extra-width);
 
-    width: 235px;
+    width: $at-list-extra-width;
     text-align: right;
   }
 

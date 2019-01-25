@@ -101,8 +101,8 @@ export default class AtButton extends AtComponent {
       'at-button--circle': circle,
       'at-button--full': full,
     }
-    const loadingColor = type === 'primary' ? '#fff' : '#6190E8'
-    const loadingSize = size === 'small' ? '16' : '18'
+    const loadingColor = type === 'primary' ? '#fff' : ''
+    const loadingSize = size === 'small' ? '30' : 0
     let component
     if (loading) {
       component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>

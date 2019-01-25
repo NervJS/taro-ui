@@ -108,19 +108,19 @@ export default class NoticebarPage extends Taro.Component {
                 <AtNoticebar close icon='volume-plus' single>[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close moreUrl='https://taro.aotu.io/' single>[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
+                <AtNoticebar close onGotoMore={this.onGotoMore.bind(this)} single showMore>[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close icon='volume-plus' moreUrl='https://taro.aotu.io/' single>[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
+                <AtNoticebar close icon='volume-plus' showMore onGotoMore={this.onGotoMore.bind(this)} single>[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
                 <AtNoticebar close>[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close moreUrl='https://taro.aotu.io/'>[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
+                <AtNoticebar close>[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
               <View className='bar-item'>
-                <AtNoticebar close icon='volume-plus' moreUrl='https://taro.aotu.io/'>[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
+                <AtNoticebar close icon='volume-plus'>[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏</AtNoticebar>
               </View>
             </View>
           </View>

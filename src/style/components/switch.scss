@@ -15,7 +15,8 @@ $component: '.at-switch';
   /* elements */
   &__title {
     flex: 6;
-    font-size: $font-size-base;
+    color: $at-switch-title-color;
+    font-size: $at-switch-title-size;
   }
 
   &__container {

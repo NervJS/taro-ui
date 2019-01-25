@@ -6,7 +6,7 @@ import './index.scss'
 
 const OPTIONS = [
   {
-    text: '取消',
+    text: '删除',
     style: {
       color: '#333',
       backgroundColor: '#F7F7F7'

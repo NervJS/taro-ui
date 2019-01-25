@@ -1,13 +1,7 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$component: '.at-tabs';
-$at-tabs-color: $color-text-base;
-$at-tabs-color-active: $color-brand;
-$at-tabs-font-size: $font-size-base;
-$at-tabs-line-height: 1PX;
-$at-tabs-underline-color: $color-grey-5;
-$at-tabs-bg-color: $color-bg;
+$component:'.at-tabs';
 $at-tabs-pane-min-height: 100px;
 
 #{$component} {

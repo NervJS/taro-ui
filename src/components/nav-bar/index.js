@@ -30,7 +30,7 @@ export default class AtNavBar extends AtComponent {
       rightFirstIconType,
       rightSecondIconType
     } = this.props
-    const linkStyle = `color: ${color};`
+    const linkStyle = { color }
 
     const leftIconClass = classNames('at-icon', {
       [`at-icon-${leftIconType}`]: leftIconType
@@ -96,7 +96,7 @@ AtNavBar.defaultProps = {
   className: '',
   fixed: false,
   border: true,
-  color: '#6190E8',
+  color: '',
   leftIconType: '',
   leftText: '',
   title: '',

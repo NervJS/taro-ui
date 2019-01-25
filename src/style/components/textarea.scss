@@ -1,12 +1,9 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-textarea-input-height: $font-size-base * 4;
-$at-textarea-font-size: $font-size-lg;
-$at-textarea-bg-color: $color-bg;
-$at-textarea-tips-color: $color-text-placeholder;
-$at-textarea-tips-size: $font-size-base;
 $component: '.at-textarea';
+$at-textarea-input-height: $at-textarea-font-size * 4;
+$at-textarea-bg-color: $color-bg;
 
 #{$component} {
   padding: $spacing-v-md;

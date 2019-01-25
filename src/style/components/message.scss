@@ -1,9 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-message-color: $color-white;
-$at-message-font-size: $font-size-base;
-
 .at-message {
   position: fixed;
   top: 0;
@@ -15,7 +12,7 @@ $at-message-font-size: $font-size-base;
   font-size: $at-message-font-size;
   text-align: center;
   line-height: $line-height-zh;
-  background-color: $color-info;
+  background: $at-message-bg-color;
   animation: ease both;
   transform: translate3d(0, -100%, 0);
   transition: all 300ms $ease-in-sine;
@@ -24,15 +21,19 @@ $at-message-font-size: $font-size-base;
 
   /* modifiers */
   &--success {
-    background-color: $color-success;
+    background: $color-success;
   }
 
   &--error {
-    background-color: $color-error;
+    background: $color-error;
   }
 
   &--warning {
-    background-color: $color-warning;
+    background: $color-warning;
+  }
+
+  &--info {
+    background: $color-info;
   }
 
   &--show {

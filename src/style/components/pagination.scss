@@ -1,48 +1,29 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-pagination-margin: 40px;
-$at-pagination-height: 60px;
-$at-pagination-current-num-color: $color-brand;
-$at-pagination-number-width: 100px;
-
 .at-pagination {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 $at-pagination-margin;
-  font-size: 0;
-  overflow: hidden;
 
-  &__btns {
-    display: flex;
-
-    &-prev {
-      flex: 1;
-      text-align: left;
-    }
-
-    &-next {
-      flex: 1;
-      text-align: right;
-    }
+  &__btn-prev,
+  &__btn-next {
+    font-size: 0;
 
     .at-icon {
-      color: $color-text-base;
-      font-size: 32px;
+      color: $at-pagination-icon-color;
+      font-size: $at-pagination-icon-font-size;
     }
   }
 
   &__number {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: $at-pagination-number-width;
-    height: $at-pagination-height;
-    color: $color-text-base;
-    font-size: $font-size-base;
+    flex: 1;
+    color: $at-pagination-num-color;
+    font-size: $at-pagination-num-font-size;
     text-align: center;
-    line-height: $at-pagination-height;
     overflow: hidden;
-    transform: translateX(-50%);
 
     &-current {
       color: $at-pagination-current-num-color;

@@ -13,11 +13,6 @@
   }
 }
 
-$at-progress-height: 16px;
-$at-progress-inner-bg-color: $color-grey-6;
-$at-progress-bar-bg-color: $color-brand-light;
-$at-progress-text-size: $font-size-sm;
-
 .at-progress {
   display: flex;
   align-items: center;
@@ -52,7 +47,7 @@ $at-progress-text-size: $font-size-sm;
     text-align: center;
 
     .at-icon {
-      font-size: 36px;
+      font-size: $at-progress-icon-size;
     }
   }
 
@@ -66,7 +61,7 @@ $at-progress-text-size: $font-size-sm;
       left: 0;
       right: 0;
       bottom: 0;
-      background: #fff;
+      background: $at-progress-bar-bg-color-active;
       border-radius: $at-progress-height / 2;
       animation: progress-active 2s $ease-out-quad infinite;
     }

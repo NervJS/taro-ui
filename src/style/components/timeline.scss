@@ -1,16 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-timeline-offset-left: 40px;
-$at-timeline-dot-size: 24px;
-$at-timeline-title-color: $color-grey-0;
-$at-timeline-title-font-size: $font-size-base;
-$at-timeline-desc-color: $color-grey-1;
-$at-timeline-desc-font-size: $font-size-sm;
-$at-timeline-dot-color: $color-bg;
-$at-timeline-dot-bg-color: $color-info;
-$at-timeline-line-color: $color-border-lighter;
-
 .at-timeline-item {
   position: relative;
   padding: 0 0 $spacing-v-sm;
@@ -59,7 +49,7 @@ $at-timeline-line-color: $color-border-lighter;
       height: $at-timeline-dot-size;
       border: 1PX solid transparent;
       border-radius: $border-radius-circle;
-      border-color: $at-timeline-dot-bg-color;
+      border-color: $at-timeline-dot-border-color;
     }
 
     &.at-timeline-item__icon {
@@ -70,7 +60,7 @@ $at-timeline-line-color: $color-border-lighter;
   }
 
   &__icon {
-    color: $at-timeline-dot-bg-color;
+    color: $at-timeline-dot-border-color;
   }
 
   &__tail {
