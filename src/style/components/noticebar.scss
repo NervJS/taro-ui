@@ -99,12 +99,10 @@
   }
 
   &--marquee {
-    display: flex;
-
     .at-noticebar__content {
-      flex: 1;
       display: flex;
       flex-direction: row;
+      justify-content: center;
       overflow: hidden;
 
       &-text {
@@ -115,9 +113,8 @@
       &-inner {
         display: inline-block;
         white-space: nowrap;
-        overflow: auto;
         padding-left: 100%;
-        font-size: $at-noticebar-font-size;
+        height: $at-noticebar-font-size * 1.5;
         animation: marquee 1s linear infinite both;
         transform: translateZ(0);
       }
