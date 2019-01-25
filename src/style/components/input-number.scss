@@ -1,6 +1,7 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$component: '.at-input-number';
 $at-input-number-btn-size: 30px;
 $at-input-number-btn-size-lg: 36px;
 $at-input-number-btn-padding: 12px;
@@ -8,7 +9,7 @@ $at-input-number-btn-padding-lg: 20px;
 $at-input-number-size-min: 80px;
 $at-input-number-size-min-lg: 120px;
 
-.at-input-number {
+#{$component} {
   display: inline-flex;
   @include border-thin($width: 1PX);
 
@@ -60,7 +61,7 @@ $at-input-number-size-min-lg: 120px;
   }
 
   &--lg {
-    .at-input-number__btn {
+    #{$component}__btn {
       padding: $at-input-number-btn-padding-lg;
       font-size: $font-size-xl;
 
@@ -70,7 +71,7 @@ $at-input-number-size-min-lg: 120px;
       }
     }
 
-    .at-input-number__input {
+    #{$component}__input {
       padding: $spacing-v-sm;
       font-size: $font-size-xl;
     }
