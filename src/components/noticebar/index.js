@@ -133,6 +133,9 @@ export default class AtNoticebar extends AtComponent {
       'at-noticebar--single': !marquee && single,
     }
 
+    const iconClass = ['at-icon']
+    if (icon) iconClass.push(`at-icon-${icon}`)
+
     return (
       this.state.show &&
       <View
@@ -147,7 +150,8 @@ export default class AtNoticebar extends AtComponent {
         <View className='at-noticebar__content'>
           {icon && (
             <View className='at-noticebar__content-icon'>
-              <Text className={classNames('at-icon', { [`at-icon-${icon}`]: icon })}></Text>
+              {/* start hack 百度小程序 */}
+              <Text className={classNames(iconClass, iconClass)}></Text>
             </View>
           )}
           <View className='at-noticebar__content-text'>
