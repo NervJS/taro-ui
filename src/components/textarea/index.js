@@ -64,44 +64,39 @@ class AtTextarea extends AtComponent {
     )
     const placeholderCls = classNames('placeholder', placeholderClass)
 
-    return (
-      <View
-        className={rootCls}
-        style={customStyle}
-      >
-        <Textarea
-          className='at-textarea__textarea'
-          style={textareaStyle}
-          placeholderStyle={placeholderStyle}
-          placeholderClass={placeholderCls}
-          cursorSpacing={cursorSpacing}
-          value={value}
-          confirmType='完成'
-          /* 兼容之前的版本 */
-          maxlength={actualMaxLength}
-          maxLength={actualMaxLength}
-          placeholder={placeholder}
-          disabled={disabled}
-          autoFocus={autoFocus}
-          focus={focus}
-          showConfirmBar={showConfirmBar}
-          selectionStart={selectionStart}
-          selectionEnd={selectionEnd}
-          fixed={fixed}
-          onInput={this.handleInput}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          onConfirm={this.handleConfirm}
-          onLinechange={this.handleLinechange}
-          showCount={false}
-        />
-        {count && (
-          <View className='at-textarea__counter'>
-            {value.length}/{_maxLength}
-          </View>
-        )}
-      </View>
-    )
+    return <View className={rootCls} style={customStyle}>
+      <Textarea
+        className='at-textarea__textarea'
+        style={textareaStyle}
+        placeholderStyle={placeholderStyle}
+        placeholderClass={placeholderCls}
+        cursorSpacing={cursorSpacing}
+        value={value}
+        confirmType='完成'
+        /* 兼容之前的版本 */
+        maxlength={actualMaxLength}
+        maxLength={actualMaxLength}
+        placeholder={placeholder}
+        disabled={disabled}
+        autoFocus={autoFocus}
+        focus={focus}
+        showConfirmBar={showConfirmBar}
+        selectionStart={selectionStart}
+        selectionEnd={selectionEnd}
+        fixed={fixed}
+        onInput={this.handleInput}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        onConfirm={this.handleConfirm}
+        onLinechange={this.handleLinechange}
+        showCount={false}
+      />
+      {count && (
+        <View className='at-textarea__counter'>
+          {value.length}/{_maxLength}
+        </View>
+      )}
+    </View>
   }
 }
 
