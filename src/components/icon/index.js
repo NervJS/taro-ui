@@ -60,11 +60,13 @@ export default class AtIcon extends AtComponent {
       fontSize: `${Taro.pxTransform(parseInt(size) * 2)}`,
       color
     }
+
+    const iconName = value ? `${prefixClass}-${value}` : ''
     return (
       <Text
         className={classNames(
           prefixClass,
-          `${prefixClass}-${value}`,
+          iconName,
           className
         )}
         style={this.mergeStyle(rootStyle, customStyle)}
