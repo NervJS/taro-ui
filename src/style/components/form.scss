@@ -5,7 +5,6 @@ $at-form-bg-color: $color-bg;
 
 .at-form {
   display: block;
-  padding-left: $spacing-h-xl;
   background-color: $at-form-bg-color;
   @include hairline-top-bottom();
 }
