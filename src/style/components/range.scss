@@ -1,13 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-range-slider-size: 28PX;
-$at-range-rail-height: 2PX;
-$at-range-rail-bg-color: $color-grey-3;
-$at-range-track-bg-color: $color-brand;
-$at-range-slider-color: $color-white;
-$at-range-slider-shadow: 0 0 4PX 0 rgba(0, 0, 0, 0.2);
-
 .at-range {
   position: relative;
   padding: 0 $at-range-slider-size / 2 + 4PX;

@@ -2,25 +2,19 @@
 @import '../variables/default.scss';
 
 $at-search-bar-font-size: 14PX;
-$at-search-bar-bg-color: $color-bg;
-
 $at-search-bar-input-height: 30PX;
 $at-search-bar-input-padding: 25PX;
+$at-search-bar-btn-padding: 10PX;
+$at-search-bar-placeholder-padding: 5PX;
 $at-search-bar-input-bg-color: $color-bg-grey;
 $at-search-bar-input-color: $color-black-0;
-
-$at-search-bar-btn-padding: 10PX;
-$at-search-bar-btn-color: $color-white;
-$at-search-bar-btn-bg-color: $color-brand;
-
 $at-search-bar-placholder-color: $color-grey-2;
-$at-search-bar-placeholder-padding: 5PX;
 
 .at-search-bar {
   display: flex;
   align-items: center;
   padding: $spacing-v-sm $spacing-v-md;
-  background-color: $at-search-bar-bg-color;
+  background-color: $color-bg;
   overflow: hidden;
   box-sizing: border-box;
   @include hairline-bottom();

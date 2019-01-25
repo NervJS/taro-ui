@@ -1,10 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-calendar-day-size: 72px;
-$at-calendar-mark-size: 8px;
-$at-calendar-header-color: #B8BFC6;
-
 .at-calendar {
   overflow: hidden;
 
@@ -70,7 +66,7 @@ $at-calendar-header-color: #B8BFC6;
               height: $at-calendar-mark-size;
               margin-right: 4px;
               display: inline-block;
-              background-color: $color-brand;
+              background-color: $at-calendar-main-color;
               border-radius: 50%;
               overflow: hidden;
 
@@ -82,7 +78,7 @@ $at-calendar-header-color: #B8BFC6;
         }
 
         &--today {
-          color: $color-brand;
+          color: $at-calendar-main-color;
           font-weight: bolder;
         }
 
@@ -92,7 +88,7 @@ $at-calendar-header-color: #B8BFC6;
 
         &--selected {
           color: white;
-          background-color: rgba($color: $color-brand, $alpha: 0.7);
+          background-color: rgba($color: $at-calendar-main-color, $alpha: 0.7);
 
           &-head {
             border-top-left-radius: 40px;
@@ -113,7 +109,7 @@ $at-calendar-header-color: #B8BFC6;
             background-color: transparent;
 
             .flex__item-container {
-              background-color: rgba($color: $color-brand, $alpha: 0.7);
+              background-color: rgba($color: $at-calendar-main-color, $alpha: 0.7);
             }
           }
         }

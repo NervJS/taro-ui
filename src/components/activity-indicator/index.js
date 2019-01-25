@@ -32,9 +32,9 @@ export default class AtActivityIndicator extends AtComponent {
 }
 
 AtActivityIndicator.defaultProps = {
-  size: 24,
+  size: 0,
   mode: '',
-  color: '#6190E8',
+  color: '',
   content: '',
   className: '',
 }

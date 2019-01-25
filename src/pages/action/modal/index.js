@@ -6,12 +6,9 @@ import {
   AtModalHeader,
   AtModalContent,
   AtModalAction,
-  AtIndexes
 } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
-
-import mockData from '../../navigation/indexes/mock-data'
 
 export default class ModalPage extends Taro.Component {
   config = {
@@ -132,7 +129,6 @@ export default class ModalPage extends Taro.Component {
               取消
             </Button>
             <Button
-              style='color:#6190E8'
               onClick={this.closeModal.bind(this, 1, '点击了确定')}
             >
               确定
@@ -146,10 +142,10 @@ export default class ModalPage extends Taro.Component {
           onClose={this.closeModal.bind(this, 2, 'Modal被关闭了')}
         >
           <AtModalHeader>标题</AtModalHeader>
-          <AtModalContent className='indexes-wrapper'>
-            <AtIndexes list={mockData} topKey='Top'>
-              <View className='custom-area'>用户自定义内容</View>
-            </AtIndexes>
+          <AtModalContent>
+            <View className='modal-content'>
+              这里是正文内容，欢迎加入京东凹凸实验室
+            </View>
           </AtModalContent>
           <AtModalAction>
             <Button onClick={this.closeModal.bind(this, 2, '点击了确定')}>
@@ -175,7 +171,6 @@ export default class ModalPage extends Taro.Component {
               取消
             </Button>
             <Button
-              style='color:#6190E8'
               onClick={this.closeModal.bind(this, 3, '点击了确定')}
             >
               确定

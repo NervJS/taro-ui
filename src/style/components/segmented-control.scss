@@ -1,10 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-segmented-control-color: $color-brand;
-$at-segmented-control-color-active: $color-white;
-$at-segmented-control-bg-color: $color-white;
-$at-segmented-control-font-size: $font-size-base;
 $at-segmented-control-min-width: 120px;
 
 .at-segmented-control {
@@ -30,7 +26,7 @@ $at-segmented-control-min-width: 120px;
     text-overflow: ellipsis;
     background-color: $at-segmented-control-bg-color;
     overflow: hidden;
-    transition: all 0.3s $ease-in-out-cubic;
+    transition: all 0.2s;
 
     &--active {
       color: $at-segmented-control-color-active;

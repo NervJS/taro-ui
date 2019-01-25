@@ -1,9 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-divider-height: 112px;
-$at-divider-line-color: $color-brand;
-
 .at-divider {
   display: flex;
   align-items: center;
@@ -19,6 +16,8 @@ $at-divider-line-color: $color-brand;
     display: inline-block;
     position: relative;
     padding: 0 $spacing-h-lg;
+    color: $at-divider-content-color;
+    font-size: $at-divider-font-size;
     background: $color-bg;
     z-index: $zindex-divider + 1;
   }

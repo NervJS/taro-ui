@@ -2,8 +2,6 @@
 @import '../variables/default.scss';
 
 $float-layout-timer: 300ms;
-$float-layout-height-min: 600px;
-$float-layout-height-max: 950px;
 
 .at-float-layout {
   position: fixed;
@@ -39,13 +37,13 @@ $float-layout-height-max: 950px;
       position: relative;
       padding: $spacing-v-md;
       line-height: $line-height-zh;
-      background-color: $color-bg-grey;
+      background-color: $float-layout-header-bg-color;
 
       &__title {
         @include line(1);
 
-        color: $color-text-base;
-        font-size: $font-size-lg;
+        color: $float-layout-title-color;
+        font-size: $float-layout-title-font-size;
         display: block;
         padding-right: 80px;
       }
@@ -70,7 +68,7 @@ $float-layout-height-max: 950px;
           width: 36px;
           height: 2PX;
           border-radius: 1PX;
-          background: #CCC;
+          background: $float-layout-btn-color;
         }
 
         &::before {

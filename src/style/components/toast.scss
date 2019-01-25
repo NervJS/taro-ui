@@ -11,11 +11,11 @@
   }
 }
 
-$at-toast-image-size: 120px;
-$at-toast-min-width: 256px;
+$at-toast-min-width: 256px !default;
+$at-toast-image-size: 120px !default;
+$at-toast-font-size: $font-size-base !default;
+$at-toast-icon-size: 80px !default;
 $at-toast-color: $color-white;
-$at-toast-font-size: $font-size-base;
-$at-toast-icon-size: 80px;
 $at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
 
 .at-toast {

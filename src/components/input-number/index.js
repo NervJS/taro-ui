@@ -92,7 +92,9 @@ class AtInputNumber extends AtComponent {
       size
     } = this.props
 
-    const inputStyle = `width: ${Taro.pxTransform(width)}`
+    const inputStyle = {
+      width: width ? `${Taro.pxTransform(width)}` : ''
+    }
     const inputValue = this.handleValue(value)
     const rootCls = classNames('at-input-number', {
       'at-input-number--lg': size
@@ -130,7 +132,7 @@ AtInputNumber.defaultProps = {
   disabled: false,
   value: 1,
   type: 'number',
-  width: 80,
+  width: 0,
   min: 0,
   max: 100,
   step: 1,

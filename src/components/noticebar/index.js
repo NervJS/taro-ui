@@ -129,7 +129,6 @@ export default class AtNoticebar extends AtComponent {
     const classObject = {
       'at-noticebar--marquee': marquee,
       'at-noticebar--weapp': marquee && (this.state.isWEAPP || this.state.isALIPAY),
-      'at-noticebar--more': !marquee && showMore,
       'at-noticebar--single': !marquee && single,
     }
 

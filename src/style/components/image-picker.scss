@@ -1,8 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-image-picker-btn-add-color: #ccc;
-
 .at-image-picker {
   position: relative;
   width: 100%;
@@ -45,7 +43,6 @@ $at-image-picker-btn-add-color: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $color-grey-2;
     font-size: 0;
     box-sizing: border-box;
     @include border-thin($width: 1PX);
@@ -84,7 +81,7 @@ $at-image-picker-btn-add-color: #ccc;
     border-radius: 50%;
     overflow: hidden;
     text-align: center;
-    background-color: $color-grey-2;
+    background-color: $at-image-picker-btn-remove-bg-color;
     opacity: 0.8;
     box-sizing: border-box;
 
@@ -98,7 +95,7 @@ $at-image-picker-btn-add-color: #ccc;
       width: 10PX;
       height: 1PX;
       border-radius: 1PX;
-      background: $color-white;
+      background: $at-image-picker-btn-remove-color;
     }
 
     &::before {

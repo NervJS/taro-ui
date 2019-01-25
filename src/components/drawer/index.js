@@ -117,7 +117,7 @@ export default class AtDrawer extends AtComponent {
 AtDrawer.defaultProps = {
   show: false,
   mask: true,
-  width: '230px',
+  width: '',
   right: false,
   items: [],
   onItemClick: () => {},

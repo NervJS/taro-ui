@@ -1,19 +1,15 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-avatar-size-sm: 80px;
-$at-avatar-size-md: 100px;
-$at-avatar-size-lg: 120px;
-
 .at-avatar {
   width: $at-avatar-size-md;
   height: $at-avatar-size-md;
-  color: #fff;
-  font-size: $font-size-xxl;
+  color: $at-avatar-color;
+  font-size: $at-avatar-size-md / 2.5;
   line-height: $at-avatar-size-md;
   text-align: center;
   border-radius: $border-radius-md;
-  background: $color-grey-4;
+  background: $at-avatar-bg-color;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
 
@@ -27,14 +23,14 @@ $at-avatar-size-lg: 120px;
   &--large {
     width: $at-avatar-size-lg;
     height: $at-avatar-size-lg;
-    font-size: 48px;
+    font-size: $at-avatar-size-lg / 2.5;
     line-height: $at-avatar-size-lg;
   }
 
   &--small {
     width: $at-avatar-size-sm;
     height: $at-avatar-size-sm;
-    font-size: $font-size-lg;
+    font-size: $at-avatar-size-sm / 2.5;
     line-height: $at-avatar-size-sm;
   }
 
