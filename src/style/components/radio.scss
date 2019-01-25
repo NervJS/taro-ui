@@ -1,16 +1,9 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-radio-bg-color: $color-bg;
-$at-radio-title-color: $color-text-base;
-$at-radio-title-size: $font-size-lg;
-$at-radio-desc-color: $color-grey-2;
-$at-radio-desc-size: $font-size-sm;
-$at-radio-check-color: $color-brand;
-
 .at-radio {
   position: relative;
-  background-color: $at-radio-bg-color;
+  background-color: $color-bg;
   @include hairline-top-relative();
   @include hairline-bottom-relative();
 

@@ -1,10 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-load-more-height: 80PX;
-$at-load-more-tips-color: $color-grey-1;
-$at-load-more-tips-size: $font-size-lg;
-
 .at-load-more {
   position: relative;
   text-align: center;

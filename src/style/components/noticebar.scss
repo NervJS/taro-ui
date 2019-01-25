@@ -1,16 +1,10 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-noticebar-color: #DE8C17;
-$at-noticebar-bg-color: #FCF6ED;
-$at-noticebar-icon-size: 30px;
-$at-noticebar-btn-close-color: #ccc;
-$at-noticebar-marquee-height: 36px;
-
 .at-noticebar {
   position: relative;
   padding: $spacing-v-sm $spacing-h-lg;
-  color: $at-noticebar-color;
+  color: $at-noticebar-text-color;
   font-size: 0;
   background: $at-noticebar-bg-color;
 
@@ -22,18 +16,18 @@ $at-noticebar-marquee-height: 36px;
 
     &-icon {
       display: inline-block;
-      margin-top: 4px;
       margin-right: 12px;
       vertical-align: top;
 
       .at-icon {
-        font-size: 32px;
+        font-size: $at-noticebar-icon-size;
+        line-height: $at-noticebar-font-size * 1.5;
       }
     }
 
     &-text {
       display: inline;
-      font-size: $font-size-sm;
+      font-size: $at-noticebar-font-size;
     }
 
     &-inner {
@@ -45,13 +39,13 @@ $at-noticebar-marquee-height: 36px;
     position: absolute;
     top: 50%;
     left: $spacing-h-lg;
-    margin-top: -($at-noticebar-icon-size / 2 + 4);
-    width: $at-noticebar-icon-size;
-    height: $at-noticebar-icon-size;
+    width: $at-noticebar-btn-close-size;
+    height: $at-noticebar-btn-close-size;
+    transform: translate3d(0, -50%, 0);
 
     .at-icon {
       color: $at-noticebar-btn-close-color;
-      font-size: $at-noticebar-icon-size;
+      font-size: $at-noticebar-btn-close-size;
     }
 
     + .at-noticebar__content {
@@ -60,67 +54,72 @@ $at-noticebar-marquee-height: 36px;
   }
 
   &__more {
-    position: absolute;
-    top: $spacing-v-sm;
-    right: $spacing-h-lg;
     color: $color-grey-2;
     font-size: 0;
 
     .text {
-      font-size: $font-size-sm;
+      font-size: $at-noticebar-font-size;
       line-height: $line-height-zh;
       vertical-align: middle;
     }
 
     &-icon {
       display: inline-block;
-      width: $at-noticebar-icon-size;
+      width: $at-noticebar-font-size;
       vertical-align: middle;
       overflow: hidden;
 
       .at-icon {
-        font-size: $at-noticebar-icon-size;
+        font-size: $at-noticebar-font-size;
       }
     }
   }
 
   /* modifiers */
-  &--marquee {
-    .at-noticebar__content-text {
-      display: block;
-      height: $at-noticebar-marquee-height;
-      line-height: $at-noticebar-marquee-height;
+  &--single {
+    display: flex;
+    justify-content: space-between;
+
+    .at-noticebar__content {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
       overflow: hidden;
-    }
 
-    .at-noticebar__content-icon {
-      position: absolute;
-
-      + .at-noticebar__content-text {
-        margin-left: 40px;
+      &-text {
+        display: flex;
+        overflow: hidden;
       }
-    }
 
-    .at-noticebar__content-inner {
-      display: inline-block;
-      padding-left: 100%;
-      height: $at-noticebar-marquee-height;
-      white-space: nowrap;
-      animation: marquee 1s linear infinite both;
-      transform: translateZ(0);
+      &-inner {
+        flex: 1;
+        @include line(1);
+      }
     }
   }
 
-  &--single {
-    &.at-noticebar--more {
-      .at-noticebar__content-text {
-        display: inline-block;
-        max-width: 525px;
-        @include line(1);
+  &--marquee {
+    display: flex;
+
+    .at-noticebar__content {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+
+      &-text {
+        flex: 1;
+        overflow: hidden;
       }
 
-      .at-noticebar__content-icon + .at-noticebar__content-text {
-        max-width: 475px;
+      &-inner {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: auto;
+        padding-left: 100%;
+        font-size: $at-noticebar-font-size;
+        animation: marquee 1s linear infinite both;
+        transform: translateZ(0);
       }
     }
   }

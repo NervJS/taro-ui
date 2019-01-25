@@ -4,15 +4,22 @@ import { View } from '@tarojs/components'
 import AtComponent from '../../common/component'
 
 export default class AtLoading extends AtComponent {
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+
   render () {
     const { color, size } = this.props
     const sizeStyle = {
-      width: `${size}px`,
-      height: `${size}px`
+      width: size ? `${Taro.pxTransform(parseInt(size))}` : '',
+      height: size ? `${Taro.pxTransform(parseInt(size))}` : '',
     }
     const colorStyle = {
-      'border': `1px solid ${color}`,
-      'border-color': `${color} transparent transparent transparent`
+      'border': color ? `1px solid ${color}` : '',
+      'border-color': color ? `${color} transparent transparent transparent` : '',
     }
     const ringStyle = Object.assign({}, colorStyle, sizeStyle)
 
@@ -27,8 +34,8 @@ export default class AtLoading extends AtComponent {
 }
 
 AtLoading.defaultProps = {
-  size: '18',
-  color: '#fff',
+  size: 0,
+  color: '',
 }
 
 AtLoading.propTypes = {

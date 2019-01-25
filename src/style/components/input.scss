@@ -4,7 +4,7 @@
 .at-input {
   position: relative;
   padding: $spacing-v-lg 0;
-  color: $color-text-base;
+  color: $at-input-label-color;
   background-color: $color-bg;
 
   /* 修复底线隐藏问题 */
@@ -33,7 +33,7 @@
   &__title {
     margin-right: $spacing-h-md;
     width: 172px;
-    font-size: $font-size-lg;
+    font-size: $at-input-font-size;
     line-height: $line-height-zh;
     vertical-align: middle;
     text-align: left;
@@ -43,14 +43,16 @@
     flex: 1;
     display: inline-block;
     padding-right: $spacing-v-md;
-    font-size: $font-size-lg;
+    color: $at-input-text-color;
+    font-size: $at-input-font-size;
     line-height: $line-height-zh;
     vertical-align: middle;
-    @include placeholder;
+    @include placeholder($at-input-placeholder-color);
   }
 
   input {
-    font-size: $font-size-lg;
+    color: $at-input-text-color;
+    font-size: $at-input-font-size;
     line-height: $line-height-zh;
     height: auto !important;
     min-height: auto !important;
@@ -64,7 +66,7 @@
     width: 40px;
     min-width: 40px;
     height: 100%;
-    font-size: $font-size-lg;
+    font-size: $at-input-font-size;
     text-align: center;
     line-height: 1;
 
@@ -90,7 +92,7 @@
       display: inline-block;
       padding: 0 $spacing-v-md;
       color: $color-brand-dark;
-      font-size: $font-size-lg;
+      font-size: $at-input-font-size;
       text-align: center;
     }
 

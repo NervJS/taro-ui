@@ -24,12 +24,12 @@ export default class AtDivider extends AtComponent {
     } = this.props
 
     const rootStyle = {
-      height: `${Taro.pxTransform(height)}`
+      height: height ? `${Taro.pxTransform(height)}` : ''
     }
 
     const fontStyle = {
       'color': fontColor,
-      'font-size': `${Taro.pxTransform(fontSize)}`
+      'font-size': fontSize ? `${Taro.pxTransform(fontSize)}` : ''
     }
 
     const lineStyle = {
@@ -52,10 +52,10 @@ export default class AtDivider extends AtComponent {
 
 AtDivider.defaultProps = {
   content: '',
-  height: 112,
-  fontColor: '#6190E8',
-  fontSize: 32,
-  lineColor: '#CCC',
+  height: 0,
+  fontColor: '',
+  fontSize: 0,
+  lineColor: '',
 }
 
 AtDivider.propTypes = {

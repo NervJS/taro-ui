@@ -1,8 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-activity-indicator-font-size: 28px;
-
 .at-activity-indicator {
   @include display-flex();
 
@@ -20,7 +18,7 @@ $at-activity-indicator-font-size: 28px;
     @include align-self(center);
 
     margin-left: $spacing-h-lg;
-    color: $color-grey-2;
+    color: $at-activity-indicator-font-color;
     font-size: $at-activity-indicator-font-size;
   }
 

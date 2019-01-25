@@ -1,11 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-swipe-action-color: $color-white;
-$at-swipe-action-font-size: $font-size-base;
-$at-swipe-action-bg-color: $color-white;
-$at-swipe-action-option-bg-color: $color-grey-2;
-
 .at-swipe-action {
   position: relative;
   overflow: hidden;

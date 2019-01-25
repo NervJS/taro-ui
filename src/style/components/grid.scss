@@ -1,9 +1,6 @@
 @import "../mixins/index.scss";
 @import "../variables/default.scss";
 
-$at-grid-img-size: 80px;
-$at-gird-img-size-sm: 50px;
-
 .at-grid {
   /* elements */
   &__flex-item {
@@ -28,9 +25,11 @@ $at-gird-img-size-sm: 50px;
       &__text {
         flex: 0 0 auto;
         margin-top: 12px;
-        color: $color-text-base;
-        font-size: $font-size-lg;
+        color: $at-grid-text-color;
+        font-size: $at-grid-font-size;
         line-height: $line-height-zh;
+        text-align: center;
+        @include line(2);
       }
 
       &__icon {
@@ -65,6 +64,7 @@ $at-gird-img-size-sm: 50px;
 
           height: 100%;
           flex-direction: column;
+          overflow: hidden;
         }
       }
 
@@ -98,6 +98,7 @@ $at-gird-img-size-sm: 50px;
           &__text {
             margin-left: 12px;
             margin-top: initial;
+            text-align: left;
           }
         }
       }

@@ -1,13 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-tag-height: 60px;
-$at-tag-height-sm: 40px;
-$at-tag-color: $color-grey-1;
-$at-tag-color-active: $color-brand-light;
-$at-tag-font-size: $font-size-base;
-$at-tag-font-size-sm: $font-size-xs;
-$at-tag-bg-color: $color-bg-grey;
 $at-tag-border-size: 1PX;
 
 .at-tag {
@@ -28,7 +21,7 @@ $at-tag-border-size: 1PX;
   &--active {
     color: $at-tag-color-active;
     border-color: $at-tag-color-active;
-    background-color: $color-bg;
+    background-color: $at-tag-bg-color-active;
 
     &.at-tag--primary {
       color: $color-text-base-inverse;

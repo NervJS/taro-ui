@@ -60,7 +60,6 @@ import { AtNoticebar } from 'taro-ui'
 | speed    | 内容滚动速度 （默认速度100px/秒） | Number  | -              | 100      |
 | showMore  | “查看更多”是否显示（内容只能单行）      | Boolean | -              | false    |
 | moreText | “查看更多”链接文本                | String  | -              | 查看详情 |
-| moreUrl  | “查看更多”链接地址                | String  | -              | -        |
 | icon     | 内容前的icon图标                  | String  | 参考`icon`组件 | -        |
 
 

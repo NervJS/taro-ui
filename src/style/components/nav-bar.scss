@@ -3,7 +3,6 @@
 
 $at-nav-bar-spacing-v: 9PX;
 $at-nav-bar-spacing-h: 5PX;
-$at-nav-bar-color: $color-text-base;
 $at-nav-bar-font-size: 18PX;
 $at-nav-bar-back-font-size: 16PX;
 
@@ -23,6 +22,7 @@ $at-nav-bar-back-font-size: 16PX;
     flex: 2;
     padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
     height: 100%;
+    color: $at-nav-bar-link-color;
     font-size: $at-nav-bar-font-size;
     text-align: left;
     text-overflow: ellipsis;
@@ -37,13 +37,14 @@ $at-nav-bar-back-font-size: 16PX;
   &__right-view {
     flex: 2;
     height: 100%;
+    color: $at-nav-bar-link-color;
     text-align: right;
     overflow: hidden;
   }
 
   &__title {
     flex: 5;
-    color: $at-nav-bar-color;
+    color: $at-nav-bar-title-color;
     font-size: $at-nav-bar-font-size;
     text-align: center;
     vertical-align: middle;

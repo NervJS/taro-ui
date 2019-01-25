@@ -1,8 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-accordion-color-arrow: #c7c7cc;
-
 .at-accordion {
   &__header {
     position: relative;

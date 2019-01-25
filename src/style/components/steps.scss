@@ -1,15 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-steps-circle-size: 56px;
-$at-steps-icon-size: 24px;
-$at-steps-color: $color-white;
-$at-steps-bg-color: $color-grey-4;
-$at-steps-color-active: $color-grey-2;
-$at-steps-bg-color-active: $color-brand;
-$at-steps-line-color: $color-grey-3;
-$at-steps-desc-color: $color-grey-3;
-
 .at-steps {
   display: flex;
   width: 100%;
@@ -98,14 +89,14 @@ $at-steps-desc-color: $color-grey-3;
 
   &__title {
     padding: $spacing-v-sm 0;
-    font-size: $font-size-lg;
-    color: $color-black-0;
+    color: $at-steps-title-color;
+    font-size: $at-steps-title-size;
     @include line(1);
   }
 
   &__desc {
     color: $at-steps-desc-color;
-    font-size: $font-size-sm;
+    font-size: $at-steps-desc-size;
     @include line(2);
   }
 }

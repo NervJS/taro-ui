@@ -1,10 +1,6 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
-$at-button-height: 92px;
-$at-button-height-sm: 60px;
-$at-button-color: $color-brand;
-
 .at-button {
   position: relative;
   display: flex;

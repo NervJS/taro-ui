@@ -24,8 +24,8 @@
 
   &__menu-item {
     padding: 2px $spacing-h-sm;
-    color: $color-link;
-    font-size: $font-size-sm;
+    color: $at-indexes-nav-color;
+    font-size: $at-indexes-nav-font-size;
     text-align: center;
   }
 
@@ -44,9 +44,9 @@
   &__list-title {
     padding: $spacing-h-sm $spacing-v-lg;
     width: 100%;
-    color: $color-black-2;
-    font-size: $font-size-sm;
-    background-color: $color-grey-6;
+    color: $at-indexes-title-color;
+    font-size: $at-indexes-title-font-size;
+    background-color: $at-indexes-title-bg-color;
     box-sizing: border-box;
     overflow: hidden;
   }
