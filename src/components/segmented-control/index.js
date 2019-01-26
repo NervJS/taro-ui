@@ -2,16 +2,13 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
+import { initTestEnv, pxTransform } from '../../common/utils'
 import AtComponent from '../../common/component'
 
-export default class AtSegmentedControl extends AtComponent {
-  constructor () {
-    super(...arguments)
-    if (process.env.NODE_ENV === 'test') {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
-  }
+initTestEnv()
 
+export default class AtSegmentedControl extends AtComponent {
   handleClick () {
     if (this.props.disable) return
     this.props.onClick(...arguments)
@@ -34,25 +31,23 @@ export default class AtSegmentedControl extends AtComponent {
     }
     const itemStyle = {
       color: selectedColor,
-      fontSize: fontSize ? Taro.pxTransform(fontSize) : '',
+      fontSize: pxTransform(fontSize),
       borderColor: selectedColor,
       backgroundColor: color,
     }
     const selectedItemStyle = {
       color,
-      fontSize: fontSize ? Taro.pxTransform(fontSize) : '',
+      fontSize: pxTransform(fontSize),
       borderColor: selectedColor,
       backgroundColor: selectedColor,
     }
+    const rootCls = classNames('at-segmented-control', {
+      'at-segmented-control--disabled': disabled
+    }, className)
 
     return (
       <View
-        className={
-          classNames({
-            'at-segmented-control': true,
-            'at-segmented-control--disabled': disabled
-          }, className)
-        }
+        className={rootCls}
         style={this.mergeStyle(rootStyle, customStyle)}
       >
         {
@@ -64,8 +59,8 @@ export default class AtSegmentedControl extends AtComponent {
               style={current === i ? selectedItemStyle : itemStyle}
               key={value}
               onClick={this.handleClick.bind(this, i)}
-            >{value}</View>)
-          )
+            >{value}</View>
+          ))
         }
       </View>
     )

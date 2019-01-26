@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { uuid } from '../../common/utils'
+import { uuid, isTest } from '../../common/utils'
 import AtComponent from '../../common/component'
 
 const ENV = Taro.getEnv()
@@ -11,19 +11,19 @@ export default class AtTabs extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
-      scrollLeft: 0,
-      scrollTop: 0,
-      scrollIntoView: ''
+      _scrollLeft: '',
+      _scrollTop: '',
+      _scrollIntoView: ''
     }
-    this.tabId = this.props.isTest ? 'tabs-AOTU2018' : uuid()
+    this._tabId = isTest() ? 'tabs-AOTU2018' : uuid()
     // 触摸时的原点
-    this.touchDot = 0
+    this._touchDot = 0
     // 定时器
-    this.interval = null
+    this._timer = null
     // 滑动时间间隔
-    this.time = 0
+    this._interval = 0
     // 是否已经在滑动
-    this.isMoving = false
+    this._isMoving = false
   }
 
   updateState = idx => {
@@ -32,8 +32,9 @@ export default class AtTabs extends AtComponent {
       switch (ENV) {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
+        case Taro.ENV_TYPE.SWAN:
           this.setState({
-            scrollIntoView: `tab${idx - 1}`
+            _scrollIntoView: `tab${idx - 1}`
           })
           break
 
@@ -41,8 +42,8 @@ export default class AtTabs extends AtComponent {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
           this.setState({
-            scrollTop: prevTabItem.offsetTop,
-            scrollLeft: prevTabItem.offsetLeft
+            _scrollTop: prevTabItem.offsetTop,
+            _scrollLeft: prevTabItem.offsetLeft
           })
           break
         }
@@ -62,31 +63,35 @@ export default class AtTabs extends AtComponent {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
     // 获取触摸时的原点
-    this.touchDot = e.touches[0].pageX
+    this._touchDot = e.touches[0].pageX
     // 使用js计时器记录时间
-    this.interval = setInterval(() => {
-      this.time++
+    this._timer = setInterval(() => {
+      this._interval++
     }, 100)
   }
 
   handleTouchMove (e) {
-    const { swipeable, tabDirection } = this.props
+    const {
+      swipeable,
+      tabDirection,
+      current,
+      tabList
+    } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
-    const { current } = this.state
     const touchMove = e.touches[0].pageX
-    const moveDistance = touchMove - this.touchDot
-    const maxIndex = this.props.tabList.length
+    const moveDistance = touchMove - this._touchDot
+    const maxIndex = tabList.length
 
-    if (!this.isMoving && this.time < 10) {
+    if (!this._isMoving && this._interval < 10) {
       // 向左滑动
       if (current + 1 < maxIndex && moveDistance <= -40) {
-        this.isMoving = true
+        this._isMoving = true
         this.handleClick(current + 1)
 
       // 向右滑动
       } else if (current - 1 >= 0 && moveDistance >= 40) {
-        this.isMoving = true
+        this._isMoving = true
         this.handleClick(current - 1)
       }
     }
@@ -96,9 +101,9 @@ export default class AtTabs extends AtComponent {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
-    clearInterval(this.interval)
-    this.time = 0
-    this.isMoving = false
+    clearInterval(this._timer)
+    this._interval = 0
+    this._isMoving = false
   }
 
   componentWillReceiveProps (nextProps) {
@@ -112,13 +117,17 @@ export default class AtTabs extends AtComponent {
 
   getTabHeaderRef () {
     if (ENV === Taro.ENV_TYPE.WEB) {
-      this.tabHeaderRef = document.getElementById(this.tabId)
+      this.tabHeaderRef = document.getElementById(this._tabId)
     }
   }
 
   componentDidMount () {
     this.getTabHeaderRef()
     this.updateState(this.props.current)
+  }
+
+  componentWillUnmount () {
+    this.tabHeaderRef = null
   }
 
   render () {
@@ -133,9 +142,9 @@ export default class AtTabs extends AtComponent {
       current
     } = this.props
     const {
-      scrollLeft,
-      scrollTop,
-      scrollIntoView
+      _scrollLeft,
+      _scrollTop,
+      _scrollIntoView
     } = this.state
 
     const heightStyle = { height }
@@ -169,17 +178,15 @@ export default class AtTabs extends AtComponent {
         onClick={this.handleClick.bind(this, idx)}
       >
         {item.title}
+        <View className='at-tabs__item-underline'></View>
       </View>
     })
-
     const rootCls = classNames({
       'at-tabs': true,
-      'at-tabs--vertical': tabDirection === 'vertical',
+      'at-tabs--scroll': scroll,
+      [`at-tabs--${tabDirection}`]: true,
+      [`at-tabs--${ENV}`]: true
     }, className)
-    const headerCls = classNames({
-      'at-tabs__header': true,
-      'at-tabs__header--scroll': scroll
-    })
     const scrollX = tabDirection === 'horizontal'
     const scrollY = tabDirection === 'vertical'
 
@@ -191,20 +198,20 @@ export default class AtTabs extends AtComponent {
         {
           scroll
             ? <ScrollView
-              id={this.tabId}
-              className={headerCls}
+              id={this._tabId}
+              className='at-tabs__header'
               style={heightStyle}
               scrollX={scrollX}
               scrollY={scrollY}
               scrollWithAnimation
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-              scrollIntoView={scrollIntoView}
+              scrollLeft={_scrollLeft}
+              scrollTop={_scrollTop}
+              scrollIntoView={_scrollIntoView}
             >
               {tabItems}
             </ScrollView>
             : <View
-              id={this.tabId}
+              id={this._tabId}
               className='at-tabs__header'
             >
               {tabItems}

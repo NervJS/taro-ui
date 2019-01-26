@@ -201,6 +201,11 @@ function handleTouchScroll (flag) {
   }
 }
 
+function pxTransform(size) {
+  if (!size) return ''
+  return Taro.pxTransform(size)
+}
+
 export {
   delay,
   delayQuerySelector,
@@ -208,6 +213,7 @@ export {
   getEventDetail,
   initTestEnv,
   isTest,
+  pxTransform,
   handleTouchScroll,
   delayGetClientRect,
   delayGetScrollOffset

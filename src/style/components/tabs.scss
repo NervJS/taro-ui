@@ -1,9 +1,10 @@
 @import '../mixins/index.scss';
 @import '../variables/default.scss';
 
+$component:'.at-tabs';
 $at-tabs-pane-min-height: 100px;
 
-.at-tabs {
+#{$component} {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -18,8 +19,8 @@ $at-tabs-pane-min-height: 100px;
     text-overflow: ellipsis;
     overflow: hidden;
 
-    &::after {
-      content: '';
+    &-underline {
+      display: block;
       position: absolute;
       left: 0;
       bottom: 0;
@@ -33,7 +34,7 @@ $at-tabs-pane-min-height: 100px;
     &--active {
       color: $at-tabs-color-active;
 
-      &::after {
+      #{$component}__item-underline {
         transform: scaleX(1);
       }
     }
@@ -48,17 +49,6 @@ $at-tabs-pane-min-height: 100px;
     background-color: $at-tabs-bg-color;
     box-sizing: border-box;
     overflow: -moz-scrollbars-none;
-
-    &--scroll {
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
-
-      .at-tabs__item {
-        display: inline-block;
-        overflow: visible;
-      }
-    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -78,7 +68,7 @@ $at-tabs-pane-min-height: 100px;
   }
 
   &__underline {
-    content: '';
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -90,19 +80,32 @@ $at-tabs-pane-min-height: 100px;
   }
 
   /* modifiers */
+  &--scroll {
+    #{$component}__header {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    #{$component}__item {
+      display: inline-block;
+      overflow: visible;
+    }
+  }
+
   &--vertical {
     display: flex;
     flex: 1;
     overflow: hidden;
 
-    .at-tabs__body {
+    #{$component}__body {
       display: inline-block;
       flex: 1;
       height: $at-tabs-pane-min-height;
       width: auto;
     }
 
-    .at-tabs__underline {
+    #{$component}__underline {
       top: 0;
       left: 0;
       bottom: auto;
@@ -110,18 +113,19 @@ $at-tabs-pane-min-height: 100px;
       height: 100%;
     }
 
-    .at-tabs__header {
+    #{$component}__header {
       display: inline-block;
       width: auto;
     }
 
-    .at-tabs__item {
+    #{$component}__item {
       display: flex;
       justify-content: center;
       width: auto;
       align-items: center;
 
-      &::after {
+      &-underline {
+        display: block;
         top: 0;
         right: 0;
         bottom: auto;
@@ -130,13 +134,25 @@ $at-tabs-pane-min-height: 100px;
         height: 100%;
         transform: scaleY(0);
       }
-    }
 
-    .at-tabs__item--active::after {
-      transform: scaleY(1);
+      &--active {
+        #{$component}__item-underline {
+          transform: scaleY(1);
+        }
+      }
     }
   }
 }
+
+/* hack SWAN */
+
+#{$component}--scroll#{$component}--horizontal#{$component}--SWAN {
+  #{$component}__item-underline {
+    bottom: $at-tabs-line-height;
+  }
+}
+
+/* hack SWAN */
 
 .at-tabs-pane {
   display: inline-block;

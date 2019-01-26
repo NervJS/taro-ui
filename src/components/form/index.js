@@ -19,14 +19,10 @@ export default class AtForm extends AtComponent {
       className,
       reportSubmit
     } = this.props
+    const rootCls = classNames('at-form', className)
 
     return <Form
-      className={
-        classNames(
-          'at-form',
-          className
-        )
-      }
+      className={rootCls}
       style={customStyle}
       onSubmit={this.onSubmit.bind(this)}
       reportSubmit={reportSubmit}
