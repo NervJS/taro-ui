@@ -1,5 +1,5 @@
-@import '../mixins/index.scss';
 @import '../variables/default.scss';
+@import '../mixins/index.scss';
 
 .at-row {
   @include display-flex();
