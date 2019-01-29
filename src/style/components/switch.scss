@@ -8,6 +8,7 @@ $component: '.at-switch';
   justify-content: center;
   align-items: center;
   background-color: $color-bg;
+  margin-left: $spacing-h-xl;
   padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
   margin-bottom: 1PX;
   @include hairline-bottom();
