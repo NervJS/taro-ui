@@ -2,8 +2,9 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
-import { uuid, delayQuerySelector, getEventDetail, isTest } from '../../common/utils'
+import { delayQuerySelector, getEventDetail } from '../../common/utils'
 import AtComponent from '../../common/component'
+
 
 export default class AtRange extends AtComponent {
   constructor (props) {
@@ -15,7 +16,6 @@ export default class AtRange extends AtComponent {
     this.left = 0
     this.deltaValue = max - min
     this.currentSlider = ''
-    this.rangeId = isTest() ? 'range-AOTU2018' : uuid()
     this.state = {
       aX: 0,
       bX: 0
@@ -90,9 +90,8 @@ export default class AtRange extends AtComponent {
   }
 
   componentDidMount () {
-    // 获取 range 宽度
     const { value } = this.props
-    delayQuerySelector(this, `#${this.rangeId}`, 0)
+    delayQuerySelector(this, '.at-range__container', 0)
       .then(rect => {
         this.width = Math.round(rect[0].width)
         this.left = Math.round(rect[0].left)
@@ -140,7 +139,7 @@ export default class AtRange extends AtComponent {
     }
 
     return <View className={rootCls} style={customStyle} onClick={this.handleClick}>
-      <View id={this.rangeId} className='at-range__container'style={containerStyle}>
+      <View className='at-range__container' style={containerStyle}>
         <View className='at-range__rail' style={railStyle}></View>
         <View className='at-range__track' style={this.mergeStyle(atTrackStyle, trackStyle)}></View>
         <View
