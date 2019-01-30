@@ -152,6 +152,19 @@ function getEventDetail (event: any) {
       }
       break
 
+    case Taro.ENV_TYPE.SWAN:
+      detail = {
+        pageX: event.changedTouches[0].pageX,
+        pageY: event.changedTouches[0].pageY,
+        clientX: event.target.clientX,
+        clientY: event.target.clientY,
+        offsetX: event.target.offsetLeft,
+        offsetY: event.target.offsetTop,
+        x: event.detail.x,
+        y: event.detail.y
+      }
+      break
+
     default:
       detail = {
         pageX: 0,
