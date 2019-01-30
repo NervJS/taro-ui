@@ -31,7 +31,7 @@ export default class AtSwipeAction extends AtComponent {
     this.isTouching = false
 
     this.state = {
-      componentId: this.props.isTest ? 'AOTU2018' : ++id,
+      componentId: ++id,
       offsetSize: 0,
       _isOpened: isOpened
     }
