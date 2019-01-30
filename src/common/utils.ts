@@ -5,7 +5,7 @@ const ENV = Taro.getEnv()
 
 function delay (delayTime = 500): Promise<null> {
   return new Promise(resolve => {
-    if (ENV === Taro.ENV_TYPE.WEB) {
+    if ([Taro.ENV_TYPE.WEB, Taro.ENV_TYPE.SWAN].includes(ENV)) {
       setTimeout(() => {
         resolve()
       }, delayTime)
