@@ -219,6 +219,33 @@ function pxTransform(size) {
   return Taro.pxTransform(size)
 }
 
+
+function linear(t, b, c, d) {
+  return (c * t / d) + b
+}
+
+function easeOut(from, to, callback) {
+  if (from === to || typeof from !== 'number') {
+    return
+  }
+
+  const change = to - from
+  const dur = 1000
+  const sTime = +new Date()
+  const isLarger = to >= from
+
+  function step() {
+    from = linear(+new Date() - sTime, from, change, dur)
+    if ((isLarger && from >= to) || (!isLarger && to >= from)) {
+      callback(to)
+      return
+    }
+    callback(from)
+    requestAnimationFrame(step)
+  }
+  step()
+}
+
 export {
   delay,
   delayQuerySelector,
@@ -229,5 +256,6 @@ export {
   pxTransform,
   handleTouchScroll,
   delayGetClientRect,
-  delayGetScrollOffset
+  delayGetScrollOffset,
+  easeOut
 }

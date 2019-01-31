@@ -9,11 +9,24 @@ export default class CardPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  onClick (e) {
-    console.log(e)
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value1: false,
+      value2: true,
+      value3: false
+    }
+  }
+
+  onClick (stateName, value) {
+    this.setState({
+      [stateName]: value
+    })
   }
 
   render () {
+    const { value1, value2, value3 } = this.state
+
     return (
       <View className='page'>
         <DocsHeader title='Accordion 手风琴' />
@@ -23,8 +36,9 @@ export default class CardPage extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  onClick={this.onClick.bind(this)}
+                  onClick={this.onClick.bind(this, 'value1')}
                   title='标题一'
+                  open={value1}
                 >
                   <AtList hasBorder={false}>
                     <AtListItem
@@ -38,7 +52,11 @@ export default class CardPage extends Taro.Component {
                     />
                   </AtList>
                 </AtAccordion>
-                <AtAccordion open title='默认开启'>
+                <AtAccordion
+                  open={value2}
+                  title='默认开启'
+                  onClick={this.onClick.bind(this, 'value2')}
+                >
                   <AtList hasBorder={false}>
                     <AtListItem
                       title='标题文字'
@@ -65,7 +83,12 @@ export default class CardPage extends Taro.Component {
             <View className='panel__title'>配置图标</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtAccordion title='标题三' icon={{ value: 'tags', color: '#77a1fd' }}>
+                <AtAccordion
+                  title='标题三'
+                  open={value3}
+                  icon={{ value: 'tags', color: '#77a1fd' }}
+                  onClick={this.onClick.bind(this, 'value3')}
+                >
                   <AtList hasBorder={false}>
                     <AtListItem
                       title='标题文字'
