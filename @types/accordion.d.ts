@@ -10,6 +10,10 @@ export interface AtAccordionProps extends AtComponent {
 
   icon?: AtIconBaseProps
 
+  isAnimation?: boolean
+
+  hasBorder?: boolean
+
   onClick?: CommonEventFunction
 }
 

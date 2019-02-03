@@ -38,9 +38,14 @@
   &__content {
     position: relative;
     width: 100%;
-    transition: height 0.3s;
     overflow: hidden;
     @include hairline-top();
+
+    &--inactive {
+      position: absolute;
+      visibility: hidden;
+      z-index: -10;
+    }
   }
 
   &__arrow {

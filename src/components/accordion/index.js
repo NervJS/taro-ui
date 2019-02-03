@@ -3,62 +3,50 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
 import AtComponent from '../../common/component'
-import { delayQuerySelector, uuid } from '../../common/utils'
+import { delayQuerySelector, initTestEnv, easeOut } from '../../common/utils'
 
+initTestEnv()
+
+// 文档
 export default class AtAccordion extends AtComponent {
   constructor () {
     super(...arguments)
-    this.bodyHeight = 0 // body 高度
-    this.accordionId = this.props.isTest ? 'accordion-AOTU2018' : `accordion-${uuid()}`
+    this.isCompleted = true
     this.state = {
-      isOpen: !!this.props.open, // 组件是否展开
-      wrapperHeight: '',
+      wrapperHeight: ''
     }
   }
 
-  handleClick (e) {
-    this.switch()
-    this.props.onClick(e)
+  handleClick = event => {
+    const { open } = this.props
+    this.props.onClick(!open, event)
   }
 
-  componentDidMount () {
-    this.initData()
-  }
+  toggleWithAnimation () {
+    const { open, isAnimation } = this.props
+    if (!this.isCompleted || !isAnimation) return
 
-  componentWillReceiveProps () {
-    this.initData()
-  }
-
-  initData () {
-    const { isOpen } = this.state
-    const env = Taro.getEnv()
-
-    if (env === Taro.ENV_TYPE.WEB) {
-      setTimeout(() => {
-        this.accordionRef = document.getElementById(this.accordionId)
-        this.bodyHeight = this.accordionRef.getBoundingClientRect().height
-
-        this.setState({
-          wrapperHeight: isOpen ? this.bodyHeight : 0
-        })
-      }, 500)
-    } else if (env === Taro.ENV_TYPE.WEAPP || env === Taro.ENV_TYPE.ALIPAY) {
-      delayQuerySelector(this, `#${this.accordionId}`)
-        .then(rect => {
-          this.bodyHeight = rect[0].height || 0
+    this.isCompleted = false
+    delayQuerySelector(this, '.at-accordion__content', 0)
+      .then(rect => {
+        const height = parseInt(rect[0].height)
+        const startHeight = open ? height : 0
+        const endHeight = open ? 0 : height
+        easeOut(startHeight, endHeight, value => {
+          if (value === endHeight) {
+            this.isCompleted = true
+          }
           this.setState({
-            wrapperHeight: isOpen ? this.bodyHeight : 0
+            wrapperHeight: value
           })
         })
-    }
+      })
   }
 
-  switch () {
-    const { isOpen } = this.state
-    this.setState({
-      isOpen: !isOpen,
-      wrapperHeight: isOpen ? 0 : this.bodyHeight
-    })
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.open !== this.props.open) {
+      this.toggleWithAnimation()
+    }
   }
 
   render () {
@@ -68,61 +56,61 @@ export default class AtAccordion extends AtComponent {
       title,
       icon,
       hasBorder,
+      open
     } = this.props
-    const { wrapperHeight, isOpen } = this.state
+    const { wrapperHeight } = this.state
 
-    const iconClass = classNames({
+    const isAnimationStart = open && !this.isCompleted && wrapperHeight < 2
+
+    const rootCls = classNames('at-accordion', className)
+    const iconCls = classNames({
       'at-icon': true,
       [`at-icon-${icon && icon.value}`]: icon && icon.value,
       'at-accordion__icon': true,
     })
-    const headerClass = classNames('at-accordion__header', {
+    const headerCls = classNames('at-accordion__header', {
       'at-accordion__header--noborder': !hasBorder
     })
-    const arrowClass = classNames('at-accordion__arrow', {
-      'at-accordion__arrow--folded': !!isOpen
+    const arrowCls = classNames('at-accordion__arrow', {
+      'at-accordion__arrow--folded': !!open
+    })
+    const contentCls = classNames('at-accordion__content', {
+      'at-accordion__content--inactive': (!open && this.isCompleted) || isAnimationStart
     })
 
-    const contentStyle = {
-      height: `${wrapperHeight}px`
-    }
     const iconStyle = {
       color: (icon && icon.color) || '',
       fontSize: (icon && `${icon.size}px`) || '',
     }
+    const contentStyle = { height: `${wrapperHeight}px` }
 
-    return (
-      <View
-        className={classNames('at-accordion', className)}
-        style={customStyle}
-      >
-        <View className={headerClass} onClick={this.handleClick.bind(this)}>
-          {icon && icon.value && <Text className={iconClass} style={iconStyle}></Text>}
-          <View className='at-accordion__title'>{title}</View>
-          <View className={arrowClass}>
-            <Text className='at-icon at-icon-chevron-down'></Text>
-          </View>
-        </View>
-        <View
-          className='at-accordion__content'
-          style={contentStyle}
-          id={this.accordionId}
-        >
-          {this.props.children}
+    if (this.isCompleted || isAnimationStart) {
+      contentStyle.height = ''
+    }
+
+    return <View className={rootCls} style={customStyle}>
+      <View className={headerCls} onClick={this.handleClick}>
+        {icon && icon.value && <Text className={iconCls} style={iconStyle}></Text>}
+        <View className='at-accordion__title'>{title}</View>
+        <View className={arrowCls}>
+          <Text className='at-icon at-icon-chevron-down'></Text>
         </View>
       </View>
-    )
+      <View className={contentCls} style={contentStyle}>
+        {this.props.children}
+      </View>
+    </View>
   }
 }
 
 AtAccordion.defaultProps = {
-  isTest: false,
   open: false,
   customStyle: '',
   className: '',
   title: '',
   icon: {},
   hasBorder: true,
+  isAnimation: true,
   onClick: () => {},
 }
 
@@ -135,8 +123,8 @@ AtAccordion.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
-  isTest: PropTypes.bool,
   open: PropTypes.bool,
+  isAnimation: PropTypes.bool,
   title: PropTypes.string,
   icon: PropTypes.object,
   hasBorder: PropTypes.bool,

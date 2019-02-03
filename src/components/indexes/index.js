@@ -4,128 +4,107 @@ import { View, ScrollView } from '@tarojs/components'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
+
 import AtList from '../../components/list/index'
 import AtListItem from '../../components/list/item/index'
-import { delayQuerySelector, uuid } from '../../common/utils'
+import AtToast from '../../components/toast/index'
+import { delayQuerySelector, uuid, initTestEnv, isTest } from '../../common/utils'
 
+initTestEnv()
 const ENV = Taro.getEnv()
 
 class AtIndexes extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
-      targetView: '',
-      scrollTop: 0
+      _scrollIntoView: '',
+      _scrollTop: 0,
+      _tipText: '',
+      _isShowToast: false
     }
     // 右侧导航高度
     this.menuHeight = 0
     // 右侧导航距离顶部高度
     this.startTop = 0
+    // 右侧导航元素高度
     this.itemHeight = 0
+    // 当前索引
     this.currentIndex = -1
-    this._scrollTop = 0
-    this.indexesId = this.props.isTest ? 'indexes-AOTU2018' : `indexes-${uuid()}`
-    this.listId = this.props.isTest ? 'indexes-list-AOTU2018' : `list-${uuid()}`
-    this.menuId = this.props.isTest ? 'indexes-menu-AOTU2018' : `menu-${uuid()}`
+    this.listId = isTest() ? 'indexes-list-AOTU2018' : `list-${uuid()}`
   }
 
-  handleClick () {
-    this.props.onClick(...arguments)
-  }
+  handleClick = (...arg) => this.props.onClick(...arg)
 
-  handleTouchMove (e) {
-    e.stopPropagation()
-    e.preventDefault()
+  handleTouchMove = event => {
+    event.stopPropagation()
+    event.preventDefault()
+
     const { list } = this.props
-    const pageY = e.touches[0].pageY
+    const pageY = event.touches[0].pageY
     const index = Math.floor((pageY - this.startTop) / this.itemHeight)
-    if (
-      index >= 0
+
+    if (index >= 0
       && index <= list.length
       && this.currentIndex !== index
     ) {
       this.currentIndex = index
-      let touchView = 'at-indexes__top'
-      if (index > 0) {
-        touchView = `at-indexes__list-${list[index - 1].key}`
-      }
+      const key = index > 0 ? list[index - 1].key : 'top'
+      const touchView = `at-indexes__list-${key}`
       this.jumpTarget(touchView, index)
     }
   }
 
-  handleTouchEnd () {
+  handleTouchEnd = () => {
     this.currentIndex = -1
   }
 
-  jumpTarget (targetView, i) {
-    const {
-      topKey,
-      list,
-      isShowToast,
-      isVibrate
-    } = this.props
+  jumpTarget (_scrollIntoView, idx) {
+    const { topKey, list } = this.props
+    const _tipText = idx === 0 ? topKey : list[idx - 1].key
 
-    switch (ENV) {
-      case Taro.ENV_TYPE.WEAPP:
-      case Taro.ENV_TYPE.ALIPAY:
-        this.setState({
-          targetView
+    if (ENV === Taro.ENV_TYPE.WEB) {
+      delayQuerySelector(this, '.at-indexes', 0)
+        .then(rect => {
+          const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
+          const _scrollTop = targetOffsetTop - rect[0].top
+          this.updateState({
+            _scrollTop,
+            _scrollIntoView,
+            _tipText,
+          })
         })
-        break
-
-      case Taro.ENV_TYPE.WEB: {
-        const bodyOffsetTop = this.indexesRef.getBoundingClientRect().top
-        const targetOffsetTop = this.listRef.childNodes[i].getBoundingClientRect().top
-        const targetScrollTop = this._scrollTop + targetOffsetTop - bodyOffsetTop
-
-        this.setState({
-          scrollTop: targetScrollTop
-        })
-        break
-      }
-      default:
-        console.warn('AtIndexes 暂未适配该环境')
-        break
+      return
     }
 
-    if (isShowToast) {
-      Taro.showToast({
-        title: i === 0 ? topKey : list[i - 1].key,
-        icon: 'none',
-        duration: 2000
-      })
-    }
+    this.updateState({
+      _scrollIntoView,
+      _tipText
+    })
+  }
 
+  updateState (state) {
+    const { isShowToast, isVibrate } = this.props
+    const { _scrollIntoView, _tipText, _scrollTop } = state
+
+    this.setState({
+      _scrollIntoView,
+      _tipText,
+      _scrollTop,
+      _isShowToast: isShowToast
+    })
     if (isVibrate) {
       Taro.vibrateShort()
     }
   }
 
   initData () {
-    switch (ENV) {
-      case Taro.ENV_TYPE.WEAPP:
-      case Taro.ENV_TYPE.ALIPAY:
-        delayQuerySelector(this, `#${this.menuId}`)
-          .then(rect => {
-            this.menuHeight = rect[0].height
-            this.startTop = rect[0].top
-            this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
-          })
-        break
-
-      case Taro.ENV_TYPE.WEB: {
-        setTimeout(() => {
-          const menuRect = this.menuRef.getBoundingClientRect()
-          this.menuHeight = menuRect.height
-          this.startTop = menuRect.top
-          this.itemHeight = Math.floor((this.menuHeight) / (this.props.list.length + 1))
-        }, 500)
-        break
-      }
-      default:
-        console.warn('AtIndexes 暂未适配该环境')
-        break
-    }
+    delayQuerySelector(this, '.at-indexes__menu')
+      .then(rect => {
+        const len = this.props.list.length
+        this.menuHeight = rect[0].height
+        this.startTop = rect[0].top
+        this.itemHeight = Math.floor((this.menuHeight) / (len + 1))
+      })
   }
 
   componentWillReceiveProps (nextProps) {
@@ -136,16 +115,9 @@ class AtIndexes extends AtComponent {
 
   componentDidMount () {
     if (ENV === Taro.ENV_TYPE.WEB) {
-      this.menuRef = document.getElementById(this.menuId)
-      this.indexesRef = document.getElementById(this.indexesId)
       this.listRef = document.getElementById(this.listId)
     }
     this.initData()
-  }
-
-  handleScroll (ev) {
-    const { scrollTop } = ev.detail
-    this._scrollTop = scrollTop
   }
 
   render () {
@@ -156,82 +128,81 @@ class AtIndexes extends AtComponent {
       topKey,
       list
     } = this.props
+    const {
+      _scrollTop,
+      _scrollIntoView,
+      _tipText,
+      _isShowToast
+    } = this.state
 
-    return (
+    const toastStyle = { minWidth: Taro.pxTransform(100) }
+    const rootCls = classNames('at-indexes', className)
+
+    const menuList = list.map((dataList, i) => {
+      const { key } = dataList
+      const targetView = `at-indexes__list-${key}`
+      return <View className='at-indexes__menu-item' key={key}
+        onClick={this.jumpTarget.bind(this, targetView, i + 1)}
+      >
+        {key}
+      </View>
+    })
+
+    const indexesList = list.map(dataList => (
       <View
-        id={this.indexesId}
-        className={
-          classNames({
-            'at-indexes': true,
-          }, className)}
-        style={customStyle}
+        id={`at-indexes__list-${dataList.key}`}
+        className='at-indexes__list'
+        key={dataList.key}
+      >
+        <View className='at-indexes__list-title'>
+          {dataList.title}
+        </View>
+        <AtList>
+          {dataList.items && dataList.items.map(item => (
+            <AtListItem
+              key={item.name}
+              title={item.name}
+              onClick={this.handleClick.bind(this, item)}
+            />
+          ))}
+        </AtList>
+      </View>
+    ))
+
+    return <View className={rootCls} style={customStyle}>
+      <AtToast
+        customStyle={toastStyle}
+        isOpened={_isShowToast}
+        text={_tipText}
+        duration={2000}
+      />
+      <View
+        className='at-indexes__menu'
+        onTouchMove={this.handleTouchMove}
+        onTouchEnd={this.handleTouchEnd}
       >
         <View
-          id={this.menuId}
-          className='at-indexes__menu'
-          onTouchMove={this.handleTouchMove.bind(this)}
-          onTouchEnd={this.handleTouchEnd.bind(this)}
+          className='at-indexes__menu-item'
+          onClick={this.jumpTarget.bind(this, 'at-indexes__top', 0)}
         >
-          <View
-            className='at-indexes__menu-item'
-            onClick={this.jumpTarget.bind(this, 'at-indexes__top', 0)}
-          >
-            {topKey}
-          </View>
-          {
-            list.map((item, i) => (
-              <View
-                key={item.key}
-                className='at-indexes__menu-item'
-                onClick={this.jumpTarget.bind(this, `at-indexes__list-${item.key}`, i + 1)}
-              >
-                {item.key}
-              </View>
-            ))
-          }
+          {topKey}
         </View>
-        <ScrollView
-          id={this.listId}
-          className='at-indexes__body'
-          scrollY
-          scrollWithAnimation={animation}
-          scrollTop={this.state.scrollTop}
-          scrollIntoView={this.state.targetView}
-          onScroll={this.handleScroll.bind(this)}
-        >
-          <View
-            className='at-indexes__content'
-            id='at-indexes__top'
-          >
-            {this.props.children}
-          </View>
-          {
-            list.map(listItem => (
-              <View
-                key={listItem.key}
-                className='at-indexes__list'
-              >
-                <View
-                  id={`at-indexes__list-${listItem.key}`}
-                  className='at-indexes__list-title'
-                >
-                  {listItem.title}
-                </View>
-                <AtList>
-                  {listItem.items && listItem.items.map(item => (
-                    <AtListItem
-                      key={item.name}
-                      title={item.name}
-                      onClick={this.handleClick.bind(this, item)}
-                    />
-                  ))}
-                </AtList>
-              </View>
-            ))
-          }
-        </ScrollView>
+        {menuList}
       </View>
-    )
+      <ScrollView
+        className='at-indexes__body'
+        id={this.listId}
+        scrollY
+        scrollWithAnimation={animation}
+        scrollTop={_scrollTop}
+        scrollIntoView={_scrollIntoView}
+      >
+        <View className='at-indexes__content' id='at-indexes__top'>
+          {this.props.children}
+        </View>
+        {indexesList}
+      </ScrollView>
+    </View>
   }
 }
 
@@ -244,7 +215,6 @@ AtIndexes.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
-  isTest: PropTypes.bool,
   animation: PropTypes.bool,
   isVibrate: PropTypes.bool,
   isShowToast: PropTypes.bool,
