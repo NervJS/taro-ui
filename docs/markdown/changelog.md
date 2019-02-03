@@ -7,6 +7,27 @@
 
 <div class="row changelog">
   <div class="at-timeline">
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
+        <p class="head">v2.0.0</p>
+        <p class="time">
+          <span>2019-02-03</span>
+        </p>
+        <ul class="content">
+          <li>适配<span>百度小程序</span></li>
+          <li>优化<span>自定义主题</span>功能</li>
+          <li>新增<span>红色主题</span></li>
+          <li>重构<span>Accordion</span>组件</li>
+          <li>修复<span>Calendar</span>组件 start 大于 end 的问题（<a href="https://github.com/NervJS/taro-ui/issues/366">#366</a>）</li>
+          <li>修复<span>Checkbox</span>图标变形问题（<a href="https://github.com/NervJS/taro-ui/issues/378">#378</a>）</li>
+          <li>修复<span>Form</span>组件中元素位置偏右的问题（<a href="https://github.com/NervJS/taro-ui/issues/158">#158</a>）</li>
+        </ul>
+      </div>
+    </div>
     <div class="at-timeline__item at-timeline__item--default">
       <div class="at-timeline__tail"></div>
       <div class="at-timeline__dot"></div>

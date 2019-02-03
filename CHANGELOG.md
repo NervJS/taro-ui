@@ -1,3 +1,39 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/nervjs/taro-ui/compare/v2.0.0-beta.2...v2.0.0) (2019-02-03)
+
+
+### Bug Fixes
+
+* **accordion:** 适配百度并重构 ([13f927d](https://github.com/nervjs/taro-ui/commit/13f927d))
+* 修复百度小程序noticebar ([1bedaa9](https://github.com/nervjs/taro-ui/commit/1bedaa9))
+* **calendar:** 修复组件 start 可以 大于 end 的问题 closed [#366](https://github.com/nervjs/taro-ui/issues/366) ([320f9df](https://github.com/nervjs/taro-ui/commit/320f9df))
+* 修复百度小程序icon ([d4e19be](https://github.com/nervjs/taro-ui/commit/d4e19be))
+* **Checkbox:** 修复 ICON 变形的问题 [#378](https://github.com/nervjs/taro-ui/issues/378) ([7cada7a](https://github.com/nervjs/taro-ui/commit/7cada7a))
+* **Components:** closed [#336](https://github.com/nervjs/taro-ui/issues/336) [#367](https://github.com/nervjs/taro-ui/issues/367) ([beee397](https://github.com/nervjs/taro-ui/commit/beee397))
+* **form:** Form 中 button 位置偏右 [#158](https://github.com/nervjs/taro-ui/issues/158) ([da3d0fd](https://github.com/nervjs/taro-ui/commit/da3d0fd))
+* **message:** 适配百度 ([b55cc89](https://github.com/nervjs/taro-ui/commit/b55cc89))
+* **noticebar:** 修复跑马灯模式在微信小程序字体大小渲染有误的问题 ([3b34feb](https://github.com/nervjs/taro-ui/commit/3b34feb))
+* **range:** 适配百度 ([8e4e8eb](https://github.com/nervjs/taro-ui/commit/8e4e8eb))
+* **SwipeAction:** 处理 h5 clientRectangle 数据问题 ([18e9a4c](https://github.com/nervjs/taro-ui/commit/18e9a4c))
+* **switch:** 适配百度 ([9bafce5](https://github.com/nervjs/taro-ui/commit/9bafce5))
+* **tabs:** 修复 inactive 高度未隐藏 ([857baf2](https://github.com/nervjs/taro-ui/commit/857baf2))
+* **tabs:** 适配百度 ([ee42685](https://github.com/nervjs/taro-ui/commit/ee42685))
+
+
+### Features
+
+* **image-picker:** 适配百度 ([7043eab](https://github.com/nervjs/taro-ui/commit/7043eab))
+* 添加红色主题 ([aacfd84](https://github.com/nervjs/taro-ui/commit/aacfd84))
+* **indexes:** 适配百度 ([4f52def](https://github.com/nervjs/taro-ui/commit/4f52def))
+* **Switch:** 调整样式 ([5b2a2ef](https://github.com/nervjs/taro-ui/commit/5b2a2ef))
+* 适配百度 ([0743caf](https://github.com/nervjs/taro-ui/commit/0743caf))
+* **theme:** 优化自定义主题变量名 ([7f0f0a0](https://github.com/nervjs/taro-ui/commit/7f0f0a0))
+* **theme:** 添加红色主题 ([a8caf39](https://github.com/nervjs/taro-ui/commit/a8caf39))
+* **Theme:** 开放可变更的自定义主题变量 ([3b46579](https://github.com/nervjs/taro-ui/commit/3b46579))
+* **toast:** 增加 customStyle ([8b63b83](https://github.com/nervjs/taro-ui/commit/8b63b83))
+
+
+
 <a name="2.0.0-beta.2"></a>
 # [2.0.0-beta.2](https://github.com/nervjs/taro-ui/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2019-01-17)
 
@@ -14,6 +50,7 @@
 * **tabs:** tabs 改为受控组件 ([ed87db7](https://github.com/nervjs/taro-ui/commit/ed87db7))
 * **tabs:** 修复二次点击 [#321](https://github.com/nervjs/taro-ui/issues/321) ([a57aa7f](https://github.com/nervjs/taro-ui/commit/a57aa7f))
 * **textarea:** 参数类型对齐 ([4079d93](https://github.com/nervjs/taro-ui/commit/4079d93))
+* **types:** 修复 types 定义 ([fefc0fc](https://github.com/nervjs/taro-ui/commit/fefc0fc))
 
 
 

@@ -497,7 +497,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 }
 
 @media screen and (min-width: $screen-xs-min) and (max-height: 980px) {
-  .at-markdown {
+  .at-markdown--demo {
     padding-right: 320px !important;
   }
   .demo-frame {
