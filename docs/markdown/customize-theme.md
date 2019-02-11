@@ -16,7 +16,7 @@ Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多
 
 Taro UI 的组件样式是使用 SCSS 编写的，如果你的项目中也使用了 SCSS，那么可以直接在项目中改变 Taro UI 的样式变量。
 
-新建一个主题样式文件，例如 `custom-variables.scss`，并写入以下内容：
+新建一个主题样式文件，例如 `custom-variables.scss`，并写入以下内容：（如有需要，可使用[自定义主题生成器](https://nervjs.github.io/taro-ui-theme-preview/)）
 
 :::demo
 ```scss

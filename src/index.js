@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import './style/index.scss'
+import './style/themes/red.scss'
 
 Taro.initPxTransform({ designWidth: 750 })
 

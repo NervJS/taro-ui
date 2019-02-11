@@ -1,5 +1,5 @@
-@import "../mixins/index.scss";
-@import "../variables/default.scss";
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
 
 .at-calendar {
   overflow: hidden;
@@ -28,7 +28,7 @@
       @include align-items();
       @include flex-wrap(wrap);
 
-      color: #7c86a2;
+      color: $at-calendar-day-color;
 
       .flex__item {
         @include flex(0 0 calc(100% / 7));

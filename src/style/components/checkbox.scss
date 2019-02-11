@@ -1,5 +1,5 @@
-@import '../mixins/index.scss';
 @import '../variables/default.scss';
+@import '../mixins/index.scss';
 
 $component: '.at-checkbox';
 
@@ -33,6 +33,7 @@ $component: '.at-checkbox';
     margin-top: 4px;
     margin-right: $spacing-h-lg;
     width: $at-checkbox-circle-size;
+    min-width: $at-checkbox-circle-size;
     height: $at-checkbox-circle-size;
     color: transparent;
     font-size: $at-checkbox-icon-size;
