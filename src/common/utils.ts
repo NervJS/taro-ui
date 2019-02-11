@@ -53,7 +53,8 @@ function delayGetClientRect ({
   selectorStr,
   delayTime = 500
 }): Promise<Array<execObject>> {
-  const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
+  const $scope =
+    ENV === Taro.ENV_TYPE.WEB || ENV === Taro.ENV_TYPE.SWAN ? self : self.$scope
   const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
 
   return new Promise(resolve => {
@@ -188,7 +189,7 @@ function initTestEnv () {
   }
 }
 
-function isTest() {
+function isTest () {
   return process.env.NODE_ENV === 'test'
 }
 
@@ -214,7 +215,7 @@ function handleTouchScroll (flag) {
   }
 }
 
-function pxTransform(size) {
+function pxTransform (size) {
   if (!size) return ''
   return Taro.pxTransform(size)
 }

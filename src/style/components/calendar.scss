@@ -1,5 +1,5 @@
-@import '../mixins/index.scss';
-@import '../variables/default.scss';
+@import "../mixins/index.scss";
+@import "../variables/default.scss";
 
 .at-calendar {
   overflow: hidden;
@@ -109,7 +109,10 @@
             background-color: transparent;
 
             .flex__item-container {
-              background-color: rgba($color: $at-calendar-main-color, $alpha: 0.7);
+              background-color: rgba(
+                $color: $at-calendar-main-color,
+                $alpha: 0.7
+              );
             }
           }
         }
@@ -170,7 +173,8 @@
     }
   }
 
-  &--weapp {
+  &--weapp,
+  &--swan {
     .main__body {
       height: 480px;
     }

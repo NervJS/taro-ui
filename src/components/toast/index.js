@@ -107,7 +107,7 @@ export default class AtToast extends AtComponent {
         {hasMask && <View className='at-toast__overlay' />}
         <View className={bodyClass} onClick={this.handleClick}>
           <View className='toast-body-content'>
-            {realImg && (
+            {realImg ? (
               <View className='toast-body-content__img'>
                 <Image
                   className='toast-body-content__img-item'
@@ -115,7 +115,7 @@ export default class AtToast extends AtComponent {
                   mode='scaleToFill'
                 />
               </View>
-            )}
+            ) : null}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
                 <Text className={iconClass} />
