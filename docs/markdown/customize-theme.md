@@ -10,9 +10,9 @@ Taro UI 目前只有一套默认的主题配色，为满足业务和品牌上多
 - globalClass 全局样式类
 - 配置 customStyle 属性（仅有部分组件支持，请查看组件文档，不建议使用）
 
-> 请确保微信基础库版本再 v2.2.3+，具体原因请查看官方文档 [微信小程序组件样式说明](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
+> 请确保微信基础库版本在 v2.2.3+，具体原因请查看官方文档 [微信小程序组件样式说明](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
 
-## SCSS 主题变量覆盖（v2.0.0+）
+## SCSS 主题变量覆盖
 
 Taro UI 的组件样式是使用 SCSS 编写的，如果你的项目中也使用了 SCSS，那么可以直接在项目中改变 Taro UI 的样式变量。
 

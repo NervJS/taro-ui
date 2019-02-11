@@ -37,14 +37,10 @@ $ taro init myApp
 ```bash
 $ cd myApp
 $ npm install taro-ui
-# 或者使用自定义主题版本
-$ npm install taro-ui@next
 ```
 :::
 
-> 因为要支持自定义主题功能，需要将样式从组件中抽离出来，在微信小程序中依赖 globalClass 功能，所以需要微信基础库版本在 v2.2.3 以上。
-
-**P.S.建议都升级到 next 版本，后续会取消对微信版本库 v2.2.3 以下版本的支持。**
+**P.S.因为要支持自定义主题功能，需要将样式从组件中抽离出来，在微信小程序中依赖 globalClass 功能，所以需要微信基础库版本在 v2.2.3 以上。**
 
 #### 配置需要额外编译的源码模块
 
@@ -60,17 +56,7 @@ h5: {
 
 ### 4. 使用 Taro UI
 
-#### 使用旧版本（v1.5.4-）
-
-在代码中 `import` 需要的组件并按照文档说明使用
-
-:::demo
-```js
-import { AtButton } from 'taro-ui'
-```
-:::
-
-#### 使用新版本（v2.0.0+）
+#### 引入所需组件
 
 在代码中 `import` 需要的组件并按照文档说明使用
 
@@ -108,7 +94,7 @@ import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 ```
 :::
 
-> 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/taro-ui/tree/next/src/style/components)
+> 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/taro-ui/tree/dev/src/style/components)
 
 ## 示例
 
@@ -138,7 +124,7 @@ export default class Index extends Component {
 ```
 :::
 
-在 `/myApp/src/app.scss` 文件中添加如下代码（仅在 v2.0.0+ 版本中需要手动引入）
+在 `/myApp/src/app.scss` 文件中添加如下代码
 
 :::demo
 ```scss
@@ -146,7 +132,7 @@ export default class Index extends Component {
 ```
 :::
 
-## 按需引入（仅支持版本v2.0.0+）
+## 按需引入
 
 如果你只希望引入部分组件，比如 Button，那么可以只 `@import` 需要的样式文件
 
@@ -173,7 +159,7 @@ $ npx taro build --type weapp --watch
 ```
 :::
 
-**支付宝小程序编译预览模式（仅支持版本v2.0.0+）**
+**支付宝小程序编译预览模式**
 
 :::demo
 ```bash
@@ -183,6 +169,19 @@ $ npm run dev:alipay
 $ taro build --type alipay --watch
 # npx 用户也可以使用
 $ npx taro build --type alipay --watch
+```
+:::
+
+**百度小程序编译预览模式**
+
+:::demo
+```bash
+# npm script
+$ npm run dev:swan
+# 仅限全局安装
+$ taro build --type swan --watch
+# npx 用户也可以使用
+$ npx taro build --type swan --watch
 ```
 :::
 
