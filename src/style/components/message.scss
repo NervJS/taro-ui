@@ -18,6 +18,7 @@
   transition: all 300ms $ease-in-sine;
   opacity: 0;
   z-index: $zindex-message;
+  box-sizing: border-box;
 
   /* modifiers */
   &--success {
