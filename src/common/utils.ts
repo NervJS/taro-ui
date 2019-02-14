@@ -242,7 +242,12 @@ function easeOut(from, to, callback) {
       return
     }
     callback(from)
-    requestAnimationFrame(step)
+    if (ENV === Taro.ENV_TYPE.WEB) {
+      requestAnimationFrame(step)
+    } else {
+      setTimeout(step)
+    }
+
   }
   step()
 }
