@@ -51,7 +51,7 @@ export default class Index extends Taro.Component {
     return (
       <AtAccordion
         open={this.state.open}
-        onClick={this.onClick.bind(this)}
+        onClick={this.handleClick.bind(this)}
         title='标题一'
       >
         <AtList hasBorder={false}>
