@@ -20,11 +20,20 @@ $color-text-base: #1D1F2B;
 $color-text-title: #1D1F2B; // 文章标题
 
 /* 组件样式 */
-// $at-button-color: linear-gradient(90deg, #5274A0, #27497C 100%);
+$at-button-border-color-primary: transparent;
+$at-button-bg: linear-gradient(90deg, #5274A0, #27497C 100%);
 
 $at-message-bg-color: #95969F;
 
 $at-badge-bg: linear-gradient(90deg, #5274A0 0%, #345B8F 100%);
+
+$at-tag-color: $color-text-base;
+$at-tag-color-primary: $color-brand-light;
+$at-tag-color-primary-active: $color-brand-light;
+$at-tag-border-color: #BDBEC3;
+$at-tag-bg-color: #FFF;
+$at-tag-bg-color-primary: #E9F3FF;
+$at-tag-bg-color-primary-active: #E9F3FF;
 
 $at-range-track-bg-color: $color-brand-light;
 
