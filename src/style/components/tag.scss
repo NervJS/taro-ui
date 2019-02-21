@@ -12,21 +12,27 @@ $at-tag-border-size: 1PX;
   text-align: center;
   line-height: $at-tag-height - 2px;
   vertical-align: middle;
-  border: $at-tag-border-size solid $at-tag-bg-color;
+  border: $at-tag-border-size solid $at-tag-border-color;
   border-radius: $border-radius-md;
   background-color: $at-tag-bg-color;
   box-sizing: border-box;
 
   /* modifiers */
+  &--primary {
+    color: $at-tag-color-primary;
+    border-color: $at-tag-border-color-primary;
+    background-color: $at-tag-bg-color-primary;
+  }
+
   &--active {
     color: $at-tag-color-active;
-    border-color: $at-tag-color-active;
+    border-color: $at-tag-border-color-active;
     background-color: $at-tag-bg-color-active;
 
     &.at-tag--primary {
-      color: $color-text-base-inverse;
-      border-color: $at-tag-color-active;
-      background-color: $at-tag-color-active;
+      color: $at-tag-color-primary-active;
+      border-color: $at-tag-border-color-active;
+      background-color: $at-tag-bg-color-primary-active;
     }
   }
 

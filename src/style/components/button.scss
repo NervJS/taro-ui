@@ -18,7 +18,7 @@
   @include line();
 
   &:active {
-    opacity: 0.6;
+    opacity: $opacity-active;
   }
 
   /* elements */
@@ -51,27 +51,27 @@
 
   /* modifiers */
   &--active {
-    opacity: 0.6;
+    opacity: $opacity-active;
   }
 
   &--disabled {
-    opacity: 0.3;
+    opacity: $opacity-disabled;
 
     &:active {
-      opacity: 0.3;
+      opacity: $opacity-disabled;
     }
   }
 
   &--primary {
-    color: #fff;
-    border: 1PX solid $at-button-color;
-    background-color: $at-button-color;
+    color: $color-text-base-inverse;
+    border: 1PX solid $at-button-border-color-primary;
+    background: $at-button-bg;
   }
 
   &--secondary {
     color: $at-button-color;
-    border: 1PX solid $at-button-color;
-    background-color: #fff;
+    border: 1PX solid $at-button-border-color-secondary;
+    background-color: $color-white;
   }
 
   &--circle {

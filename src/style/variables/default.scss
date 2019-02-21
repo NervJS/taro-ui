@@ -187,6 +187,9 @@ $at-badge-dot-size: 20px !default;
 $at-button-height: 92px !default;
 $at-button-height-sm: 60px !default;
 $at-button-color: $color-brand !default;
+$at-button-border-color-primary: $color-brand !default;
+$at-button-border-color-secondary: $color-brand !default;
+$at-button-bg: $at-button-color !default;
 
 /* Calendar */
 $at-calendar-day-size: 72px !default;
@@ -408,11 +411,18 @@ $at-tabs-bg-color: $color-bg !default;
 $at-tag-height: 60px !default;
 $at-tag-height-sm: 40px !default;
 $at-tag-color: $color-grey-1 !default;
+$at-tag-color-primary: $color-grey-1 !default;
 $at-tag-color-active: $color-brand-light !default;
+$at-tag-color-primary-active: $color-text-base-inverse !default;
 $at-tag-font-size: $font-size-base !default;
 $at-tag-font-size-sm: $font-size-xs !default;
 $at-tag-bg-color: $color-bg-grey !default;
+$at-tag-bg-color-primary: $color-bg-grey !default;
 $at-tag-bg-color-active: $color-white !default;
+$at-tag-bg-color-primary-active: $at-tag-color-active !default;
+$at-tag-border-color: $at-tag-bg-color !default;
+$at-tag-border-color-primary: $at-tag-bg-color !default;
+$at-tag-border-color-active: $at-tag-color-active !default;
 
 /* Textarea */
 $at-textarea-font-size: $font-size-lg !default;
