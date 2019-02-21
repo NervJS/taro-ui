@@ -39,6 +39,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    transition: height 500ms $ease-in-sine;
     @include hairline-top();
 
     &--inactive {

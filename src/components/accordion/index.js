@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
 import AtComponent from '../../common/component'
-import { delayQuerySelector, initTestEnv, easeOut } from '../../common/utils'
+import { delayQuerySelector, initTestEnv } from '../../common/utils'
 
 initTestEnv()
 
@@ -12,6 +12,7 @@ export default class AtAccordion extends AtComponent {
   constructor () {
     super(...arguments)
     this.isCompleted = true
+    this.startOpen = false
     this.state = {
       wrapperHeight: ''
     }
@@ -19,6 +20,8 @@ export default class AtAccordion extends AtComponent {
 
   handleClick = event => {
     const { open } = this.props
+    if (!this.isCompleted) return
+
     this.props.onClick(!open, event)
   }
 
@@ -27,24 +30,32 @@ export default class AtAccordion extends AtComponent {
     if (!this.isCompleted || !isAnimation) return
 
     this.isCompleted = false
-    delayQuerySelector(this, '.at-accordion__content', 0)
+    delayQuerySelector(this, '.at-accordion__body', 0)
       .then(rect => {
         const height = parseInt(rect[0].height)
         const startHeight = open ? height : 0
         const endHeight = open ? 0 : height
-        easeOut(startHeight, endHeight, value => {
-          if (value === endHeight) {
-            this.isCompleted = true
-          }
-          this.setState({
-            wrapperHeight: value
-          })
+        this.startOpen = false
+        this.setState({
+          wrapperHeight: startHeight
+        }, () => {
+          setTimeout(() => {
+            this.setState({
+              wrapperHeight: endHeight
+            }, () => {
+              setTimeout(() => {
+                this.isCompleted = true
+                this.setState({})
+              }, 700)
+            })
+          }, 100)
         })
       })
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.open !== this.props.open) {
+      this.startOpen = nextProps.open && nextProps.isAnimation
       this.toggleWithAnimation()
     }
   }
@@ -60,8 +71,6 @@ export default class AtAccordion extends AtComponent {
     } = this.props
     const { wrapperHeight } = this.state
 
-    const isAnimationStart = open && !this.isCompleted && wrapperHeight < 2
-
     const rootCls = classNames('at-accordion', className)
     const iconCls = classNames({
       'at-icon': true,
@@ -75,16 +84,15 @@ export default class AtAccordion extends AtComponent {
       'at-accordion__arrow--folded': !!open
     })
     const contentCls = classNames('at-accordion__content', {
-      'at-accordion__content--inactive': (!open && this.isCompleted) || isAnimationStart
+      'at-accordion__content--inactive': (!open && this.isCompleted) || this.startOpen
     })
-
     const iconStyle = {
       color: (icon && icon.color) || '',
       fontSize: (icon && `${icon.size}px`) || '',
     }
     const contentStyle = { height: `${wrapperHeight}px` }
 
-    if (this.isCompleted || isAnimationStart) {
+    if (this.isCompleted) {
       contentStyle.height = ''
     }
 
@@ -96,8 +104,11 @@ export default class AtAccordion extends AtComponent {
           <Text className='at-icon at-icon-chevron-down'></Text>
         </View>
       </View>
-      <View className={contentCls} style={contentStyle}>
-        {this.props.children}
+      <View style={contentStyle} className={contentCls}>
+        <View className='at-accordion__body'>
+          {this.props.children}
+        </View>
+
       </View>
     </View>
   }
