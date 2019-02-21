@@ -6,8 +6,13 @@ import {
   AtModalHeader,
   AtModalContent,
   AtModalAction,
+  AtIndexes
 } from 'taro-ui'
+
 import DocsHeader from '../../components/doc-header'
+
+import mockData from '../../navigation/indexes/mock-data'
+
 import './index.scss'
 
 export default class ModalPage extends Taro.Component {
@@ -21,7 +26,8 @@ export default class ModalPage extends Taro.Component {
       isOpened1: false,
       isOpened2: false,
       isOpened3: false,
-      isOpened4: false
+      isOpened4: false,
+      isOpened5: false
     }
   }
 
@@ -55,7 +61,7 @@ export default class ModalPage extends Taro.Component {
   }
 
   render () {
-    const { isOpened1, isOpened2, isOpened3, isOpened4 } = this.state
+    const { isOpened1, isOpened2, isOpened3, isOpened4, isOpened5 } = this.state
 
     return (
       <View className='page'>
@@ -109,6 +115,18 @@ export default class ModalPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 城市索引 */}
+          <View className='panel'>
+            <View className='panel__title'>城市索引</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 5)}>
+                  打开城市索引
+                </AtButton>
+              </View>
+            </View>
+          </View>
         </View>
 
         {/* 基础模态框 */}
@@ -128,9 +146,7 @@ export default class ModalPage extends Taro.Component {
             <Button onClick={this.closeModal.bind(this, 1, '点击了取消')}>
               取消
             </Button>
-            <Button
-              onClick={this.closeModal.bind(this, 1, '点击了确定')}
-            >
+            <Button onClick={this.closeModal.bind(this, 1, '点击了确定')}>
               确定
             </Button>
           </AtModalAction>
@@ -170,9 +186,7 @@ export default class ModalPage extends Taro.Component {
             <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>
               取消
             </Button>
-            <Button
-              onClick={this.closeModal.bind(this, 3, '点击了确定')}
-            >
+            <Button onClick={this.closeModal.bind(this, 3, '点击了确定')}>
               确定
             </Button>
           </AtModalAction>
@@ -189,6 +203,14 @@ export default class ModalPage extends Taro.Component {
           onCancel={this.closeModal.bind(this, 4, '点击了取消')}
           onConfirm={this.closeModalConfirm.bind(this, 4, '点击了确认')}
         />
+
+        <AtModal isOpened={isOpened5}>
+          <AtModalContent>
+            <AtIndexes list={mockData} topKey='Top'>
+              <View className='custom-area'>用户自定义内容</View>
+            </AtIndexes>
+          </AtModalContent>
+        </AtModal>
       </View>
     )
   }
