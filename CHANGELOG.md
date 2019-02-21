@@ -1,3 +1,24 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/nervjs/taro-ui/compare/v2.0.0...v2.0.1) (2019-02-21)
+
+
+### Bug Fixes
+
+* **accordion:** requestAnimationFrame 不存在 ([08be8c6](https://github.com/nervjs/taro-ui/commit/08be8c6))
+* **accordion:** 修复 accordion 问题 ([fd037b9](https://github.com/nervjs/taro-ui/commit/fd037b9))
+* **input:** 改正 d.ts ([d8a380e](https://github.com/nervjs/taro-ui/commit/d8a380e))
+* **Message:** 修复文字溢出 [#391](https://github.com/nervjs/taro-ui/issues/391) ([aaac2a6](https://github.com/nervjs/taro-ui/commit/aaac2a6))
+* **Modal:** 修复 android 机的 小黑点 close [#410](https://github.com/nervjs/taro-ui/issues/410) close [#404](https://github.com/nervjs/taro-ui/issues/404) ([01461a4](https://github.com/nervjs/taro-ui/commit/01461a4))
+* **swan:** 兼容 swan 百度小程序 ([adb3f94](https://github.com/nervjs/taro-ui/commit/adb3f94))
+* **tabs:** tab-panel 空白 ([39f88d6](https://github.com/nervjs/taro-ui/commit/39f88d6))
+
+
+### Features
+
+* **theme:** 新增 7Fresh 主题 ([fc18269](https://github.com/nervjs/taro-ui/commit/fc18269))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/nervjs/taro-ui/compare/v2.0.0-beta.2...v2.0.0) (2019-02-03)
 

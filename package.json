@@ -1,10 +1,13 @@
 {
   "name": "taro-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "UI KIT for Taro",
   "main": "dist/index.js",
   "main:h5": "dist/h5/index.js",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
   "types": "./@types/index.d.ts",
   "scripts": {
     "dev:weapp": "npm run build:weapp -- --watch",
