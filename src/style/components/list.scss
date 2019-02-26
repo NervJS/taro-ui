@@ -129,6 +129,12 @@ $at-list-item-horizontal-padding: 24px;
         @include squareImg($at-list-thumb-size);
 
         vertical-align: middle;
+        margin-right: 30px;
+
+        &-info {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
