@@ -27,7 +27,7 @@ import { AtFloatLayout } from "taro-ui"
 :::demo
 
 ```html
-<AtFloatLayout isOpened title="这是个标题" onClose="{" this.handleClose }>
+<AtFloatLayout isOpened title="这是个标题" onClose={this.handleClose.bind(this)}>
   这是内容区 随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
   随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写
 </AtFloatLayout>
