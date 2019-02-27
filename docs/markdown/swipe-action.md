@@ -9,11 +9,17 @@
 Taro-UI 版本需要在 `v1.3.1` 以上，在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtSwipeAction } from "taro-ui"
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/swipe-action.scss";
+```
 :::
 
 ## 一般用法
@@ -210,7 +216,7 @@ import { AtSwipeAction } from "taro-ui"
     <AtSwipeAction
       key={index}
       onOpened={this.handleSingle.bind(this, index)}
-      isClose={item.isClose}
+      isOpened={item.isOpened}
       options={item.options}
     >
       <AtListItem title={item.title} />
@@ -225,7 +231,7 @@ import { AtSwipeAction } from "taro-ui"
 
 | 参数      | 说明                    | 类型                                 | 可选值 | 默认值  |
 | --------- | ----------------------- | ------------------------------------ | ------ | ------- |
-| isClose   | 是否关闭                | Boolean                              | -      | `false` |
+| isOpened  | 是否开启                | Boolean                              | -      | `true`  |
 | disabled  | 是否禁止滑动            | Boolean                              | -      | `false` |
 | autoClose | 点击选项时,是否自动关闭 | Boolean                              | -      | `false` |
 | options   | 展示的选项数组          | [{'{ text , style? , className? }'}] | -      | `[]`    |

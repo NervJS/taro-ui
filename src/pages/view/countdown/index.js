@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtCountDown from '../../../components/count-down/index'
+import { AtCountdown } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class CountDownPage extends Taro.Component {
@@ -31,10 +29,10 @@ export default class CountDownPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>一般用法</View>
             <View className='panel__content'>
-              <AtCountDown minutes={1} seconds={10} />
+              <AtCountdown minutes={1} seconds={10} />
             </View>
             <View className='panel__content'>
-              <AtCountDown isShowDay hours={1} minutes={1} seconds={10} />
+              <AtCountdown isShowDay hours={1} minutes={1} seconds={10} />
             </View>
           </View>
 
@@ -42,7 +40,7 @@ export default class CountDownPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>自定义格式化</View>
             <View className='panel__content'>
-              <AtCountDown
+              <AtCountdown
                 format={{ hours: ':', minutes: ':', seconds: '' }}
                 minutes={1}
                 seconds={10}
@@ -54,14 +52,14 @@ export default class CountDownPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>卡片式</View>
             <View className='panel__content'>
-              <AtCountDown
+              <AtCountdown
                 isCard
                 minutes={1}
                 seconds={10}
               />
             </View>
             <View className='panel__content'>
-              <AtCountDown
+              <AtCountdown
                 isCard
                 isShowDay
                 day={1}
@@ -76,7 +74,7 @@ export default class CountDownPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>自定义倒计时回调事件</View>
             <View className='panel__content'>
-              <AtCountDown
+              <AtCountdown
                 format={{ hours: ':', minutes: ':', seconds: '' }}
                 seconds={10}
                 onTimeUp={this.onTimeUp.bind(this)}

@@ -2,11 +2,9 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtDrawer extends AtComponent {
   constructor (props) {
@@ -97,7 +95,7 @@ export default class AtDrawer extends AtComponent {
         <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
-          <AtList>
+          {items.length ? <AtList>
             {
               items.map((name, index) =>
                 <AtListItem
@@ -109,7 +107,7 @@ export default class AtDrawer extends AtComponent {
                 >
                 </AtListItem>)
             }
-          </AtList>
+          </AtList> : this.props.children}
         </View>
       </View>
     )
@@ -119,7 +117,7 @@ export default class AtDrawer extends AtComponent {
 AtDrawer.defaultProps = {
   show: false,
   mask: true,
-  width: '230px',
+  width: '',
   right: false,
   items: [],
   onItemClick: () => {},

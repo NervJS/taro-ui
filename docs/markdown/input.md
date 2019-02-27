@@ -11,11 +11,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtInput, AtForm } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/input.scss";
+```
 :::
 
 ## 一般用法
@@ -23,6 +29,7 @@ import { AtInput, AtForm } from 'taro-ui'
 说明：
 
 * 由于微信开发者工具的问题，Input 的 placeholder 在 value 存在的情况下，会出现重叠，在真机上不会出现此问题，可以忽略
+* 由于微信开发者工具的问题，输入法输入中文的时候，maxLength 会限制输入过程中的字符，导致无法输入完整的中文，在真机上不会出现此问题，可以忽略
 * 该组件为受控组件，开发者需要通过 onChange 事件来更新 value 值变化，value 与 onChange 函数必填
 * 由于小程序组件化的限制，AtInput 嵌套在 AtForm 或原生小程序组件 Form 中的时候，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取
 
@@ -177,7 +184,7 @@ export default class Index extends Taro.Component {
   clear
   title='验证码'
   type='text'
-  maxlength='4'
+  maxLength='4'
   placeholder='验证码'
   value={this.state.value}
   onChange={this.handleChange.bind(this)}
@@ -199,7 +206,7 @@ export default class Index extends Taro.Component {
 | placeholderStyle | √ | x | 指定 placeholder 的样式，只在小程序有效  | String  | - | - |
 | placeholderClass | √ | x | 指定 placeholder 的样式类，只在小程序有效  | String | - | - |
 | title     | √ | √ | 输入框左侧标题，若传入为空，则不显示标题  | String | - | -  |
-| maxlength | √ | √ |最大长度 | Number  | -  | 140      |
+| maxLength | √ | √ |最大长度 | Number  | -  | 140      |
 | cursorSpacing | √ | x |指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离,只在微信小程序有效 | Number  | -  | 50      |
 | confirmType | √ | x |设置键盘右下角按钮的文字,只在小程序有效| String | - | '完成' |
 | cursor | √ | x |指定 focus 时的光标位置 | Number | - | - |
@@ -212,7 +219,7 @@ export default class Index extends Taro.Component {
 | error     | √ | √ | 是否出现错误 | Boolean | - | false |
 | clear     | √ | √ | 是否显示清除按钮，需要传入 onChange 事件来改变value | Boolean | - | false |
 | autoFocus  | √ | x | 是否自动聚焦 | Boolean | - | false |
-| focus     | √ | x | 是否聚焦 | Boolean | - | false |
+| focus     | √ | √ | 是否聚焦 | Boolean | - | false |
 
 ## Input 事件
 

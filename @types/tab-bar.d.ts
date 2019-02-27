@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -14,8 +14,6 @@ export interface TabItem {
 }
 
 export interface AtTabBarProps extends AtComponent{
-  style?: string
-
   fixed?: boolean
 
   backgroundColor?: string
@@ -32,7 +30,7 @@ export interface AtTabBarProps extends AtComponent{
 
   tabList: TabItem[]
 
-  onClick: (index: number, event: BaseEvent) => void
+  onClick: (index: number, event: CommonEvent) => void
 }
 
 declare const AtTabBar: ComponentClass<AtTabBarProps>

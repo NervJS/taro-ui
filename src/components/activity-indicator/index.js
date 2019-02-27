@@ -1,13 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AtLoading from '../loading/index'
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtActivityIndicator extends AtComponent {
   render () {
@@ -35,13 +32,17 @@ export default class AtActivityIndicator extends AtComponent {
 }
 
 AtActivityIndicator.defaultProps = {
-  size: 24,
-  color: '#6190E8'
+  size: 0,
+  mode: '',
+  color: '',
+  content: '',
+  className: '',
 }
 
 AtActivityIndicator.propTypes = {
   size: PropTypes.number,
   mode: PropTypes.string,
   color: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }

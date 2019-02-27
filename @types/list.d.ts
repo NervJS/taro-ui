@@ -1,9 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
 
-export interface AtList {
+export interface AtListProps {
   hasBorder?: boolean
 }
 
@@ -19,23 +19,25 @@ export interface AtListItemProps extends AtComponent {
   thumb?: string
 
   isSwitch?: boolean
-  
+
   extraText?: string
-  
+
   extraThumb?: string
-  
+
   switchIsCheck?: boolean
+
+  switchColor?: string
 
   iconInfo?: AtIconBaseProps
 
   arrow?: 'up' | 'down' | 'right'
 
-  onClick?: BaseEventFunction
+  onClick?: CommonEventFunction
 
-  onSwitchChange?: BaseEventFunction
+  onSwitchChange?: CommonEventFunction
 }
 
-export const AtList: ComponentClass<AtList>
+export const AtList: ComponentClass<AtListProps>
 
 declare const AtListItem: ComponentClass<AtListItemProps>
 

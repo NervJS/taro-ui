@@ -1,10 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
+import { AtToast, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-import AtToast from '../../../components/toast/index'
-import AtButton from '../../../components/button/index'
-
 import './index.scss'
 
 const INIT_STATE = {
@@ -27,14 +24,12 @@ export default class ToastPage extends Component {
     this.state = INIT_STATE
   }
 
-  handleClick = (text, icon, image, hasMask, status) => {
+  handleClick = params => {
     if (this.state.isOpened) {
       return this.setState(INIT_STATE)
     }
-    const state = Object.assign(
-      { ...INIT_STATE, isOpened: true },
-      { text, icon, image, hasMask, status }
-    )
+
+    const state = Object.assign({ ...INIT_STATE, isOpened: true }, params)
 
     this.setState(state)
   }
@@ -69,28 +64,19 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '文本内容',
-                    '',
-                    '',
-                    false,
-                    ''
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '文本内容'
+                  })}
                 >
                   文本 Toast
                 </AtButton>
               </View>
               <View className='example-item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '文本内容',
-                    'analytics',
-                    '',
-                    false,
-                    ''
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '文本内容',
+                    icon: 'analytics'
+                  })}
                 >
                   文本 + ICON
                 </AtButton>
@@ -103,14 +89,11 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example__item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '凹凸实验室',
-                    '',
-                    'http://storage.360buyimg.com/mtd/home/group-21533885306540.png',
-                    false,
-                    ''
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '凹凸实验室',
+                    image:
+                      'http://storage.360buyimg.com/mtd/home/group-21533885306540.png'
+                  })}
                 >
                   自定义图片 Toast
                 </AtButton>
@@ -123,14 +106,10 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example__item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '透明遮罩层的作用在于不可点击下面的元素',
-                    '',
-                    '',
-                    true,
-                    ''
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '透明遮罩层的作用在于不可点击下面的元素',
+                    hasMask: true
+                  })}
                 >
                   添加遮罩层 Toast
                 </AtButton>
@@ -143,14 +122,11 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example__item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '错误提示',
-                    '',
-                    '',
-                    true,
-                    'error'
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '错误提示',
+                    hasMask: true,
+                    status: 'error'
+                  })}
                 >
                   错误提示 Toast
                 </AtButton>
@@ -163,14 +139,11 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example__item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '正确提示',
-                    '',
-                    '',
-                    true,
-                    'success'
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '正确提示',
+                    hasMask: true,
+                    status: 'success'
+                  })}
                 >
                   正确提示 Toast
                 </AtButton>
@@ -183,14 +156,11 @@ export default class ToastPage extends Component {
             <View className='panel__content'>
               <View className='example__item'>
                 <AtButton
-                  onClick={this.handleClick.bind(
-                    this,
-                    '正在加载…',
-                    '',
-                    '',
-                    true,
-                    'loading'
-                  )}
+                  onClick={this.handleClick.bind(this, {
+                    text: '正在加载…',
+                    hasMask: true,
+                    status: 'loading'
+                  })}
                 >
                   加载中 Toast
                 </AtButton>

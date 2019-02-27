@@ -6,33 +6,8 @@ import classNames from 'classnames'
 import AtActivityIndicator from '../../components/activity-indicator/index'
 import AtButton from '../../components/button/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtLoadMore extends AtComponent {
-  static defaultProps = {
-    status: 'more',
-    loadingText: '加载中',
-    moreText: '查看更多',
-    noMoreText: '没有更多',
-    onClick: () => {}
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    status: PropTypes.oneOf(['more', 'loading', 'noMore']),
-    loadingText: PropTypes.string,
-    moreText: PropTypes.string,
-    noMoreText: PropTypes.string,
-    onClick: PropTypes.func
-  }
-
   onClick () {
     this.props.onClick(...arguments)
   }
@@ -44,6 +19,8 @@ export default class AtLoadMore extends AtComponent {
       loadingText,
       moreText,
       status,
+      moreBtnStyle,
+      noMoreTextStyle,
       noMoreText
     } = this.props
 
@@ -51,9 +28,20 @@ export default class AtLoadMore extends AtComponent {
     if (status === 'loading') {
       component = <AtActivityIndicator mode='center' content={loadingText} />
     } else if (status === 'more') {
-      component = <AtButton onClick={this.onClick.bind(this)} full>{moreText}</AtButton>
+      component = <AtButton
+        full
+        onClick={this.onClick.bind(this)}
+        customStyle={moreBtnStyle}
+      >
+        {moreText}
+      </AtButton>
     } else {
-      component = <Text className='at-load-more__tip'>{noMoreText}</Text>
+      component = <Text
+        className='at-load-more__tip'
+        style={noMoreTextStyle}
+      >
+        {noMoreText}
+      </Text>
     }
 
     return (
@@ -65,4 +53,40 @@ export default class AtLoadMore extends AtComponent {
       </View>
     )
   }
+}
+
+AtLoadMore.defaultProps = {
+  customStyle: '',
+  className: '',
+  noMoreTextStyle: '',
+  moreBtnStyle: '',
+  status: 'more',
+  loadingText: '加载中',
+  moreText: '查看更多',
+  noMoreText: '没有更多',
+  onClick: () => {},
+}
+
+AtLoadMore.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  noMoreTextStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  moreBtnStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  status: PropTypes.oneOf(['more', 'loading', 'noMore']),
+  loadingText: PropTypes.string,
+  moreText: PropTypes.string,
+  noMoreText: PropTypes.string,
+  onClick: PropTypes.func,
 }

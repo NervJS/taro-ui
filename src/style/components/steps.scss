@@ -1,0 +1,102 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-steps {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+
+  /* elements */
+  &__circular {
+    align-items: center;
+    justify-content: center;
+    width: $at-steps-circle-size;
+    height: $at-steps-circle-size;
+    text-align: center;
+    line-height: $at-steps-circle-size;
+    border-radius: 50%;
+    transition: all 0.3s;
+  }
+
+  &__item {
+    position: relative;
+    flex: 1;
+    width: 33%;
+    text-align: center;
+
+    &--active {
+      .at-steps__circular {
+        color: $at-steps-color;
+        background-color: $at-steps-bg-color-active;
+      }
+    }
+
+    &--inactive {
+      .at-steps__circular {
+        color: $at-steps-color-active;
+        background-color: $at-steps-bg-color;
+      }
+    }
+  }
+
+  &__circular-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  &__single-icon {
+    font-size: $at-steps-circle-size;
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--error {
+      color: $color-error;
+    }
+  }
+
+  &__circle-icon {
+    font-size: $at-steps-icon-size;
+  }
+
+  &__left-line {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    right: 70%;
+    height: 1Px;
+    background-color: $at-steps-line-color;
+  }
+
+  &__right-line {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    left: 70%;
+    height: 1Px;
+    background-color: $at-steps-line-color;
+  }
+
+  &__num {
+    font-size: $font-size-sm;
+  }
+
+  &__title {
+    padding: $spacing-v-sm 0;
+    color: $at-steps-title-color;
+    font-size: $at-steps-title-size;
+    @include line(1);
+  }
+
+  &__desc {
+    color: $at-steps-desc-color;
+    font-size: $at-steps-desc-size;
+    @include line(2);
+  }
+}

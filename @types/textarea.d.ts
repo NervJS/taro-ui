@@ -1,16 +1,18 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
 export interface AtTextareaProps extends AtComponent{
-  style?: string
-
   value: string
 
-  maxlength?: string
+  maxLength?: string | number
 
   placeholder?: string
+
+  placeholderClass?: string
+
+  placeholderStyle?: string
 
   disabled?: boolean
 
@@ -24,25 +26,25 @@ export interface AtTextareaProps extends AtComponent{
 
   selectionEnd?: number
 
-  count?: number
+  count?: boolean
 
   fixed?: boolean
 
   textOverflowForbidden?: boolean
 
-  height?: number
+  height?: string | number
 
   cursorSpacing?: number
 
-  onChange: BaseEventFunction
+  onChange: CommonEventFunction
 
-  onFocus?: BaseEventFunction
+  onFocus?: CommonEventFunction
 
-  obBlur?: BaseEventFunction
+  obBlur?: CommonEventFunction
 
-  onConfirm?: BaseEventFunction
+  onConfirm?: CommonEventFunction
 
-  onLinechange?: BaseEventFunction
+  onLinechange?: CommonEventFunction
 }
 
 declare const AtTextarea: ComponentClass<AtTextareaProps>

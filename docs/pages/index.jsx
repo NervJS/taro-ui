@@ -68,7 +68,7 @@ class Index extends Nerv.Component {
               <div className='panel-tip-container'><img src={require('../assets/panel-tip.png')} /></div>
               <div className='panel-img'><img src={require('../assets/panel-img4.png')} /></div>
               <div className='panel-title'>多套主题</div>
-              <div className='panel-desc'>目前只提供默认的蓝色主题，后期会新增红色主题，渐变色主题，以及自定义主题</div>
+              <div className='panel-desc'>提供默认的蓝色主题、红色主题以及自定义主题，后期会新增渐变色主题</div>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
-@import '../../components/icon/index.scss';
 @import '../../style/mixins/index.scss';
-@import '../../style/theme/default.scss';
+@import '../../style/variables/default.scss';
 
 /**
  * 分类页样式
@@ -56,6 +55,10 @@
     .name {
       color: #1d1d26;
       font-size: 28px;
+    }
+
+    .at-icon {
+      color: #CCC;
     }
   }
 }

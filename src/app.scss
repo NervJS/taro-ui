@@ -1,7 +1,12 @@
-@import "./style/theme/default.scss";
+@import "./style/index.scss";
 
 #app {
   background-color: #f8f8f8;
+}
+
+.at-frozen {
+  position: fixed;
+  width: 100%;
 }
 
 .page {

@@ -39,14 +39,19 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
   }
 }
 
+.app {
+  padding: 110px 30px 48px;
+}
+
 /**
  * Base
  */
 .at-container {
   position: relative;
-  margin: 110px 30px 48px;
+  height: calc(100vh - 158px);
   background-color: #fff;
   box-shadow: $drop-shadow;
+  overflow: hidden;
 }
 
 /**
@@ -106,6 +111,12 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 .at-markdown {
   position: relative;
   padding: 32px 48px 48px;
+  height: 100%;
+  overflow: auto;
+
+  &--demo {
+    padding-right: 420px;
+  }
 
   img {
     vertical-align: middle;
@@ -355,9 +366,9 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 }
 
 .demo-frame {
-  position: absolute;
-  top: 90px;
-  right: 25px;
+  position: fixed;
+  top: 150px;
+  right: 50px;
   width: 375px;
   height: 756px;
   background-color: #fff;
@@ -473,9 +484,30 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 @media screen and (max-width: $screen-sm-max) {
   .at-markdown {
     padding: 0 24px 32px;
+
+    .qrcode-menu,
+    .demo-frame {
+      display: none;
+    }
   }
 
   .at-component__sample {
     padding: 16px;
+  }
+}
+
+@media screen and (min-width: $screen-xs-min) and (max-height: 980px) {
+  .at-markdown--demo {
+    padding-right: 320px !important;
+  }
+  .demo-frame {
+    transform-origin: top right;
+    transform: scale(0.7);
+  }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .at-container {
+    height: auto;
   }
 }

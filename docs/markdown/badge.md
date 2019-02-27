@@ -14,11 +14,19 @@ import { AtBadge } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/badge.scss";
+```
+:::
+
 ## 用法
 
 :::demo
 ```html
-<AtBadge value='10' maxValue='99'>
+<AtBadge value={10} maxValue={99}>
     <AtButton size='small'>按钮</AtButton>
 </AtBadge>
 ```
@@ -47,5 +55,5 @@ import { AtBadge } from 'taro-ui'
 | 参数     | 说明       | 类型    | 可选值 | 默认值 |
 |:---------|:-----------|:--------|:-------|:-------|
 | dot      | 角标红点   | Boolean | -      | false  |
-| value    | 角标数字   | Number  | -      | -      |
+| value    | 角标内容   | String / Number  | -      | -      |
 | maxValue | 角标最大值 | Number  | -      | 99     |

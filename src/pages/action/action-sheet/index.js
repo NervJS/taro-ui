@@ -1,13 +1,8 @@
-/* eslint taro/custom-component-children: 0 */
-
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-
-import AtActionSheet from '../../../components/action-sheet'
-import AtActionSheetItem from '../../../components/action-sheet/body/item/index'
+import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 import AtButton from '../../../components/button/index'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ActionSheetPage extends Taro.Component {
@@ -117,7 +112,7 @@ export default class ActionSheetPage extends Taro.Component {
           cancelText='取消'
           isOpened={isOpened2}
           onClose={this.handleClose.bind(this, 2)}
-          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+          title='清除位置信息后， 别人将不能查看到你'
         >
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}
@@ -136,7 +131,7 @@ export default class ActionSheetPage extends Taro.Component {
           isOpened={isOpened3}
           onCancel={this.handleCancel}
           onClose={this.handleClose.bind(this, 3)}
-          title='清除位置信息后， 别人将不能查看到你\r\n可以通过转义字符换行'
+          title='清除位置信息后， 别人将不能查看到你'
         >
           <AtActionSheetItem
             onClick={this.showToast.bind(this, '点击了按钮一')}

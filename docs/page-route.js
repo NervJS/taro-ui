@@ -24,6 +24,8 @@ export default {
   picker: 'form/picker',
   searchbar: 'form/search-bar',
   slider: 'form/slider',
+  range: 'form/range',
+  imagepicker: 'form/image-picker',
   article: 'view/article',
   avatar: 'view/avatar',
   badge: 'view/badge',
@@ -41,5 +43,7 @@ export default {
   pagination: 'navigation/pagination',
   segmentedcontrol: 'navigation/segmented-control',
   tabbar: 'navigation/tabbar',
-  tabs: 'navigation/tabs'
+  tabs: 'navigation/tabs',
+  indexes: 'navigation/indexes',
+  calendar: 'advanced/calendar'
 }

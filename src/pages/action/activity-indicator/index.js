@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtActivityIndicator from '../../../components/activity-indicator/index'
+import { AtActivityIndicator } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ActivityIndicatorPage extends Taro.Component {

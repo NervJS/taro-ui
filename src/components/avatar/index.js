@@ -2,10 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Image, Text, OpenData } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 const SIZE_CLASS = {
   large: 'large',
@@ -19,9 +16,6 @@ export default class AtAvatar extends AtComponent {
     this.state = {
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
     }
-  }
-
-  onClick () {
   }
 
   render () {
@@ -63,15 +57,19 @@ export default class AtAvatar extends AtComponent {
 AtAvatar.defaultProps = {
   size: 'normal',
   circle: false,
+  text: '',
   image: '',
   openData: {},
   customStyle: {},
+  className: '',
 }
 
 AtAvatar.propTypes = {
   size: PropTypes.oneOf(['large', 'normal', 'small']),
   circle: PropTypes.bool,
+  text: PropTypes.string,
   image: PropTypes.string,
   openData: PropTypes.object,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }

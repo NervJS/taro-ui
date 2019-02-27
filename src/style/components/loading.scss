@@ -1,0 +1,45 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.at-loading {
+  display: inline-block;
+  position: relative;
+  width: $at-loading-size;
+  height: $at-loading-size;
+
+  &__ring {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: $at-loading-size;
+    height: $at-loading-size;
+    margin: 1PX;
+    border-width: 1PX;
+    border-style: solid;
+    border-color: $at-loading-color transparent transparent transparent;
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}

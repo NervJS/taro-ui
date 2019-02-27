@@ -114,10 +114,10 @@ describe('Modal Behavior ', () => {
     const componentDom = findDOMNode(component, 'at-modal')
 
     const cancelDom = componentDom.querySelector(
-      '.at-modal-footer__action button:first-child'
+      '.at-modal__footer .at-modal__action button:first-child'
     )
     const confirmDom = componentDom.querySelector(
-      '.at-modal-footer__action button:last-child'
+      '.at-modal__footer .at-modal__action button:last-child'
     )
     const overlayDom = componentDom.querySelector('.at-modal__overlay')
 
@@ -132,6 +132,34 @@ describe('Modal Behavior ', () => {
     process.nextTick(() => {
       expect(onClose).toBeCalled()
       expect(component.state._isOpened).toBeFalsy()
+    })
+  })
+
+  it('Modal onClose will not be called', () => {
+    const onClose = jest.fn()
+
+    const component = renderIntoDocument(
+      <AtModal
+        isOpened
+        title='标题'
+        cancelText='取消'
+        closeOnClickOverlay={false}
+        confirmText='确认'
+        onClose={onClose}
+        content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+      />
+    )
+    const componentDom = findDOMNode(component, 'at-modal')
+
+    const overlayDom = componentDom.querySelector('.at-modal__overlay')
+
+    expect(component.state._isOpened).toBeTruthy()
+
+    Simulate.click(overlayDom)
+
+    process.nextTick(() => {
+      expect(onClose).not.toBeCalled()
+      expect(component.state._isOpened).toBeTruthy()
     })
   })
 })

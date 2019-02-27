@@ -1,123 +1,133 @@
-/* eslint-disable react/no-string-refs */
 import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
+import { uuid, isTest } from '../../common/utils'
 import AtComponent from '../../common/component'
-import './index.scss'
+
+const ENV = Taro.getEnv()
 
 export default class AtTabs extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: '',
-    tabDirection: 'horizontal',
-    height: '',
-    current: 0,
-    swipeable: true,
-    scroll: false,
-    animated: true,
-    tabList: [],
-    onClick: () => { }
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    height: PropTypes.string,
-    tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
-    current: PropTypes.number,
-    swipeable: PropTypes.bool,
-    scroll: PropTypes.bool,
-    animated: PropTypes.bool,
-    tabList: PropTypes.array,
-    onClick: PropTypes.func
-  }
-
   constructor () {
     super(...arguments)
     this.state = {
-      scrollLeft: 0,
-      scrollTop: 0,
-      scrollIntoView: ''
+      _scrollLeft: '',
+      _scrollTop: '',
+      _scrollIntoView: ''
     }
+    this._tabId = isTest() ? 'tabs-AOTU2018' : uuid()
     // 触摸时的原点
-    this.touchDot = 0
+    this._touchDot = 0
     // 定时器
-    this.interval = null
+    this._timer = null
     // 滑动时间间隔
-    this.time = 0
+    this._interval = 0
     // 是否已经在滑动
-    this.isMoving = false
-    // 最大索引
-    this.maxIndex = this.props.tabList.length
+    this._isMoving = false
   }
 
-  handleClick (i) {
-    if (this.props.scroll && i >= 1) {
+  updateState = idx => {
+    if (this.props.scroll) {
       // 标签栏滚动
-      const env = Taro.getEnv()
-      if (env === Taro.ENV_TYPE.WEAPP) {
-        // 小程序环境
-        this.setState({
-          scrollIntoView: `tab${i - 1}`
-        })
-      } else if (env === Taro.ENV_TYPE.WEB) {
-        // web环境
-        const prevTabItem = this.refs.refTabHeader.vnode.dom.childNodes[i - 1]
-        this.setState({
-          scrollTop: prevTabItem.offsetTop,
-          scrollLeft: prevTabItem.offsetLeft
-        })
+      switch (ENV) {
+        case Taro.ENV_TYPE.WEAPP:
+        case Taro.ENV_TYPE.ALIPAY:
+        case Taro.ENV_TYPE.SWAN:
+          this.setState({
+            _scrollIntoView: `tab${idx - 1}`
+          })
+          break
+
+        case Taro.ENV_TYPE.WEB: {
+          const index = Math.max(idx - 1, 0)
+          const prevTabItem = this.tabHeaderRef.childNodes[index]
+          this.setState({
+            _scrollTop: prevTabItem.offsetTop,
+            _scrollLeft: prevTabItem.offsetLeft
+          })
+          break
+        }
+
+        default:
+          console.warn('AtTab 组件在该环境还未适配')
+          break
       }
     }
-    this.props.onClick(i, ...arguments)
+  }
+
+  handleClick () {
+    this.props.onClick(...arguments)
   }
 
   handleTouchStart (e) {
-    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
-
+    const { swipeable, tabDirection } = this.props
+    if (!swipeable || tabDirection === 'vertical') return
     // 获取触摸时的原点
-    this.touchDot = e.touches[0].pageX
+    this._touchDot = e.touches[0].pageX
     // 使用js计时器记录时间
-    this.interval = setInterval(() => {
-      this.time++
+    this._timer = setInterval(() => {
+      this._interval++
     }, 100)
   }
 
   handleTouchMove (e) {
-    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
+    const {
+      swipeable,
+      tabDirection,
+      current,
+      tabList
+    } = this.props
+    if (!swipeable || tabDirection === 'vertical') return
 
-    const { current } = this.props
     const touchMove = e.touches[0].pageX
-    const moveDistance = touchMove - this.touchDot
+    const moveDistance = touchMove - this._touchDot
+    const maxIndex = tabList.length
 
-    if (!this.isMoving && this.time < 10) {
+    if (!this._isMoving && this._interval < 10) {
       // 向左滑动
-      if (current + 1 < this.maxIndex && moveDistance <= -40) {
-        this.isMoving = true
+      if (current + 1 < maxIndex && moveDistance <= -40) {
+        this._isMoving = true
         this.handleClick(current + 1)
 
       // 向右滑动
       } else if (current - 1 >= 0 && moveDistance >= 40) {
-        this.isMoving = true
+        this._isMoving = true
         this.handleClick(current - 1)
       }
     }
   }
 
   handleTouchEnd () {
-    if (!this.props.swipeable || this.props.tabDirection === 'vertical') return
+    const { swipeable, tabDirection } = this.props
+    if (!swipeable || tabDirection === 'vertical') return
 
-    clearInterval(this.interval)
-    this.time = 0
-    this.isMoving = false
+    clearInterval(this._timer)
+    this._interval = 0
+    this._isMoving = false
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.scroll !== this.props.scroll) {
+      this.getTabHeaderRef()
+    }
+    if (nextProps.current !== this.props.current) {
+      this.updateState(nextProps.current)
+    }
+  }
+
+  getTabHeaderRef () {
+    if (ENV === Taro.ENV_TYPE.WEB) {
+      this.tabHeaderRef = document.getElementById(this._tabId)
+    }
+  }
+
+  componentDidMount () {
+    this.getTabHeaderRef()
+    this.updateState(this.props.current)
+  }
+
+  componentWillUnmount () {
+    this.tabHeaderRef = null
   }
 
   render () {
@@ -132,9 +142,9 @@ export default class AtTabs extends AtComponent {
       current
     } = this.props
     const {
-      scrollLeft,
-      scrollTop,
-      scrollIntoView
+      _scrollLeft,
+      _scrollTop,
+      _scrollIntoView
     } = this.state
 
     const heightStyle = { height }
@@ -143,72 +153,66 @@ export default class AtTabs extends AtComponent {
       width: tabDirection === 'horizontal' ? `${tabList.length * 100}%` : '1PX'
     }
     const bodyStyle = { }
+    let transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
     if (tabDirection === 'horizontal') {
-      const transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
-      bodyStyle.transform = transformStyle
-      bodyStyle['-webkit-transform'] = transformStyle
-    } else {
-      const transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
-      bodyStyle.transform = transformStyle
-      bodyStyle['-webkit-transform'] = transformStyle
+      transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
     }
+    Object.assign(bodyStyle, {
+      'transform': transformStyle,
+      '-webkit-transform': transformStyle
+    })
     if (!animated) {
       bodyStyle.transition = 'unset'
     }
 
-    const tabItems = tabList.map((item, i) => (
-      <View
-        className={
-          classNames({
-            'at-tabs__item': true,
-            'at-tabs__item--active': current === i
-          })
-        }
-        id={`tab${i}`}
+    const tabItems = tabList.map((item, idx) => {
+      const itemCls = classNames({
+        'at-tabs__item': true,
+        'at-tabs__item--active': current === idx
+      })
+
+      return <View
+        className={itemCls}
+        id={`tab${idx}`}
         key={item.title}
-        onClick={this.handleClick.bind(this, i)}
+        onClick={this.handleClick.bind(this, idx)}
       >
         {item.title}
-      </View>)
-    )
+        <View className='at-tabs__item-underline'></View>
+      </View>
+    })
+    const rootCls = classNames({
+      'at-tabs': true,
+      'at-tabs--scroll': scroll,
+      [`at-tabs--${tabDirection}`]: true,
+      [`at-tabs--${ENV}`]: true
+    }, className)
+    const scrollX = tabDirection === 'horizontal'
+    const scrollY = tabDirection === 'vertical'
 
     return (
       <View
-        className={
-          classNames({
-            'at-tabs': true,
-            'at-tabs--vertical': tabDirection === 'vertical',
-          }, className)
-        }
+        className={rootCls}
         style={this.mergeStyle(heightStyle, customStyle)}
       >
         {
           scroll
             ? <ScrollView
-              className={
-                classNames({
-                  'at-tabs__header': true,
-                  'at-tabs__header--scroll': scroll
-                })
-              }
+              id={this._tabId}
+              className='at-tabs__header'
               style={heightStyle}
-              scrollX={tabDirection === 'horizontal'}
-              scrollY={tabDirection === 'vertical'}
+              scrollX={scrollX}
+              scrollY={scrollY}
               scrollWithAnimation
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-              scrollIntoView={scrollIntoView}
-              ref='refTabHeader'
+              scrollLeft={_scrollLeft}
+              scrollTop={_scrollTop}
+              scrollIntoView={_scrollIntoView}
             >
               {tabItems}
             </ScrollView>
             : <View
-              className={
-                classNames({
-                  'at-tabs__header': true,
-                  'at-tabs__header--scroll': scroll
-                })
-              }
+              id={this._tabId}
+              className='at-tabs__header'
             >
               {tabItems}
             </View>
@@ -226,4 +230,38 @@ export default class AtTabs extends AtComponent {
       </View>
     )
   }
+}
+
+AtTabs.defaultProps = {
+  isTest: false,
+  customStyle: '',
+  className: '',
+  tabDirection: 'horizontal',
+  height: '',
+  current: 0,
+  swipeable: true,
+  scroll: false,
+  animated: true,
+  tabList: [],
+  onClick: () => {},
+}
+
+AtTabs.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  isTest: PropTypes.bool,
+  height: PropTypes.string,
+  tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
+  current: PropTypes.number,
+  swipeable: PropTypes.bool,
+  scroll: PropTypes.bool,
+  animated: PropTypes.bool,
+  tabList: PropTypes.array,
+  onClick: PropTypes.func,
 }

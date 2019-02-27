@@ -17,29 +17,9 @@ class Docs extends Nerv.Component {
     }
   }
 
-  componentDidMount () {
-    window.addEventListener('scroll', () => {
-      const iframeDom = document.getElementById('J-demo-frame')
-      const offsetTop = window.scrollY || 0
-      const isFixed = this.state.fixed
-
-      if (offsetTop > 180 && !isFixed) {
-        this.setState({
-          fixed: true
-        })
-      } else if (offsetTop <= 180 && isFixed) {
-        this.setState({
-          fixed: false
-        })
-      }
-    })
-  }
-
   componentWillReceiveProps (nextProps) {
-    const locationChanged = nextProps.location.pathname !== this.props.location.pathname
-
-    if (locationChanged) {
-      window.scrollTo(0, 0)
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.refs.atMarkdown.scrollTo(0, 0)
     }
   }
 
@@ -59,7 +39,7 @@ class Docs extends Nerv.Component {
           <div className='at-sidebar col-sm-24 col-md-6 col-lg-4'>
             <Sidebar data={data} />
           </div>
-          <div className='at-markdown col-sm-24 col-md-18 col-lg-20' style={ `${curDemoPath ? 'padding-right: 420px' : '' }` }>
+          <div ref='atMarkdown' className={`at-markdown col-sm-24 col-md-18 col-lg-20 ${curDemoPath ? 'at-markdown--demo' : ''}`}>
           {
             curDemoPath &&
             <div className='qrcode-menu' style='right: 420px'>
@@ -123,7 +103,7 @@ class Docs extends Nerv.Component {
             }
           </div>
         </div>
-        <PageFooter></PageFooter>
+        {/* <PageFooter></PageFooter> */}
       </div>
     )
   }

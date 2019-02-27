@@ -14,6 +14,14 @@ import { AtDrawer } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/drawer.scss";
+```
+:::
+
 ## 用法
 
 :::demo
@@ -38,6 +46,22 @@ import { AtDrawer } from 'taro-ui'
   onClose={this.onClose.bind(this)} 
   items={['菜单1', '菜单2']}
 ></AtDrawer>
+```
+:::
+
+## 自定义内容
+
+:::demo
+```html
+<AtDrawer
+  show={this.state.show}
+  mask
+>
+  <View className='drawer-item'>优先展示items里的数据</View>
+  <View className='drawer-item'>如果items没有数据就会展示children</View>
+  <View className='drawer-item'>这是自定义内容 <AtIcon value='home' size='20' /></View>
+  <View className='drawer-item'>这是自定义内容</View>
+</AtDrawer>
 ```
 :::
 

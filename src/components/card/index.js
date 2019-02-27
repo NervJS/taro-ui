@@ -1,13 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtCard extends AtComponent {
   handleClick = (...args) => {
@@ -17,7 +14,7 @@ export default class AtCard extends AtComponent {
   }
 
   render () {
-    const { title, note, extra, thumb, isFull } = this.props
+    const { title, note, extra, thumb, isFull, icon } = this.props
 
     const rootClass = classNames(
       'at-card',
@@ -26,29 +23,52 @@ export default class AtCard extends AtComponent {
       },
       this.props.className
     )
+    const iconClass = classNames({
+      'at-icon': true,
+      [`at-icon-${icon && icon.value}`]: icon && icon.value,
+      'at-card__header-icon': true,
+    })
+
+    const iconStyle = {
+      color: (icon && icon.color) || '',
+      fontSize: (icon && `${icon.size}px`) || '',
+    }
 
     return (
       <View onClick={this.handleClick} className={rootClass}>
-        <View className='at-card-header'>
+        <View className='at-card__header'>
           {thumb && (
-            <View className='at-card-header__thumb'>
+            <View className='at-card__header-thumb'>
               <Image
-                className='at-card-header__thumb-info'
+                className='at-card__header-thumb-info'
                 mode='scaleToFill'
                 src={thumb}
               />
             </View>
           )}
-          <Text className='at-card-header__title'>{title}</Text>
-          {extra && <Text className='at-card-header__extra'>{extra}</Text>}
+          {!thumb && icon && icon.value && (
+            <Text className={iconClass} style={iconStyle}></Text>
+          )}
+          <Text className='at-card__header-title'>{title}</Text>
+          {extra && <Text className='at-card__header-extra'>{extra}</Text>}
         </View>
-        <View className='at-card-content'>
-          <View className='at-card-content__info'>{this.props.children}</View>
-          {note && <View className='at-card-content__note'>{note}</View>}
+        <View className='at-card__content'>
+          <View className='at-card__content-info'>{this.props.children}</View>
+          {note && <View className='at-card__content-note'>{note}</View>}
         </View>
       </View>
     )
   }
+}
+
+AtCard.defaultProps = {
+  note: '',
+  isFull: false,
+  thumb: '',
+  title: '',
+  extra: '',
+  icon: {},
+  onClick () {},
 }
 
 AtCard.propTypes = {
@@ -57,5 +77,15 @@ AtCard.propTypes = {
   thumb: PropTypes.string,
   title: PropTypes.string,
   extra: PropTypes.string,
-  onClick: PropTypes.func
+  icon: PropTypes.object,
+  onClick: PropTypes.func,
+}
+
+AtCard.defaultProps = {
+  note: '',
+  isFull: false,
+  thumb: '',
+  title: '',
+  extra: '',
+  onClick: () => {},
 }

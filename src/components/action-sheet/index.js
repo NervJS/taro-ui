@@ -1,6 +1,5 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
@@ -8,10 +7,7 @@ import _isFunction from 'lodash/isFunction'
 import AtActionSheetBody from './body/index'
 import AtActionSheetHeader from './header/index'
 import AtActionSheetFooter from './footer/index'
-
 import AtComponent from '../../common/component'
-
-import './index.scss'
 
 export default class AtActionSheet extends AtComponent {
   constructor (props) {
@@ -19,7 +15,6 @@ export default class AtActionSheet extends AtComponent {
     const { isOpened } = props
 
     this.state = {
-      isIPhoneX: false,
       _isOpened: isOpened
     }
   }
@@ -32,17 +27,6 @@ export default class AtActionSheet extends AtComponent {
       })
 
       !isOpened && this.handleClose()
-    }
-  }
-
-  componentDidMount () {
-    const curEnv = Taro.getEnv()
-
-    if (
-      curEnv === Taro.ENV_TYPE.WEAPP &&
-      Taro.getSystemInfoSync().model.indexOf('iPhone X') >= 0
-    ) {
-      this.setState({ isIPhoneX: true })
     }
   }
 
@@ -70,17 +54,17 @@ export default class AtActionSheet extends AtComponent {
 
   handleTouchMove = e => {
     e.stopPropagation()
+    e.preventDefault()
   }
 
   render () {
     const { title, cancelText, className } = this.props
-    const { _isOpened, isIPhoneX } = this.state
+    const { _isOpened } = this.state
 
     const rootClass = classNames(
       'at-action-sheet',
       {
         'at-action-sheet--active': _isOpened,
-        'at-action-sheet--ipx': isIPhoneX
       },
       className
     )
@@ -103,7 +87,9 @@ export default class AtActionSheet extends AtComponent {
 }
 
 AtActionSheet.defaultProps = {
-  isOpened: false
+  title: '',
+  cancelText: '',
+  isOpened: false,
 }
 
 AtActionSheet.propTypes = {
@@ -111,5 +97,5 @@ AtActionSheet.propTypes = {
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
   isOpened: PropTypes.bool,
-  cancelText: PropTypes.string
+  cancelText: PropTypes.string,
 }

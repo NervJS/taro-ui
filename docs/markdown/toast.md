@@ -2,18 +2,24 @@
 
 ---
 
-提供一个简单的 `Toast`，可以传入 `icon` `image` 来展示不同的效果，另外提供日常使用频繁的三种状态来快速实现效果，页面层级为`1090`
+提供一个简单的 `Toast`，可以传入 `icon`、`image` 来展示不同的效果，另外提供日常使用频繁的三种状态来快速实现效果，页面层级为`1090`
 
 ## 使用指南
 
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtToast } from "taro-ui"
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/toast.scss";
+```
 :::
 
 ## 一般用法
@@ -21,13 +27,7 @@ import { AtToast } from "taro-ui"
 :::demo
 
 ```html
-<AtToast
-  isOpened
-  text={text}
-  iconSize={iconSize}
-  iconType={iconType}
-  iconColor={iconColor}
-  isHiddenIcon={isHiddenIcon}></AtToast>
+<AtToast isOpened text="{text}" icon="{icon}"></AtToast>
 ```
 
 :::

@@ -9,11 +9,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtList, AtListItem } from "taro-ui"
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/list.scss";
+```
 :::
 
 ## 一般用法
@@ -84,28 +90,11 @@ import { AtList, AtListItem } from "taro-ui"
 :::demo
 
 ```html
- <AtList>
-  <AtListItem
-    title='标题文字'
-    note='描述信息'
-    arrow='right'
-    iconInfo={{
-      size: 25,
-      color: '#78A4FA',
-      value: 'calendar',
-    }}
-  />
-  <AtListItem
-    title='标题文字'
-    note='描述信息'
-    extraText='详细信息'
-    arrow='right'
-    iconInfo={{
-      size: 25,
-      color: '#FF4949',
-      value: 'bookmark',
-    }}
-  />
+<AtList>
+  <AtListItem title='标题文字' note='描述信息' arrow='right' iconInfo={{ size:
+  25, color: '#78A4FA', value: 'calendar', }} /> <AtListItem title='标题文字'
+  note='描述信息' extraText='详细信息' arrow='right' iconInfo={{ size: 25,
+  color: '#FF4949', value: 'bookmark', }} />
 </AtList>
 ```
 
@@ -168,6 +157,7 @@ import { AtList, AtListItem } from "taro-ui"
 | extraText     | 额外信息的文本   | String                                                               | -                      | -       |
 | extraThumb    | 额外信息的缩略图 | String                                                               | -                      | -       |
 | isSwitch      | 额外信息是否开关 | Boolean                                                              | -                      | `false` |
+| switchColor   | 开关的颜色       | String                                                               | -                      | `#6190E8` |
 | switchIsCheck | 额外信息开关的值 | Boolean                                                              | -                      | `false` |
 | hasBorder     | 是否有边框       | Boolean                                                              | -                      | `true`  |
 | iconInfo      | icon 信息        | {'{ value , size? , color?, prefixClass?,className?,customStyle? }'} | -                      | `true`  |

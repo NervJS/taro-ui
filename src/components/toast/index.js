@@ -1,16 +1,10 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../icon/index'
 import AtComponent from '../../common/component'
-
 import statusImg from './img.json'
-
-import './index.scss'
 
 export default class AtToast extends AtComponent {
   constructor (props) {
@@ -93,23 +87,27 @@ export default class AtToast extends AtComponent {
 
   render () {
     const { _isOpened } = this.state
-    const { text, icon, status, image, hasMask } = this.props
+    const { customStyle, text, icon, status, image, hasMask } = this.props
 
     const realImg = image || statusImg[status] || null
     const isRenderIcon = !!(icon && !(image || statusImg[status]))
 
     const bodyClass = classNames('toast-body', {
-      'at-toast-body--custom-image': image,
+      'at-toast__body--custom-image': image,
       'toast-body--text': !realImg && !icon,
-      [`at-toast-body--${status}`]: !!status
+      [`at-toast__body--${status}`]: !!status
+    })
+
+    const iconClass = classNames('at-icon', {
+      [`at-icon-${icon}`]: icon
     })
 
     return _isOpened ? (
       <View className={classNames('at-toast', this.props.className)}>
-        {hasMask && <View className='at-toast-overlay' />}
-        <View className={bodyClass} onClick={this.handleClick}>
+        {hasMask && <View className='at-toast__overlay' />}
+        <View className={bodyClass} style={customStyle} onClick={this.handleClick}>
           <View className='toast-body-content'>
-            {realImg && (
+            {realImg ? (
               <View className='toast-body-content__img'>
                 <Image
                   className='toast-body-content__img-item'
@@ -117,10 +115,10 @@ export default class AtToast extends AtComponent {
                   mode='scaleToFill'
                 />
               </View>
-            )}
+            ) : null}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
-                <AtIcon value={icon} color='white' size='50' />
+                <Text className={iconClass} />
               </View>
             )}
             {text && (
@@ -144,10 +142,10 @@ AtToast.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string,
   hasMask: PropTypes.bool,
-  onClick: PropTypes.func,
-  onClose: PropTypes.func,
   image: PropTypes.string,
   isOpened: PropTypes.bool,
   duration: PropTypes.number,
-  status: PropTypes.oneOf(['', 'error', 'loading', 'success'])
+  status: PropTypes.oneOf(['', 'error', 'loading', 'success']),
+  onClick: PropTypes.func,
+  onClose: PropTypes.func
 }

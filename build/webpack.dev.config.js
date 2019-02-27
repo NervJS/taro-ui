@@ -7,6 +7,7 @@ const { getProjectRoot } = require('./util')
 const projectRoot = getProjectRoot()
 
 module.exports = {
+  mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.resolve(projectRoot, conf.output),

@@ -5,21 +5,27 @@
 
 ## 使用指南
 
-Taro-UI 版本需要在 `v1.4.0` 以上，在 Taro 文件中引入组件
+Taro-UI 版本需要在 `v1.4.1` 以上，在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtMessage } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/message.scss";
+```
 :::
 
 ## 一般用法
 
 说明
 
-* 必须在页面引入 `<AtMessage />`，使用 `Taro.atMessage` 函数进行调用传参数，参数 `options` 为 `Object` 类型，见下表
+* 必须在页面引入 `<AtMessage />`，使用 `Taro.atMessage` 函数进行调用传参数，参数 `Options` 为 `Object` 类型，见下表
 
 :::demo
 
@@ -59,10 +65,10 @@ export default class LoadMorePage extends Taro.Component {
 
 :::
 
-## Taro.atMessage options 字段说明
+## Taro.atMessage Options 字段说明
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
 | message | 文本消息内容 | String  | - | - |
-| type | 消息类型 | String  | info，success，error，warning | info |
+| type | 消息类型 | String  | info，success，error，warning | - |
 | duration | 消息持续时间,单位 ms  | Number  | - | 3000 |

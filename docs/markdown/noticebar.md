@@ -14,6 +14,14 @@ import { AtNoticebar } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/noticebar.scss";
+```
+:::
+
 ## 一般用法
 
 :::demo
@@ -50,8 +58,8 @@ import { AtNoticebar } from 'taro-ui'
 | single   | 内容是否单行                      | Boolean | -              | false    |
 | marquee  | 内容是否滚动（内容只能单行）      | Boolean | -              | false    |
 | speed    | 内容滚动速度 （默认速度100px/秒） | Number  | -              | 100      |
+| showMore  | “查看更多”是否显示（内容只能单行）      | Boolean | -              | false    |
 | moreText | “查看更多”链接文本                | String  | -              | 查看详情 |
-| moreUrl  | “查看更多”链接地址                | String  | -              | -        |
 | icon     | 内容前的icon图标                  | String  | 参考`icon`组件 | -        |
 
 

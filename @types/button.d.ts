@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -20,7 +20,7 @@ export interface AtButtonProps extends AtComponent{
 
   customStyle?: object | string
 
-  onClick?: (event: BaseEventFunction) => void
+  onClick?: CommonEventFunction
 
   // start Button props
   formType?: 'submit' | 'reset'
@@ -32,11 +32,11 @@ export interface AtButtonProps extends AtComponent{
   sendMessageImg?: string,
   showMessageCard?: boolean,
   appParameter?: string,
-  onGetUserInfo?: (event: BaseEventFunction) => void,
-  onContact?: (event: BaseEventFunction) => void,
-  onGetPhoneNumber?: (event: BaseEventFunction) => void,
-  onError?: (event: BaseEventFunction) => void,
-  onOpenSetting?: (event: BaseEventFunction) => void,
+  onGetUserInfo?: CommonEventFunction
+  onContact?: CommonEventFunction
+  onGetPhoneNumber?: CommonEventFunction
+  onError?: CommonEventFunction
+  onOpenSetting?: CommonEventFunction
   // end Button props
 }
 

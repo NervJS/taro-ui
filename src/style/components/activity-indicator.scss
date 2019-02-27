@@ -1,0 +1,29 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-activity-indicator {
+  @include display-flex();
+
+  line-height: $line-height-base;
+
+  /* elements */
+  &__body {
+    @include flex(0, 0, auto);
+
+    line-height: 0;
+  }
+
+  &__content {
+    @include flex(0, 0, auto);
+    @include align-self(center);
+
+    margin-left: $spacing-h-lg;
+    color: $at-activity-indicator-font-color;
+    font-size: $at-activity-indicator-font-size;
+  }
+
+  /* modifiers */
+  &--center {
+    @include absolute-center;
+  }
+}

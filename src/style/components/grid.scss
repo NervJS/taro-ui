@@ -1,0 +1,125 @@
+@import "../variables/default.scss";
+@import "../mixins/index.scss";
+
+.at-grid {
+  /* elements */
+  &__flex-item {
+    @include hairline-surround();
+
+    &::after {
+      border-top: none;
+      border-left: none;
+    }
+  }
+
+  &__flex {
+    @include display-flex;
+
+    &:last-child {
+      .at-grid__flex-item::after {
+        border-bottom: none;
+      }
+    }
+
+    .content-inner {
+      &__text {
+        flex: 0 0 auto;
+        margin-top: 12px;
+        color: $at-grid-text-color;
+        font-size: $at-grid-font-size;
+        line-height: $line-height-zh;
+        text-align: center;
+        @include line(2);
+      }
+
+      &__icon {
+        flex: 0 0 auto;
+        line-height: 1;
+      }
+
+      &__img {
+        width: $at-grid-img-size;
+        height: $at-grid-img-size;
+      }
+    }
+
+    .at-grid-item {
+      @include flex(1);
+
+      display: block;
+      position: relative;
+
+      &__content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        &-inner {
+          @include display-flex;
+          @include align-items(center);
+          @include justify-content(center);
+          @include active;
+
+          height: 100%;
+          flex-direction: column;
+          overflow: hidden;
+        }
+      }
+
+      &--last {
+        &::after {
+          border-right: none;
+        }
+      }
+
+      &--rect {
+        &::before {
+          display: block;
+          content: " ";
+          padding-bottom: 130px;
+        }
+
+        .at-grid-item__content-inner {
+          flex-direction: row;
+
+          &__text {
+            margin-top: initial;
+          }
+
+          .content-inner__img {
+            width: $at-gird-img-size-sm;
+            height: $at-gird-img-size-sm;
+          }
+        }
+
+        .content-inner {
+          &__text {
+            margin-left: 12px;
+            margin-top: initial;
+            text-align: left;
+          }
+        }
+      }
+
+      &--square {
+        &::before {
+          display: block;
+          content: " ";
+          padding-bottom: 100%;
+        }
+      }
+
+      &--no-border {
+        &::after {
+          border: none;
+        }
+      }
+
+      &--active {
+        background-color: $color-grey-6;
+      }
+    }
+  }
+}

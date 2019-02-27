@@ -4,9 +4,7 @@ import { View, Button, Form } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtLoading from '../loading/index'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 const SIZE_CLASS = {
   normal: 'normal',
@@ -22,7 +20,9 @@ export default class AtButton extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
     }
   }
 
@@ -53,17 +53,21 @@ export default class AtButton extends AtComponent {
   }
 
   onSumit () {
-    this.$scope.triggerEvent('submit', arguments[0].detail, {
-      bubbles: true,
-      composed: true,
-    })
+    if (this.state.isWEAPP) {
+      this.$scope.triggerEvent('submit', arguments[0].detail, {
+        bubbles: true,
+        composed: true,
+      })
+    }
   }
 
   onReset () {
-    this.$scope.triggerEvent('reset', arguments[0].detail, {
-      bubbles: true,
-      composed: true,
-    })
+    if (this.state.isWEAPP) {
+      this.$scope.triggerEvent('reset', arguments[0].detail, {
+        bubbles: true,
+        composed: true,
+      })
+    }
   }
 
   render () {
@@ -75,7 +79,6 @@ export default class AtButton extends AtComponent {
       loading,
       disabled,
       customStyle,
-
       formType,
       openType,
       lang,
@@ -88,6 +91,7 @@ export default class AtButton extends AtComponent {
     } = this.props
     const {
       isWEAPP,
+      isALIPAY,
     } = this.state
     const rootClassName = ['at-button']
     const classObject = {
@@ -97,36 +101,38 @@ export default class AtButton extends AtComponent {
       'at-button--circle': circle,
       'at-button--full': full,
     }
-    const loadingColor = type === 'primary' ? '#fff' : '#6190E8'
-    const loadingSize = size === 'small' ? '16' : '18'
+    const loadingColor = type === 'primary' ? '#fff' : ''
+    const loadingSize = size === 'small' ? '30' : 0
     let component
     if (loading) {
       component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>
       rootClassName.push('at-button--icon')
     }
+    const button = <Button className='at-button__wxbutton'
+      formType={formType}
+      openType={openType}
+      lang={lang}
+      sessionFrom={sessionFrom}
+      sendMessageTitle={sendMessageTitle}
+      sendMessagePath={sendMessagePath}
+      sendMessageImg={sendMessageImg}
+      showMessageCard={showMessageCard}
+      appParameter={appParameter}
+      onGetUserInfo={this.onGetUserInfo.bind(this)}
+      onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
+      onOpenSetting={this.onOpenSetting.bind(this)}
+      onError={this.onError.bind(this)}
+      onContact={this.onContact.bind(this)}
+    >
+    </Button>
     return (
       <View
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}><Button className='at-button__wxbutton'
-          formType={formType}
-          openType={openType}
-          lang={lang}
-          sessionFrom={sessionFrom}
-          sendMessageTitle={sendMessageTitle}
-          sendMessagePath={sendMessagePath}
-          sendMessageImg={sendMessageImg}
-          showMessageCard={showMessageCard}
-          appParameter={appParameter}
-          onGetUserInfo={this.onGetUserInfo.bind(this)}
-          onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
-          onOpenSetting={this.onOpenSetting.bind(this)}
-          onError={this.onError.bind(this)}
-          onContact={this.onContact.bind(this)}
-        >
-        </Button></Form>}
+        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
+        {isALIPAY && !disabled && button}
         {component}<View className='at-button__text'>{this.props.children}</View>
       </View>
     )
@@ -168,7 +174,6 @@ AtButton.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-
   formType: PropTypes.oneOf(['submit', 'reset', '']),
   openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo', '']),
   lang: PropTypes.string,

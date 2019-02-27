@@ -8,11 +8,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtTabBar } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/tab-bar.scss";
+```
 :::
 
 ## 一般用法
@@ -147,7 +153,7 @@ export default class Index extends Taro.Component {
 | fontSize | 字体大小 | Number  | - | 14 |
 | tabList | tab 列表, object 字段说明请看下表 | Array  | - | false |
 
-## tabList object字段详解
+## tabList object 字段详解
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   | 可选或必填
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |-------- |

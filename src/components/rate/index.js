@@ -1,50 +1,23 @@
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import AtIcon from '../../components/icon/index'
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtRate extends AtComponent {
-  static defaultProps = {
-    isTest: false,
-    customStyle: '',
-    className: '',
-    size: 20,
-    value: 0,
-    max: 5,
-    margin: 5,
-    onChange: () => { }
+  constructor () {
+    super(...arguments)
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
   }
 
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-    size: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    value: PropTypes.number,
-    max: PropTypes.number,
-    margin: PropTypes.number,
-    onChange: PropTypes.func
-  }
-
-  handleClick (i) {
-    this.props.onChange(i + 1, ...arguments)
+  handleClick () {
+    this.props.onChange(...arguments)
   }
 
   render () {
     const {
-      isTest,
       customStyle,
       className,
       value,
@@ -53,12 +26,13 @@ export default class AtRate extends AtComponent {
       margin
     } = this.props
 
-    if (isTest) {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
     const iconStyle = {
       marginRight: Taro.pxTransform(margin)
     }
+    const starIconStyle = {
+      fontSize: size ? `${size}px` : '',
+    }
+
     // 生成星星颜色 className 数组，方便在jsx中直接map
     const classNameArr = []
     const floorValue = Math.floor(value)
@@ -83,15 +57,45 @@ export default class AtRate extends AtComponent {
             className={cls}
             key={i}
             style={iconStyle}
-            onClick={this.handleClick.bind(this, i)}
+            onClick={this.handleClick.bind(this, i + 1)}
           >
-            <AtIcon value='star-2' size={size} />
+            <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
             <View className='at-rate__left'>
-              <AtIcon value='star-2' size={size} />
+              <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
             </View>
           </View>)
         }
       </View>
     )
   }
+}
+
+AtRate.defaultProps = {
+  isTest: false,
+  customStyle: '',
+  className: '',
+  size: 0,
+  value: 0,
+  max: 5,
+  margin: 5,
+  onChange: () => {},
+}
+
+AtRate.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  value: PropTypes.number,
+  max: PropTypes.number,
+  margin: PropTypes.number,
+  onChange: PropTypes.func,
 }

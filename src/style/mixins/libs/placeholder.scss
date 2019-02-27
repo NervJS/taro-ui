@@ -1,14 +1,12 @@
-@import "../../theme/default";
-
 /**
  * 设置placeholder 颜色
  */
-@mixin placeholder {
+@mixin placeholder($color: $color-grey-3) {
   @at-root .placeholder {
-    color: $color-grey-3;
+    color: $color;
   }
 
   &::placeholder {
-    color: $color-grey-3;
+    color: $color;
   }
 }

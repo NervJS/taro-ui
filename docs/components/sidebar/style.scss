@@ -5,10 +5,12 @@
   margin: 32px 0;
   padding: 0;
   // max-width: 264px;
+  height: calc(100% - 64px);
   color: #3f536e;
   background-color: #fff;
   border-right: 1px solid $grey-100;
   z-index: 99;
+  overflow: auto;
 }
 
 /**

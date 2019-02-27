@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
 import Index from './pages/index/index'
-
 import './app.scss'
 
 class App extends Component {
@@ -37,6 +36,7 @@ class App extends Component {
       'pages/navigation/tabbar/index',
       'pages/navigation/segmented-control/index',
       'pages/navigation/navbar/index',
+      'pages/navigation/indexes/index',
       'pages/layout/flex/index',
       'pages/layout/grid/index',
       'pages/layout/float-layout/index',
@@ -53,7 +53,11 @@ class App extends Component {
       'pages/form/picker/index',
       'pages/form/picker-view/index',
       'pages/form/slider/index',
-      'pages/form/search-bar/index'
+      'pages/form/search-bar/index',
+      'pages/form/image-picker/index',
+      'pages/form/range/index',
+      'pages/advanced/calendar/index',
+      'pages/theme/index'
     ],
     window: {
       backgroundTextStyle: 'light',

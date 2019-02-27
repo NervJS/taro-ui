@@ -1,0 +1,32 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-pagination {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 $at-pagination-margin;
+
+  &__btn-prev,
+  &__btn-next {
+    font-size: 0;
+
+    .at-icon {
+      color: $at-pagination-icon-color;
+      font-size: $at-pagination-icon-font-size;
+    }
+  }
+
+  &__number {
+    flex: 1;
+    color: $at-pagination-num-color;
+    font-size: $at-pagination-num-font-size;
+    text-align: center;
+    overflow: hidden;
+
+    &-current {
+      color: $at-pagination-current-num-color;
+    }
+  }
+}

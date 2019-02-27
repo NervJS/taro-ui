@@ -8,11 +8,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtForm } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/form.scss";
+```
 :::
 
 ## 一般用法
@@ -70,7 +76,6 @@ export default class Index extends Taro.Component {
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| style | 样式 | String or Object  | - | - |
 | reportSubmit | 是否返回 formId 用于发送模板消息  | Boolean  | - | false |
 
 

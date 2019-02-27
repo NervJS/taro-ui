@@ -1,0 +1,59 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-tag-border-size: 1PX;
+
+.at-tag {
+  display: inline-block;
+  padding: 0 $spacing-h-xl;
+  height: $at-tag-height;
+  color: $at-tag-color;
+  font-size: $at-tag-font-size;
+  text-align: center;
+  line-height: $at-tag-height - 2px;
+  vertical-align: middle;
+  border: $at-tag-border-size solid $at-tag-border-color;
+  border-radius: $border-radius-md;
+  background-color: $at-tag-bg-color;
+  box-sizing: border-box;
+
+  /* modifiers */
+  &--primary {
+    color: $at-tag-color-primary;
+    border-color: $at-tag-border-color-primary;
+    background-color: $at-tag-bg-color-primary;
+  }
+
+  &--active {
+    color: $at-tag-color-active;
+    border-color: $at-tag-border-color-active;
+    background-color: $at-tag-bg-color-active;
+
+    &.at-tag--primary {
+      color: $at-tag-color-primary-active;
+      border-color: $at-tag-border-color-active;
+      background-color: $at-tag-bg-color-primary-active;
+    }
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--circle {
+    border-radius: $at-tag-height / 2;
+    background-clip: border-box;
+    overflow: hidden;
+  }
+
+  &--small {
+    padding: 0 $spacing-h-md;
+    height: $at-tag-height-sm;
+    font-size: $at-tag-font-size-sm;
+    line-height: $at-tag-height-sm - 2px;
+
+    &.at-tag--circle {
+      border-radius: $at-tag-height-sm / 2;
+    }
+  }
+}

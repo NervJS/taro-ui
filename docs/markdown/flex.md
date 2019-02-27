@@ -6,20 +6,16 @@
 
 ## 使用指南
 
-由于小程序的限制 `Flex` 组件只能通过样式来完成，需要在 `app.js` 上添加以下这段代码
+如果已经全局引入了 `taro-ui` 的样式文件，则无需再次引入
 
-> 由于 `app.js` 添加的样式文件 在小程序上只能影响 `page` 样式,不能影响 `component` 的样式，所以在 `component` 的时候你可能需要再次引入
+> 由于 `app.js` 添加的样式文件 在小程序上只能影响 `page` 样式,不能影响 `component` 的样式，所以在使用自定义组件时，你可能需要再次引入
+
+**组件依赖的样式文件（仅按需引用时需要）**
 
 :::demo
-
-```js
-if (process.env.TARO_ENV === "weapp") {
-  require("taro-ui/dist/weapp/css/index.css")
-} else if (process.env.TARO_ENV === "h5") {
-  require("taro-ui/dist/h5/css/index.css")
-}
+```scss
+@import "~taro-ui/dist/style/components/flex.scss";
 ```
-
 :::
 
 ## 一般用法

@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtCard from '../../../components/card/index'
+import { AtCard } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class CardPage extends Taro.Component {
@@ -39,6 +37,20 @@ export default class CardPage extends Taro.Component {
                 <AtCard
                   title='这是个标题'
                   thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+                >
+                  这也是内容区 可以随意定义功能
+                </AtCard>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>带图标的卡片</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtCard
+                  title='这是个标题'
+                  icon={{ value: 'tags', color: '#77a1fd' }}
                 >
                   这也是内容区 可以随意定义功能
                 </AtCard>

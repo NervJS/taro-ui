@@ -1,7 +1,8 @@
 import { ComponentClass } from 'react'
-import { InterfaceType } from 'typescript'
+import { Props } from '../src/components/calendar/interface'
 
 export { default as AtActionSheet } from './action-sheet'
+export { default as AtActionSheetItem } from './action-sheet-item'
 export { default as AtActivityIndicator } from './activity-indicator'
 export { default as AtAvatar } from './avatar'
 export { default as AtBadge } from './badge'
@@ -37,12 +38,18 @@ export { default as AtSwipeAction } from './swipe-action'
 export { default as AtAccordion } from './accordion'
 export { default as AtLoadMore } from './load-more'
 export { default as AtDivider } from './divider'
-export { default as AtCountDown } from './count-down'
+export { default as AtCountdown } from './countdown'
 export { default as AtSteps } from './steps'
 export { default as AtCurtain } from './curtain'
+export { default as AtSlider } from './slider'
+export { AtMessage, message } from './message'
+export { default as AtImagePicker } from './image-picker'
+export { default as AtIndexes } from './indexes'
+export { default as AtRange } from './range'
+
+export declare const AtCalendar: ComponentClass<Props>
 
 export declare const AtModalHeader: ComponentClass
 export declare const AtModalAction: ComponentClass
 export declare const AtModalContent: ComponentClass
 
-export declare const AtActionSheetItem: ComponentClass

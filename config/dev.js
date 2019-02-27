@@ -3,8 +3,7 @@ module.exports = {
   env: {
     NODE_ENV: '"development"'
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   weapp: {
     module: {
       postcss: {
@@ -16,5 +15,11 @@ module.exports = {
       }
     }
   },
-  h5: {}
+  h5: {
+    devServer: {
+      host: '0.0.0.0',
+      disableHostCheck: true,
+      port: 8080
+    }
+  }
 }

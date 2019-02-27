@@ -1,0 +1,99 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-nav-bar-spacing-v: 9PX;
+$at-nav-bar-spacing-h: 5PX;
+$at-nav-bar-font-size: 18PX;
+$at-nav-bar-back-font-size: 16PX;
+
+.at-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $color-bg;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  @include hairline-bottom();
+
+  /* elements */
+  &__left-view {
+    flex: 2;
+    padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+    height: 100%;
+    color: $at-nav-bar-link-color;
+    font-size: $at-nav-bar-font-size;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    @include active;
+
+    .at-icon {
+      font-size: 48px;
+    }
+  }
+
+  &__right-view {
+    flex: 2;
+    height: 100%;
+    color: $at-nav-bar-link-color;
+    text-align: right;
+    overflow: hidden;
+  }
+
+  &__title {
+    flex: 5;
+    color: $at-nav-bar-title-color;
+    font-size: $at-nav-bar-font-size;
+    text-align: center;
+    vertical-align: middle;
+    line-height: $line-height-base;
+    @include line;
+  }
+
+  &__text {
+    display: inline-block;
+    padding-left: $at-nav-bar-spacing-h;
+    height: 100%;
+    font-size: $at-nav-bar-back-font-size;
+    vertical-align: middle;
+    line-height: $line-height-base;
+    @include line;
+  }
+
+  &__container {
+    display: inline-block;
+    padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+    width: 50%;
+    height: 100%;
+    font-size: $at-nav-bar-font-size;
+    text-align: center;
+    box-sizing: border-box;
+    @include active;
+
+    .at-icon {
+      font-size: 48px;
+    }
+
+    &--hide {
+      display: inline-block;
+      visibility: hidden;
+    }
+  }
+
+  /* modifiers */
+  &--no-border {
+    &::after {
+      border-bottom-width: 0;
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-nav;
+  }
+}

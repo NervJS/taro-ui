@@ -1,0 +1,115 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-search-bar-font-size: 14PX;
+$at-search-bar-input-height: 30PX;
+$at-search-bar-input-padding: 25PX;
+$at-search-bar-btn-padding: 10PX;
+$at-search-bar-placeholder-padding: 5PX;
+$at-search-bar-input-bg-color: $color-bg-grey;
+$at-search-bar-input-color: $color-black-0;
+$at-search-bar-placholder-color: $color-grey-2;
+
+.at-search-bar {
+  display: flex;
+  align-items: center;
+  padding: $spacing-v-sm $spacing-v-md;
+  background-color: $color-bg;
+  overflow: hidden;
+  box-sizing: border-box;
+  @include hairline-bottom();
+
+  /* elements */
+  &__input-cnt {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: $at-search-bar-input-height;
+    background-color: $at-search-bar-input-bg-color;
+    border-radius: $at-search-bar-input-height / 2;
+    overflow: hidden;
+  }
+
+  &__placeholder-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $at-search-bar-placeholder-padding;
+    width: 100%;
+    height: $at-search-bar-input-height;
+    line-height: 0;
+    vertical-align: middle;
+    opacity: 1;
+    transition: width 0.3s;
+
+    .at-icon {
+      color: $at-search-bar-placholder-color;
+      font-size: $at-search-bar-font-size;
+    }
+  }
+
+  &__placeholder {
+    margin-left: $at-search-bar-placeholder-padding;
+    color: $at-search-bar-placholder-color;
+    font-size: $at-search-bar-font-size;
+  }
+
+  &__input {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $at-search-bar-input-height !important;
+    padding: $at-search-bar-placeholder-padding $at-search-bar-input-padding + $at-search-bar-placeholder-padding;
+    color: $at-search-bar-input-color;
+    font-size: $at-search-bar-font-size !important;
+    text-align: left;
+    background-color: transparent;
+    transition: width 0.3s;
+    box-sizing: border-box;
+  }
+
+  &__clear {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: $at-search-bar-placeholder-padding;
+    height: $at-search-bar-input-height;
+    width: $at-search-bar-input-padding;
+    color: $at-search-bar-placholder-color;
+    font-size: $at-search-bar-font-size;
+    line-height: 0;
+    vertical-align: middle;
+  }
+
+  &__action {
+    flex: none;
+    display: block;
+    margin-left: 10PX;
+    padding: 0 $at-search-bar-btn-padding;
+    height: $at-search-bar-input-height;
+    color: $at-search-bar-btn-color;
+    font-size: $at-search-bar-font-size;
+    line-height: $at-search-bar-input-height;
+    border-radius: 4PX;
+    background-color: $at-search-bar-btn-bg-color;
+    transition: margin-right 0.3s, opacity 0.3s;
+    opacity: 0;
+  }
+
+  /* modifiers */
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-search-bar;
+  }
+}

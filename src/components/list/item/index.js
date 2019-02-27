@@ -1,14 +1,9 @@
 import Taro from '@tarojs/taro'
-import { View, Image, Switch } from '@tarojs/components'
-
+import { View, Image, Switch, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtIcon from '../../icon/index'
 import AtComponent from '../../../common/component'
-
-import './index.scss'
 
 export default class AtListItem extends AtComponent {
   handleClick = (...args) => {
@@ -39,6 +34,7 @@ export default class AtListItem extends AtComponent {
       extraText,
       hasBorder,
       extraThumb,
+      switchColor,
       switchIsCheck
     } = this.props
 
@@ -52,22 +48,17 @@ export default class AtListItem extends AtComponent {
       },
       this.props.className
     )
+    const iconClass = classNames(
+      iconInfo.prefixClass || 'at-icon',
+      {
+        [`${iconInfo.prefixClass || 'at-icon'}-${iconInfo.value}`]: iconInfo.value,
+      },
+      iconInfo.className
+    )
 
     return (
       <View className={rootClass} onClick={this.handleClick}>
         <View className='at-list__item-container'>
-          {iconInfo.value && !thumb ? (
-            <View className='at-list__item--icon'>
-              <AtIcon
-                size={iconInfo.size}
-                value={iconInfo.value}
-                color={iconInfo.color}
-                className={iconInfo.className}
-                customStyle={iconInfo.customStyle}
-                prefixClass={iconInfo.prefixClass}
-              />
-            </View>
-          ) : null}
           {thumb && (
             <View className='at-list__item-thumb item-thumb'>
               <Image
@@ -75,6 +66,19 @@ export default class AtListItem extends AtComponent {
                 mode='scaleToFill'
                 src={thumb}
               />
+            </View>
+          )}
+          {iconInfo.value && (
+            <View className='at-list__item-icon item-icon'>
+              <Text
+                className={iconClass}
+                style={
+                  this.mergeStyle({
+                    color: iconInfo.color || '',
+                    fontSize: `${iconInfo.size || 24}px`,
+                  }, iconInfo.customStyle)
+                }
+              ></Text>
             </View>
           )}
           <View className='at-list__item-content item-content'>
@@ -86,8 +90,7 @@ export default class AtListItem extends AtComponent {
           <View className='at-list__item-extra item-extra'>
             {extraText && <View className='item-extra__info'>{extraText}</View>}
 
-            {extraThumb &&
-              !extraText && (
+            {extraThumb && !extraText && (
               <View className='item-extra__image'>
                 <Image
                   className='item-extra__image-info'
@@ -97,15 +100,13 @@ export default class AtListItem extends AtComponent {
               </View>
             )}
 
-            {isSwitch &&
-              !extraThumb &&
-              !extraText && (
+            {isSwitch && !extraThumb && !extraText && (
               <View
                 className='item-extra__switch'
                 onClick={this.handleSwitchClick}
               >
                 <Switch
-                  color='#6190E8'
+                  color={switchColor}
                   disabled={disabled}
                   checked={switchIsCheck}
                   onChange={this.handleSwitchChange}
@@ -113,11 +114,13 @@ export default class AtListItem extends AtComponent {
               </View>
             )}
 
-            {arrow && (
+            {arrow ? (
               <View className='item-extra__icon'>
-                <AtIcon value={`chevron-${arrow}`} color='#c7c7cc' />
+                <Text
+                  className={`at-icon item-extra__icon-arrow at-icon-chevron-${arrow}`}
+                />
               </View>
-            )}
+            ) : null}
           </View>
         </View>
       </View>
@@ -126,10 +129,19 @@ export default class AtListItem extends AtComponent {
 }
 
 AtListItem.defaultProps = {
-  hasBorder: true,
-  isSwitch: false,
+  note: '',
   disabled: false,
-  iconInfo: {}
+  title: '',
+  thumb: '',
+  isSwitch: false,
+  hasBorder: true,
+  switchColor: '#6190E8',
+  switchIsCheck: false,
+  extraText: '',
+  extraThumb: '',
+  iconInfo: {},
+  onSwitchChange: () => {},
+  onClick: () => {},
 }
 
 AtListItem.propTypes = {
@@ -140,6 +152,7 @@ AtListItem.propTypes = {
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
   hasBorder: PropTypes.bool,
+  switchColor: PropTypes.string,
   switchIsCheck: PropTypes.bool,
   extraText: PropTypes.string,
   extraThumb: PropTypes.string,
@@ -150,13 +163,7 @@ AtListItem.propTypes = {
     value: PropTypes.string,
     color: PropTypes.string,
     prefixClass: PropTypes.string,
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
+    customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
   })
 }

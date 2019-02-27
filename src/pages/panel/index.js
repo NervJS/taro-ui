@@ -7,6 +7,7 @@ import iconAction from '../../assets/images/icon-list-action.png'
 import iconForm from '../../assets/images/icon-list-form.png'
 import iconLayout from '../../assets/images/icon-list-layout.png'
 import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
@@ -43,6 +44,10 @@ export default class PanelBasic extends Component {
         navigation: {
           name: '导航',
           icon: iconNavigation
+        },
+        advanced: {
+          name: '高阶组件',
+          icon: iconHOC
         }
       },
       list: {
@@ -78,7 +83,7 @@ export default class PanelBasic extends Component {
             name: '徽标'
           },
           {
-            id: 'CountDown',
+            id: 'Countdown',
             name: '倒计时'
           },
           {
@@ -188,6 +193,14 @@ export default class PanelBasic extends Component {
           {
             id: 'Search-Bar',
             name: '搜索栏'
+          },
+          {
+            id: 'Image-Picker',
+            name: '图片选择器'
+          },
+          {
+            id: 'Range',
+            name: '范围选择器'
           }
         ],
         layout: [
@@ -240,6 +253,16 @@ export default class PanelBasic extends Component {
           {
             id: 'Drawer',
             name: '抽屉'
+          },
+          {
+            id: 'Indexes',
+            name: '索引选择器'
+          }
+        ],
+        advanced: [
+          {
+            id: 'Calendar',
+            name: '日历'
           }
         ]
       }

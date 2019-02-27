@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard",
   "plugins": ["stylelint-scss"],
   "rules": {
+    "declaration-colon-newline-after": null,
     "at-rule-no-unknown": null,
     "color-hex-case": null,
     "block-closing-brace-newline-after": null,

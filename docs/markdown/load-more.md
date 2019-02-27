@@ -8,11 +8,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtLoadMore } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/load-more.scss";
+```
 :::
 
 ## 一般用法
@@ -63,6 +69,8 @@ export default class LoadMorePage extends Taro.Component {
 
 | 参数 | 说明   | 类型    | 可选值   | 默认值   |
 | ----| ----- | --------| ------- | -------- |
+| noMoreTextStyle | noMore 状态显示文案样式 | String or Object | - | - |
+| moreBtnStyle | more 状态按钮样式 | String or Object  | - | - |
 | status | 组件状态，more 状态显示查看更多按钮，loading 状态显示加载状态，noMore 显示无更多数据 | String  | 'more', 'loading', 'noMore' | 'more' |
 | moreText | more 状态显示文案 | String  | - | '查看更多' |
 | loadingText | loading 状态显示文案 | String  | - | '加载中' |

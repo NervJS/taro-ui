@@ -1,0 +1,68 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-drawer-duration: 300ms;
+
+.at-drawer {
+  position: relative;
+  z-index: $zindex-drawer;
+
+  /* elements */
+  &__mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity $at-drawer-duration $timing-func;
+  }
+
+  &__content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: $at-drawer-content-width;
+    text-align: left;
+    background-color: $color-bg;
+    opacity: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+  }
+
+  /* modifiers */
+  &--left {
+    .at-drawer__content {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  &--right {
+    .at-drawer__content {
+      right: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  &--show {
+    .at-drawer__content {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+}
+
+@keyframes anim-show {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes anim-hide {
+  100% {
+    opacity: 0;
+  }
+}

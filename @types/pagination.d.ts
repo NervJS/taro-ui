@@ -1,5 +1,4 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -11,8 +10,6 @@ export interface AtPaginationProps extends AtComponent{
   pageSize?: number
 
   icon?: boolean
-  
-  pickerSelect?: boolean
 
   className?: string | Array<string>
 

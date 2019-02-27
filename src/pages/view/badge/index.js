@@ -1,10 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtBadge from '../../../components/badge/index'
-import AtButton from '../../../components/button/index'
+import { AtBadge, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class BadgePage extends Taro.Component {
@@ -18,7 +15,7 @@ export default class BadgePage extends Taro.Component {
 
     }
   }
-  /** eslint-disable */
+
   render () {
     const dot = '···'
 

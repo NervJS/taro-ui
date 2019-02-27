@@ -48,4 +48,14 @@ describe('AtLoadMore Snap', () => {
     const component = renderToString(<AtLoadMore noMoreText='noMoreText' status='noMore' />)
     expect(component).toMatchSnapshot()
   })
+
+  it('render AtLoadMore -- props noMoreTextStyle', () => {
+    const component = renderToString(<AtLoadMore noMoreTextStyle='color:red' />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtLoadMore -- props moreBtnStyle', () => {
+    const component = renderToString(<AtLoadMore moreBtnStyle='color:red' />)
+    expect(component).toMatchSnapshot()
+  })
 })

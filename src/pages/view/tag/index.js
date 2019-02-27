@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtTag from '../../../components/tag/index'
+import { AtTag } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class TagPage extends Taro.Component {
@@ -20,19 +18,81 @@ export default class TagPage extends Taro.Component {
         { name: 'tag-3', active: true },
         { name: 'tag-4', active: true }
       ],
+      hollowTagList: [
+        { name: '标签1', active: false },
+        { name: '标签2', active: false },
+        { name: '标签3', active: true },
+        { name: '标签4', active: true }
+      ],
+      solidTagList: [
+        { name: '标签1', active: false },
+        { name: '标签2', active: false },
+        { name: '标签3', active: true },
+        { name: '标签4', active: true }
+      ],
+      hollowTagList2: [
+        { name: '标签1', active: false },
+        { name: '标签2', active: false },
+        { name: '标签3', active: true },
+        { name: '标签4', active: true }
+      ],
+      solidTagList2: [
+        { name: '标签1', active: false },
+        { name: '标签2', active: false },
+        { name: '标签3', active: true },
+        { name: '标签4', active: true }
+      ],
     }
   }
 
   onClick (data) {
     const { tagList } = this.state
-    const findIndex = this.state.tagList.findIndex(item => item.name === data.name)
+    const findIndex = tagList.findIndex(item => item.name === data.name)
     const active = !tagList[findIndex].active
-    tagList[findIndex].active = active
     const content = `您点击的 tag 标签名是：${data.name}，点击前是否选中：${data.active}，点击后：${active}`
+
+    tagList[findIndex].active = active
     this.setState({ tagList })
-    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) Taro.showModal({ content, showCancel: false })
-    else if (Taro.getEnv() === Taro.ENV_TYPE.WEB) alert(content)
+
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      alert(content)
+    } else {
+      Taro.showModal({ content, showCancel: false })
+    }
+
     console.log(data)
+  }
+
+  handleHollowClick (data) {
+    const { hollowTagList } = this.state
+    const findIndex = hollowTagList.findIndex(item => item.name === data.name)
+
+    hollowTagList[findIndex].active = !hollowTagList[findIndex].active
+    this.setState({ hollowTagList })
+  }
+
+  handleSolidClick (data) {
+    const { solidTagList } = this.state
+    const findIndex = solidTagList.findIndex(item => item.name === data.name)
+
+    solidTagList[findIndex].active = !solidTagList[findIndex].active
+    this.setState({ solidTagList })
+  }
+
+  handleHollowSmallClick (data) {
+    const { hollowTagList2 } = this.state
+    const findIndex = hollowTagList2.findIndex(item => item.name === data.name)
+
+    hollowTagList2[findIndex].active = !hollowTagList2[findIndex].active
+    this.setState({ hollowTagList2 })
+  }
+
+  handleSolidSmallClick (data) {
+    const { solidTagList2 } = this.state
+    const findIndex = solidTagList2.findIndex(item => item.name === data.name)
+
+    solidTagList2[findIndex].active = !solidTagList2[findIndex].active
+    this.setState({ solidTagList2 })
   }
 
   render () {
@@ -49,18 +109,16 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>空心标签</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='subitem'>
-                  <AtTag circle>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag circle active>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag active>标签</AtTag>
-                </View>
+                {this.state.hollowTagList.map((item, index) => (
+                  <View className='subitem' key={index}>
+                    <AtTag
+                      name={item.name}
+                      active={item.active}
+                      circle={index % 2 === 0}
+                      onClick={this.handleHollowClick.bind(this)}
+                    >标签</AtTag>
+                  </View>
+                ))}
               </View>
             </View>
           </View>
@@ -70,18 +128,17 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>实心标签</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='subitem'>
-                  <AtTag type='primary' circle>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag type='primary'>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag type='primary' circle active>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag type='primary' active>标签</AtTag>
-                </View>
+                {this.state.solidTagList.map((item, index) => (
+                  <View className='subitem' key={index}>
+                    <AtTag
+                      type='primary'
+                      name={item.name}
+                      active={item.active}
+                      circle={index % 2 === 0}
+                      onClick={this.handleSolidClick.bind(this)}
+                    >标签</AtTag>
+                  </View>
+                ))}
               </View>
             </View>
           </View>
@@ -117,18 +174,17 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>空心标签（小）</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='subitem'>
-                  <AtTag size='small' circle>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small'>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small' circle active>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small' active>标签</AtTag>
-                </View>
+                {this.state.hollowTagList2.map((item, index) => (
+                  <View className='subitem' key={index}>
+                    <AtTag
+                      size='small'
+                      name={item.name}
+                      active={item.active}
+                      circle={index % 2 === 0}
+                      onClick={this.handleHollowSmallClick.bind(this)}
+                    >标签</AtTag>
+                  </View>
+                ))}
               </View>
             </View>
           </View>
@@ -138,18 +194,18 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>实心标签（小）</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='subitem'>
-                  <AtTag size='small' type='primary' circle>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small' type='primary'>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small' type='primary' circle active>标签</AtTag>
-                </View>
-                <View className='subitem'>
-                  <AtTag size='small' type='primary' active>标签</AtTag>
-                </View>
+                {this.state.solidTagList2.map((item, index) => (
+                  <View className='subitem' key={index}>
+                    <AtTag
+                      size='small'
+                      type='primary'
+                      name={item.name}
+                      active={item.active}
+                      circle={index % 2 === 0}
+                      onClick={this.handleSolidSmallClick.bind(this)}
+                    >标签</AtTag>
+                  </View>
+                ))}
               </View>
             </View>
           </View>

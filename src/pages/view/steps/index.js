@@ -1,8 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtSteps from '../../../components/steps/index'
+import { AtSteps } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class TimelinePage extends Taro.Component {
@@ -29,26 +28,26 @@ export default class TimelinePage extends Taro.Component {
 
   render () {
     const items1 = [
-      { 'title': '步骤一' },
-      { 'title': '步骤二' }
+      { title: '步骤一' },
+      { title: '步骤二' }
     ]
     const items2 = [
-      { 'title': '步骤一' },
-      { 'title': '步骤二' },
-      { 'title': '步骤三' }
+      { title: '步骤一' },
+      { title: '步骤二' },
+      { title: '步骤三' }
     ]
 
     const items3 = [
-      { 'title': '步骤一', 'desc': '这里是额外的信息，最多两行' },
-      { 'title': '步骤二', 'desc': '这里是额外的信息，最多两行' },
-      { 'title': '步骤三', 'desc': '这里是额外的信息，最多两行' }
+      { title: '步骤一', desc: '这里是额外的信息，最多两行' },
+      { title: '步骤二', desc: '这里是额外的信息，最多两行' },
+      { title: '步骤三', desc: '这里是额外的信息，最多两行' }
     ]
 
     const items4 = [
       {
-        'title': '步骤一',
-        'desc': '这里是额外的信息，最多两行',
-        'icon': {
+        title: '步骤一',
+        desc: '这里是额外的信息，最多两行',
+        icon: {
           value: 'sound',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
@@ -56,9 +55,9 @@ export default class TimelinePage extends Taro.Component {
         }
       },
       {
-        'title': '步骤二',
-        'desc': '这里是额外的信息，最多两行',
-        'icon': {
+        title: '步骤二',
+        desc: '这里是额外的信息，最多两行',
+        icon: {
           value: 'shopping-cart',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
@@ -66,9 +65,9 @@ export default class TimelinePage extends Taro.Component {
         }
       },
       {
-        'title': '步骤三',
-        'desc': '这里是额外的信息，最多两行',
-        'icon': {
+        title: '步骤三',
+        desc: '这里是额外的信息，最多两行',
+        icon: {
           value: 'camera',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
@@ -79,18 +78,18 @@ export default class TimelinePage extends Taro.Component {
 
     const items5 = [
       {
-        'title': '步骤一',
-        'desc': '这里是额外的信息，最多两行',
-        'success': true
+        title: '步骤一',
+        desc: '这里是额外的信息，最多两行',
+        status: 'success'
       },
       {
-        'title': '步骤二',
-        'desc': '这里是额外的信息，最多两行'
+        title: '步骤二',
+        desc: '这里是额外的信息，最多两行'
       },
       {
-        'title': '步骤三',
-        'desc': '这里是额外的信息，最多两行',
-        'error': true
+        title: '步骤三',
+        desc: '这里是额外的信息，最多两行',
+        status: 'error'
       }
     ]
 

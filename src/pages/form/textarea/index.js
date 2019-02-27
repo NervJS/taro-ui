@@ -1,7 +1,6 @@
-/* eslint-disable react/no-direct-mutation-state */
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtTextarea from '../../../components/textarea/index'
+import { AtTextarea } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -42,7 +41,7 @@ export default class Index extends Taro.Component {
                 <AtTextarea
                   value={this.state.value1}
                   onChange={this.handleChange.bind(this, 'value1')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -56,7 +55,7 @@ export default class Index extends Taro.Component {
                   count={false}
                   value={this.state.value2}
                   onChange={this.handleChange.bind(this, 'value2')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -70,7 +69,7 @@ export default class Index extends Taro.Component {
                   textOverflowForbidden={false}
                   value={this.state.value3}
                   onChange={this.handleChange.bind(this, 'value3')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>
@@ -84,7 +83,7 @@ export default class Index extends Taro.Component {
                   height='300'
                   value={this.state.value4}
                   onChange={this.handleChange.bind(this, 'value4')}
-                  maxlength='200'
+                  maxLength={200}
                   placeholder='你的问题是...'
                 />
               </View>

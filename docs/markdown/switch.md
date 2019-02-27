@@ -8,18 +8,24 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtForm, AtSwitch } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/switch.scss";
+```
 :::
 
 ## 一般用法
 
 说明：
 
-* 该组件为非受控组件，开发者只能通过 checked 来初始化组件开关状态，后续开关状态开发者无法控制，切换开关时会触发 onChange 函数
+* 该组件为受控组件，开发者能通过 checked 来初始化组件开关状态，切换开关时会触发 onChange 函数
 
 :::demo
 
@@ -27,14 +33,22 @@ import { AtForm, AtSwitch } from 'taro-ui'
 import Taro from '@tarojs/taro'
 import { AtForm, AtSwitch }  from 'taro-ui'
 export default class Index extends Taro.Component {
-  handleChange (value) {
-    console.log(value)
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: false
+    }
   }
+
+  handleChange = value => {
+    this.setState({ value })
+  }
+
   render () {
     return (
       <AtForm>
-        <AtSwitch title='开启中' checked onChange={this.handleChange.bind(this)} />
-        <AtSwitch title='已禁止' disabled onChange={this.handleChange.bind(this)} />
+        <AtSwitch title='开启中' checked={this.state.value} onChange={this.handleChange} />
+        <AtSwitch title='已禁止' disabled onChange={this.handleChange} />
         <AtSwitch border={false} title='已关闭' />
       </AtForm>
     )

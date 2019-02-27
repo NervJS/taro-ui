@@ -1,9 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtLoadMore from '../../../components/load-more/index'
+import { AtLoadMore } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class LoadMorePage extends Taro.Component {

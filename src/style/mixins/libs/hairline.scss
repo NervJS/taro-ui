@@ -1,6 +1,6 @@
-@import "../../theme/default";
-
-// 默认主题下 $color-border-light
+/**
+ * 默认主题下 $color-border-light
+ */
 
 @mixin hairline-common() {
   content: '';
@@ -137,7 +137,7 @@
 ) {
   position: relative;
 
-  &::after {
+  &::before {
     @include hairline-common();
 
     top: 0;

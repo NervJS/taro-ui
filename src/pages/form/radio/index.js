@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import AtRadio from '../../../components/radio/index'
+import { AtRadio } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 

@@ -1,13 +1,11 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEvent } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-declare type FormFunction = (event: BaseEvent) => void
+declare type FormFunction = (event: CommonEvent) => void
 
 import AtComponent from './base'
 
 export interface AtFormProps extends AtComponent{
-  style?: string
-
   reportSubmit?: boolean
 
   onSubmit?: FormFunction

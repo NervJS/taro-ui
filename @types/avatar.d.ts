@@ -1,5 +1,4 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -8,6 +7,8 @@ export interface AtAvatarProps extends AtComponent{
 
   circle?: boolean
 
+  text?: string
+  
   image?: string
 
   openData?: object

@@ -14,6 +14,14 @@ import { AtTimeline } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/timeline.scss";
+```
+:::
+
 ## 用法
 
 :::demo
@@ -97,7 +105,12 @@ import { AtTimeline } from 'taro-ui'
 |:-------------|:----------------------------------------|:----------------|:-----------------|:-------|
 | pending      | 最后一项是否为未完成态                  | Boolean         | -                | false  |
 | items        | 需展示的内容。数组对象参数参考下文 item | Array Of Object | -                | []     |
-| item.title   | 标题                                    | String          | 必填             | -      |
-| item.content | 子项内容                                | Array           | -                | []     |
-| item.icon    | 自定义icon                              | String          | 参考`icon`组件   | -      |
-| item.color   | icon颜色                                | String          | green/red/yellow | blue   |
+
+## items object 字段详解
+
+| 参数         | 说明                                    | 类型            | 可选值           | 默认值 |
+|:-------------|:----------------------------------------|:----------------|:-----------------|:-------|
+| title   | 标题                                    | String          | 必填             | -      |
+| content | 子项内容                                | Array           | -                | []     |
+| icon    | 自定义icon                              | String          | 参考`icon`组件   | -      |
+| color   | icon颜色                                | String          | green/red/yellow | blue   |

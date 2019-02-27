@@ -9,11 +9,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtTabs, AtTabsPane } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/tabs.scss";
+```
 :::
 
 ## 一般用法
@@ -21,6 +27,8 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
 说明：
 
 * 该用法适合等宽标签，标签数不建议超过4个，超过4个建议使用**滚动标签栏**，增加 `scroll` 参数(见下)。
+
+* 请勿在 AtTab 组件内嵌套 `position:fixed` 布局的组件，比如：curtain,message,toast,action-sheet,modal,float-layout,drawer,picker。
 
 * 开发者需要通过 `onClick` 事件来改变 `current` 的值切换 tab
 

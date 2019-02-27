@@ -1,0 +1,53 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-indexes {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &__content {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    overflow: hidden;
+    transform: translate3d(0, -50%, 0);
+    z-index: $zindex-indexes;
+  }
+
+  &__menu-item {
+    padding: 2px $spacing-h-sm;
+    color: $at-indexes-nav-color;
+    font-size: $at-indexes-nav-font-size;
+    text-align: center;
+  }
+
+  &__body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &__list {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__list-title {
+    padding: $spacing-h-sm $spacing-v-lg;
+    width: 100%;
+    color: $at-indexes-title-color;
+    font-size: $at-indexes-title-font-size;
+    background-color: $at-indexes-title-bg-color;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}

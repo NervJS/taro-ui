@@ -8,11 +8,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtNavBar } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/nav-bar.scss";
+```
 :::
 
 ## 一般用法
@@ -38,7 +44,7 @@ import { AtNavBar } from 'taro-ui'
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| color | 链接文字跟图标颜色，不包括标题 | Number  | - | `#6190E8` |
+| color | 链接文字跟图标颜色，不包括标题 | String  | - | `#6190E8` |
 | fixed | 是否固定顶部  | Boolean | - | false |
 | border | 是否显示下划线(v1.4.0 新增)  | Boolean | - | true |
 | leftIconType  | 左边图标类型，图标类型请看`AtIcon`文档  | String | - | 'chevron-left' |

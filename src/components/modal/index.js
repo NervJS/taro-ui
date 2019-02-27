@@ -3,14 +3,14 @@ import { View, Button, Text } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 import _isFunction from 'lodash/isFunction'
 
 import AtModalHeader from './header/index'
 import AtModalAction from './action/index'
 import AtModalContent from './content/index'
 import AtComponent from '../../common/component'
-
-import './index.scss'
+import { handleTouchScroll } from '../../common/utils'
 
 export default class AtModal extends AtComponent {
   constructor (props) {
@@ -24,6 +24,11 @@ export default class AtModal extends AtComponent {
 
   componentWillReceiveProps (nextProps) {
     const { isOpened } = nextProps
+
+    if (this.props.isOpened !== isOpened) {
+      handleTouchScroll(isOpened)
+    }
+
     if (isOpened !== this.state._isOpened) {
       this.setState({
         _isOpened: isOpened
@@ -31,13 +36,15 @@ export default class AtModal extends AtComponent {
     }
   }
 
-  close = () => {
-    this.setState(
-      {
-        _isOpened: false
-      },
-      this.handleClose
-    )
+  handleClickOverlay = () => {
+    if (this.props.closeOnClickOverlay) {
+      this.setState(
+        {
+          _isOpened: false
+        },
+        this.handleClose
+      )
+    }
   }
 
   handleClose = () => {
@@ -77,8 +84,11 @@ export default class AtModal extends AtComponent {
     if (title || content) {
       const isRenderAction = cancelText || confirmText
       return (
-        <View className={rootClass} onTouchMove={this.handleTouchMove}>
-          <View onClick={this.close} className='at-modal__overlay' />
+        <View className={rootClass}>
+          <View
+            onClick={this.handleClickOverlay}
+            className='at-modal__overlay'
+          />
           <View className='at-modal__container'>
             {title && (
               <AtModalHeader>
@@ -109,11 +119,15 @@ export default class AtModal extends AtComponent {
 
     return (
       <View onTouchMove={this.handleTouchMove} className={rootClass}>
-        <View className='at-modal__overlay' onClick={this.close} />
+        <View className='at-modal__overlay' onClick={this.handleClickOverlay} />
         <View className='at-modal__container'>{this.props.children}</View>
       </View>
     )
   }
+}
+
+AtModal.defaultProps = {
+  closeOnClickOverlay: true
 }
 
 AtModal.propTypes = {
@@ -121,7 +135,9 @@ AtModal.propTypes = {
   isOpened: PropTypes.bool,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
+  onClose: PropTypes.func,
   content: PropTypes.string,
+  closeOnClickOverlay: PropTypes.bool,
   cancelText: PropTypes.string,
   confirmText: PropTypes.string
 }

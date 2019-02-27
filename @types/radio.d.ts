@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { BaseEventFunction, BaseEvent } from '@tarojs/components/types/common'
+import { CommonEvent } from "@tarojs/components/types/common";
 
 import AtComponent from './base'
 
@@ -11,13 +11,11 @@ export interface Option<T> {
 }
 
 export interface AtRadioProps<T> {
-  style?: string
-
   value: T
 
   options: Array<Option<T>>
 
-  onClick: (vaule: T, event: BaseEvent) => void
+  onClick: (vaule: T, event: CommonEvent) => void
 }
 
 declare const AtRadio: ComponentClass<AtRadioProps<any>>

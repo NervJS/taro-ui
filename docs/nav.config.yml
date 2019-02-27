@@ -30,7 +30,7 @@ components:
           - title: 徽标
             name: Badge
           - title: 倒计时
-            name: CountDown
+            name: Countdown
           - title: 幕帘
             name: Curtain
           - title: 页面提示
@@ -87,6 +87,10 @@ components:
             name: SearchBar
           - title: 滑动条
             name: Slider
+          - title: 图片选择器
+            name: ImagePicker
+          - title: 范围选择器
+            name: Range
       - title: 布局组件
         items:
           - title: 弹性布局
@@ -115,4 +119,9 @@ components:
             name: Pagination
           - title: 抽屉
             name: Drawer
-
+          - title: 索引选择器
+            name: Indexes
+      - title: 高阶组件
+        items:
+          - title: 日历
+            name: Calendar

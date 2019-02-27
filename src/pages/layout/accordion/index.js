@@ -1,11 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-
-import AtAccordion from '../../../components/accordion/index'
-import AtList from '../../../components/list/index'
-import AtListItem from '../../../components/list/item/index'
+import { AtAccordion, AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class CardPage extends Taro.Component {
@@ -13,11 +9,24 @@ export default class CardPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  onClick (e) {
-    console.log(e)
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value1: false,
+      value2: true,
+      value3: false
+    }
+  }
+
+  onClick (stateName, value) {
+    this.setState({
+      [stateName]: value
+    })
   }
 
   render () {
+    const { value1, value2, value3 } = this.state
+
     return (
       <View className='page'>
         <DocsHeader title='Accordion 手风琴' />
@@ -27,8 +36,9 @@ export default class CardPage extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  onClick={this.onClick.bind(this)}
+                  onClick={this.onClick.bind(this, 'value1')}
                   title='标题一'
+                  open={value1}
                 >
                   <AtList hasBorder={false}>
                     <AtListItem
@@ -38,16 +48,15 @@ export default class CardPage extends Taro.Component {
                     <AtListItem
                       title='标题文字'
                       note='描述信息'
-                      thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-                    />
-                    <AtListItem
-                      title='标题文字'
-                      note='描述信息'
                       thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
                     />
                   </AtList>
                 </AtAccordion>
-                <AtAccordion open title='默认开启'>
+                <AtAccordion
+                  open={value2}
+                  title='默认开启'
+                  onClick={this.onClick.bind(this, 'value2')}
+                >
                   <AtList hasBorder={false}>
                     <AtListItem
                       title='标题文字'
@@ -74,7 +83,12 @@ export default class CardPage extends Taro.Component {
             <View className='panel__title'>配置图标</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtAccordion title='标题三' icon={{ value: 'tags', color: '#77a1fd' }}>
+                <AtAccordion
+                  title='标题三'
+                  open={value3}
+                  icon={{ value: 'tags', color: '#77a1fd' }}
+                  onClick={this.onClick.bind(this, 'value3')}
+                >
                   <AtList hasBorder={false}>
                     <AtListItem
                       title='标题文字'

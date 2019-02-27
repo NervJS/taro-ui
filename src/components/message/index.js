@@ -2,51 +2,52 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
-
 import AtComponent from '../../common/component'
-import './index.scss'
 
 export default class AtMessage extends AtComponent {
-  static defaultProps = {
-    customStyle: '',
-    className: ''
-  }
-
-  static propTypes = {
-    customStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.string
-    ]),
-    className: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.string
-    ]),
-  }
-
   constructor () {
     super(...arguments)
     this.state = {
-      isOpened: false,
-      message: '',
-      type: 'info',
-      duration: 3000,
+      _isOpened: false,
+      _message: '',
+      _type: 'info',
+      _duration: 3000,
     }
     this._timer = null
   }
 
-  componentDidMount () {
+  bindMessageListener () {
     Taro.eventCenter.on('atMessage', (options = {}) => {
-      options.isOpened = true
-      this.setState(options)
-      clearTimeout(this._timer)
-      this._timer = setTimeout(() => {
-        this.setState({
-          isOpened: false
-        })
-      }, this.state.duration)
+      const { message, type, duration } = options
+      const newState = {
+        _isOpened: true,
+        _message: message,
+        _type: type,
+        _duration: duration || this.state._duration
+      }
+      this.setState(newState, () => {
+        clearTimeout(this._timer)
+        this._timer = setTimeout(() => {
+          this.setState({
+            _isOpened: false
+          })
+        }, this.state._duration)
+      })
     })
-    // 给 Taro 绑定全局消息事件
+    // 绑定函数
     Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
+  }
+
+  componentDidShow () {
+    this.bindMessageListener()
+  }
+
+  componentDidMount () {
+    this.bindMessageListener()
+  }
+
+  componentDidHide () {
+    Taro.eventCenter.off('atMessage')
   }
 
   componentWillUnmount () {
@@ -58,25 +59,35 @@ export default class AtMessage extends AtComponent {
       className,
       customStyle,
     } = this.props
-
     const {
-      message,
-      isOpened,
-      type,
+      _message,
+      _isOpened,
+      _type,
     } = this.state
+    const rootCls = classNames({
+      'at-message': true,
+      'at-message--show': _isOpened,
+      'at-message--hidden': !_isOpened
+    }, `at-message--${_type}`, className)
 
-    return (
-      <View
-        className={
-          classNames({
-            'at-message': true,
-            'at-message--show': isOpened,
-            'at-message--hidden': !isOpened
-          }, `at-message--${type}`, className)}
-        style={customStyle}
-      >
-        {message}
-      </View>
-    )
+    return <View className={rootCls} style={customStyle}>
+      {_message}
+    </View>
   }
+}
+
+AtMessage.defaultProps = {
+  customStyle: '',
+  className: '',
+}
+
+AtMessage.propTypes = {
+  customStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  className: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
 }

@@ -14,22 +14,30 @@ import { AtPagination } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/pagination.scss";
+```
+:::
+
 ## 用法
 
 :::demo
 ```html
 <AtPagination 
-  total='50' 
-  pageSize='10' 
-  current='1'
+  total={50} 
+  pageSize={10}
+  current={1}
 >
 </AtPagination>
 
 <AtPagination 
   icon 
-  total='50' 
-  pageSize='10' 
-  current='1'
+  total={50} 
+  pageSize={10}
+  current={1}
 >
 </AtPagination>
 ```
@@ -43,7 +51,6 @@ import { AtPagination } from 'taro-ui'
 | total        | 数据总量                         | Number  | -      | 0      |
 | pageSize     | 每页数据量                       | Number  | -      | 20     |
 | icon         | 是否以 icon 形式展示按钮         | Boolean | -      | false  |
-| pickerSelect | 点击页码处是否出现picker快速选择 | Boolean | -      | false  |
 
 ## Pagination 事件
 

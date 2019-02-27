@@ -1,15 +1,17 @@
 import Taro from '@tarojs/taro'
 import { View, Form } from '@tarojs/components'
-
-import AtButton from '../../../components/button/index'
-// import AtForm from '../../../components/form/index'
+import { AtButton, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 export default class ButtonPage extends Taro.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
+  }
+
+  state = {
+    isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+    isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
   }
 
   onButtonClick () {
@@ -36,7 +38,7 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onReset () {
-    Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
+    Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail || '无数据')}`, showCancel: false })
   }
 
   onGetUserInfo () {
@@ -44,6 +46,8 @@ export default class ButtonPage extends Taro.Component {
   }
 
   render () {
+    const { isWEAPP, isALIPAY } = this.state
+
     return (
       <View className='page'>
         {/* S Header */}
@@ -198,15 +202,15 @@ export default class ButtonPage extends Taro.Component {
             </View>
           </View>
 
-          {/* 小程序 button 属性（仅部分支持） */}
-          <View className='panel'>
-            <View className='panel__title'>小程序 button 属性</View>
+          {/* 微信小程序 button 属性（仅部分支持） */}
+          {isWEAPP && <View className='panel'>
+            <View className='panel__title'>微信小程序 button 属性</View>
             <View className='panel__content'>
               <View className='btn-item'>
-                <AtButton openType='share' type='primary' onClick={this.onButtonClick.bind(this, '打开分享（仅小程序版支持）')}>分享</AtButton>
+                <AtButton openType='share' type='primary'>分享</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' openType='contact' onClick={this.onButtonClick.bind(this, '打开客服（仅小程序版支持）')} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+                <AtButton type='secondary' openType='contact' onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
               </View>
 
               <View className='btn-item'>
@@ -220,7 +224,25 @@ export default class ButtonPage extends Taro.Component {
                 </Form>
               </View>
             </View>
-          </View>
+          </View>}
+
+          {/* 支付宝小程序 button 属性（仅部分支持） */}
+          {isALIPAY && <View className='panel'>
+            <View className='panel__title'>支付宝小程序 button 属性</View>
+            <View className='panel__content demo-button'>
+              <View className='btn-item'>
+                <AtButton openType='share' type='primary'>分享</AtButton>
+              </View>
+              <AtForm onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
+                <View className='btn-item'>
+                  <AtButton formType='submit' type='primary'>form submit</AtButton>
+                </View>
+                <View className='btn-item'>
+                  <AtButton formType='reset' type='primary'>form reset</AtButton>
+                </View>
+              </AtForm>
+            </View>
+          </View>}
         </View>
         {/* E Body */}
       </View>

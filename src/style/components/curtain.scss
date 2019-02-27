@@ -1,0 +1,112 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-curtain-btn-size: 56px;
+
+.at-curtain {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color: #000, $alpha: 0.3);
+  z-index: $zindex-curtain;
+
+  /* elements */
+  &__container {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    opacity: 1;
+  }
+
+  &__body {
+    position: relative;
+    width: 100%;
+  }
+
+  &__btn-close {
+    display: flex;
+    position: absolute;
+    width: $at-curtain-btn-size;
+    height: $at-curtain-btn-size;
+    margin-left: -$at-curtain-btn-size / 2;
+    left: 50%;
+    bottom: -($at-curtain-btn-size + 24px);
+    align-items: center;
+    justify-content: center;
+    border: 2PX solid $at-curtain-btn-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: $zindex-curtain;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 34px;
+      height: 2PX;
+      border-radius: 1PX;
+      background: $at-curtain-btn-color;
+    }
+
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+    }
+
+    &--top {
+      margin-left: -$at-curtain-btn-size / 2;
+      top: -($at-curtain-btn-size + 24px);
+      left: 50%;
+      bottom: auto;
+    }
+
+    &--top-left {
+      top: -($at-curtain-btn-size + 24px);
+      left: 0;
+      bottom: auto;
+    }
+
+    &--top-right {
+      top: -($at-curtain-btn-size + 24px);
+      left: auto;
+      right: 0;
+      bottom: auto;
+    }
+
+    &--bottom {
+      margin-left: -$at-curtain-btn-size / 2;
+      bottom: -($at-curtain-btn-size + 24px);
+      left: 50%;
+    }
+
+    &--bottom-left {
+      bottom: -($at-curtain-btn-size + 24px);
+      left: 0;
+    }
+
+    &--bottom-right {
+      bottom: -($at-curtain-btn-size + 24px);
+      left: auto;
+      right: 0;
+    }
+  }
+
+  /* modifiers */
+  &--closed {
+    visibility: hidden;
+  }
+}

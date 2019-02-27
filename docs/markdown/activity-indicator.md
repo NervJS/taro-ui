@@ -9,11 +9,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtActivityIndicator } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/activity-indicator.scss";
+```
 :::
 
 ## 一般用法
@@ -41,7 +47,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator color=‘#13CE66’></AtActivityIndicator>
+<AtActivityIndicator color='#13CE66'></AtActivityIndicator>
 ```
 
 :::
@@ -51,7 +57,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator content=‘加载中...’></AtActivityIndicator>
+<AtActivityIndicator content='加载中...'></AtActivityIndicator>
 ```
 
 :::
@@ -61,7 +67,7 @@ import { AtActivityIndicator } from 'taro-ui'
 :::demo
 
 ```html
-<AtActivityIndicator mode=‘center’></AtActivityIndicator>
+<AtActivityIndicator mode='center'></AtActivityIndicator>
 ```
 
 :::

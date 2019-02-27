@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AtButton Snap render AtButton -- props circle 1`] = `"<div class=\\"at-button at-button--normal at-button--circle\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props circle 1`] = `"<div class=\\"at-button at-button--normal at-button--circle\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props disabled 1`] = `"<div class=\\"at-button at-button--normal at-button--disabled\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props disabled 1`] = `"<div class=\\"at-button at-button--normal at-button--disabled\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props full 1`] = `"<div class=\\"at-button at-button--normal at-button--full\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props full 1`] = `"<div class=\\"at-button at-button--normal at-button--full\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props loading 1`] = `"<div class=\\"at-button at-button--icon at-button--normal\\">undefined<div class=\\"at-button__icon\\"><div style=\\"width:18px;height:18px;\\" class=\\"at-loading\\"><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:1px solid #6190E8;border-color:#6190E8 transparent transparent transparent;width:18px;height:18px;\\" class=\\"at-loading__ring\\"></div></div></div><div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props loading 1`] = `"<div class=\\"at-button at-button--icon at-button--normal\\">undefinedundefined<div class=\\"at-button__icon\\"><div style=\\"width:;height:;\\" class=\\"at-loading\\"><div style=\\"border:;border-color:;width:;height:;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:;border-color:;width:;height:;\\" class=\\"at-loading__ring\\"></div><div style=\\"border:;border-color:;width:;height:;\\" class=\\"at-loading__ring\\"></div></div></div><div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props size(normal) 1`] = `"<div class=\\"at-button at-button--normal\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props size(normal) 1`] = `"<div class=\\"at-button at-button--normal\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props size(small) 1`] = `"<div class=\\"at-button at-button--small\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props size(small) 1`] = `"<div class=\\"at-button at-button--small\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props type(primary) 1`] = `"<div class=\\"at-button at-button--normal at-button--primary\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props type(primary) 1`] = `"<div class=\\"at-button at-button--normal at-button--primary\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
 
-exports[`AtButton Snap render AtButton -- props type(secondary) 1`] = `"<div class=\\"at-button at-button--normal at-button--secondary\\">undefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;
+exports[`AtButton Snap render AtButton -- props type(secondary) 1`] = `"<div class=\\"at-button at-button--normal at-button--secondary\\">undefinedundefinedundefined<div class=\\"at-button__text\\">按钮</div></div>"`;

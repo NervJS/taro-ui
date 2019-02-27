@@ -1,4 +1,14 @@
+.my-button.at-button {
+  color: red;
+}
+
 .panel__content {
+  &.demo-button {
+    .at-form {
+      padding-left: 0;
+    }
+  }
+
   .btn-item {
     margin-bottom: 20px;
 

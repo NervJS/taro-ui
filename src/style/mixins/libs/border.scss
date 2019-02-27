@@ -1,6 +1,6 @@
-@import "../../theme/default";
-
-// 默认主题下 $color-border-light
+/**
+ * 默认主题下 $color-border-light
+ */
 
 @mixin border-thin(
   $color: $color-border-light,

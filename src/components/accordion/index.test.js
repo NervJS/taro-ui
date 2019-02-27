@@ -6,32 +6,23 @@ import AtAccordion from '../../../.temp/components/accordion'
 
 describe('AtAccordion Snap', () => {
   it('render initial AtAccordion', () => {
-    const component = renderToString(
-      <AtAccordion isTest>
-      </AtAccordion>
-    )
+    const component = renderToString(<AtAccordion />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtAccordion -- props title', () => {
-    const component = renderToString(
-      <AtAccordion isTest title='title'>
-      </AtAccordion>
-    )
+    const component = renderToString(<AtAccordion title='title' />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtAccordion -- props open', () => {
-    const component = renderToString(
-      <AtAccordion isTest open>
-      </AtAccordion>
-    )
+    const component = renderToString(<AtAccordion open />)
     expect(component).toMatchSnapshot()
   })
 
   it('render AtAccordion -- props icon', () => {
     const component = renderToString(
-      <AtAccordion isTest icon={{ value: 'chevron-down', color: 'red' }}>
+      <AtAccordion icon={{ value: 'chevron-down', color: 'red' }}>
         <View></View>
       </AtAccordion>
     )

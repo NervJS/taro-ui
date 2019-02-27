@@ -8,11 +8,17 @@
 Taro-UI 版本需要在 `v1.3.1` 以上，在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtSearchBar } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/search-bar.scss";
+```
 :::
 
 ## 一般用法
@@ -139,7 +145,7 @@ export default class Index extends Taro.Component {
 | ---   | ----  | ---- | ---- | ------- | ------- | ------ |
 | value | √ | √ | 必填，输入框当前值，开发者需要通过 onChange 事件来更新 value 值 | String  | - | - |
 | placeholder | √ | √ |  占位符  | String  | - | - |
-| maxlength | √ | √ | 最大长度 | Number  | -  | 140 |
+| maxLength | √ | √ | 最大长度 | Number  | -  | 140 |
 | fixed | √ | √ | 是否固定顶部 | Boolean  | -  | false |
 | focus | √ | √ | 是否聚焦 | Boolean  | -  | false |
 | disabled | √ | √ | 是否禁止输入 | Boolean  | -  | false |

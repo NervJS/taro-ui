@@ -8,11 +8,17 @@
 在 Taro 文件中引入组件
 
 :::demo
-
 ```js
 import { AtInputNumber } from 'taro-ui'
 ```
+:::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/input-number.scss";
+```
 :::
 
 ## 一般用法
@@ -59,12 +65,13 @@ export default class Index extends Taro.Component {
 
 :::
 
-## 每次点击改变 0.1
+## 小数
 
 :::demo
 
 ```html
 <AtInputNumber
+  type='digit'
   min={0}
   max={10}
   step={0.1}
@@ -113,7 +120,8 @@ export default class Index extends Taro.Component {
 
 | 参数   |  微信小程序 |  h5 | 说明   | 类型    | 可选值 | 默认值   |
 | ---   | ----  | ---- | ---- | ------- | ------- | ------ |
-| value | √ | √ | 输入框当前值，开发者需要通过 onChange 事件来更新 value 值，必填  | Number  | - | 1 |
+| type | √ | √ | 输入框类型，type='digit' 时，h5 无法显示数字输入框，若需要数字输入框建议使用 number (v1.5.1 支持) | String  | `number`、`digit`  | number |
+| value | √ | √ | 输入框当前值，开发者需要通过 onChange 事件来更新 value 值，必填  | Number or String  | - | 1 |
 | width | √ | √ | input 宽度,不包括两侧按钮，单位根据环境转为 `rpx` 或 `rem`  | Number  | - | 120 |
 | min   | √ | √ | 最小值  | Number  | - | 0 |
 | max   | √ | √ | 最大值  | Number | - | 100 |
@@ -125,3 +133,4 @@ export default class Index extends Taro.Component {
 | 事件名称 |  微信小程序 |  h5 | 说明  | 返回参数  |
 |------- |---  |----- |---- | -------- |
 | onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填  | 输入框当前值 value  |
+| onBlur | √ | √ | 输入框值失去焦点时触发的事件 | event |

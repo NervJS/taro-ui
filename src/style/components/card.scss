@@ -1,0 +1,86 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-card {
+  @include border-thin($color: $color-border-light, $width: 1PX);
+
+  margin: 0 $spacing-h-lg;
+  border-radius: $border-radius-lg;
+  background-color: $color-bg;
+
+  /* elements */
+  &__header {
+    @include display-flex;
+    @include align-items(center);
+    @include border-thin-bottom($width: 1PX);
+
+    padding: $spacing-v-md $spacing-h-lg;
+    position: relative;
+
+    &-title,
+    &-extra {
+      @include line;
+
+      line-height: $line-height-zh;
+    }
+
+    &-thumb {
+      @include flex(0, 0, $at-card-thumb-size);
+
+      height: $at-card-thumb-size;
+      display: block;
+      line-height: 0;
+      margin-right: $spacing-h-md;
+
+      &-info {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-icon {
+      margin-right: $spacing-h-md;
+      font-size: $at-card-icon-size;
+    }
+
+    &-title {
+      @include flex(auto);
+
+      display: block;
+      color: $at-card-title-color;
+      font-size: $font-size-lg;
+    }
+
+    &-extra {
+      @include flex(0, 0, auto);
+
+      max-width: 200px;
+      margin-left: $spacing-h-lg;
+      color: $at-card-extra-color;
+      font-size: $font-size-base;
+    }
+  }
+
+  &__content {
+    padding: $spacing-v-lg $spacing-h-lg;
+
+    &-info {
+      color: $at-card-info-color;
+      font-size: $font-size-base;
+    }
+
+    &-note {
+      margin-top: $spacing-v-md;
+      color: $at-card-note-color;
+      font-size: $font-size-sm;
+    }
+  }
+
+  /* modifiers */
+  &--full {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
