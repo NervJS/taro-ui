@@ -24,7 +24,7 @@ export interface AtInputNumberProps extends AtComponent{
 
   onChange: (value: number) => void
 
-  onBlur: CommonEventFunction
+  onBlur?: CommonEventFunction
 }
 
 declare const AtInputNumber: ComponentClass<AtInputNumberProps>
