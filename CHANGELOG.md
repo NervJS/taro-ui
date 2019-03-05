@@ -1,3 +1,20 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/nervjs/taro-ui/compare/v2.0.1...v2.0.2) (2019-03-05)
+
+
+### Bug Fixes
+
+* **input-number:** 改正 d.ts, onBlur 为非必填项 ([2635118](https://github.com/nervjs/taro-ui/commit/2635118))
+* **List:** 修复 extraThumb 不显示的问题 [#418](https://github.com/nervjs/taro-ui/issues/418) ([fb3b7fe](https://github.com/nervjs/taro-ui/commit/fb3b7fe))
+
+
+### Features
+
+* 新增 issue helper ([a047231](https://github.com/nervjs/taro-ui/commit/a047231))
+* 更新 issue template 配置 ([72241ce](https://github.com/nervjs/taro-ui/commit/72241ce))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/nervjs/taro-ui/compare/v2.0.0...v2.0.1) (2019-02-21)
 

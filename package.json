@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "UI KIT for Taro",
   "main": "dist/index.js",
   "main:h5": "dist/h5/index.js",
@@ -28,7 +28,7 @@
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "test": "NODE_ENV=test && jest --coverage",
     "test:ci": "npm run build:h5 && npm run test",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "husky": {
     "hooks": {
