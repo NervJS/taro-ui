@@ -18,6 +18,7 @@ import { AtAccordion } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/accordion.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

@@ -19,6 +19,7 @@ import { AtToast } from "taro-ui"
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/toast.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

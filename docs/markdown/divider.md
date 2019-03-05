@@ -18,6 +18,7 @@ import { AtDivider } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/divider.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

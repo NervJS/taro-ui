@@ -18,6 +18,7 @@ import { AtNavBar } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/nav-bar.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

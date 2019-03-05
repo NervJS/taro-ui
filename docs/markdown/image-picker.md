@@ -18,6 +18,7 @@ import { AtImagePicker } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/image-picker.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

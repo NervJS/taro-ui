@@ -18,6 +18,7 @@ import { AtSteps } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/steps.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

@@ -18,6 +18,7 @@ import { AtRate } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/rate.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

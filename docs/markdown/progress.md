@@ -19,6 +19,7 @@ import { AtProgress } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/progress.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

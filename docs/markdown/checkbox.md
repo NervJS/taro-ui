@@ -18,6 +18,7 @@ import { AtCheckbox } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/checkbox.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

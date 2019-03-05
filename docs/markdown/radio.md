@@ -18,6 +18,7 @@ import { AtRadio } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/radio.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

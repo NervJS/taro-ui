@@ -19,6 +19,8 @@ import { AtPagination } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/pagination.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

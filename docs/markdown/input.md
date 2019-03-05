@@ -21,6 +21,7 @@ import { AtInput, AtForm } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/input.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

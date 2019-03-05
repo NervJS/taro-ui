@@ -18,6 +18,8 @@ import { AtSearchBar } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/search-bar.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 

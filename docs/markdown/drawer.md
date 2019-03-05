@@ -19,6 +19,7 @@ import { AtDrawer } from 'taro-ui'
 :::demo
 ```scss
 @import "~taro-ui/dist/style/components/drawer.scss";
+@import "~taro-ui/dist/style/components/list.scss";
 ```
 :::
 
