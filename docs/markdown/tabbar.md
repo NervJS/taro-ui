@@ -17,7 +17,16 @@ import { AtTabBar } from 'taro-ui'
 
 :::demo
 ```scss
+@import "~taro-ui/dist/style/components/badge.scss";
 @import "~taro-ui/dist/style/components/tab-bar.scss";
+```
+:::
+
+使用带图标标签栏时还需引入以下样式文件（仅按需引用时需要）
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/icon.scss";
 ```
 :::
 
