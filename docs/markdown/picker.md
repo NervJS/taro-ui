@@ -122,7 +122,7 @@ export default class PagePicker extends Component {
 | √    | √  | rangeKey     | 当 range 是一个 二维 Object Array 时，通过 rangeKey 来指定 Object 中 key 的值作为选择器显示内容  | String  | -  | - |
 | √    | √  | value   | value 的值表示选择了 range 中的第几个（下标从 0 开始） | Array  | -  | [] |
 | √    | √  | onChange | value 改变时触发 change 事件，event.detail = value: value | EventHandle | -  | - |
-| √    | √  | onColumnchange | 某一列的值改变时触发 columnchange 事件，event.detail = column: column, value: value，column 的值表示改变了第几列（下标从 0 开始），value 的值表示变更值的下标 | EventHandle | -  | - |
+| √    | √  | onColumnChange | 某一列的值改变时触发 columnchange 事件，event.detail = column: column, value: value，column 的值表示改变了第几列（下标从 0 开始），value 的值表示变更值的下标 | EventHandle | -  | - |
 | √    | √  | onCancel | 取消选择时触发 | EventHandle | -  | - |
 | √    | √  | disabled | 是否禁用 | Boolean | -  | false |
 
