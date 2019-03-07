@@ -3,6 +3,11 @@ import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
+interface InputError {
+  type: 'OVER' | 'LOW' | 'DISABLED',
+  errorValue: number,
+}
+
 export interface AtInputNumberProps extends AtComponent{
   type: 'number' | 'digit'
 
@@ -25,6 +30,8 @@ export interface AtInputNumberProps extends AtComponent{
   onChange: (value: number) => void
 
   onBlur?: CommonEventFunction
+
+  onErrorInput?: (errCb: InputError) => void
 }
 
 declare const AtInputNumber: ComponentClass<AtInputNumberProps>
