@@ -43,8 +43,8 @@ class AtInputNumber extends AtComponent {
   handleClick (clickType) {
     const { disabled, value, min, max, step } = this.props
     const lowThanMin = (clickType === 'minus' && value <= min)
-    const OverThanMax = (clickType === 'plus' && value >= max)
-    if (lowThanMin || OverThanMax || disabled) {
+    const overThanMax = (clickType === 'plus' && value >= max)
+    if (lowThanMin || overThanMax || disabled) {
       const deltaValue = clickType === 'minus' ? -step : step
       const errorValue = addNum(value, deltaValue)
       if (disabled) {
