@@ -135,3 +135,4 @@ export default class Index extends Taro.Component {
 |------- |---  |----- |---- | -------- |
 | onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填  | 输入框当前值 value  |
 | onBlur | √ | √ | 输入框值失去焦点时触发的事件 | event |
+| onErrorInput | √ | √ | 输入框尝试输入错误数组触发的事件 | `({ type: 'OVER' | 'LOW' | 'DISABLED', errorValue:number})` |
