@@ -58,11 +58,11 @@ class AtSearchBar extends AtComponent {
     const placeholderWrapStyle = {}
     const actionStyle = {}
     if (isFocus || (!isFocus && value)) {
-      placeholderWrapStyle.width = `${(placeholder.length + 2.5) * fontSize}px`
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
+      placeholderWrapStyle.flexGrow = 0
     } else if (!isFocus && !value) {
-      placeholderWrapStyle.width = '100%'
+      placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
       actionStyle.marginRight = `-${((actionName.length + 1) * fontSize) + (fontSize / 2)}px`
     }
