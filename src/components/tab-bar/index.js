@@ -54,6 +54,10 @@ export default class AtTabBar extends AtComponent {
     const rootStyle = {
       backgroundColor: backgroundColor || ''
     }
+    const imgStyle = {
+      width: `${iconSize}px`,
+      height: `${iconSize}px`
+    }
 
     return (
       <View
@@ -92,12 +96,24 @@ export default class AtTabBar extends AtComponent {
               <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
                 <View className='at-tab-bar__icon'>
                   <Image
-                    className='content-inner__img'
+                    className={classNames(
+                      'at-tab-bar__inner-img', {
+                        'at-tab-bar__inner-img--inactive': current !== i
+                      })
+                    }
                     mode='widthFix'
-                    src={(current === i && item.selectedImage) ? item.selectedImage : item.image}
-                    style={{
-                      width: iconSize ? `${iconSize}px` : ''
-                    }}
+                    src={item.selectedImage || item.image}
+                    style={imgStyle}
+                  ></Image>
+                  <Image
+                    className={classNames(
+                      'at-tab-bar__inner-img', {
+                        'at-tab-bar__inner-img--inactive': current === i
+                      })
+                    }
+                    mode='widthFix'
+                    src={item.image}
+                    style={imgStyle}
                   ></Image>
                 </View>
               </AtBadge>
