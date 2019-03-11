@@ -32,6 +32,11 @@ $at-tab-bar-title-max-width: 200px;
   &__icon {
     font-size: $at-tab-bar-icon-font-size;
     line-height: 1;
+
+    .content-inner__img {
+      width: $at-tab-bar-icon-image-size;
+      height: $at-tab-bar-icon-image-size;
+    }
   }
 
   &__title {
