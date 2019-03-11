@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtBadge from '../../components/badge/index'
@@ -87,11 +87,27 @@ export default class AtTabBar extends AtComponent {
                 </View>
               </AtBadge>
             ) : null}
+
+            {item.image ? (
+              <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
+                <View className='at-tab-bar__icon'>
+                  <Image
+                    className='content-inner__img'
+                    mode='widthFix'
+                    src={(current === i && item.selectedImage) ? item.selectedImage : item.image}
+                    style={{
+                      width: iconSize ? `${iconSize}px` : ''
+                    }}
+                  ></Image>
+                </View>
+              </AtBadge>
+            ) : null}
+
             <View>
               <AtBadge
-                dot={item.iconType ? false : !!item.dot}
-                value={item.iconType ? '' : item.text}
-                max={item.iconType ? '' : item.max}
+                dot={(item.iconType || item.image) ? false : !!item.dot}
+                value={(item.iconType || item.image) ? '' : item.text}
+                max={(item.iconType || item.image) ? '' : item.max}
               >
                 <View className='at-tab-bar__title' style={titleStyle}>
                   {item.title}
