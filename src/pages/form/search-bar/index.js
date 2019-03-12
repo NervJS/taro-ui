@@ -75,6 +75,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
+                  placeholder='请输入ISBN号'
                   showActionButton
                   value={this.state.value3}
                   onChange={this.onChange.bind(this, 'value3')}

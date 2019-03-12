@@ -5,7 +5,7 @@ $at-search-bar-font-size: 14PX;
 $at-search-bar-input-height: 30PX;
 $at-search-bar-input-padding: 25PX;
 $at-search-bar-btn-padding: 10PX;
-$at-search-bar-placeholder-padding: 5PX;
+$at-search-bar-placeholder-padding: 12PX;
 $at-search-bar-input-bg-color: $color-bg-grey;
 $at-search-bar-input-color: $color-black-0;
 $at-search-bar-placholder-color: $color-grey-2;
@@ -28,27 +28,31 @@ $at-search-bar-placholder-color: $color-grey-2;
     background-color: $at-search-bar-input-bg-color;
     border-radius: $at-search-bar-input-height / 2;
     overflow: hidden;
+    display: flex;
   }
 
   &__placeholder-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
     padding: 0 $at-search-bar-placeholder-padding;
-    width: 100%;
+    // width: 100%;
     height: $at-search-bar-input-height;
     line-height: 0;
     vertical-align: middle;
     opacity: 1;
-    transition: width 0.3s;
+    transition: flex 0.3s;
+    // background: #0084ff;
 
     .at-icon {
       color: $at-search-bar-placholder-color;
       font-size: $at-search-bar-font-size;
+      flex-shrink: 0;
     }
   }
 
@@ -56,6 +60,7 @@ $at-search-bar-placholder-color: $color-grey-2;
     margin-left: $at-search-bar-placeholder-padding;
     color: $at-search-bar-placholder-color;
     font-size: $at-search-bar-font-size;
+    flex-shrink: 0;
   }
 
   &__input {
