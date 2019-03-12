@@ -34,6 +34,15 @@ $at-tab-bar-title-max-width: 200px;
     line-height: 1;
   }
 
+  &__inner-img {
+    width: $at-tab-bar-icon-image-size;
+    height: $at-tab-bar-icon-image-size;
+
+    &--inactive {
+      display: none;
+    }
+  }
+
   &__title {
     display: block;
     padding: $spacing-v-xs 0;

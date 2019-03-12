@@ -42,11 +42,24 @@ initTestEnv()
 class AtInputNumber extends AtComponent {
   handleClick (clickType) {
     const { disabled, value, min, max, step } = this.props
-    if (
-      disabled
-      || (clickType === 'minus' && value <= min)
-      || (clickType === 'plus' && value >= max)
-    ) return
+    const lowThanMin = (clickType === 'minus' && value <= min)
+    const overThanMax = (clickType === 'plus' && value >= max)
+    if (lowThanMin || overThanMax || disabled) {
+      const deltaValue = clickType === 'minus' ? -step : step
+      const errorValue = addNum(value, deltaValue)
+      if (disabled) {
+        this.handleError({
+          type: 'DISABLED',
+          errorValue,
+        })
+      } else {
+        this.handleError({
+          type: lowThanMin ? 'LOW' : 'OVER',
+          errorValue,
+        })
+      }
+      return
+    }
     const deltaValue = clickType === 'minus' ? -step : step
     let newValue = addNum(value, deltaValue)
     newValue = this.handleValue(newValue)
@@ -59,9 +72,17 @@ class AtInputNumber extends AtComponent {
     // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
     if (resultValue > max) {
       resultValue = max
+      this.handleError({
+        type: 'OVER',
+        errorValue: resultValue,
+      })
     }
     if (resultValue < min) {
       resultValue = min
+      this.handleError({
+        type: 'LOW',
+        errorValue: resultValue,
+      })
     }
     resultValue = parseValue(resultValue)
     return resultValue
@@ -78,6 +99,11 @@ class AtInputNumber extends AtComponent {
   }
 
   handleBlur = (...arg) => this.props.onBlur(...arg)
+
+  handleError = errorValue => {
+    if (!this.props.onErrorInput) { return }
+    this.props.onErrorInput(errorValue)
+  }
 
   render () {
     const {
@@ -163,6 +189,7 @@ AtInputNumber.propTypes = {
   size: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  onErrorInput: PropTypes.func,
 }
 
 export default AtInputNumber
