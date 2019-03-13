@@ -28,6 +28,8 @@ import { AtImagePicker } from 'taro-ui'
 
 * 该组件为受控组件，开发者需要通过 onChange 事件来更新 files，files 与 onChange 函数必填
 
+* 该组件使用Taro.chooseImage实现选取图片，会受到Taro能力的制约，具体请参考Taro文档
+
 * 开发者可以获取 files 数据并通过 [Taro.uploadFile](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html) 上传图片
 
 :::demo
@@ -132,6 +134,9 @@ export default class Index extends Taro.Component {
 | mode | 图片预览模式，详见(微信开发者文档)[https://developers.weixin.qq.com/miniprogram/dev/component/image.html] | String  | ```'scaleToFill'|'aspectFit'|'aspectFill'|'widthFix'|'top'|'bottom'|'center'|'left'|'right'|'top left'|'top right'|'bottom left'|'bottom right'``` | aspectFill |
 | showAddBtn | 是否显示添加图片按钮 | Boolean  | - | true |
 | multiple | 是否支持多选 | Boolean  | - | false |
+| count | 最多可以选择的图片张数 | Number  | 0 ～ 99 | 默认为1，当multiple为true时候，为99，此选项设置和multiple冲突时，以该项优先 |
+| sizeType | 所选的图片的尺寸 | Array  | - | ['original', 'compressed'] |
+| sourceType | 选择图片的来源 | Array  | - | ['album', 'camera'] |
 | length | 单行的图片数量 | Number  | - | 4 |
 
 ## 事件

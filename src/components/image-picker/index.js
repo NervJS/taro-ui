@@ -35,11 +35,15 @@ const ENV = Taro.getEnv()
 
 export default class AtImagePicker extends AtComponent {
   chooseFile = () => {
-    const { files = [], multiple } = this.props
+    const { files = [], multiple, count, sizeType, sourceType } = this.props
     const filePathName = ENV === Taro.ENV_TYPE.ALIPAY ? 'apFilePaths' : 'tempFiles'
-    const count = multiple ? 99 : 1
-
-    Taro.chooseImage({ count }).then(res => {
+    // const count = multiple ? 99 : 1
+    const params = {}
+    if (multiple) { params.count = 99 }
+    if (count) { params.count = count }
+    if (sizeType) { params.sizeType = sizeType }
+    if (sourceType) { params.sourceType = sourceType }
+    Taro.chooseImage(params).then(res => {
       const targetFiles = res.tempFilePaths.map(
         (path, i) => ({
           url: path,
@@ -158,4 +162,7 @@ AtImagePicker.propTypes = {
   onChange: PropTypes.func,
   onImageClick: PropTypes.func,
   onFail: PropTypes.func,
+  count: PropTypes.number,
+  sizeType: PropTypes.array,
+  sourceType: PropTypes.array,
 }
