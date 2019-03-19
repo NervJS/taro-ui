@@ -200,13 +200,18 @@ export default class ButtonPage extends Taro.Component {
             </View>
           </View>
 
-          <View className='panel'>
+          {/* 支付宝尚未测试 */}
+          {!isALIPAY && <View className='panel'>
             <View className='panel__title'>浮动按钮</View>
             <View className='panel__content'>
+              <View className='at-article__p'>
               浮着呢😊试一下拖动❓
-              <AtFloatButton></AtFloatButton>
+              </View>
+              <AtFloatButton onClick={this.onButtonClick.bind(this)}>
+              </AtFloatButton>
             </View>
           </View>
+          }
 
           {/* 微信小程序 button 属性（仅部分支持） */}
           {isWEAPP && <View className='panel'>
