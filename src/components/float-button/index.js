@@ -1,5 +1,4 @@
-
-import Taro from '@tarojs/taro'
+import Taro from '@tarojs/taro-h5'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import AtComponent from '../../common/component'
@@ -9,18 +8,20 @@ const DEFAULT_ICON = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYA
 export default class AtFloatButton extends AtComponent {
   constructor () {
     super(...arguments)
-    const offset = parseInt(Taro.pxTransform(this.props.size).replace('rpx'))
-    const windowWidth = Taro.getSystemInfoSync().windowWidth
-    const windowHeight = Taro.getSystemInfoSync().windowHeight
+    const isWEAPP = Taro.getEnv() === Taro.ENV_TYPE.WEAPP
+    const offset = isWEAPP ? parseInt(Taro.pxTransform(this.props.size).replace('rpx')) : this.props.size
+    const windowWidth = isWEAPP ? Taro.getSystemInfoSync().windowWidth : window.innerWidth
+    const windowHeight = isWEAPP ? Taro.getSystemInfoSync().windowHeight : window.innerHeight
     this.state = {
       position: {
         left: `${(windowWidth * 0.85) - offset}px`,
-        top: `${(windowHeight * 0.90) - offset}px`,
+        top: `${(windowHeight * 0.90) - offset}px`
       },
       offset,
       movableRangeWidth: (windowWidth * 0.95) - (2 * offset),
       movableRangeHeight: (windowHeight * 0.95) - (2 * offset),
       backgroundColor: this.props.backgroundColor,
+      isWEAPP,
     }
   }
 
@@ -31,21 +32,26 @@ export default class AtFloatButton extends AtComponent {
   onTouchStart () {
     this.props.onTouchStart && this.props.onTouchStart(...arguments)
     this.setState({
-      backgroundColor: this.props.touchedBackgroundColor,
+      backgroundColor: this.props.touchedBackgroundColor
     })
   }
 
   onTouchEnd () {
     this.props.onTouchEnd && this.props.onTouchEnd(...arguments)
     this.setState({
-      backgroundColor: this.props.backgroundColor,
+      backgroundColor: this.props.backgroundColor
     })
   }
 
   onTouchMove (e) {
     e.stopPropagation()
-    let x = e.touches[0].clientX - this.state.offset
-    let y = e.touches[0].clientY - this.state.offset
+    let x = this.state.isWEAPP ?
+      e.touches[0].clientX - this.state.offset
+      : e.changedTouches[0].clientX - this.state.offset
+
+    let y = this.state.isWEAPP ?
+      e.touches[0].clientY - this.state.offset
+      : e.changedTouches[0].clientY - this.state.offset
 
     if (x > this.state.movableRangeWidth) {
       x = this.state.movableRangeWidth
@@ -61,7 +67,7 @@ export default class AtFloatButton extends AtComponent {
     this.setState({
       position: {
         left: `${x}px`,
-        top: `${y}px`,
+        top: `${y}px`
       }
     })
   }
@@ -70,32 +76,28 @@ export default class AtFloatButton extends AtComponent {
     const {
       icon,
       size,
-      borderColor,
+      borderColor
     } = this.props
     const {
       backgroundColor,
-      position,
+      position
     } = this.state
-    return (
-      <View>
-        <View className='at-floating-button'
-          style={{
-            backgroundImage: `url("${icon}")`,
-            top: position.top,
-            left: position.left,
-            padding: `${size}Px`,
-            backgroundSize: `${size}Px`,
-            backgroundColor,
-            border: `1Px solid ${borderColor}`
-          }}
-          onClick={this.onClick.bind(this)}
-          onTouchStart={this.onTouchStart.bind(this)}
-          onTouchEnd={this.onTouchEnd.bind(this)}
-          onTouchMove={this.onTouchMove.bind(this)}
-        >
-        </View>
-      </View>
-    )
+    return <View className='at-floating-button'
+      style={{
+        backgroundImage: `url("${icon}")`,
+        top: position.top,
+        left: position.left,
+        padding: `${size}Px`,
+        backgroundSize: `${size}Px`,
+        backgroundColor,
+        border: `1Px solid ${borderColor}`
+      }}
+      onClick={this.onClick.bind(this)}
+      onTouchStart={this.onTouchStart.bind(this)}
+      onTouchEnd={this.onTouchEnd.bind(this)}
+      onTouchMove={this.onTouchMove.bind(this)}
+    >
+    </View>
   }
 }
 
@@ -107,7 +109,7 @@ AtFloatButton.defaultProps = {
   onTouchEnd: () => { },
   backgroundColor: 'rgba(97,144,232, 0.8)',
   touchedBackgroundColor: 'rgba(97, 144, 232, 1)',
-  borderColor: 'rgba(97,144,232, 0.8)',
+  borderColor: 'rgba(97,144,232, 0.8)'
 }
 
 AtFloatButton.propTypes = {
@@ -118,5 +120,5 @@ AtFloatButton.propTypes = {
   onTouchEnd: PropTypes.func,
   backgroundColor: PropTypes.string,
   touchedBackgroundColor: PropTypes.string,
-  borderColor: PropTypes.string,
+  borderColor: PropTypes.string
 }
