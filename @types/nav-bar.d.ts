@@ -1,9 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
-import AtComponent from './base'
+import AtComponent, { AtIconBaseProps } from './base'
 
-export interface AtNavBarProps extends AtComponent{
+export interface AtNavBarProps extends AtComponent {
   title?: string
 
   fixed?: boolean
@@ -12,13 +12,13 @@ export interface AtNavBarProps extends AtComponent{
 
   color?: string
 
-  leftIconType?: string
+  leftIconType?: string | AtIconBaseProps
 
   leftText?: string
 
-  rightFirstIconType?: string
+  rightFirstIconType?: string | AtIconBaseProps
 
-  rightSecondIconType?: string
+  rightSecondIconType?: string | AtIconBaseProps
 
   onClickLeftIcon?: CommonEventFunction
 

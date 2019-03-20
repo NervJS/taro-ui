@@ -135,20 +135,18 @@ export default class BasicColor extends Taro.Component {
               <View className='panel__title'>{item.type}</View>
               <View className='panel__content'>
                 <View className='color-list'>
-                  {item.data.map(color => {
-                    return (
-                      <View className='color-item' key={color.hex}>
-                        <View className='color-item__circle' style={`background: ${color.hex}`}>
-                          <View className='inner-circle-1'></View>
-                          <View className='inner-circle-2' style={`border-color: ${color.hex}`}></View>
-                        </View>
-                        <View className='color-item__info'>
-                          <Text className='name'>{color.name}</Text>
-                          <Text className='hex' selectable>{color.hex}</Text>
-                        </View>
+                  {item.data.map(color => (
+                    <View className='color-item' key={color.hex}>
+                      <View className='color-item__circle' style={`background: ${color.hex}`}>
+                        <View className='inner-circle-1'></View>
+                        <View className='inner-circle-2' style={`border-color: ${color.hex}`}></View>
                       </View>
-                    )
-                  })}
+                      <View className='color-item__info'>
+                        <Text className='name'>{color.name}</Text>
+                        <Text className='hex' selectable>{color.hex}</Text>
+                      </View>
+                    </View>
+                  ))}
                 </View>
               </View>
             </View>

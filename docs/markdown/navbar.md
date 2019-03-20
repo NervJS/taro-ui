@@ -48,11 +48,11 @@ import { AtNavBar } from 'taro-ui'
 | color | 链接文字跟图标颜色，不包括标题 | String  | - | `#6190E8` |
 | fixed | 是否固定顶部  | Boolean | - | false |
 | border | 是否显示下划线(v1.4.0 新增)  | Boolean | - | true |
-| leftIconType  | 左边图标类型，图标类型请看`AtIcon`文档  | String | - | 'chevron-left' |
+| leftIconType  | 左边图标类型，图标类型请看`AtIcon`文档  | String \| Object | - | 'chevron-left' |
 | leftText | 左边文字 | String  | - | - |
 | title | 标题文字 | String  | - | - |
-| rightFirstIconType | 从右到左，第一个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
-| rightSecondIconType | 从右到左第二个图标类型，图标类型请看`AtIcon`文档 | String  | - | - |
+| rightFirstIconType | 从右到左，第一个图标类型，图标类型请看`AtIcon`文档 | String \| Object  | - | - |
+| rightSecondIconType | 从右到左第二个图标类型，图标类型请看`AtIcon`文档 | String \| Object  | - | - |
 
 ## 事件
 
