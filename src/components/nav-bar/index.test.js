@@ -34,6 +34,11 @@ describe('AtNavBar Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtNavBar -- props leftIconType', () => {
+    const component = renderToString(<AtNavBar leftIconType={{ value: 'test', color: 'red', size: 36 }} />)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtNavBar -- props leftText', () => {
     const component = renderToString(<AtNavBar leftText='test' />)
     expect(component).toMatchSnapshot()
@@ -54,8 +59,18 @@ describe('AtNavBar Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtNavBar -- props rightFirstIconType', () => {
+    const component = renderToString(<AtNavBar rightFirstIconType={{ value: 'test', color: 'red', size: 36 }} />)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtNavBar -- props rightSecondIconType', () => {
     const component = renderToString(<AtNavBar rightSecondIconType='test' />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtNavBar -- props rightSecondIconType', () => {
+    const component = renderToString(<AtNavBar rightSecondIconType={{ value: 'test', color: 'red', size: 36 }} />)
     expect(component).toMatchSnapshot()
   })
 })
