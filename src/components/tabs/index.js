@@ -43,7 +43,7 @@ export default class AtTabs extends AtComponent {
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
-          this.setState({
+          prevTabItem && this.setState({
             _scrollTop: prevTabItem.offsetTop,
             _scrollLeft: prevTabItem.offsetLeft
           })
