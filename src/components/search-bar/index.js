@@ -28,7 +28,13 @@ class AtSearchBar extends AtComponent {
 
   handleChange = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
 
-  handleClear = (...arg) => this.props.onChange('', ...arg)
+  handleClear = (...arg) => {
+    if (this.props.onClear) {
+      this.props.onClear()
+    } else {
+      this.props.onChange('', ...arg)
+    }
+  }
 
   handleConfirm = (...arg) => this.props.onConfirm(...arg)
 
@@ -159,7 +165,8 @@ AtSearchBar.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
-  onActionClick: PropTypes.func
+  onActionClick: PropTypes.func,
+  onClear: PropTypes.func
 }
 
 export default AtSearchBar
