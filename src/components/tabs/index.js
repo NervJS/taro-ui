@@ -85,7 +85,7 @@ export default class AtTabs extends AtComponent {
     const moveDistance = touchMove - this._touchDot
     const maxIndex = tabList.length
 
-    if (!this._isMoving && this._interval < MAX_INTERVAL) {
+    if (!this._isMoving && this._interval < MAX_INTERVAL && this._touchDot > 20) {
       // 向左滑动
       if (current + 1 < maxIndex && moveDistance <= -MIN_DISTANCE) {
         this._isMoving = true
