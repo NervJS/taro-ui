@@ -82,5 +82,5 @@ export default class Index extends Taro.Component {
 
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
-| onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 | (value: []): void  |
-| onAfterChange | 与 onTouchEnd 触发时机一致，把当前值作为参数传入。 | (value: []): void |
+| onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 | (value: []) => void  |
+| onAfterChange | 与 onTouchEnd 触发时机一致，把当前值作为参数传入。 | (value: []) => void |
