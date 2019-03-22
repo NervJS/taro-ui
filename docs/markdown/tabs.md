@@ -37,6 +37,8 @@ import { AtTabs, AtTabsPane } from 'taro-ui'
 * 垂直模式下，需要给 `AtTabs, AtTabsPane` 设置 `tabDirection='vertical' `,并给 `AtTabs` 设置 `height`。垂直模式下不支持手势滑动切换
 
 * 边框下划线有些组件是使用 `::after` 伪类，在微信开发者工具审查不到，但是实际是存在的，建议用 H5 模式审查样式。
+
+* AtTabsPane 在 2.0.1 版本以前内容不会换行，升级到最新版本或自行增加 css 属性 white-space: initial;
 :::demo
 
 ```js

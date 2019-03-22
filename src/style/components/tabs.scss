@@ -158,6 +158,7 @@ $at-tabs-pane-min-height: 100px;
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
+  white-space: initial;
 
   /* modifiers */
   &--active {
