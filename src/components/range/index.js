@@ -70,7 +70,7 @@ export default class AtRange extends AtComponent {
     const { aX, bX } = this.state
     const a = Math.round((aX / 100) * this.deltaValue)
     const b = Math.round((bX / 100) * this.deltaValue)
-    const result = [a, b].sort()
+    const result = [a, b].sort((x, y) => x - y)
 
     if (funcName === 'onChange') {
       this.props.onChange(result)
