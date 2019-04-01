@@ -46,6 +46,7 @@ export { AtMessage, message } from './message'
 export { default as AtImagePicker } from './image-picker'
 export { default as AtIndexes } from './indexes'
 export { default as AtRange } from './range'
+export { default as AtFloatButton } from './float-button'
 
 export declare const AtCalendar: ComponentClass<Props>
 

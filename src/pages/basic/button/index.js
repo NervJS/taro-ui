@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View, Form } from '@tarojs/components'
-import { AtButton, AtForm } from 'taro-ui'
+import { AtButton, AtForm, AtFloatButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -53,7 +53,6 @@ export default class ButtonPage extends Taro.Component {
         {/* S Header */}
         <DocsHeader title='Button 按钮'></DocsHeader>
         {/* E Header */}
-
         {/* S Body */}
         <View className='doc-body'>
           {/* 主操作 */}
@@ -71,7 +70,6 @@ export default class ButtonPage extends Taro.Component {
               </View>
             </View>
           </View>
-
           {/* 次要操作 */}
           <View className='panel'>
             <View className='panel__title'>次要操作</View>
@@ -201,6 +199,19 @@ export default class ButtonPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 支付宝尚未测试 */}
+          {!isALIPAY && <View className='panel'>
+            <View className='panel__title'>浮动按钮</View>
+            <View className='panel__content'>
+              <View className='at-article__p'>
+              浮着呢😊试一下拖动❓
+              </View>
+              <AtFloatButton onClick={this.onButtonClick.bind(this)}>
+              </AtFloatButton>
+            </View>
+          </View>
+          }
 
           {/* 微信小程序 button 属性（仅部分支持） */}
           {isWEAPP && <View className='panel'>
