@@ -44,7 +44,7 @@ import { AtActionSheet, AtActionSheetItem } from "taro-ui"
 :::demo
 
 ```html
-<AtActionSheet isOpened cancelText='取消' title=‘头部标题可以用通过转义字符换行’>
+<AtActionSheet isOpened cancelText='取消' title='头部标题可以用通过转义字符换行'>
   <AtActionSheetItem>
     按钮一
   </AtActionSheetItem>
@@ -61,7 +61,7 @@ import { AtActionSheet, AtActionSheetItem } from "taro-ui"
 :::demo
 
 ```html
-<AtActionSheet isOpened cancelText='取消' title=‘头部标题可以用通过转义字符换行’ onCancel={ this.handleCancel } onClose={ this.handleClose }>
+<AtActionSheet isOpened cancelText='取消' title='头部标题可以用通过转义字符换行' onCancel={ this.handleCancel } onClose={ this.handleClose }>
   <AtActionSheetItem onClick={ this.handleClick }>
     按钮一
   </AtActionSheetItem>
