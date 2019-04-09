@@ -30,13 +30,13 @@ function getInputProps (props) {
 }
 
 export default class AtInput extends AtComponent {
-  onInput = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
+  onInput = (e, ...arg) => this.props.onChange(e, ...arg)
 
-  onFocus = (e, ...arg) => this.props.onFocus(e.target.value, ...arg)
+  onFocus = (e, ...arg) => this.props.onFocus(e, ...arg)
 
-  onBlur = (e, ...arg) => this.props.onBlur(e.target.value, ...arg)
+  onBlur = (e, ...arg) => this.props.onBlur(e, ...arg)
 
-  onConfirm = (e, ...arg) => this.props.onConfirm(e.target.value, ...arg)
+  onConfirm = (e, ...arg) => this.props.onConfirm(e, ...arg)
 
   onClick = (...arg) => !this.props.editable && this.props.onClick(...arg)
 
