@@ -21,6 +21,8 @@ components:
             name: Icon
           - title: 按钮
             name: Button
+          - title: 浮动按钮
+            name: Fab
       - title: 视图组件
         items:
           - title: 头像
