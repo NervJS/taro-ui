@@ -30,19 +30,19 @@ function getInputProps (props) {
 }
 
 export default class AtInput extends AtComponent {
-  onInput = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
+  onInput = event => this.props.onChange(event.target.value, event)
 
-  onFocus = (e, ...arg) => this.props.onFocus(e.target.value, ...arg)
+  onFocus = event => this.props.onFocus(event.target.value, event)
 
-  onBlur = (e, ...arg) => this.props.onBlur(e.target.value, ...arg)
+  onBlur = event => this.props.onBlur(event.target.value, event)
 
-  onConfirm = (e, ...arg) => this.props.onConfirm(e.target.value, ...arg)
+  onConfirm = event => this.props.onConfirm(event.target.value, event)
 
-  onClick = (...arg) => !this.props.editable && this.props.onClick(...arg)
+  onClick = () => !this.props.editable && this.props.onClick()
 
-  clearValue = (...arg) => this.props.onChange('', ...arg)
+  clearValue = () => this.props.onChange('')
 
-  onErrorClick = (...arg) => this.props.onErrorClick(...arg)
+  onErrorClick = () => this.props.onErrorClick()
 
   render () {
     const {
