@@ -98,7 +98,7 @@ import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 
 ## 示例
 
-在 `/myApp/src/pages/index/index.jsx` 文件添加以下代码
+在 `/myApp/src/pages/index/index.tsx` 文件添加以下代码
 
 :::demo
 ```jsx
