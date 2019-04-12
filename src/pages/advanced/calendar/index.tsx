@@ -26,6 +26,20 @@ export default class Index extends Component {
       {
         value: '2018/11/11'
       }
+    ],
+    validDates: [
+      {
+        value: '2019/04/17'
+      },
+      {
+        value: '2019/04/21'
+      },
+      {
+        value: '2019/05/04'
+      },
+      {
+        value: '2019/05/28'
+      }
     ]
   }
 
@@ -67,7 +81,7 @@ export default class Index extends Component {
   }
 
   render () {
-    const { now, minDate, maxDate, mark, multiCurentDate } = this.state
+    const { now, minDate, maxDate, mark, multiCurentDate, validDates } = this.state
     return (
       <View className='page calendar-page'>
         <DocsHeader title='Calendar 日历' />
@@ -176,6 +190,13 @@ export default class Index extends Component {
                   设置选择区间为 2018/10/28 - 2018/11/11
                 </AtButton>
               </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>有效时间组</View>
+            <View className='panel__content'>
+              <AtCalendar validDates={validDates}/>
             </View>
           </View>
         </View>

@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import _forEach from 'lodash/forEach'
+import _isEmpty from 'lodash/isEmpty'
 
 import Calendar from '../types'
 
@@ -100,9 +101,31 @@ export function handleDisabled (
     !!(minDate && _value.isBefore(dayjsMinDate)) ||
     !!(maxDate && _value.isAfter(dayjsMaxDate))
 
+  return item
+}
+
+export function handleValid (
+  args: PluginArg,
+  item: Calendar.Item
+): Calendar.Item {
+  const { options } = args
+  const { _value } = item
+  const { validDates } = options
+
+  if (!_isEmpty(validDates)) {
+    let isInclude = false;
+    _forEach(validDates, date => { // 判断当前日期是否在有效时间组内
+      if (dayjs(date.value).startOf('day').isSame(_value)) {
+        isInclude = true
+      }
+    })
+
+    item.isDisabled = !isInclude
+  }
+
   delete item._value
 
   return item
 }
 
-export default [handleActive, handleMarks, handleDisabled]
+export default [handleActive, handleMarks, handleDisabled, handleValid]
