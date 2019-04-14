@@ -71,7 +71,7 @@ export default class AtModal extends AtComponent {
 
   render () {
     const { _isOpened } = this.state
-    const { title, content, cancelText, confirmText } = this.props
+    const { title, content, cancelText, confirmText, popup, animationType } = this.props
 
     const rootClass = classNames(
       'at-modal',
@@ -79,6 +79,21 @@ export default class AtModal extends AtComponent {
         'at-modal--active': _isOpened
       },
       this.props.className
+    )
+
+    let isPopUp = false
+
+    if (popup) {
+      isPopUp = true
+      // eslint-disable-next-line no-unused-expressions
+      animationType === 'slide-up' ? 'slide-up' : 'slide-down'
+    }
+    const popUpClass = classNames(
+      {
+        'at-modal__container': !isPopUp,
+        'at-modal__popup': isPopUp,
+        [`at-modal__popup-${animationType}`]: isPopUp && animationType
+      }
     )
 
     if (title || content) {
@@ -89,7 +104,7 @@ export default class AtModal extends AtComponent {
             onClick={this.handleClickOverlay}
             className='at-modal__overlay'
           />
-          <View className='at-modal__container'>
+          <View className={popUpClass}>
             {title && (
               <AtModalHeader>
                 <Text>{title}</Text>
@@ -120,7 +135,7 @@ export default class AtModal extends AtComponent {
     return (
       <View onTouchMove={this.handleTouchMove} className={rootClass}>
         <View className='at-modal__overlay' onClick={this.handleClickOverlay} />
-        <View className='at-modal__container'>{this.props.children}</View>
+        <View className={popUpClass}>{this.props.children}</View>
       </View>
     )
   }
