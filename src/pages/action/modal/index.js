@@ -230,11 +230,11 @@ export default class ModalPage extends Taro.Component {
           <AtModalHeader>完善信息</AtModalHeader>
           <AtModalContent>
             <View className='modal-content' style='display:flex; margin:5px;'>
-              <Text style='height:30px; line-height:30px; '>姓名:</Text>
+              <Text style='height:30px; line-height:30px; width:50px; '>姓名:</Text>
               <Input style='height:30px; line-height:30px; border:1px solid #ddd; margin-left:20px;' />
             </View>
             <View className='modal-content' style='display:flex; margin:5px;'>
-              <Text style='height:30px; line-height:30px; '>呢称:</Text>
+              <Text style='height:30px; line-height:30px; width:50px;'>呢称:</Text>
               <Input style='height:30px; line-height:30px; border:1px solid #ddd; margin-left:20px;' />
             </View>
           </AtModalContent>
