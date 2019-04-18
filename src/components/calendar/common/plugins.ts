@@ -1,5 +1,4 @@
 import dayjs from 'dayjs'
-import _forEach from 'lodash/forEach'
 import _isEmpty from 'lodash/isEmpty'
 
 import Calendar from '../types'
@@ -113,11 +112,8 @@ export function handleValid (
   const { validDates } = options
 
   if (!_isEmpty(validDates)) {
-    let isInclude = false;
-    _forEach(validDates, date => { // 判断当前日期是否在有效时间组内
-      if (dayjs(date.value).startOf('day').isSame(_value)) {
-        isInclude = true
-      }
+    const isInclude = validDates.some(date => {
+      return dayjs(date.value).startOf('day').isSame(_value)
     })
 
     item.isDisabled = !isInclude
