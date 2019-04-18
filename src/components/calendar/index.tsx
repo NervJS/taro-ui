@@ -17,6 +17,7 @@ import AtCalendarController from './controller/index'
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
 const defaultProps: DefaultProps = {
+  validDates: [],
   marks: [],
   isSwiper: true,
   hideArrow: false,
@@ -269,6 +270,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
   render () {
     const { generateDate, selectedDate } = this.state
     const {
+      validDates,
       marks,
       format,
       minDate,
@@ -294,6 +296,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
           onSelectDate={this.handleSelectDate}
         />
         <AtCalendarBody
+          validDates={validDates}
           marks={marks}
           format={format}
           minDate={minDate}

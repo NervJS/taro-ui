@@ -14,6 +14,10 @@ declare namespace Calendar {
     value: DateArg
   }
 
+  export interface ValidDate {
+    value: DateArg
+  }
+
   export interface Item {
     value: string
 
@@ -43,6 +47,8 @@ declare namespace Calendar {
   }
 
   export interface GroupOptions {
+    validDates: Array<ValidDate>
+
     marks: Array<Mark>
 
     format: string

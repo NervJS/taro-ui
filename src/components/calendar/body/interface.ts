@@ -5,6 +5,8 @@ export type ListGroup = Array<Calendar.ListInfo<Calendar.Item>>
 export interface Props {
   format: string
 
+  validDates: Array<Calendar.ValidDate>
+
   marks: Array<Calendar.Mark>
 
   isSwiper: boolean

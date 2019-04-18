@@ -52,6 +52,7 @@ export default class AtCalendarBody extends Taro.Component<
   constructor (props) {
     super(...arguments)
     const {
+      validDates,
       marks,
       format,
       minDate,
@@ -62,6 +63,7 @@ export default class AtCalendarBody extends Taro.Component<
     } = props
 
     this.generateFunc = generateCalendarGroup({
+      validDates,
       format,
       minDate,
       maxDate,
@@ -114,6 +116,7 @@ export default class AtCalendarBody extends Taro.Component<
 
   componentWillReceiveProps (nextProps: Props) {
     const {
+      validDates,
       marks,
       format,
       minDate,
@@ -124,6 +127,7 @@ export default class AtCalendarBody extends Taro.Component<
     } = nextProps
 
     this.generateFunc = generateCalendarGroup({
+      validDates,
       format,
       minDate,
       maxDate,
