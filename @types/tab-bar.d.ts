@@ -11,6 +11,8 @@ export interface TabItem {
   iconPrefixClass?: string
   iconType?: string
   selectedIconType?: string
+  image?: string
+  selectedImage?: string
 }
 
 export interface AtTabBarProps extends AtComponent{
