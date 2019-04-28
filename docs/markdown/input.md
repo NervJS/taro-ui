@@ -31,7 +31,7 @@ import { AtInput, AtForm } from 'taro-ui'
 
 * 由于微信开发者工具的问题，Input 的 placeholder 在 value 存在的情况下，会出现重叠，在真机上不会出现此问题，可以忽略
 * 由于微信开发者工具的问题，输入法输入中文的时候，maxLength 会限制输入过程中的字符，导致无法输入完整的中文，在真机上不会出现此问题，可以忽略
-* 该组件为受控组件，开发者需要通过 onChange 事件来更新 value 值变化，value 与 onChange 函数必填
+* 该组件为受控组件，开发者需要通过 onChange 事件来更新 value 值变化，value 与 onChange 函数必填。在小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值
 * 由于小程序组件化的限制，AtInput 嵌套在 AtForm 或原生小程序组件 Form 中的时候，onSubmit 事件获得的 event 中的 event.detail.value 始终为空对象，开发者要获取数据，可以自行在页面的 state 中获取
 
 * 由于此组件是基于小程序的 Input 进行封装，该组件是原生组件，使用前请阅读[使用限制](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
@@ -52,6 +52,8 @@ export default class Index extends Taro.Component {
     this.setState({
       value
     })
+    // 在小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值
+    return value
   }
   render () {
     return (
@@ -226,9 +228,9 @@ export default class Index extends Taro.Component {
 
 | 事件名称 |  微信小程序 |  h5 | 说明  | 返回参数  |
 |------- |---  |----- |---- | -------- |
-| onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填  | 输入框当前值 value  |
-| onFocus | √ | √ | 输入框被选中时触发的事件 | 输入框当前值 value  |
-| onBlur | √ | √ | 输入框失去焦点时触发的事件 | 输入框当前值 value  |
-| onConfirm | √ | x | 点击完成按钮时触发 | 输入框当前值 value  |
-| onErrorClick | √ | √ | 点击错误按钮触发的事件 | -  |
-| onClick | √ | √ | 当 editable 为 false时，点击组件触发的事件  | event |
+| onChange | √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填。小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值, v2.0.3 版本可以获取 event 参数  | (value,event) => void  |
+| onFocus | √ | √ | 输入框被选中时触发的事件，v2.0.3 版本可以获取 event 参数 | (value,event) => void   |
+| onBlur | √ | √ | 输入框失去焦点时触发的事件，v2.0.3 版本可以获取 event 参数 | (value,event) => void   |
+| onConfirm | √ | x | 点击完成按钮时触发，v2.0.3 版本可以获取 event 参数 | (value,event) => void   |
+| onErrorClick | √ | √ | 点击错误按钮触发的事件 | () => void |
+| onClick | √ | √ | 当 editable 为 false时，点击组件触发的事件  | () => void |

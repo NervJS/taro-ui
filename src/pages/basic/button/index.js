@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
-import { View, Form } from '@tarojs/components'
-import { AtButton, AtForm } from 'taro-ui'
+import { View, Form, Text } from '@tarojs/components'
+import { AtButton, AtForm, AtFab } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -17,8 +17,8 @@ export default class ButtonPage extends Taro.Component {
   onButtonClick () {
     const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
-    if (ENV === 'WEAPP') Taro.showModal({ content: content || '您点击了！', showCancel: false })
-    else if (ENV === 'WEB') alert(content || '您点击了！')
+    if (ENV === 'WEAPP') Taro.showModal({ content: content || '您点击了按钮！', showCancel: false })
+    else if (ENV === 'WEB') alert(content || '您点击了按钮！')
   }
 
   onShareAppMessage () {
@@ -53,7 +53,6 @@ export default class ButtonPage extends Taro.Component {
         {/* S Header */}
         <DocsHeader title='Button 按钮'></DocsHeader>
         {/* E Header */}
-
         {/* S Body */}
         <View className='doc-body'>
           {/* 主操作 */}
@@ -71,7 +70,6 @@ export default class ButtonPage extends Taro.Component {
               </View>
             </View>
           </View>
-
           {/* 次要操作 */}
           <View className='panel'>
             <View className='panel__title'>次要操作</View>
@@ -201,6 +199,22 @@ export default class ButtonPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          {/* 浮动按钮 */}
+          {!isALIPAY && <View className='panel'>
+            <View className='panel__title'>浮动按钮</View>
+            <View className='panel__content'>
+              <View className='at-article__p'>
+              右侧是浮动操作按钮👉
+              </View>
+              <View className='btn-demo-fab'>
+                <AtFab onClick={this.onButtonClick.bind(this)}>
+                  <Text className='at-fab__icon at-icon at-icon-menu'></Text>
+                </AtFab>
+              </View>
+            </View>
+          </View>
+          }
 
           {/* 微信小程序 button 属性（仅部分支持） */}
           {isWEAPP && <View className='panel'>

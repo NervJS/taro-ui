@@ -43,7 +43,7 @@ export default class AtTabs extends AtComponent {
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
-          this.setState({
+          prevTabItem && this.setState({
             _scrollTop: prevTabItem.offsetTop,
             _scrollLeft: prevTabItem.offsetLeft
           })
@@ -85,7 +85,7 @@ export default class AtTabs extends AtComponent {
     const moveDistance = touchMove - this._touchDot
     const maxIndex = tabList.length
 
-    if (!this._isMoving && this._interval < MAX_INTERVAL) {
+    if (!this._isMoving && this._interval < MAX_INTERVAL && this._touchDot > 20) {
       // 向左滑动
       if (current + 1 < maxIndex && moveDistance <= -MIN_DISTANCE) {
         this._isMoving = true

@@ -59,9 +59,9 @@ export interface AtInputProps extends AtComponent{
 
   onConfirm?: InputFunction
 
-  onClick?: InputFunction
+  onClick?: () => void
 
-  onErrorClick?: CommonEventFunction
+  onErrorClick?: () => void
 }
 
 declare const AtInput: ComponentClass<AtInputProps>

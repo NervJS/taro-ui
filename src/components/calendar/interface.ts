@@ -51,6 +51,8 @@ export interface DefaultProps {
 
   isSwiper: boolean
 
+  validDates: Array<Calendar.ValidDate>
+
   marks: Array<Calendar.Mark>
 
   currentDate: Calendar.DateArg | Calendar.SelectedDate

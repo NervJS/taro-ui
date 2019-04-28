@@ -28,13 +28,17 @@ export default class AtLoadMore extends AtComponent {
     if (status === 'loading') {
       component = <AtActivityIndicator mode='center' content={loadingText} />
     } else if (status === 'more') {
-      component = <AtButton
-        full
-        onClick={this.onClick.bind(this)}
-        customStyle={moreBtnStyle}
-      >
-        {moreText}
-      </AtButton>
+      component = (
+        <View className='at-load-more__cnt'>
+          <AtButton
+            full
+            onClick={this.onClick.bind(this)}
+            customStyle={moreBtnStyle}
+          >
+            {moreText}
+          </AtButton>
+        </View>
+      )
     } else {
       component = <Text
         className='at-load-more__tip'

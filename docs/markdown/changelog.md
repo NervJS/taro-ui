@@ -13,6 +13,28 @@
         <i class="icon icon-award"></i>
       </div>
       <div class="at-timeline__content">
+        <p class="head">v2.1.0</p>
+        <p class="time">
+          <span>2019-04-10</span>
+        </p>
+        <ul class="content">
+          <li>新增<span>Fab</span>浮动按钮组件</li>
+          <li><span>Input</span>组件事件返回值新增当前事件 event</li>
+          <li><span>InputNumber</span>组件增加错误回调事件</li>
+          <li><span>NavBar</span>组件支持自定义字体图标</li>
+          <li><span>SearchBar</span>组件增加清除按钮回调事件</li>
+          <li><span>TabBar</span>组件支持图片图标</li>
+          <li>修复<span>Range</span>的排序问题（<a href="https://github.com/NervJS/taro-ui/issues/481">#481</a>）</li>
+          <li>修复<span>Tabs</span>内容换行的问题（<a href="https://github.com/NervJS/taro-ui/issues/483">#483</a>）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
         <p class="head">v2.0.0</p>
         <p class="time">
           <span>2019-02-03</span>

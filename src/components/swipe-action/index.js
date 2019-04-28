@@ -113,6 +113,8 @@ export default class AtSwipeAction extends AtComponent {
   }
 
   handleTouchMove = e => {
+    e.preventDefault()
+
     if (_isEmpty(this.domInfo)) {
       return
     }

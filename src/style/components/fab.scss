@@ -1,0 +1,38 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-fab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: $at-fab-size;
+  height: $at-fab-size;
+  color: $color-white;
+  font-size: $font-size-base;
+  line-height: $line-height-zh;
+  text-align: center;
+  border-radius: 50%;
+  background: $at-fab-bg-color;
+  box-shadow: $at-fab-box-shadow;
+  box-sizing: border-box;
+
+  &:active {
+    background: $at-fab-bg-color-active;
+    box-shadow: $at-fab-box-shadow-active;
+  }
+
+  /* elements */
+  &__icon,
+  .at-icon {
+    width: $at-fab-icon-size;
+    height: $at-fab-icon-size;
+    font-size: $at-fab-icon-size;
+  }
+
+  /* modifiers */
+  &--small {
+    width: $at-fab-size-sm;
+    height: $at-fab-size-sm;
+  }
+}

@@ -1,3 +1,31 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/nervjs/taro-ui/compare/v2.0.2...v2.1.0) (2019-04-10)
+
+
+### Bug Fixes
+
+* **InputNumber:** 修改错误的小驼峰写法 ([a29702c](https://github.com/nervjs/taro-ui/commit/a29702c))
+* **LoadMore:** 修复按钮宽度问题 ([710fda5](https://github.com/nervjs/taro-ui/commit/710fda5))
+* **Range:**  排序问题 fix [#481](https://github.com/nervjs/taro-ui/issues/481) ([7dfeb89](https://github.com/nervjs/taro-ui/commit/7dfeb89))
+* **SearchBar:** 修复中文输入法候选词的时候和 placehold 重影 ([360f597](https://github.com/nervjs/taro-ui/commit/360f597))
+* **SearchBar:** 修改AtSearchBar动画的实现，去除以往基于不稳定的placeholder长度计算，改用flexGrow控制伸缩 ([e4ec5b4](https://github.com/nervjs/taro-ui/commit/e4ec5b4))
+* **TabBar:** 修改隐藏逻辑 ([6261707](https://github.com/nervjs/taro-ui/commit/6261707))
+* **Tabs:** 修复右滑返回上一页触发滑动页面的 bug ([ae87341](https://github.com/nervjs/taro-ui/commit/ae87341))
+* **Tabs:** 内容换行 fix [#483](https://github.com/nervjs/taro-ui/issues/483) ([dde1b82](https://github.com/nervjs/taro-ui/commit/dde1b82))
+* **Tabs:** 参数调整 ([308dd49](https://github.com/nervjs/taro-ui/commit/308dd49))
+
+
+### Features
+
+* **Fab:** 重构 Float Button 组件 ([cae0285](https://github.com/nervjs/taro-ui/commit/cae0285))
+* **Input:** 事件返回值增加当前事件 event [#515](https://github.com/nervjs/taro-ui/issues/515) ([3b4d7e4](https://github.com/nervjs/taro-ui/commit/3b4d7e4))
+* **InputNumber:** 为AtInputNumber添加错误提示回调 ([3b2dd28](https://github.com/nervjs/taro-ui/commit/3b2dd28))
+* **NavBar:** 添加 leftIconType，rightFirstIconType，rightFirstIconType 支持自行扩展字体图标 ([1693a07](https://github.com/nervjs/taro-ui/commit/1693a07))
+* **SearchBar:**  搜索框增加清除按钮的事件 fix [#438](https://github.com/nervjs/taro-ui/issues/438) ([b0cea85](https://github.com/nervjs/taro-ui/commit/b0cea85))
+* **TabBar:** tab图标支持图片 ([ad8ea7c](https://github.com/nervjs/taro-ui/commit/ad8ea7c))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/nervjs/taro-ui/compare/v2.0.1...v2.0.2) (2019-03-05)
 

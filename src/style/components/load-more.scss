@@ -12,6 +12,10 @@
   overflow: hidden;
   box-sizing: border-box;
 
+  &__cnt {
+    flex: 1;
+  }
+
   &__tip {
     text-align: center;
     width: 100%;

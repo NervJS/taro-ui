@@ -42,7 +42,7 @@ import { AtToast } from "taro-ui"
 | image    | 元素展示的图片                           | String  | -                             | -       |
 | status   | 元素的状态                               | String  | `error`, `loading`, `success` | -       |
 | isOpened | 是否展示元素                             | Boolean | -                             | `false` |
-| duration | 元素持续的事件                           | Number  | -                             | `3000`  |
+| duration | 元素持续的事件（设置为 0 将不会自动消失）                           | Number  | -                             | `3000`  |
 | hasMask  | 是否存在底部遮罩层(无法点击底部的内容区) | Boolean | -                             | -       |
 
 ## AtToast 事件
