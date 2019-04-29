@@ -54,6 +54,16 @@ export default class TagPage extends Taro.Component {
             />
           </AtCurtain>
 
+          {/* 顶部关闭 */}
+          <View className='panel'>
+            <View className='panel__title'>顶部关闭</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top')}>顶部关闭幕帘</AtButton>
+              </View>
+            </View>
+          </View>
+
           {/* 底部关闭 */}
           <View className='panel'>
             <View className='panel__title'>底部关闭</View>
@@ -64,12 +74,42 @@ export default class TagPage extends Taro.Component {
             </View>
           </View>
 
+          {/* 左上关闭 */}
+          <View className='panel'>
+            <View className='panel__title'>左上关闭</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top-left')}>左上关闭幕帘</AtButton>
+              </View>
+            </View>
+          </View>
+
           {/* 右上关闭 */}
           <View className='panel'>
             <View className='panel__title'>右上关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
                 <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top-right')}>右上关闭幕帘</AtButton>
+              </View>
+            </View>
+          </View>
+
+          {/* 左下关闭 */}
+          <View className='panel'>
+            <View className='panel__title'>左下关闭</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom-left')}>左下关闭幕帘</AtButton>
+              </View>
+            </View>
+          </View>
+
+          {/* 右下关闭 */}
+          <View className='panel'>
+            <View className='panel__title'>右下关闭</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom-right')}>右下关闭幕帘</AtButton>
               </View>
             </View>
           </View>
