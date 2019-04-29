@@ -3,12 +3,20 @@ import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
 
+export interface GridLoading{
+  size?: number
+
+  color?: string
+}
+
 export interface Item {
   image?: string
 
   value?: string
 
-  iconInfo?: AtIconBaseProps
+  iconInfo?: AtIconBaseProps,
+
+  loading?: boolean | GridLoading
 }
 
 export interface AtGridProps extends AtComponent {
