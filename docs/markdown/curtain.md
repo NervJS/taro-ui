@@ -79,7 +79,7 @@ export default class TagPage extends Taro.Component {
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
 | isOpened | 是否开启 | Boolean  | - | false |
-| closeBtnPosition | 关闭图标位置 | String  | 'top'， 'bottom' | bottom |
+| closeBtnPosition | 关闭图标位置 | String  | 'top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right' | bottom |
 
 ## 事件
 
