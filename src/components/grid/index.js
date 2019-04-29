@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../common/component'
+import AtLoading from '../loading/index'
 
 export default class AtGrid extends AtComponent {
   handleClick = (item, index, row, ...arg) => {
@@ -51,6 +52,12 @@ export default class AtGrid extends AtComponent {
                 <View className='at-grid-item__content'>
                   <View className='at-grid-item__content-inner'>
                     <View className='content-inner__icon'>
+                      {
+                        childItem.loading && (
+                          <View className='content-inner__loading'>
+                            <AtLoading color={childItem.loading.color} size={childItem.loading.size} />
+                          </View>)
+                      }
                       {childItem.image && (
                         <Image
                           className='content-inner__img'
@@ -110,6 +117,7 @@ AtGrid.propTypes = {
     PropTypes.shape({
       image: PropTypes.string,
       value: PropTypes.string,
+      loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
       iconInfo: PropTypes.shape({
         size: PropTypes.number,
         value: PropTypes.string,

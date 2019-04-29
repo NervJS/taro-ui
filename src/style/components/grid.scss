@@ -32,12 +32,19 @@
         @include line(2);
       }
 
+      &__loading {
+        z-index: 9;
+        @include absolute-center;
+      }
+
       &__icon {
         flex: 0 0 auto;
         line-height: 1;
+        position: relative;
       }
 
       &__img {
+        vertical-align: middle;
         width: $at-grid-img-size;
         height: $at-grid-img-size;
       }

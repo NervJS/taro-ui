@@ -107,6 +107,64 @@ export default class GridPage extends Taro.Component {
               </View>
             </View>
           </View>
+
+          <View className='panel'>
+            <View className='panel__title'>正方形案例-loading</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtGrid data={[
+                  ...this.state.data, {
+                    image:
+                      'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+                    value: '手机馆',
+                    loading: true
+                  },
+                  {
+                    image:
+                      'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+                    value: '手机馆',
+                    loading: {
+                      size: 72,
+                      color: '#fff'
+                    }
+                  },
+                  {
+                    iconInfo: {
+                      size: 36,
+                      value: 'user'
+                    },
+                    value: '手机馆',
+                    loading: {
+                      size: 48,
+                      color: 'red'
+                    }
+                  }
+                ]} onClick={this.handleClick}
+                />
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>矩形案例-loading</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtGrid
+                  mode='rect'
+                  data={[
+                    ...this.state.data,
+                    {
+                      image:
+                        'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+                      value: '手机馆',
+                      loading: true
+                    }
+                  ]}
+                  hasBorder={false}
+                />
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     )
