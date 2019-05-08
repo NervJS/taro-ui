@@ -2,8 +2,12 @@ import { ComponentClass } from 'react'
 
 import AtComponent from './base'
 
+type FileItem = {
+  url: string 
+}
+
 interface AtImagePickerProps extends AtComponent {
-  files: []
+  files: FileItem[]
 
   mode?: 'scaleToFill'|'aspectFit'|'aspectFill'|'widthFix'|'top'|'bottom'|'center'|'left'|'right'|'top left'|'top right'|'bottom left'|'bottom right'
 
