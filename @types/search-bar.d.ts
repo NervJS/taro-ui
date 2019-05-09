@@ -26,6 +26,8 @@ export interface AtSearchBarProps extends AtComponent {
 
   onBlur?: CommonEventFunction
 
+  onClear?: CommonEventFunction
+
   onConfirm?: CommonEventFunction
 
   onActionClick?: CommonEventFunction
