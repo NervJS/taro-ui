@@ -1,6 +1,8 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
 
+import { Text } from '@tarojs/components'
+
 import AtNavBar from '../../../.temp/components/nav-bar/index'
 
 describe('AtNavBar Snap', () => {
@@ -46,6 +48,11 @@ describe('AtNavBar Snap', () => {
 
   it('render AtNavBar -- props title', () => {
     const component = renderToString(<AtNavBar title='test' />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtNavBar -- props title', () => {
+    const component = renderToString(<AtNavBar><Text>test</Text></AtNavBar>)
     expect(component).toMatchSnapshot()
   })
 

@@ -98,9 +98,7 @@ export default class AtNavBar extends AtComponent {
         ></Text>}
         <Text className='at-nav-bar__text'>{leftText}</Text>
       </View>
-      <View className='at-nav-bar__title'>
-{title}
-{title == '' && this.props.children}
+      <View className='at-nav-bar__title'>{title}{title === '' && this.props.children}
       </View>
       <View className='at-nav-bar__right-view'>
         <View
