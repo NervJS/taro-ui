@@ -40,7 +40,7 @@ export interface AtTextareaProps extends AtComponent{
 
   onFocus?: CommonEventFunction
 
-  obBlur?: CommonEventFunction
+  onBlur?: CommonEventFunction
 
   onConfirm?: CommonEventFunction
 
