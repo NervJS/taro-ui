@@ -123,6 +123,18 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     let start: number
     let generateDateValue: number
 
+    if (!currentDate) {
+      const dayjsStart = dayjs()
+      start = dayjsStart.startOf('day').valueOf()
+      generateDateValue = dayjsStart.startOf('month').valueOf()
+      return {
+        generateDate: generateDateValue,
+        selectedDate: {
+          start: ''
+        }
+      }
+    }
+
     if (isMultiSelect) {
       const { start: cStart, end: cEnd } = currentDate as Calendar.SelectedDate
 
