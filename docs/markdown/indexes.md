@@ -17,6 +17,7 @@ import { AtIndexes } from 'taro-ui'
 
 :::demo
 ```scss
+@import "~taro-ui/dist/style/components/toast.scss";
 @import "~taro-ui/dist/style/components/indexes.scss";
 @import "~taro-ui/dist/style/components/list.scss";
 ```
