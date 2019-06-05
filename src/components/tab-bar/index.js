@@ -78,7 +78,7 @@ export default class AtTabBar extends AtComponent {
             onClick={this.handleClick.bind(this, i)}
           >
             {item.iconType ? (
-              <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
+              <AtBadge dot={!!item.dot} value={item.text} maxValue={item.max}>
                 <View className='at-tab-bar__icon'>
                   <Text className={classNames(`${item.iconPrefixClass || 'at-icon'}`, {
                     [`${item.iconPrefixClass || 'at-icon'}-${item.selectedIconType}`]: current === i && item.selectedIconType,
@@ -93,7 +93,7 @@ export default class AtTabBar extends AtComponent {
             ) : null}
 
             {item.image ? (
-              <AtBadge dot={!!item.dot} value={item.text} max={item.max}>
+              <AtBadge dot={!!item.dot} value={item.text} maxValue={item.max}>
                 <View className='at-tab-bar__icon'>
                   <Image
                     className={classNames(
@@ -123,7 +123,7 @@ export default class AtTabBar extends AtComponent {
               <AtBadge
                 dot={(item.iconType || item.image) ? false : !!item.dot}
                 value={(item.iconType || item.image) ? '' : item.text}
-                max={(item.iconType || item.image) ? '' : item.max}
+                maxValue={(item.iconType || item.image) ? '' : item.max}
               >
                 <View className='at-tab-bar__title' style={titleStyle}>
                   {item.title}
