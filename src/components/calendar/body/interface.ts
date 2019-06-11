@@ -7,6 +7,8 @@ export interface Props {
 
   validDates: Array<Calendar.ValidDate>
 
+  priceDates: Array<Calendar.PriceDate>
+
   marks: Array<Calendar.Mark>
 
   isSwiper: boolean

@@ -53,6 +53,7 @@ export default class AtCalendarBody extends Taro.Component<
     super(...arguments)
     const {
       validDates,
+      priceDates,
       marks,
       format,
       minDate,
@@ -64,6 +65,7 @@ export default class AtCalendarBody extends Taro.Component<
 
     this.generateFunc = generateCalendarGroup({
       validDates,
+      priceDates,
       format,
       minDate,
       maxDate,
@@ -110,13 +112,14 @@ export default class AtCalendarBody extends Taro.Component<
     arr[preListIndex] = preList
     arr[nextListIndex] = nextList
     arr[this.currentSwiperIndex] = nowList
-
+    
     return arr
   }
 
   componentWillReceiveProps (nextProps: Props) {
     const {
       validDates,
+      priceDates,
       marks,
       format,
       minDate,
@@ -128,6 +131,7 @@ export default class AtCalendarBody extends Taro.Component<
 
     this.generateFunc = generateCalendarGroup({
       validDates,
+      priceDates,
       format,
       minDate,
       maxDate,
@@ -258,7 +262,7 @@ export default class AtCalendarBody extends Taro.Component<
   render () {
     const { isSwiper } = this.props
     const { isAnimate, offsetSize, listGroup } = this.state
-
+    
     if (!isSwiper) {
       return (
         <View

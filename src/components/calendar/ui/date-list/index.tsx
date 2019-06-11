@@ -67,6 +67,12 @@ export default class AtCalendarList extends Taro.Component<Props> {
           >
             <View className='flex__item-container'>
               <View className='container-text'>{item.text}</View>
+              {
+                item.price && 
+                <View className='container-text-extra'>
+                    ￥{item.price}
+                </View>
+              }
             </View>
             <View className='flex__item-extra extra'>
               {item.marks && item.marks.length > 0 ? (

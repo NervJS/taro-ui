@@ -25,7 +25,7 @@ export interface PropsBase {
 
   onSelectDate?: (item: { value: Calendar.SelectedDate }) => void
 
-  onDayClick?: (item: { value: string }) => void
+  onDayClick?: (item: Calendar.Item ) => void
 
   onDayLongClick?: (item: { value: string }) => void
 
@@ -52,6 +52,8 @@ export interface DefaultProps {
   isSwiper: boolean
 
   validDates: Array<Calendar.ValidDate>
+
+  priceDates: Array<Calendar.PriceDate>
 
   marks: Array<Calendar.Mark>
 
