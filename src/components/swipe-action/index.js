@@ -210,7 +210,7 @@ export default class AtSwipeAction extends AtComponent {
 
         {Array.isArray(options) && options.length > 0 ? (
           <AtSwipeActionOptions
-            componentId={id}
+            componentId={componentId}
             onQueryedDom={this.handleDomInfo}
           >
             {options.map((item, key) => (
