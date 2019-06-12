@@ -8,21 +8,28 @@ class AtSearchBar extends AtComponent {
   constructor (props) {
     super(...arguments)
     this.state = {
+      inputPlaceholder: props.focus && props.placeholder ? props.placeholder : '',
       isFocus: props.focus
     }
   }
 
   handleFocus = (...arg) => {
+    const { placeholder, onFocus } = this.props
+
     this.setState({
-      isFocus: true
+      isFocus: true,
+      inputPlaceholder: placeholder,
     })
-    this.props.onFocus(...arg)
+
+    onFocus && onFocus(...arg)
   }
 
   handleBlur = (...arg) => {
     this.setState({
-      isFocus: false
+      isFocus: false,
+      inputPlaceholder: '',
     })
+
     this.props.onBlur(...arg)
   }
 
@@ -53,7 +60,7 @@ class AtSearchBar extends AtComponent {
       className,
       customStyle
     } = this.props
-    const { isFocus } = this.state
+    const { isFocus, inputPlaceholder } = this.state
     const fontSize = 14
     const rootCls = classNames(
       'at-search-bar',
@@ -111,6 +118,7 @@ class AtSearchBar extends AtComponent {
             focus={focus}
             disabled={disabled}
             maxLength={maxLength}
+            placeholder={inputPlaceholder}
             onInput={this.handleChange}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
