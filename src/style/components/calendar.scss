@@ -53,6 +53,8 @@
             @include display-flex;
             @include flex;
             @include align-items(center);
+
+            line-height: 1;
           }
 
           .container-text-extra {
