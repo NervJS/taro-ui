@@ -3,6 +3,8 @@ import Calendar from './types'
 export interface PropsBase {
   format?: string
 
+  validDates?: Array<Calendar.ValidDate>
+
   minDate?: Calendar.DateArg
 
   maxDate?: Calendar.DateArg
