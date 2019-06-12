@@ -9,9 +9,9 @@ import './index.scss'
 
 import DocsHeader from '../../components/doc-header'
 import AtCalendar from '../../../components/calendar/index'
-import Calendar from 'src/components/calendar/types';
 
 import _cloneDeep from 'lodash/cloneDeep'
+import dayjs from 'dayjs'
 
 export default class Index extends Component {
   config: Config = {
@@ -35,13 +35,19 @@ export default class Index extends Component {
         value: '2019/04/17'
       },
       {
-        value: '2019/06/4'
+        value: '2019/06/04'
       },
       {
-        value: '2019/06/5'
+        value: '2019/06/05'
       },
       {
-        value: '2019/06/6'
+        value: '2019/06/06'
+      },
+      {
+        value: '2019/06/08'
+      },
+      {
+        value: '2019/06/09'
       },
       {
         value: '2019/05/04'
@@ -65,16 +71,28 @@ export default class Index extends Component {
         price: 225
       },
       {
-        value: '2019/06/1',
+        value: '2019/06/01',
         price: 229
       },
       {
-        value: '2019/06/5',
+        value: '2019/06/04',
+        price: 1122
+      },
+      {
+        value: '2019/06/05',
         price: 1210
       },
       {
-        value: '2019/06/6',
+        value: '2019/06/06',
         price: 11198
+      },
+      {
+        value: '2019/06/08',
+        price: 780
+      },
+      {
+        value: '2019/06/09',
+        price: 880
       },
       {
         value: '2019/06/21',
@@ -102,15 +120,6 @@ export default class Index extends Component {
 
   @bind
   handleDayClick (...arg) {
-    // var item: Calendar.Item = arg[0];
-    // if(item && item.isSelectedTail){
-    //   var tempValidDates = _cloneDeep(this.state.validDates);
-    //   this.setState({tempValidDates:tempValidDates, validDates: [{value: '2019/06/6'}]}) 
-    // }
-    // else if(item && !item.isSelectedTail){
-    //   this.setState({validDates:this.state.tempValidDates}) 
-    // }
-    // console.log(this.state.validDates);
     console.log('handleDayClick', arg);
   }
 
@@ -121,6 +130,48 @@ export default class Index extends Component {
 
   @bind
   handleDateChange (arg) {
+    let _filterValidDates = (startTime: string,flag: boolean)=>{
+      let result:any = [];
+      var i = 1;
+      while(1){
+        var date = dayjs(startTime);
+        let nextDay = flag ? date.add(i,'day') : date.subtract(i,'day');
+        let dateStr = nextDay.format('YYYY/MM/DD');
+        let notExist = false;
+        for(let item of this.state.validDates){
+          let itemStr = dayjs(item.value).format('YYYY/MM/DD')
+          if(itemStr === dateStr){
+            notExist = true;
+            result.push({
+              value: item.value
+            })
+            i++;
+            break;
+          }
+        }
+        if(!notExist){
+          break;
+        }
+      }
+      return result
+    }
+    let _filterDates = (startTime: string) => {
+      return [{value: startTime}, ..._filterValidDates(startTime,true), ..._filterValidDates(startTime,false) ];
+    }
+    let { value } = arg;
+    if(value.end){
+      this.setState({validDates: this.state.tempValidDates})
+    }else{
+      let startTime = value.start;
+      if(startTime){
+        let result = _filterDates(startTime);
+        let copyDates = _cloneDeep(this.state.validDates);
+        this.setState({
+          tempValidDates: copyDates,
+          validDates: result
+        })
+      }
+    }
     console.log('handleDateChange', arg)
   }
 
@@ -250,7 +301,7 @@ export default class Index extends Component {
           </View>
 
           <View className='panel'>
-            <View className='panel__title'>有效时间组+多选</View>
+            <View className='panel__title'>有效时间组+多选+自定义cell文本</View>
             <View className='panel__content'>
               <AtCalendar validDates={validDates} priceDates={priceDates} isMultiSelect onDayClick={this.handleDayClick} onSelectDate={this.handleDateChange}/>
             </View>
