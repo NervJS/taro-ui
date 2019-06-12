@@ -1,3 +1,27 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/nervjs/taro-ui/compare/v2.1.0...v2.2.0) (2019-06-12)
+
+
+### Bug Fixes
+
+* **SearchBar:** 修复输入框文字显示不全的样式问题 [#539](https://github.com/nervjs/taro-ui/issues/539) ([50cc0fc](https://github.com/nervjs/taro-ui/commit/50cc0fc))
+* **SwipeAction:** 修复 SwiperAction 报错问题 closed [#574](https://github.com/nervjs/taro-ui/issues/574) ([f97223f](https://github.com/nervjs/taro-ui/commit/f97223f))
+* **SwipeAction:** 不再以自增作为id ([9b0a901](https://github.com/nervjs/taro-ui/commit/9b0a901))
+* **SwipeAction:** 阻止滑动触发默认行为 ([#525](https://github.com/nervjs/taro-ui/issues/525)) ([24b4892](https://github.com/nervjs/taro-ui/commit/24b4892))
+* **TabBar:** 修复 TypeScript 中 TabItem 没有 image/ selectedImage 属性报错 ([3c71b65](https://github.com/nervjs/taro-ui/commit/3c71b65))
+* **TabBar:** 修复 tabbar 中 props参数名称错误的问题 ([519837d](https://github.com/nervjs/taro-ui/commit/519837d))
+* **Accordion:** 修复折叠起来保留内容区的高度问题 ([19e2ea3e](https://github.com/nervjs/taro-ui/commit/19e2ea3e))
+
+
+### Features
+
+* **Calendar:** Calendar 组件添加仅显示有效时间组功能 ([#527](https://github.com/nervjs/taro-ui/issues/527)) ([b63eb1a](https://github.com/nervjs/taro-ui/commit/b63eb1a))
+* **Curtain:** 增加关闭图标位置的示例 ([d209916](https://github.com/nervjs/taro-ui/commit/d209916))
+* **Typings:** fix typings of some comps ([c50d4ea](https://github.com/nervjs/taro-ui/commit/c50d4ea))
+* 添加 [@types](https://github.com/types)/loadsh ([a424706](https://github.com/nervjs/taro-ui/commit/a424706))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/nervjs/taro-ui/compare/v2.0.2...v2.1.0) (2019-04-10)
 
