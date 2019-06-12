@@ -128,9 +128,9 @@ export default class Index extends Component {
                 </AtButton>
                 <AtButton
                   size='small'
-                  onClick={this.handleClick.bind(this, 'maxDate', '2018/12/31')}
+                  onClick={this.handleClick.bind(this, 'maxDate', '2019/12/31')}
                 >
-                  设置最大值 2018/12/31
+                  设置最大值 2019/12/31
                 </AtButton>
               </View>
             </View>

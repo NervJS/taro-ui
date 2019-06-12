@@ -4,7 +4,6 @@ import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import _random from 'lodash/random'
 import _isNil from 'lodash/isNil'
 import _isEmpty from 'lodash/isEmpty'
 import _inRange from 'lodash/inRange'
@@ -12,7 +11,12 @@ import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
 import AtSwipeActionOptions from './options/index'
-import { delayGetClientRect, delayGetScrollOffset } from '../../common/utils'
+import {
+  delayGetClientRect,
+  delayGetScrollOffset,
+  uuid,
+  isTest
+} from '../../common/utils'
 
 export default class AtSwipeAction extends AtComponent {
   constructor (props) {
@@ -30,7 +34,7 @@ export default class AtSwipeAction extends AtComponent {
     this.isTouching = false
 
     this.state = {
-      componentId: Date.now() + _random(0, 10000),
+      componentId: isTest() ? 'tabs-AOTU2018' : uuid(),
       offsetSize: 0,
       _isOpened: isOpened
     }
