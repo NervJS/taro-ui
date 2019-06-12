@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import _isArray from 'lodash/isArray'
+import _isEmpty from 'lodash/isEmpty'
 
 import Calendar from '../types'
 
@@ -111,7 +111,7 @@ export function handleValid (
   const { _value } = item
   const { validDates } = options
 
-  if (_isArray(validDates)) {
+  if (!_isEmpty(validDates)) {
     const isInclude = validDates.some(date => {
       return dayjs(date.value).startOf('day').isSame(_value)
     })
