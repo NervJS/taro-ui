@@ -35,8 +35,12 @@ export default class AtTimeline extends AtComponent {
       const itemRootClassName = ['at-timeline-item']
       if (color) itemRootClassName.push(`at-timeline-item--${color}`)
 
-      const dotClass = ['at-timeline-item__dot']
-      if (icon) dotClass.push('at-timeline-item__icon')
+      const dotClass = []
+      if (icon) {
+        dotClass.push('at-timeline-item__icon')
+      } else {
+        dotClass.push('at-timeline-item__dot')
+      }
 
       return (
         <View className={classNames(itemRootClassName)} key={index}>
