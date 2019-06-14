@@ -129,8 +129,8 @@ function getEventDetail (event: any) {
 
     case Taro.ENV_TYPE.WEAPP:
       detail = {
-        pageX: event.target.pageX,
-        pageY: event.target.pageY,
+        pageX: event.touches[0].pageX,
+        pageY: event.touches[0].pageY,
         clientX: event.touches[0].clientX,
         clientY: event.touches[0].clientY,
         offsetX: event.target.offsetLeft,
