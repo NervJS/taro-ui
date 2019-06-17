@@ -116,8 +116,6 @@ export default class AtSwipeAction extends AtComponent {
   }
 
   handleTouchMove = e => {
-    e.preventDefault()
-
     if (_isEmpty(this.domInfo)) {
       return
     }
@@ -137,6 +135,8 @@ export default class AtSwipeAction extends AtComponent {
     }
 
     if (this.isTouching && this.isMoving) {
+      e.preventDefault()
+
       const offsetSize = clientX - this.startX
       const isRight = offsetSize > 0
 
@@ -213,6 +213,7 @@ export default class AtSwipeAction extends AtComponent {
 
         {Array.isArray(options) && options.length > 0 ? (
           <AtSwipeActionOptions
+            options={options}
             componentId={componentId}
             onQueryedDom={this.handleDomInfo}
           >
