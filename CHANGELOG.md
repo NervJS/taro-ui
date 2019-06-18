@@ -1,3 +1,19 @@
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/nervjs/taro-ui/compare/v2.2.0...v2.2.1) (2019-06-18)
+
+
+### Bug Fixes
+
+* **input:** # 583 AtInput 不触发 onChange 的问题 ([8fd8b1e](https://github.com/nervjs/taro-ui/commit/8fd8b1e))
+* **input:** 百度小程序无法输入内容 ([1fcbb19](https://github.com/nervjs/taro-ui/commit/1fcbb19))
+* **radio:** fix 文字过长不换行 [#548](https://github.com/nervjs/taro-ui/issues/548) ([17c6f4f](https://github.com/nervjs/taro-ui/commit/17c6f4f))
+* **timeline:** color 和 icon 同时设置出现两个图标 fix [#550](https://github.com/nervjs/taro-ui/issues/550) ([e24751a](https://github.com/nervjs/taro-ui/commit/e24751a))
+* **utils:** getEventDetail 获取数据错误 fix [#553](https://github.com/nervjs/taro-ui/issues/553) ([248b247](https://github.com/nervjs/taro-ui/commit/248b247))
+* 修复 [#628](https://github.com/nervjs/taro-ui/issues/628) 和 [#637](https://github.com/nervjs/taro-ui/issues/637) ([98d4dd2](https://github.com/nervjs/taro-ui/commit/98d4dd2))
+* 修复 uuid + 日历案例报错 ([eaac2f6](https://github.com/nervjs/taro-ui/commit/eaac2f6))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/nervjs/taro-ui/compare/v2.1.0...v2.2.0) (2019-06-12)
 
