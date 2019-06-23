@@ -17,7 +17,6 @@ import AtCalendarController from './controller/index'
 import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
 const defaultProps: DefaultProps = {
-  validDates: [],
   marks: [],
   isSwiper: true,
   hideArrow: false,
