@@ -36,7 +36,7 @@ export default class AtCountdown extends AtComponent {
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
-      day = Math.floor(this.seconds / (60 * 60 * 24))
+      day = this.props.isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
       hours = Math.floor(this.seconds / (60 * 60)) - (day * 24)
       minutes = Math.floor(this.seconds / 60) - (day * 24 * 60) - (hours * 60)
       seconds = Math.floor(this.seconds) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
