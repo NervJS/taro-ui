@@ -53,4 +53,14 @@ describe('AtCountDown Snap', () => {
     const component = renderToString(<AtCountDown isShowDay />)
     expect(component).toMatchSnapshot()
   })
+
+  it('render AtCountDown -- hours > 24 and show day', () => {
+    const component = renderToString(<AtCountDown isShowDay hours={25} />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtCountDown -- hours > 24 and not show day', () => {
+    const component = renderToString(<AtCountDown isShowDay={false} hours={25} />)
+    expect(component).toMatchSnapshot()
+  })
 })
