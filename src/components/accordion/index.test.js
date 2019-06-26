@@ -28,4 +28,13 @@ describe('AtAccordion Snap', () => {
     )
     expect(component).toMatchSnapshot()
   })
+  it('render AtIcon -- props icon prefixClass', () => {
+    const component = renderToString(
+      <AtAccordion icon={{ prefixClass:'prefixClass', value: 'star', color: 'red' }}>
+        <View></View>
+      </AtAccordion>
+    )
+    expect(component).toMatchSnapshot()
+  })
+
 })
