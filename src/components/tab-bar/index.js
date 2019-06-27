@@ -122,8 +122,8 @@ export default class AtTabBar extends AtComponent {
             <View>
               <AtBadge
                 dot={(item.iconType || item.image) ? false : !!item.dot}
-                value={(item.iconType || item.image) ? '' : item.text}
-                maxValue={(item.iconType || item.image) ? '' : item.max}
+                value={item.text ? item.text : ''}
+                maxValue={item.max ? item.max : 99}
               >
                 <View className='at-tab-bar__title' style={titleStyle}>
                   {item.title}
