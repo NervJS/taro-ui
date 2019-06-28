@@ -17,7 +17,7 @@ export default class AtCheckbox extends AtComponent {
     } else {
       selectedSet.delete(value)
     }
-    this.props.onChange([...selectedSet])
+    this.props.onChange([...selectedSet], value)
   }
 
   render () {
