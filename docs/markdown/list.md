@@ -86,7 +86,7 @@ import { AtList, AtListItem } from "taro-ui"
 
 :::
 
-## 无边框的 Item
+## 支持图标的 Item
 
 :::demo
 
