@@ -77,5 +77,5 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 | 事件名称  | 说明                   | 返回参数 |
 | --------- | ---------------------- | -------- |
 | onClose   | 触发关闭时的事件       | -        |
-| onCancel  | 点击取消按钮触发的样式 | -        |
+| onCancel  | 点击取消按钮触发的事件 | -        |
 | onConfirm | 点击确认按钮触发的事件 | -        |

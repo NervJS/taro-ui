@@ -22,6 +22,7 @@
     font-size: $at-radio-title-size;
     text-align: left;
     line-height: $line-height-zh;
+    word-break: break-all;
   }
 
   &__icon {
@@ -48,6 +49,7 @@
     text-align: left;
     line-height: $line-height-zh;
     letter-spacing: 0;
+    word-break: break-all;
   }
 
   &__option {

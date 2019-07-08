@@ -32,6 +32,9 @@ export default class CountDownPage extends Taro.Component {
               <AtCountdown minutes={1} seconds={10} />
             </View>
             <View className='panel__content'>
+              <AtCountdown hours={48} minutes={0} seconds={3} />
+            </View>
+            <View className='panel__content'>
               <AtCountdown isShowDay hours={1} minutes={1} seconds={10} />
             </View>
           </View>

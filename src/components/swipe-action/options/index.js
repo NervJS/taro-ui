@@ -5,13 +5,23 @@ import AtComponent from '../../../common/component'
 import { delayQuerySelector } from '../../../common/utils'
 
 export default class AtSwiperActionOptions extends AtComponent {
-  componentDidMount () {
+  trrigerOptionsDomUpadte () {
     delayQuerySelector(
       this,
       `#swipeActionOptions-${this.props.componentId}`
     ).then(res => {
       this.props.onQueryedDom(res[0])
     })
+  }
+
+  componentDidMount () {
+    this.trrigerOptionsDomUpadte()
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.options !== this.props.options) {
+      this.trrigerOptionsDomUpadte()
+    }
   }
 
   render () {
@@ -21,7 +31,10 @@ export default class AtSwiperActionOptions extends AtComponent {
     )
 
     return (
-      <View id={`swipeActionOptions-${this.props.componentId}`} className={rootClass}>
+      <View
+        id={`swipeActionOptions-${this.props.componentId}`}
+        className={rootClass}
+      >
         {this.props.children}
       </View>
     )

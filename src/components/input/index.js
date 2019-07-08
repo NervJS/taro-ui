@@ -34,7 +34,11 @@ export default class AtInput extends AtComponent {
 
   onFocus = event => this.props.onFocus(event.target.value, event)
 
-  onBlur = event => this.props.onBlur(event.target.value, event)
+  onBlur = event => {
+    this.props.onBlur(event.target.value, event)
+    // fix # 583 AtInput 不触发 onChange 的问题
+    this.props.onChange(event.target.value, event)
+  }
 
   onConfirm = event => this.props.onConfirm(event.target.value, event)
 

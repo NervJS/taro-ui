@@ -13,6 +13,26 @@
         <i class="icon icon-award"></i>
       </div>
       <div class="at-timeline__content">
+        <p class="head">v2.2.0</p>
+        <p class="time">
+          <span>2019-06-12</span>
+        </p>
+        <ul class="content">
+          <li><span>Calendar</span>组件新增仅显示有效时间组功能（<a href="https://github.com/NervJS/taro-ui/issues/527">#527</a>）</li>
+          <li>修复<span>SearchBar</span>输入框文字显示不全的样式问题（<a href="https://github.com/NervJS/taro-ui/issues/539">#539</a>）</li>
+          <li>修复<span>SwipeAction</span>新版本报错问题（<a href="https://github.com/NervJS/taro-ui/issues/574">#574</a>）</li>
+          <li><span>SwipeAction</span>阻止滑动触发默认行为（<a href="https://github.com/NervJS/taro-ui/issues/525">#525</a>）</li>
+          <li>修复<span>Accordion</span>组件折叠后高度仍保留的样式问题（<a href="https://github.com/NervJS/taro-ui/issues/629">#629</a>）</li>
+          <li>修复<span>Typings</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
         <p class="head">v2.1.0</p>
         <p class="time">
           <span>2019-04-10</span>

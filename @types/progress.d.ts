@@ -5,7 +5,7 @@ import AtComponent from './base'
 export interface AtProgressProps extends AtComponent{
   color?: string
 
-  status?: string
+  status?: 'progress' | 'error' | 'success'
 
   percent?: number
 
