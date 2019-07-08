@@ -99,7 +99,7 @@ export default class AtDrawer extends AtComponent {
             {
               items.map((name, index) =>
                 <AtListItem
-                  key={index}
+                  key={name}
                   data-index={index}
                   onClick={this.onItemClick.bind(this, index)}
                   title={name}
