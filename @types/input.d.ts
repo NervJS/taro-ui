@@ -2,7 +2,7 @@ import { MouseEvent, ComponentClass } from 'react'
 import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 
 declare type InputProp = string | number
-declare type InputFunction = (value: string | number, event: CommonEvent) => void
+declare type InputFunction<T extends string | number> = (value: T, event: CommonEvent) => void
 
 import AtComponent from './base'
 
