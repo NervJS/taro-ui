@@ -26,7 +26,7 @@ import { AtNavBar } from 'taro-ui'
 
 :::demo
 
-```jsx
+```html
 <AtNavBar
   onClickRgIconSt={this.handleClick}
   onClickRgIconNd={this.handleClick}
@@ -37,6 +37,28 @@ import { AtNavBar } from 'taro-ui'
   rightFirstIconType='bullet-list'
   rightSecondIconType='user'
 />
+```
+
+:::
+
+## 自定义标题内容
+
+注意 title 属性须为空
+
+:::demo
+
+```html
+<AtNavBar
+  onClickRgIconSt={this.handleClick}
+  onClickRgIconNd={this.handleClick}
+  onClickLeftIcon={this.handleClick}
+  color='#000'
+  leftText='返回'
+  rightFirstIconType='bullet-list'
+  rightSecondIconType='user'
+>
+<View>Taro UI</View>
+</AtNavBar>
 ```
 
 :::
