@@ -25,6 +25,8 @@ interface AtImagePickerProps extends AtComponent {
 
   length?: number
 
+  count?: number
+
   onChange: (files: Array<Object>, operationType: string, index: number) => void
 
   onImageClick?: (index: number, file: Object) => void
