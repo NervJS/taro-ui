@@ -81,7 +81,7 @@ export default class AtImagePicker extends AtComponent {
 
     return <View className={rootCls} style={customStyle}>
       {matrix.map((row, i) => (
-        <View className='at-image-picker__flex-box' key={i}>
+        <View className='at-image-picker__flex-box' key={i + 1}>
           {row.map((item, j) => (
             item.url
               ? <View className='at-image-picker__flex-item' key={(i * length) + j}>
