@@ -72,9 +72,10 @@ export default class AtAccordion extends AtComponent {
     const { wrapperHeight } = this.state
 
     const rootCls = classNames('at-accordion', className)
+    const prefixClass = icon && icon.prefixClass || 'at-icon'
     const iconCls = classNames({
-      'at-icon': true,
-      [`at-icon-${icon && icon.value}`]: icon && icon.value,
+      [prefixClass]: true,
+      [`${prefixClass}-${icon && icon.value}`]: icon && icon.value,
       'at-accordion__icon': true,
     })
     const headerCls = classNames('at-accordion__header', {
