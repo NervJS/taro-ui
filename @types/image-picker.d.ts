@@ -21,6 +21,12 @@ interface AtImagePickerProps extends AtComponent {
 
   showAddBtn?: boolean
 
+  count?: number
+
+  sizeType?: string[]
+
+  sourceType?: string[]
+
   multiple?: boolean
 
   length?: number
