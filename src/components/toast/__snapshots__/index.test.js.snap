@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toast Snap render initial Toast 1`] = `""`;
+exports[`Toast Snap render initial Toast 1`] = `undefined`;
 
 exports[`Toast Snap render opened  Toast -- props hasMask 1`] = `"<div class=\\"at-toast\\"><div class=\\"at-toast__overlay\\"></div><div class=\\"toast-body toast-body--text\\"><div class=\\"toast-body-content\\">undefinedundefinedundefined</div></div></div>"`;
 
