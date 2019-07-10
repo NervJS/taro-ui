@@ -11,6 +11,7 @@ import DocsHeader from '../../components/doc-header'
 import AtCalendar from '../../../components/calendar/index'
 
 import _cloneDeep from 'lodash/cloneDeep'
+import _replace from 'lodash/replace'
 import dayjs from 'dayjs'
 
 export default class Index extends Component {
@@ -130,6 +131,7 @@ export default class Index extends Component {
 
   @bind
   handleDateChange (arg) {
+    let { value } = arg;
     let _filterValidDates = (startTime: string,flag: boolean)=>{
       let result:any = [];
       var i = 1;
@@ -156,9 +158,8 @@ export default class Index extends Component {
       return result
     }
     let _filterDates = (startTime: string) => {
-      return [{value: startTime}, ..._filterValidDates(startTime,true), ..._filterValidDates(startTime,false) ];
+      return [{value: _replace(startTime,/\-/g, '/')}, ..._filterValidDates(startTime,true), ..._filterValidDates(startTime,false) ];
     }
-    let { value } = arg;
     if(value.end){
       this.setState({validDates: this.state.tempValidDates})
     }else{
