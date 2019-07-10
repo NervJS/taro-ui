@@ -54,10 +54,10 @@ export default class AtCalendarList extends Taro.Component<Props> {
               `flex__item--${MAP[item.type]}`,
               {
                 'flex__item--today': item.isToday,
-                'flex__item--active': item.isActive,
-                'flex__item--selected': item.isSelected,
-                'flex__item--selected-head': item.isSelectedHead,
-                'flex__item--selected-tail': item.isSelectedTail,
+                'flex__item--active': item.isActive && !item.isDisabled,
+                'flex__item--selected': item.isSelected && !item.isDisabled,
+                'flex__item--selected-head': item.isSelectedHead && !item.isDisabled,
+                'flex__item--selected-tail': item.isSelectedTail && !item.isDisabled,
                 'flex__item--blur':
                   item.isDisabled ||
                   item.type === constant.TYPE_PRE_MONTH ||
