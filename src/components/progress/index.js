@@ -30,7 +30,7 @@ export default class AtProgress extends AtComponent {
 
     const progressStyle = {
       width: percent && `${+percent}%`,
-      height: strokeWidth && `${+strokeWidth}px`,
+      height: strokeWidth && Taro.pxTransform(strokeWidth),
       backgroundColor: color
     }
 
