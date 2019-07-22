@@ -109,7 +109,8 @@ export default class AtCountdown extends AtComponent {
       customStyle,
       format,
       isShowDay,
-      isCard
+      isCard,
+      isShowHour
     } = this.props
     const {
       _day,
@@ -128,7 +129,7 @@ export default class AtCountdown extends AtComponent {
         style={customStyle}
       >
         {isShowDay && <AtCountdownItem num={_day} separator={format.day} /> }
-        <AtCountdownItem num={_hours} separator={format.hours} />
+        {isShowHour && <AtCountdownItem num={_hours} separator={format.hours} /> }
         <AtCountdownItem num={_minutes} separator={format.minutes} />
         <AtCountdownItem num={_seconds} separator={format.seconds} />
       </View>
@@ -141,6 +142,7 @@ AtCountdown.defaultProps = {
   className: '',
   isCard: false,
   isShowDay: false,
+  isShowHour: true,
   format: {
     day: '天',
     hours: '时',
@@ -165,6 +167,7 @@ AtCountdown.propTypes = {
   ]),
   isCard: PropTypes.bool,
   isShowDay: PropTypes.bool,
+  isShowHour: PropTypes.bool,
   format: PropTypes.object,
   day: PropTypes.number,
   hours: PropTypes.number,
