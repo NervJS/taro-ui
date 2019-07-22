@@ -108,6 +108,7 @@ export default class CountdownPage extends Taro.Component {
 | ---------- | ------- | ------- | ----| -------- |
 | isCard | 是否显示卡片式样式 | Boolean  | - | false |
 | isShowDay | 是否显示天数 | Boolean  | - | false |
+| isShowHour | 是否显示小时 | Boolean  | - | true |
 | format | 格式化分割符号 | Object  | - | `day: '天',hours: '时',minutes: '分',seconds: '秒'` |
 | day | 天数 | Number  | - | 0 |
 | hours | 小时 | Number | - | 0 |
