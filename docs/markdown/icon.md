@@ -20,6 +20,15 @@ import { AtIcon } from 'taro-ui'
 ```
 :::
 
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/icon.scss";
+```
+:::
+
+
 **推荐使用新的引入方式，采用传统的类名图标方式即可，例如：**
 
 ```js
