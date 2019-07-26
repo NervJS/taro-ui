@@ -51,6 +51,9 @@ class PageHeader extends Nerv.Component {
                 <NavLink activeClassName='router-link-active' to='/docs/introduction'>组件</NavLink>
               </li>
               <li>
+                <NavLink activeClassName='router-link-active' to='/docs/resource'>设计资源</NavLink>
+              </li>
+              <li>
                 <a href='https://nervjs.github.io/taro-ui-theme-preview/' target='__blank'>主题生成器</a>
               </li>
               <li>
