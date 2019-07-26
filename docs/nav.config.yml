@@ -12,6 +12,8 @@ components:
         name: Questions
       - title: 更新日志
         name: Changelog
+      - title: 设计资源
+        name: Resource
   - title: 组件
     name: Docs
     groups:
