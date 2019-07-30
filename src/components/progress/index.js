@@ -5,7 +5,13 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
 export default class AtProgress extends AtComponent {
-  render () {
+  constructor() {
+    super(...arguments);
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
+  render() {
     const { color } = this.props
     let { percent } = this.props
     const { strokeWidth, status, isHidePercent } = this.props
@@ -30,7 +36,7 @@ export default class AtProgress extends AtComponent {
 
     const progressStyle = {
       width: percent && `${+percent}%`,
-      height: strokeWidth && `${+strokeWidth}px`,
+      height: strokeWidth && `${Taro.Taro.pxTransform(strokeWidth)}`,
       backgroundColor: color
     }
 

@@ -6,12 +6,15 @@ import AtBadge from '../../components/badge/index'
 import AtComponent from '../../common/component'
 
 export default class AtTabBar extends AtComponent {
-  // constructor () {
-  //   super(...arguments)
-  //   this.state = {
-  //     isIPhoneX: false
-  //   }
-  // }
+  constructor() {
+    super(...arguments)
+    // this.state = {
+    //   isIPhoneX: false
+    // }
+    if (process.env.NODE_ENV === 'test') {
+      Taro.initPxTransform({ designWidth: 750 })
+    }
+  }
 
   // componentDidMount () {
   //   const curEnv = Taro.getEnv()
@@ -24,11 +27,11 @@ export default class AtTabBar extends AtComponent {
   //   }
   // }
 
-  handleClick () {
+  handleClick() {
     this.props.onClick(...arguments)
   }
 
-  render () {
+  render() {
     const {
       customStyle,
       className,
@@ -49,14 +52,14 @@ export default class AtTabBar extends AtComponent {
       color: selectedColor || ''
     }
     const titleStyle = {
-      fontSize: fontSize ? `${fontSize}px` : ''
+      fontSize: fontSize ? Taro.pxTransform(fontSize) : ''
     }
     const rootStyle = {
       backgroundColor: backgroundColor || ''
     }
     const imgStyle = {
-      width: `${iconSize}px`,
-      height: `${iconSize}px`
+      width: Taro.pxTransform(iconSize),
+      height: Taro.pxTransform(iconSize)
     }
 
     return (
@@ -85,7 +88,7 @@ export default class AtTabBar extends AtComponent {
                     [`${item.iconPrefixClass || 'at-icon'}-${item.iconType}`]: !(current === i && item.selectedIconType),
                   })} style={{
                     color: current === i ? selectedColor : color,
-                    fontSize: iconSize ? `${iconSize}px` : '',
+                    fontSize: iconSize ? Taro.pxTransform(iconSize) : '',
                   }}
                   ></Text>
                 </View>
@@ -98,8 +101,8 @@ export default class AtTabBar extends AtComponent {
                   <Image
                     className={classNames(
                       'at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current !== i
-                      })
+                      'at-tab-bar__inner-img--inactive': current !== i
+                    })
                     }
                     mode='widthFix'
                     src={item.selectedImage || item.image}
@@ -108,8 +111,8 @@ export default class AtTabBar extends AtComponent {
                   <Image
                     className={classNames(
                       'at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current === i
-                      })
+                      'at-tab-bar__inner-img--inactive': current === i
+                    })
                     }
                     mode='widthFix'
                     src={item.image}
@@ -144,7 +147,7 @@ AtTabBar.defaultProps = {
   current: 0,
   scroll: false,
   tabList: [],
-  onClick: () => {},
+  onClick: () => { },
 }
 
 AtTabBar.propTypes = {
