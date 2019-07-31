@@ -48,6 +48,10 @@ export default class AtInput extends AtComponent {
 
   onErrorClick = () => this.props.onErrorClick()
 
+  onPaste = () => {
+    this.props.onPaste && this.props.onPaste()
+  }
+
   render () {
     const {
       className,
@@ -125,6 +129,7 @@ export default class AtInput extends AtComponent {
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onConfirm={this.onConfirm}
+          onPaste={this.onPaste}
         />
         {clear && value && (
           <View className='at-input__icon' onTouchStart={this.clearValue}>
