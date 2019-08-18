@@ -62,7 +62,8 @@ export default class AtFloatLayout extends AtComponent {
       scrollLeft,
       upperThreshold,
       lowerThreshold,
-      scrollWithAnimation
+      scrollWithAnimation,
+      top
     } = this.props
 
     const rootClass = classNames(
@@ -76,7 +77,7 @@ export default class AtFloatLayout extends AtComponent {
     return (
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
         <View onClick={this.close} className='at-float-layout__overlay' />
-        <View className='at-float-layout__container layout'>
+        <View className={top ? 'at-float-layout__container at-float-layout__container--top layout' : 'at-float-layout__container layout'}>
           {title ? (
             <View className='layout-header'>
               <Text className='layout-header__title'>{title}</Text>
@@ -113,6 +114,7 @@ AtFloatLayout.defaultProps = {
   scrollY: true,
   scrollX: false,
   scrollWithAnimation: false,
+  top: false,
 
   onClose: () => {},
   onScroll: () => {},
@@ -130,6 +132,7 @@ AtFloatLayout.propType = {
   upperThreshold: PropTypes.number,
   lowerThreshold: PropTypes.number,
   scrollWithAnimation: PropTypes.bool,
+  top: PropTypes.bool,
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
