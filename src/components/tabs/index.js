@@ -35,8 +35,9 @@ export default class AtTabs extends AtComponent {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
         case Taro.ENV_TYPE.SWAN:
+          const index = Math.max(idx - 1, 0)
           this.setState({
-            _scrollIntoView: `tab${idx - 1}`
+            _scrollIntoView: `tab${index}`
           })
           break
 
