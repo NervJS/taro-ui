@@ -52,7 +52,7 @@ class Index extends Nerv.Component {
             <div className='panel'>
               <div className='panel-img'><img src={require('../assets/panel-img1.png')} /></div>
               <div className='panel-title'>多端适配</div>
-              <div className='panel-desc'>一套组件可以在微信小程序 / H5 / ReactNative 等多端适配运行</div>
+              <div className='panel-desc'>一套组件可以在微信小程序 / H5 / 百度小程序 等多端适配运行</div>
             </div>
             <div className='panel'>
               <div className='panel-img'><img src={require('../assets/panel-img2.png')} /></div>
