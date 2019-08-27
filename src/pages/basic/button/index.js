@@ -224,7 +224,10 @@ export default class ButtonPage extends Taro.Component {
                 <AtButton openType='share' type='primary'>分享</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' openType='contact' onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+                <AtButton openType='getUserInfo' type='primary'>登录授权</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton type='secondary' openType='contact' bindgetuserinfo={this.onGetUserInfo.bind(this)} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
               </View>
 
               <View className='btn-item'>
@@ -246,6 +249,9 @@ export default class ButtonPage extends Taro.Component {
             <View className='panel__content demo-button'>
               <View className='btn-item'>
                 <AtButton openType='share' type='primary'>分享</AtButton>
+              </View>
+              <View className='btn-item'>
+                <AtButton openType='getAuthorize' type='primary'>登录授权</AtButton>
               </View>
               <AtForm onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
                 <View className='btn-item'>
