@@ -8,7 +8,7 @@ $at-tab-bar-title-max-width: 200px;
   display: flex;
   padding: $spacing-v-sm 0 $spacing-v-xs;
   width: 100%;
-  min-height: $at-tab-bar-bg-color;
+  min-height: $at-tab-bar-min-height;
   justify-content: center;
   align-items: start;
   text-align: center;
