@@ -17,6 +17,8 @@ export interface AtCountDownProps extends AtComponent{
 
   isShowDay?: boolean
 
+  isShowHour?: boolean
+
   format?: FormatObject
 
   day?: number
