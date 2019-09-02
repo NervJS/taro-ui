@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Text, Input } from '@tarojs/components'
 import {
   AtButton,
   AtModal,
@@ -27,7 +27,8 @@ export default class ModalPage extends Taro.Component {
       isOpened2: false,
       isOpened3: false,
       isOpened4: false,
-      isOpened5: false
+      isOpened5: false,
+      isOpened6: false
     }
   }
 
@@ -61,7 +62,7 @@ export default class ModalPage extends Taro.Component {
   }
 
   render () {
-    const { isOpened1, isOpened2, isOpened3, isOpened4, isOpened5 } = this.state
+    const { isOpened1, isOpened2, isOpened3, isOpened4, isOpened5, isOpened6 } = this.state
 
     return (
       <View className='page'>
@@ -111,6 +112,17 @@ export default class ModalPage extends Taro.Component {
               <View className='example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 4)}>
                   打开简化使用模态框
+                </AtButton>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>打开popup</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 6)}>
+                  打开popup
                 </AtButton>
               </View>
             </View>
@@ -203,6 +215,36 @@ export default class ModalPage extends Taro.Component {
           onCancel={this.closeModal.bind(this, 4, '点击了取消')}
           onConfirm={this.closeModalConfirm.bind(this, 4, '点击了确认')}
         />
+
+        {/* Popup */}
+        <AtModal
+          popup
+          animationType='slide-up'
+          isOpened={isOpened6}
+          cancelText='取消'
+          confirmText='确认'
+          onClose={this.closeModal.bind(this, 6, 'Modal被关闭了')}
+          onCancel={this.closeModal.bind(this, 6, '点击了取消')}
+          onConfirm={this.closeModalConfirm.bind(this, 6, '点击了确认')}
+        >
+          <AtModalHeader>完善信息</AtModalHeader>
+          <AtModalContent>
+            <View className='modal-content' style='display:flex; margin:5px;'>
+              <Text style='height:30px; line-height:30px; width:50px; '>姓名:</Text>
+              <Input style='height:30px; line-height:30px; border:1px solid #ddd; margin-left:20px;' />
+            </View>
+            <View className='modal-content' style='display:flex; margin:5px;'>
+              <Text style='height:30px; line-height:30px; width:50px;'>呢称:</Text>
+              <Input style='height:30px; line-height:30px; border:1px solid #ddd; margin-left:20px;' />
+            </View>
+          </AtModalContent>
+          <AtModalAction>
+            <Button onClick={this.closeModal.bind(this, 6, '点击了确定')}>
+              确定
+            </Button>
+          </AtModalAction>
+        </AtModal>
+
 
         <AtModal isOpened={isOpened5}>
           <AtModalContent>

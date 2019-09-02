@@ -33,6 +33,22 @@ $at-modal-duration: 200ms;
     overflow: hidden;
   }
 
+  &__popup {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+
+    &-slide-down {
+      top: 0;
+    }
+
+    &-slide-up {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
   &__header {
     @include hairline-bottom-relative($color: $color-grey-4);
     @include line(1);
