@@ -22,11 +22,26 @@
     }
   }
 
-  &__title {
+  &__info {
     flex: 1;
     text-align: left;
     line-height: 1.6;
-    @include line;
+
+    &__title {
+      @include line;
+
+      color: inherit;
+      font-size: inherit;
+      line-height: $line-height-zh;
+    }
+
+    &__note {
+      @include line;
+
+      color: $at-list-content-color;
+      font-size: $font-size-base;
+      line-height: $line-height-zh;
+    }
   }
 
   &__icon {
