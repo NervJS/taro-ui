@@ -50,6 +50,7 @@ class AtSearchBar extends AtComponent {
       disabled,
       showActionButton,
       actionName,
+      type, // 处理issue#464
       className,
       customStyle
     } = this.props
@@ -105,7 +106,7 @@ class AtSearchBar extends AtComponent {
           </View>
           <Input
             className='at-search-bar__input'
-            type='text'
+            type={type}
             confirmType='search'
             value={value}
             focus={focus}
@@ -145,6 +146,7 @@ AtSearchBar.defaultProps = {
   disabled: false,
   showActionButton: false,
   actionName: '搜索',
+  type: 'text',
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
@@ -161,12 +163,14 @@ AtSearchBar.propTypes = {
   disabled: PropTypes.bool,
   showActionButton: PropTypes.bool,
   actionName: PropTypes.string,
+  type: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func,
-  onClear: PropTypes.func
+  onClear: PropTypes.func,
+
 }
 
 export default AtSearchBar
