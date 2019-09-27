@@ -119,7 +119,6 @@ export default class AtSwipeAction extends AtComponent {
     if (_isEmpty(this.domInfo)) {
       return
     }
-    e.stopPropagation && e.stopPropagation() // close #306
 
     const { startX, startY } = this
     const { top, bottom, left, right } = this.domInfo
