@@ -29,13 +29,12 @@ export default class PageForm extends Taro.Component {
         isOpened: true,
         text: `表单未填写完整`
       })
-      this.closeToast()
-      return
+    } else {
+      this.setState({
+        isOpened: true,
+        text: `文本：${this.state.value1}  密码：${this.state.value2}`
+      })
     }
-    this.setState({
-      isOpened: true,
-      text: `文本：${this.state.value1}  密码：${this.state.value2}`
-    })
     this.closeToast()
   }
 
