@@ -43,6 +43,7 @@ class App extends Component {
       'pages/layout/card/index',
       'pages/layout/list/index',
       'pages/layout/accordion/index',
+      'pages/form/form/index',
       'pages/form/checkbox/index',
       'pages/form/input/index',
       'pages/form/input-number/index',
