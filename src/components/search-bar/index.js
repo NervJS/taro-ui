@@ -46,7 +46,6 @@ class AtSearchBar extends AtComponent {
       placeholder,
       maxLength,
       fixed,
-      focus,
       disabled,
       showActionButton,
       actionName,
@@ -109,7 +108,7 @@ class AtSearchBar extends AtComponent {
             type={type}
             confirmType='search'
             value={value}
-            focus={focus}
+            focus={isFocus}
             disabled={disabled}
             maxLength={maxLength}
             onInput={this.handleChange}
