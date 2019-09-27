@@ -46,7 +46,6 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
-                  type='number'
                   value={this.state.value1}
                   onChange={this.onChange.bind(this, 'value1')}
                   onActionClick={this.onActionClick.bind(this)}
