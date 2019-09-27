@@ -1,6 +1,14 @@
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
+.at-web-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  box-shadow: none;
+}
+
 .at-button {
   position: relative;
   display: flex;
@@ -22,6 +30,7 @@
   }
 
   /* elements */
+
   &__icon {
     display: inline-block;
     margin: 2PX 20px 0 20px;

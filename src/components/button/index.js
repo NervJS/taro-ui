@@ -53,7 +53,8 @@ export default class AtButton extends AtComponent {
   }
 
   onSumit () {
-    if (this.state.isWEAPP) {
+    console.log('submit')
+    if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('submit', arguments[0].detail, {
         bubbles: true,
         composed: true,
@@ -62,7 +63,7 @@ export default class AtButton extends AtComponent {
   }
 
   onReset () {
-    if (this.state.isWEAPP) {
+    if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('reset', arguments[0].detail, {
         bubbles: true,
         composed: true,
@@ -92,6 +93,7 @@ export default class AtButton extends AtComponent {
     const {
       isWEAPP,
       isALIPAY,
+      isWEB,
     } = this.state
     const rootClassName = ['at-button']
     const classObject = {
@@ -108,6 +110,12 @@ export default class AtButton extends AtComponent {
       component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>
       rootClassName.push('at-button--icon')
     }
+
+    const webButton = <Button className='at-button__wxbutton'
+      lang={lang}
+      type={formType === 'submit' || formType === 'reset' ? formType : 'button'}
+    ></Button>
+
     const button = <Button className='at-button__wxbutton'
       formType={formType}
       openType={openType}
@@ -125,15 +133,18 @@ export default class AtButton extends AtComponent {
       onContact={this.onContact.bind(this)}
     >
     </Button>
+
     return (
       <View
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
+        {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
         {isALIPAY && !disabled && button}
-        {component}<View className='at-button__text'>{this.props.children}</View>
+        {component}
+        <View className='at-button__text'>{this.props.children}</View>
       </View>
     )
   }

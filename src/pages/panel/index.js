@@ -151,6 +151,10 @@ export default class PanelBasic extends Component {
         ],
         form: [
           {
+            id: 'Form',
+            name: '表单'
+          },
+          {
             id: 'Input',
             name: '输入框'
           },
