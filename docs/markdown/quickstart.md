@@ -106,7 +106,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 
-import './index.scss'
+import './app.scss'
 
 export default class Index extends Component {
   config: Config = {
