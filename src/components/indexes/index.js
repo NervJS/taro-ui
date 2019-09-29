@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import PropTypes from 'prop-types'
 import { View, ScrollView } from '@tarojs/components'
 import classNames from 'classnames'
+import _findIndex from 'lodash/findIndex'
 
 import AtComponent from '../../common/component'
 
@@ -20,7 +21,8 @@ class AtIndexes extends AtComponent {
       _scrollIntoView: '',
       _scrollTop: 0,
       _tipText: '',
-      _isShowToast: false
+      _isShowToast: false,
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
     }
     // 右侧导航高度
     this.menuHeight = 0
@@ -31,6 +33,7 @@ class AtIndexes extends AtComponent {
     // 当前索引
     this.currentIndex = -1
     this.listId = isTest() ? 'indexes-list-AOTU2018' : `list-${uuid()}`
+    this.timeoutTimer = null
   }
 
   handleClick = (...arg) => this.props.onClick(...arg)
@@ -82,7 +85,15 @@ class AtIndexes extends AtComponent {
     })
   }
 
+  __jumpTarget (key) {
+    const { list } = this.props
+    const index = _findIndex(list, ['key', key])
+    const targetView = `at-indexes__list-${key}`
+    this.jumpTarget(targetView, index + 1)
+  }
+
   updateState (state) {
+    console.log('updateState')
     const { isShowToast, isVibrate } = this.props
     const { _scrollIntoView, _tipText, _scrollTop } = state
 
@@ -91,7 +102,16 @@ class AtIndexes extends AtComponent {
       _tipText,
       _scrollTop,
       _isShowToast: isShowToast
+    }, () => {
+      clearTimeout(this.timeoutTimer)
+      this.timeoutTimer = setTimeout(() => {
+        this.setState({
+          _tipText: '',
+          _isShowToast: false
+        })
+      }, 3000)
     })
+
     if (isVibrate) {
       Taro.vibrateShort()
     }
@@ -107,6 +127,12 @@ class AtIndexes extends AtComponent {
       })
   }
 
+  handleScroll (e) {
+    if (e && e.detail) {
+      this.state._scrollTop = e.detail.scrollTop
+    }
+  }
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.list.length !== this.props.list.length) {
       this.initData()
@@ -118,6 +144,10 @@ class AtIndexes extends AtComponent {
       this.listRef = document.getElementById(this.listId)
     }
     this.initData()
+  }
+
+  componentWillMount () {
+    this.props.onScrollIntoView && this.props.onScrollIntoView(this.__jumpTarget.bind(this))
   }
 
   render () {
@@ -169,6 +199,7 @@ class AtIndexes extends AtComponent {
       </View>
     ))
 
+
     return <View className={rootCls} style={customStyle}>
       <AtToast
         customStyle={toastStyle}
@@ -195,7 +226,8 @@ class AtIndexes extends AtComponent {
         scrollY
         scrollWithAnimation={animation}
         scrollTop={_scrollTop}
-        scrollIntoView={_scrollIntoView}
+        scrollIntoView={!this.state.isWEB ? _scrollIntoView : ''}
+        onScroll={this.handleScroll.bind(this)}
       >
         <View className='at-indexes__content' id='at-indexes__top'>
           {this.props.children}
