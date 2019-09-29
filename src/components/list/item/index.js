@@ -26,17 +26,23 @@ export default class AtListItem extends AtComponent {
     const {
       note,
       arrow,
-      title,
       thumb,
       iconInfo,
       disabled,
       isSwitch,
-      extraText,
       hasBorder,
       extraThumb,
       switchColor,
       switchIsCheck
     } = this.props
+
+    let {
+      extraText,
+      title
+    } = this.props
+
+    extraText = String(extraText)
+    title = String(title)
 
     const rootClass = classNames(
       'at-list__item',
