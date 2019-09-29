@@ -12,8 +12,8 @@ export default class Index extends Taro.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      value1: [20, 60],
-      value2: [20, 60],
+      value1: [50, 60],
+      value2: [50, 60],
     }
   }
 
@@ -40,7 +40,9 @@ export default class Index extends Taro.Component {
                 数值范围：{this.state.value1[0]}~{this.state.value1[1]}
               </View>
               <AtRange
-                value={[20, 60]}
+                min={30}
+                max={90}
+                value={this.state.value1}
                 onChange={this.handleChange.bind(this, 'value1')}
               />
             </View>
@@ -64,7 +66,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>禁止状态</View>
             <View className='panel__content'>
               <AtRange
-                value={[20, 40]}
+                value={[30, 50]}
                 disabled
               />
             </View>
