@@ -34,6 +34,8 @@ export default class AtCard extends AtComponent {
       fontSize: (icon && `${icon.size}px`) || '',
     }
 
+    console.log('renderIcon,extra', extra)
+
     return (
       <View onClick={this.handleClick} className={rootClass}>
         <View className='at-card__header'>
@@ -46,9 +48,13 @@ export default class AtCard extends AtComponent {
               />
             </View>
           )}
+          {
+            this.props.renderIcon
+          }
           {!thumb && icon && icon.value && (
             <Text className={iconClass} style={iconStyle}></Text>
           )}
+
           <Text className='at-card__header-title'>{title}</Text>
           {extra && <Text className='at-card__header-extra'>{extra}</Text>}
         </View>
@@ -69,6 +75,7 @@ AtCard.defaultProps = {
   extra: '',
   icon: {},
   onClick () {},
+  renderIcon: '',
 }
 
 AtCard.propTypes = {
@@ -79,13 +86,17 @@ AtCard.propTypes = {
   extra: PropTypes.string,
   icon: PropTypes.object,
   onClick: PropTypes.func,
+  renderIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
 }
 
-AtCard.defaultProps = {
-  note: '',
-  isFull: false,
-  thumb: '',
-  title: '',
-  extra: '',
-  onClick: () => {},
-}
+// AtCard.defaultProps = {
+//   note: '',
+//   isFull: false,
+//   thumb: '',
+//   title: '',
+//   extra: '',
+//   onClick: () => {},
+// }
