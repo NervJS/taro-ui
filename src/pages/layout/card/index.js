@@ -65,7 +65,7 @@ export default class CardPage extends Taro.Component {
                 <AtCard
                   title='这是个标题'
                   renderIcon={
-                    <AtIcon prefixClass='at-icon' value='image' size='16' color='#6190e8' customStyle={{ marginRight: '10rpx' }} ></AtIcon>
+                    <AtIcon prefixClass='at-icon' value='image' size='16' color='#6190e8' customStyle={{ marginRight: '8px' }} ></AtIcon>
                   }
                 >
                   这也是内容区 可以随意定义功能
