@@ -20,6 +20,7 @@ export default class AtDivider extends AtComponent {
       height,
       fontColor,
       fontSize,
+      backgroundColor
       lineColor,
     } = this.props
 
@@ -32,6 +33,10 @@ export default class AtDivider extends AtComponent {
       'font-size': fontSize ? `${Taro.pxTransform(fontSize)}` : ''
     }
 
+    const backgroundStyle = {
+      'background-color': backgroundColor
+    }
+
     const lineStyle = {
       'background-color': lineColor
     }
@@ -41,7 +46,7 @@ export default class AtDivider extends AtComponent {
         className={classNames('at-divider', className)}
         style={this.mergeStyle(rootStyle, customStyle)}
       >
-        <View className='at-divider__content' style={fontStyle}>
+        <View className='at-divider__content' style={this.mergeStyle(fontStyle, backgroundStyle)}>
           {content === '' ? this.props.children : content}
         </View>
         <View className='at-divider__line' style={lineStyle}></View>
