@@ -4,7 +4,7 @@ import { renderToString } from 'nerv-server'
 import AtSearchBar from '../../../.temp/components/search-bar/index'
 
 describe('AtSearchBar Snap', () => {
-  it('render initial AtSwitch', () => {
+  it('render initial AtSearchBar', () => {
     const componet = renderToString(<AtSearchBar />)
     expect(componet).toMatchSnapshot()
   })
@@ -56,6 +56,11 @@ describe('AtSearchBar Snap', () => {
 
   it('render AtSearchBar -- props actionName', () => {
     const componet = renderToString(<AtSearchBar actionName='actionName' />)
+    expect(componet).toMatchSnapshot()
+  })
+
+  it('render AtSearchBar -- props inputType number', () => {
+    const componet = renderToString(<AtSearchBar inputType='number' />)
     expect(componet).toMatchSnapshot()
   })
 })
