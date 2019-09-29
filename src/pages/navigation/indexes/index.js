@@ -1,15 +1,40 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtIndexes } from 'taro-ui'
+import { AtIndexes, AtSearchBar } from 'taro-ui'
 import mockData from './mock-data'
 import './index.scss'
 
 export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
   config = {
     navigationBarTitleText: 'Taro UI'
   }
   onClick (item) {
     console.log(item)
+  }
+
+  componentDidMount () {
+    console.log(this.scrollIntoView)
+    // this.scrollIntoView && this.scrollIntoView('top', 0)
+  }
+  handleActionClick () {
+    if (!this.state.value) {
+      return
+    }
+    this.setState({
+      value: ''
+    })
+    this.scrollIntoView && this.scrollIntoView(this.state.value.toUpperCase())
+  }
+  handleChange (value) {
+    this.setState({
+      value
+    })
   }
 
   render () {
@@ -21,8 +46,12 @@ export default class Index extends Taro.Component {
             list={mockData}
             topKey='Top'
             onClick={this.onClick.bind(this)}
+            onScrollIntoView={fn => { this.scrollIntoView = fn }}
           >
-            <View className='custom-area'>用户自定义内容</View>
+            <View className='custom-area'>
+              用户自定义内容
+              <AtSearchBar value={this.state.value} onChange={this.handleChange.bind(this)} placeholder='通过api服务跳转到指定Index' onActionClick={this.handleActionClick.bind(this)} />
+            </View>
           </AtIndexes>
         </View>
       </View>
