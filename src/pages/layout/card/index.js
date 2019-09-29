@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtCard } from 'taro-ui'
+import { AtCard, AtIcon } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -51,6 +51,22 @@ export default class CardPage extends Taro.Component {
                 <AtCard
                   title='这是个标题'
                   icon={{ value: 'tags', color: '#77a1fd' }}
+                >
+                  这也是内容区 可以随意定义功能
+                </AtCard>
+              </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>自定义图标的卡片</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtCard
+                  title='这是个标题'
+                  renderIcon={
+                    <AtIcon prefixClass='at-icon' value='image' size='16' color='#6190e8' customStyle={{ marginRight: '10rpx' }} ></AtIcon>
+                  }
                 >
                   这也是内容区 可以随意定义功能
                 </AtCard>
