@@ -49,7 +49,7 @@ class AtSearchBar extends AtComponent {
       disabled,
       showActionButton,
       actionName,
-      inputType,
+      inputType, // 处理issue#464
       className,
       customStyle
     } = this.props
