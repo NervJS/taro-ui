@@ -16,8 +16,7 @@ export default class Index extends Taro.Component {
       value1: '',
       value2: '',
       value3: '',
-      value4: '',
-
+      value4: ''
     }
   }
   onChange (stateName, value) {
@@ -87,12 +86,13 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
-          {/* 基于数字进行搜索 */}
+          {/* 自定义输入框类型 */}
           <View className='panel'>
-            <View className='panel__title'>基于数字进行搜索（支持小程序）</View>
+            <View className='panel__title'>自定义输入框类型</View>
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtSearchBar
+                  placeholder='请输入数字'
                   type='number'
                   value={this.state.value4}
                   onChange={this.onChange.bind(this, 'value4')}

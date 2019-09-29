@@ -70,7 +70,7 @@ class AtSearchBar extends AtComponent {
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${((actionName.length + 1) * fontSize) + (fontSize / 2)}px`
+      actionStyle.marginRight = `-${((actionName.length + 1) * fontSize) + (fontSize / 2) + 10}px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1
@@ -162,7 +162,7 @@ AtSearchBar.propTypes = {
   disabled: PropTypes.bool,
   showActionButton: PropTypes.bool,
   actionName: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'number', 'idcard', 'digit']),
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
