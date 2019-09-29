@@ -20,7 +20,7 @@ export default class AtDivider extends AtComponent {
       height,
       fontColor,
       fontSize,
-      backgroundColor
+      backgroundColor,
       lineColor,
     } = this.props
 
