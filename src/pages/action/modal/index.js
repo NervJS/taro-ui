@@ -199,7 +199,7 @@ export default class ModalPage extends Taro.Component {
 
         <AtModal isOpened={isOpened5}>
           <AtModalContent>
-            <AtIndexes list={mockData} topKey='Top'>
+            <AtIndexes list={mockData} topKey='Top' customStyle={{ height: '400px' }}>
               <View className='custom-area'>用户自定义内容</View>
             </AtIndexes>
           </AtModalContent>
