@@ -15,7 +15,9 @@ export default class Index extends Taro.Component {
     this.state = {
       value1: '',
       value2: '',
-      value3: ''
+      value3: '',
+      value4: '',
+
     }
   }
   onChange (stateName, value) {
@@ -54,21 +56,6 @@ export default class Index extends Taro.Component {
             </View>
           </View>
 
-          {/* 基于数字进行搜索 */}
-          <View className='panel'>
-            <View className='panel__title'>基于数字进行搜索（支持小程序）</View>
-            <View className='panel__content no-padding'>
-              <View className='component-item'>
-                <AtSearchBar
-                  type='number'
-                  value={this.state.value1}
-                  onChange={this.onChange.bind(this, 'value1')}
-                  onActionClick={this.onActionClick.bind(this)}
-                />
-              </View>
-            </View>
-          </View>
-
           {/* 自定义按钮文字和点击事件 */}
           <View className='panel'>
             <View className='panel__title'>自定义按钮文字和点击事件</View>
@@ -94,6 +81,21 @@ export default class Index extends Taro.Component {
                   showActionButton
                   value={this.state.value3}
                   onChange={this.onChange.bind(this, 'value3')}
+                  onActionClick={this.onActionClick.bind(this)}
+                />
+              </View>
+            </View>
+          </View>
+
+          {/* 基于数字进行搜索 */}
+          <View className='panel'>
+            <View className='panel__title'>基于数字进行搜索（支持小程序）</View>
+            <View className='panel__content no-padding'>
+              <View className='component-item'>
+                <AtSearchBar
+                  type='number'
+                  value={this.state.value4}
+                  onChange={this.onChange.bind(this, 'value4')}
                   onActionClick={this.onActionClick.bind(this)}
                 />
               </View>
