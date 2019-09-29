@@ -14,7 +14,7 @@ export default class AtRange extends AtComponent {
     this.width = 0
     // range 到屏幕左边的距离
     this.left = 0
-    this.deltaValue = max - min
+    this.deltaValue = (max - min)
     this.currentSlider = ''
     this.state = {
       aX: 0,
@@ -61,15 +61,15 @@ export default class AtRange extends AtComponent {
   }
 
   setValue (value) {
-    const aX = Math.round((value[0] / this.deltaValue) * 100)
-    const bX = Math.round((value[1] / this.deltaValue) * 100)
+    const aX = Math.round(((value[0] - this.props.min) / this.deltaValue) * 100) // fix issue #670
+    const bX = Math.round(((value[1] - this.props.min) / this.deltaValue) * 100) // fix issue #670
     this.setState({ aX, bX })
   }
 
   triggerEvent (funcName) {
     const { aX, bX } = this.state
-    const a = Math.round((aX / 100) * this.deltaValue)
-    const b = Math.round((bX / 100) * this.deltaValue)
+    const a = Math.round((aX / 100) * this.deltaValue) + this.props.min // fix issue #670
+    const b = Math.round((bX / 100) * this.deltaValue) + this.props.min // fix issue #670
     const result = [a, b].sort((x, y) => x - y)
 
     if (funcName === 'onChange') {
@@ -97,6 +97,8 @@ export default class AtRange extends AtComponent {
         this.left = Math.round(rect[0].left)
         this.setValue(value)
       })
+    // this.triggerEvent('onChange')
+    // this.triggerEvent('onAfterChange')
   }
 
   render () {
