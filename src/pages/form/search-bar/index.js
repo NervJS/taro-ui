@@ -93,7 +93,7 @@ export default class Index extends Taro.Component {
               <View className='component-item'>
                 <AtSearchBar
                   placeholder='请输入数字'
-                  type='number'
+                  inputType='number'
                   value={this.state.value4}
                   onChange={this.onChange.bind(this, 'value4')}
                   onActionClick={this.onActionClick.bind(this)}
