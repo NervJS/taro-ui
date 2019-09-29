@@ -15,7 +15,8 @@ export default class Index extends Taro.Component {
     this.state = {
       value1: '',
       value2: '',
-      value3: ''
+      value3: '',
+      value4: ''
     }
   }
   onChange (stateName, value) {
@@ -79,6 +80,22 @@ export default class Index extends Taro.Component {
                   showActionButton
                   value={this.state.value3}
                   onChange={this.onChange.bind(this, 'value3')}
+                  onActionClick={this.onActionClick.bind(this)}
+                />
+              </View>
+            </View>
+          </View>
+
+          {/* 自定义输入框类型 */}
+          <View className='panel'>
+            <View className='panel__title'>自定义输入框类型</View>
+            <View className='panel__content no-padding'>
+              <View className='component-item'>
+                <AtSearchBar
+                  placeholder='请输入数字'
+                  inputType='number'
+                  value={this.state.value4}
+                  onChange={this.onChange.bind(this, 'value4')}
                   onActionClick={this.onActionClick.bind(this)}
                 />
               </View>
