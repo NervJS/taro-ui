@@ -173,23 +173,16 @@ export default class ModalPage extends Taro.Component {
         {/* 无标题 */}
         <AtModal
           isOpened={isOpened3}
+          content={`这里是正文内容，欢迎加入京东凹凸实验室
+          这里是正文内容，欢迎加入京东凹凸实验室
+          这里是正文内容，欢迎加入京东凹凸实验室`}
           onClose={this.closeModal.bind(this, 3, 'Modal被关闭了')}
+          onCancel={this.closeModal.bind(this, 3, '点击了取消')}
+          onConfirm={this.closeModalConfirm.bind(this, 3, '点击了确认')}
+          cancelText='取消'
+          confirmText='确认'
         >
-          <AtModalContent>
-            <View className='modal-content'>
-              这里是正文内容，欢迎加入京东凹凸实验室
-              这里是正文内容，欢迎加入京东凹凸实验室
-              这里是正文内容，欢迎加入京东凹凸实验室
-            </View>
-          </AtModalContent>
-          <AtModalAction>
-            <Button onClick={this.closeModal.bind(this, 3, '点击了取消')}>
-              取消
-            </Button>
-            <Button onClick={this.closeModal.bind(this, 3, '点击了确定')}>
-              确定
-            </Button>
-          </AtModalAction>
+
         </AtModal>
 
         {/* 简化使用 */}
@@ -198,7 +191,7 @@ export default class ModalPage extends Taro.Component {
           title='标题'
           cancelText='取消'
           confirmText='确认'
-          content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+          content={`欢迎加入京东凹凸实验室\n欢迎加入京东凹凸实验室`}
           onClose={this.closeModal.bind(this, 4, 'Modal被关闭了')}
           onCancel={this.closeModal.bind(this, 4, '点击了取消')}
           onConfirm={this.closeModalConfirm.bind(this, 4, '点击了确认')}

@@ -18,7 +18,8 @@ export default class AtModal extends AtComponent {
 
     const { isOpened } = props
     this.state = {
-      _isOpened: isOpened
+      _isOpened: isOpened,
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
     }
   }
 
@@ -70,9 +71,8 @@ export default class AtModal extends AtComponent {
   }
 
   render () {
-    const { _isOpened } = this.state
+    const { _isOpened, isWEB } = this.state
     const { title, content, cancelText, confirmText } = this.props
-
     const rootClass = classNames(
       'at-modal',
       {
@@ -80,6 +80,7 @@ export default class AtModal extends AtComponent {
       },
       this.props.className
     )
+    console.log('content', content)
 
     if (title || content) {
       const isRenderAction = cancelText || confirmText
@@ -98,7 +99,7 @@ export default class AtModal extends AtComponent {
             {content && (
               <AtModalContent>
                 <View className='content-simple'>
-                  <Text>{content}</Text>
+                  { isWEB ? <Text dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}></Text> : <Text>{content}</Text> }
                 </View>
               </AtModalContent>
             )}
