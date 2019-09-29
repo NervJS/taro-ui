@@ -156,13 +156,14 @@ class AtIndexes extends AtComponent {
       customStyle,
       animation,
       topKey,
-      list
+      list,
     } = this.props
     const {
       _scrollTop,
       _scrollIntoView,
       _tipText,
-      _isShowToast
+      _isShowToast,
+      isWEB
     } = this.state
 
     const toastStyle = { minWidth: Taro.pxTransform(100) }
@@ -199,6 +200,8 @@ class AtIndexes extends AtComponent {
       </View>
     ))
 
+    console.log('isWEB', isWEB)
+
 
     return <View className={rootCls} style={customStyle}>
       <AtToast
@@ -225,8 +228,8 @@ class AtIndexes extends AtComponent {
         id={this.listId}
         scrollY
         scrollWithAnimation={animation}
-        scrollTop={_scrollTop}
-        scrollIntoView={!this.state.isWEB ? _scrollIntoView : ''}
+        scrollTop={isWEB ? _scrollTop : undefined}
+        scrollIntoView={!isWEB ? _scrollIntoView : ''}
         onScroll={this.handleScroll.bind(this)}
       >
         <View className='at-indexes__content' id='at-indexes__top'>
