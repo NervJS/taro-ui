@@ -14,7 +14,7 @@ export default class AtCard extends AtComponent {
   }
 
   render () {
-    const { title, note, extra, thumb, isFull, icon } = this.props
+    const { title, note, extra, extraStyle, thumb, isFull, icon } = this.props
 
     const rootClass = classNames(
       'at-card',
@@ -54,7 +54,7 @@ export default class AtCard extends AtComponent {
           )}
 
           <Text className='at-card__header-title'>{title}</Text>
-          {extra && <Text className='at-card__header-extra'>{extra}</Text>}
+          {extra && <Text style={{ ...extraStyle }} className='at-card__header-extra'>{extra}</Text>}
         </View>
         <View className='at-card__content'>
           <View className='at-card__content-info'>{this.props.children}</View>
@@ -74,6 +74,7 @@ AtCard.defaultProps = {
   icon: {},
   onClick () {},
   renderIcon: '',
+  extraStyle: {},
 }
 
 AtCard.propTypes = {
@@ -88,6 +89,7 @@ AtCard.propTypes = {
     PropTypes.string,
     PropTypes.element
   ]),
+  extraStyle: PropTypes.object // 自定义extra样式
 }
 
 // AtCard.defaultProps = {
