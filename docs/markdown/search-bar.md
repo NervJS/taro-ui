@@ -141,6 +141,44 @@ export default class Index extends Taro.Component {
 
 :::
 
+## 自定义输入框类型
+
+:::demo
+
+```js
+import Taro from '@tarojs/taro'
+import { AtSearchBar } from 'taro-ui'
+
+export default class Index extends Taro.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
+  }
+  onChange (value) {
+    this.setState({
+      value: value
+    })
+  }
+  onActionClick () {
+    console.log('开始搜索')
+  }
+  render () {
+    return (
+      <AtSearchBar
+        inputType='number'
+        value={this.state.value}
+        onChange={this.onChange.bind(this)}
+        onActionClick={this.onActionClick.bind(this)}
+      />
+    )
+  }
+}
+```
+
+:::
+
 ## 参数
 
 | 参数   |  微信小程序 |  h5 | 说明   | 类型    | 可选值 | 默认值   |
@@ -153,6 +191,7 @@ export default class Index extends Taro.Component {
 | disabled | √ | √ | 是否禁止输入 | Boolean  | -  | false |
 | showActionButton | √ | √ | 是否一直显示右侧按钮 | Boolean  | -  | false |
 | actionName | √ | √ | 右侧按钮文案 | String  | -  | '搜索' |
+| inputType | √ | √ | 输入框输入类型 | String | 'text', 'number', 'idcard', 'digit' | 'text' |
 
 ## 事件
 
