@@ -34,8 +34,6 @@ export default class AtCard extends AtComponent {
       fontSize: (icon && `${icon.size}px`) || '',
     }
 
-    console.log('renderIcon,extra', extra)
-
     return (
       <View onClick={this.handleClick} className={rootClass}>
         <View className='at-card__header'>
