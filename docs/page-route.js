@@ -45,5 +45,6 @@ export default {
   tabbar: 'navigation/tabbar',
   tabs: 'navigation/tabs',
   indexes: 'navigation/indexes',
-  calendar: 'advanced/calendar'
+  calendar: 'advanced/calendar',
+  form: 'form/form'
 }

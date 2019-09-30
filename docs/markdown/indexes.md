@@ -80,6 +80,38 @@ export default class Index extends Taro.Component {
 
 :::
 
+
+## 跳转到指定key
+
+
+##### html
+:::demo
+
+```html
+<AtIndexes
+  list={list}
+  onScrollIntoView={fn => { this.scrollIntoView = fn }}
+>
+  <View className='custom-area'>
+    用户自定义内容
+    <AtSearchBar  placeholder='跳转到指定Key' onActionClick={this.handleActionClick.bind(this)} />
+  </View>
+</AtIndexes>
+```
+
+:::
+
+##### js
+:::demo
+
+```js
+handleActionClick () {
+  this.scrollIntoView && this.scrollIntoView(key)
+}
+```
+
+:::
+
 ## 参数
 
 | 参数       | 说明    | 类型    | 可选值   | 默认值   |
@@ -95,3 +127,4 @@ export default class Index extends Taro.Component {
 | 事件名称 | 说明          | 返回参数  |
 |---------- |-------------- |---------- |
 | onClick | 点击列表项触发事件 |  (item:Object,event) => void |
+| onScrollIntoView | 获取跳转事件跳转到指定key | (fn:Function) => void |

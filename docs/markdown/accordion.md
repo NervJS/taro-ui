@@ -125,6 +125,7 @@ export default class Index extends Taro.Component {
 | hasBorder | 是否有头部下划线 | Boolean  | - | true |
 | isAnimation | 是否开启动画 (v2.0.0-beta.3 支持)| Boolean  | - | true |
 | icon | 图标，仅支持 AtIcon 支持的类型，object 属性有 value color size prefixClass  | object  | - | - |
+| note | 描述信息 | string | - | -
 
 ## 事件
 

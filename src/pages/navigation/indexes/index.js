@@ -50,7 +50,7 @@ export default class Index extends Taro.Component {
           >
             <View className='custom-area'>
               用户自定义内容
-              <AtSearchBar value={this.state.value} onChange={this.handleChange.bind(this)} placeholder='通过api服务跳转到指定Index' onActionClick={this.handleActionClick.bind(this)} />
+              <AtSearchBar value={this.state.value} onChange={this.handleChange.bind(this)} placeholder='跳转到指定Key' onActionClick={this.handleActionClick.bind(this)} />
             </View>
           </AtIndexes>
         </View>

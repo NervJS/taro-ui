@@ -255,7 +255,8 @@ AtIndexes.propTypes = {
   isShowToast: PropTypes.bool,
   topKey: PropTypes.string,
   list: PropTypes.array,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onScrollIntoView: PropTypes.func
 }
 
 AtIndexes.defaultProps = {
@@ -267,7 +268,8 @@ AtIndexes.defaultProps = {
   isVibrate: true,
   isShowToast: true,
   list: [],
-  onClick: () => { }
+  onClick: () => { },
+  onScrollIntoView: () => { },
 }
 
 export default AtIndexes

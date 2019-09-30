@@ -90,13 +90,13 @@ export default class CardPage extends Taro.Component {
           </View>
 
           <View className='panel'>
-            <View className='panel__title'>完整的卡片</View>
+            <View className='panel__title'>自定义额外信息样式的卡片</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtCard
                   note='小Tips'
                   extra='2019/01/23 22:33:33'
-                  extraStyle={{ fontSize: '12px', maxWidth: '200px' }}
+                  extraStyle={{ fontSize: '12px', maxWidth: '200px', color: '#6190e8' }}
                   title='这是个标题'
                   thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >
