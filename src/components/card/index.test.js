@@ -65,6 +65,22 @@ describe('Card Snap', () => {
     )
     expect(component).toMatchSnapshot()
   })
+
+  it('render Card -- props extraStyle ', () => {
+    const component = renderToString(
+      <AtCard
+        isFull
+        note='小Tips'
+        extra='额外信息'
+        title='这是个标题'
+        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+        extraStyle={{ fontSize: '12px', maxWidth: '200px' }}
+      >
+        这也是内容区 可以随意定义功能
+      </AtCard>
+    )
+    expect(component).toMatchSnapshot()
+  })
 })
 
 describe('Card Behavior ', () => {
