@@ -100,6 +100,23 @@ export default class Index extends Taro.Component {
 
 :::
 
+## 禁止输入状态
+
+:::demo
+
+```html
+<AtInputNumber
+  disabledInput
+  min={0}
+  max={10}
+  step={1}
+  value={this.state.value}
+  onChange={this.handleChange.bind(this)}
+/>
+```
+
+:::
+
 ## 自定义宽度
 
 :::demo
@@ -128,6 +145,7 @@ export default class Index extends Taro.Component {
 | max   | √ | √ | 最大值  | Number | - | 100 |
 | step   | √ | √ | 每次点击改变的间隔大小 | Number  | -  | 1 |
 | disabled| √ | √ | 是否禁止输入，禁止点击按钮  | Boolean | - | false    |
+| disabledInput | √ | √ | 是否禁止输入，但不禁止点击按钮  | Boolean | - | false    |
 
 ## 事件
 

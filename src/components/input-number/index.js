@@ -115,7 +115,8 @@ class AtInputNumber extends AtComponent {
       type,
       min,
       max,
-      size
+      size,
+      disabledInput
     } = this.props
 
     const inputStyle = {
@@ -132,23 +133,25 @@ class AtInputNumber extends AtComponent {
       'at-input-number--disabled': inputValue >= max || disabled
     })
 
-    return <View className={rootCls} style={customStyle}>
-      <View className={minusBtnCls} onClick={this.handleClick.bind(this, 'minus')}>
-        <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
+    return (
+      <View className={rootCls} style={customStyle}>
+        <View className={minusBtnCls} onClick={this.handleClick.bind(this, 'minus')}>
+          <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
+        </View>
+        <Input
+          className='at-input-number__input'
+          style={inputStyle}
+          type={type}
+          value={inputValue}
+          disabled={disabledInput || disabled}
+          onInput={this.handleInput}
+          onBlur={this.handleBlur}
+        />
+        <View className={plusBtnCls} onClick={this.handleClick.bind(this, 'plus')}>
+          <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
+        </View>
       </View>
-      <Input
-        className='at-input-number__input'
-        style={inputStyle}
-        type={type}
-        value={inputValue}
-        disabled={disabled}
-        onInput={this.handleInput}
-        onBlur={this.handleBlur}
-      />
-      <View className={plusBtnCls} onClick={this.handleClick.bind(this, 'plus')}>
-        <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
-      </View>
-    </View>
+    )
   }
 }
 
@@ -156,6 +159,7 @@ AtInputNumber.defaultProps = {
   customStyle: '',
   className: '',
   disabled: false,
+  disabledInput: false,
   value: 1,
   type: 'number',
   width: 0,
@@ -187,6 +191,7 @@ AtInputNumber.propTypes = {
   max: PropTypes.number,
   step: PropTypes.number,
   size: PropTypes.string,
+  disabledInput: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onErrorInput: PropTypes.func,
