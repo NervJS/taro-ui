@@ -34,7 +34,7 @@ describe('AtInputNumber Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('render AtInputNumber -- props disabledInput ', () => {
+  it('render AtInputNumber -- props disabledInput', () => {
     const component = renderToString(<AtInputNumber disabledInput />)
     expect(component).toMatchSnapshot()
   })
