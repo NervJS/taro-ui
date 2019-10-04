@@ -92,10 +92,19 @@ import { AtList, AtListItem } from "taro-ui"
 
 ```html
 <AtList>
-  <AtListItem title='标题文字' note='描述信息' arrow='right' iconInfo={{ size:
-  25, color: '#78A4FA', value: 'calendar', }} /> <AtListItem title='标题文字'
-  note='描述信息' extraText='详细信息' arrow='right' iconInfo={{ size: 25,
-  color: '#FF4949', value: 'bookmark', }} />
+  <AtListItem
+    title='标题文字'
+    note='描述信息'
+    arrow='right'
+    iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar', }}
+  />
+  <AtListItem
+    title='标题文字'
+    note='描述信息'
+    extraText='详细信息'
+    arrow='right'
+    iconInfo={{ size: 25, color: '#FF4949', value: 'bookmark', }}
+  />
 </AtList>
 ```
 
