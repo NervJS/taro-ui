@@ -99,7 +99,7 @@ export default class AtModal extends AtComponent {
             {content && (
               <AtModalContent>
                 <View className='content-simple'>
-                  { isWEB ? <RichText nodes={{ __html: content.replace(/\n/g, '<br/>') }}></RichText> : <Text>{content}</Text> }
+                  { isWEB ? <RichText nodes= {{ __html: content.replace(/\n/g, '<br/>') }}></RichText> : <Text>{content}</Text> }
                 </View>
               </AtModalContent>
             )}
