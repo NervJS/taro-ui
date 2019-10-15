@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text, RichText } from '@tarojs/components'
 
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -99,7 +99,7 @@ export default class AtModal extends AtComponent {
             {content && (
               <AtModalContent>
                 <View className='content-simple'>
-                  { isWEB ? <Text dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}></Text> : <Text>{content}</Text> }
+                  { isWEB ? <RichText dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>哈哈哈哈哈哈isWeb') }}></RichText> : <Text>{content}</Text> }
                 </View>
               </AtModalContent>
             )}
