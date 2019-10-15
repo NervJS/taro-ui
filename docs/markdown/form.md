@@ -41,10 +41,12 @@ export default class Index extends Taro.Component {
     })
   }
   onSubmit (event) {
-    console.log(event)
+    console.log(this.state.value)
   }
   onReset (event) {
-    console.log(event)
+    this.setState({
+      value: '',
+    })
   }
   render () {
     return (
@@ -52,13 +54,13 @@ export default class Index extends Taro.Component {
         onSubmit={this.onSubmit.bind(this)}
         onReset={this.onReset.bind(this)}
       >
-        <AtInput
-          name='value'
-          title='文本'
-          type='text'
-          placeholder='单行文本'
-          value={this.state.value}
-          onChange={this.handleChange.bind(this)}
+        <AtInput 
+          name='value' 
+          title='文本' 
+          type='text' 
+          placeholder='单行文本' 
+          value={this.state.value} 
+          onChange={this.handleChange.bind(this, 'value')} 
         />
         <AtButton formType='submit'>提交</AtButton>
         <AtButton formType='reset'>重置</AtButton>

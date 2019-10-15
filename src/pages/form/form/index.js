@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtInput, AtForm, AtButton, AtToast } from 'taro-ui'
+import { AtInput, AtCheckbox, AtForm, AtButton, AtToast } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -13,18 +13,19 @@ export default class PageForm extends Taro.Component {
     this.state = {
       value1: '',
       value2: '',
+      value3: [],
       text: '',
       isOpened: false
     }
   }
-  handleInput (stateName, value) {
+  handleChange (stateName, value) {
     this.setState({
       [stateName]: value
     })
   }
-  formSubmit () {
-    const { value1, value2 } = this.state
-    if (!value1 || !value2) {
+  handleSubmit () {
+    const { value1, value2, value3 } = this.state
+    if (!value1 || !value2 || value3.length < 1) {
       this.setState({
         isOpened: true,
         text: `表单未填写完整`
@@ -32,7 +33,7 @@ export default class PageForm extends Taro.Component {
     } else {
       this.setState({
         isOpened: true,
-        text: `文本：${this.state.value1}  密码：${this.state.value2}`
+        text: `${value1} / ${value2} / ${value3.join(',')}`
       })
     }
     this.closeToast()
@@ -50,7 +51,8 @@ export default class PageForm extends Taro.Component {
       isOpened: true,
       text: `表单已被重置`,
       value1: '',
-      value2: ''
+      value2: '',
+      value3: []
     })
     this.closeToast()
   }
@@ -66,11 +68,19 @@ export default class PageForm extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtForm
-                  onSubmit={this.formSubmit.bind(this)}
+                  onSubmit={this.handleSubmit.bind(this)}
                   onReset={this.handleReset.bind(this)}
                 >
-                  <AtInput name='value1' title='文本' type='text' placeholder='单行文本' value={this.state.value1} onChange={this.handleInput.bind(this, 'value1')} />
-                  <AtInput name='value2' title='密码' type='password' placeholder='请输入密码' value={this.state.value2} onChange={this.handleInput.bind(this, 'value2')} />
+                  <AtInput name='value1' title='文本' type='text' placeholder='单行文本' value={this.state.value1} onChange={this.handleChange.bind(this, 'value1')} />
+                  <AtInput name='value2' title='密码' type='password' placeholder='请输入密码' value={this.state.value2} onChange={this.handleChange.bind(this, 'value2')} />
+                  <AtCheckbox
+                    options={[
+                      { label: 'iPhone X', value: 'iPhone X' },
+                      { label: 'HUAWEI P20', value: 'HUAWEI P20' }
+                    ]}
+                    selectedList={this.state.value3}
+                    onChange={this.handleChange.bind(this, 'value3')}
+                  />
                   <View className='component-item__btn-group'>
                     <View className='component-item__btn-group__btn-item'>
                       <AtButton type='primary' formType='submit'>提交</AtButton>
