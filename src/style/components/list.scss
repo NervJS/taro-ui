@@ -147,9 +147,9 @@ $at-list-item-horizontal-padding: 24px;
   }
 
   &__item-extra {
-    @include flex(0, 0, $at-list-extra-width);
+    // @include flex(0, 0, $at-list-extra-width);
 
-    width: $at-list-extra-width;
+    max-width: $at-list-extra-width;
     text-align: right;
   }
 

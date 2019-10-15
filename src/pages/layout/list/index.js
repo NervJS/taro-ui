@@ -29,7 +29,7 @@ export default class ListPage extends Component {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtList>
-                  <AtListItem extraText={0} title='标题文字' onClick={this.handleClick} />
+                  <AtListItem title='标题文字' onClick={this.handleClick} />
                   <AtListItem title='标题文字' arrow='right' />
                   <AtListItem title='标题文字' extraText='详细信息' />
                   <AtListItem title='禁用状态' disabled extraText='详细信息' />
@@ -49,7 +49,7 @@ export default class ListPage extends Component {
                   <AtListItem
                     arrow='right'
                     note='描述信息'
-                    title='标题文字标题文字标题文字标题文字标题文字'
+                    title='我是一个很长很长很长的标题文字'
                     extraText='详细信息详细信息详细信息详细信息'
                   />
                 </AtList>
