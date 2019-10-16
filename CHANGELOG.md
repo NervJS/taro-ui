@@ -1,3 +1,49 @@
+<a name="2.2.3"></a>
+## [2.2.3](https://github.com/nervjs/taro-ui/compare/v2.2.2...v2.2.3) (2019-10-15)
+
+
+### Bug Fixes
+
+* **tab-bar** 修复 tab-bar min-height 样式书写错误 ([#769](https://github.com/NervJS/taro-ui/pull/769)) ([b00c0ee](https://github.com/NervJS/taro-ui/commit/b00c0ee))
+* **countdown** 修复 CountDown 类型文件缺少 isShowHour 的问题 ([f03975a](https://github.com/NervJS/taro-ui/commit/f03975a))
+* **searchbar** 修复 H5，组件 AtSearchBar，属性 focus=true 时，ios 键盘收缩不了 ([#356](https://github.com/NervJS/taro-ui/issues/356)) ([b9e48b5](https://github.com/NervJS/taro-ui/commit/b9e48b5))
+* **form** 修复 AtForm onSubmit 在 H5 中无效，但小程序有效 ([#375](https://github.com/NervJS/taro-ui/issues/375)) ([#380](https://github.com/NervJS/taro-ui/issues/380)) ([461e311](https://github.com/NervJS/taro-ui/commit/461e311))
+* **swipeAction** 修复 SwipeAction 组件滑动的时候没有屏蔽屏幕局上下滑动 ([#306](https://github.com/NervJS/taro-ui/issues/306)) ([36d6f59](https://github.com/NervJS/taro-ui/commit/36d6f59))
+* **swipeAction** 移除 swiperAction move 事件 阻止冒泡逻辑 ([7a93a3e](https://github.com/NervJS/taro-ui/commit/7a93a3e))
+* **list** 修复 List extraText 值为 0 时的显示问题 ([#641](https://github.com/NervJS/taro-ui/issues/641)) ([2f25266](https://github.com/NervJS/taro-ui/commit/2f25266))
+* **searchBar** 修复 ActionButton 隐藏时搜索框右侧多出 10 像素边距的问题 ([#794](https://github.com/NervJS/taro-ui/issues/794)) ([98ab30c](https://github.com/NervJS/taro-ui/commit/98ab30c))
+* **modal** 修复 H5 环境下，AtModal 组件传入 ‘content’ 字符串里存在 ‘\n’ 之类的，不能实现想得到效果 ([#554](https://github.com/NervJS/taro-ui/issues/554)) ([a781f27](https://github.com/NervJS/taro-ui/commit/a781f27))
+* **indexes** 多次点击会滚动多余的距离 ([f895852](https://github.com/NervJS/taro-ui/commit/f895852))
+* **indexes** atindexes 滚动不精准 ([86469e3](https://github.com/NervJS/taro-ui/commit/86469e3))
+* **range** Range 组件设置 min, max 属性异常 ([#670](https://github.com/NervJS/taro-ui/issues/670)) ([f734a2c](https://github.com/NervJS/taro-ui/commit/f734a2c))
+* **image-picker** key 反优化处理 ([#635](https://github.com/NervJS/taro-ui/issues/635)) ([a1d0a5e](https://github.com/NervJS/taro-ui/commit/a1d0a5e))
+* **button** 修复样式问题 ([#534](https://github.com/NervJS/taro-ui/issues/534)) ([60074d6](https://github.com/NervJS/taro-ui/commit/60074d6))
+* **tabs** ios 样式 ([#646](https://github.com/NervJS/taro-ui/issues/646)) ([3d811b8](https://github.com/NervJS/taro-ui/commit/3d811b8))
+* **input** type InputFunction bugs ([#645](https://github.com/NervJS/taro-ui/pull/645)) ([a74d039](https://github.com/NervJS/taro-ui/commit/a74d039))
+* **tabs** 修复 tabs 组件无法自动滚动到第一个 tab 位置 ([#752](https://github.com/NervJS/taro-ui/pull/752)) ([86fae15](https://github.com/NervJS/taro-ui/commit/86fae15))
+* **input-number** 更新测试快照 ([b125e0a](https://github.com/NervJS/taro-ui/commit/b125e0a))
+* **docs** fix List broken indent ([#800](https://github.com/NervJS/taro-ui/pull/800)) ([fe2af95](https://github.com/NervJS/taro-ui/commit/fe2af95))
+
+
+### Features
+
+* **accordion** accordion 支持 note 属性 ([f10ebe6](https://github.com/NervJS/taro-ui/commit/f10ebe6))
+* **searchBar** searchBar 新增 type 属性 ([4816e40](https://github.com/NervJS/taro-ui/commit/4816e40))
+* **form** 修改表单页 ([7367188](https://github.com/NervJS/taro-ui/commit/7367188))
+* **atCard** atCard 组件支持自定义图标 ([#229](https://github.com/NervJS/taro-ui/issues/229)) ([bf7d066](https://github.com/NervJS/taro-ui/commit/bf7d066))
+* **atCard** atCard 修改样式 ([d04ffeb](https://github.com/NervJS/taro-ui/commit/d04ffeb))
+* **searchBar** 增加输入框类型属性 ([#464](https://github.com/NervJS/taro-ui/issues/464)) ([b19514b](https://github.com/NervJS/taro-ui/commit/b19514b))
+* **searchBar** 添加自定义输入框类型的示例 ([a751cd1](https://github.com/NervJS/taro-ui/commit/a751cd1))
+* **srarchBar** 添加 inputType 类型和类型描述 ([acec729](https://github.com/NervJS/taro-ui/commit/acec729))
+* **indexes** AtIndexes 通过程序接口控制跳转到 指定的 section ([#612](https://github.com/NervJS/taro-ui/issues/612)) ([be0a300](https://github.com/NervJS/taro-ui/commit/be0a300))
+* **searchBar** 修改 searchBar demo ([1e59589](https://github.com/NervJS/taro-ui/commit/1e59589))
+* **card** atCard extra 自定义样式 ([#684](https://github.com/NervJS/taro-ui/issues/684)) ([794f319](https://github.com/NervJS/taro-ui/commit/794f319))
+* **accordion** 增加图标对 prefixClass 属性支持 ([#656](https://github.com/NervJS/taro-ui/pull/656)) ([60aff30](https://github.com/NervJS/taro-ui/commit/60aff30))
+* **countdown** 添加支持隐藏小时的配置项 ([874b512](https://github.com/NervJS/taro-ui/commit/874b512))
+* **input-number** 添加仅禁止输入类型和类型描述，添加文档说明及 demo 用例 ([#786](https://github.com/NervJS/taro-ui/issues/786)) ([d6bc8e9](https://github.com/NervJS/taro-ui/commit/d6bc8e9))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/nervjs/taro-ui/compare/v2.2.0...v2.2.1) (2019-06-18)
 
