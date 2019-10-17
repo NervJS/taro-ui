@@ -110,7 +110,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 {this.state.hollowTagList.map((item, index) => (
-                  <View className='subitem' key={index}>
+                  <View className='subitem' key={`at-tag-${index}`}>
                     <AtTag
                       name={item.name}
                       active={item.active}
@@ -129,7 +129,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 {this.state.solidTagList.map((item, index) => (
-                  <View className='subitem' key={index}>
+                  <View className='subitem' key={`at-tag-${index}`}>
                     <AtTag
                       type='primary'
                       name={item.name}
@@ -148,7 +148,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__title'>点击事件</View>
             <View className='panel__content'>
               <View className='example-item'>
-                {this.state.tagList.map((item, index) => <View className='subitem' key={index}><AtTag name={item.name} type='primary' active={item.active} circle={index % 2 === 0} onClick={this.onClick.bind(this)}>tag-{index + 1}</AtTag></View>
+                {this.state.tagList.map((item, index) => <View className='subitem' key={`at-tag-${index}`}><AtTag name={item.name} type='primary' active={item.active} circle={index % 2 === 0} onClick={this.onClick.bind(this)}>tag-{index + 1}</AtTag></View>
                 )}
               </View>
             </View>
@@ -175,7 +175,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 {this.state.hollowTagList2.map((item, index) => (
-                  <View className='subitem' key={index}>
+                  <View className='subitem' key={`at-tag-${index}`}>
                     <AtTag
                       size='small'
                       name={item.name}
@@ -195,7 +195,7 @@ export default class TagPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 {this.state.solidTagList2.map((item, index) => (
-                  <View className='subitem' key={index}>
+                  <View className='subitem' key={`at-tag-${index}`}>
                     <AtTag
                       size='small'
                       type='primary'

@@ -98,7 +98,7 @@ export default class DrawerPage extends Taro.Component {
                   {
                     this.state.childrenItem.map((item, index) => <View className={classNames('drawer-item', {
                       'drawer-item--sub': index === 1 || index === 2,
-                    })} onClick={this.onItemClick.bind(this, index)} key={index}
+                    })} onClick={this.onItemClick.bind(this, index)} key={`drawer-item-${index}`}
                     >
                       {item}
                       {index !== 3 && icons[index] && <AtIcon value={icons[index]} size='20' />}

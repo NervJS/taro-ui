@@ -36,7 +36,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.main.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -53,7 +53,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.file.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -70,7 +70,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.text.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -87,7 +87,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.arrow.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -104,7 +104,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.media.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -121,7 +121,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.photo.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
@@ -138,7 +138,7 @@ export default class IconPage extends Taro.Component {
             <View className='panel__content'>
               <View className='icon-list'>
                 {icons.logo.map((icon, index) => (
-                  <View className='icon-list__item' key={index}>
+                  <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
                       <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
                     </View>
