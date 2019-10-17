@@ -22,31 +22,31 @@ export default class AtPagination extends AtComponent {
     const { current, pageSize, total } = this.props
     const maxPage = getMaxPage(Math.ceil(total / pageSize))
     this.state = {
-      current,
+      currentPage: current,
       maxPage,
       pickerRange: createPickerRange(maxPage),
     }
   }
 
   onPrev () {
-    let { current } = this.state
-    const originCur = current
-    current -= 1
-    current = Math.max(1, current)
-    if (originCur === current) return
-    this.props.onPageChange && this.props.onPageChange({ type: 'prev', current })
-    this.setState({ current })
+    let { currentPage } = this.state
+    const originCur = currentPage
+    currentPage -= 1
+    currentPage = Math.max(1, currentPage)
+    if (originCur === currentPage) return
+    this.props.onPageChange && this.props.onPageChange({ type: 'prev', current: currentPage })
+    this.setState({ currentPage })
   }
 
   onNext () {
-    let { current } = this.state
-    const originCur = current
+    let { currentPage } = this.state
+    const originCur = currentPage
     const { maxPage } = this.state
-    current += 1
-    current = Math.min(maxPage, current)
-    if (originCur === current) return
-    this.props.onPageChange && this.props.onPageChange({ type: 'next', current })
-    this.setState({ current })
+    currentPage += 1
+    currentPage = Math.min(maxPage, currentPage)
+    if (originCur === currentPage) return
+    this.props.onPageChange && this.props.onPageChange({ type: 'next', current: currentPage })
+    this.setState({ currentPage })
   }
 
   componentWillReceiveProps (props) {
@@ -58,20 +58,20 @@ export default class AtPagination extends AtComponent {
         pickerRange: createPickerRange(maxPage),
       })
     }
-    if (current !== this.state.current) {
-      this.setState({ current })
+    if (current !== this.state.currentPage) {
+      this.setState({ currentPage: current })
     }
   }
 
-  onPickerChange (evt) {
-    const { value } = evt.detail
-    const current = +value + 1
-    if (current === this.state.current) return
-    this.props.onPageChange && this.props.onPageChange({ type: 'pick', current })
-    this.setState({
-      current,
-    })
-  }
+  // onPickerChange (evt) {
+  //   const { value } = evt.detail
+  //   const current = +value + 1
+  //   if (current === this.state.currentPage) return
+  //   this.props.onPageChange && this.props.onPageChange({ type: 'pick', current })
+  //   this.setState({
+  //     currentPage: current,
+  //   })
+  // }
 
   render () {
     const {
@@ -80,15 +80,15 @@ export default class AtPagination extends AtComponent {
       customStyle,
     } = this.props
     const {
-      current,
+      currentPage,
       maxPage,
       // pickerRange,
     } = this.state
 
     const rootClassName = ['at-pagination']
 
-    const prevDisabled = maxPage === MIN_MAXPAGE || current === 1
-    const nextDisabled = maxPage === MIN_MAXPAGE || current === maxPage
+    const prevDisabled = maxPage === MIN_MAXPAGE || currentPage === 1
+    const nextDisabled = maxPage === MIN_MAXPAGE || currentPage === maxPage
 
     const classObject = {
       'at-pagination--icon': icon,
@@ -108,7 +108,7 @@ export default class AtPagination extends AtComponent {
           {!icon && <AtButton onClick={this.onPrev.bind(this)} size='small' disabled={prevDisabled}>上一页</AtButton>}
         </View>
         <View className='at-pagination__number'>
-          <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+          <Text className='at-pagination__number-current'>{currentPage}</Text>/{ maxPage }
         </View>
         <View className='at-pagination__btn-next'>
           {icon && (
@@ -119,12 +119,12 @@ export default class AtPagination extends AtComponent {
           {!icon && <AtButton onClick={this.onNext.bind(this)} size='small' disabled={nextDisabled}>下一页</AtButton>}
         </View>
         {/* {pickerSelect && <View className='at-pagination__number'>
-          {<Picker mode='selector' range={pickerRange} value={current - 1} onChange={this.onPickerChange.bind(this)}>
-            <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+          {<Picker mode='selector' range={pickerRange} value={currentPage - 1} onChange={this.onPickerChange.bind(this)}>
+            <Text className='at-pagination__number-current'>{currentPage}</Text>/{ maxPage }
           </Picker>}
         </View>} */}
         {/* {!pickerSelect && <View className='at-pagination__number'>
-          <Text className='at-pagination__number-current'>{current}</Text>/{ maxPage }
+          <Text className='at-pagination__number-current'>{currentPage}</Text>/{ maxPage }
         </View>} */}
       </View>
     )
