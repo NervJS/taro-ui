@@ -44,9 +44,9 @@ export default class AtCalendarList extends Taro.Component<Props> {
 
     return (
       <View className='at-calendar__list flex'>
-        {list.map((item, index) => (
+        {list.map((item) => (
           <View
-            key={index}
+            key={item.text}
             onClick={this.handleClick.bind(this, item)}
             onLongPress={this.handleLongClick.bind(this, item)}
             className={classnames(
