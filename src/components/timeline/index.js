@@ -43,7 +43,7 @@ export default class AtTimeline extends AtComponent {
       }
 
       return (
-        <View className={classNames(itemRootClassName)} key={index}>
+        <View className={classNames(itemRootClassName)} key={`at-timeline-item-${index}`}>
           <View className='at-timeline-item__tail'></View>
           <View className={classNames(dotClass)}>
             {icon && <Text className={iconClass}></Text>}
