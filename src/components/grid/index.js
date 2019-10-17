@@ -36,10 +36,10 @@ export default class AtGrid extends AtComponent {
     return (
       <View className={classNames('at-grid', this.props.className)}>
         {gridGroup.map((item, i) => (
-          <View className='at-grid__flex' key={i}>
+          <View className='at-grid__flex' key={`at-grid-group-${i}`}>
             {item.map((childItem, index) => (
               <View
-                key={index}
+                key={`at-grid-item-${index}`}
                 className={classNames(bodyClass, {
                   'at-grid-item--last': index === columnNum - 1
                 })}
