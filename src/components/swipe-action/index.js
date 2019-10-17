@@ -219,7 +219,7 @@ export default class AtSwipeAction extends AtComponent {
           >
             {options.map((item, key) => (
               <View
-                key={key}
+                key={`${item.text}-${key}`}
                 style={item.style}
                 onClick={this.handleClick.bind(this, item, key)}
                 className={classNames(
