@@ -80,7 +80,6 @@ export default class AtModal extends AtComponent {
       },
       this.props.className
     )
-    console.log('content', content)
 
     if (title || content) {
       const isRenderAction = cancelText || confirmText

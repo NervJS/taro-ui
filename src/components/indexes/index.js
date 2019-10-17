@@ -93,7 +93,6 @@ class AtIndexes extends AtComponent {
   }
 
   updateState (state) {
-    console.log('updateState')
     const { isShowToast, isVibrate } = this.props
     const { _scrollIntoView, _tipText, _scrollTop } = state
 
@@ -199,8 +198,6 @@ class AtIndexes extends AtComponent {
         </AtList>
       </View>
     ))
-
-    console.log('isWEB', isWEB)
 
 
     return <View className={rootCls} style={customStyle}>

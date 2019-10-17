@@ -53,7 +53,6 @@ export default class AtButton extends AtComponent {
   }
 
   onSumit () {
-    console.log('submit')
     if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('submit', arguments[0].detail, {
         bubbles: true,
