@@ -35,7 +35,7 @@ describe('AtPagination Event', () => {
     Simulate.click(prev)
     expect(onPageChange).toBeCalled()
     process.nextTick(() => {
-      expect(component.state.current).toEqual(1)
+      expect(component.state.currentPage).toEqual(1)
     })
   })
 
@@ -47,7 +47,7 @@ describe('AtPagination Event', () => {
     Simulate.click(next)
     expect(onPageChange).toBeCalled()
     process.nextTick(() => {
-      expect(component.state.current).toEqual(3)
+      expect(component.state.currentPage).toEqual(3)
     })
   })
 
