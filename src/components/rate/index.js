@@ -53,17 +53,19 @@ export default class AtRate extends AtComponent {
         style={customStyle}
       >
         {
-          classNameArr.map((cls, i) => <View
-            className={cls}
-            key={i}
-            style={iconStyle}
-            onClick={this.handleClick.bind(this, i + 1)}
-          >
-            <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
-            <View className='at-rate__left'>
+          classNameArr.map((cls, i) => (
+            <View
+              className={cls}
+              key={`at-rate-star-${i}`}
+              style={iconStyle}
+              onClick={this.handleClick.bind(this, i + 1)}
+            >
               <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
+              <View className='at-rate__left'>
+                <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
+              </View>
             </View>
-          </View>)
+          ))
         }
       </View>
     )
