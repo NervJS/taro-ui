@@ -194,6 +194,7 @@ function isTest () {
 }
 
 let scrollTop = 0
+let isDocumentElement = false
 
 function handleTouchScroll (flag) {
   if (ENV !== Taro.ENV_TYPE.WEB) {
@@ -202,6 +203,7 @@ function handleTouchScroll (flag) {
   if (flag) {
     if (document.documentElement && document.documentElement.scrollTop) {
       scrollTop = document.documentElement.scrollTop
+      isDocumentElement = true
     } else if (document.body) {
       scrollTop = document.body.scrollTop
     }
@@ -214,9 +216,9 @@ function handleTouchScroll (flag) {
   } else {
     document.body.style.top = null
     document.body.classList.remove('at-frozen')
-
-    if (document.documentElement && document.documentElement.scrollTop) {
+    if (document.documentElement && isDocumentElement) {
       document.documentElement.scrollTop = scrollTop
+      isDocumentElement = false
     } else if (document.body) {
       document.body.scrollTop = scrollTop
     }
