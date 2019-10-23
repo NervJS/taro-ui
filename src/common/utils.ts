@@ -218,10 +218,10 @@ function handleTouchScroll (flag) {
     document.body.classList.remove('at-frozen')
     if (document.documentElement && isDocumentElement) {
       document.documentElement.scrollTop = scrollTop
-      isDocumentElement = false
     } else if (document.body) {
       document.body.scrollTop = scrollTop
     }
+    isDocumentElement = false
   }
 }
 
