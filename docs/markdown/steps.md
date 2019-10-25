@@ -152,18 +152,18 @@ export default class TimelinePage extends Taro.Component {
   render () {
     const items = [
       {
-        'title': '步骤一',
-        'desc': '这里是额外的信息，最多两行',
-        'success': true
+        title: '步骤一',
+        desc: '这里是额外的信息，最多两行',
+        status: 'success'
       },
       {
-        'title': '步骤二',
-        'desc': '这里是额外的信息，最多两行'
+        title: '步骤二',
+        desc: '这里是额外的信息，最多两行'
       },
       {
-        'title': '步骤三',
-        'desc': '这里是额外的信息，最多两行',
-        'error': true
+        title: '步骤三',
+        desc: '这里是额外的信息，最多两行',
+        status: 'error'
       }
     ]
     return (
@@ -184,7 +184,7 @@ export default class TimelinePage extends Taro.Component {
 | 参数  | 微信小程序 | h5 | 说明   | 类型    | 可选值 | 默认值 |
 |------|----------|----|-----|---------|--------|--------|
 | current | √   | √  | 必填，当前步骤索引值，开发者需要通过 onChange 事件来更新 current 值 | Number  | -      | 0   |
-| items | √  | √  | 步骤条数据列表,object 具体字段详见下表  | Array | - | -  |
+| items | √  | √  | 步骤条数据列表, 具体字段详见下表  | Array<Item> | - | -  |
 
 ## AtSteps 事件
 
@@ -198,6 +198,5 @@ export default class TimelinePage extends Taro.Component {
 |------|-----|---------|--------|--------|
 | title | 步骤标题 | String  | - | -  |
 | desc | 步骤说明文字  | String | - | -  |
-| success | 是否显示成功状态  | Boolean | - | false |
-| error | 是否显示失败状态  | Boolean | - | false |
+| status | 步骤的状态，只允许 'success' 或 'error' | String | 'success', 'error' | - |
 | icon | 图标信息，value： 图标类型，activeColor： 激活态颜色，inactiveColor： 非激活态颜色，size： 大小 | Object | - | - |
