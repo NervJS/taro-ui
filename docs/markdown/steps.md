@@ -184,7 +184,7 @@ export default class TimelinePage extends Taro.Component {
 | 参数  | 微信小程序 | h5 | 说明   | 类型    | 可选值 | 默认值 |
 |------|----------|----|-----|---------|--------|--------|
 | current | √   | √  | 必填，当前步骤索引值，开发者需要通过 onChange 事件来更新 current 值 | Number  | -      | 0   |
-| items | √  | √  | 步骤条数据列表, 具体字段详见下表  | Array<Item> | - | -  |
+| items | √  | √  | 步骤条数据列表, 具体字段详见下表  | Item[] | - | -  |
 
 ## AtSteps 事件
 
