@@ -51,7 +51,7 @@ module.exports = {
                   ident: 'postcss',
                   plugins: () => [
                     autoprefixer({
-                      browsers: ['ie >= 9', 'Chrome >= 21', 'Firefox >= 1', 'Edge >= 13', 'last 3 versions'],
+                      overrideBrowserslist: ['ie >= 9', 'Chrome >= 21', 'Firefox >= 1', 'Edge >= 13', 'last 3 versions'],
                       flexbox: 'no-2009'
                     })
                   ]
