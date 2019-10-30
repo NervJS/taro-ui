@@ -97,6 +97,7 @@
     "@tarojs/taro-swan": "1.3.21",
     "@tarojs/taro-weapp": "1.3.21",
     "@tarojs/webpack-runner": "1.3.21",
+    "@types/classnames": "^2.2.9",
     "@types/webpack-env": "^1.13.6",
     "at-ui-style": "^1.5.1",
     "autoprefixer": "^9.0.2",
