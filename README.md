@@ -1,6 +1,6 @@
 # Taro UI
 
-[![NPM][npm-version-image]][npm-version-url] [![david-dm][david-dm-image]][david-dm-url]
+[![NPM][npm-version-image]][npm-version-url] [![NPM Downloads][npm-downloads-image]][npm-downloads-url] [![david-dm][david-dm-image]][david-dm-url] [![License][license-image]][license-url]
 
 一款基于 `Taro` 框架开发的多端 UI 组件库
 
@@ -71,5 +71,9 @@ MIT
 
 [npm-version-image]: https://img.shields.io/npm/v/taro-ui.svg?style=flat-square
 [npm-version-url]: https://www.npmjs.com/package/taro-ui
+[npm-downloads-image]: https://img.shields.io/npm/dm/taro-ui?style=flat-square
+[npm-downloads-url]: https://www.npmjs.com/package/taro-ui
 [david-dm-image]: https://david-dm.org/NervJS/taro-ui.svg?style=flat-square
 [david-dm-url]: https://david-dm.org/NervJS/taro-ui
+[license-image]: https://img.shields.io/github/license/NervJS/taro-ui?style=flat-square
+[license-url]: https://github.com/NervJS/taro-ui/blob/master/LICENSE
