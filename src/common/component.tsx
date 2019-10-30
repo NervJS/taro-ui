@@ -1,6 +1,6 @@
-import Taro, { Component } from '@tarojs/taro'
+import { Component } from '@tarojs/taro'
 
-const objectToString = style => {
+const objectToString = (style: object | string): string => {
   if (style && typeof style === 'object') {
     let styleStr = ''
     Object.keys(style).forEach(key => {
@@ -14,7 +14,7 @@ const objectToString = style => {
   return ''
 }
 
-export default class AtComponent extends Component {
+export default class AtComponent<P = {}, S = {}> extends Component<P, S> {
   static options = {
     addGlobalClass: true
   }
@@ -25,7 +25,7 @@ export default class AtComponent extends Component {
    * @param {Object|String} style2
    * @returns {String}
    */
-  mergeStyle (style1, style2) {
+  mergeStyle (style1: object | string, style2: object | string): object | string {
     if ((style1 && typeof style1 === 'object')
       && (style2 && typeof style2 === 'object')
     ) {

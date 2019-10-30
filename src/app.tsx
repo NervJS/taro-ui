@@ -3,7 +3,7 @@ import Index from './pages/index/index'
 import './app.scss'
 
 class App extends Component {
-  config = {
+  config: Taro.Config = {
     pages: [
       'pages/index/index',
       'pages/panel/index',
