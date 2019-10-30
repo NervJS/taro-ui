@@ -8,7 +8,7 @@
     "*.scss",
     "*.css"
   ],
-  "types": "./@types/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "dev:weapp": "npm run build:weapp -- --watch",
     "dev:qq": "npm run build:qq -- --watch",
@@ -55,7 +55,7 @@
   ],
   "files": [
     "dist",
-    "@types",
+    "types",
     "src/**/interface.ts",
     "src/**/*.d.ts"
   ],
