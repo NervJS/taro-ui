@@ -1,19 +1,23 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../../common/component'
+import { AtActionSheetFooterProps } from 'types/action-sheet-footer'
 
-export default class AtActionSheetFooter extends AtComponent {
-  handleClick = (...args) => {
+export default class AtActionSheetFooter extends AtComponent<AtActionSheetFooterProps> {
+  public static defaultProps: AtActionSheetFooterProps
+  public static propTypes: InferProps<AtActionSheetFooterProps>
+
+  private handleClick = (...args: any[]): void => {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(...args)
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const rootClass = classNames(
       'at-action-sheet__footer',
       this.props.className
@@ -25,6 +29,10 @@ export default class AtActionSheetFooter extends AtComponent {
       </View>
     )
   }
+}
+
+AtActionSheetFooter.defaultProps = {
+  onClick: () => {}
 }
 
 AtActionSheetFooter.propTypes = {

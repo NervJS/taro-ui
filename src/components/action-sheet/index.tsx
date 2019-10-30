@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
@@ -8,9 +9,13 @@ import AtActionSheetBody from './body/index'
 import AtActionSheetHeader from './header/index'
 import AtActionSheetFooter from './footer/index'
 import AtComponent from '../../common/component'
+import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
 
-export default class AtActionSheet extends AtComponent {
-  constructor (props) {
+export default class AtActionSheet extends AtComponent<AtActionSheetProps, AtActionSheetState> {
+  public static defaultProps: AtActionSheetProps
+  public static propTypes: InferProps<AtActionSheetProps>
+
+  public constructor (props: AtActionSheetProps) {
     super(...arguments)
     const { isOpened } = props
 
@@ -19,7 +24,7 @@ export default class AtActionSheet extends AtComponent {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtActionSheetProps): void {
     const { isOpened } = nextProps
     if (isOpened !== this.state._isOpened) {
       this.setState({
@@ -30,20 +35,20 @@ export default class AtActionSheet extends AtComponent {
     }
   }
 
-  handleClose = () => {
+  private handleClose = (): void => {
     if (_isFunction(this.props.onClose)) {
       this.props.onClose()
     }
   }
 
-  handleCancel = () => {
+  private handleCancel = (): void => {
     if (_isFunction(this.props.onCancel)) {
       return this.props.onCancel()
     }
     this.close()
   }
 
-  close = () => {
+  private close = (): void => {
     this.setState(
       {
         _isOpened: false
@@ -52,12 +57,12 @@ export default class AtActionSheet extends AtComponent {
     )
   }
 
-  handleTouchMove = e => {
+  private handleTouchMove = (e: CommonEvent): void => {
     e.stopPropagation()
     e.preventDefault()
   }
 
-  render () {
+  public render (): JSX.Element {
     const { title, cancelText, className } = this.props
     const { _isOpened } = this.state
 
@@ -96,6 +101,6 @@ AtActionSheet.propTypes = {
   title: PropTypes.string,
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
-  isOpened: PropTypes.bool,
+  isOpened: PropTypes.bool.isRequired,
   cancelText: PropTypes.string,
 }
