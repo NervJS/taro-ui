@@ -1,38 +1,45 @@
-import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
 import { View, Text } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import AtComponent from '../../common/component'
 import { delayQuerySelector, initTestEnv } from '../../common/utils'
+import { AtAccordionProps, AtAccordionState } from 'types/accordion'
 
 initTestEnv()
 
 // 文档
-export default class AtAccordion extends AtComponent {
-  constructor () {
+export default class AtAccordion extends AtComponent<AtAccordionProps, AtAccordionState> {
+  private isCompleted: boolean
+  private startOpen: boolean
+
+  public static defaultProps: AtAccordionProps;
+  public static propTypes: InferProps<AtAccordionProps>
+
+  public constructor () {
     super(...arguments)
     this.isCompleted = true
     this.startOpen = false
     this.state = {
-      wrapperHeight: ''
+      wrapperHeight: 0
     }
   }
 
-  handleClick = event => {
+  private handleClick = (event: CommonEvent): void => {
     const { open } = this.props
     if (!this.isCompleted) return
 
-    this.props.onClick(!open, event)
+    this.props.onClick && this.props.onClick(!open, event)
   }
 
-  toggleWithAnimation () {
+  private toggleWithAnimation (): void {
     const { open, isAnimation } = this.props
     if (!this.isCompleted || !isAnimation) return
 
     this.isCompleted = false
     delayQuerySelector(this, '.at-accordion__body', 0)
       .then(rect => {
-        const height = parseInt(rect[0].height)
+        const height = parseInt(rect[0].height.toString())
         const startHeight = open ? height : 0
         const endHeight = open ? 0 : height
         this.startOpen = false
@@ -53,14 +60,14 @@ export default class AtAccordion extends AtComponent {
       })
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtAccordionProps): void {
     if (nextProps.open !== this.props.open) {
-      this.startOpen = nextProps.open && nextProps.isAnimation
+      this.startOpen = !!(nextProps.open) && !!(nextProps.isAnimation)
       this.toggleWithAnimation()
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -98,24 +105,25 @@ export default class AtAccordion extends AtComponent {
       contentStyle.height = ''
     }
 
-    return <View className={rootCls} style={customStyle}>
-      <View className={headerCls} onClick={this.handleClick}>
-        {icon && icon.value && <Text className={iconCls} style={iconStyle}></Text>}
-        <View className='at-accordion__info'>
-          <View className='at-accordion__info__title'>{title}</View>
-          <View className='at-accordion__info__note'>{note}</View>
+    return (
+      <View className={rootCls} style={customStyle}>
+        <View className={headerCls} onClick={this.handleClick}>
+          {icon && icon.value && <Text className={iconCls} style={iconStyle}></Text>}
+          <View className='at-accordion__info'>
+            <View className='at-accordion__info__title'>{title}</View>
+            <View className='at-accordion__info__note'>{note}</View>
+          </View>
+          <View className={arrowCls}>
+            <Text className='at-icon at-icon-chevron-down'></Text>
+          </View>
         </View>
-        <View className={arrowCls}>
-          <Text className='at-icon at-icon-chevron-down'></Text>
+        <View style={contentStyle} className={contentCls}>
+          <View className='at-accordion__body'>
+            {this.props.children}
+          </View>
         </View>
       </View>
-      <View style={contentStyle} className={contentCls}>
-        <View className='at-accordion__body'>
-          {this.props.children}
-        </View>
-
-      </View>
-    </View>
+    )
   }
 }
 
@@ -125,7 +133,7 @@ AtAccordion.defaultProps = {
   className: '',
   title: '',
   note: '',
-  icon: {},
+  icon: { value: '' },
   hasBorder: true,
   isAnimation: true,
   onClick: () => {},
