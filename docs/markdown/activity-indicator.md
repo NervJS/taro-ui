@@ -77,7 +77,7 @@ import { AtActivityIndicator } from 'taro-ui'
 
 | 参数    | 说明             | 类型   | 可选值            | 默认值    |
 | ------- | ---------------- | ------ | ----------------- | --------- |
-| mode    | 元素的类型       | String | `center`,`normal` | -         |
+| mode    | 元素的类型       | String | `center`,`normal` | `normal`    |
 | size    | loading 图的大小 | Number | -                 | `24`      |
-| color   | loading 图的样色 | String | -                 | `#6190E8` |
+| color   | loading 图的颜色 | String | -                 | `#6190E8` |
 | content | 元素的内容文本   | String | -                 | -         |
