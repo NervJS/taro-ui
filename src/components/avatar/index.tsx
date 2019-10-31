@@ -1,8 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View, Image, Text, OpenData } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtAvatarProps, AtAvatarState } from 'types/avatar'
 
 const SIZE_CLASS = {
   large: 'large',
@@ -10,15 +11,18 @@ const SIZE_CLASS = {
   small: 'small',
 }
 
-export default class AtAvatar extends AtComponent {
-  constructor () {
+export default class AtAvatar extends AtComponent<AtAvatarProps, AtAvatarState> {
+  public static defaultProps: AtAvatarProps
+  public static propTypes: InferProps<AtAvatarProps>
+
+  public constructor () {
     super(...arguments)
     this.state = {
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       size,
       circle,
@@ -28,9 +32,9 @@ export default class AtAvatar extends AtComponent {
       customStyle,
     } = this.props
     const rootClassName = ['at-avatar']
-
+    const iconSize = SIZE_CLASS[size ? size : 'normal']
     const classObject = {
-      [`at-avatar--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
+      [`at-avatar--${iconSize}`]: iconSize,
       'at-avatar--circle': circle,
     }
 
@@ -59,7 +63,7 @@ AtAvatar.defaultProps = {
   circle: false,
   text: '',
   image: '',
-  openData: {},
+  openData: undefined,
   customStyle: {},
   className: '',
 }
