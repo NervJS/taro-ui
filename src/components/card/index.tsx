@@ -1,20 +1,24 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
+import { AtCardProps } from 'types/card'
 
-export default class AtCard extends AtComponent {
-  handleClick = (...args) => {
+export default class AtCard extends AtComponent<AtCardProps> {
+  public static defaultProps: AtCardProps
+  public static propTypes: InferProps<AtCardProps>
+
+  private handleClick = (args: any): void => {
     if (_isFunction(this.props.onClick)) {
-      this.props.onClick(...args)
+      this.props.onClick(args)
     }
   }
 
-  render () {
-    const { title, note, extra, extraStyle, thumb, isFull, icon } = this.props
+  public render (): JSX.Element {
+    const { title, note, extra, extraStyle, thumb, isFull, icon, renderIcon } = this.props
 
     const rootClass = classNames(
       'at-card',
@@ -46,9 +50,7 @@ export default class AtCard extends AtComponent {
               />
             </View>
           )}
-          {
-            this.props.renderIcon
-          }
+          { renderIcon ? renderIcon : '' }
           {!thumb && icon && icon.value && (
             <Text className={iconClass} style={iconStyle}></Text>
           )}
@@ -71,9 +73,9 @@ AtCard.defaultProps = {
   thumb: '',
   title: '',
   extra: '',
-  icon: {},
+  icon: undefined,
   onClick () {},
-  renderIcon: '',
+  renderIcon: undefined,
   extraStyle: {},
 }
 
@@ -91,12 +93,3 @@ AtCard.propTypes = {
   ]),
   extraStyle: PropTypes.object // 自定义extra样式
 }
-
-// AtCard.defaultProps = {
-//   note: '',
-//   isFull: false,
-//   thumb: '',
-//   title: '',
-//   extra: '',
-//   onClick: () => {},
-// }
