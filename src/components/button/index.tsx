@@ -1,10 +1,11 @@
 
 import Taro from '@tarojs/taro'
 import { View, Button, Form } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtLoading from '../loading/index'
 import AtComponent from '../../common/component'
+import { AtButtonProps, AtButtonState } from 'types/button'
 
 const SIZE_CLASS = {
   normal: 'normal',
@@ -16,8 +17,11 @@ const TYPE_CLASS = {
   secondary: 'secondary',
 }
 
-export default class AtButton extends AtComponent {
-  constructor () {
+export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> {
+  public static defaultProps: AtButtonProps
+  public static propTypes: InferProps<AtButtonProps>
+
+  public constructor () {
     super(...arguments)
     this.state = {
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
@@ -26,33 +30,33 @@ export default class AtButton extends AtComponent {
     }
   }
 
-  onClick () {
+  private onClick (): void {
     if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick(...arguments)
+      this.props.onClick && this.props.onClick(arguments as any)
     }
   }
 
-  onGetUserInfo () {
-    this.props.onGetUserInfo && this.props.onGetUserInfo(...arguments)
+  private onGetUserInfo (): void {
+    this.props.onGetUserInfo && this.props.onGetUserInfo(arguments as any)
   }
 
-  onContact () {
-    this.props.onContact && this.props.onContact(...arguments)
+  private onContact (): void {
+    this.props.onContact && this.props.onContact(arguments as any)
   }
 
-  onGetPhoneNumber () {
-    this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(...arguments)
+  private onGetPhoneNumber (): void {
+    this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(arguments as any)
   }
 
-  onError () {
-    this.props.onError && this.props.onError(...arguments)
+  private onError (): void {
+    this.props.onError && this.props.onError(arguments as any)
   }
 
-  onOpenSetting () {
-    this.props.onOpenSetting && this.props.onOpenSetting(...arguments)
+  private onOpenSetting (): void {
+    this.props.onOpenSetting && this.props.onOpenSetting(arguments as any)
   }
 
-  onSumit () {
+  private onSumit (): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('submit', arguments[0].detail, {
         bubbles: true,
@@ -61,7 +65,7 @@ export default class AtButton extends AtComponent {
     }
   }
 
-  onReset () {
+  private onReset (): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('reset', arguments[0].detail, {
         bubbles: true,
@@ -70,7 +74,7 @@ export default class AtButton extends AtComponent {
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       size = 'normal',
       type = '',
@@ -104,34 +108,43 @@ export default class AtButton extends AtComponent {
     }
     const loadingColor = type === 'primary' ? '#fff' : ''
     const loadingSize = size === 'small' ? '30' : 0
-    let component
+    let component: JSX.Element | undefined = undefined
     if (loading) {
-      component = <View className='at-button__icon'><AtLoading color={loadingColor} size={loadingSize} /></View>
+      component = (
+        <View className='at-button__icon'>
+          <AtLoading color={loadingColor} size={loadingSize} />
+        </View>
+      )
       rootClassName.push('at-button--icon')
     }
 
-    const webButton = <Button className='at-button__wxbutton'
-      lang={lang}
-      type={formType === 'submit' || formType === 'reset' ? formType : 'button'}
-    ></Button>
+    const webButton = (
+      <Button
+        className='at-button__wxbutton'
+        lang={lang}
+        formType={formType === 'submit' || formType === 'reset' ? formType : undefined}
+      ></Button>
+    )
 
-    const button = <Button className='at-button__wxbutton'
-      formType={formType}
-      openType={openType}
-      lang={lang}
-      sessionFrom={sessionFrom}
-      sendMessageTitle={sendMessageTitle}
-      sendMessagePath={sendMessagePath}
-      sendMessageImg={sendMessageImg}
-      showMessageCard={showMessageCard}
-      appParameter={appParameter}
-      onGetUserInfo={this.onGetUserInfo.bind(this)}
-      onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
-      onOpenSetting={this.onOpenSetting.bind(this)}
-      onError={this.onError.bind(this)}
-      onContact={this.onContact.bind(this)}
-    >
-    </Button>
+    const button = (
+      <Button
+        className='at-button__wxbutton'
+        formType={formType}
+        openType={openType}
+        lang={lang}
+        sessionFrom={sessionFrom}
+        sendMessageTitle={sendMessageTitle}
+        sendMessagePath={sendMessagePath}
+        sendMessageImg={sendMessageImg}
+        showMessageCard={showMessageCard}
+        appParameter={appParameter}
+        onGetUserInfo={this.onGetUserInfo.bind(this)}
+        onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
+        onOpenSetting={this.onOpenSetting.bind(this)}
+        onError={this.onError.bind(this)}
+        onContact={this.onContact.bind(this)}
+      ></Button>
+    )
 
     return (
       <View
@@ -142,7 +155,7 @@ export default class AtButton extends AtComponent {
         {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
         {isALIPAY && !disabled && button}
-        {component}
+        {component && component}
         <View className='at-button__text'>{this.props.children}</View>
       </View>
     )
@@ -151,7 +164,7 @@ export default class AtButton extends AtComponent {
 
 AtButton.defaultProps = {
   size: 'normal',
-  type: '',
+  type: undefined,
   circle: false,
   full: false,
   loading: false,
@@ -159,8 +172,8 @@ AtButton.defaultProps = {
   customStyle: {},
   onClick: () => {},
   // Button props
-  formType: '',
-  openType: '',
+  formType: undefined,
+  openType: undefined,
   lang: 'en',
   sessionFrom: '',
   sendMessageTitle: '',
