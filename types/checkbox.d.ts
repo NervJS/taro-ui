@@ -9,7 +9,7 @@ export interface Option<T> {
   disabled?: boolean
 }
 
-export interface AtCheckboxProps<T> {
+export interface AtCheckboxProps<T> extends AtComponent {
   options: Array<Option<T>>
 
   selectedList: Array<T>
