@@ -1,17 +1,26 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 import AtCountdownItem from './item'
+import { AtCountDownProps, AtCountdownState } from 'types/countdown'
 
-const toSeconds = (day, hours, minutes, seconds) => (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
+const toSeconds = (day: number, hours: number, minutes: number, seconds: number): number => {
+  return (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
+}
 
-export default class AtCountdown extends AtComponent {
-  constructor () {
+export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdownState> {
+  public static defaultProps: AtCountDownProps
+  public static propTypes: InferProps<AtCountDownProps>
+
+  private seconds: number
+  private timer: NodeJS.Timeout | number | undefined
+
+  public constructor () {
     super(...arguments)
     const { day, hours, minutes, seconds } = this.props
-    this.seconds = toSeconds(day, hours, minutes, seconds)
+    this.seconds = toSeconds(day!, hours!, minutes!, seconds!)
     const {
       day: _day,
       hours: _hours,
@@ -25,21 +34,21 @@ export default class AtCountdown extends AtComponent {
       _minutes,
       _seconds
     }
-    this.timer = null
+    this.timer = undefined
   }
 
-  setTimer () {
+  private setTimer (): void {
     if (!this.timer) this.countdonwn()
   }
 
-  clearTimer () {
+  private clearTimer (): void {
     if (this.timer) {
-      clearTimeout(this.timer)
-      this.timer = null
+      clearTimeout(this.timer as number)
+      this.timer = undefined
     }
   }
 
-  calculateTime () {
+  private calculateTime () {
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
@@ -56,7 +65,7 @@ export default class AtCountdown extends AtComponent {
     }
   }
 
-  countdonwn () {
+  private countdonwn (): void {
     const { day, hours, minutes, seconds } = this.calculateTime()
 
     this.setState({
@@ -69,7 +78,7 @@ export default class AtCountdown extends AtComponent {
 
     if (this.seconds < 0) {
       this.clearTimer()
-      this.props.onTimeUp()
+      this.props.onTimeUp && this.props.onTimeUp()
       return
     }
 
@@ -78,32 +87,32 @@ export default class AtCountdown extends AtComponent {
     }, 1000)
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtCountDownProps): void {
     if (JSON.stringify(this.props) === JSON.stringify(nextProps)) return
 
     const { day, hours, minutes, seconds } = nextProps
-    this.seconds = toSeconds(day, hours, minutes, seconds)
+    this.seconds = toSeconds(day!, hours!, minutes!, seconds!)
     this.clearTimer()
     this.setTimer()
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     this.setTimer()
   }
 
-  componentWillUnmount () {
+  public componentWillUnmount (): void {
     this.clearTimer()
   }
 
-  componentDidHide () {
+  public componentDidHide (): void {
     this.clearTimer()
   }
 
-  componentDidShow () {
+  public componentDidShow (): void {
     this.setTimer()
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -128,10 +137,10 @@ export default class AtCountdown extends AtComponent {
           }, className)}
         style={customStyle}
       >
-        {isShowDay && <AtCountdownItem num={_day} separator={format.day} /> }
-        {isShowHour && <AtCountdownItem num={_hours} separator={format.hours} /> }
-        <AtCountdownItem num={_minutes} separator={format.minutes} />
-        <AtCountdownItem num={_seconds} separator={format.seconds} />
+        {isShowDay && <AtCountdownItem num={_day} separator={format!.day} /> }
+        {isShowHour && <AtCountdownItem num={_hours} separator={format!.hours} /> }
+        <AtCountdownItem num={_minutes} separator={format!.minutes} />
+        <AtCountdownItem num={_seconds} separator={format!.seconds} />
       </View>
     )
   }

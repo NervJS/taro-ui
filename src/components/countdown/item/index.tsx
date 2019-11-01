@@ -1,14 +1,18 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View, Text } from '@tarojs/components'
 import AtComponent from '../../../common/component'
+import { AtCountdownItemProps } from 'types/countdown'
 
-class AtCountdownItem extends AtComponent {
-  formatNum (num) {
+export default class AtCountdownItem extends AtComponent<AtCountdownItemProps> {
+  public static defaultProps: AtCountdownItemProps
+  public static propTypes: InferProps<AtCountdownItemProps>
+
+  private formatNum (num: number): string {
     return num <= 9 ? `0${num}` : `${num}`
   }
 
-  render () {
+  public render (): JSX.Element {
     const { num, separator } = this.props
 
     return (
@@ -33,6 +37,3 @@ AtCountdownItem.propTypes = {
   num: PropTypes.number.isRequired,
   separator: PropTypes.string
 }
-
-
-export default AtCountdownItem
