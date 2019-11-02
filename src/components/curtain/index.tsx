@@ -1,20 +1,25 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { CommonEvent } from '@tarojs/components/types/common'
+import { AtCurtainProps } from 'types/curtain'
 
-export default class AtCurtain extends AtComponent {
-  onClose (e) {
+export default class AtCurtain extends AtComponent<AtCurtainProps> {
+  public static defaultProps: AtCurtainProps
+  public static propTypes: InferProps<AtCurtainProps>
+
+  private onClose (e: CommonEvent): void {
     e.stopPropagation()
-    this.props.onClose(...arguments)
+    this.props.onClose(e)
   }
 
-  _stopPropagation (e) {
+  private _stopPropagation (e: CommonEvent): void {
     e.stopPropagation()
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
