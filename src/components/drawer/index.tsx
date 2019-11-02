@@ -1,13 +1,17 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtComponent from '../../common/component'
+import { AtDrawerProps, AtDrawerState } from 'types/drawer'
 
-export default class AtDrawer extends AtComponent {
-  constructor (props) {
+export default class AtDrawer extends AtComponent<AtDrawerProps, AtDrawerState> {
+  public static defaultProps: AtDrawerProps
+  public static propTypes: InferProps<AtDrawerProps>
+
+  public constructor (props: AtDrawerProps) {
     super(...arguments)
     this.state = {
       animShow: false,
@@ -15,32 +19,32 @@ export default class AtDrawer extends AtComponent {
     }
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     const { _show } = this.state
     if (_show) this.animShow()
   }
 
-  onItemClick (index, e) {
+  private onItemClick (index: number): void {
     this.props.onItemClick && this.props.onItemClick(index)
-    this.animHide(e, index)
+    this.animHide()
   }
 
-  onHide () {
+  private onHide (): void {
     this.setState({ _show: false }, () => {
       this.props.onClose && this.props.onClose()
     })
   }
 
-  animHide () {
+  private animHide (): void {
     this.setState({
       animShow: false,
     })
     setTimeout(() => {
-      this.onHide(...arguments)
+      this.onHide()
     }, 300)
   }
 
-  animShow () {
+  private animShow (): void {
     this.setState({ _show: true })
     setTimeout(() => {
       this.setState({
@@ -49,18 +53,18 @@ export default class AtDrawer extends AtComponent {
     }, 200)
   }
 
-  onMaskClick () {
-    this.animHide(...arguments)
+  private onMaskClick (): void {
+    this.animHide()
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtDrawerProps): void {
     const { show } = nextProps
     if (show !== this.state._show) {
-      show ? this.animShow() : this.animHide(...arguments)
+      show ? this.animShow() : this.animHide()
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       mask,
       width,
@@ -89,27 +93,29 @@ export default class AtDrawer extends AtComponent {
     }
 
     return (
-      _show && <View
-        className={classNames(rootClassName, classObject, this.props.className)}
-      >
-        <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
+      _show ? (
+        <View
+          className={classNames(rootClassName, classObject, this.props.className)}
+        >
+          <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
 
-        <View className='at-drawer__content' style={listStyle}>
-          {items.length ? <AtList>
-            {
-              items.map((name, index) =>
-                <AtListItem
-                  key={`${name}-${index}`}
-                  data-index={index}
-                  onClick={this.onItemClick.bind(this, index)}
-                  title={name}
-                  arrow='right'
-                >
-                </AtListItem>)
-            }
-          </AtList> : this.props.children}
+          <View className='at-drawer__content' style={listStyle}>
+            {!!items && items.length ? <AtList>
+              {
+                items.map((name, index) =>
+                  <AtListItem
+                    key={`${name}-${index}`}
+                    data-index={index}
+                    onClick={this.onItemClick.bind(this, index)}
+                    title={name}
+                    arrow='right'
+                  >
+                  </AtListItem>)
+              }
+            </AtList> : this.props.children}
+          </View>
         </View>
-      </View>
+      ) : <View></View>
     )
   }
 }
