@@ -1,18 +1,18 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { initTestEnv } from '../../common/utils'
+import { AtDividerProps } from 'types/divider'
 
-export default class AtDivider extends AtComponent {
-  constructor () {
-    super(...arguments)
-    if (process.env.NODE_ENV === 'test') {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
-  }
+initTestEnv()
 
-  render () {
+export default class AtDivider extends AtComponent<AtDividerProps> {
+  public static defaultProps: AtDividerProps
+  public static propTypes: InferProps<AtDividerProps>
+
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -24,22 +24,22 @@ export default class AtDivider extends AtComponent {
     } = this.props
 
     const rootStyle = {
-      height: height ? `${Taro.pxTransform(height)}` : ''
+      height: height ? `${Taro.pxTransform(Number(height))}` : ''
     }
 
     const fontStyle = {
       'color': fontColor,
-      'font-size': fontSize ? `${Taro.pxTransform(fontSize)}` : ''
+      'font-size': fontSize ? `${Taro.pxTransform(Number(fontSize))}` : ''
     }
 
-    const lineStyle = {
-      'background-color': lineColor
+    const lineStyle: React.CSSProperties = {
+      backgroundColor: lineColor
     }
 
     return (
       <View
         className={classNames('at-divider', className)}
-        style={this.mergeStyle(rootStyle, customStyle)}
+        style={this.mergeStyle(rootStyle, customStyle as object)}
       >
         <View className='at-divider__content' style={fontStyle}>
           {content === '' ? this.props.children : content}
