@@ -1,15 +1,20 @@
 /* eslint-disable taro/function-naming */
 import Taro from '@tarojs/taro'
 import { View, Text, ScrollView } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
+import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtFloatLayout extends AtComponent {
-  constructor (props) {
+export default class AtFloatLayout extends AtComponent<AtFloatLayoutProps, AtFloatLayoutState> {
+  public static defaultProps: AtFloatLayoutProps
+  public static propTypes: InferProps<AtFloatLayoutProps>
+
+  public constructor (props: AtFloatLayoutProps) {
     super(...arguments)
 
     const { isOpened } = props
@@ -18,7 +23,7 @@ export default class AtFloatLayout extends AtComponent {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtFloatLayoutProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -32,13 +37,14 @@ export default class AtFloatLayout extends AtComponent {
     }
   }
 
-  handleClose = () => {
+  private handleClose = () => {
     if (_isFunction(this.props.onClose)) {
+      // @ts-ignore // TODO: Fix typings
       this.props.onClose()
     }
   }
 
-  close = () => {
+  private close = (): void => {
     this.setState(
       {
         _isOpened: false
@@ -47,7 +53,7 @@ export default class AtFloatLayout extends AtComponent {
     )
   }
 
-  handleTouchMove = e => {
+  private handleTouchMove = (e: CommonEvent): void => {
     e.stopPropagation()
   }
 
@@ -92,8 +98,11 @@ export default class AtFloatLayout extends AtComponent {
               upperThreshold={upperThreshold}
               lowerThreshold={lowerThreshold}
               scrollWithAnimation={scrollWithAnimation}
+              // @ts-ignore // TODO: Fix typings
               onScroll={this.props.onScroll}
+              // @ts-ignore // TODO: Fix typings
               onScrollToLower={this.props.onScrollToLower}
+              // @ts-ignore // TODO: Fix typings
               onScrollToUpper={this.props.onScrollToUpper}
               className='layout-body__content'
             >
@@ -120,7 +129,7 @@ AtFloatLayout.defaultProps = {
   onScrollToUpper: () => {}
 }
 
-AtFloatLayout.propType = {
+AtFloatLayout.propTypes = {
   title: PropTypes.string,
   isOpened: PropTypes.bool,
   scrollY: PropTypes.bool,
