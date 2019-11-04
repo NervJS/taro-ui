@@ -1,23 +1,28 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import _chunk from 'lodash/chunk'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../common/component'
+import { AtGridProps, Item } from 'types/grid'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtGrid extends AtComponent {
-  handleClick = (item, index, row, ...arg) => {
+export default class AtGrid extends AtComponent<AtGridProps> {
+  public static defaultProps: AtGridProps
+  public static propTypes: InferProps<AtGridProps>
+
+  private handleClick = (item: Item, index: number, row: number, event: CommonEvent): void => {
     const { onClick, columnNum } = this.props
     if (_isFunction(onClick)) {
       /* prettier-ignore */
-      const clickIndex = (row * columnNum) + index
-      onClick(item, clickIndex, ...arg)
+      const clickIndex = (row * columnNum!) + index
+      onClick(item, clickIndex, event)
     }
   }
 
-  render () {
+  public render (): JSX.Element | null {
     const { data, mode, columnNum, hasBorder } = this.props
 
     if (Array.isArray(data) && data.length === 0) {
@@ -41,11 +46,11 @@ export default class AtGrid extends AtComponent {
               <View
                 key={`at-grid-item-${index}`}
                 className={classNames(bodyClass, {
-                  'at-grid-item--last': index === columnNum - 1
+                  'at-grid-item--last': index === columnNum! - 1
                 })}
                 onClick={this.handleClick.bind(this, childItem, index, i)}
                 style={{
-                  flex: `0 0 ${100 / columnNum}%`
+                  flex: `0 0 ${100 / columnNum!}%`
                 }}
               >
                 <View className='at-grid-item__content'>
@@ -75,7 +80,7 @@ export default class AtGrid extends AtComponent {
                               color: childItem.iconInfo.color,
                               fontSize: `${childItem.iconInfo.size || 24}px`
                             },
-                            childItem.iconInfo.customStyle
+                            childItem.iconInfo!.customStyle!
                           )}
                         />
                       )}
