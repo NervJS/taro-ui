@@ -1,19 +1,23 @@
 import Taro from '@tarojs/taro'
 import { Form } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtFormProps } from 'types/form'
 
-export default class AtForm extends AtComponent {
-  onSubmit () {
-    this.props.onSubmit(...arguments)
+export default class AtForm extends AtComponent<AtFormProps> {
+  public static defaultProps: AtFormProps
+  public static propTypes: InferProps<AtFormProps>
+
+  private onSubmit (): void {
+    this.props.onSubmit && this.props.onSubmit(arguments as any)
   }
 
-  onReset () {
-    this.props.onReset(...arguments)
+  private onReset (): void {
+    this.props.onReset && this.props.onReset(arguments as any)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
