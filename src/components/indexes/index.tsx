@@ -1,21 +1,34 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View, ScrollView } from '@tarojs/components'
 import classNames from 'classnames'
 import _findIndex from 'lodash/findIndex'
 
 import AtComponent from '../../common/component'
 
-import AtList from '../../components/list/index'
-import AtListItem from '../../components/list/item/index'
-import AtToast from '../../components/toast/index'
+import AtList from '../list/index'
+import AtListItem from '../list/item/index'
+import AtToast from '../toast/index'
 import { delayQuerySelector, uuid, initTestEnv, isTest } from '../../common/utils'
+import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
+import { AtIndexesProps, AtIndexesState, Item } from 'types/indexes'
 
 initTestEnv()
 const ENV = Taro.getEnv()
 
-class AtIndexes extends AtComponent {
-  constructor () {
+export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesState> {
+  public static defaultProps: AtIndexesProps
+  public static propTypes: InferProps<AtIndexesProps>
+
+  private menuHeight: number
+  private startTop: number
+  private itemHeight: number
+  private currentIndex: number
+  private listId: string
+  private timeoutTimer: NodeJS.Timeout | number | undefined
+  private listRef: any
+
+  public constructor () {
     super(...arguments)
     this.state = {
       _scrollIntoView: '',
@@ -33,12 +46,14 @@ class AtIndexes extends AtComponent {
     // 当前索引
     this.currentIndex = -1
     this.listId = isTest() ? 'indexes-list-AOTU2018' : `list-${uuid()}`
-    this.timeoutTimer = null
+    this.timeoutTimer = undefined
   }
 
-  handleClick = (...arg) => this.props.onClick(...arg)
+  private handleClick = (item: Item): void => {
+    this.props.onClick && this.props.onClick(item)
+  }
 
-  handleTouchMove = event => {
+  private handleTouchMove = (event: ITouchEvent): void => {
     event.stopPropagation()
     event.preventDefault()
 
@@ -57,13 +72,13 @@ class AtIndexes extends AtComponent {
     }
   }
 
-  handleTouchEnd = () => {
+  private handleTouchEnd = (): void => {
     this.currentIndex = -1
   }
 
-  jumpTarget (_scrollIntoView, idx) {
+  private jumpTarget (_scrollIntoView: string, idx: number): void {
     const { topKey, list } = this.props
-    const _tipText = idx === 0 ? topKey : list[idx - 1].key
+    const _tipText = idx === 0 ? topKey! : list[idx - 1].key
 
     if (ENV === Taro.ENV_TYPE.WEB) {
       delayQuerySelector(this, '.at-indexes', 0)
@@ -85,24 +100,24 @@ class AtIndexes extends AtComponent {
     })
   }
 
-  __jumpTarget (key) {
+  private __jumpTarget (key: string): void {
     const { list } = this.props
     const index = _findIndex(list, ['key', key])
     const targetView = `at-indexes__list-${key}`
     this.jumpTarget(targetView, index + 1)
   }
 
-  updateState (state) {
+  private updateState (state: Partial<AtIndexesState>): void {
     const { isShowToast, isVibrate } = this.props
     const { _scrollIntoView, _tipText, _scrollTop } = state
-
+    // TODO: Fix dirty hack
     this.setState({
-      _scrollIntoView,
-      _tipText,
-      _scrollTop,
-      _isShowToast: isShowToast
+      _scrollIntoView: _scrollIntoView!,
+      _tipText: _tipText!,
+      _scrollTop: _scrollTop!,
+      _isShowToast: isShowToast!
     }, () => {
-      clearTimeout(this.timeoutTimer)
+      clearTimeout(this.timeoutTimer as number)
       this.timeoutTimer = setTimeout(() => {
         this.setState({
           _tipText: '',
@@ -116,7 +131,7 @@ class AtIndexes extends AtComponent {
     }
   }
 
-  initData () {
+  private initData (): void {
     delayQuerySelector(this, '.at-indexes__menu')
       .then(rect => {
         const len = this.props.list.length
@@ -126,30 +141,32 @@ class AtIndexes extends AtComponent {
       })
   }
 
-  handleScroll (e) {
+  private handleScroll (e: CommonEvent): void {
     if (e && e.detail) {
-      this.state._scrollTop = e.detail.scrollTop
+      this.setState({
+        _scrollTop: e.detail.scrollTop
+      })
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtIndexesProps): void {
     if (nextProps.list.length !== this.props.list.length) {
       this.initData()
     }
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     if (ENV === Taro.ENV_TYPE.WEB) {
       this.listRef = document.getElementById(this.listId)
     }
     this.initData()
   }
 
-  componentWillMount () {
+  public componentWillMount (): void {
     this.props.onScrollIntoView && this.props.onScrollIntoView(this.__jumpTarget.bind(this))
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -257,7 +274,6 @@ AtIndexes.propTypes = {
 }
 
 AtIndexes.defaultProps = {
-  isTest: false,
   customStyle: '',
   className: '',
   animation: false,
@@ -268,5 +284,3 @@ AtIndexes.defaultProps = {
   onClick: () => { },
   onScrollIntoView: () => { },
 }
-
-export default AtIndexes
