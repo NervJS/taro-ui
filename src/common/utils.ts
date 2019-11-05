@@ -200,7 +200,14 @@ function handleTouchScroll (flag) {
     return
   }
   if (flag) {
-    scrollTop = document.documentElement.scrollTop
+    // 兼容不同浏览器环境
+    if (document.documentElement && document.documentElement.scrollTop) {
+      scrollTop = document.documentElement.scrollTop
+    } else if (document.body) {
+      scrollTop = document.body.scrollTop
+    } else {
+      scrollTop = 0
+    }
 
     // 使body脱离文档流
     document.body.classList.add('at-frozen')
@@ -210,8 +217,8 @@ function handleTouchScroll (flag) {
   } else {
     document.body.style.top = null
     document.body.classList.remove('at-frozen')
-
     document.documentElement.scrollTop = scrollTop
+    document.body.scrollTop = scrollTop
   }
 }
 
