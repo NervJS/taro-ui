@@ -1,15 +1,19 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _toString from 'lodash/toString'
 
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
+import { AtInputNumberProps, InputError } from 'types/input-number'
+import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
+
+// TODO: Check all types
 
 // 实现两数相加并保留小数点后最短尾数
-function addNum (num1, num2) {
-  let sq1, sq2
+function addNum (num1: number, num2: number): number {
+  let sq1: number, sq2: number
   try {
     sq1 = _toString(num1).split('.')[1].length
   } catch (e) {
@@ -25,7 +29,7 @@ function addNum (num1, num2) {
 }
 
 // 格式化数字，处理01变成1,并且不处理1. 这种情况
-function parseValue (num) {
+function parseValue (num: string): string {
   if (num === '') return '0'
 
   const numStr = _toString(num)
@@ -39,14 +43,24 @@ function parseValue (num) {
 
 initTestEnv()
 
-class AtInputNumber extends AtComponent {
-  handleClick (clickType) {
+type ExtendEvent = {
+  target: {
+    value: string | number
+  }
+}
+
+export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
+  public static defaultProps: AtInputNumberProps
+  public static propTypes: InferProps<AtInputNumberProps>
+
+  private handleClick (clickType: 'minus' | 'plus'): void {
+    // TODO: Fix dirty hack
     const { disabled, value, min, max, step } = this.props
-    const lowThanMin = (clickType === 'minus' && value <= min)
-    const overThanMax = (clickType === 'plus' && value >= max)
+    const lowThanMin = (clickType === 'minus' && value <= min!)
+    const overThanMax = (clickType === 'plus' && value >= max!)
     if (lowThanMin || overThanMax || disabled) {
-      const deltaValue = clickType === 'minus' ? -step : step
-      const errorValue = addNum(value, deltaValue)
+      const deltaValue = clickType === 'minus' ? -step! : step
+      const errorValue = addNum(Number(value), deltaValue!)
       if (disabled) {
         this.handleError({
           type: 'DISABLED',
@@ -60,52 +74,53 @@ class AtInputNumber extends AtComponent {
       }
       return
     }
-    const deltaValue = clickType === 'minus' ? -step : step
-    let newValue = addNum(value, deltaValue)
-    newValue = this.handleValue(newValue)
+    const deltaValue = clickType === 'minus' ? -step! : step
+    let newValue = addNum(Number(value), deltaValue!)
+    newValue = Number(this.handleValue(newValue))
     this.props.onChange(newValue)
   }
 
-  handleValue = value => {
+  private handleValue = (value: string | number): string => {
+    // TODO: Fix dirty hack
     const { max, min } = this.props
     let resultValue = value === '' ? min : value
     // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
-    if (resultValue > max) {
+    if (resultValue! > max!) {
       resultValue = max
       this.handleError({
         type: 'OVER',
-        errorValue: resultValue,
+        errorValue: resultValue!,
       })
     }
-    if (resultValue < min) {
+    if (resultValue! < min!) {
       resultValue = min
       this.handleError({
         type: 'LOW',
-        errorValue: resultValue,
+        errorValue: resultValue!,
       })
     }
-    resultValue = parseValue(resultValue)
+    resultValue = parseValue(String(resultValue))
     return resultValue
   }
 
-  handleInput = (e, ...arg) => {
+  private handleInput = (e: CommonEvent & ExtendEvent) => {
     const { value } = e.target
     const { disabled } = this.props
     if (disabled) return
 
     const newValue = this.handleValue(value)
-    this.props.onChange(newValue, e, ...arg)
+    this.props.onChange(Number(newValue))
     return newValue
   }
 
-  handleBlur = (...arg) => this.props.onBlur(...arg)
+  private handleBlur = (event: ITouchEvent): void => this.props.onBlur && this.props.onBlur(event)
 
-  handleError = errorValue => {
+  private handleError = (errorValue: InputError): void => {
     if (!this.props.onErrorInput) { return }
     this.props.onErrorInput(errorValue)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -122,15 +137,15 @@ class AtInputNumber extends AtComponent {
     const inputStyle = {
       width: width ? `${Taro.pxTransform(width)}` : ''
     }
-    const inputValue = this.handleValue(value)
+    const inputValue = Number(this.handleValue(value))
     const rootCls = classNames('at-input-number', {
-      'at-input-number--lg': size
+      'at-input-number--lg': size === 'large'
     }, className)
     const minusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue <= min || disabled
+      'at-input-number--disabled': inputValue <= min! || disabled
     })
     const plusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue >= max || disabled
+      'at-input-number--disabled': inputValue >= max! || disabled
     })
 
     return (
@@ -142,7 +157,7 @@ class AtInputNumber extends AtComponent {
           className='at-input-number__input'
           style={inputStyle}
           type={type}
-          value={inputValue}
+          value={String(inputValue)}
           disabled={disabledInput || disabled}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
@@ -166,7 +181,7 @@ AtInputNumber.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
-  size: '',
+  size: 'normal',
   onChange: () => {},
   onBlur: () => {},
 }
@@ -190,11 +205,9 @@ AtInputNumber.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['normal', 'large']),
   disabledInput: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onErrorInput: PropTypes.func,
 }
-
-export default AtInputNumber

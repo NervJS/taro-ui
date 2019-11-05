@@ -3,7 +3,7 @@ import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-interface InputError {
+export interface InputError {
   type: 'OVER' | 'LOW' | 'DISABLED',
   errorValue: number,
 }
@@ -41,8 +41,11 @@ export interface AtInputNumberProps extends AtComponent{
    * @default 1
    */
   step?: number
-
-  size?: string
+  /**
+   * 组件的大小
+   * @default 'normal'
+   */
+  size?: 'normal' | 'large'
   /**
    * input 宽度
    * @type {number}
