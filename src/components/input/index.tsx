@@ -1,10 +1,16 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Label, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtInputProps } from 'types/input'
+import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { InputProps } from '@tarojs/components/types/Input'
 
-function getInputProps (props) {
+type PickAtInputProps = Pick<AtInputProps, 'maxLength' | 'disabled' | 'password'>
+type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
+
+function getInputProps (props: AtInputProps): GetInputPropsReturn {
   const actualProps = {
     type: props.type,
     maxLength: props.maxLength,
@@ -18,6 +24,7 @@ function getInputProps (props) {
       actualProps.maxLength = 11
       break
     case 'password':
+      actualProps.type = 'text'
       actualProps.password = true
       break
     default:
@@ -26,29 +33,48 @@ function getInputProps (props) {
   if (!props.disabled && !props.editable) {
     actualProps.disabled = true
   }
-  return actualProps
+  return actualProps as GetInputPropsReturn
 }
 
-export default class AtInput extends AtComponent {
-  onInput = event => this.props.onChange(event.target.value, event)
+type ExtendEvent = {
+  target: {
+    value: string | number
+  }
+}
 
-  onFocus = event => this.props.onFocus(event.target.value, event)
+export default class AtInput extends AtComponent<AtInputProps> {
+  public static defaultProps: AtInputProps
+  public static propTypes: InferProps<AtInputProps>
 
-  onBlur = event => {
-    this.props.onBlur(event.target.value, event)
+  private onInput = (event: CommonEvent & ExtendEvent): void => {
+    this.props.onChange(event.target.value, event)
+  }
+
+  private onFocus = (event: CommonEvent & ExtendEvent): void => {
+    this.props.onFocus && this.props.onFocus(event.target.value, event)
+  }
+
+  private onBlur = (event: CommonEvent & ExtendEvent): void => {
+    this.props.onBlur && this.props.onBlur(event.target.value, event)
     // fix # 583 AtInput 不触发 onChange 的问题
     this.props.onChange(event.target.value, event)
   }
 
-  onConfirm = event => this.props.onConfirm(event.target.value, event)
+  private onConfirm = (event: CommonEvent & ExtendEvent): void => {
+    this.props.onConfirm && this.props.onConfirm(event.target.value, event)
+  }
 
-  onClick = () => !this.props.editable && this.props.onClick()
+  private onClick = (): void => {
+    if (!this.props.editable) {
+      this.props.onClick && this.props.onClick()
+    }
+  }
 
-  clearValue = () => this.props.onChange('')
+  private clearValue = (event: ITouchEvent): void => this.props.onChange('', event)
 
-  onErrorClick = () => this.props.onErrorClick()
+  private onErrorClick = (): void => this.props.onErrorClick && this.props.onErrorClick()
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -152,7 +178,7 @@ AtInput.defaultProps = {
   placeholderClass: '',
   title: '',
   cursorSpacing: 50,
-  confirmType: '完成',
+  confirmType: 'done',
   cursor: 0,
   selectionStart: -1,
   selectionEnd: -1,
@@ -220,7 +246,6 @@ AtInput.propTypes = {
   editable: PropTypes.bool,
   error: PropTypes.bool,
   clear: PropTypes.bool,
-  backgroundColor: PropTypes.string,
   autoFocus: PropTypes.bool,
   focus: PropTypes.bool,
   onChange: PropTypes.func,
