@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 
 import _isFunction from 'lodash/isFunction'
@@ -11,9 +11,14 @@ import AtModalAction from './action/index'
 import AtModalContent from './content/index'
 import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
+import { AtModalProps, AtModalState } from 'types/modal'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtModal extends AtComponent {
-  constructor (props) {
+export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
+  public static defaultProps: AtModalProps
+  public static propTypes: InferProps<AtModalProps>
+
+  public constructor (props: AtModalProps) {
     super(...arguments)
 
     const { isOpened } = props
@@ -23,7 +28,7 @@ export default class AtModal extends AtComponent {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtModalProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -37,7 +42,7 @@ export default class AtModal extends AtComponent {
     }
   }
 
-  handleClickOverlay = () => {
+  private handleClickOverlay = (): void => {
     if (this.props.closeOnClickOverlay) {
       this.setState(
         {
@@ -48,29 +53,29 @@ export default class AtModal extends AtComponent {
     }
   }
 
-  handleClose = () => {
+  private handleClose = (event?: CommonEvent): void => {
     if (_isFunction(this.props.onClose)) {
-      this.props.onClose()
+      this.props.onClose(event!)
     }
   }
 
-  handleCancel = () => {
+  private handleCancel = (event: CommonEvent): void => {
     if (_isFunction(this.props.onCancel)) {
-      this.props.onCancel()
+      this.props.onCancel(event)
     }
   }
 
-  handleConfirm = () => {
+  private handleConfirm = (event: CommonEvent): void => {
     if (_isFunction(this.props.onConfirm)) {
-      this.props.onConfirm()
+      this.props.onConfirm(event)
     }
   }
 
-  handleTouchMove = e => {
+  private handleTouchMove = (e: CommonEvent): void => {
     e.stopPropagation()
   }
 
-  render () {
+  public render (): JSX.Element {
     const { _isOpened, isWEB } = this.state
     const { title, content, cancelText, confirmText } = this.props
     const rootClass = classNames(
@@ -127,6 +132,7 @@ export default class AtModal extends AtComponent {
 }
 
 AtModal.defaultProps = {
+  isOpened: false,
   closeOnClickOverlay: true
 }
 

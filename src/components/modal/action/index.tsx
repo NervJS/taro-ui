@@ -1,11 +1,15 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../../common/component'
+import { AtModalActionProps } from 'types/modal'
 
-export default class AtModalAction extends AtComponent {
-  render () {
+export default class AtModalAction extends AtComponent<AtModalActionProps> {
+  public static defaultProps: AtModalActionProps
+  public static propTypes: InferProps<AtModalActionProps>
+
+  public render (): JSX.Element {
     const rootClass = classNames(
       'at-modal__footer',
       {
