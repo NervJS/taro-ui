@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 
 import AtComponent from '../../../common/component'
-import { AtActionSheetFooterProps } from 'types/action-sheet-footer'
+import { AtActionSheetFooterProps } from 'types/action-sheet'
 
 export default class AtActionSheetFooter extends AtComponent<AtActionSheetFooterProps> {
   public static defaultProps: AtActionSheetFooterProps

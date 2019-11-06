@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { View } from '@tarojs/components'
 
 import AtComponent from '../../../common/component'
-import { AtActionSheetBodyProps } from 'types/action-sheet-body'
+import { AtActionSheetBodyProps } from 'types/action-sheet'
 
 export default class AtActionSheetBody extends AtComponent<AtActionSheetBodyProps> {
   public render (): JSX.Element {

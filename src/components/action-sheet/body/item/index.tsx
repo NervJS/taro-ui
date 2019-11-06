@@ -4,7 +4,7 @@ import { View } from '@tarojs/components'
 import PropTypes, { InferProps } from 'prop-types'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../../../common/component'
-import { AtActionSheetItemProps } from 'types/action-sheet-item'
+import { AtActionSheetItemProps } from 'types/action-sheet'
 
 export default class AtActionSheetItem extends AtComponent<AtActionSheetItemProps> {
   public static defaultProps: AtActionSheetItemProps

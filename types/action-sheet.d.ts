@@ -31,6 +31,25 @@ export interface AtActionSheetState {
   _isOpened: boolean
 }
 
+export interface AtActionSheetHeaderProps extends AtComponent {}
+
+export interface AtActionSheetFooterProps extends AtComponent {
+  onClick?: Function
+}
+
+export interface AtActionSheetBodyProps extends AtComponent {}
+
+export interface AtActionSheetItemProps extends AtComponent {
+  /**
+   * 点击 Item 触发的事件
+   */
+  onClick?: CommonEventFunction
+}
+
+declare const AtActionSheetItem: ComponentClass<AtActionSheetItemProps>
+
 declare const AtActionSheet: ComponentClass<AtActionSheetProps>
 
 export default AtActionSheet
+
+export { AtActionSheetItem }
