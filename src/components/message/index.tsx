@@ -1,11 +1,17 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtMessageProps, AtMessageState } from 'types/message'
 
-export default class AtMessage extends AtComponent {
-  constructor () {
+export default class AtMessage extends AtComponent<AtMessageProps, AtMessageState> {
+  public static defaultProps: AtMessageProps
+  public static propTypes: InferProps<AtMessageProps>
+
+  private _timer: NodeJS.Timeout | number | null
+
+  public constructor () {
     super(...arguments)
     this.state = {
       _isOpened: false,
@@ -16,7 +22,7 @@ export default class AtMessage extends AtComponent {
     this._timer = null
   }
 
-  bindMessageListener () {
+  private bindMessageListener (): void {
     Taro.eventCenter.on('atMessage', (options = {}) => {
       const { message, type, duration } = options
       const newState = {
@@ -26,7 +32,7 @@ export default class AtMessage extends AtComponent {
         _duration: duration || this.state._duration
       }
       this.setState(newState, () => {
-        clearTimeout(this._timer)
+        clearTimeout(this._timer as number)
         this._timer = setTimeout(() => {
           this.setState({
             _isOpened: false
@@ -38,23 +44,23 @@ export default class AtMessage extends AtComponent {
     Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
   }
 
-  componentDidShow () {
+  public componentDidShow (): void {
     this.bindMessageListener()
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     this.bindMessageListener()
   }
 
-  componentDidHide () {
+  public componentDidHide (): void {
     Taro.eventCenter.off('atMessage')
   }
 
-  componentWillUnmount () {
+  public componentWillUnmount (): void {
     Taro.eventCenter.off('atMessage')
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
