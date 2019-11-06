@@ -1,21 +1,26 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
 import AtComponent from '../../common/component'
+import { initTestEnv } from '../../common/utils'
 
-export default class AtLoading extends AtComponent {
-  constructor () {
-    super(...arguments)
-    if (process.env.NODE_ENV === 'test') {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
-  }
+initTestEnv()
 
-  render () {
+interface AtLoadingProps {
+  size?: string | number
+  color?: string | number
+}
+
+export default class AtLoading extends AtComponent<AtLoadingProps> {
+  public static defaultProps: AtLoadingProps
+  public static propTypes: InferProps<AtLoadingProps>
+
+  public render (): JSX.Element {
     const { color, size } = this.props
+    const loadingSize = typeof size === 'string' ? size : String(size)
     const sizeStyle = {
-      width: size ? `${Taro.pxTransform(parseInt(size))}` : '',
-      height: size ? `${Taro.pxTransform(parseInt(size))}` : '',
+      width: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : '',
+      height: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : '',
     }
     const colorStyle = {
       'border': color ? `1px solid ${color}` : '',
