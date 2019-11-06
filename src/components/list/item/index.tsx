@@ -1,28 +1,34 @@
 import Taro from '@tarojs/taro'
 import { View, Image, Switch, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../../common/component'
+import { AtListItemProps } from 'types/list'
+import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtListItem extends AtComponent {
-  handleClick = (...args) => {
+// TODO: Fix dirty hack
+export default class AtListItem extends AtComponent<AtListItemProps> {
+  public static defaultProps: AtListItemProps
+  public static propTypes: InferProps<AtListItemProps>
+
+  private handleClick = (event: ITouchEvent): void => {
     if (_isFunction(this.props.onClick) && !this.props.disabled) {
-      this.props.onClick(...args)
+      this.props.onClick(event)
     }
   }
 
-  handleSwitchClick (e) {
+  private handleSwitchClick (e: CommonEvent): void {
     e.stopPropagation()
   }
 
-  handleSwitchChange = (...args) => {
+  private handleSwitchChange = (event: CommonEvent): void => {
     if (_isFunction(this.props.onSwitchChange) && !this.props.disabled) {
-      this.props.onSwitchChange(...args)
+      this.props.onSwitchChange(event)
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       note,
       arrow,
@@ -55,11 +61,11 @@ export default class AtListItem extends AtComponent {
       this.props.className
     )
     const iconClass = classNames(
-      iconInfo.prefixClass || 'at-icon',
+      iconInfo!.prefixClass || 'at-icon',
       {
-        [`${iconInfo.prefixClass || 'at-icon'}-${iconInfo.value}`]: iconInfo.value,
+        [`${iconInfo!.prefixClass || 'at-icon'}-${iconInfo!.value}`]: iconInfo!.value,
       },
-      iconInfo.className
+      iconInfo!.className
     )
 
     return (
@@ -74,15 +80,15 @@ export default class AtListItem extends AtComponent {
               />
             </View>
           )}
-          {iconInfo.value && (
+          {iconInfo!.value && (
             <View className='at-list__item-icon item-icon'>
               <Text
                 className={iconClass}
                 style={
                   this.mergeStyle({
-                    color: iconInfo.color || '',
-                    fontSize: `${iconInfo.size || 24}px`,
-                  }, iconInfo.customStyle)
+                    color: iconInfo!.color || '',
+                    fontSize: `${iconInfo!.size || 24}px`,
+                  }, iconInfo!.customStyle!)
                 }
               ></Text>
             </View>
@@ -145,7 +151,7 @@ AtListItem.defaultProps = {
   switchIsCheck: false,
   extraText: '',
   extraThumb: '',
-  iconInfo: {},
+  iconInfo: { value: '' },
   onSwitchChange: () => {},
   onClick: () => {},
 }
