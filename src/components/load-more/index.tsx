@@ -1,18 +1,22 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 
-import AtActivityIndicator from '../../components/activity-indicator/index'
-import AtButton from '../../components/button/index'
+import AtActivityIndicator from '../activity-indicator/index'
+import AtButton from '../button/index'
 import AtComponent from '../../common/component'
+import { AtLoadMoreProps } from 'types/load-more'
 
-export default class AtLoadMore extends AtComponent {
-  onClick () {
-    this.props.onClick(...arguments)
+export default class AtLoadMore extends AtComponent<AtLoadMoreProps> {
+  public static defaultProps: AtLoadMoreProps
+  public static propTypes: InferProps<AtLoadMoreProps>
+
+  private onClick (): void {
+    this.props.onClick && this.props.onClick(arguments as any)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -24,7 +28,7 @@ export default class AtLoadMore extends AtComponent {
       noMoreText
     } = this.props
 
-    let component = null
+    let component: JSX.Element | null = null
     if (status === 'loading') {
       component = <AtActivityIndicator mode='center' content={loadingText} />
     } else if (status === 'more') {
