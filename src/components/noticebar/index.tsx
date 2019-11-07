@@ -1,16 +1,25 @@
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import Taro from '@tarojs/taro'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import AtComponent from '../../common/component'
+import { AtNoticeBarProps, AtNoticeBarState } from 'types/noticebar'
 
-export default class AtNoticebar extends AtComponent {
-  constructor () {
+export default class AtNoticebar extends AtComponent<AtNoticeBarProps, AtNoticeBarState> {
+  public static defaultProps: AtNoticeBarProps
+  public static propTypes: InferProps<AtNoticeBarProps>
+
+  private timeout: NodeJS.Timeout | null
+  private interval: NodeJS.Timer
+
+  public constructor () {
     super(...arguments)
     const animElemId = `J_${Math.ceil(Math.random() * 10e5).toString(36)}`
     this.state = {
       show: true,
       animElemId,
+      animationData: [{}],
       dura: 15,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
       isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
@@ -18,30 +27,30 @@ export default class AtNoticebar extends AtComponent {
     }
   }
 
-  onClose () {
+  private onClose (event: CommonEvent): void {
     this.setState({
       show: false,
     })
-    this.props.onClose && this.props.onClose(...arguments)
+    this.props.onClose && this.props.onClose(event)
   }
 
-  onGotoMore () {
-    this.props.onGotoMore && this.props.onGotoMore(...arguments)
+  private onGotoMore (event: CommonEvent): void {
+    this.props.onGotoMore && this.props.onGotoMore(event)
   }
 
-  componentWillReceiveProps () {
+  public componentWillReceiveProps (): void {
     if (!this.timeout) {
       this.interval && clearInterval(this.interval)
       this.initAnimation()
     }
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     if (!this.props.marquee) return
     this.initAnimation()
   }
 
-  initAnimation () {
+  private initAnimation (): void {
     const {
       isWEAPP,
       isALIPAY,
@@ -52,15 +61,15 @@ export default class AtNoticebar extends AtComponent {
         const elem = document.querySelector(`.${this.state.animElemId}`)
         if (!elem) return
         const width = elem.getBoundingClientRect().width
-        const dura = width / (+this.props.speed)
+        const dura = width / (+this.props.speed!)
         this.setState({ dura })
       } else if (isWEAPP || isALIPAY) {
         const query = isALIPAY ? Taro.createSelectorQuery() : Taro.createSelectorQuery().in(this.$scope)
         query.select(`.${this.state.animElemId}`).boundingClientRect().exec(res => {
-          res = res[0]
-          if (!res) return
-          const { width } = res
-          const dura = width / (+this.props.speed)
+          const queryRes = res[0]
+          if (!queryRes) return
+          const { width } = queryRes
+          const dura = width / (+this.props.speed!)
           const animation = Taro.createAnimation({
             duration: dura * 1000,
             timingFunction: 'linear',
@@ -99,7 +108,7 @@ export default class AtNoticebar extends AtComponent {
     }, 100)
   }
 
-  render () {
+  public render (): JSX.Element | boolean {
     const {
       single,
       icon,
