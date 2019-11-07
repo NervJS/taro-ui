@@ -1,32 +1,33 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { ITouchEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import isObject from 'lodash/isObject'
 import AtComponent from '../../common/component'
+import { initTestEnv } from '../../common/utils'
+import { AtNavBarProps } from 'types/nav-bar'
 
-export default class AtNavBar extends AtComponent {
-  constructor () {
-    super(...arguments)
-    if (process.env.NODE_ENV === 'test') {
-      Taro.initPxTransform({ designWidth: 750 })
-    }
+initTestEnv()
+
+export default class AtNavBar extends AtComponent<AtNavBarProps> {
+  public static defaultProps: AtNavBarProps
+  public static propTypes: InferProps<AtNavBarProps>
+
+  private handleClickLeftView (event: ITouchEvent): void {
+    this.props.onClickLeftIcon && this.props.onClickLeftIcon(event)
   }
 
-  handleClickLeftView () {
-    this.props.onClickLeftIcon(...arguments)
+  private handleClickSt (event: ITouchEvent): void {
+    this.props.onClickRgIconSt && this.props.onClickRgIconSt(event)
   }
 
-  handleClickSt () {
-    this.props.onClickRgIconSt(...arguments)
-  }
-
-  handleClickNd () {
-    this.props.onClickRgIconNd(...arguments)
+  private handleClickNd (event: ITouchEvent): void {
+    this.props.onClickRgIconNd && this.props.onClickRgIconNd(event)
   }
 
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -91,7 +92,7 @@ export default class AtNavBar extends AtComponent {
           style={this.mergeStyle(
             {
               color: leftIconInfo.color,
-              fontSize: `${Taro.pxTransform(parseInt(leftIconInfo.size) * 2)}`
+              fontSize: `${Taro.pxTransform(parseInt(leftIconInfo.size.toString()) * 2)}`
             },
             leftIconInfo.customStyle
           )}
@@ -115,7 +116,7 @@ export default class AtNavBar extends AtComponent {
             style={this.mergeStyle(
               {
                 color: rightSecondIconInfo.color,
-                fontSize: `${Taro.pxTransform(parseInt(rightSecondIconInfo.size) * 2)}`
+                fontSize: `${Taro.pxTransform(parseInt(rightSecondIconInfo.size.toString()) * 2)}`
               },
               rightSecondIconInfo.customStyle
             )}
@@ -136,7 +137,7 @@ export default class AtNavBar extends AtComponent {
             style={this.mergeStyle(
               {
                 color: rightFirstIconInfo.color,
-                fontSize: `${Taro.pxTransform(parseInt(rightFirstIconInfo.size) * 2)}`
+                fontSize: `${Taro.pxTransform(parseInt(rightFirstIconInfo.size.toString()) * 2)}`
               },
               rightFirstIconInfo.customStyle
             )}
