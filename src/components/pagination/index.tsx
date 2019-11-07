@@ -1,34 +1,38 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtButton from '../button/index'
 import AtComponent from '../../common/component'
+import { AtPaginationProps, AtPaginationState } from 'types/pagination'
 
 const MIN_MAXPAGE = 1
-const getMaxPage = (maxPage = 0) => {
+const getMaxPage = (maxPage: number = 0): number => {
   if (maxPage <= 0) return MIN_MAXPAGE
   return maxPage
 }
 
-const createPickerRange = max => {
+const createPickerRange = (max: number): number[] => {
   const range = new Array(max).fill(0).map((val, index) => index + 1)
   return range
 }
 
-export default class AtPagination extends AtComponent {
-  constructor () {
+export default class AtPagination extends AtComponent<AtPaginationProps, AtPaginationState> {
+  public static defaultProps: AtPaginationProps
+  public static propTypes: InferProps<AtPaginationProps>
+
+  public constructor () {
     super(...arguments)
     const { current, pageSize, total } = this.props
-    const maxPage = getMaxPage(Math.ceil(total / pageSize))
+    const maxPage = getMaxPage(Math.ceil(total / pageSize!))
     this.state = {
-      currentPage: current,
+      currentPage: current || 1,
       maxPage,
       pickerRange: createPickerRange(maxPage),
     }
   }
 
-  onPrev () {
+  private onPrev (): void {
     let { currentPage } = this.state
     const originCur = currentPage
     currentPage -= 1
@@ -38,7 +42,7 @@ export default class AtPagination extends AtComponent {
     this.setState({ currentPage })
   }
 
-  onNext () {
+  private onNext (): void {
     let { currentPage } = this.state
     const originCur = currentPage
     const { maxPage } = this.state
@@ -49,16 +53,16 @@ export default class AtPagination extends AtComponent {
     this.setState({ currentPage })
   }
 
-  componentWillReceiveProps (props) {
+  public componentWillReceiveProps (props: AtPaginationProps): void {
     const { total, pageSize, current } = props
-    const maxPage = getMaxPage(Math.ceil(total / pageSize))
+    const maxPage = getMaxPage(Math.ceil(total / pageSize!))
     if (maxPage !== this.state.maxPage) {
       this.setState({
         maxPage,
         pickerRange: createPickerRange(maxPage),
       })
     }
-    if (current !== this.state.currentPage) {
+    if (typeof current === 'number' && current !== this.state.currentPage) {
       this.setState({ currentPage: current })
     }
   }
@@ -73,7 +77,7 @@ export default class AtPagination extends AtComponent {
   //   })
   // }
 
-  render () {
+  public render (): JSX.Element {
     const {
       icon,
       // pickerSelect,
@@ -136,7 +140,6 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
-  pickerSelect: false,
   customStyle: {},
   onPageChange: () => {},
 }
@@ -146,7 +149,6 @@ AtPagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   icon: PropTypes.bool,
-  pickerSelect: PropTypes.bool,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onPageChange: PropTypes.func,
 }
