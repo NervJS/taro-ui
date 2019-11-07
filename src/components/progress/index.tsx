@@ -1,14 +1,21 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtProgressProps } from 'types/progress'
 
-export default class AtProgress extends AtComponent {
-  render () {
+export default class AtProgress extends AtComponent<AtProgressProps> {
+  public static propTypes: InferProps<AtProgressProps>
+
+  public render (): JSX.Element {
     const { color } = this.props
     let { percent } = this.props
     const { strokeWidth, status, isHidePercent } = this.props
+
+    if (typeof percent !== 'number') {
+      percent = 0
+    }
 
     if (percent < 0) {
       percent = 0
