@@ -10,9 +10,9 @@ export default class AtFab extends AtComponent {
   }
 
   render () {
-    const { size } = this.props
+    const { size, className } = this.props
 
-    const rootClass = classNames('at-fab', {
+    const rootClass = classNames('at-fab', className, {
       [`at-fab--${size}`]: size
     })
 

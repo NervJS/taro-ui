@@ -9,6 +9,11 @@ describe('AtFab Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
+  it('render AtFab -- props className', () => {
+    const component = renderToString(<AtFab className="button">按钮</AtFab>)
+    expect(component).toMatchSnapshot()
+  })
+
   it('render AtFab -- size 50', () => {
     const component = renderToString(<AtFab size={50}>按钮</AtFab>)
     expect(component).toMatchSnapshot()
