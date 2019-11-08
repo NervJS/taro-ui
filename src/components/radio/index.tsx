@@ -1,16 +1,21 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtRadioProps, Option } from 'types/radio'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtRadio extends AtComponent {
-  handleClick (option) {
+export default class AtRadio extends AtComponent<AtRadioProps<any>> {
+  public static defaultProps: AtRadioProps<any>
+  public static propTypes: InferProps<AtRadioProps<any>>
+
+  private handleClick (option: Option<any>, event: CommonEvent) {
     if (option.disabled) return
-    this.props.onClick(option.value, ...arguments)
+    this.props.onClick(option.value, event)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
