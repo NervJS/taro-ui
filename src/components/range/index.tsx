@@ -1,20 +1,30 @@
 import Taro from '@tarojs/taro'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
+import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import { delayQuerySelector, getEventDetail } from '../../common/utils'
 import AtComponent from '../../common/component'
+import { AtRangeProps, AtRangeState } from 'types/range'
 
+export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
+  public static defaultProps: AtRangeProps
+  public static propTypes: InferProps<AtRangeProps>
 
-export default class AtRange extends AtComponent {
-  constructor (props) {
+  private width: number
+  private left: number
+  private deltaValue: number
+  private currentSlider: string
+
+  // TODO: Fix dirty hack
+  public constructor (props: AtRangeProps) {
     super(...arguments)
     const { max, min } = props
     // range 宽度
     this.width = 0
     // range 到屏幕左边的距离
     this.left = 0
-    this.deltaValue = (max - min)
+    this.deltaValue = (max! - min!)
     this.currentSlider = ''
     this.state = {
       aX: 0,
@@ -22,7 +32,7 @@ export default class AtRange extends AtComponent {
     }
   }
 
-  handleClick = event => {
+  private handleClick = (event: CommonEvent): void => {
     if (this.currentSlider && !this.props.disabled) {
       let sliderValue = 0
       const detail = getEventDetail(event)
@@ -31,7 +41,7 @@ export default class AtRange extends AtComponent {
     }
   }
 
-  handleTouchMove (sliderName, event) {
+  private handleTouchMove (sliderName: string, event: ITouchEvent): void {
     if (this.props.disabled) return
     event.stopPropagation()
 
@@ -39,14 +49,14 @@ export default class AtRange extends AtComponent {
     this.setSliderValue(sliderName, clientX - this.left, 'onChange')
   }
 
-  handleTouchEnd (sliderName) {
+  private handleTouchEnd (sliderName: string): void {
     if (this.props.disabled) return
 
     this.currentSlider = sliderName
     this.triggerEvent('onAfterChange')
   }
 
-  setSliderValue (sliderName, targetValue, funcName) {
+  private setSliderValue (sliderName: string, targetValue: number, funcName: string): void {
     const distance = Math.min(Math.max(targetValue, 0), this.width)
     const sliderValue = Math.floor((distance / this.width) * 100)
     if (funcName) {
@@ -60,48 +70,48 @@ export default class AtRange extends AtComponent {
     }
   }
 
-  setValue (value) {
-    const aX = Math.round(((value[0] - this.props.min) / this.deltaValue) * 100) // fix issue #670
-    const bX = Math.round(((value[1] - this.props.min) / this.deltaValue) * 100) // fix issue #670
+  private setValue (value: number[]): void {
+    const aX = Math.round(((value[0] - this.props.min!) / this.deltaValue) * 100) // fix issue #670
+    const bX = Math.round(((value[1] - this.props.min!) / this.deltaValue) * 100) // fix issue #670
     this.setState({ aX, bX })
   }
 
-  triggerEvent (funcName) {
+  private triggerEvent (funcName: string): void {
     const { aX, bX } = this.state
-    const a = Math.round((aX / 100) * this.deltaValue) + this.props.min // fix issue #670
-    const b = Math.round((bX / 100) * this.deltaValue) + this.props.min // fix issue #670
-    const result = [a, b].sort((x, y) => x - y)
+    const a = Math.round((aX / 100) * this.deltaValue) + this.props.min! // fix issue #670
+    const b = Math.round((bX / 100) * this.deltaValue) + this.props.min! // fix issue #670
+    const result = [a, b].sort((x, y) => x - y) as [number, number]
 
     if (funcName === 'onChange') {
-      this.props.onChange(result)
+      this.props.onChange && this.props.onChange(result)
     } else if (funcName === 'onAfterChange') {
-      this.props.onAfterChange(result)
+      this.props.onAfterChange && this.props.onAfterChange(result)
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtRangeProps): void {
     const { value } = nextProps
     if (
-      this.props.value[0] !== value[0]
-      && this.props.value[1] !== value[1]
+      this.props.value![0] !== value![0]
+      && this.props.value![1] !== value![1]
     ) {
-      this.setValue(value)
+      this.setValue(value!)
     }
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     const { value } = this.props
     delayQuerySelector(this, '.at-range__container', 0)
       .then(rect => {
         this.width = Math.round(rect[0].width)
         this.left = Math.round(rect[0].left)
-        this.setValue(value)
+        this.setValue(value!)
       })
     // this.triggerEvent('onChange')
     // this.triggerEvent('onAfterChange')
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       className,
       customStyle,
@@ -143,17 +153,17 @@ export default class AtRange extends AtComponent {
     return <View className={rootCls} style={customStyle} onClick={this.handleClick}>
       <View className='at-range__container' style={containerStyle}>
         <View className='at-range__rail' style={railStyle}></View>
-        <View className='at-range__track' style={this.mergeStyle(atTrackStyle, trackStyle)}></View>
+        <View className='at-range__track' style={this.mergeStyle(atTrackStyle, trackStyle!)}></View>
         <View
           className='at-range__slider'
-          style={this.mergeStyle(sliderAStyle, sliderStyle)}
+          style={this.mergeStyle(sliderAStyle, sliderStyle!)}
           onTouchMove={this.handleTouchMove.bind(this, 'aX')}
           onTouchEnd={this.handleTouchEnd.bind(this, 'aX')}
         >
         </View>
         <View
           className='at-range__slider'
-          style={this.mergeStyle(sliderBStyle, sliderStyle)}
+          style={this.mergeStyle(sliderBStyle, sliderStyle!)}
           onTouchMove={this.handleTouchMove.bind(this, 'bX')}
           onTouchEnd={this.handleTouchEnd.bind(this, 'bX')}
         >
@@ -199,7 +209,6 @@ AtRange.propTypes = {
     PropTypes.object,
     PropTypes.string
   ]),
-  isTest: PropTypes.bool,
   value: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,
