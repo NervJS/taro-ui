@@ -1,19 +1,24 @@
 import Taro from '@tarojs/taro'
 import { View, Switch } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import _isUndefined from 'lodash/isUndefined'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
+import { AtSwitchProps } from 'types/switch'
 
-export default class AtSwitch extends AtComponent {
-  handleChange = (event, ...arg) => {
+export default class AtSwitch extends AtComponent<AtSwitchProps> {
+  public static defaultProps: AtSwitchProps
+  public static propTypes: InferProps<AtSwitchProps>
+
+  private handleChange = (event: CommonEvent): void => {
     const { value, checked } = event.detail
-    const state = _isUndefined(value) ? checked : value
-    this.props.onChange(state, event, ...arg)
+    const state = typeof value === 'undefined' ? checked : value
+    this.props.onChange && this.props.onChange(state)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
