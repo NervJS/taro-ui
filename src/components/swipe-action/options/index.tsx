@@ -3,9 +3,10 @@ import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../../common/component'
 import { delayQuerySelector } from '../../../common/utils'
+import { AtSwipeActionOptionsProps } from 'types/swipe-action'
 
-export default class AtSwiperActionOptions extends AtComponent {
-  trrigerOptionsDomUpadte () {
+export default class AtSwipeActionOptions extends AtComponent<AtSwipeActionOptionsProps> {
+  private trrigerOptionsDomUpadte (): void {
     delayQuerySelector(
       this,
       `#swipeActionOptions-${this.props.componentId}`
@@ -14,17 +15,17 @@ export default class AtSwiperActionOptions extends AtComponent {
     })
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     this.trrigerOptionsDomUpadte()
   }
 
-  componentWillReceiveProps (nextProps) {
+  public componentWillReceiveProps (nextProps: AtSwipeActionOptionsProps): void {
     if (nextProps.options !== this.props.options) {
       this.trrigerOptionsDomUpadte()
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const rootClass = classNames(
       'at-swipe-action__options',
       this.props.className
@@ -40,7 +41,3 @@ export default class AtSwiperActionOptions extends AtComponent {
     )
   }
 }
-
-AtSwiperActionOptions.defaultProps = {}
-
-AtSwiperActionOptions.propTypes = {}
