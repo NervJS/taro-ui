@@ -1,48 +1,53 @@
 import Taro from '@tarojs/taro'
 import { View, Slider } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtSliderProps, AtSliderState } from 'types/slider'
 
-export default class AtSlider extends AtComponent {
-  constructor (props) {
+export default class AtSlider extends AtComponent<AtSliderProps, AtSliderState> {
+  public static defaultProps: AtSliderProps
+  public static propTypes: InferProps<AtSliderProps>
+
+  public constructor (props: AtSliderProps) {
     super(...arguments)
 
     const { value, min, max } = props
     this.state = {
-      _value: AtSlider.clampNumber(value, min, max)
+      _value: AtSlider.clampNumber(value!, min!, max!)
     }
   }
 
-  static clampNumber (value, lower, upper) {
+  protected static clampNumber (value: number, lower: number, upper: number): number {
     return Math.max(lower, Math.min(upper, value))
   }
 
-  handleChanging (e) {
+  private handleChanging (e: CommonEvent): void {
     const { _value } = this.state
-    const { value } = e.detail
+    const { value }: { value: number } = e.detail
 
     if (value !== _value) {
       this.setState({ _value: value })
     }
-    this.props.onChanging({ value })
+    this.props.onChanging && this.props.onChanging(value)
   }
 
-  handleChange (e) {
+  private handleChange (e: CommonEvent): void {
     const { value } = e.detail
 
     this.setState({ _value: value })
-    this.props.onChange({ value })
+    this.props.onChange && this.props.onChange(value)
   }
 
-  componentWillReceiveProps (props) {
+  public componentWillReceiveProps (props: AtSliderProps): void {
     const { value, min, max } = props
     this.setState({
-      _value: AtSlider.clampNumber(value, min, max)
+      _value: AtSlider.clampNumber(value!, min!, max!)
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { _value } = this.state
     const {
       customStyle,
