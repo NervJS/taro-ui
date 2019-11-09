@@ -1,46 +1,63 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Input } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import AtComponent from '../../common/component'
+import { AtSearchBarProps, AtSearchBarState } from 'types/search-bar'
 
-class AtSearchBar extends AtComponent {
-  constructor (props) {
-    super(...arguments)
+type ExtendEvent = {
+  target: {
+    value: string
+  }
+}
+
+export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchBarState> {
+  public static defaultProps: AtSearchBarProps
+  public static propTypes: InferProps<AtSearchBarProps>
+
+  public constructor (props: AtSearchBarProps) {
+    super(props)
     this.state = {
-      isFocus: props.focus
+      isFocus: !!props.focus
     }
   }
 
-  handleFocus = (...arg) => {
+  private handleFocus = (event: CommonEvent): void => {
     this.setState({
       isFocus: true
     })
-    this.props.onFocus(...arg)
+    this.props.onFocus && this.props.onFocus(event)
   }
 
-  handleBlur = (...arg) => {
+  private handleBlur = (event: CommonEvent): void => {
     this.setState({
       isFocus: false
     })
-    this.props.onBlur(...arg)
+    this.props.onBlur && this.props.onBlur(event)
   }
 
-  handleChange = (e, ...arg) => this.props.onChange(e.target.value, ...arg)
+  private handleChange = (e: CommonEvent & ExtendEvent): void => {
+    this.props.onChange(e.target.value, e)
+  }
 
-  handleClear = (...arg) => {
+  private handleClear = (event: CommonEvent): void => {
     if (this.props.onClear) {
-      this.props.onClear()
+      this.props.onClear(event)
     } else {
-      this.props.onChange('', ...arg)
+      this.props.onChange('', event)
     }
   }
 
-  handleConfirm = (...arg) => this.props.onConfirm(...arg)
+  private handleConfirm = (event: CommonEvent): void => {
+    this.props.onConfirm && this.props.onConfirm(event)
+  }
 
-  handleActionClick = (...arg) => this.props.onActionClick(...arg)
+  private handleActionClick = (event: CommonEvent): void => {
+    this.props.onActionClick && this.props.onActionClick(event)
+  }
 
-  render () {
+  public render (): JSX.Element {
     const {
       value,
       placeholder,
@@ -61,8 +78,8 @@ class AtSearchBar extends AtComponent {
         'at-search-bar--fixed': fixed
       }, className
     )
-    const placeholderWrapStyle = {}
-    const actionStyle = {}
+    const placeholderWrapStyle: React.CSSProperties = {}
+    const actionStyle: React.CSSProperties = {}
     if (isFocus || (!isFocus && value)) {
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
@@ -70,15 +87,15 @@ class AtSearchBar extends AtComponent {
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${((actionName.length + 1) * fontSize) + (fontSize / 2) + 10}px`
+      actionStyle.marginRight = `-${((actionName!.length + 1) * fontSize) + (fontSize / 2) + 10}px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1
       actionStyle.marginRight = `0`
     }
 
-    const clearIconStyle = { display: 'flex' }
-    const placeholderStyle = { visibility: 'hidden' }
+    const clearIconStyle: React.CSSProperties = { display: 'flex' }
+    const placeholderStyle: React.CSSProperties = { visibility: 'hidden' }
     if (!value.length) {
       clearIconStyle.display = 'none'
       placeholderStyle.visibility = 'visible'
@@ -169,7 +186,4 @@ AtSearchBar.propTypes = {
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func,
   onClear: PropTypes.func,
-
 }
-
-export default AtSearchBar

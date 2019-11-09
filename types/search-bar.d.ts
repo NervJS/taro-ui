@@ -88,6 +88,10 @@ export interface AtSearchBarProps extends AtComponent {
   onActionClick?: CommonEventFunction
 }
 
+export interface AtSearchBarState {
+  isFocus: boolean
+}
+
 declare const AtSearchBar: ComponentClass<AtSearchBarProps>
 
 export default AtSearchBar
