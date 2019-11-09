@@ -1,15 +1,20 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtStepsProps } from 'types/steps'
 
-export default class AtSteps extends AtComponent {
-  handleClick () {
-    this.props.onChange(...arguments)
+export default class AtSteps extends AtComponent<AtStepsProps> {
+  public static defaultProps: AtStepsProps
+  public static propTypes: InferProps<AtStepsProps>
+
+  private handleClick (current: number, event: CommonEvent): void {
+    this.props.onChange(current, event)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -23,7 +28,7 @@ export default class AtSteps extends AtComponent {
         style={customStyle}
       >
         {
-          items.map((item, i) => (
+          !!items && items.map((item, i) => (
             <View
               key={item.title}
               className={

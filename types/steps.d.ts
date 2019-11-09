@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -19,7 +19,7 @@ export interface Icon {
   /**
    * 大小
    */
-  size?: string|number
+  size?: string | number
 }
 
 export interface Item {
@@ -61,7 +61,7 @@ export interface AtStepsProps extends AtComponent {
    * 
    * **注意：** 开发者需要通过 onChange 事件来更新 current，onChange 函数必填
    */
-  onChange: (current: number, event: CommonEventFunction) => void
+  onChange: (current: number, event: CommonEvent) => void
 }
 
 declare const AtSteps: ComponentClass<AtStepsProps>
