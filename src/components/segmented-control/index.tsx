@@ -1,20 +1,25 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 
 import { initTestEnv, pxTransform } from '../../common/utils'
 import AtComponent from '../../common/component'
+import { AtSegmentedControlProps } from 'types/segmented-control'
 
 initTestEnv()
 
-export default class AtSegmentedControl extends AtComponent {
-  handleClick () {
-    if (this.props.disable) return
-    this.props.onClick(...arguments)
+export default class AtSegmentedControl extends AtComponent<AtSegmentedControlProps> {
+  public static defaultProps: AtSegmentedControlProps
+  public static propTypes: InferProps<AtSegmentedControlProps>
+
+  private handleClick (index: number, event: CommonEvent) {
+    if (this.props.disabled) return
+    this.props.onClick(index, event)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -31,13 +36,13 @@ export default class AtSegmentedControl extends AtComponent {
     }
     const itemStyle = {
       color: selectedColor,
-      fontSize: pxTransform(fontSize),
+      fontSize: pxTransform(fontSize!),
       borderColor: selectedColor,
       backgroundColor: color,
     }
     const selectedItemStyle = {
       color,
-      fontSize: pxTransform(fontSize),
+      fontSize: pxTransform(fontSize!),
       borderColor: selectedColor,
       backgroundColor: selectedColor,
     }
@@ -48,7 +53,7 @@ export default class AtSegmentedControl extends AtComponent {
     return (
       <View
         className={rootCls}
-        style={this.mergeStyle(rootStyle, customStyle)}
+        style={this.mergeStyle(rootStyle, customStyle!)}
       >
         {
           values.map((value, i) => (
