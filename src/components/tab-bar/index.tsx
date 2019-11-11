@@ -1,11 +1,16 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtBadge from '../../components/badge/index'
+import AtBadge from '../badge/index'
 import AtComponent from '../../common/component'
+import { AtTabBarProps } from 'types/tab-bar'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtTabBar extends AtComponent {
+export default class AtTabBar extends AtComponent<AtTabBarProps> {
+  public static defaultProps: AtTabBarProps
+  public static propTypes: InferProps<AtTabBarProps>
+
   // constructor () {
   //   super(...arguments)
   //   this.state = {
@@ -24,11 +29,11 @@ export default class AtTabBar extends AtComponent {
   //   }
   // }
 
-  handleClick () {
-    this.props.onClick(...arguments)
+  private handleClick (index: number, event: CommonEvent): void {
+    this.props.onClick(index, event)
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -68,7 +73,7 @@ export default class AtTabBar extends AtComponent {
             // 'at-tab-bar--ipx': isIPhoneX
           }, className)
         }
-        style={this.mergeStyle(rootStyle, customStyle)}
+        style={this.mergeStyle(rootStyle, customStyle!)}
       >
         {tabList.map((item, i) => (
           <View
@@ -122,8 +127,8 @@ export default class AtTabBar extends AtComponent {
             <View>
               <AtBadge
                 dot={(item.iconType || item.image) ? false : !!item.dot}
-                value={(item.iconType || item.image) ? null : item.text}
-                maxValue={(item.iconType || item.image) ? null : Number(item.max)}
+                value={(item.iconType || item.image) ? '' : item.text}
+                maxValue={(item.iconType || item.image) ? 0 : Number(item.max)}
               >
                 <View className='at-tab-bar__title' style={titleStyle}>
                   {item.title}
@@ -142,7 +147,6 @@ AtTabBar.defaultProps = {
   className: '',
   fixed: false,
   current: 0,
-  scroll: false,
   tabList: [],
   onClick: () => {},
 }
@@ -163,7 +167,6 @@ AtTabBar.propTypes = {
   fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,
   selectedColor: PropTypes.string,
-  scroll: PropTypes.bool,
   tabList: PropTypes.array,
   onClick: PropTypes.func,
 }
