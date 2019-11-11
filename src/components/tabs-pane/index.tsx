@@ -1,11 +1,15 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtTabsPaneProps } from 'types/tabs-pane'
 
-export default class AtTabsPane extends AtComponent {
-  render () {
+export default class AtTabsPane extends AtComponent<AtTabsPaneProps> {
+  public static defaultProps: AtTabsPaneProps
+  public static propTypes: InferProps<AtTabsPaneProps>
+
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -31,7 +35,6 @@ export default class AtTabsPane extends AtComponent {
     )
   }
 }
-
 
 AtTabsPane.defaultProps = {
   customStyle: '',
