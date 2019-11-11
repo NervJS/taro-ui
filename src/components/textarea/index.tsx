@@ -1,15 +1,17 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import Taro from '@tarojs/taro'
 import { View, Textarea } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
+import { AtTextareaProps } from 'types/textarea'
 
 function getMaxLength (
-  maxLength,
-  textOverflowForbidden
-) {
+  maxLength: number,
+  textOverflowForbidden: boolean
+): number {
   if (!textOverflowForbidden) {
     return maxLength + 500
   }
@@ -19,18 +21,31 @@ function getMaxLength (
 const ENV = Taro.getEnv()
 initTestEnv()
 
-class AtTextarea extends AtComponent {
-  handleInput = (...arg) => this.props.onChange(...arg)
+export default class AtTextarea extends AtComponent<AtTextareaProps> {
+  public static defaultProps: AtTextareaProps
+  public static propTypes: InferProps<AtTextareaProps>
 
-  handleFocus = (...arg) => this.props.onFocus(...arg)
+  private handleInput = (event: CommonEvent): void => {
+    this.props.onChange(event)
+  }
 
-  handleBlur = (...arg) => this.props.onBlur(...arg)
+  private handleFocus = (event: CommonEvent): void => {
+    this.props.onFocus && this.props.onFocus(event)
+  }
 
-  handleConfirm = (...arg) => this.props.onConfirm(...arg)
+  private handleBlur = (event: CommonEvent): void => {
+    this.props.onBlur && this.props.onBlur(event)
+  }
 
-  handleLinechange = (...arg) => this.props.onLinechange(...arg)
+  private handleConfirm = (event: CommonEvent): void => {
+    this.props.onConfirm && this.props.onConfirm(event)
+  }
 
-  render () {
+  private handleLinechange = (event: CommonEvent) => {
+    this.props.onLinechange && this.props.onLinechange(event)
+  }
+
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -52,9 +67,9 @@ class AtTextarea extends AtComponent {
       height
     } = this.props
 
-    const _maxLength = parseInt(maxLength)
-    const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden)
-    const textareaStyle = height ? `height:${Taro.pxTransform(height)}` : ''
+    const _maxLength = parseInt(maxLength!.toString())
+    const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden!)
+    const textareaStyle = height ? `height:${Taro.pxTransform(Number(height))}` : ''
     const rootCls = classNames(
       'at-textarea',
       `at-textarea--${ENV}`,
@@ -64,39 +79,37 @@ class AtTextarea extends AtComponent {
     )
     const placeholderCls = classNames('placeholder', placeholderClass)
 
-    return <View className={rootCls} style={customStyle}>
-      <Textarea
-        className='at-textarea__textarea'
-        style={textareaStyle}
-        placeholderStyle={placeholderStyle}
-        placeholderClass={placeholderCls}
-        cursorSpacing={cursorSpacing}
-        value={value}
-        confirmType='完成'
-        /* 兼容之前的版本 */
-        maxlength={actualMaxLength}
-        maxLength={actualMaxLength}
-        placeholder={placeholder}
-        disabled={disabled}
-        autoFocus={autoFocus}
-        focus={focus}
-        showConfirmBar={showConfirmBar}
-        selectionStart={selectionStart}
-        selectionEnd={selectionEnd}
-        fixed={fixed}
-        onInput={this.handleInput}
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-        onConfirm={this.handleConfirm}
-        onLinechange={this.handleLinechange}
-        showCount={false}
-      />
-      {count && (
-        <View className='at-textarea__counter'>
-          {value.length}/{_maxLength}
-        </View>
-      )}
-    </View>
+    return (
+      <View className={rootCls} style={customStyle}>
+        <Textarea
+          className='at-textarea__textarea'
+          style={textareaStyle}
+          placeholderStyle={placeholderStyle}
+          placeholderClass={placeholderCls}
+          cursorSpacing={cursorSpacing}
+          value={value}
+          maxlength={actualMaxLength}
+          placeholder={placeholder}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          focus={focus}
+          showConfirmBar={showConfirmBar}
+          selectionStart={selectionStart}
+          selectionEnd={selectionEnd}
+          fixed={fixed}
+          onInput={this.handleInput}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          onConfirm={this.handleConfirm}
+          onLineChange={this.handleLinechange}
+        />
+        {count && (
+          <View className='at-textarea__counter'>
+            {value.length}/{_maxLength}
+          </View>
+        )}
+      </View>
+    )
   }
 }
 
@@ -161,5 +174,3 @@ AtTextarea.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
 }
-
-export default AtTextarea
