@@ -1,9 +1,11 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 
 import AtComponent from '../../common/component'
+import { AtTagProps } from 'types/tag'
 
 const SIZE_CLASS = {
   normal: 'normal',
@@ -15,19 +17,20 @@ const TYPE_CLASS = {
 }
 
 
-export default class AtTag extends AtComponent {
-  constructor () {
-    super(...arguments)
-    this.state = {}
-  }
+export default class AtTag extends AtComponent<AtTagProps> {
+  public static defaultProps: AtTagProps
+  public static propTypes: InferProps<AtTagProps>
 
-  onClick () {
+  private onClick (event: CommonEvent): void {
     if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick({ name: this.props.name, active: this.props.active })
+      this.props.onClick && this.props.onClick({
+        name: this.props.name!,
+        active: this.props.active!
+      }, event)
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       size = 'normal',
       type = '',
