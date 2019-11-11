@@ -1,20 +1,32 @@
 import Taro from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { uuid, isTest } from '../../common/utils'
 import AtComponent from '../../common/component'
+import { AtTabsProps, AtTabsState } from 'types/tabs'
 
 const ENV = Taro.getEnv()
 const MIN_DISTANCE = 100
 const MAX_INTERVAL = 10
 
-export default class AtTabs extends AtComponent {
-  constructor () {
+export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
+  public static defaultProps: AtTabsProps
+  public static propTypes: InferProps<AtTabsProps>
+
+  private _tabId: string
+  private _touchDot: number
+  private _timer: NodeJS.Timeout | null
+  private _interval: number
+  private _isMoving: boolean
+  private tabHeaderRef: any
+
+  public constructor () {
     super(...arguments)
     this.state = {
-      _scrollLeft: '',
-      _scrollTop: '',
+      _scrollLeft: 0,
+      _scrollTop: 0,
       _scrollIntoView: ''
     }
     this._tabId = isTest() ? 'tabs-AOTU2018' : uuid()
@@ -28,7 +40,7 @@ export default class AtTabs extends AtComponent {
     this._isMoving = false
   }
 
-  updateState = idx => {
+  private updateState = (idx: number): void => {
     if (this.props.scroll) {
       // 标签栏滚动
       switch (ENV) {
@@ -58,11 +70,11 @@ export default class AtTabs extends AtComponent {
     }
   }
 
-  handleClick () {
-    this.props.onClick(...arguments)
+  private handleClick (index: number, event: CommonEvent): void {
+    this.props.onClick(index, event)
   }
 
-  handleTouchStart (e) {
+  private handleTouchStart (e: ITouchEvent): void {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
     // 获取触摸时的原点
@@ -73,7 +85,7 @@ export default class AtTabs extends AtComponent {
     }, 100)
   }
 
-  handleTouchMove (e) {
+  private handleTouchMove (e: ITouchEvent): void {
     const {
       swipeable,
       tabDirection,
@@ -90,26 +102,32 @@ export default class AtTabs extends AtComponent {
       // 向左滑动
       if (current + 1 < maxIndex && moveDistance <= -MIN_DISTANCE) {
         this._isMoving = true
-        this.handleClick(current + 1)
+        this.handleClick(current + 1, e)
 
       // 向右滑动
       } else if (current - 1 >= 0 && moveDistance >= MIN_DISTANCE) {
         this._isMoving = true
-        this.handleClick(current - 1)
+        this.handleClick(current - 1, e)
       }
     }
   }
 
-  handleTouchEnd () {
+  private handleTouchEnd (): void {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
-    clearInterval(this._timer)
+    clearInterval(this._timer as NodeJS.Timeout)
     this._interval = 0
     this._isMoving = false
   }
 
-  componentWillReceiveProps (nextProps) {
+  private getTabHeaderRef (): void {
+    if (ENV === Taro.ENV_TYPE.WEB) {
+      this.tabHeaderRef = document.getElementById(this._tabId)
+    }
+  }
+
+  public componentWillReceiveProps (nextProps: AtTabsProps): void {
     if (nextProps.scroll !== this.props.scroll) {
       this.getTabHeaderRef()
     }
@@ -118,22 +136,16 @@ export default class AtTabs extends AtComponent {
     }
   }
 
-  getTabHeaderRef () {
-    if (ENV === Taro.ENV_TYPE.WEB) {
-      this.tabHeaderRef = document.getElementById(this._tabId)
-    }
-  }
-
-  componentDidMount () {
+  public componentDidMount (): void {
     this.getTabHeaderRef()
     this.updateState(this.props.current)
   }
 
-  componentWillUnmount () {
+  public componentWillUnmount (): void {
     this.tabHeaderRef = null
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       customStyle,
       className,
@@ -155,7 +167,7 @@ export default class AtTabs extends AtComponent {
       height: tabDirection === 'vertical' ? `${tabList.length * 100}%` : '1PX',
       width: tabDirection === 'horizontal' ? `${tabList.length * 100}%` : '1PX'
     }
-    const bodyStyle = { }
+    const bodyStyle: React.CSSProperties = {}
     let transformStyle = `translate3d(0px, -${current * 100}%, 0px)`
     if (tabDirection === 'horizontal') {
       transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
@@ -196,7 +208,7 @@ export default class AtTabs extends AtComponent {
     return (
       <View
         className={rootCls}
-        style={this.mergeStyle(heightStyle, customStyle)}
+        style={this.mergeStyle(heightStyle, customStyle!)}
       >
         {
           scroll
@@ -236,7 +248,6 @@ export default class AtTabs extends AtComponent {
 }
 
 AtTabs.defaultProps = {
-  isTest: false,
   customStyle: '',
   className: '',
   tabDirection: 'horizontal',
@@ -258,7 +269,6 @@ AtTabs.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
-  isTest: PropTypes.bool,
   height: PropTypes.string,
   tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
   current: PropTypes.number,
