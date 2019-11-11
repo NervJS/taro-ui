@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import { AtTimelineProps } from 'types/timeline'
 
-export default class AtTimeline extends AtComponent {
-  render () {
+export default class AtTimeline extends AtComponent<AtTimelineProps> {
+  public static defaultProps: AtTimelineProps
+  public static propTypes: InferProps<AtTimelineProps>
+
+  public render (): JSX.Element {
     const {
       pending,
       items,
@@ -35,7 +39,7 @@ export default class AtTimeline extends AtComponent {
       const itemRootClassName = ['at-timeline-item']
       if (color) itemRootClassName.push(`at-timeline-item--${color}`)
 
-      const dotClass = []
+      const dotClass: string[] = []
       if (icon) {
         dotClass.push('at-timeline-item__icon')
       } else {
