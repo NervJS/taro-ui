@@ -21,7 +21,8 @@
       "node_modules/@types",
       "global.d.ts",
       "types"
-    ]
+    ],
+    "resolveJsonModule": true
   },
   "compileOnSave": false
 }

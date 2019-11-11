@@ -1,19 +1,26 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import AtComponent from '../../common/component'
 import statusImg from './img.json'
+import { AtToastProps, AtToastState } from 'types/toast'
+import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtToast extends AtComponent {
-  constructor (props) {
-    super(...arguments)
+export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
+  public static defaultProps: AtToastProps
+  public static propTypes: InferProps<AtToastProps>
+
+  private _timer: NodeJS.Timeout | null
+
+  public constructor (props: AtToastProps) {
+    super(props)
 
     const { isOpened, duration } = props
 
     if (isOpened) {
-      this.makeTimer(duration)
+      this.makeTimer(duration || 0)
     }
 
     this._timer = null
@@ -22,14 +29,14 @@ export default class AtToast extends AtComponent {
     }
   }
 
-  clearTimmer () {
+  private clearTimmer (): void {
     if (this._timer) {
       clearTimeout(this._timer)
       this._timer = null
     }
   }
 
-  makeTimer (duration) {
+  private makeTimer (duration: number): void {
     if (duration === 0) {
       return
     }
@@ -38,26 +45,37 @@ export default class AtToast extends AtComponent {
     }, +duration)
   }
 
-  close () {
+  private close (): void {
     const { _isOpened } = this.state
     if (_isOpened) {
       this.setState(
         {
           _isOpened: false
         },
-        this.handleClose
+        this.handleClose // TODO: Fix dirty hack
       )
       this.clearTimmer()
     }
   }
 
-  handleClose () {
+  private handleClose (event?: CommonEvent): void { // TODO: Fix dirty hack
     if (_isFunction(this.props.onClose)) {
-      this.props.onClose()
+      this.props.onClose(event!)
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  private handleClick = (event: CommonEvent): void => {
+    const { onClick, status } = this.props
+    if (status === 'loading') {
+      return
+    }
+    if (onClick) {
+      return onClick(event)
+    }
+    this.close()
+  }
+
+  public componentWillReceiveProps (nextProps: AtToastProps): void {
     const { isOpened, duration } = nextProps
     if (!isOpened) {
       this.close()
@@ -71,26 +89,15 @@ export default class AtToast extends AtComponent {
     } else {
       this.clearTimmer()
     }
-    this.makeTimer(duration)
+    this.makeTimer(duration || 0)
   }
 
-  handleClick = () => {
-    const { onClick, status } = this.props
-    if (status === 'loading') {
-      return
-    }
-    if (onClick) {
-      return onClick()
-    }
-    this.close()
-  }
-
-  render () {
+  public render (): JSX.Element | null {
     const { _isOpened } = this.state
     const { customStyle, text, icon, status, image, hasMask } = this.props
 
-    const realImg = image || statusImg[status] || null
-    const isRenderIcon = !!(icon && !(image || statusImg[status]))
+    const realImg = image || statusImg[status!] || null
+    const isRenderIcon = !!(icon && !(image || statusImg[status!]))
 
     const bodyClass = classNames('toast-body', {
       'at-toast__body--custom-image': image,
