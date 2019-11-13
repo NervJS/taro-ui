@@ -1,23 +1,39 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtIcon } from 'taro-ui'
+import { AtIcon } from '../../../ui'
 import DocsHeader from '../../components/doc-header'
 import ICONS from './icons'
 import './index.scss'
 
-export default class IconPage extends Taro.Component {
-  config = {
+type IconKeys = {
+  main: 'main'
+  file: 'file'
+  text: 'text'
+  arrow: 'arrow'
+  media: 'media'
+  photo: 'photo'
+  logo: 'logo'
+}
+
+interface IconPageState {
+  icons: {
+    [k in keyof IconKeys]: string[]
+  }
+}
+
+export default class IconPage extends Taro.Component<{}, IconPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
+  public constructor () {
+    super()
     this.state = {
       icons: ICONS
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const { icons } = this.state
     const iconColor = '#999'
     const iconSize = 30

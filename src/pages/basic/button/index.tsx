@@ -1,27 +1,36 @@
-import Taro from '@tarojs/taro'
+import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
 import { View, Form, Text } from '@tarojs/components'
-import { AtButton, AtForm, AtFab } from 'taro-ui'
+import { AtButton, AtForm, AtFab } from '../../../ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ButtonPage extends Taro.Component {
-  config = {
+interface ButtonPageState {
+  isWEAPP: boolean
+  isALIPAY: boolean
+}
+
+export default class ButtonPage extends Taro.Component<{}, ButtonPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  state = {
-    isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
-    isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
+  public constructor() {
+    super()
+
+    this.state = {
+      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
+    }
   }
 
-  onButtonClick () {
+  private onButtonClick (): void {
     const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
     if (ENV === 'WEAPP') Taro.showModal({ content: content || '您点击了按钮！', showCancel: false })
     else if (ENV === 'WEB') alert(content || '您点击了按钮！')
   }
 
-  onShareAppMessage () {
+  public onShareAppMessage (): ShareAppMessageReturn {
     return {
       title: 'Taro UI',
       path: '/pages/index/index',
@@ -29,23 +38,23 @@ export default class ButtonPage extends Taro.Component {
     }
   }
 
-  onContact () {
+  private onContact (): void {
     console.log('呼起客服回调')
   }
 
-  onSubmit () {
+  private onSubmit (): void {
     Taro.showModal({ content: `submit event detail: ${JSON.stringify(arguments[0].detail)}`, showCancel: false })
   }
 
-  onReset () {
+  private onReset (): void {
     Taro.showModal({ content: `reset event detail: ${JSON.stringify(arguments[0].detail || '无数据')}`, showCancel: false })
   }
 
-  onGetUserInfo () {
+  private onGetUserInfo (): void {
     console.log('onGetUserInfo', arguments)
   }
 
-  render () {
+  public render (): JSX.Element {
     const { isWEAPP, isALIPAY } = this.state
 
     return (

@@ -5,13 +5,26 @@ import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
-export default class BasicColor extends Taro.Component {
-  config = {
+type Color = {
+  name: string
+  hex: string
+}
+type ColorData = {
+  type: string
+  data: Color[]
+}
+
+interface BasicColorState {
+  colorData: ColorData[]
+}
+
+export default class BasicColor extends Taro.Component<{}, BasicColorState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
+  public constructor () {
+    super()
 
     this.state = {
       colorData: [
@@ -119,7 +132,7 @@ export default class BasicColor extends Taro.Component {
     }
   }
 
-  render () {
+  public render (): JSX.Element {
     const { colorData } = this.state
 
     return (
