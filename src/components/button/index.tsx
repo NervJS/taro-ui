@@ -108,7 +108,7 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
     }
     const loadingColor = type === 'primary' ? '#fff' : ''
     const loadingSize = size === 'small' ? '30' : 0
-    let component: JSX.Element | undefined = undefined
+    let component: JSX.Element | null = null
     if (loading) {
       component = (
         <View className='at-button__icon'>
