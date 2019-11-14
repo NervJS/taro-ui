@@ -236,7 +236,7 @@ export default class ButtonPage extends Taro.Component<{}, ButtonPageState> {
                 <AtButton openType='getUserInfo' type='primary'>登录授权</AtButton>
               </View>
               <View className='btn-item'>
-                <AtButton type='secondary' openType='contact' bindgetuserinfo={this.onGetUserInfo.bind(this)} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
+                <AtButton type='secondary' openType='contact' onGetUserInfo={this.onGetUserInfo.bind(this)} onContact={this.onContact.bind(this)}>联系 Taro UI 客服</AtButton>
               </View>
 
               <View className='btn-item'>

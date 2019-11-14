@@ -45,7 +45,7 @@ export interface AtButtonProps extends AtComponent {
   /**
    * 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)
    */
-  openType?: 'contact' | 'share' | 'getUserInfo' | 'getPhoneNumber' | 'launchApp' | 'openSetting' | 'feedback' | 'getRealnameAuthInfo'
+  openType?: 'contact' | 'share' | 'getUserInfo' | 'getPhoneNumber' | 'launchApp' | 'openSetting' | 'feedback' | 'getRealnameAuthInfo' | 'getAuthorize'
   /**
    * 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)
    */
