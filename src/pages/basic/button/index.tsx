@@ -1,6 +1,6 @@
 import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
 import { View, Form, Text } from '@tarojs/components'
-import { AtButton, AtForm, AtFab } from '../../../ui'
+import { AtButton, AtForm, AtFab } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
