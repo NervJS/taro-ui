@@ -46,8 +46,8 @@ export default class ButtonPage extends Taro.Component<{}, ButtonPageState> {
     }
   }
 
-  private onContact (): void {
-    console.log('呼起客服回调')
+  private onContact (event: CommonEvent): void {
+    console.log('呼起客服回调', event.detail)
   }
 
   private onSubmit (event: CommonEvent): void {
