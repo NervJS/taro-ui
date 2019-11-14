@@ -1,11 +1,13 @@
+import classNames from 'classnames';
+import PropTypes, { InferProps } from 'prop-types';
+import { AtButtonProps, AtButtonState } from 'types/button';
 
-import Taro from '@tarojs/taro'
-import { View, Button, Form } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
-import classNames from 'classnames'
-import AtLoading from '../loading/index'
-import AtComponent from '../../common/component'
-import { AtButtonProps, AtButtonState } from 'types/button'
+import { Button, Form, View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro from '@tarojs/taro';
+
+import AtComponent from '../../common/component';
+import AtLoading from '../loading/index';
 
 const SIZE_CLASS = {
   normal: 'normal',
@@ -21,8 +23,8 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
   public static defaultProps: AtButtonProps
   public static propTypes: InferProps<AtButtonProps>
 
-  public constructor () {
-    super(...arguments)
+  public constructor (props: AtButtonProps) {
+    super(props)
     this.state = {
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
@@ -30,44 +32,45 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
     }
   }
 
-  private onClick (): void {
+  private onClick (event: CommonEvent): void {
     if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick(arguments as any)
+      this.props.onClick && this.props.onClick(event)
     }
   }
 
-  private onGetUserInfo (): void {
-    this.props.onGetUserInfo && this.props.onGetUserInfo(arguments as any)
+  private onGetUserInfo (event: CommonEvent): void {
+    this.props.onGetUserInfo && this.props.onGetUserInfo(event)
   }
 
-  private onContact (): void {
-    this.props.onContact && this.props.onContact(arguments as any)
+  private onContact (event: CommonEvent): void {
+    // TODO: Change Taro button component types
+    this.props.onContact && this.props.onContact(event as any)
   }
 
-  private onGetPhoneNumber (): void {
-    this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(arguments as any)
+  private onGetPhoneNumber (event: CommonEvent): void {
+    this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(event)
   }
 
-  private onError (): void {
-    this.props.onError && this.props.onError(arguments as any)
+  private onError (event: CommonEvent): void {
+    this.props.onError && this.props.onError(event)
   }
 
-  private onOpenSetting (): void {
-    this.props.onOpenSetting && this.props.onOpenSetting(arguments as any)
+  private onOpenSetting (event: CommonEvent): void {
+    this.props.onOpenSetting && this.props.onOpenSetting(event)
   }
 
-  private onSumit (): void {
+  private onSumit (event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
-      this.$scope.triggerEvent('submit', arguments[0].detail, {
+      this.$scope.triggerEvent('submit', event.detail, {
         bubbles: true,
         composed: true,
       })
     }
   }
 
-  private onReset (): void {
+  private onReset (event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
-      this.$scope.triggerEvent('reset', arguments[0].detail, {
+      this.$scope.triggerEvent('reset', event.detail, {
         bubbles: true,
         composed: true,
       })
@@ -108,9 +111,10 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
     }
     const loadingColor = type === 'primary' ? '#fff' : ''
     const loadingSize = size === 'small' ? '30' : 0
-    let component: JSX.Element | null = null
+
+    let loadingComponent: JSX.Element | null = null
     if (loading) {
-      component = (
+      loadingComponent = (
         <View className='at-button__icon'>
           <AtLoading color={loadingColor} size={loadingSize} />
         </View>
@@ -152,10 +156,15 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEB && !disabled && webButton}
-        {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
-        {isALIPAY && !disabled && button}
-        {component && component}
+        {(isWEB && !disabled) && webButton}
+        {(isWEAPP && !disabled) && (
+          <Form reportSubmit onSubmit={this.onSumit.bind(this)}
+            onReset={this.onReset.bind(this)}>
+            {button}
+          </Form>
+        )}
+        {(isALIPAY && !disabled) && button}
+        {loadingComponent}
         <View className='at-button__text'>{this.props.children}</View>
       </View>
     )
