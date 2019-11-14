@@ -22,7 +22,10 @@
       "global.d.ts",
       "types"
     ],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "taro-ui": [ "src/ui.ts" ]
+    }
   },
   "compileOnSave": false
 }
