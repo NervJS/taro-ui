@@ -2,12 +2,12 @@ import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import './index.scss'
 
-export default class PanelBasic extends Component {
-  config = {
+export default class ThemePage extends Component {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View>Theme</View>
     )
