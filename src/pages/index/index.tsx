@@ -1,23 +1,34 @@
-import Taro from '@tarojs/taro'
-import { View, Image, Text } from '@tarojs/components'
+import { Image, Text, View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro, { ShareAppMessageReturn } from '@tarojs/taro';
 
-import logoImg from '../../assets/images/logo_taro.png'
-import iconBasic from '../../assets/images/icon-list-basic.png'
-import iconView from '../../assets/images/icon-list-view.png'
-import iconAction from '../../assets/images/icon-list-action.png'
-import iconForm from '../../assets/images/icon-list-form.png'
-import iconLayout from '../../assets/images/icon-list-layout.png'
-import iconNavigation from '../../assets/images/icon-list-navigation.png'
-import iconHOC from '../../assets/images/icon-list-hoc.png'
+import iconAction from '../../assets/images/icon-list-action.png';
+import iconBasic from '../../assets/images/icon-list-basic.png';
+import iconForm from '../../assets/images/icon-list-form.png';
+import iconHOC from '../../assets/images/icon-list-hoc.png';
+import iconLayout from '../../assets/images/icon-list-layout.png';
+import iconNavigation from '../../assets/images/icon-list-navigation.png';
+import iconView from '../../assets/images/icon-list-view.png';
+import logoImg from '../../assets/images/logo_taro.png';
 
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  list: {
+    id: string
+    title: string
+    content: string
+    icon: string
+    subpages?: any
+  }[]
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
 
     this.state = {
@@ -67,7 +78,7 @@ export default class Index extends Taro.Component {
     }
   }
 
-  onShareAppMessage () {
+  public onShareAppMessage (): ShareAppMessageReturn {
     return {
       title: 'Taro UI',
       path: '/pages/index/index',
@@ -75,14 +86,14 @@ export default class Index extends Taro.Component {
     }
   }
 
-  gotoPanel = e => {
+  private gotoPanel = (e: CommonEvent): void => {
     const { id } = e.currentTarget.dataset
     Taro.navigateTo({
       url: `/pages/panel/index?id=${id.toLowerCase()}`
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { list } = this.state
 
     return (
