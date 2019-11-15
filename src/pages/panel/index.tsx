@@ -1,22 +1,39 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
+import { Image, Text, View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro, { Component } from '@tarojs/taro';
 
-import iconBasic from '../../assets/images/icon-list-basic.png'
-import iconView from '../../assets/images/icon-list-view.png'
-import iconAction from '../../assets/images/icon-list-action.png'
-import iconForm from '../../assets/images/icon-list-form.png'
-import iconLayout from '../../assets/images/icon-list-layout.png'
-import iconNavigation from '../../assets/images/icon-list-navigation.png'
-import iconHOC from '../../assets/images/icon-list-hoc.png'
+import iconAction from '../../assets/images/icon-list-action.png';
+import iconBasic from '../../assets/images/icon-list-basic.png';
+import iconForm from '../../assets/images/icon-list-form.png';
+import iconHOC from '../../assets/images/icon-list-hoc.png';
+import iconLayout from '../../assets/images/icon-list-layout.png';
+import iconNavigation from '../../assets/images/icon-list-navigation.png';
+import iconView from '../../assets/images/icon-list-view.png';
 
-import './index.scss'
+import './index.scss';
 
-export default class PanelBasic extends Component {
-  config = {
+interface PanelBasicState {
+  panelNames: {
+    [key: string]: {
+      name: string
+      icon: string
+    }
+  }
+  list: {
+    [key: string]: {
+      id: string
+      name: string
+    }[]
+  }
+  currentId: string
+}
+
+export default class PanelBasic extends Component<{}, PanelBasicState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
 
     this.state = {
@@ -269,25 +286,26 @@ export default class PanelBasic extends Component {
             name: '日历'
           }
         ]
-      }
+      },
+      currentId: ''
     }
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     const { id } = this.$router.params
     this.setState({
       currentId: id.toLowerCase() || ''
     })
   }
 
-  gotoComponent = e => {
+  private gotoComponent = (e: CommonEvent): void => {
     const { id, parent } = e.currentTarget.dataset
     Taro.navigateTo({
       url: `/pages/${parent.toLowerCase()}/${id.toLowerCase()}/index`
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { list, currentId, panelNames } = this.state
     const itemList = list[currentId] || []
     const title = (panelNames[currentId] && panelNames[currentId].name) || ''
