@@ -4,19 +4,21 @@ import { AtMessage, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
+type MessageType = 'info' | 'success' | 'error' | 'warning'
+
 export default class ToastPage extends Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  handleClick (type) {
+  private handleClick (type: MessageType): void {
     Taro.atMessage({
-      'message': '消息通知',
-      'type': type,
+      message: '消息通知',
+      type: type,
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page toast-page'>
         {/* S Header */}

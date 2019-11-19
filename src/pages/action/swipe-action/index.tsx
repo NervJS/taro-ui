@@ -1,10 +1,19 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtList, AtListItem, AtButton, AtSwipeAction } from 'taro-ui'
-import DocsHeader from '../../components/doc-header'
-import './index.scss'
+import { AtButton, AtList, AtListItem, AtSwipeAction } from 'taro-ui';
 
-const OPTIONS = [
+import { View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro from '@tarojs/taro';
+
+import DocsHeader from '../../components/doc-header';
+
+import './index.scss';
+
+type Option = {
+  text: string
+  style: React.CSSProperties
+}
+
+const OPTIONS: Option[] = [
   {
     text: '删除',
     style: {
@@ -20,8 +29,24 @@ const OPTIONS = [
   }
 ]
 
-export default class SwipeActionPage extends Taro.Component {
-  constructor () {
+type ActionListItem = {
+  title: string
+  isOpened: boolean
+  options: Option[]
+}
+
+interface SwipeActionPageState {
+  isOpened2: boolean
+  list: ActionListItem[]
+}
+
+export default class SwipeActionPage extends Taro.Component<{}, SwipeActionPageState> {
+  public config: Taro.PageConfig = {
+    navigationBarTitleText: 'Taro UI'
+  }
+
+
+  public constructor () {
     super(...arguments)
     this.state = {
       isOpened2: false,
@@ -60,16 +85,12 @@ export default class SwipeActionPage extends Taro.Component {
     }
   }
 
-  config = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
-  handleClick = (item, key, e) => {
+  private handleClick = (item: Option, key: number, e: CommonEvent): void => {
     console.log('触发了点击', item, key, e)
     this.showToast(`点击了${item.text}按钮`)
   }
 
-  handleClicked = index => {
+  private handleClicked = (index: number): void => {
     const list = this.state.list.filter((item, key) => key !== index)
     // console.log(list)
     this.setState({
@@ -77,27 +98,27 @@ export default class SwipeActionPage extends Taro.Component {
     })
   }
 
-  handleStatusClick = () => {
+  private handleStatusClick = (): void => {
     this.setState({
       isOpened2: !this.state.isOpened2
     })
   }
 
-  handleStatusOpened = () => {
+  private handleStatusOpened = (): void => {
     console.log('handleStatusOpened')
     this.setState({
       isOpened2: true
     })
   }
 
-  handleStatusClosed = () => {
+  private handleStatusClosed = (): void => {
     console.log('handleStatusClosed')
     this.setState({
       isOpened2: false
     })
   }
 
-  handleSingle = index => {
+  private handleSingle = (index: number): void => {
     const list = this.state.list.map((item, key) => {
       item.isOpened = key === index
       return item
@@ -107,24 +128,24 @@ export default class SwipeActionPage extends Taro.Component {
     })
   }
 
-  handleOpened = () => {
+  private handleOpened = (): void => {
     this.showToast('Handle Opened')
     console.log('handleOpened')
   }
 
-  handleClosed = () => {
+  private handleClosed = (): void => {
     this.showToast('Handle Closed')
     console.log('handleClosed')
   }
 
-  showToast = name => {
+  private showToast = (name: string): void => {
     Taro.showToast({
       icon: 'none',
       title: name
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { list, isOpened2 } = this.state
 
     return (

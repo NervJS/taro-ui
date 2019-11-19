@@ -1,16 +1,22 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
-import AtButton from '../../../components/button/index'
+import { AtActionSheet, AtActionSheetItem, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ActionSheetPage extends Taro.Component {
-  config = {
+interface ActionSheetPageState {
+  isOpened1: boolean
+  isOpened2: boolean
+  isOpened3: boolean
+  [key: string]: boolean
+}
+
+export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       isOpened1: false,
@@ -19,31 +25,31 @@ export default class ActionSheetPage extends Taro.Component {
     }
   }
 
-  handleClick = type => {
+  private handleClick = (type: string): void => {
     this.setState({
       [`isOpened${type}`]: true
     })
   }
 
-  handleClose = name => {
+  private handleClose = (name: string): void => {
     console.log(`第 ${name} 个Action Sheet已经关闭`)
     this.setState({
       [`isOpened${name}`]: false
     })
   }
 
-  handleCancel = () => {
+  private handleCancel = (): void => {
     this.showToast('点击了取消按钮')
   }
 
-  showToast = name => {
+  private showToast = (name: string): void => {
     Taro.showToast({
       icon: 'none',
       title: name
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (

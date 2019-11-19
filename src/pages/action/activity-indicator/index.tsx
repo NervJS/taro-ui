@@ -5,17 +5,11 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class ActivityIndicatorPage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
-    this.atButton = ''
-    this.state = {}
-  }
-
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page activity-indicator-page'>
         {/* S Header */}

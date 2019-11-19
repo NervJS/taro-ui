@@ -4,21 +4,25 @@ import { AtButton, AtIcon, AtProgress } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-const OFFSET = 15
+const OFFSET: number = 15
 
-export default class ProgressPage extends Taro.Component {
-  config = {
+interface ProgressPageState {
+  percent: number
+}
+
+export default class ProgressPage extends Taro.Component<{}, ProgressPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       percent: 0
     }
   }
 
-  reduce = () => {
+  private reduce = (): void => {
     let { percent } = this.state
     if (percent === 0) {
       return
@@ -31,7 +35,7 @@ export default class ProgressPage extends Taro.Component {
     })
   }
 
-  increase = () => {
+  private increase = (): void => {
     let { percent } = this.state
     if (percent === 100) {
       return
@@ -44,7 +48,7 @@ export default class ProgressPage extends Taro.Component {
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { percent } = this.state
     return (
       <View className='page progress-page'>

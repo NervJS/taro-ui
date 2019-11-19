@@ -4,27 +4,37 @@ import { AtToast, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-const INIT_STATE = {
+const INIT_STATE: ToastPageState = {
   image: '',
   icon: '',
   text: '',
-  status: '',
+  status: undefined,
   duration: 3000,
   hasMask: false,
   isOpened: false
 }
 
-export default class ToastPage extends Component {
-  config = {
+interface ToastPageState {
+  image: string
+  icon: string
+  text: string
+  status?: 'error' | 'loading' | 'success'
+  duration: number
+  hasMask: boolean
+  isOpened: boolean
+}
+
+export default class ToastPage extends Component<{}, ToastPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = INIT_STATE
   }
 
-  handleClick = params => {
+  private handleClick = (params: ToastPageState) => {
     if (this.state.isOpened) {
       return this.setState(INIT_STATE)
     }
@@ -34,13 +44,13 @@ export default class ToastPage extends Component {
     this.setState(state)
   }
 
-  handleClose = () => {
+  private handleClose = (): void => {
     this.setState({
       isOpened: false
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       text,
       icon,

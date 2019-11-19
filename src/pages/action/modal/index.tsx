@@ -15,12 +15,16 @@ import mockData from '../../navigation/indexes/mock-data'
 
 import './index.scss'
 
-export default class ModalPage extends Taro.Component {
-  config = {
+interface ModalPageState {
+  [key: string]: boolean
+}
+
+export default class ModalPage extends Taro.Component<{}, ModalPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       isOpened1: false,
@@ -31,13 +35,13 @@ export default class ModalPage extends Taro.Component {
     }
   }
 
-  handleClick = type => {
+  private handleClick = (type: string): void => {
     this.setState({
       [`isOpened${type}`]: true
     })
   }
 
-  closeModal = (type, msg) => {
+  private closeModal = (type: string, msg: string): void => {
     console.log(msg)
     this.setState({
       [`isOpened${type}`]: false
@@ -49,7 +53,7 @@ export default class ModalPage extends Taro.Component {
     })
   }
 
-  closeModalConfirm = (type, msg) => {
+  private closeModalConfirm = (type: string, msg: string): void => {
     this.setState({
       [`isOpened${type}`]: false
     })
@@ -60,7 +64,7 @@ export default class ModalPage extends Taro.Component {
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { isOpened1, isOpened2, isOpened3, isOpened4, isOpened5 } = this.state
 
     return (
