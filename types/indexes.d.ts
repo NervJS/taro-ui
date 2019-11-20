@@ -59,7 +59,7 @@ export interface AtIndexesProps extends AtComponent {
   /**
    * 获取跳转事件跳转到指定 key
    */
-  onScrollIntoView?: (fn: Function) => void
+  onScrollIntoView?: (fn: (key: string) => void) => void
 }
 
 export interface AtIndexesState {
