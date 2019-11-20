@@ -4,12 +4,16 @@ import { AtAccordion, AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class CardPage extends Taro.Component {
-  config = {
+interface CardPageState {
+  [key: string]: boolean
+}
+
+export default class CardPage extends Taro.Component<{}, CardPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: false,
@@ -19,13 +23,13 @@ export default class CardPage extends Taro.Component {
     }
   }
 
-  onClick (stateName, value) {
+  private onClick (stateName: string, value: boolean): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { value1, value2, value3, value4 } = this.state
 
     return (

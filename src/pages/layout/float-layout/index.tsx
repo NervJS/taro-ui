@@ -1,15 +1,22 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtFloatLayout, AtButton } from 'taro-ui'
-import DocsHeader from '../../components/doc-header'
+import { AtButton, AtFloatLayout } from 'taro-ui';
+
+import { View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro from '@tarojs/taro';
+
+import DocsHeader from '../../components/doc-header';
 import './index.scss'
 
-export default class FloatLayoutPage extends Taro.Component {
-  config = {
+interface FloatLayoutPageState {
+  [key: string]: boolean
+}
+
+export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       isOpened1: false,
@@ -18,32 +25,32 @@ export default class FloatLayoutPage extends Taro.Component {
     }
   }
 
-  onScroll = (...args) => {
-    console.log('onScroll', args)
+  private onScroll = (event: CommonEvent): void => {
+    console.log('onScroll', event)
   }
 
-  onScrollToLower = args => {
-    console.log('onScrollToLower', args)
+  private onScrollToLower = (event: CommonEvent) => {
+    console.log('onScrollToLower', event)
   }
 
-  onScrollToUpper = (...args) => {
-    console.log('onScrollToUpper', args)
+  private onScrollToUpper = (event: CommonEvent): void => {
+    console.log('onScrollToUpper', event)
   }
 
-  handleClick = type => {
+  private handleClick = (type: string): void => {
     this.setState({
       [`isOpened${type}`]: true
     })
   }
 
-  handleClose = type => {
+  private handleClose = (type: string): void => {
     console.log('handleClose')
     this.setState({
       [`isOpened${type}`]: false
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (

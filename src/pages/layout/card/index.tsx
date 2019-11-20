@@ -5,15 +5,15 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class CardPage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  handleClick = () => {
+  private handleClick = (): void => {
     console.log('Card handleClick')
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Card 卡片' />

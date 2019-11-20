@@ -1,15 +1,28 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtGrid } from 'taro-ui'
-import DocsHeader from '../../components/doc-header'
+import { AtGrid } from 'taro-ui';
+import { AtIconProps } from 'types/icon';
+
+import { View } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+
+import DocsHeader from '../../components/doc-header';
 import './index.scss'
 
-export default class GridPage extends Taro.Component {
-  config = {
+type DataItem = {
+  value: string
+  image?: string
+  iconInfo?: AtIconProps
+}
+
+interface GridPageState {
+  data: DataItem[]
+}
+
+export default class GridPage extends Taro.Component<{}, GridPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       data: [
@@ -50,11 +63,11 @@ export default class GridPage extends Taro.Component {
     }
   }
 
-  handleClick = (value, index) => {
+  private handleClick = (value: DataItem, index: number): void => {
     console.log(value, index)
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Grid 栅格' />

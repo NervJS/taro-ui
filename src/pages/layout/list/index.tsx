@@ -1,23 +1,26 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtList, AtListItem } from 'taro-ui'
-import DocsHeader from '../../components/doc-header'
+import { AtList, AtListItem } from 'taro-ui';
+
+import { View } from '@tarojs/components';
+import { CommonEvent } from '@tarojs/components/types/common';
+import Taro, { Component } from '@tarojs/taro';
+
+import DocsHeader from '../../components/doc-header';
 import './index.scss'
 
 export default class ListPage extends Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  handleChange = e => {
+  private handleChange = (e: CommonEvent): void => {
     console.log('Change Switch', e)
   }
 
-  handleClick = e => {
+  private handleClick = (e: CommonEvent): void => {
     console.log('Click Item', e)
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='List 列表' />

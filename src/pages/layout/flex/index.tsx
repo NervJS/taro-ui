@@ -5,11 +5,11 @@ import '../../../style/components/flex.scss'
 import './index.scss'
 
 export default class FlexPage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page flex-page'>
         <DocsHeader title='Flex 弹性布局' />
