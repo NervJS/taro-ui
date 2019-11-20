@@ -1,4 +1,15 @@
-const city = [
+export type CityItem = {
+  name: string
+  key: string
+}
+
+export type CityObject = {
+  title: string
+  key: string
+  items: CityItem[]
+}
+
+const city: CityObject[] = [
   {
     title: 'A',
     key: 'A',
@@ -932,7 +943,6 @@ const city = [
     title: 'X',
     key: 'X',
     items: [
-
       {
         'name': ' 厦门 ',
         'key': 'X'
@@ -965,7 +975,6 @@ const city = [
         'name': ' 咸阳 ',
         'key': 'X'
       },
-
       {
         'name': ' 孝感 ',
         'key': 'X'
@@ -994,12 +1003,10 @@ const city = [
         'name': ' 西双版纳 ',
         'key': 'X'
       },
-
       {
         'name': ' 宣城 ',
         'key': 'X'
       },
-
       {
         'name': ' 许昌 ',
         'key': 'X'
@@ -1025,7 +1032,6 @@ const city = [
     title: 'Y',
     key: 'Y',
     items: [
-
       {
         'name': ' 银川 ',
         'key': 'Y'
@@ -1050,7 +1056,6 @@ const city = [
         'name': ' 阳江 ',
         'key': 'Y'
       },
-
       {
         'name': ' 阳泉 ',
         'key': 'Y'
@@ -1059,7 +1064,6 @@ const city = [
         'name': ' 扬州 ',
         'key': 'Y'
       },
-
       {
         'name': ' 烟台 ',
         'key': 'Y'
@@ -1080,7 +1084,6 @@ const city = [
         'name': ' 营口 ',
         'key': 'Y'
       },
-
       {
         'name': ' 益阳 ',
         'key': 'Y'
@@ -1089,12 +1092,10 @@ const city = [
         'name': ' 永州 ',
         'key': 'Y'
       },
-
       {
         'name': ' 岳阳 ',
         'key': 'Y'
       },
-
       {
         'name': ' 榆林 ',
         'key': 'Y'
@@ -1119,10 +1120,8 @@ const city = [
         'name': ' 玉林 ',
         'key': 'Y'
       }
-
     ]
   }, {
-
     title: 'Z',
     key: 'Z',
     items: [
@@ -1154,7 +1153,6 @@ const city = [
         'name': ' 增城市 ',
         'key': 'Z'
       },
-
       {
         'name': ' 曾都区 ',
         'key': 'Z'
@@ -1163,7 +1161,6 @@ const city = [
         'name': ' 泽普县 ',
         'key': 'Z'
       },
-
       {
         'name': ' 泽州县 ',
         'key': 'Z'
@@ -1184,7 +1181,6 @@ const city = [
         'name': ' 扎鲁特旗 ',
         'key': 'Z'
       },
-
       {
         'name': ' 扎囊县 ',
         'key': 'Z'
@@ -1193,7 +1189,6 @@ const city = [
         'name': ' 张北县 ',
         'key': 'Z'
       },
-
       {
         'name': ' 张店区 ',
         'key': 'Z'
@@ -1218,12 +1213,10 @@ const city = [
         'name': ' 漳平市 ',
         'key': 'Z'
       },
-
       {
         'name': ' 漳浦县 ',
         'key': 'Z'
       },
-
       {
         'name': ' 章丘市 ',
         'key': 'Z'
@@ -1256,7 +1249,6 @@ const city = [
         'name': ' 长子县 ',
         'key': 'Z'
       },
-
       {
         'name': ' 湛河区 ',
         'key': 'Z'
@@ -1265,7 +1257,6 @@ const city = [
         'name': ' 湛江 ',
         'key': 'Z'
       },
-
       {
         'name': ' 站前区 ',
         'key': 'Z'
@@ -1298,7 +1289,6 @@ const city = [
         'name': ' 赵县 ',
         'key': 'Z'
       }
-
     ]
   }
 ]

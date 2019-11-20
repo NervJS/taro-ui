@@ -4,12 +4,16 @@ import { AtTabBar } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexPageState {
+  [key: string]: number
+}
+
+export default class Index extends Taro.Component<{}, IndexPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       current1: 0,
@@ -20,13 +24,13 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleClick (num, value) {
+  private handleClick (num: number, value: number): void {
     this.setState({
       [`current${num}`]: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { current1, current2, current3, current4, current5 } = this.state
     const tabList1 = [{ title: '待办事项', text: 8 }, { title: '拍照' }, { title: '通讯录', dot: true }]
     const tabList2 = [{ title: '待办事项', iconType: 'bullet-list', text: 'new' }, { title: '拍照', iconType: 'camera' }, { title: '文件夹', iconType: 'folder', text: '100', max: 99 }]

@@ -4,23 +4,30 @@ import { AtSegmentedControl } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexPageState {
+  [key: string]: number
+}
+
+export default class Index extends Taro.Component<{}, IndexPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+
+  public constructor () {
     super(...arguments)
     this.state = {
       current1: 0,
       current2: 0,
     }
   }
-  handleClick (num, value) {
+
+  private handleClick (num: number, value: number): void {
     this.setState({
       [`current${num}`]: value
     })
   }
-  render () {
+
+  public render (): JSX.Element {
     const { current1, current2 } = this.state
     const tabList1 = ['标签页1', '标签页2' ]
     const tabList2 = ['标签页1', '标签页2', '标签页3']
@@ -49,7 +56,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>自定义颜色、字体大小</View>
             <View className='panel__content'>
               <View>
-                <AtSegmentedControl onClick={this.handleClick.bind(this, 2)} selectedColor='#FF4949' fontSize='30' current={current2} values={tabList2} />
+                <AtSegmentedControl onClick={this.handleClick.bind(this, 2)} selectedColor='#FF4949' fontSize={30} current={current2} values={tabList2} />
                 <View className='tab-content'>标签 {current2 + 1} 的内容</View>
               </View>
             </View>

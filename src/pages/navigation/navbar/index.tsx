@@ -5,38 +5,43 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  handleClick (title) {
+
+  private handleClick (title: string): void {
     Taro.showToast({
       'title': title,
       'duration': 2000,
       'icon': 'success'
     })
   }
-  clickReturn () {
+
+  private clickReturn (): void {
     Taro.showToast({
       'title': '返回',
       'duration': 2000,
       'icon': 'success'
     })
   }
-  clickMy () {
+
+  private clickMy (): void {
     Taro.showToast({
       'title': '我的',
       'duration': 2000,
       'icon': 'success'
     })
   }
-  clickList () {
+
+  private clickList (): void {
     Taro.showToast({
       'title': '功能列表',
       'duration': 2000,
       'icon': 'success'
     })
   }
-  render () {
+
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='NavBar 导航栏'></DocsHeader>

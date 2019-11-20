@@ -5,11 +5,20 @@ import { AtDrawer, AtButton, AtIcon, AtBadge } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class DrawerPage extends Taro.Component {
-  config = {
+interface DrawerPageState {
+  leftDrawerShow: boolean
+  rightDrawerShow: boolean
+  childrenDrawerShow: boolean
+  childrenItem: string[]
+  icons: string[]
+}
+
+export default class DrawerPage extends Taro.Component<{}, DrawerPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+
+  public constructor () {
     super(...arguments)
     this.state = {
       leftDrawerShow: false,
@@ -20,27 +29,27 @@ export default class DrawerPage extends Taro.Component {
     }
   }
 
-  leftDrawerClick () {
+  private leftDrawerClick (): void {
     this.setState({
       leftDrawerShow: !this.state.leftDrawerShow,
     })
   }
 
-  rightDrawerClick () {
+  private rightDrawerClick (): void {
     this.setState({
       rightDrawerShow: !this.state.rightDrawerShow,
     })
   }
 
-  childrenDrawerClick () {
+  private childrenDrawerClick (): void {
     this.setState({
       childrenDrawerShow: !this.state.childrenDrawerShow,
     })
   }
 
-  onItemClick (index) {
+  private onItemClick (index: number): void {
     const ENV = Taro.getEnv()
-    let content
+    let content: string
     if (typeof index !== 'number') {
       content = ''
     } else {
@@ -50,7 +59,7 @@ export default class DrawerPage extends Taro.Component {
     else content && alert(content)
   }
 
-  onClose () {
+  private onClose (): void {
     this.setState({
       leftDrawerShow: false,
       rightDrawerShow: false,
@@ -58,10 +67,8 @@ export default class DrawerPage extends Taro.Component {
     })
   }
 
-  render () {
-    const {
-      icons,
-    } = this.state
+  public render (): JSX.Element {
+    const { icons } = this.state
     return (
       <View className='page'>
         <DocsHeader title='Drawer 抽屉'></DocsHeader>

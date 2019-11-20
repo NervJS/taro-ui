@@ -1,28 +1,39 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtIndexes, AtSearchBar } from 'taro-ui'
-import mockData from './mock-data'
+import mockData, { CityItem } from './mock-data'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  constructor () {
+interface IndexesState {
+  value: string
+}
+
+export default class Index extends Taro.Component<{}, IndexesState> {
+  public config: Taro.PageConfig = {
+    navigationBarTitleText: 'Taro UI'
+  }
+
+  public constructor () {
     super(...arguments)
     this.state = {
       value: ''
     }
   }
-  config = {
-    navigationBarTitleText: 'Taro UI'
-  }
-  onClick (item) {
-    console.log(item)
-  }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     console.log(this.scrollIntoView)
     // this.scrollIntoView && this.scrollIntoView('top', 0)
   }
-  handleActionClick () {
+
+  private scrollIntoView (key: string): void {
+    console.log('不需要实际实现', key)
+  }
+  
+  private onClick (item: CityItem): void {
+    console.log(item)
+  }
+
+  private handleActionClick (): void {
     if (!this.state.value) {
       return
     }
@@ -31,13 +42,14 @@ export default class Index extends Taro.Component {
     })
     this.scrollIntoView && this.scrollIntoView(this.state.value.toUpperCase())
   }
-  handleChange (value) {
+
+  private handleChange (value: string): void {
     this.setState({
       value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page' style='height: 100vh;'>
         {/* 基础用法 */}
