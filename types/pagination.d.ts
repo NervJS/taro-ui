@@ -2,8 +2,14 @@ import { MouseEvent, ComponentClass } from 'react'
 
 import AtComponent from './base'
 
-interface PageChangeData {
+export interface PageChangeData {
+  /**
+   * 翻页事件类型
+   */
   type: 'prev' | 'next'
+  /**
+   * 当前页
+   */
   current: number
 }
 
