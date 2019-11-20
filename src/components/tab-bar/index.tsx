@@ -4,7 +4,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import AtBadge from '../badge/index'
 import AtComponent from '../../common/component'
-import { AtTabBarProps } from 'types/tab-bar'
+import { AtTabBarProps, TabItem } from 'types/tab-bar'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 export default class AtTabBar extends AtComponent<AtTabBarProps> {
@@ -75,7 +75,7 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
         }
         style={this.mergeStyle(rootStyle, customStyle!)}
       >
-        {tabList.map((item, i) => (
+        {tabList.map((item: TabItem, i: number) => (
           <View
             className={classNames('at-tab-bar__item', { 'at-tab-bar__item--active': current === i })}
             style={current === i ? selectedStyle : defaultStyle}

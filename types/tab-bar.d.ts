@@ -16,7 +16,7 @@ export interface TabItem {
   /**
    * 右上角显示到文本，可以为数字或文字，如果有 dot，优先显示 dot
    */
-  text?: string
+  text?: string | number
   /**
    * 标题
    */
