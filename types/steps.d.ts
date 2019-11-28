@@ -42,7 +42,7 @@ export interface Item {
   /**
    * 步骤的状态，只允许 'success' 或 'error'
    */
-  status: 'success' | 'error'
+  status?: 'success' | 'error'
 }
 
 export interface AtStepsProps extends AtComponent {
