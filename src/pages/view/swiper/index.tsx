@@ -1,15 +1,26 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Swiper, SwiperItem, Slider, Image } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class PageSlider extends Taro.Component {
-  config = {
+interface SwiperPageState {
+  current: number
+  duration: number
+  interval: number
+  isCircular: boolean
+  isAutoplay: boolean
+  hasIndicatorDots: boolean
+  imgUrls: string[]
+}
+
+export default class SwiperPage extends Taro.Component<{}, SwiperPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       current: 1,
@@ -26,37 +37,37 @@ export default class PageSlider extends Taro.Component {
     }
   }
 
-  setAutoPlay = e => {
+  private setAutoPlay = (e: CommonEvent): void => {
     this.setState({
       isAutoplay: e.detail.value
     })
   }
 
-  setCircular = e => {
+  private setCircular = (e: CommonEvent): void => {
     this.setState({
       isCircular: e.detail.value
     })
   }
 
-  setIndicatorDots = e => {
+  private setIndicatorDots = (e: CommonEvent): void => {
     this.setState({
       hasIndicatorDots: e.detail.value
     })
   }
 
-  setInterval = e => {
+  private setInterval = (e: CommonEvent): void => {
     this.setState({
       interval: e.detail.value
     })
   }
 
-  setDuration = e => {
+  private setDuration = (e: CommonEvent): void => {
     this.setState({
       duration: e.detail.value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { current, isAutoplay, duration, isCircular, interval, hasIndicatorDots, imgUrls } = this.state
 
     return (
@@ -81,12 +92,12 @@ export default class PageSlider extends Taro.Component {
                   circular={isCircular}
                   autoplay={isAutoplay}
                   indicatorDots={hasIndicatorDots}
-                  preMargin='20'
+                  previousMargin='20'
                 >
                   {
                     imgUrls.map((item, idx) => (
                       <SwiperItem key={idx}>
-                        <Image src={item} className='slide-image' width='355' height='150' />
+                        <Image src={item} className='slide-image' />
                       </SwiperItem>
                     ))
                   }

@@ -5,18 +5,11 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class BadgePage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-
-    }
-  }
-
-  render () {
+  public render (): JSX.Element {
     const dot = '···'
 
     return (

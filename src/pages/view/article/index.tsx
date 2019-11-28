@@ -6,18 +6,11 @@ import './index.scss'
 import '../../../style/components/article.scss'
 
 export default class ArticlePage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Article 文章'
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-
-    }
-  }
-
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

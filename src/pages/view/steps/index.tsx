@@ -1,15 +1,20 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtSteps } from 'taro-ui'
+import { Item } from 'types/steps';
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class TimelinePage extends Taro.Component {
-  config = {
+interface TimelinePageState {
+  [key: string]: number
+}
+
+export default class TimelinePage extends Taro.Component<{}, TimelinePageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       current1: 0,
@@ -20,30 +25,31 @@ export default class TimelinePage extends Taro.Component {
     }
   }
 
-  onChange (stateName, current) {
+  private onChange (stateName: string, current: number): void {
     this.setState({
       [stateName]: current
     })
   }
 
-  render () {
-    const items1 = [
+  public render (): JSX.Element {
+    const items1: Item[] = [
       { title: '步骤一' },
       { title: '步骤二' }
     ]
-    const items2 = [
+
+    const items2: Item[] = [
       { title: '步骤一' },
       { title: '步骤二' },
       { title: '步骤三' }
     ]
 
-    const items3 = [
+    const items3: Item[] = [
       { title: '步骤一', desc: '这里是额外的信息，最多两行' },
       { title: '步骤二', desc: '这里是额外的信息，最多两行' },
       { title: '步骤三', desc: '这里是额外的信息，最多两行' }
     ]
 
-    const items4 = [
+    const items4: Item[] = [
       {
         title: '步骤一',
         desc: '这里是额外的信息，最多两行',
@@ -76,7 +82,7 @@ export default class TimelinePage extends Taro.Component {
       }
     ]
 
-    const items5 = [
+    const items5: Item[] = [
       {
         title: '步骤一',
         desc: '这里是额外的信息，最多两行',

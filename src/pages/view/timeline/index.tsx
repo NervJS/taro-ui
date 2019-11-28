@@ -5,11 +5,11 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class TimelinePage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Timeline 时间轴'></DocsHeader>

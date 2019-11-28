@@ -5,12 +5,18 @@ import DocsHeader from '../../components/doc-header'
 import curtainPng from '../../../assets/images/curtain.png'
 import './index.scss'
 
-export default class TagPage extends Taro.Component {
-  config = {
+interface TagPageState {
+  isOpened: boolean
+  closeBtnPosition: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right'
+  [key: string]: string | boolean
+}
+
+export default class TagPage extends Taro.Component<{}, TagPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       isOpened: false,
@@ -18,20 +24,20 @@ export default class TagPage extends Taro.Component {
     }
   }
 
-  handleChange (stateName, value) {
+  private handleChange (stateName: string, value: string): void {
     this.setState({
       isOpened: true,
       [stateName]: value
     })
   }
 
-  onClose () {
+  private onClose (): void {
     this.setState({
       isOpened: false
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { isOpened, closeBtnPosition } = this.state
 
     return (

@@ -5,29 +5,23 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class NoticebarPage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-
-    }
-  }
-
-  onGotoMore () {
+  private onGotoMore (): void {
     if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
       alert('您点击了更多!')
-    } else {
-      Taro.showModal({
-        content: '点击了更多!',
-        cancelText: '取消'
-      })
+      return
     }
+
+    Taro.showModal({
+      content: '点击了更多!',
+      cancelText: '取消'
+    })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

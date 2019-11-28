@@ -4,12 +4,25 @@ import { AtTag } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class TagPage extends Taro.Component {
-  config = {
+type ListItem = {
+  name: string
+  active: boolean
+}
+
+interface TagPageState {
+  tagList: ListItem[]
+  hollowTagList: ListItem[]
+  solidTagList: ListItem[]
+  hollowTagList2: ListItem[]
+  solidTagList2: ListItem[]
+}
+
+export default class TagPage extends Taro.Component<{}, TagPageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       tagList: [
@@ -45,7 +58,7 @@ export default class TagPage extends Taro.Component {
     }
   }
 
-  onClick (data) {
+  private onClick (data: ListItem): void {
     const { tagList } = this.state
     const findIndex = tagList.findIndex(item => item.name === data.name)
     const active = !tagList[findIndex].active
@@ -63,7 +76,7 @@ export default class TagPage extends Taro.Component {
     console.log(data)
   }
 
-  handleHollowClick (data) {
+  private handleHollowClick (data: ListItem): void {
     const { hollowTagList } = this.state
     const findIndex = hollowTagList.findIndex(item => item.name === data.name)
 
@@ -71,7 +84,7 @@ export default class TagPage extends Taro.Component {
     this.setState({ hollowTagList })
   }
 
-  handleSolidClick (data) {
+  private handleSolidClick (data: ListItem): void {
     const { solidTagList } = this.state
     const findIndex = solidTagList.findIndex(item => item.name === data.name)
 
@@ -79,7 +92,7 @@ export default class TagPage extends Taro.Component {
     this.setState({ solidTagList })
   }
 
-  handleHollowSmallClick (data) {
+  private handleHollowSmallClick (data: ListItem): void {
     const { hollowTagList2 } = this.state
     const findIndex = hollowTagList2.findIndex(item => item.name === data.name)
 
@@ -87,7 +100,7 @@ export default class TagPage extends Taro.Component {
     this.setState({ hollowTagList2 })
   }
 
-  handleSolidSmallClick (data) {
+  private handleSolidSmallClick (data: ListItem): void {
     const { solidTagList2 } = this.state
     const findIndex = solidTagList2.findIndex(item => item.name === data.name)
 
@@ -95,7 +108,7 @@ export default class TagPage extends Taro.Component {
     this.setState({ solidTagList2 })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

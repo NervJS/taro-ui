@@ -4,19 +4,23 @@ import { AtLoadMore } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class LoadMorePage extends Taro.Component {
-  config = {
+interface LoadMorePageState {
+  status: 'more' | 'loading' | 'noMore'
+}
+
+export default class LoadMorePage extends Taro.Component<{}, LoadMorePageState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       status: 'more'
     }
   }
 
-  handleClick () {
+  private handleClick (): void {
     this.setState({
       status: 'loading'
     })
@@ -27,7 +31,7 @@ export default class LoadMorePage extends Taro.Component {
     }, 2000)
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

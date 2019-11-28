@@ -5,23 +5,11 @@ import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class AvatarPage extends Taro.Component {
-  config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
-    super(...arguments)
-    this.state = {
-
-    }
-  }
-
-  onClick () {
-    // alert('点击了！')
-    console.log(arguments)
-  }
-
-  render () {
+  public render (): JSX.Element {
     const avatarImg = 'http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
 
     return (
