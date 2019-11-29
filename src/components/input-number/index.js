@@ -94,11 +94,17 @@ class AtInputNumber extends AtComponent {
     if (disabled) return
 
     const newValue = this.handleValue(value)
-    this.props.onChange(newValue, e, ...arg)
+    this.tempValue = { newValue, e, arg }
     return newValue
   }
 
-  handleBlur = (...arg) => this.props.onBlur(...arg)
+  handleBlur = (...arg) => {
+    if (this.tempValue) {
+      this.props.onChange(this.tempValue.newValue, this.tempValue.e, ...this.tempValue.arg)
+      this.tempValue = null
+    }
+    this.props.onBlur(...arg)
+  }
 
   handleError = errorValue => {
     if (!this.props.onErrorInput) { return }
