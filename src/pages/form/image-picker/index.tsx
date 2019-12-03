@@ -4,7 +4,11 @@ import { AtImagePicker } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-const dogaImages = [
+type DogaImage = {
+  url: string
+}
+
+const dogaImages: DogaImage[] = [
   {
     url: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg'
   },
@@ -16,12 +20,16 @@ const dogaImages = [
   }
 ]
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  [key: string]: DogaImage[]
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       files1: Array.from(dogaImages),
@@ -33,21 +41,21 @@ export default class Index extends Taro.Component {
     }
   }
 
-  onChange (stateName, files) {
+  private onChange (stateName: string, files: DogaImage[]): void {
     this.setState({
       [stateName]: files
     })
   }
 
-  onFail (mes) {
+  private onFail (mes: string): void {
     console.log(mes)
   }
 
-  onImageClick (index, file) {
+  private onImageClick (index: number, file: DogaImage): void {
     console.log(index, file)
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

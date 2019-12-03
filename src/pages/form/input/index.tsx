@@ -5,11 +5,32 @@ import DocsHeader from '../../components/doc-header'
 import verificationCode from '../../../assets/images/verification_code.png'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  value1: string
+  value2: string
+  value3: string
+  value4: string
+  value5: string
+  value6: string
+  value7: string
+  value8: string
+  value9: string
+  value10: string
+  value11: string
+  value13: string
+  value14: string
+  value15: string
+  disabled: boolean
+  second: number
+  [key: string]: string | boolean | number
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: '',
@@ -22,6 +43,7 @@ export default class Index extends Taro.Component {
       value8: '',
       value9: '',
       value10: '',
+      value11: '',
       value13: '',
       value14: '',
       value15: '',
@@ -29,10 +51,12 @@ export default class Index extends Taro.Component {
       second: 60
     }
   }
-  showTipText () {
+
+  private showTipText (): string {
     return this.state.disabled ? `${this.state.second}s后重试` : '发送验证码'
   }
-  sendCode () {
+
+  private sendCode (): void {
     if (this.state.disabled) return
     this.setState({
       disabled: true
@@ -52,26 +76,30 @@ export default class Index extends Taro.Component {
       }
     }, 1000)
   }
-  handleInput (stateName, value) {
+
+  private handleInput (stateName: string, value: string): void {
     this.setState({
       [stateName]: value
     })
   }
-  handleClick () {
+
+  private handleClick (): void {
     Taro.showToast({
       title: '已发送验证码',
       icon: 'success',
       duration: 2000
     })
   }
-  onClickErrorIcon () {
+
+  private onClickErrorIcon (): void {
     Taro.showToast({
       title: '请输入数字',
       icon: 'success',
       duration: 2000
     })
   }
-  render () {
+
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -132,7 +160,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content no-padding'>
               <View className='component-item'>
                 <AtForm>
-                  <AtInput name='value14' title='验证码' type='text' maxLength='4' clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
+                  <AtInput name='value14' title='验证码' type='text' maxLength={4} clear placeholder='验证码' value={this.state.value14} onChange={this.handleInput.bind(this, 'value14')}>
                     <Image src={verificationCode} />
                   </AtInput>
                   <AtInput name='value15' border={false} type='phone' clear placeholder='请输入手机号码' value={this.state.value15} onChange={this.handleInput.bind(this, 'value15')}>

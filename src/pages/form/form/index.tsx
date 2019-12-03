@@ -2,13 +2,24 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtInput, AtCheckbox, AtForm, AtButton, AtToast } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import { CheckboxOption } from 'types/checkbox'
 import './index.scss'
 
-export default class PageForm extends Taro.Component {
-  config = {
+interface PageFormState {
+  value1: string
+  value2: string
+  value3: CheckboxOption<string>[]
+  text: string
+  isOpened: boolean
+  [key: string]: string | boolean | CheckboxOption<string>[]
+}
+
+export default class PageForm extends Taro.Component<{}, PageFormState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: '',
@@ -18,12 +29,14 @@ export default class PageForm extends Taro.Component {
       isOpened: false
     }
   }
-  handleChange (stateName, value) {
+
+  private handleChange (stateName: string, value: any): void {
     this.setState({
       [stateName]: value
     })
   }
-  handleSubmit () {
+
+  private handleSubmit (): void {
     const { value1, value2, value3 } = this.state
     if (!value1 || !value2 || value3.length < 1) {
       this.setState({
@@ -39,14 +52,15 @@ export default class PageForm extends Taro.Component {
     this.closeToast()
   }
 
-  closeToast () {
+  private closeToast (): void {
     setTimeout(() => {
       this.setState({
         isOpened: false,
       })
     }, 2000)
   }
-  handleReset () {
+
+  private handleReset (): void {
     this.setState({
       isOpened: true,
       text: `表单已被重置`,
@@ -57,7 +71,7 @@ export default class PageForm extends Taro.Component {
     this.closeToast()
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Form 表单'></DocsHeader>

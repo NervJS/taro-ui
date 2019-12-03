@@ -4,11 +4,16 @@ import { AtInputNumber } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  [key: string]: number
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+
+  public constructor () {
     super(...arguments)
     this.state = {
       number1: 1,
@@ -19,12 +24,14 @@ export default class Index extends Taro.Component {
       number6: 1
     }
   }
-  handleNumberChange (stateName, value) {
+
+  private handleNumberChange (stateName: string, value: number): void {
     this.setState({
       [stateName]: value
     })
   }
-  render () {
+
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -124,7 +131,7 @@ export default class Index extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtInputNumber
-                  size='lg'
+                  size='large'
                   min={0}
                   max={10}
                   step={1}

@@ -2,14 +2,24 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtCheckbox } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import { CheckboxOption } from 'types/checkbox'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  checkedList1: string[]
+  checkedList2: string[]
+  checkedList3: string[]
+  checkboxOption1: CheckboxOption<string>[]
+  checkboxOption2: CheckboxOption<string>[]
+  checkboxOption3: CheckboxOption<string>[]
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       checkedList1: ['list1'],
@@ -34,25 +44,25 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleChange (value) {
+  private handleChange (value: string[]): void {
     this.setState({
       checkedList1: value
     })
   }
 
-  handleChangeSnd (value) {
+  private handleChangeSnd (value: string[]): void {
     this.setState({
       checkedList2: value
     })
   }
 
-  handleChangeThd (value) {
+  private handleChangeThd (value: string[]): void {
     this.setState({
       checkedList3: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

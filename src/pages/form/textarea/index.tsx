@@ -1,15 +1,26 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { AtTextarea } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+type TargetEvent = {
+  target: {
+    value: any
+  }
+} & CommonEvent
+
+interface IndexState {
+  [key: string]: string
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: '',
@@ -19,13 +30,13 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleChange (stateName, e) {
+  private handleChange (stateName: string, e: TargetEvent): void {
     this.setState({
       [stateName]: e.target.value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

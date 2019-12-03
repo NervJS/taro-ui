@@ -2,17 +2,29 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtRadio } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import { RadioOption } from 'types/radio'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  radioValue1: string
+  radioValue2: string
+  radioValue3: string
+  radioOptions1: RadioOption<string>[]
+  radioOptions2: RadioOption<string>[]
+  radioOptions3: RadioOption<string>[]
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  constructor () {
+  
+  public constructor () {
     super(...arguments)
     this.state = {
       radioValue1: 'option1',
       radioValue2: 'option1',
+      radioValue3: 'option3',
       radioOptions1: [
         { label: '单选项一', value: 'option1' },
         { label: '单选项二', value: 'option2' },
@@ -31,25 +43,25 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleRadioChange (value) {
+  private handleRadioChange (value: string): void {
     this.setState({
       radioValue1: value
     })
   }
 
-  handleRadioChangeScnd (value) {
+  private handleRadioChangeScnd (value: string): void {
     this.setState({
       radioValue2: value
     })
   }
 
-  handleRadioChangeThd (value) {
+  private handleRadioChangeThd (value: string): void {
     this.setState({
       radioValue3: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

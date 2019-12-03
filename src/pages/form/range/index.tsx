@@ -4,12 +4,16 @@ import { AtRange } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  [key: string]: [number, number]
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: [50, 60],
@@ -17,13 +21,13 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleChange (stateName, value) {
+  private handleChange (stateName: string, value: [number, number]): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

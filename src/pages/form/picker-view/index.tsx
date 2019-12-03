@@ -1,19 +1,32 @@
 import Taro from '@tarojs/taro'
 import { View, PickerView, PickerViewColumn } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  years: number[]
+  year: number
+  months: number[]
+  month: number
+  days: number[]
+  day: number
+  value: number[]
+  isWeapp: boolean
+  isAlipay: boolean
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     const date = new Date()
-    const years = []
-    const months = []
-    const days = []
+    const years: number[] = []
+    const months: number[] = []
+    const days: number[] = []
 
     for (let i = 1990; i <= date.getFullYear(); i++) {
       years.push(i)
@@ -33,11 +46,20 @@ export default class Index extends Taro.Component {
       days,
       day: 2,
       value: [9999, 5, 17],
-      isWeapp: false
+      isWeapp: false,
+      isAlipay: false
     }
   }
 
-  handleChange = e => {
+  public componentDidMount (): void {
+    const env = Taro.getEnv()
+    this.setState({
+      isWeapp: env === Taro.ENV_TYPE.WEAPP,
+      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
+    })
+  }
+
+  private handleChange = (e: CommonEvent): void => {
     const val = e.detail.value
 
     this.setState({
@@ -48,15 +70,7 @@ export default class Index extends Taro.Component {
     })
   }
 
-  componentDidMount () {
-    const env = Taro.getEnv()
-    this.setState({
-      isWeapp: env === Taro.ENV_TYPE.WEAPP,
-      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
-    })
-  }
-
-  render () {
+  public render (): JSX.Element {
     const { years, months, days, value, year, month, day, isWeapp, isAlipay } = this.state
 
     return (

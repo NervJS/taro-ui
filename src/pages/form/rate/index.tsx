@@ -4,12 +4,16 @@ import { AtRate } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  [key: string]: number
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       rateValue1: 3,
@@ -19,13 +23,13 @@ export default class Index extends Taro.Component {
     }
   }
 
-  handleRateChange (stateName, value) {
+  private handleRateChange (stateName: string, value: number): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const { rateValue1, rateValue2, rateValue3, rateValue4 } = this.state
     return (
       <View className='page'>
@@ -50,7 +54,7 @@ export default class Index extends Taro.Component {
             <View className='panel__title'>自定义尺寸</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtRate size='16' value={rateValue2} onChange={this.handleRateChange.bind(this, 'rateValue2')} />
+                <AtRate size={16} value={rateValue2} onChange={this.handleRateChange.bind(this, 'rateValue2')} />
               </View>
             </View>
           </View>

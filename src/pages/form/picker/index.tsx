@@ -1,54 +1,66 @@
 import Taro from '@tarojs/taro'
 import { View, Picker } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  selector: string[]
+  multiSelector: string[][]
+  selectorValue: number
+  mulitSelectorValues: number[]
+  timeSel: string
+  dateSel: string
+  isAlipay: boolean
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  state = {
+  public state: IndexState = {
     selector: ['中国', '美国', '巴西', '日本'],
     multiSelector: [['饭', '粥', '粉'], ['猪肉', '牛肉']],
     selectorValue: 0,
     mulitSelectorValues: [0, 1],
     timeSel: '06:18',
-    dateSel: '2018-06-18'
+    dateSel: '2018-06-18',
+    isAlipay: false
   }
 
-  componentDidMount () {
+  public componentDidMount (): void {
     const env = Taro.getEnv()
     this.setState({
       isAlipay: env === Taro.ENV_TYPE.ALIPAY,
     })
   }
 
-  handleChange = e => {
+  private handleChange = (e: CommonEvent): void => {
     this.setState({
       selectorValue: e.detail.value
     })
   }
 
-  handleMulitChange = e => {
+  private handleMulitChange = (e: CommonEvent): void => {
     this.setState({
       mulitSelectorValues: e.detail.value
     })
   }
 
-  handleTimeChange = e => {
+  private handleTimeChange = (e: CommonEvent): void => {
     this.setState({
       timeSel: e.detail.value
     })
   }
 
-  handleDateChange = e => {
+  private handleDateChange = (e: CommonEvent): void => {
     this.setState({
       dateSel: e.detail.value
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     const {
       selector,
       selectorValue,

@@ -5,12 +5,16 @@ import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
-export default class Index extends Taro.Component {
-  config = {
+interface IndexState {
+  [key: string]: string
+}
+
+export default class Index extends Taro.Component<{}, IndexState> {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  constructor () {
+  public constructor () {
     super(...arguments)
     this.state = {
       value1: '',
@@ -19,13 +23,14 @@ export default class Index extends Taro.Component {
       value4: ''
     }
   }
-  onChange (stateName, value) {
+
+  private onChange (stateName: string, value: string): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  onActionClick () {
+  private onActionClick (): void {
     Taro.showToast({
       title: '开始搜索',
       icon: 'success',
@@ -33,7 +38,7 @@ export default class Index extends Taro.Component {
     })
   }
 
-  render () {
+  public render (): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
