@@ -2,7 +2,7 @@ import { MouseEvent, ComponentClass } from 'react'
 
 import AtComponent from './base'
 
-export interface Option<T> {
+export interface CheckboxOption<T> {
   value: T
   label: string
   desc?: string
@@ -10,7 +10,7 @@ export interface Option<T> {
 }
 
 export interface AtCheckboxProps<T> extends AtComponent {
-  options: Array<Option<T>>
+  options: Array<CheckboxOption<T>>
 
   selectedList: Array<T>
 

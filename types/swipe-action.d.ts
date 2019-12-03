@@ -1,9 +1,10 @@
 import { MouseEvent, ComponentClass } from 'react'
+import { SelectorQuery } from '@tarojs/taro'
 import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
-export interface Option {
+export interface SwipeActionOption {
   /**
    * 选项名称
    */
@@ -37,11 +38,11 @@ export interface AtSwipeActionProps extends AtComponent {
   /**
    * 展示的选项数组
    */
-  options?: Option[]
+  options?: SwipeActionOption[]
   /**
    * 点击触发事件
    */
-  onClick?: (item: Option, index: number, event: CommonEvent) => void
+  onClick?: (item: SwipeActionOption, index: number, event: CommonEvent) => void
   /**
    * 完全打开时触发
    */
@@ -60,8 +61,8 @@ export interface AtSwipeActionState {
 
 export interface AtSwipeActionOptionsProps extends AtComponent {
   componentId: string
-  options: Option[]
-  onQueryedDom: (res: Taro.execObject) => void
+  options: SwipeActionOption[]
+  onQueryedDom: (res: SelectorQuery.execObject) => void
 }
 
 declare const AtSwipeAction: ComponentClass<AtSwipeActionProps>

@@ -3,17 +3,13 @@ import { AtButton, AtList, AtListItem, AtSwipeAction } from 'taro-ui';
 import { View } from '@tarojs/components';
 import { CommonEvent } from '@tarojs/components/types/common';
 import Taro from '@tarojs/taro';
+import { SwipeActionOption } from 'types/swipe-action';
 
 import DocsHeader from '../../components/doc-header';
 
 import './index.scss';
 
-type Option = {
-  text: string
-  style: React.CSSProperties
-}
-
-const OPTIONS: Option[] = [
+const OPTIONS: SwipeActionOption[] = [
   {
     text: '删除',
     style: {
@@ -32,7 +28,7 @@ const OPTIONS: Option[] = [
 type ActionListItem = {
   title: string
   isOpened: boolean
-  options: Option[]
+  options: SwipeActionOption[]
 }
 
 interface SwipeActionPageState {
@@ -85,7 +81,7 @@ export default class SwipeActionPage extends Taro.Component<{}, SwipeActionPageS
     }
   }
 
-  private handleClick = (item: Option, key: number, e: CommonEvent): void => {
+  private handleClick = (item: SwipeActionOption, key: number, e: CommonEvent): void => {
     console.log('触发了点击', item, key, e)
     this.showToast(`点击了${item.text}按钮`)
   }

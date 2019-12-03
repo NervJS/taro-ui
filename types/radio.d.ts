@@ -3,7 +3,7 @@ import { CommonEvent } from "@tarojs/components/types/common";
 
 import AtComponent from './base'
 
-export interface Option<T> {
+export interface RadioOption<T> {
   /**
    * 选项标识符，必须保证唯一
    */
@@ -31,7 +31,7 @@ export interface AtRadioProps<T> extends AtComponent {
   /**
    * 选项列表
    */
-  options: Array<Option<T>>
+  options: Array<RadioOption<T>>
   /**
    * 点击选项触发事件,开发者需要通过此事件来更新 value，onClick 函数必填
    */
