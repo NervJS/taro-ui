@@ -12,7 +12,7 @@ export interface AtToastProps extends AtComponent{
 
   image?: string
 
-  status?: 'error' | 'loading' | 'success'
+  status?: 'error' | 'loading' | 'success' | string
 
   duration?: number
 
