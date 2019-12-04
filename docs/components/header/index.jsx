@@ -1,6 +1,7 @@
 import * as Nerv from 'nervjs'
 import classnames from 'classnames'
 import { Link, NavLink, withRouter } from 'react-router-dom'
+import taroUILogo from '../../assets/logo-taro.png'
 import './style.scss'
 
 class PageHeader extends Nerv.Component {
@@ -36,7 +37,7 @@ class PageHeader extends Nerv.Component {
           <div className='nav-left'>
             <div className='logo'>
               <Link to='/'>
-                <img className='logo-img' src={require('../../assets/logo-taro.png')} />
+                <img className='logo-img' src={taroUILogo} />
                 <span>Taro UI</span>
               </Link>
             </div>
