@@ -32,6 +32,93 @@
     "test:ci": "npm run build:h5 && npm run test",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
+  "eslintConfig": {
+    "extends": ["o2team", "taro"],
+    "parser": "babel-eslint",
+    "env": {
+      "jest": true
+    },
+    "rules": {
+      "class-methods-use-this": "off",
+      "prefer-rest-params": "off",
+      "arrow-body-style": "warn",
+      "taro/custom-component-children": "off",
+      "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+      "no-console": ["error", { "allow": ["warn", "error"] }]
+    },
+    "overrides": [
+      {
+        "files": ["build/*.js"],
+        "rules": {
+          "import/no-commonjs": "off"
+        }
+      },
+      {
+        "files": ["src/components/**/*.test.js", "src/components/**/test.js"],
+        "rules": {
+          "taro/no-stateless-component": "off",
+          "react/react-in-jsx-scope": "off",
+          "react/no-find-dom-node": "off",
+          "no-unused-vars": ["error", { "varsIgnorePattern": "Nerv" }]
+        }
+      },
+      {
+        "files": ["**/*.ts","**/*.tsx"],
+        "parser": "@typescript-eslint/parser",
+        "plugins": ["react", "@typescript-eslint"],
+        "env": {
+          "jest": true
+        },
+        "rules": {
+          "no-undef": 0,
+          "no-unused-vars": 0,
+          "@typescript-eslint/class-name-casing": 2,
+          "class-methods-use-this": "off",
+          "prefer-rest-params": "off",
+          "arrow-body-style": "warn",
+          "react/jsx-filename-extension": [
+            2,
+            { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+          ],
+          "taro/custom-component-children": "off"
+        }
+      }
+    ]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "plugins": ["stylelint-scss"],
+    "rules": {
+      "declaration-colon-newline-after": null,
+      "at-rule-no-unknown": null,
+      "color-hex-case": null,
+      "block-closing-brace-newline-after": null,
+      "at-rule-empty-line-before":null,
+      "number-no-trailing-zeros": null,
+      "no-empty-source": null,
+      "unit-case": null,
+      "scss/at-rule-no-unknown": true
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "type-empty": [2, "never"],
+      "type-case": [2, "always", "lower-case"],
+      "subject-empty": [2, "never"],
+      "type-enum": [2, "always", [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore"
+      ]]
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
