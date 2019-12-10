@@ -30,6 +30,12 @@ $float-layout-timer: 300ms;
     background-color: $color-bg;
     transform: translate3d(0, 100%, 0);
     transition: transform $float-layout-timer cubic-bezier(0.36, 0.66, 0.04, 1);
+
+    &--top {
+      top: 0;
+      bottom: auto;
+      transform: translate3d(0, -100%, 0);
+    }
   }
 
   .layout {
