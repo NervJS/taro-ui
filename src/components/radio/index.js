@@ -35,7 +35,8 @@ export default class AtRadio extends AtComponent {
             className={
               classNames({
                 'at-radio__option': true,
-                'at-radio__option--disabled': option.disabled
+                'at-radio__option--disabled': option.disabled,
+                'at-radio__option--checked': value === option.value
               })
             }
           >
