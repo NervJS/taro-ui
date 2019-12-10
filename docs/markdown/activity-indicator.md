@@ -63,6 +63,16 @@ import { AtActivityIndicator } from 'taro-ui'
 
 :::
 
+## 状态切换
+
+:::demo
+
+```html
+<AtActivityIndicator isOpened={true}></AtActivityIndicator>
+```
+
+:::
+
 ## 垂直水平居中（当设置 center 时需要给父容器提供 position: relative 属性）
 
 :::demo
@@ -81,3 +91,5 @@ import { AtActivityIndicator } from 'taro-ui'
 | size    | loading 图的大小 | Number | -                 | `24`      |
 | color   | loading 图的样色 | String | -                 | `#6190E8` |
 | content | 元素的内容文本   | String | -                 | -         |
+| isOpened | 控制元素显示隐藏   | Boolean | -                 | true         |
+

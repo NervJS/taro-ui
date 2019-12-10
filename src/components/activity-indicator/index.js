@@ -8,12 +8,13 @@ import AtComponent from '../../common/component'
 
 export default class AtActivityIndicator extends AtComponent {
   render () {
-    const { color, size, mode, content } = this.props
+    const { color, size, mode, content, isOpened } = this.props
 
     const rootClass = classNames(
       'at-activity-indicator',
       {
-        'at-activity-indicator--center': mode === 'center'
+        'at-activity-indicator--center': mode === 'center',
+        'at-activity-indicator--isopened': isOpened
       },
       this.props.className
     )
@@ -37,6 +38,7 @@ AtActivityIndicator.defaultProps = {
   color: '',
   content: '',
   className: '',
+  isOpened: true,
 }
 
 AtActivityIndicator.propTypes = {
@@ -45,4 +47,5 @@ AtActivityIndicator.propTypes = {
   color: PropTypes.string,
   content: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  isOpened: PropTypes.bool
 }

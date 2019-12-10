@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtActivityIndicator } from 'taro-ui'
+import { AtActivityIndicator, AtSwitch } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -12,7 +12,15 @@ export default class ActivityIndicatorPage extends Taro.Component {
   constructor () {
     super(...arguments)
     this.atButton = ''
-    this.state = {}
+    this.state = {
+      isOpened: true
+    }
+  }
+
+  handleChange (value) {
+    this.setState({
+      isOpened: value
+    })
   }
 
   render () {
@@ -66,6 +74,17 @@ export default class ActivityIndicatorPage extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <AtActivityIndicator content='加载中...' />
+              </View>
+            </View>
+          </View>
+
+          {/* 状态切换 */}
+          <View className='panel'>
+            <View className='panel__title'>状态切换</View>
+            <View className='panel__content '>
+              <AtSwitch border={false} title={this.state.isOpened ? '开启中' : '关闭中'} checked={this.state.isOpened} onChange={this.handleChange.bind(this)} />
+              <View className='example-item'>
+                <AtActivityIndicator content='加载中...' isOpened={this.state.isOpened} />
               </View>
             </View>
           </View>

@@ -5,6 +5,9 @@
   @include display-flex();
 
   line-height: $line-height-base;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s $ease-in-quad;
 
   /* elements */
   &__body {
@@ -25,5 +28,10 @@
   /* modifiers */
   &--center {
     @include absolute-center;
+  }
+
+  &--isopened {
+    opacity: 1;
+    visibility: initial;
   }
 }
