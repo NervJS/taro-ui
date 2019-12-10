@@ -25,6 +25,7 @@ export default class Index extends Taro.Component {
       value13: '',
       value14: '',
       value15: '',
+      value16: '',
       disabled: false,
       second: 60
     }
@@ -121,6 +122,8 @@ export default class Index extends Taro.Component {
                   <AtInput name='value11' error title='出现错误' type='text' placeholder='点击按钮触发回调' value={this.state.value11} onChange={this.handleInput.bind(this, 'value11')} onErrorClick={this.onClickErrorIcon.bind(this)} />
                   <AtInput name='value12' editable={false} title='不可编辑' type='text' placeholder='不可编辑' value='不可编辑的内容' />
                   <AtInput name='value13' border={false} clear title='清除按钮' type='text' placeholder='点击清除按钮清空内容' value={this.state.value13} onChange={this.handleInput.bind(this, 'value13')} />
+                  <AtInput name='value16' border={false} required title='必填项' type='text' placeholder='必填项' value={this.state.value16} onChange={this.handleInput.bind(this, 'value16')} />
+
                 </AtForm>
               </View>
             </View>

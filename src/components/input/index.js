@@ -73,7 +73,8 @@ export default class AtInput extends AtComponent {
       placeholderClass,
       autoFocus,
       focus,
-      value
+      value,
+      required,
     } = this.props
     const {
       type,
@@ -106,7 +107,7 @@ export default class AtInput extends AtComponent {
     return <View className={rootCls} style={customStyle}>
       <View className={containerCls}>
         <View className={overlayCls} onClick={this.onClick}></View>
-        {title && <Label className='at-input__title' for={name}>{title}</Label>}
+        {title && <Label className={`at-input__title ${required && 'at-input__title--required'}`} for={name}>{title}</Label>}
         <Input
           className='at-input__input'
           id={name}
@@ -173,6 +174,7 @@ AtInput.defaultProps = {
   clear: false,
   autoFocus: false,
   focus: false,
+  required: false,
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
@@ -236,4 +238,5 @@ AtInput.propTypes = {
   onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
   onClick: PropTypes.func,
+  required: PropTypes.bool,
 }
