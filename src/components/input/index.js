@@ -44,7 +44,12 @@ export default class AtInput extends AtComponent {
 
   onClick = () => !this.props.editable && this.props.onClick()
 
-  clearValue = () => this.props.onChange('')
+  clearValue = () => {
+    // fix #840
+    setTimeout(() => {
+      this.props.onChange('')
+    }, 50)
+  }
 
   onErrorClick = () => this.props.onErrorClick()
 
@@ -122,12 +127,14 @@ export default class AtInput extends AtComponent {
           selectionEnd={selectionEnd}
           adjustPosition={adjustPosition}
           onInput={this.onInput}
+          // fix # 840 input 清除问题
+          // onChange={this.onInput}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onConfirm={this.onConfirm}
         />
         {clear && value && (
-          <View className='at-input__icon' onTouchStart={this.clearValue}>
+          <View className='at-input__icon' onTouchEnd={this.clearValue}>
             <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
           </View>
         )}
