@@ -92,7 +92,7 @@ export default class AtDrawer extends AtComponent {
       _show && <View
         className={classNames(rootClassName, classObject, this.props.className)}
       >
-        <View className='at-drawer__mask' style={maskStyle} onClick={this.onMaskClick.bind(this)}></View>
+        <View className='at-drawer__mask' style={maskStyle} onTouchStart={this.onMaskClick.bind(this)}></View>
 
         <View className='at-drawer__content' style={listStyle}>
           {items.length ? <AtList>
