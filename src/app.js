@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import React, { Component } from 'nervjs'
 import Index from './pages/index/index'
 import './app.scss'
 
@@ -81,4 +81,5 @@ class App extends Component {
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+export default App
+// Taro.render(<App />, document.getElementById('app'))

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import isNaN from 'lodash/isNaN'
 import classNames from 'classnames'

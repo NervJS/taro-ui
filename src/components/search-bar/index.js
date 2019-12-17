@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text, Input } from '@tarojs/components'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'

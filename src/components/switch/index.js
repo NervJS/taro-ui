@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Switch } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import _isUndefined from 'lodash/isUndefined'

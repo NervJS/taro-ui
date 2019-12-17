@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import _chunk from 'lodash/chunk'
 import _throttle from 'lodash/throttle'
 
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import bind from 'bind-decorator'
 import { View, Swiper, SwiperItem } from '@tarojs/components'
 import { ITouchEvent, BaseEvent, ITouch } from '@tarojs/components/types/common'
@@ -28,7 +28,7 @@ const defaultProps: Partial<Props> = {
   generateDate: Date.now()
 }
 
-export default class AtCalendarBody extends Taro.Component<
+export default class AtCalendarBody extends React.Component<
   Props,
   Readonly<State>
   > {
@@ -50,7 +50,7 @@ export default class AtCalendarBody extends Taro.Component<
   ) => Calendar.ListInfo<Calendar.Item>
 
   constructor (props) {
-    super(...arguments)
+    super(props)
     const {
       validDates,
       marks,

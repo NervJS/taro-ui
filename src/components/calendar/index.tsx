@@ -1,12 +1,11 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
-
+import * as React from 'nervjs'
 import _pick from 'lodash/pick'
 import _isObject from 'lodash/isObject'
 import _isFunction from 'lodash/isFunction'
 
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { BaseEvent } from '@tarojs/components/types/common'
 
@@ -29,12 +28,12 @@ const defaultProps: DefaultProps = {
   monthFormat: 'YYYY年MM月'
 }
 
-export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
+export default class AtCalendar extends React.Component<Props, Readonly<State>> {
   static options = { addGlobalClass: true }
   static defaultProps: DefaultProps = defaultProps
 
   constructor (props: Props) {
-    super(...arguments)
+    super(props)
 
     const { currentDate, isMultiSelect } = props as PropsWithDefaults
 

@@ -1,5 +1,5 @@
 {
-  "extends": ["o2team", "taro"],
+  "extends": ["o2team", "plugin:react/recommended"],
   "parser": "babel-eslint",
   "env": {
     "jest": true
@@ -8,10 +8,12 @@
     "class-methods-use-this": "off",
     "prefer-rest-params": "off",
     "arrow-body-style": "warn",
-    "taro/custom-component-children": "off",
     "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
     "no-console": ["error", { "allow": ["warn", "error"] }]
   },
+  "plugins": [
+    "react"
+  ],
   "overrides": [
     {
       "files": ["build/*.js"],
@@ -22,10 +24,9 @@
     {
       "files": ["src/components/**/*.test.js", "src/components/**/test.js"],
       "rules": {
-        "taro/no-stateless-component": "off",
         "react/react-in-jsx-scope": "off",
         "react/no-find-dom-node": "off",
-        "no-unused-vars": ["error", { "varsIgnorePattern": "Nerv" }]
+        "no-unused-vars": ["error", { "varsIgnorePattern": "React" }]
       }
     },
     {

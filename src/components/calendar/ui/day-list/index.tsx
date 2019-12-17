@@ -1,8 +1,8 @@
 import _chunk from 'lodash/chunk'
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import * as React from 'nervjs'
 
-export default class AtCalendarHeader extends Taro.Component {
+export default class AtCalendarHeader extends React.Component {
   static options = { addGlobalClass: true }
 
   render () {

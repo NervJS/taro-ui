@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Textarea } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'

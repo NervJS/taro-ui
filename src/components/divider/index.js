@@ -3,6 +3,7 @@ import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import AtComponent from '../../common/component'
+import * as React from 'nervjs'
 
 export default class AtDivider extends AtComponent {
   constructor () {

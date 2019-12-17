@@ -16,12 +16,11 @@ function delay (delayTime = 500): Promise<null> {
 }
 
 function delayQuerySelector (
-  self,
+  _,
   selectorStr: string,
   delayTime = 500
 ): Promise<Array<execObject>> {
-  const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
+  const selector: SelectorQuery = Taro.createSelectorQuery()
 
   return new Promise(resolve => {
     delay(delayTime).then(() => {
@@ -49,13 +48,13 @@ function delayGetScrollOffset ({ delayTime = 500 }): Promise<Array<execObject>> 
 }
 
 function delayGetClientRect ({
-  self,
+  _,
   selectorStr,
   delayTime = 500
 }): Promise<Array<execObject>> {
-  const $scope =
-    ENV === Taro.ENV_TYPE.WEB || ENV === Taro.ENV_TYPE.SWAN ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
+  // const $scope =
+  //   ENV === Taro.ENV_TYPE.WEB || ENV === Taro.ENV_TYPE.SWAN ? self : self.$scope
+  const selector: SelectorQuery = Taro.createSelectorQuery()
 
   return new Promise(resolve => {
     delay(delayTime).then(() => {
@@ -185,7 +184,7 @@ function getEventDetail (event: any) {
 
 function initTestEnv () {
   if (process.env.NODE_ENV === 'test') {
-    Taro.initPxTransform({ designWidth: 750 })
+    Taro.initPxTransform({ designWidth: 750 } as any)
   }
 }
 
@@ -208,7 +207,7 @@ function handleTouchScroll (flag) {
     // 把脱离文档流的body拉上去！否则页面会回到顶部！
     document.body.style.top = `${-scrollTop}px`
   } else {
-    document.body.style.top = null
+    document.body.style.top = ''
     document.body.classList.remove('at-frozen')
 
     document.documentElement.scrollTop = scrollTop

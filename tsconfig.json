@@ -6,7 +6,7 @@
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "jsxFactory": "Taro.createElement",
+    "jsxFactory": "React.createElement",
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",

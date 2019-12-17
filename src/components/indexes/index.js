@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import PropTypes from 'prop-types'
 import { View, ScrollView } from '@tarojs/components'
 import classNames from 'classnames'
@@ -225,7 +226,7 @@ class AtIndexes extends AtComponent {
         id={this.listId}
         scrollY
         scrollWithAnimation={animation}
-        scrollTop={isWEB ? _scrollTop : undefined}
+        scrollTop={isWEB && _scrollTop}
         scrollIntoView={!isWEB ? _scrollIntoView : ''}
         onScroll={this.handleScroll.bind(this)}
       >

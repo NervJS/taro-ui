@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import _forEach from 'lodash/forEach'

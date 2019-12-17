@@ -1,7 +1,7 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text } from '@tarojs/components'
 import Calendar from '../../types'
 import * as constant from '../../common/constant'
@@ -20,7 +20,7 @@ export interface Props {
   onLongClick?: (item: Calendar.Item) => void
 }
 
-export default class AtCalendarList extends Taro.Component<Props> {
+export default class AtCalendarList extends React.Component<Props> {
   static options = { addGlobalClass: true }
 
   @bind

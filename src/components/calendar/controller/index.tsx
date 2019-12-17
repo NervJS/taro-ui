@@ -1,10 +1,10 @@
 import dayjs, { Dayjs } from 'dayjs'
 import classnames from 'classnames'
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { Text, View, Picker } from '@tarojs/components'
 import { Props, State } from './interface'
 
-export default class AtCalendarController extends Taro.Component<Props, State> {
+export default class AtCalendarController extends React.Component<Props, State> {
   static options = { addGlobalClass: true }
 
   render () {
