@@ -5,9 +5,8 @@ import classNames from 'classnames'
 import AtComponent from '../../common/component'
 
 export default class AtCheckbox extends AtComponent {
-  handleClick (idx) {
-    const { selectedList, options } = this.props
-    const option = options[idx]
+  handleClick (option) {
+    const { selectedList } = this.props
     const { disabled, value } = option
     if (disabled) return
 
@@ -31,14 +30,13 @@ export default class AtCheckbox extends AtComponent {
     const rootCls = classNames('at-checkbox', className)
 
     return <View className={rootCls} style={customStyle}>
-      { options.map((option, idx) => {
+      { options.map(option => {
         const { value, disabled, label, desc } = option
         const optionCls = classNames('at-checkbox__option', {
           'at-checkbox__option--disabled': disabled,
           'at-checkbox__option--selected': selectedList.includes(value)
         })
-
-        return <View className={optionCls} key={value} onClick={this.handleClick.bind(this, idx)} >
+        return <View className={optionCls} key={value} onClick={this.handleClick.bind(this, option)} >
           <View className='at-checkbox__option-wrap'>
             <View className='at-checkbox__option-cnt'>
               <View className='at-checkbox__icon-cnt'>
