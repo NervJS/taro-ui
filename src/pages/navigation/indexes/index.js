@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtIndexes, AtSearchBar } from 'taro-ui'
 import mockData from './mock-data'
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class Index extends React.Component {
   constructor () {
     super(...arguments)
     this.state = {

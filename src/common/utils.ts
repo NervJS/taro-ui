@@ -5,13 +5,9 @@ const ENV = Taro.getEnv()
 
 function delay (delayTime = 500): Promise<null> {
   return new Promise(resolve => {
-    if ([Taro.ENV_TYPE.WEB, Taro.ENV_TYPE.SWAN].includes(ENV)) {
-      setTimeout(() => {
-        resolve()
-      }, delayTime)
-      return
-    }
-    resolve()
+    setTimeout(() => {
+      resolve()
+    }, 10)
   })
 }
 
@@ -20,10 +16,9 @@ function delayQuerySelector (
   selectorStr: string,
   delayTime = 500
 ): Promise<Array<execObject>> {
-  const selector: SelectorQuery = Taro.createSelectorQuery()
-
   return new Promise(resolve => {
     delay(delayTime).then(() => {
+      const selector: SelectorQuery = Taro.createSelectorQuery()
       selector
         .select(selectorStr)
         .boundingClientRect()

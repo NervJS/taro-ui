@@ -1,10 +1,10 @@
-import Taro, { Component } from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ListPage extends Component {
+export default class ListPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

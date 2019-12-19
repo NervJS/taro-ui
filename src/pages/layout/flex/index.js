@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 import '../../../style/components/flex.scss'
 import './index.scss'
 
-export default class FlexPage extends Taro.Component {
+export default class FlexPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

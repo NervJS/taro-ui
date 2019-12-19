@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtActivityIndicator, AtSwitch } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ActivityIndicatorPage extends Taro.Component {
+export default class ActivityIndicatorPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

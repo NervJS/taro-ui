@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtButton, AtIcon, AtProgress } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -6,7 +6,7 @@ import './index.scss'
 
 const OFFSET = 15
 
-export default class ProgressPage extends Taro.Component {
+export default class ProgressPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

@@ -23,15 +23,13 @@ export interface Props {
 export default class AtCalendarList extends React.Component<Props> {
   static options = { addGlobalClass: true }
 
-  @bind
-  handleClick (item) {
+  handleClick = (item) => {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(item)
     }
   }
 
-  @bind
-  handleLongClick (item) {
+  handleLongClick = (item) => {
     if (_isFunction(this.props.onLongClick)) {
       this.props.onLongClick(item)
     }
@@ -46,7 +44,6 @@ export default class AtCalendarList extends React.Component<Props> {
       <View className='at-calendar__list flex'>
         {list.map((item) => (
           <View
-            key={item.text}
             onClick={this.handleClick.bind(this, item)}
             onLongPress={this.handleLongClick.bind(this, item)}
             className={classnames(

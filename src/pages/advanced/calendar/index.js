@@ -1,6 +1,4 @@
-import bind from 'bind-decorator'
-
-import Taro, { Component, Config } from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 
 import AtButton from '../../../components/button/index'
@@ -10,8 +8,8 @@ import './index.scss'
 import DocsHeader from '../../components/doc-header'
 import AtCalendar from '../../../components/calendar/index'
 
-export default class Index extends Component {
-  config: Config = {
+export default class Index extends React.Component {
+  config = {
     navigationBarTitleText: 'Taro日历组件展示'
   }
 
@@ -43,8 +41,6 @@ export default class Index extends Component {
     ]
   }
 
-  componentWillMount () {}
-
   componentDidMount () {}
 
   componentWillUnmount () {}
@@ -53,30 +49,25 @@ export default class Index extends Component {
 
   componentDidHide () {}
 
-  @bind
-  handleClick (key: string, value: string) {
+  handleClick = (key, value) => {
     this.setState({
       [key]: value
     })
   }
 
-  @bind
-  handleDayClick (...arg) {
+  handleDayClick = (...arg) => {
     console.log('handleDayClick', arg)
   }
 
-  @bind
-  handleDayLongClick (...arg) {
+  handleDayLongClick = (...arg) => {
     console.log('handleDayLongClick', arg)
   }
 
-  @bind
-  handleDateChange (arg) {
+  handleDateChange = arg => {
     console.log('handleDateChange', arg)
   }
 
-  @bind
-  handleMonthChange (arg) {
+  handleMonthChange = arg => {
     console.log('handleMonthChange', arg)
   }
 

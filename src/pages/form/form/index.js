@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtInput, AtCheckbox, AtForm, AtButton, AtToast } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
+import * as React from 'nervjs'
 
-export default class PageForm extends Taro.Component {
+export default class PageForm extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

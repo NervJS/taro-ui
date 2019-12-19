@@ -1,11 +1,11 @@
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtIcon } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import ICONS from './icons'
+import * as React from 'nervjs'
 import './index.scss'
 
-export default class IconPage extends Taro.Component {
+export default class IconPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

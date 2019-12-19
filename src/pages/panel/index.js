@@ -1,4 +1,5 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text, Image } from '@tarojs/components'
 
 import iconBasic from '../../assets/images/icon-list-basic.png'
@@ -11,7 +12,7 @@ import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
-export default class PanelBasic extends Component {
+export default class PanelBasic extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -274,7 +275,7 @@ export default class PanelBasic extends Component {
   }
 
   componentDidMount () {
-    const { id } = this.$router.params
+    const { id } = Taro.Current.router.params
     this.setState({
       currentId: id.toLowerCase() || ''
     })

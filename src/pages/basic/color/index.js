@@ -1,11 +1,12 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text } from '@tarojs/components'
 
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 
-export default class BasicColor extends Taro.Component {
+export default class BasicColor extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

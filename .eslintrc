@@ -9,7 +9,7 @@
     "prefer-rest-params": "off",
     "arrow-body-style": "warn",
     "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error", "log"] }]
   },
   "plugins": [
     "react"

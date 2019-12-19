@@ -79,11 +79,10 @@ export default class AtCalendarBody extends React.Component<
     }
   }
 
-  @bind
-  private getGroups (
+  private getGroups = (
     generateDate: number,
     selectedDate: Calendar.SelectedDate
-  ): ListGroup {
+  ): ListGroup => {
     const dayjsDate = dayjs(generateDate)
     const arr: ListGroup = []
     const preList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
@@ -115,6 +114,14 @@ export default class AtCalendarBody extends React.Component<
   }
 
   componentWillReceiveProps (nextProps: Props) {
+    this.receiveProps(nextProps)
+  }
+
+  UNSAFE_componentWillReceiveProps (nextProps: Props) {
+    this.receiveProps(nextProps)
+  }
+
+  receiveProps (nextProps: Props) {
     const {
       validDates,
       marks,
@@ -148,8 +155,7 @@ export default class AtCalendarBody extends React.Component<
     })
   }
 
-  @bind
-  private handleTouchStart (e: ITouchEvent) {
+  private handleTouchStart = (e: ITouchEvent) => {
     if (!this.props.isSwiper) {
       return
     }
@@ -194,8 +200,7 @@ export default class AtCalendarBody extends React.Component<
     )
   }
 
-  @bind
-  private handleTouchEnd () {
+  private handleTouchEnd = () => {
     if (!this.props.isSwiper) {
       return
     }
@@ -217,8 +222,7 @@ export default class AtCalendarBody extends React.Component<
     this.animateMoveSlide(0)
   }
 
-  @bind
-  private handleChange (e: BaseEvent) {
+  private handleChange = (e: BaseEvent) => {
     const { current, source } = e.detail
 
     if (source === 'touch') {
@@ -227,8 +231,7 @@ export default class AtCalendarBody extends React.Component<
     }
   }
 
-  @bind
-  private handleAnimateFinish () {
+  private handleAnimateFinish = () => {
     if (this.changeCount > 0) {
       this.props.onSwipeMonth(
         this.isPreMonth ? -this.changeCount : this.changeCount
@@ -237,15 +240,13 @@ export default class AtCalendarBody extends React.Component<
     }
   }
 
-  @bind
-  private handleSwipeTouchStart (
+  private handleSwipeTouchStart = (
     e: ITouchEvent & { changedTouches: Array<ITouch> }
-  ) {
+  ) => {
     const { clientY, clientX } = e.changedTouches[0]
     this.swipeStartPoint = this.props.isVertical ? clientY : clientX
   }
 
-  @bind
   private handleSwipeTouchEnd (
     e: ITouchEvent & { changedTouches: Array<ITouch> }
   ) {

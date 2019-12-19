@@ -1,11 +1,11 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Image } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 
 import './index.scss'
 import '../../../style/components/article.scss'
 
-export default class ArticlePage extends Taro.Component {
+export default class ArticlePage extends React.Component {
   config = {
     navigationBarTitleText: 'Article 文章'
   }

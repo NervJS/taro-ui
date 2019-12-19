@@ -1,4 +1,5 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
+import React, { Component } from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtMessage, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'

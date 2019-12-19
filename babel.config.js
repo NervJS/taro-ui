@@ -9,14 +9,21 @@ module.exports = {
         spec: true,
         useBuiltIns: false
       }
-    ]
+    ],
+    '@babel/typescript'
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
     [
       '@babel/plugin-transform-react-jsx',
       {
-        pragma: 'Nerv.createElement'
+        pragma: 'React.createElement'
+      }
+    ],
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        'legacy': true
       }
     ],
     ['@babel/plugin-proposal-object-rest-spread'],

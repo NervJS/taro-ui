@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtList, AtListItem, AtButton, AtSwipeAction } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -20,7 +21,7 @@ const OPTIONS = [
   }
 ]
 
-export default class SwipeActionPage extends Taro.Component {
+export default class SwipeActionPage extends React.Component {
   constructor () {
     super(...arguments)
     this.state = {
@@ -64,8 +65,7 @@ export default class SwipeActionPage extends Taro.Component {
     navigationBarTitleText: 'Taro UI'
   }
 
-  handleClick = (item, key, e) => {
-    console.log('触发了点击', item, key, e)
+  handleClick = item => {
     this.showToast(`点击了${item.text}按钮`)
   }
 
@@ -84,14 +84,12 @@ export default class SwipeActionPage extends Taro.Component {
   }
 
   handleStatusOpened = () => {
-    console.log('handleStatusOpened')
     this.setState({
       isOpened2: true
     })
   }
 
   handleStatusClosed = () => {
-    console.log('handleStatusClosed')
     this.setState({
       isOpened2: false
     })
@@ -109,12 +107,10 @@ export default class SwipeActionPage extends Taro.Component {
 
   handleOpened = () => {
     this.showToast('Handle Opened')
-    console.log('handleOpened')
   }
 
   handleClosed = () => {
     this.showToast('Handle Closed')
-    console.log('handleClosed')
   }
 
   showToast = name => {

@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtToast, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -14,7 +14,7 @@ const INIT_STATE = {
   isOpened: false
 }
 
-export default class ToastPage extends Component {
+export default class ToastPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

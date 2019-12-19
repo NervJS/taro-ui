@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtCheckbox } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
+import * as React from 'nervjs'
 
-export default class Index extends Taro.Component {
+export default class Index extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

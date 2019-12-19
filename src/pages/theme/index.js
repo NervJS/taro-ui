@@ -1,8 +1,8 @@
-import Taro, { Component } from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import './index.scss'
 
-export default class PanelBasic extends Component {
+export default class PanelBasic extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

@@ -1,11 +1,12 @@
 import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View, Text } from '@tarojs/components'
 import { AtActionSheet, AtActionSheetItem } from 'taro-ui'
 import AtButton from '../../../components/button/index'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ActionSheetPage extends Taro.Component {
+export default class ActionSheetPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -26,7 +27,6 @@ export default class ActionSheetPage extends Taro.Component {
   }
 
   handleClose = name => {
-    console.log(`第 ${name} 个Action Sheet已经关闭`)
     this.setState({
       [`isOpened${name}`]: false
     })

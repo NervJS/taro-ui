@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text, Swiper, SwiperItem, Slider, Image } from '@tarojs/components'
 import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class PageSlider extends Taro.Component {
+export default class PageSlider extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

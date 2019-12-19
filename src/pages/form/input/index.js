@@ -1,11 +1,12 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Image } from '@tarojs/components'
 import { AtInput, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import verificationCode from '../../../assets/images/verification_code.png'
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class Index extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View, Button } from '@tarojs/components'
 import {
   AtButton,
@@ -15,7 +16,7 @@ import mockData from '../../navigation/indexes/mock-data'
 
 import './index.scss'
 
-export default class ModalPage extends Taro.Component {
+export default class ModalPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -38,7 +39,6 @@ export default class ModalPage extends Taro.Component {
   }
 
   closeModal = (type, msg) => {
-    console.log(msg)
     this.setState({
       [`isOpened${type}`]: false
     })

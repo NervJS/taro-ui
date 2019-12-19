@@ -2,9 +2,10 @@ import Taro from '@tarojs/taro'
 import { View, Form, Text } from '@tarojs/components'
 import { AtButton, AtForm, AtFab } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
+import * as React from 'nervjs'
 import './index.scss'
 
-export default class ButtonPage extends Taro.Component {
+export default class ButtonPage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -30,7 +31,7 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onContact () {
-    console.log('呼起客服回调')
+    // console.log('呼起客服回调')
   }
 
   onSubmit () {
@@ -42,7 +43,7 @@ export default class ButtonPage extends Taro.Component {
   }
 
   onGetUserInfo () {
-    console.log('onGetUserInfo', arguments)
+    // console.log('onGetUserInfo', arguments)
   }
 
   render () {

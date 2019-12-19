@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtBadge, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class BadgePage extends Taro.Component {
+export default class BadgePage extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }

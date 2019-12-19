@@ -40,7 +40,15 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     this.state = this.getInitializeState(currentDate, isMultiSelect)
   }
 
+  UNSAFE_componentWillReceiveProps (nextProps: Props) {
+    this.receiveProps(nextProps)
+  }
+
   componentWillReceiveProps (nextProps: Props) {
+    this.receiveProps(nextProps)
+  }
+
+  private receiveProps (nextProps: Props) {
     const { currentDate, isMultiSelect } = nextProps
     if (!currentDate || currentDate === this.props.currentDate) return
 
@@ -62,8 +70,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     this.setState(stateValue)
   }
 
-  @bind
-  private getSingleSelectdState (value: Dayjs): Partial<State> {
+  private getSingleSelectdState = (value: Dayjs): Partial<State> => {
     const { generateDate } = this.state
 
     const stateValue: Partial<State> = {
@@ -81,8 +88,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     return stateValue
   }
 
-  @bind
-  private getMultiSelectedState (value: Dayjs): Pick<State, 'selectedDate'> {
+  private getMultiSelectedState = (value: Dayjs): Pick<State, 'selectedDate'> => {
     const { selectedDate } = this.state
     const { end, start } = selectedDate
 
@@ -162,8 +168,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     }
   }
 
-  @bind
-  private triggerChangeDate (value: Dayjs) {
+  private triggerChangeDate = (value: Dayjs) => {
     const { format } = this.props
 
     if (!_isFunction(this.props.onMonthChange)) return
@@ -171,8 +176,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     this.props.onMonthChange(value.format(format))
   }
 
-  @bind
-  setMonth (vectorCount: number) {
+  setMonth = (vectorCount: number) => {
     const { format } = this.props
     const { generateDate } = this.state
 
@@ -186,8 +190,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     }
   }
 
-  @bind
-  handleClickPreMonth (isMinMonth?: boolean): void {
+  handleClickPreMonth = (isMinMonth?: boolean): void => {
     if (isMinMonth === true) {
       return
     }
@@ -199,8 +202,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     }
   }
 
-  @bind
-  handleClickNextMonth (isMaxMonth?: boolean): void {
+  handleClickNextMonth = (isMaxMonth?: boolean): void => {
     if (isMaxMonth === true) {
       return
     }
@@ -213,8 +215,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
   }
 
   // picker 选择时间改变时触发
-  @bind
-  handleSelectDate (e: BaseEvent & { detail: { value: string } }) {
+  handleSelectDate = (e: BaseEvent & { detail: { value: string } }) => {
     const { value } = e.detail
 
     const _generateDate: Dayjs = dayjs(value)
@@ -228,8 +229,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     })
   }
 
-  @bind
-  handleDayClick (item: Calendar.Item) {
+  handleDayClick = (item: Calendar.Item) => {
     const { isMultiSelect } = this.props
     const { isDisabled, value } = item
 
@@ -271,8 +271,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
     }
   }
 
-  @bind
-  handleDayLongClick (item: Calendar.Item) {
+  handleDayLongClick = (item: Calendar.Item) => {
     if (_isFunction(this.props.onDayLongClick)) {
       this.props.onDayLongClick({ value: item.value })
     }
@@ -310,7 +309,7 @@ export default class AtCalendar extends React.Component<Props, Readonly<State>> 
           validDates={validDates}
           marks={marks}
           format={format}
-          minDate={minDate}
+          minDate={minDate}s
           maxDate={maxDate}
           isSwiper={isSwiper}
           isVertical={isVertical}

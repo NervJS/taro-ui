@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
+import * as React from 'nervjs'
 
 import logoImg from '../../assets/images/logo_taro.png'
 import iconBasic from '../../assets/images/icon-list-basic.png'
@@ -12,7 +13,7 @@ import iconHOC from '../../assets/images/icon-list-hoc.png'
 
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class Index extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -75,8 +76,7 @@ export default class Index extends Taro.Component {
     }
   }
 
-  gotoPanel = e => {
-    const { id } = e.currentTarget.dataset
+  gotoPanel = (e, id) => {
     Taro.navigateTo({
       url: `/pages/panel/index?id=${id.toLowerCase()}`
     })
@@ -99,7 +99,7 @@ export default class Index extends Taro.Component {
               data-id={item.id}
               data-name={item.title}
               data-list={item.subpages}
-              onClick={this.gotoPanel}
+              onTap={e => this.gotoPanel(e, item.id)}
             >
               <View className='module-list__icon'>
                 <Image src={item.icon} className='img' mode='widthFix' />

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-commonjs */
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 const config = {
   projectName: 'taro-ui',
@@ -19,6 +20,26 @@ const config = {
         'transform-object-rest-spread'
       ]
     }
+  },
+  framework: 'react',
+  mini: {
+    webpackChain (chain) {
+      chain.merge({
+        devtool: 'source-map',
+        plugins: [
+          new webpack.ProvidePlugin({
+            window: ['@tarojs/runtime', 'window'],
+            document: ['@tarojs/runtime', 'document']
+          })
+        ],
+        resolve: {
+          alias: {
+            'nervjs': 'react',
+            'react-dom': '@tarojs/react'
+          }
+        }
+      })
+    },
   },
   defineConstants: {
   },
