@@ -201,13 +201,7 @@ function handleTouchScroll (flag) {
   }
   if (flag) {
     // 兼容不同浏览器环境
-    if (document.documentElement && document.documentElement.scrollTop) {
-      scrollTop = document.documentElement.scrollTop
-    } else if (document.body) {
-      scrollTop = document.body.scrollTop
-    } else {
-      scrollTop = 0
-    }
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
 
     // 使body脱离文档流
     document.body.classList.add('at-frozen')
