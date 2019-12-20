@@ -7,7 +7,7 @@ function delay (delayTime = 500): Promise<null> {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve()
-    }, 10)
+    }, 25)
   })
 }
 

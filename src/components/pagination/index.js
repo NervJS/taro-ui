@@ -89,7 +89,6 @@ export default class AtPagination extends AtComponent {
 
     const prevDisabled = maxPage === MIN_MAXPAGE || currentPage === 1
     const nextDisabled = maxPage === MIN_MAXPAGE || currentPage === maxPage
-
     const classObject = {
       'at-pagination--icon': icon,
     }

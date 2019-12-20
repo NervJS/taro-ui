@@ -14,8 +14,8 @@ export default class Index extends React.Component {
   config = {
     navigationBarTitleText: 'Taro UI'
   }
-  onClick (item) {
-    console.log(item)
+  onClick () {
+    // console.log(item)
   }
 
   componentDidMount () {
