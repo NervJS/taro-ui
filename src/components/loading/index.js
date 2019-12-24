@@ -20,10 +20,9 @@ export default class AtLoading extends AtComponent {
     }
     const colorStyle = {
       'border': color ? `1px solid ${color}` : '',
-      'border-color': color ? `${color} transparent transparent transparent` : '',
+      'borderColor': color ? `${color} transparent transparent transparent` : '',
     }
     const ringStyle = Object.assign({}, colorStyle, sizeStyle)
-
     return (
       <View className='at-loading' style={sizeStyle}>
         <View className='at-loading__ring' style={ringStyle}></View>
