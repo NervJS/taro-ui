@@ -1,8 +1,10 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtInput, AtCheckbox, AtForm, AtButton, AtToast } from 'taro-ui'
-import DocsHeader from '../../components/doc-header'
+import { AtButton, AtCheckbox, AtForm, AtInput, AtToast } from 'taro-ui'
 import { CheckboxOption } from 'types/checkbox'
+
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 interface PageFormState {
@@ -38,15 +40,15 @@ export default class PageForm extends Taro.Component<{}, PageFormState> {
 
   private handleSubmit (): void {
     const { value1, value2, value3 } = this.state
-    if (!value1 || !value2 || value3.length < 1) {
+    if (!value1 || !value2) {
       this.setState({
         isOpened: true,
-        text: `表单未填写完整`
+        text: `表单必填项未填写完整`
       })
     } else {
       this.setState({
         isOpened: true,
-        text: `${value1} / ${value2} / ${value3.join(',')}`
+        text: value3 && value3.length > 0 ? `${value1} / ${value2} / ${value3.join(',')}` : `${value1} / ${value2}`
       })
     }
     this.closeToast()
@@ -85,8 +87,8 @@ export default class PageForm extends Taro.Component<{}, PageFormState> {
                   onSubmit={this.handleSubmit.bind(this)}
                   onReset={this.handleReset.bind(this)}
                 >
-                  <AtInput name='value1' title='文本' type='text' placeholder='单行文本' value={this.state.value1} onChange={this.handleChange.bind(this, 'value1')} />
-                  <AtInput name='value2' title='密码' type='password' placeholder='请输入密码' value={this.state.value2} onChange={this.handleChange.bind(this, 'value2')} />
+                  <AtInput required name='value1' title='文本' type='text' placeholder='单行文本' value={this.state.value1} onChange={this.handleChange.bind(this, 'value1')} />
+                  <AtInput required name='value2' title='密码' type='password' placeholder='请输入密码' value={this.state.value2} onChange={this.handleChange.bind(this, 'value2')} />
                   <AtCheckbox
                     options={[
                       { label: 'iPhone X', value: 'iPhone X' },

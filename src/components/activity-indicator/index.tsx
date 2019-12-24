@@ -1,23 +1,25 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-
-import AtLoading from '../loading/index'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtActivityIndicatorProps } from 'types/activity-indicator'
+
+import { Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+
+import AtComponent from '../../common/component'
+import AtLoading from '../loading/index'
 
 export default class AtActivityIndicator extends AtComponent<AtActivityIndicatorProps> {
   public static defaultProps: AtActivityIndicatorProps
   public static propTypes: InferProps<AtActivityIndicatorProps>
 
   public render (): JSX.Element {
-    const { color, size, mode, content } = this.props
+    const { color, size, mode, content, isOpened } = this.props
 
     const rootClass = classNames(
       'at-activity-indicator',
       {
-        'at-activity-indicator--center': mode === 'center'
+        'at-activity-indicator--center': mode === 'center',
+        'at-activity-indicator--isopened': isOpened
       },
       this.props.className
     )
@@ -41,6 +43,7 @@ AtActivityIndicator.defaultProps = {
   color: '',
   content: '',
   className: '',
+  isOpened: true,
 }
 
 AtActivityIndicator.propTypes = {
@@ -49,4 +52,5 @@ AtActivityIndicator.propTypes = {
   color: PropTypes.string,
   content: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  isOpened: PropTypes.bool
 }

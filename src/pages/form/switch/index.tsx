@@ -16,7 +16,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
   public constructor () {
     super(...arguments)
     this.state = {
-      switchValue: false,
+      switchValue: true,
     }
   }
 

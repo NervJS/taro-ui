@@ -84,8 +84,13 @@ describe('AtInput Snap', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('render AtInput -- props error', () => {
+  it('render AtInput -- props clear', () => {
     const component = renderToString(<AtInput clear />)
+    expect(component).toMatchSnapshot()
+  })
+
+  it('render AtInput -- props required', () => {
+    const component = renderToString(<AtInput required />)
     expect(component).toMatchSnapshot()
   })
 })

@@ -70,7 +70,7 @@ import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 | cancelText          | 取消按钮的文本             | String  | -      | -       |
 | closeOnClickOverlay | 点击浮层的时候时候自动关闭 | Boolean | -      | `true` |
 | confirmText         | 确认按钮的文本             | String  | -      | -       |
-| isOpened            | 是否显示模态框             | String  | -      | `false`       |
+| isOpened            | 是否显示模态框             | Boolean  | -      | `false`       |
 
 ## AtModal 事件
 

@@ -28,4 +28,9 @@ describe('ActivityIndicator Snap', () => {
     const component = renderToString(<AtActivityIndicator mode='center' />)
     expect(component).toMatchSnapshot()
   })
+
+  it('render ActivityIndicator -- props isOpened ', () => {
+    const component = renderToString(<AtActivityIndicator isOpened />)
+    expect(component).toMatchSnapshot()
+  })
 })

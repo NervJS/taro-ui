@@ -38,6 +38,18 @@
     line-height: $line-height-zh;
     vertical-align: middle;
     text-align: left;
+
+    &--required {
+      &::before {
+        display: inline-block;
+        margin-right: 8px;
+        color: $color-error;
+        font-size: 28px;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+    }
   }
 
   &__input {

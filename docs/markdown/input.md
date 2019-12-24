@@ -172,6 +172,13 @@ export default class Index extends Taro.Component {
     value={this.state.value4}
     onChange={this.handleChange.bind(this)}
   />
+  <AtInput 
+    required
+    border={false}  
+    title='必填项' 
+    type='text' placeholder='必填项' 
+    value={this.state.value5} 
+    onChange={this.handleInput.bind(this)} />
 </AtForm>
 ```
 
@@ -223,6 +230,7 @@ export default class Index extends Taro.Component {
 | clear     | √ | √ | 是否显示清除按钮，需要传入 onChange 事件来改变value | Boolean | - | false |
 | autoFocus  | √ | x | 是否自动聚焦 | Boolean | - | false |
 | focus     | √ | √ | 是否聚焦 | Boolean | - | false |
+| required  | √ | √ | 是否必填 | Boolean | - | false |
 
 ## Input 事件
 

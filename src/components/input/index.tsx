@@ -1,11 +1,13 @@
-import Taro from '@tarojs/taro'
-import { View, Input, Label, Text } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtInputProps } from 'types/input'
+
+import { Input, Label, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
+import Taro from '@tarojs/taro'
+
+import AtComponent from '../../common/component'
 
 type PickAtInputProps = Pick<AtInputProps, 'maxLength' | 'disabled' | 'password'>
 type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
@@ -70,7 +72,12 @@ export default class AtInput extends AtComponent<AtInputProps> {
     }
   }
 
-  private clearValue = (event: ITouchEvent): void => this.props.onChange('', event)
+  private clearValue = (event: ITouchEvent): void => {
+    // fix #840
+    setTimeout(() => {
+      this.props.onChange('', event)
+    }, 50)
+  }
 
   private onErrorClick = (): void => this.props.onErrorClick && this.props.onErrorClick()
 
@@ -94,7 +101,8 @@ export default class AtInput extends AtComponent<AtInputProps> {
       placeholderClass,
       autoFocus,
       focus,
-      value
+      value,
+      required,
     } = this.props
     const {
       type,
@@ -127,7 +135,7 @@ export default class AtInput extends AtComponent<AtInputProps> {
     return <View className={rootCls} style={customStyle}>
       <View className={containerCls}>
         <View className={overlayCls} onClick={this.onClick}></View>
-        {title && <Label className='at-input__title' for={name}>{title}</Label>}
+        {title && <Label className={`at-input__title ${required && 'at-input__title--required'}`} for={name}>{title}</Label>}
         <Input
           className='at-input__input'
           id={name}
@@ -148,12 +156,14 @@ export default class AtInput extends AtComponent<AtInputProps> {
           selectionEnd={selectionEnd}
           adjustPosition={adjustPosition}
           onInput={this.onInput}
+          // fix # 840 input 清除问题
+          // onChange={this.onInput}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onConfirm={this.onConfirm}
         />
         {clear && value && (
-          <View className='at-input__icon' onTouchStart={this.clearValue}>
+          <View className='at-input__icon' onTouchEnd={this.clearValue}>
             <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
           </View>
         )}
@@ -192,6 +202,7 @@ AtInput.defaultProps = {
   clear: false,
   autoFocus: false,
   focus: false,
+  required: false,
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
@@ -254,4 +265,5 @@ AtInput.propTypes = {
   onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
   onClick: PropTypes.func,
+  required: PropTypes.bool,
 }
