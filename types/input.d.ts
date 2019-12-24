@@ -2,10 +2,10 @@ import { MouseEvent, ComponentClass } from 'react'
 import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
 
+import AtComponent from './base'
+
 declare type OmitInputProps = Omit<InputProps, 'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'>
 declare type InputFunction<T extends string | number> = (value: T, event: CommonEvent) => void
-
-import AtComponent from './base'
 
 export interface AtInputProps extends AtComponent, OmitInputProps {
   /**
@@ -59,7 +59,7 @@ export interface AtInputProps extends AtComponent, OmitInputProps {
    */
   editable?: boolean
   /**
-   * 键盘弹起时，是否自动上推页面	
+   * 键盘弹起时，是否自动上推页面
    * @default false
    */
   adjustPosition?: boolean
@@ -73,6 +73,11 @@ export interface AtInputProps extends AtComponent, OmitInputProps {
    * @default false
    */
   focus?: boolean
+  /**
+   * 是否必填
+   * @default false
+   */
+  required?: boolean
   /**
    * 输入框失去焦点时触发的事件，v2.0.3 版本可以获取 event 参数
    */

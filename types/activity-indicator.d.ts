@@ -21,6 +21,11 @@ export interface AtActivityIndicatorProps extends AtComponent{
    * 元素的内容文本
    */
   content?: string
+  /**
+   * 控制元素显示隐藏
+   * @default true
+   */
+  isOpened?: boolean
 }
 
 declare const AtActivityIndicator: ComponentClass<AtActivityIndicatorProps>
