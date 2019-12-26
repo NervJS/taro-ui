@@ -20,6 +20,7 @@ export default class AtButton extends AtComponent {
   constructor () {
     super(...arguments)
     this.state = {
+      isQQ: Taro.getEnv() === Taro.ENV_TYPE.QQ,
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
       isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
@@ -91,6 +92,7 @@ export default class AtButton extends AtComponent {
     } = this.props
     const {
       isWEAPP,
+      isQQ,
       isALIPAY,
       isWEB,
     } = this.state
@@ -142,6 +144,7 @@ export default class AtButton extends AtComponent {
         {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && <Form reportSubmit onSubmit={this.onSumit.bind(this)} onReset={this.onReset.bind(this)}>{button}</Form>}
         {isALIPAY && !disabled && button}
+        {isQQ && !disabled && button}
         {component}
         <View className='at-button__text'>{this.props.children}</View>
       </View>
