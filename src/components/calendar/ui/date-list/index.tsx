@@ -42,8 +42,10 @@ export default class AtCalendarList extends Taro.Component<Props> {
 
     if (!list || list.length === 0) return null
 
+    const updateFlag = list[0].value
+
     return (
-      <View className='at-calendar__list flex'>
+      <View className='at-calendar__list flex' key={updateFlag}>
         {list.map((item) => (
           <View
             key={item.text}
