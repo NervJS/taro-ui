@@ -95,6 +95,16 @@ import { AtCalendar } from "taro-ui"
 
 :::
 
+## 有效时间组
+
+:::demo
+
+```html
+<AtCalendar validDates={ [ { value: '2020/01/01' } ] } />
+```
+
+:::
+
 ## AtCalendar 参数
 
 ```ts
@@ -113,6 +123,7 @@ interface SelectDate {
 | maxDate       | 最大的可选时间 | `DateArg`                       | -            |
 | isSwiper      | 是否可以滑动   | `boolean`                       | `true`       |
 | marks         | 需要标记的时间 | `Array<{'{ value: DateArg }'}>` | `[]`         |
+| validDates    | 需要标记的有效时间 | `Array<{'{ value: DateArg }'}>` | `[]`      |
 | format        | 日期格式       | `string`                        | `YYYY-MM-DD` |
 | monthFormat   | 月份格式       | `string`                        | `YYYY年MM月` |
 | hideArrow     | 是否隐藏箭头   | `boolean`                       | `false`      |
