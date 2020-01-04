@@ -18,6 +18,7 @@ import { DefaultProps, Props, State, PropsWithDefaults } from './interface'
 
 const defaultProps: DefaultProps = {
   validDates: [],
+  priceDates: [],
   marks: [],
   isSwiper: true,
   hideArrow: false,
@@ -251,7 +252,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     })
 
     if (_isFunction(this.props.onDayClick)) {
-      this.props.onDayClick({ value: item.value })
+      this.props.onDayClick(item)
     }
   }
 
@@ -283,6 +284,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
     const { generateDate, selectedDate } = this.state
     const {
       validDates,
+      priceDates,
       marks,
       format,
       minDate,
@@ -308,6 +310,7 @@ export default class AtCalendar extends Taro.Component<Props, Readonly<State>> {
           onSelectDate={this.handleSelectDate}
         />
         <AtCalendarBody
+          priceDates={priceDates}
           validDates={validDates}
           marks={marks}
           format={format}

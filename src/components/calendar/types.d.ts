@@ -18,6 +18,11 @@ declare namespace Calendar {
     value: DateArg
   }
 
+  export interface PriceDate {
+    value: DateArg,
+    price: number
+  }
+
   export interface Item {
     value: string
 
@@ -28,6 +33,8 @@ declare namespace Calendar {
     type: number
 
     marks: Array<Mark>
+
+    price?: number
 
     isActive?: boolean
 
@@ -48,6 +55,8 @@ declare namespace Calendar {
 
   export interface GroupOptions {
     validDates: Array<ValidDate>
+
+    priceDates: Array<PriceDate>
 
     marks: Array<Mark>
 

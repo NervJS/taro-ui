@@ -124,4 +124,22 @@ export function handleValid (
   return item
 }
 
-export default [handleActive, handleMarks, handleDisabled, handleValid]
+export function handlePrice (
+  args: PluginArg,
+  item: Calendar.Item
+): Calendar.Item {
+  const { options } = args
+  const { value } = item
+  const { priceDates } = options
+  if (!_isEmpty(priceDates)) {
+    for (let [, date] of priceDates.entries()){
+      let result = dayjs(date.value).startOf('day').isSame(value);
+      if(result){
+        item.price = date.price;
+      }
+    }
+  }
+  return item
+}
+
+export default [handleActive, handleMarks, handleDisabled, handleValid, handlePrice]

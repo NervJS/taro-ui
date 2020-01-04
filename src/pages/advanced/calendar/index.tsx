@@ -10,6 +10,10 @@ import './index.scss'
 import DocsHeader from '../../components/doc-header'
 import AtCalendar from '../../../components/calendar/index'
 
+import _cloneDeep from 'lodash/cloneDeep'
+import _replace from 'lodash/replace'
+import dayjs from 'dayjs'
+
 export default class Index extends Component {
   config: Config = {
     navigationBarTitleText: 'Taro日历组件展示'
@@ -32,7 +36,19 @@ export default class Index extends Component {
         value: '2019/04/17'
       },
       {
-        value: '2019/04/21'
+        value: '2019/06/04'
+      },
+      {
+        value: '2019/06/05'
+      },
+      {
+        value: '2019/06/06'
+      },
+      {
+        value: '2019/06/08'
+      },
+      {
+        value: '2019/06/09'
       },
       {
         value: '2019/05/04'
@@ -40,6 +56,49 @@ export default class Index extends Component {
       {
         value: '2019/05/28'
       }
+    ],
+    tempValidDates: [],
+    priceDates: [
+      {
+        value: '2019/04/17',
+        price: 10
+      },
+      {
+        value: '2019/05/17',
+        price: 114
+      },
+      {
+        value: '2019/06/17',
+        price: 225
+      },
+      {
+        value: '2019/06/01',
+        price: 229
+      },
+      {
+        value: '2019/06/04',
+        price: 1122
+      },
+      {
+        value: '2019/06/05',
+        price: 1210
+      },
+      {
+        value: '2019/06/06',
+        price: 11198
+      },
+      {
+        value: '2019/06/08',
+        price: 780
+      },
+      {
+        value: '2019/06/09',
+        price: 880
+      },
+      {
+        value: '2019/06/21',
+        price: 487
+      },
     ]
   }
 
@@ -62,7 +121,7 @@ export default class Index extends Component {
 
   @bind
   handleDayClick (...arg) {
-    console.log('handleDayClick', arg)
+    console.log('handleDayClick', arg);
   }
 
   @bind
@@ -72,6 +131,48 @@ export default class Index extends Component {
 
   @bind
   handleDateChange (arg) {
+    let { value } = arg;
+    let _filterValidDates = (startTime: string,flag: boolean)=>{
+      let result:any = [];
+      var i = 1;
+      while(1){
+        var date = dayjs(startTime);
+        let nextDay = flag ? date.add(i,'day') : date.subtract(i,'day');
+        let dateStr = nextDay.format('YYYY/MM/DD');
+        let notExist = false;
+        for(let item of this.state.validDates){
+          let itemStr = dayjs(item.value).format('YYYY/MM/DD')
+          if(itemStr === dateStr){
+            notExist = true;
+            result.push({
+              value: item.value
+            })
+            i++;
+            break;
+          }
+        }
+        if(!notExist){
+          break;
+        }
+      }
+      return result
+    }
+    let _filterDates = (startTime: string) => {
+      return [{value: _replace(startTime,/\-/g, '/')}, ..._filterValidDates(startTime,true), ..._filterValidDates(startTime,false) ];
+    }
+    if(value.end){
+      this.setState({validDates: this.state.tempValidDates})
+    }else{
+      let startTime = value.start;
+      if(startTime){
+        let result = _filterDates(startTime);
+        let copyDates = _cloneDeep(this.state.validDates);
+        this.setState({
+          tempValidDates: copyDates,
+          validDates: result
+        })
+      }
+    }
     console.log('handleDateChange', arg)
   }
 
@@ -81,7 +182,7 @@ export default class Index extends Component {
   }
 
   render () {
-    const { now, minDate, maxDate, mark, multiCurentDate, validDates } = this.state
+    const { now, minDate, maxDate, mark, multiCurentDate, validDates, priceDates } = this.state
     return (
       <View className='page calendar-page'>
         <DocsHeader title='Calendar 日历' />
@@ -199,6 +300,14 @@ export default class Index extends Component {
               <AtCalendar validDates={validDates}/>
             </View>
           </View>
+
+          <View className='panel'>
+            <View className='panel__title'>有效时间组+多选+自定义cell文本</View>
+            <View className='panel__content'>
+              <AtCalendar validDates={validDates} priceDates={priceDates} isMultiSelect onDayClick={this.handleDayClick} onSelectDate={this.handleDateChange}/>
+            </View>
+          </View>
+
         </View>
       </View>
     )
