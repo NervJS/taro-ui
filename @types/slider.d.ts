@@ -1,7 +1,7 @@
 import { ComponentClass } from 'react'
 import AtComponent from './base'
 
-declare type SliderFunction = (value: number) => void
+declare type SliderFunction = (detail: {value:number}) => void
 
 export interface AtSliderProps extends AtComponent{
   min?: number
