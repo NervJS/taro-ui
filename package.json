@@ -33,7 +33,10 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "eslintConfig": {
-    "extends": ["o2team", "taro"],
+    "extends": [
+      "o2team",
+      "taro"
+    ],
     "parser": "babel-eslint",
     "env": {
       "jest": true
@@ -43,29 +46,58 @@
       "prefer-rest-params": "off",
       "arrow-body-style": "warn",
       "taro/custom-component-children": "off",
-      "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
-      "no-console": ["error", { "allow": ["warn", "error"] }]
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "Taro"
+        }
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ]
     },
     "overrides": [
       {
-        "files": ["build/*.js"],
+        "files": [
+          "build/*.js"
+        ],
         "rules": {
           "import/no-commonjs": "off"
         }
       },
       {
-        "files": ["src/components/**/*.test.js", "src/components/**/test.js"],
+        "files": [
+          "src/components/**/*.test.js",
+          "src/components/**/test.js"
+        ],
         "rules": {
           "taro/no-stateless-component": "off",
           "react/react-in-jsx-scope": "off",
           "react/no-find-dom-node": "off",
-          "no-unused-vars": ["error", { "varsIgnorePattern": "Nerv" }]
+          "no-unused-vars": [
+            "error",
+            {
+              "varsIgnorePattern": "Nerv"
+            }
+          ]
         }
       },
       {
-        "files": ["**/*.ts","**/*.tsx"],
+        "files": [
+          "**/*.ts",
+          "**/*.tsx"
+        ],
         "parser": "@typescript-eslint/parser",
-        "plugins": ["react", "@typescript-eslint"],
+        "plugins": [
+          "react",
+          "@typescript-eslint"
+        ],
         "env": {
           "jest": true
         },
@@ -78,7 +110,14 @@
           "arrow-body-style": "warn",
           "react/jsx-filename-extension": [
             2,
-            { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+            {
+              "extensions": [
+                ".js",
+                ".jsx",
+                ".ts",
+                ".tsx"
+              ]
+            }
           ],
           "taro/custom-component-children": "off"
         }
@@ -87,13 +126,15 @@
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
-    "plugins": ["stylelint-scss"],
+    "plugins": [
+      "stylelint-scss"
+    ],
     "rules": {
       "declaration-colon-newline-after": null,
       "at-rule-no-unknown": null,
       "color-hex-case": null,
       "block-closing-brace-newline-after": null,
-      "at-rule-empty-line-before":null,
+      "at-rule-empty-line-before": null,
       "number-no-trailing-zeros": null,
       "no-empty-source": null,
       "unit-case": null,
@@ -105,18 +146,32 @@
       "@commitlint/config-conventional"
     ],
     "rules": {
-      "type-empty": [2, "never"],
-      "type-case": [2, "always", "lower-case"],
-      "subject-empty": [2, "never"],
-      "type-enum": [2, "always", [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "test",
-        "chore"
-      ]]
+      "type-empty": [
+        2,
+        "never"
+      ],
+      "type-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "subject-empty": [
+        2,
+        "never"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "docs",
+          "style",
+          "refactor",
+          "test",
+          "chore"
+        ]
+      ]
     }
   },
   "husky": {
@@ -170,21 +225,21 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@mapbox/jsxtreme-markdown-loader": "^0.8.3",
-    "@tarojs/cli": "2.0.0-beta.10",
-    "@tarojs/components": "2.0.0-beta.10",
-    "@tarojs/mini-runner": "2.0.0-beta.10",
-    "@tarojs/plugin-babel": "2.0.0-beta.10",
-    "@tarojs/plugin-csso": "2.0.0-beta.10",
-    "@tarojs/plugin-sass": "2.0.0-beta.10",
-    "@tarojs/plugin-uglifyjs": "2.0.0-beta.10",
-    "@tarojs/router": "2.0.0-beta.10",
-    "@tarojs/taro": "2.0.0-beta.10",
-    "@tarojs/taro-alipay": "2.0.0-beta.10",
-    "@tarojs/taro-h5": "2.0.0-beta.10",
-    "@tarojs/taro-qq": "2.0.0-beta.10",
-    "@tarojs/taro-swan": "2.0.0-beta.10",
-    "@tarojs/taro-weapp": "2.0.0-beta.10",
-    "@tarojs/webpack-runner": "2.0.0-beta.10",
+    "@tarojs/cli": "2.0.0-beta.13",
+    "@tarojs/components": "2.0.0-beta.13",
+    "@tarojs/mini-runner": "2.0.0-beta.13",
+    "@tarojs/plugin-babel": "2.0.0-beta.13",
+    "@tarojs/plugin-csso": "2.0.0-beta.13",
+    "@tarojs/plugin-sass": "2.0.0-beta.13",
+    "@tarojs/plugin-uglifyjs": "2.0.0-beta.13",
+    "@tarojs/router": "2.0.0-beta.13",
+    "@tarojs/taro": "2.0.0-beta.13",
+    "@tarojs/taro-alipay": "2.0.0-beta.13",
+    "@tarojs/taro-h5": "2.0.0-beta.13",
+    "@tarojs/taro-qq": "2.0.0-beta.13",
+    "@tarojs/taro-swan": "2.0.0-beta.13",
+    "@tarojs/taro-weapp": "2.0.0-beta.13",
+    "@tarojs/webpack-runner": "2.0.0-beta.13",
     "@types/classnames": "^2.2.9",
     "@types/webpack-env": "^1.13.6",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
@@ -211,7 +266,7 @@
     "css-loader": "^3.2.1",
     "eslint": "^6.7.2",
     "eslint-config-o2team": "^0.1.6",
-    "eslint-config-taro": "2.0.0-beta.10",
+    "eslint-config-taro": "2.0.0-beta.13",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^23.1.1",
     "eslint-plugin-react": "^7.8.2",
