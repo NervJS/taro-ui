@@ -19,8 +19,13 @@
     "jsx": "preserve",
     "typeRoots": [
       "node_modules/@types",
-      "global.d.ts"
-    ]
+      "global.d.ts",
+      "types"
+    ],
+    "resolveJsonModule": true,
+    "paths": {
+      "taro-ui": [ "src/ui.ts" ]
+    }
   },
   "compileOnSave": false
 }

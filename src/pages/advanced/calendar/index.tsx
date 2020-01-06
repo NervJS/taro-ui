@@ -1,17 +1,14 @@
-import bind from 'bind-decorator'
+import bind from 'bind-decorator';
+import { AtButton, AtCalendar } from 'taro-ui';
 
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View } from '@tarojs/components';
+import Taro, { Component } from '@tarojs/taro';
 
-import AtButton from '../../../components/button/index'
-
+import DocsHeader from '../../components/doc-header';
 import './index.scss'
 
-import DocsHeader from '../../components/doc-header'
-import AtCalendar from '../../../components/calendar/index'
-
 export default class Index extends Component {
-  config: Config = {
+  public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro日历组件展示'
   }
 
@@ -43,44 +40,34 @@ export default class Index extends Component {
     ]
   }
 
-  componentWillMount () {}
-
-  componentDidMount () {}
-
-  componentWillUnmount () {}
-
-  componentDidShow () {}
-
-  componentDidHide () {}
-
   @bind
-  handleClick (key: string, value: string) {
+  private handleClick (key: string, value: string): void {
     this.setState({
       [key]: value
     })
   }
 
   @bind
-  handleDayClick (...arg) {
+  private handleDayClick (...arg): void {
     console.log('handleDayClick', arg)
   }
 
   @bind
-  handleDayLongClick (...arg) {
+  private handleDayLongClick (...arg): void {
     console.log('handleDayLongClick', arg)
   }
 
   @bind
-  handleDateChange (arg) {
+  private handleDateChange (arg): void {
     console.log('handleDateChange', arg)
   }
 
   @bind
-  handleMonthChange (arg) {
+  private handleMonthChange (arg): void {
     console.log('handleMonthChange', arg)
   }
 
-  render () {
+  public render (): JSX.Element {
     const { now, minDate, maxDate, mark, multiCurentDate, validDates } = this.state
     return (
       <View className='page calendar-page'>

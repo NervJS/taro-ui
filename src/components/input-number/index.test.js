@@ -50,7 +50,7 @@ describe('AtInputNumber Snap', () => {
   })
 
   it('render AtInputNumber -- props size', () => {
-    const component = renderToString(<AtInputNumber size='lg' />)
+    const component = renderToString(<AtInputNumber size='large' />)
     expect(component).toMatchSnapshot()
   })
 })

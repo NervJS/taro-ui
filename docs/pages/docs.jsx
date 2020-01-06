@@ -7,6 +7,9 @@ import Sidebar from '../components/sidebar'
 
 import navsConfig from '../nav.config.yml'
 import { default as pathMap } from '../page-route'
+import qrCodeImg from '../assets/qr_code.png'
+import wxAppLogo from '../assets/wxapp-logo.png'
+import qrCodeWxApp from '../assets/wxapp.jpg'
 import '../assets/style/docs.scss'
 
 class Docs extends Nerv.Component {
@@ -44,7 +47,7 @@ class Docs extends Nerv.Component {
             curDemoPath &&
             <div className='qrcode-menu' style='right: 420px'>
               <div className='qrcode-container'>
-                <img src={require('../assets/qr_code.png')} alt='qrcode' />
+                <img src={qrCodeImg} alt='qrcode' />
                 <div className='qrcode-modal'>
                   <h6>扫描二维码查看演示效果</h6>
                   <div className='code-image'>
@@ -53,11 +56,11 @@ class Docs extends Nerv.Component {
                 </div>
               </div>
               <div className='wxapp-container'>
-                <img src={require('../assets/wxapp-logo.png')} alt='qrcode' />
+                <img src={wxAppLogo} alt='qrcode' />
                 <div className='qrcode-modal'>
                   <h6>扫描二维码查看演示效果</h6>
                   <div className='code-image'>
-                    <img className='wxapp-qrcode' src={require('../assets/wxapp.jpg')} alt='wxapp' />
+                    <img className='wxapp-qrcode' src={qrCodeWxApp} alt='wxapp' />
                   </div>
                 </div>
               </div>

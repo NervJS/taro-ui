@@ -7,32 +7,28 @@ const config = {
   designWidth: 750,
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: {
-    babel: {
-      sourceMap: true,
-      presets: [
-        'env'
-      ],
-      plugins: [
-        'transform-class-properties',
-        'transform-decorators-legacy',
-        'transform-object-rest-spread'
-      ]
-    }
+  plugins: {},
+  babel: {
+    sourceMap: true,
+    presets: [
+      'env'
+    ],
+    plugins: [
+      'transform-class-properties',
+      'transform-decorators-legacy',
+      'transform-object-rest-spread'
+    ]
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   alias: {
-    'taro-ui': path.resolve(__dirname, '../src/ui.js'),
+    'taro-ui': path.resolve(__dirname, '../src/ui.ts'),
   },
-  weapp: {},
+  mini: {},
   h5: {
     staticDirectory: 'static',
-    module: {
-      postcss: {
-        autoprefixer: {
-          enable: true
-        }
+    postcss: {
+      autoprefixer: {
+        enable: true
       }
     }
   },
