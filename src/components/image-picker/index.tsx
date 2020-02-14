@@ -3,9 +3,9 @@ import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
+import { AtImagePickerProps, File } from 'types/image-picker'
 import AtComponent from '../../common/component'
 import { uuid } from '../../common/utils'
-import { AtImagePickerProps, File } from 'types/image-picker'
 
 interface MatrixFile extends Partial<File> {
   type: 'blank' | 'btn'
@@ -61,7 +61,6 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
         })
       )
       const newFiles = files.concat(targetFiles)
-      // @ts-ignore // TODO: Fix typings
       this.props.onChange(newFiles, 'add')
     }).catch(this.props.onFail)
   }
@@ -75,7 +74,7 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
     if (ENV === Taro.ENV_TYPE.WEB) {
       window.URL.revokeObjectURL(files[idx].url)
     }
-    const newFiles = files.filter((file, i) => i !== idx)
+    const newFiles = files.filter((_, i) => i !== idx)
     this.props.onChange(newFiles, 'remove', idx)
   }
 
@@ -85,11 +84,12 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
       customStyle,
       files,
       mode,
-      length,
-      showAddBtn
+      length = 4,
+      showAddBtn = true
     } = this.props
+    const rowLength = length <= 0 ? 1 : length
     // 行数
-    const matrix = generateMatrix(files as MatrixFile[], length!, showAddBtn!)
+    const matrix = generateMatrix(files as MatrixFile[], rowLength, showAddBtn)
     const rootCls = classNames('at-image-picker', className)
 
     return <View className={rootCls} style={customStyle}>
