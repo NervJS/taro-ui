@@ -93,7 +93,7 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
     const { value } = nextProps
     if (
       this.props.value![0] !== value![0]
-      && this.props.value![1] !== value![1]
+      || this.props.value![1] !== value![1]
     ) {
       this.setValue(value!)
     }
