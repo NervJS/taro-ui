@@ -49,7 +49,8 @@ $at-modal-duration: 200ms;
     max-height: 840px;
     color: $at-modal-content-text-color;
     font-size: $font-size-base;
-    box-sizing: border-box;
+    box-sizing: content-box;
+    width: auto;
   }
 
   &__footer {
