@@ -6,7 +6,7 @@ const config = {
   projectName: 'taro-ui',
   designWidth: 750,
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins: {},
   babel: {
     sourceMap: true,
