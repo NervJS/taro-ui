@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { AtInputNumber } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -25,10 +26,12 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private handleNumberChange (stateName: string, value: number): void {
+  private handleNumberChange (stateName: string, value: number, e: CommonEvent): void {
     this.setState({
       [stateName]: value
     })
+    /* eslint-disable-next-line no-console */
+    console.log('Event:', e)
   }
 
   public render (): JSX.Element {

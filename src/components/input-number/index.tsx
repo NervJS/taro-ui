@@ -1,13 +1,12 @@
 import Taro from '@tarojs/taro'
 import { View, Input, Text } from '@tarojs/components'
+import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _toString from 'lodash/toString'
-
+import { AtInputNumberProps, InputError } from 'types/input-number'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
-import { AtInputNumberProps, InputError } from 'types/input-number'
-import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
 
 // TODO: Check all types
 
@@ -53,7 +52,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
   public static defaultProps: AtInputNumberProps
   public static propTypes: InferProps<AtInputNumberProps>
 
-  private handleClick (clickType: 'minus' | 'plus'): void {
+  private handleClick (clickType: 'minus' | 'plus', e: CommonEvent): void {
     // TODO: Fix dirty hack
     const { disabled, value, min, max, step } = this.props
     const lowThanMin = (clickType === 'minus' && value <= min!)
@@ -77,7 +76,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
     const deltaValue = clickType === 'minus' ? -step! : step
     let newValue = addNum(Number(value), deltaValue!)
     newValue = Number(this.handleValue(newValue))
-    this.props.onChange(newValue)
+    this.props.onChange(newValue, e)
   }
 
   private handleValue = (value: string | number): string => {
@@ -109,7 +108,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
     if (disabled) return
 
     const newValue = this.handleValue(value)
-    this.props.onChange(Number(newValue))
+    this.props.onChange(Number(newValue), e)
     return newValue
   }
 
@@ -182,8 +181,8 @@ AtInputNumber.defaultProps = {
   max: 100,
   step: 1,
   size: 'normal',
-  onChange: () => {},
-  onBlur: () => {},
+  onChange: () => { },
+  onBlur: () => { },
 }
 
 AtInputNumber.propTypes = {

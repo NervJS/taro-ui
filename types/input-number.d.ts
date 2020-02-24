@@ -1,6 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction } from '@tarojs/components/types/common'
-
+import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface InputError {
@@ -8,7 +7,7 @@ export interface InputError {
   errorValue: number,
 }
 
-export interface AtInputNumberProps extends AtComponent{
+export interface AtInputNumberProps extends AtComponent {
   /**
    * 输入框类型
    * @type {'number' | 'digit'}
@@ -70,7 +69,7 @@ export interface AtInputNumberProps extends AtComponent{
    * @param {number} value 输入框当前值
    * @description 开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填
    */
-  onChange: (value: number) => void
+  onChange: (value: number, e: CommonEvent) => void
   /**
    * 输入框值失去焦点时触发的事件
    */
