@@ -60,6 +60,10 @@ import { AtButton } from 'taro-ui'
 
 [开发计划](./PLANS.md)
 
+## 路线图
+
+![Roadmap][roadmap-image]
+
 ## 贡献
 
 如果你在使用 `Taro UI` 时遇到问题，或者有好的建议，欢迎给我们提 `Issue` 或 `Pull Request`。在开始之前，请阅读 [贡献指南](https://github.com/NervJS/taro-ui/blob/master/.github/CONTRIBUTING.md)
@@ -67,7 +71,6 @@ import { AtButton } from 'taro-ui'
 ## License
 
 MIT
-
 
 [npm-version-image]: https://img.shields.io/npm/v/taro-ui.svg?style=flat-square
 [npm-version-url]: https://www.npmjs.com/package/taro-ui
@@ -77,3 +80,4 @@ MIT
 [david-dm-url]: https://david-dm.org/NervJS/taro-ui
 [license-image]: https://img.shields.io/github/license/NervJS/taro-ui?style=flat-square
 [license-url]: https://github.com/NervJS/taro-ui/blob/master/LICENSE
+[roadmap-image]: ./docs/assets/taro-ui-roadmap.svg
