@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
 
 export interface AtComponent {
-  className?: string | string[] | { [key: string]: boolean }
+  className?: string
 
   customStyle?: string | CSSProperties
 }
