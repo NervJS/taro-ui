@@ -13,6 +13,28 @@
         <i class="icon icon-award"></i>
       </div>
       <div class="at-timeline__content">
+        <p class="head">v2.3.0</p>
+        <p class="time">
+          <span>2020-02-29</span>
+        </p>
+        <ul class="content">
+          <li><span>Calendar</span>修复因 key 重复导致的日期更新错位问题（<a href="https://github.com/nervjs/taro-ui/issues/853">#853</a>）</li>
+          <li><span>ImagePicker</span>修复 AtImagePicker 的 onChange 首参类型错误（<a href="https://github.com/NervJS/taro-ui/issues/902">#902</a>）</li>
+          <li><span>InputNumber</span>修复 AtInputNumber onChange 没有 Event 对象的问题 close（<a href="https://github.com/NervJS/taro-ui/issues/923">#923</a>）</li>
+          <li><span>Model</span>修复 model content 在显示长文本时会溢出（<a href="https://github.com/NervJS/taro-ui/issues/954">#954</a>）</li>
+          <li><span>Range</span>只有一个 value 变动的情况也触发渲染（<a href="https://github.com/NervJS/taro-ui/issues/952">#952</a>）</li>
+          <li><span>Input</span>input 的 clear 清除问题（<a href="https://github.com/NervJS/taro-ui/issues/840">#840</a>）</li>
+          <li><span>Modal</span>AtModal 模态框属性 isOpened 文档不对（<a href="https://github.com/NervJS/taro-ui/issues/844">#844</a>）</li>
+          <li><span>ImagePicker</span>修复 ImagePicker 的 Length 属性可以为 0 的问题 close（<a href="https://github.com/NervJS/taro-ui/issues/901">#901</a>）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="at-timeline__item at-timeline__item--custom at-timeline__item--error">
+      <div class="at-timeline__tail"></div>
+      <div class="at-timeline__dot">
+        <i class="icon icon-award"></i>
+      </div>
+      <div class="at-timeline__content">
         <p class="head">v2.2.0</p>
         <p class="time">
           <span>2019-06-12</span>
