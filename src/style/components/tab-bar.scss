@@ -19,7 +19,7 @@ $at-tab-bar-title-max-width: 200px;
   /* elements */
   &__item {
     flex: 1;
-    padding: $spacing-v-sm $spacing-v-sm 0;
+    padding: $spacing-v-sm $spacing-v-sm;
     color: $at-tab-bar-color;
     font-size: 0;
     transition: all 0.2s;
