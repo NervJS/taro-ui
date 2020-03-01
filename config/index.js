@@ -2,11 +2,13 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const isBuildComponent = process.env.TARO_BUILD_TYPE === 'component'
+
 const config = {
   projectName: 'taro-ui',
   designWidth: 750,
   sourceRoot: 'src',
-  outputRoot: `dist/${process.env.TARO_ENV}`,
+  outputRoot: isBuildComponent ? 'dist' : `dist/${process.env.TARO_ENV}`,
   plugins: {},
   babel: {
     sourceMap: true,
@@ -34,7 +36,7 @@ const config = {
   },
 }
 
-if (process.env.TARO_BUILD_TYPE === 'component') {
+if (isBuildComponent) {
   Object.assign(config.h5, {
     enableSourceMap: false,
     enableExtract: false,
