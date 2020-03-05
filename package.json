@@ -9,30 +9,24 @@
     "*.css"
   ],
   "types": "./types/index.d.ts",
-  "scripts": {
-    "dev:weapp": "npm run build:weapp -- --watch",
-    "dev:qq": "npm run build:qq -- --watch",
-    "dev:h5": "npm run build:h5 -- --watch",
-    "dev:swan": "npm run build:swan -- --watch",
-    "dev:alipay": "npm run build:alipay -- --watch",
-    "dev:doc": "npm run build:h5-static && node ./build/dev-server",
-    "build:weapp": "taro build --type weapp",
-    "build:qq": "taro build --type qq",
-    "build:h5": "taro build --type h5",
-    "build:swan": "taro build --type swan",
-    "build:alipay": "taro build --type alipay",
-    "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
-    "build:h5-static": "npm run build:h5 && node ./build/build-static",
-    "build:doc": "npm run build:h5-static && node ./build/build-docs",
-    "prepublishOnly": "npm run clean && npm run build:component",
-    "lint": "eslint ./src --fix",
-    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
-    "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "test": "cross-env NODE_ENV=test && jest --coverage",
-    "test:ci": "npm run build:h5 && npm run test",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "clean": "rimraf .temp dist coverage"
+  "keywords": [
+    "taro",
+    "taro-ui",
+    "ui"
+  ],
+  "files": [
+    "dist",
+    "types",
+    "src/**/interface.ts",
+    "src/**/*.d.ts"
+  ],
+  "author": "O2Team <aotu.io>",
+  "homepage": "https://taro-ui.aotu.io",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nervjs/taro-ui.git"
   },
+  "license": "MIT",
   "eslintConfig": {
     "extends": [
       "o2team",
@@ -191,24 +185,30 @@
       "git add"
     ]
   },
-  "keywords": [
-    "taro",
-    "taro-ui",
-    "ui"
-  ],
-  "files": [
-    "dist",
-    "types",
-    "src/**/interface.ts",
-    "src/**/*.d.ts"
-  ],
-  "author": "O2Team <aotu.io>",
-  "homepage": "https://taro-ui.aotu.io",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:nervjs/taro-ui.git"
+  "scripts": {
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:qq": "npm run build:qq -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "dev:swan": "npm run build:swan -- --watch",
+    "dev:alipay": "npm run build:alipay -- --watch",
+    "dev:doc": "npm run build:h5-static && node ./build/dev-server",
+    "build:weapp": "taro build --type weapp",
+    "build:qq": "taro build --type qq",
+    "build:h5": "taro build --type h5",
+    "build:swan": "taro build --type swan",
+    "build:alipay": "taro build --type alipay",
+    "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
+    "build:h5-static": "npm run build:h5 && node ./build/build-static",
+    "build:doc": "npm run build:h5-static && node ./build/build-docs",
+    "prepublishOnly": "npm run clean && npm run build:component",
+    "lint": "eslint ./src --fix",
+    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
+    "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
+    "test": "cross-env NODE_ENV=test && jest --coverage",
+    "test:ci": "npm run build:h5 && npm run test",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "clean": "rimraf .temp dist coverage"
   },
-  "license": "MIT",
   "dependencies": {
     "@types/react": "^16.7.3",
     "bind-decorator": "^1.0.11",

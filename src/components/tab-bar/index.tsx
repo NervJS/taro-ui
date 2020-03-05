@@ -1,11 +1,11 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtBadge from '../badge/index'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtTabBarProps, TabItem } from 'types/tab-bar'
+import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
+import AtBadge from '../badge/index'
 
 export default class AtTabBar extends AtComponent<AtTabBarProps> {
   public static defaultProps: AtTabBarProps
@@ -66,56 +66,72 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
 
     return (
       <View
-        className={
-          classNames({
+        className={classNames(
+          {
             'at-tab-bar': true,
-            'at-tab-bar--fixed': fixed,
+            'at-tab-bar--fixed': fixed
             // 'at-tab-bar--ipx': isIPhoneX
-          }, className)
-        }
+          },
+          className
+        )}
         style={this.mergeStyle(rootStyle, customStyle!)}
       >
         {tabList.map((item: TabItem, i: number) => (
           <View
-            className={classNames('at-tab-bar__item', { 'at-tab-bar__item--active': current === i })}
+            className={classNames('at-tab-bar__item', {
+              'at-tab-bar__item--active': current === i
+            })}
             style={current === i ? selectedStyle : defaultStyle}
             key={item.title}
             onClick={this.handleClick.bind(this, i)}
           >
             {item.iconType ? (
-              <AtBadge dot={!!item.dot} value={item.text} maxValue={Number(item.max)}>
+              <AtBadge
+                dot={!!item.dot}
+                value={item.text}
+                maxValue={Number(item.max)}
+              >
                 <View className='at-tab-bar__icon'>
-                  <Text className={classNames(`${item.iconPrefixClass || 'at-icon'}`, {
-                    [`${item.iconPrefixClass || 'at-icon'}-${item.selectedIconType}`]: current === i && item.selectedIconType,
-                    [`${item.iconPrefixClass || 'at-icon'}-${item.iconType}`]: !(current === i && item.selectedIconType),
-                  })} style={{
-                    color: current === i ? selectedColor : color,
-                    fontSize: iconSize ? `${iconSize}px` : '',
-                  }}
+                  <Text
+                    className={classNames(
+                      `${item.iconPrefixClass || 'at-icon'}`,
+                      {
+                        [`${item.iconPrefixClass || 'at-icon'}-${
+                          item.selectedIconType
+                        }`]: current === i && item.selectedIconType,
+                        [`${item.iconPrefixClass || 'at-icon'}-${
+                          item.iconType
+                        }`]: !(current === i && item.selectedIconType)
+                      }
+                    )}
+                    style={{
+                      color: current === i ? selectedColor : color,
+                      fontSize: iconSize ? `${iconSize}px` : ''
+                    }}
                   ></Text>
                 </View>
               </AtBadge>
             ) : null}
 
             {item.image ? (
-              <AtBadge dot={!!item.dot} value={item.text} maxValue={Number(item.max)}>
+              <AtBadge
+                dot={!!item.dot}
+                value={item.text}
+                maxValue={Number(item.max)}
+              >
                 <View className='at-tab-bar__icon'>
                   <Image
-                    className={classNames(
-                      'at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current !== i
-                      })
-                    }
+                    className={classNames('at-tab-bar__inner-img', {
+                      'at-tab-bar__inner-img--inactive': current !== i
+                    })}
                     mode='widthFix'
                     src={item.selectedImage || item.image}
                     style={imgStyle}
                   ></Image>
                   <Image
-                    className={classNames(
-                      'at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current === i
-                      })
-                    }
+                    className={classNames('at-tab-bar__inner-img', {
+                      'at-tab-bar__inner-img--inactive': current === i
+                    })}
                     mode='widthFix'
                     src={item.image}
                     style={imgStyle}
@@ -126,9 +142,9 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
 
             <View>
               <AtBadge
-                dot={(item.iconType || item.image) ? false : !!item.dot}
-                value={(item.iconType || item.image) ? '' : item.text}
-                maxValue={(item.iconType || item.image) ? 0 : Number(item.max)}
+                dot={item.iconType || item.image ? false : !!item.dot}
+                value={item.iconType || item.image ? '' : item.text}
+                maxValue={item.iconType || item.image ? 0 : Number(item.max)}
               >
                 <View className='at-tab-bar__title' style={titleStyle}>
                   {item.title}
@@ -148,18 +164,12 @@ AtTabBar.defaultProps = {
   fixed: false,
   current: 0,
   tabList: [],
-  onClick: () => {},
+  onClick: () => {}
 }
 
 AtTabBar.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   fixed: PropTypes.bool,
   backgroundColor: PropTypes.string,
   current: PropTypes.number,
@@ -168,5 +178,5 @@ AtTabBar.propTypes = {
   color: PropTypes.string,
   selectedColor: PropTypes.string,
   tabList: PropTypes.array,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }
