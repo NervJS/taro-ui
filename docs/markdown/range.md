@@ -77,6 +77,7 @@ export default class Index extends Taro.Component {
 | max | 最大值 | Number  | - | 100 |
 | blockSize | 滑块大小 | Number  | - | 28 |
 | disabled | 是否禁用 | Boolean  | - | false |
+| isForceUpdatePos | 是否每次props变动都更新位置，一般用于组件componentDidMount的时候是隐藏的场景 | Boolean| - | false |
 
 ## 事件
 

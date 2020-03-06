@@ -3,9 +3,9 @@ import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
+import { AtRangeProps, AtRangeState } from 'types/range'
 import { delayQuerySelector, getEventDetail } from '../../common/utils'
 import AtComponent from '../../common/component'
-import { AtRangeProps, AtRangeState } from 'types/range'
 
 export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
   public static defaultProps: AtRangeProps
@@ -89,8 +89,17 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
     }
   }
 
+  private updatePos (): void {
+    delayQuerySelector(this, '.at-range__container', 0)
+      .then(rect => {
+        this.width = Math.round(rect[0].width)
+        this.left = Math.round(rect[0].left)
+      })
+  }
+
   public componentWillReceiveProps (nextProps: AtRangeProps): void {
-    const { value } = nextProps
+    const { value, isForceUpdatePos } = nextProps
+    if (isForceUpdatePos) this.updatePos()
     if (
       this.props.value![0] !== value![0]
       || this.props.value![1] !== value![1]
@@ -101,14 +110,8 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
 
   public componentDidMount (): void {
     const { value } = this.props
-    delayQuerySelector(this, '.at-range__container', 0)
-      .then(rect => {
-        this.width = Math.round(rect[0].width)
-        this.left = Math.round(rect[0].left)
-        this.setValue(value!)
-      })
-    // this.triggerEvent('onChange')
-    // this.triggerEvent('onAfterChange')
+    this.updatePos()
+    this.setValue(value!)
   }
 
   public render (): JSX.Element {

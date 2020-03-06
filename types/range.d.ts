@@ -43,6 +43,11 @@ export interface AtRangeProps extends AtComponent {
    */
   disabled?: boolean
   /**
+   * 是否每次props变动都更新位置，默认只会在componentDidMount获取一次位置
+   * @default false
+   */
+  isForceUpdatePos?: boolean
+  /**
    * 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。
    */
   onChange?: (value: RangeTuple) => void
