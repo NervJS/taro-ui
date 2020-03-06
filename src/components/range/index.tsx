@@ -98,8 +98,8 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
   }
 
   public componentWillReceiveProps (nextProps: AtRangeProps): void {
-    const { value, isForceUpdatePos } = nextProps
-    if (isForceUpdatePos) this.updatePos()
+    const { value } = nextProps
+    this.updatePos()
     if (
       this.props.value![0] !== value![0]
       || this.props.value![1] !== value![1]
