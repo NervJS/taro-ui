@@ -1,7 +1,6 @@
-import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
 
-import AtAvatar from '../../../.temp/components/avatar/index'
+import AtAvatar from '../../.temp/components/avatar/index'
 
 describe('Avatar Snap', () => {
   it('render Avatar -- props size(large) ', () => {
@@ -25,7 +24,9 @@ describe('Avatar Snap', () => {
   })
 
   it('render Avatar -- props image', () => {
-    const component = renderToString(<AtAvatar image='https://jdc.jd.com/img/100' />)
+    const component = renderToString(
+      <AtAvatar image='https://jdc.jd.com/img/100' />
+    )
     expect(component).toMatchSnapshot()
   })
 

@@ -1,7 +1,6 @@
-import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
 
-import AtActivityIndicator from '../../../.temp/components/activity-indicator/index'
+import AtActivityIndicator from '../../.temp/components/activity-indicator/index'
 
 describe('ActivityIndicator Snap', () => {
   it('render initial ActivityIndicator', () => {
@@ -20,7 +19,9 @@ describe('ActivityIndicator Snap', () => {
   })
 
   it('render ActivityIndicator -- props content ', () => {
-    const component = renderToString(<AtActivityIndicator content='加载中...' />)
+    const component = renderToString(
+      <AtActivityIndicator content='加载中...' />
+    )
     expect(component).toMatchSnapshot()
   })
 

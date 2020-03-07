@@ -1,8 +1,7 @@
-import Nerv from 'nervjs'
 import { View } from '@tarojs/components'
 import { renderToString } from 'nerv-server'
 
-import AtAccordion from '../../../.temp/components/accordion'
+import AtAccordion from '../../.temp/components/accordion'
 
 describe('AtAccordion Snap', () => {
   it('render initial AtAccordion', () => {
@@ -30,7 +29,9 @@ describe('AtAccordion Snap', () => {
   })
   it('render AtIcon -- props icon prefixClass', () => {
     const component = renderToString(
-      <AtAccordion icon={{ prefixClass: 'prefixClass', value: 'star', color: 'red' }}>
+      <AtAccordion
+        icon={{ prefixClass: 'prefixClass', value: 'star', color: 'red' }}
+      >
         <View></View>
       </AtAccordion>
     )

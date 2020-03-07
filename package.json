@@ -68,8 +68,8 @@
       },
       {
         "files": [
-          "src/components/**/*.test.js",
-          "src/components/**/test.js"
+          "test/**/*.test.js",
+          "test/**/test.js"
         ],
         "rules": {
           "taro/no-stateless-component": "off",
