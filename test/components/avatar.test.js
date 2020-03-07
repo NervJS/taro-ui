@@ -1,5 +1,5 @@
+import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
 import AtAvatar from '../../.temp/components/avatar/index'
 
 describe('Avatar Snap', () => {

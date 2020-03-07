@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtIcon from '../../../.temp/components/icon/index'
+import AtIcon from '../../.temp/components/icon/index'
 
 describe('AtIcon Snap', () => {
   it('render initial AtIcon', () => {
@@ -26,7 +25,9 @@ describe('AtIcon Snap', () => {
   })
 
   it('render AtIcon -- props prefixClass', () => {
-    const component = renderToString(<AtIcon prefixClass='prefixClass' value='star' />)
+    const component = renderToString(
+      <AtIcon prefixClass='prefixClass' value='star' />
+    )
     expect(component).toMatchSnapshot()
   })
 

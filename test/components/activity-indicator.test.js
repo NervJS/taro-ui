@@ -1,5 +1,5 @@
+import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
 import AtActivityIndicator from '../../.temp/components/activity-indicator/index'
 
 describe('ActivityIndicator Snap', () => {

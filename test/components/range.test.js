@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtRange from '../../../.temp/components/range/index'
+import AtRange from '../../.temp/components/range/index'
 
 describe('AtRange Snap', () => {
   it('render initial AtRange', () => {

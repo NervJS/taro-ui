@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtLoadMore from '../../../.temp/components/load-more/index'
+import AtLoadMore from '../../.temp/components/load-more/index'
 
 describe('AtLoadMore Snap', () => {
   it('render initial AtLoadMore', () => {
@@ -35,17 +34,23 @@ describe('AtLoadMore Snap', () => {
   })
 
   it('render AtLoadMore -- props moreText ', () => {
-    const component = renderToString(<AtLoadMore moreText='moreText' status='more' />)
+    const component = renderToString(
+      <AtLoadMore moreText='moreText' status='more' />
+    )
     expect(component).toMatchSnapshot()
   })
 
   it('render AtLoadMore -- props loadingText ', () => {
-    const component = renderToString(<AtLoadMore loadingText='loadingText' status='loading' />)
+    const component = renderToString(
+      <AtLoadMore loadingText='loadingText' status='loading' />
+    )
     expect(component).toMatchSnapshot()
   })
 
   it('render AtLoadMore -- props noMoreText ', () => {
-    const component = renderToString(<AtLoadMore noMoreText='noMoreText' status='noMore' />)
+    const component = renderToString(
+      <AtLoadMore noMoreText='noMoreText' status='noMore' />
+    )
     expect(component).toMatchSnapshot()
   })
 

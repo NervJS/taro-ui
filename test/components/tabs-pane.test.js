@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtTabsPane from '../../../.temp/components/tabs-pane/index'
+import AtTabsPane from '../../.temp/components/tabs-pane/index'
 
 describe('AtTabsPane Snap', () => {
   it('render initial AtTabs', () => {

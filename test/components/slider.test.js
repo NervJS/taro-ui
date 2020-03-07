@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtSlider from '../../../.temp/components/slider/index'
+import AtSlider from '../../.temp/components/slider/index'
 
 describe('AtSlider Snap', () => {
   it('render initial AtSlider', () => {

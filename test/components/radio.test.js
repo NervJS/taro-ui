@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtRadio from '../../../.temp/components/radio/index'
+import AtRadio from '../../.temp/components/radio/index'
 
 const options = [
   { label: '单选项一', value: 'option1' },
@@ -20,8 +19,12 @@ describe('AtRadio Snap', () => {
 describe('AtRadio Event', () => {
   it('AtRadio onClick', () => {
     const onItemClick = jest.fn()
-    const component = renderIntoDocument(<AtRadio value='option2' options={options} onClick={onItemClick} />)
-    const items = findDOMNode(component, 'at-radio').querySelectorAll('.at-radio__option')
+    const component = renderIntoDocument(
+      <AtRadio value='option2' options={options} onClick={onItemClick} />
+    )
+    const items = findDOMNode(component, 'at-radio').querySelectorAll(
+      '.at-radio__option'
+    )
     const item0 = items[0]
     Simulate.click(item0)
     expect(onItemClick).toBeCalled()
@@ -30,8 +33,12 @@ describe('AtRadio Event', () => {
 
   it('AtRadio onClick disabled, onClick not to be called', () => {
     const onItemClick = jest.fn()
-    const component = renderIntoDocument(<AtRadio value='option2' options={options} onClick={onItemClick} />)
-    const items = findDOMNode(component, 'at-radio').querySelectorAll('.at-radio__option')
+    const component = renderIntoDocument(
+      <AtRadio value='option2' options={options} onClick={onItemClick} />
+    )
+    const items = findDOMNode(component, 'at-radio').querySelectorAll(
+      '.at-radio__option'
+    )
     const item2 = items[2]
     Simulate.click(item2)
     expect(onItemClick).not.toBeCalled()

@@ -2,7 +2,7 @@ module.exports = {
   verbose: true,
   moduleFileExtensions: ['js', 'jsx', 'json'],
   rootDir: __dirname,
-  testMatch: ['<rootDir>/src/components/**/*.test.js','<rootDir>/src/components/**/test.js'],
+  testMatch: ['<rootDir>/test/**/*.test.js', '<rootDir>/test/**/test.js'],
   transform: {
     '^.+\\.js?$': 'babel-jest'
   },
@@ -11,7 +11,7 @@ module.exports = {
     react: 'nervjs',
     'react-addons-test-utils': 'nerv-test-utils',
     'react-dom': 'nervjs',
-    'weui': '<rootDir>/__mock__/styleMock.js',
-    '\\.(css|less|sass|scss)$': '<rootDir>/__mock__/styleMock.js'
+    weui: '<rootDir>/test/__mock__/styleMock.js',
+    '\\.(css|less|sass|scss)$': '<rootDir>/test/__mock__/styleMock.js'
   }
 }

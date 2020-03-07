@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtIndexes from '../../../.temp/components/indexes/index'
+import AtIndexes from '../../.temp/components/indexes/index'
 
 describe('AtIndexes Snap', () => {
   it('render initial AtIndexes', () => {
@@ -41,25 +40,25 @@ describe('AtIndexes Snap', () => {
         key: 'A',
         items: [
           {
-            'name': '阿坝',
+            name: '阿坝'
           },
           {
-            'name': '阿里',
+            name: '阿里'
           },
           {
-            'name': '阿拉善',
+            name: '阿拉善'
           },
           {
-            'name': '阿拉善',
+            name: '阿拉善'
           },
           {
-            'name': '阿拉善',
+            name: '阿拉善'
           },
           {
-            'name': '阿拉善',
+            name: '阿拉善'
           },
           {
-            'name': '阿拉善',
+            name: '阿拉善'
           }
         ]
       },
@@ -68,13 +67,13 @@ describe('AtIndexes Snap', () => {
         key: 'B',
         items: [
           {
-            'name': '百度',
+            name: '百度'
           },
           {
-            'name': '白色',
+            name: '白色'
           },
           {
-            'name': '百强',
+            name: '百强'
           }
         ]
       }

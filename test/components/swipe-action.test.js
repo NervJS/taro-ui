@@ -1,10 +1,8 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { renderIntoDocument, Simulate } from 'nerv-test-utils'
-
 import { View } from '@tarojs/components'
-
-import AtSwipeAction from '../../../.temp/components/swipe-action/index'
+import AtSwipeAction from '../../.temp/components/swipe-action/index'
 
 const MAX_OFFSET_SIZE = 101
 

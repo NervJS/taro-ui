@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtSegmentedControl from '../../../.temp/components/segmented-control/index'
+import AtSegmentedControl from '../../.temp/components/segmented-control/index'
 
 describe('AtSegmentedControl Snap', () => {
   const values = ['tab1', 'tab2', 'tab3']
@@ -12,7 +11,9 @@ describe('AtSegmentedControl Snap', () => {
   })
 
   it('render AtSegmentedControl -- props customStyle', () => {
-    const componet = renderToString(<AtSegmentedControl customStyle='color:red;' />)
+    const componet = renderToString(
+      <AtSegmentedControl customStyle='color:red;' />
+    )
     expect(componet).toMatchSnapshot()
   })
 
@@ -27,27 +28,37 @@ describe('AtSegmentedControl Snap', () => {
   })
 
   it('render AtSegmentedControl -- props current', () => {
-    const componet = renderToString(<AtSegmentedControl current={2} values={values} />)
+    const componet = renderToString(
+      <AtSegmentedControl current={2} values={values} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtSegmentedControl -- props color', () => {
-    const componet = renderToString(<AtSegmentedControl color='red' values={values} />)
+    const componet = renderToString(
+      <AtSegmentedControl color='red' values={values} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtSegmentedControl -- props fontSize', () => {
-    const componet = renderToString(<AtSegmentedControl fontSize='30' values={values} />)
+    const componet = renderToString(
+      <AtSegmentedControl fontSize='30' values={values} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtSegmentedControl -- props disabled', () => {
-    const componet = renderToString(<AtSegmentedControl disabled values={values} />)
+    const componet = renderToString(
+      <AtSegmentedControl disabled values={values} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtSegmentedControl -- props selectedColor', () => {
-    const componet = renderToString(<AtSegmentedControl selectedColor='#fff' values={values} />)
+    const componet = renderToString(
+      <AtSegmentedControl selectedColor='#fff' values={values} />
+    )
     expect(componet).toMatchSnapshot()
   })
 })

@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtRate from '../../../.temp/components/rate/index'
+import AtRate from '../../.temp/components/rate/index'
 
 describe('AtRate Snap', () => {
   it('render initial AtRate', () => {

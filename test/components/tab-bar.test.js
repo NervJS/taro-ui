@@ -1,10 +1,21 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtTabBar from '../../../.temp/components/tab-bar/index'
+import AtTabBar from '../../.temp/components/tab-bar/index'
 
 describe('AtTabBar Snap', () => {
-  const tabList = [{ title: '待办事项', iconType: 'bullet-list', text: 'new' }, { title: '拍照', iconType: 'camera' }, { title: '文件夹', iconType: 'folder', text: '100', max: '99' }, { title: '领取中心', image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png', selectedImage: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png', text: 'new' }]
+  const tabList = [
+    { title: '待办事项', iconType: 'bullet-list', text: 'new' },
+    { title: '拍照', iconType: 'camera' },
+    { title: '文件夹', iconType: 'folder', text: '100', max: '99' },
+    {
+      title: '领取中心',
+      image:
+        'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
+      selectedImage:
+        'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
+      text: 'new'
+    }
+  ]
 
   it('render initial AtTabBar', () => {
     const componet = renderToString(<AtTabBar />)
@@ -42,12 +53,16 @@ describe('AtTabBar Snap', () => {
   })
 
   it('render AtTabBar -- props iconSize', () => {
-    const componet = renderToString(<AtTabBar iconSize='26' tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabBar iconSize='26' tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabBar -- props fontSize', () => {
-    const componet = renderToString(<AtTabBar fontSize='26' tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabBar fontSize='26' tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
@@ -57,7 +72,9 @@ describe('AtTabBar Snap', () => {
   })
 
   it('render AtTabBar -- props selectedColor', () => {
-    const componet = renderToString(<AtTabBar selectedColor='red' tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabBar selectedColor='red' tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 

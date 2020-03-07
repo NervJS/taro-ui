@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtProgress from '../../../.temp/components/activity-indicator/index'
+import AtProgress from '../../.temp/components/activity-indicator/index'
 
 describe('Progress Snap', () => {
   it('render initial Progress', () => {

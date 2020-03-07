@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtButton from '../../../.temp/components/button/index'
+import AtButton from '../../.temp/components/button/index'
 
 describe('AtButton Snap', () => {
   it('render AtButton -- props size(normal)', () => {
@@ -50,7 +49,9 @@ describe('AtButton Event', () => {
   it('AtButton onClick', () => {
     const onClick = jest.fn()
 
-    const component = renderIntoDocument(<AtButton onClick={onClick}>按钮</AtButton>)
+    const component = renderIntoDocument(
+      <AtButton onClick={onClick}>按钮</AtButton>
+    )
     const componentDom = findDOMNode(component, 'at-button')
 
     Simulate.click(componentDom)
@@ -60,7 +61,11 @@ describe('AtButton Event', () => {
   it('AtButton disabled, onClick not to be called', () => {
     const onClick = jest.fn()
 
-    const component = renderIntoDocument(<AtButton disabled onClick={onClick}>按钮</AtButton>)
+    const component = renderIntoDocument(
+      <AtButton disabled onClick={onClick}>
+        按钮
+      </AtButton>
+    )
     const componentDom = findDOMNode(component, 'at-button')
 
     Simulate.click(componentDom)

@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtDivider from '../../../.temp/components/divider/index'
+import AtDivider from '../../.temp/components/divider/index'
 
 describe('AtDivider Snap', () => {
   it('render initial AtDivider', () => {

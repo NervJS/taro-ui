@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtSearchBar from '../../../.temp/components/search-bar/index'
+import AtSearchBar from '../../.temp/components/search-bar/index'
 
 describe('AtSearchBar Snap', () => {
   it('render initial AtSearchBar', () => {

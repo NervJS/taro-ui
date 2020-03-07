@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtLoading from '../../../.temp/components/loading/index'
+import AtLoading from '../../.temp/components/loading/index'
 
 describe('AtLoading Snap', () => {
   it('render initial AtLoading', () => {

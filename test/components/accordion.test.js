@@ -1,6 +1,6 @@
+import Nerv from 'nervjs'
 import { View } from '@tarojs/components'
 import { renderToString } from 'nerv-server'
-
 import AtAccordion from '../../.temp/components/accordion'
 
 describe('AtAccordion Snap', () => {

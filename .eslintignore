@@ -7,4 +7,4 @@ git_stats/
 yarn-offline/
 docs/
 jest.config.js
-__mock__/
+test/__mock__/

@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtInput from '../../../.temp/components/input/index'
+import AtInput from '../../.temp/components/input/index'
 
 describe('AtInput Snap', () => {
   it('render AtInput -- init', () => {

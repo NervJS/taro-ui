@@ -1,7 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-import AtDrawer from '../../../.temp/components/drawer/index'
+import AtDrawer from '../../.temp/components/drawer/index'
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -22,7 +22,9 @@ describe('AtDrawer Snap', () => {
   })
 
   it('render AtDrawer -- props items', () => {
-    const component = renderToString(<AtDrawer show items={['菜单1', '菜单2']} />)
+    const component = renderToString(
+      <AtDrawer show items={['菜单1', '菜单2']} />
+    )
     expect(component).toMatchSnapshot()
   })
 })
@@ -31,9 +33,18 @@ describe('AtDrawer Event', () => {
   it('AtDrawer onItemClick & onClose', async () => {
     const onItemClick = jest.fn()
     const onClose = jest.fn()
-    const component = renderIntoDocument(<AtDrawer show items={['菜单1', '菜单2']} onItemClick={onItemClick} onClose={onClose} />)
+    const component = renderIntoDocument(
+      <AtDrawer
+        show
+        items={['菜单1', '菜单2']}
+        onItemClick={onItemClick}
+        onClose={onClose}
+      />
+    )
     await delay(300)
-    const items = findDOMNode(component, 'at-drawer').querySelectorAll('.at-list__item')
+    const items = findDOMNode(component, 'at-drawer').querySelectorAll(
+      '.at-list__item'
+    )
     const item0 = items[0]
     Simulate.click(item0)
     process.nextTick(() => {
@@ -45,9 +56,13 @@ describe('AtDrawer Event', () => {
 
   it('AtDrawer item NO.0 & NO.1 click, onItemClick(index) index should be 0 and 1', async () => {
     const onItemClick = jest.fn()
-    const component = renderIntoDocument(<AtDrawer show items={['菜单1', '菜单2']} onItemClick={onItemClick} />)
+    const component = renderIntoDocument(
+      <AtDrawer show items={['菜单1', '菜单2']} onItemClick={onItemClick} />
+    )
     await delay(300)
-    const items = findDOMNode(component, 'at-drawer').querySelectorAll('.at-list__item')
+    const items = findDOMNode(component, 'at-drawer').querySelectorAll(
+      '.at-list__item'
+    )
     const item0 = items[0]
     const item1 = items[1]
     Simulate.click(item0)
@@ -60,7 +75,9 @@ describe('AtDrawer Event', () => {
 
   it('AtDrawer click mask onClose', async () => {
     const onClick = jest.fn()
-    const component = renderIntoDocument(<AtDrawer show items={['菜单1', '菜单2']} onClose={onClick} />)
+    const component = renderIntoDocument(
+      <AtDrawer show items={['菜单1', '菜单2']} onClose={onClick} />
+    )
     await delay(300)
     const componentDom = findDOMNode(component, 'at-drawer')
     const mask = componentDom.querySelector('.at-drawer__mask')

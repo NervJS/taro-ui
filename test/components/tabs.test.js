@@ -1,10 +1,13 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtTabs from '../../../.temp/components/tabs/index'
+import AtTabs from '../../.temp/components/tabs/index'
 
 describe('AtTabs Snap', () => {
-  const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
+  const tabList = [
+    { title: '标签页1' },
+    { title: '标签页2' },
+    { title: '标签页3' }
+  ]
 
   it('render initial AtTabs', () => {
     const componet = renderToString(<AtTabs />)
@@ -42,17 +45,23 @@ describe('AtTabs Snap', () => {
   })
 
   it('render AtTabs -- props tabDirection', () => {
-    const componet = renderToString(<AtTabs scroll tabDirection='vertical' tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabs scroll tabDirection='vertical' tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props animated', () => {
-    const componet = renderToString(<AtTabs animated={false} tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabs animated={false} tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 
   it('render AtTabs -- props height', () => {
-    const componet = renderToString(<AtTabs height='300px' tabDirection='vertical' tabList={tabList} />)
+    const componet = renderToString(
+      <AtTabs height='300px' tabDirection='vertical' tabList={tabList} />
+    )
     expect(componet).toMatchSnapshot()
   })
 })

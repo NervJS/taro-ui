@@ -1,7 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-import AtFab from '../../../.temp/components/fab/index'
+import AtFab from '../../.temp/components/fab/index'
 
 describe('AtFab Snap', () => {
   it('render AtFab -- default props', () => {

@@ -1,9 +1,8 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtList from '../../../.temp/components/list/index'
-import AtListItem from '../../../.temp/components/list/item/index'
+import AtList from '../../.temp/components/list/index'
+import AtListItem from '../../.temp/components/list/item/index'
 
 describe('List Snap', () => {
   it('render completed List', () => {

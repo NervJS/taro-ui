@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtForm from '../../../.temp/components/form/index'
+import AtForm from '../../.temp/components/form/index'
 
 describe('AtForm Snap', () => {
   it('render initial AtForm', () => {

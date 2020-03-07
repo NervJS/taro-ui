@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtCard from '../../../.temp/components/card/index'
+import AtCard from '../../.temp/components/card/index'
 
 describe('Card Snap', () => {
   it('render initial Card', () => {

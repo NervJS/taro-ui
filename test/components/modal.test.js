@@ -1,13 +1,11 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
 import { Button } from '@tarojs/components'
-
-import AtModal from '../../../.temp/components/modal/index'
-import AtModalAction from '../../../.temp/components/modal/action/index'
-import AtModalHeader from '../../../.temp/components/modal/header/index'
-import AtModalContent from '../../../.temp/components/modal/content/index'
+import AtModal from '../../.temp/components/modal/index'
+import AtModalAction from '../../.temp/components/modal/action/index'
+import AtModalHeader from '../../.temp/components/modal/header/index'
+import AtModalContent from '../../.temp/components/modal/content/index'
 
 describe('Modal Snap', () => {
   it('render initial Modal', () => {

@@ -1,7 +1,6 @@
-import { findDOMNode } from 'nervjs'
+import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
 import AtActionSheet from '../../.temp/components/action-sheet'
 import AtActionSheetItem from '../../.temp/components/action-sheet/body/item'
 

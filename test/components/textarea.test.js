@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtTextarea from '../../../.temp/components/textarea/index'
+import AtTextarea from '../../.temp/components/textarea/index'
 
 describe('AtTextarea Snap', () => {
   it('render initial AtTextarea', () => {

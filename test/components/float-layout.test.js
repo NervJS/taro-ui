@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtFloatLayout from '../../../.temp/components/float-layout/index'
+import AtFloatLayout from '../../.temp/components/float-layout/index'
 
 describe('FloatLayout Snap', () => {
   it('render initial FloatLayout', () => {

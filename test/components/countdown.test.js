@@ -1,7 +1,6 @@
 import Nerv from 'nervjs'
 import { renderToString } from 'nerv-server'
-
-import AtCountDown from '../../../.temp/components/countdown/index'
+import AtCountDown from '../../.temp/components/countdown/index'
 
 describe('AtCountDown Snap', () => {
   it('render initial AtCountDown', () => {
@@ -25,7 +24,9 @@ describe('AtCountDown Snap', () => {
   })
 
   it('render AtCountDown -- props format', () => {
-    const component = renderToString(<AtCountDown format={{ hours: ':', minutes: ':', seconds: '' }} />)
+    const component = renderToString(
+      <AtCountDown format={{ hours: ':', minutes: ':', seconds: '' }} />
+    )
     expect(component).toMatchSnapshot()
   })
 
@@ -60,7 +61,9 @@ describe('AtCountDown Snap', () => {
   })
 
   it('render AtCountDown -- hours > 24 and not show day', () => {
-    const component = renderToString(<AtCountDown isShowDay={false} hours={25} />)
+    const component = renderToString(
+      <AtCountDown isShowDay={false} hours={25} />
+    )
     expect(component).toMatchSnapshot()
   })
 })

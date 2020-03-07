@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtGrid from '../../../.temp/components/grid/index'
+import AtGrid from '../../.temp/components/grid/index'
 
 const IMAGE_DATA = [
   {

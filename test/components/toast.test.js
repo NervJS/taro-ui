@@ -2,8 +2,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtToast from '../../../.temp/components/toast'
+import AtToast from '../../.temp/components/toast'
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 

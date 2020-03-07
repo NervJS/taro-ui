@@ -1,8 +1,7 @@
 import Nerv, { findDOMNode } from 'nervjs'
 import { renderToString } from 'nerv-server'
 import { Simulate, renderIntoDocument } from 'nerv-test-utils'
-
-import AtTag from '../../../.temp/components/tag/index'
+import AtTag from '../../.temp/components/tag/index'
 
 describe('AtTag Snap', () => {
   it('render AtNoticebar -- props size', () => {
@@ -47,7 +46,11 @@ describe('AtTag Event', () => {
 
   it('AtTag onClick not to be called(disabled)', () => {
     const onClick = jest.fn()
-    const component = renderIntoDocument(<AtTag onClick={onClick} disabled>标签</AtTag>)
+    const component = renderIntoDocument(
+      <AtTag onClick={onClick} disabled>
+        标签
+      </AtTag>
+    )
     const dom = findDOMNode(component, 'at-tag')
     Simulate.click(dom)
     expect(onClick).not.toBeCalled()
@@ -55,11 +58,14 @@ describe('AtTag Event', () => {
 
   it('AtTag onClick params {name, active}', () => {
     const onClick = jest.fn()
-    const component = renderIntoDocument(<AtTag onClick={onClick} name='tag-01'>标签</AtTag>)
+    const component = renderIntoDocument(
+      <AtTag onClick={onClick} name='tag-01'>
+        标签
+      </AtTag>
+    )
     const dom = findDOMNode(component, 'at-tag')
     Simulate.click(dom)
     expect(onClick.mock.calls[0][0].name).toEqual('tag-01')
     expect(onClick.mock.calls[0][0].active).toBeFalsy()
   })
 })
-
