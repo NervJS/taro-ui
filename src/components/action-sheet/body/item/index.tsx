@@ -1,12 +1,14 @@
-import Taro from '@tarojs/taro'
 import classNames from 'classnames'
-import { View } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import _isFunction from 'lodash/isFunction'
-import AtComponent from '../../../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtActionSheetItemProps } from 'types/action-sheet'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../../../common/component'
 
-export default class AtActionSheetItem extends AtComponent<AtActionSheetItemProps> {
+export default class AtActionSheetItem extends AtComponent<
+  AtActionSheetItemProps
+> {
   public static defaultProps: AtActionSheetItemProps
   public static propTypes: InferProps<AtActionSheetItemProps>
 
@@ -16,7 +18,7 @@ export default class AtActionSheetItem extends AtComponent<AtActionSheetItemProp
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const rootClass = classNames('at-action-sheet__item', this.props.className)
 
     return (

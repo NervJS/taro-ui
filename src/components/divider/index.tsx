@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtDividerProps } from 'types/divider'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
-import { AtDividerProps } from 'types/divider'
 
 initTestEnv()
 
@@ -12,7 +12,7 @@ export default class AtDivider extends AtComponent<AtDividerProps> {
   public static defaultProps: AtDividerProps
   public static propTypes: InferProps<AtDividerProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       className,
       customStyle,
@@ -20,7 +20,7 @@ export default class AtDivider extends AtComponent<AtDividerProps> {
       height,
       fontColor,
       fontSize,
-      lineColor,
+      lineColor
     } = this.props
 
     const rootStyle = {
@@ -28,7 +28,7 @@ export default class AtDivider extends AtComponent<AtDividerProps> {
     }
 
     const fontStyle = {
-      'color': fontColor,
+      color: fontColor,
       'font-size': fontSize ? `${Taro.pxTransform(Number(fontSize))}` : ''
     }
 
@@ -55,27 +55,15 @@ AtDivider.defaultProps = {
   height: 0,
   fontColor: '',
   fontSize: 0,
-  lineColor: '',
+  lineColor: ''
 }
 
 AtDivider.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   content: PropTypes.string,
-  height: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   fontColor: PropTypes.string,
-  fontSize: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]),
-  lineColor: PropTypes.string,
+  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  lineColor: PropTypes.string
 }

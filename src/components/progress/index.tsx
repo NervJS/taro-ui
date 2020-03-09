@@ -1,14 +1,14 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtProgressProps } from 'types/progress'
+import { Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 export default class AtProgress extends AtComponent<AtProgressProps> {
   public static propTypes: InferProps<AtProgressProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { color } = this.props
     let { percent } = this.props
     const { strokeWidth, status, isHidePercent } = this.props
@@ -32,7 +32,7 @@ export default class AtProgress extends AtComponent<AtProgressProps> {
     )
     const iconClass = classNames('at-icon', {
       'at-icon-close-circle': status === 'error',
-      'at-icon-check-circle': status === 'success',
+      'at-icon-check-circle': status === 'success'
     })
 
     const progressStyle = {
@@ -54,7 +54,11 @@ export default class AtProgress extends AtComponent<AtProgressProps> {
 
         {!isHidePercent && (
           <View className='at-progress__content'>
-            {!status || status === 'progress' ? `${percent}%` : <Text className={iconClass}></Text>}
+            {!status || status === 'progress' ? (
+              `${percent}%`
+            ) : (
+              <Text className={iconClass}></Text>
+            )}
           </View>
         )}
       </View>

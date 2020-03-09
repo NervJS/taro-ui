@@ -1,14 +1,13 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-import Taro from '@tarojs/taro'
-import { View, Textarea } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtTextareaProps } from 'types/textarea'
+import { Textarea, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
-import { AtTextareaProps } from 'types/textarea'
 
-function getMaxLength (
+function getMaxLength(
   maxLength: number,
   textOverflowForbidden: boolean
 ): number {
@@ -45,7 +44,7 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
     this.props.onLinechange && this.props.onLinechange(event)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       customStyle,
       className,
@@ -69,13 +68,16 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
 
     const _maxLength = parseInt(maxLength!.toString())
     const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden!)
-    const textareaStyle = height ? `height:${Taro.pxTransform(Number(height))}` : ''
+    const textareaStyle = height
+      ? `height:${Taro.pxTransform(Number(height))}`
+      : ''
     const rootCls = classNames(
       'at-textarea',
       `at-textarea--${ENV}`,
       {
         'at-textarea--error': _maxLength < value.length
-      }, className
+      },
+      className
     )
     const placeholderCls = classNames('placeholder', placeholderClass)
 
@@ -134,24 +136,15 @@ AtTextarea.defaultProps = {
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
-  onConfirm: () => {},
+  onConfirm: () => {}
 }
 
 AtTextarea.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   value: PropTypes.string.isRequired,
   cursorSpacing: PropTypes.number,
-  maxLength: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholderClass: PropTypes.string,
   placeholderStyle: PropTypes.string,
   placeholder: PropTypes.string,
@@ -164,13 +157,10 @@ AtTextarea.propTypes = {
   count: PropTypes.bool,
   textOverflowForbidden: PropTypes.bool,
   fixed: PropTypes.bool,
-  height: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onLinechange: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onConfirm: PropTypes.func,
+  onConfirm: PropTypes.func
 }

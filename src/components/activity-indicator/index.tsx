@@ -1,18 +1,18 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtActivityIndicatorProps } from 'types/activity-indicator'
-
 import { Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-
 import AtComponent from '../../common/component'
 import AtLoading from '../loading/index'
 
-export default class AtActivityIndicator extends AtComponent<AtActivityIndicatorProps> {
+export default class AtActivityIndicator extends AtComponent<
+  AtActivityIndicatorProps
+> {
   public static defaultProps: AtActivityIndicatorProps
   public static propTypes: InferProps<AtActivityIndicatorProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { color, size, mode, content, isOpened } = this.props
 
     const rootClass = classNames(
@@ -43,7 +43,7 @@ AtActivityIndicator.defaultProps = {
   color: '',
   content: '',
   className: '',
-  isOpened: true,
+  isOpened: true
 }
 
 AtActivityIndicator.propTypes = {

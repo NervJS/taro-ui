@@ -30,7 +30,8 @@
   "eslintConfig": {
     "extends": [
       "o2team",
-      "taro"
+      "taro",
+      "plugin:prettier/recommended"
     ],
     "parser": "babel-eslint",
     "env": {
@@ -93,6 +94,7 @@
           "react",
           "@typescript-eslint"
         ],
+        "extends": "plugin:prettier/recommended",
         "env": {
           "jest": true
         },
@@ -267,9 +269,11 @@
     "css-loader": "^3.2.1",
     "eslint": "^6.7.2",
     "eslint-config-o2team": "^0.1.6",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-config-taro": "^2.0.3",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^2.1.1",
     "favicons-webpack-plugin": "2.1.0",
@@ -295,6 +299,7 @@
     "ora": "^4.0.3",
     "postcss": "^7.0.2",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
     "qrcode.react": "^1.0.0",
     "react-markdown-loader": "^1.1.14",
     "react-router-dom": "^5.1.2",

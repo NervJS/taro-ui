@@ -1,13 +1,12 @@
 import dayjs, { Dayjs } from 'dayjs'
 import _flow from 'lodash/flow'
-
 import Calendar from '../types'
-import plugins from './plugins'
 import * as constant from './constant'
+import plugins from './plugins'
 
 const TOTAL = 7 * 6
 
-function getFullItem (
+function getFullItem(
   item: Partial<Calendar.Item>,
   options: Calendar.GroupOptions,
   selectedDate: Calendar.SelectedDate,
@@ -24,14 +23,14 @@ function getFullItem (
   return _flow(bindedPlugins)(item)
 }
 
-export default function generateCalendarGroup (
+export default function generateCalendarGroup(
   options: Calendar.GroupOptions
 ): (
-    generateDate: number,
-    selectedDate: Calendar.SelectedDate,
-    isShowStatus?: boolean
-  ) => Calendar.ListInfo<Calendar.Item> {
-  return function (
+  generateDate: number,
+  selectedDate: Calendar.SelectedDate,
+  isShowStatus?: boolean
+) => Calendar.ListInfo<Calendar.Item> {
+  return function(
     generateDate: number,
     selectedDate: Calendar.SelectedDate,
     isShowStatus?: boolean
@@ -109,6 +108,6 @@ export default function generateCalendarGroup (
   }
 }
 
-export function getGenerateDate (date: Calendar.DateArg | undefined): Dayjs {
+export function getGenerateDate(date: Calendar.DateArg | undefined): Dayjs {
   return dayjs(date).startOf('month')
 }

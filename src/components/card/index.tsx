@@ -1,11 +1,10 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtCardProps } from 'types/card'
+import { Image, Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 export default class AtCard extends AtComponent<AtCardProps> {
   public static defaultProps: AtCardProps
@@ -17,8 +16,17 @@ export default class AtCard extends AtComponent<AtCardProps> {
     }
   }
 
-  public render (): JSX.Element {
-    const { title, note, extra, extraStyle, thumb, isFull, icon, renderIcon } = this.props
+  public render(): JSX.Element {
+    const {
+      title,
+      note,
+      extra,
+      extraStyle,
+      thumb,
+      isFull,
+      icon,
+      renderIcon
+    } = this.props
 
     const rootClass = classNames(
       'at-card',
@@ -30,12 +38,12 @@ export default class AtCard extends AtComponent<AtCardProps> {
     const iconClass = classNames({
       'at-icon': true,
       [`at-icon-${icon && icon.value}`]: icon && icon.value,
-      'at-card__header-icon': true,
+      'at-card__header-icon': true
     })
 
     const iconStyle = {
       color: (icon && icon.color) || '',
-      fontSize: (icon && `${icon.size}px`) || '',
+      fontSize: (icon && `${icon.size}px`) || ''
     }
 
     return (
@@ -50,13 +58,17 @@ export default class AtCard extends AtComponent<AtCardProps> {
               />
             </View>
           )}
-          { renderIcon ? renderIcon : '' }
+          {renderIcon || ''}
           {!thumb && icon && icon.value && (
             <Text className={iconClass} style={iconStyle}></Text>
           )}
 
           <Text className='at-card__header-title'>{title}</Text>
-          {extra && <Text style={{ ...extraStyle }} className='at-card__header-extra'>{extra}</Text>}
+          {extra && (
+            <Text style={{ ...extraStyle }} className='at-card__header-extra'>
+              {extra}
+            </Text>
+          )}
         </View>
         <View className='at-card__content'>
           <View className='at-card__content-info'>{this.props.children}</View>
@@ -74,9 +86,9 @@ AtCard.defaultProps = {
   title: '',
   extra: '',
   icon: undefined,
-  onClick () {},
+  onClick() {},
   renderIcon: undefined,
-  extraStyle: {},
+  extraStyle: {}
 }
 
 AtCard.propTypes = {
@@ -87,9 +99,6 @@ AtCard.propTypes = {
   extra: PropTypes.string,
   icon: PropTypes.object,
   onClick: PropTypes.func,
-  renderIcon: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-  ]),
+  renderIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   extraStyle: PropTypes.object // 自定义extra样式
 }

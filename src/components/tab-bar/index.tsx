@@ -29,11 +29,11 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
   //   }
   // }
 
-  private handleClick (index: number, event: CommonEvent): void {
+  private handleClick(index: number, event: CommonEvent): void {
     this.props.onClick(index, event)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       customStyle,
       className,

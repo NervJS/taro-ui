@@ -1,83 +1,84 @@
-import classNames from 'classnames';
-import PropTypes, { InferProps } from 'prop-types';
-import { AtButtonProps, AtButtonState } from 'types/button';
-
-import { Button, Form, View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro from '@tarojs/taro';
-
-import AtComponent from '../../common/component';
-import AtLoading from '../loading/index';
+import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtButtonProps, AtButtonState } from 'types/button'
+import { Button, Form, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
+import AtLoading from '../loading/index'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  small: 'small',
+  small: 'small'
 }
 
 const TYPE_CLASS = {
   primary: 'primary',
-  secondary: 'secondary',
+  secondary: 'secondary'
 }
 
-export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> {
+export default class AtButton extends AtComponent<
+  AtButtonProps,
+  AtButtonState
+> {
   public static defaultProps: AtButtonProps
   public static propTypes: InferProps<AtButtonProps>
 
-  public constructor (props: AtButtonProps) {
+  public constructor(props: AtButtonProps) {
     super(props)
     this.state = {
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
-      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
+      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
     }
   }
 
-  private onClick (event: CommonEvent): void {
+  private onClick(event: CommonEvent): void {
     if (!this.props.disabled) {
       this.props.onClick && this.props.onClick(event)
     }
   }
 
-  private onGetUserInfo (event: CommonEvent): void {
+  private onGetUserInfo(event: CommonEvent): void {
     this.props.onGetUserInfo && this.props.onGetUserInfo(event)
   }
 
-  private onContact (event: CommonEvent): void {
+  private onContact(event: CommonEvent): void {
     // TODO: Change Taro button component types
     this.props.onContact && this.props.onContact(event as any)
   }
 
-  private onGetPhoneNumber (event: CommonEvent): void {
+  private onGetPhoneNumber(event: CommonEvent): void {
     this.props.onGetPhoneNumber && this.props.onGetPhoneNumber(event)
   }
 
-  private onError (event: CommonEvent): void {
+  private onError(event: CommonEvent): void {
     this.props.onError && this.props.onError(event)
   }
 
-  private onOpenSetting (event: CommonEvent): void {
+  private onOpenSetting(event: CommonEvent): void {
     this.props.onOpenSetting && this.props.onOpenSetting(event)
   }
 
-  private onSumit (event: CommonEvent): void {
+  private onSumit(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('submit', event.detail, {
         bubbles: true,
-        composed: true,
+        composed: true
       })
     }
   }
 
-  private onReset (event: CommonEvent): void {
+  private onReset(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       this.$scope.triggerEvent('reset', event.detail, {
         bubbles: true,
-        composed: true,
+        composed: true
       })
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       size = 'normal',
       type = '',
@@ -94,20 +95,16 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
       sendMessagePath,
       sendMessageImg,
       showMessageCard,
-      appParameter,
+      appParameter
     } = this.props
-    const {
-      isWEAPP,
-      isALIPAY,
-      isWEB,
-    } = this.state
+    const { isWEAPP, isALIPAY, isWEB } = this.state
     const rootClassName = ['at-button']
     const classObject = {
       [`at-button--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
       'at-button--disabled': disabled,
       [`at-button--${type}`]: TYPE_CLASS[type],
       'at-button--circle': circle,
-      'at-button--full': full,
+      'at-button--full': full
     }
     const loadingColor = type === 'primary' ? '#fff' : ''
     const loadingSize = size === 'small' ? '30' : 0
@@ -126,7 +123,9 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
       <Button
         className='at-button__wxbutton'
         lang={lang}
-        formType={formType === 'submit' || formType === 'reset' ? formType : undefined}
+        formType={
+          formType === 'submit' || formType === 'reset' ? formType : undefined
+        }
       ></Button>
     )
 
@@ -156,14 +155,17 @@ export default class AtButton extends AtComponent<AtButtonProps, AtButtonState> 
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {(isWEB && !disabled) && webButton}
-        {(isWEAPP && !disabled) && (
-          <Form reportSubmit onSubmit={this.onSumit.bind(this)}
-            onReset={this.onReset.bind(this)}>
+        {isWEB && !disabled && webButton}
+        {isWEAPP && !disabled && (
+          <Form
+            reportSubmit
+            onSubmit={this.onSumit.bind(this)}
+            onReset={this.onReset.bind(this)}
+          >
             {button}
           </Form>
         )}
-        {(isALIPAY && !disabled) && button}
+        {isALIPAY && !disabled && button}
         {loadingComponent}
         <View className='at-button__text'>{this.props.children}</View>
       </View>
@@ -194,7 +196,7 @@ AtButton.defaultProps = {
   onContact: () => {},
   onGetPhoneNumber: () => {},
   onError: () => {},
-  onOpenSetting: () => {},
+  onOpenSetting: () => {}
 }
 
 AtButton.propTypes = {
@@ -207,7 +209,19 @@ AtButton.propTypes = {
   onClick: PropTypes.func,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   formType: PropTypes.oneOf(['submit', 'reset', '']),
-  openType: PropTypes.oneOf(['contact', 'share', 'getUserInfo', 'getPhoneNumber', 'launchApp', 'openSetting', 'feedback', 'getRealnameAuthInfo', 'getAuthorize', 'contactShare', '']),
+  openType: PropTypes.oneOf([
+    'contact',
+    'share',
+    'getUserInfo',
+    'getPhoneNumber',
+    'launchApp',
+    'openSetting',
+    'feedback',
+    'getRealnameAuthInfo',
+    'getAuthorize',
+    'contactShare',
+    ''
+  ]),
   lang: PropTypes.string,
   sessionFrom: PropTypes.string,
   sendMessageTitle: PropTypes.string,
@@ -219,5 +233,5 @@ AtButton.propTypes = {
   onContact: PropTypes.func,
   onGetPhoneNumber: PropTypes.func,
   onError: PropTypes.func,
-  onOpenSetting: PropTypes.func,
+  onOpenSetting: PropTypes.func
 }

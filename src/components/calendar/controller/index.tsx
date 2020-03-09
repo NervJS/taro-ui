@@ -1,13 +1,13 @@
-import dayjs, { Dayjs } from 'dayjs'
 import classnames from 'classnames'
+import dayjs, { Dayjs } from 'dayjs'
+import { Picker, Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { Text, View, Picker } from '@tarojs/components'
 import { Props, State } from './interface'
 
 export default class AtCalendarController extends Taro.Component<Props, State> {
   static options = { addGlobalClass: true }
 
-  render () {
+  render() {
     const {
       generateDate,
       minDate,

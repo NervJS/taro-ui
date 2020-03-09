@@ -1,19 +1,24 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
-import _chunk from 'lodash/chunk'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import _isObject from 'lodash/isObject'
+import _chunk from 'lodash/chunk'
 import _isFunction from 'lodash/isFunction'
-import AtComponent from '../../common/component'
+import _isObject from 'lodash/isObject'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtGridProps, Item } from 'types/grid'
+import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 export default class AtGrid extends AtComponent<AtGridProps> {
   public static defaultProps: AtGridProps
   public static propTypes: InferProps<AtGridProps>
 
-  private handleClick = (item: Item, index: number, row: number, event: CommonEvent): void => {
+  private handleClick = (
+    item: Item,
+    index: number,
+    row: number,
+    event: CommonEvent
+  ): void => {
     const { onClick, columnNum } = this.props
     if (_isFunction(onClick)) {
       /* prettier-ignore */
@@ -22,7 +27,7 @@ export default class AtGrid extends AtComponent<AtGridProps> {
     }
   }
 
-  public render (): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { data, mode, columnNum, hasBorder } = this.props
 
     if (Array.isArray(data) && data.length === 0) {

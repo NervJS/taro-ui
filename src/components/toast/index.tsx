@@ -1,12 +1,12 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtToastProps, AtToastState } from 'types/toast'
+import { Image, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import statusImg from './img.json'
-import { AtToastProps, AtToastState } from 'types/toast'
-import { CommonEvent } from '@tarojs/components/types/common'
 
 export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
   public static defaultProps: AtToastProps
@@ -14,29 +14,26 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
 
   private _timer: NodeJS.Timeout | null
 
-  public constructor (props: AtToastProps) {
+  public constructor(props: AtToastProps) {
     super(props)
-
     const { isOpened, duration } = props
-
     if (isOpened) {
       this.makeTimer(duration || 0)
     }
-
     this._timer = null
     this.state = {
       _isOpened: isOpened
     }
   }
 
-  private clearTimmer (): void {
+  private clearTimmer(): void {
     if (this._timer) {
       clearTimeout(this._timer)
       this._timer = null
     }
   }
 
-  private makeTimer (duration: number): void {
+  private makeTimer(duration: number): void {
     if (duration === 0) {
       return
     }
@@ -45,7 +42,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     }, +duration)
   }
 
-  private close (): void {
+  private close(): void {
     const { _isOpened } = this.state
     if (_isOpened) {
       this.setState(
@@ -58,7 +55,8 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     }
   }
 
-  private handleClose (event?: CommonEvent): void { // TODO: Fix dirty hack
+  private handleClose(event?: CommonEvent): void {
+    // TODO: Fix dirty hack
     if (_isFunction(this.props.onClose)) {
       this.props.onClose(event!)
     }
@@ -75,7 +73,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     this.close()
   }
 
-  public componentWillReceiveProps (nextProps: AtToastProps): void {
+  public componentWillReceiveProps(nextProps: AtToastProps): void {
     const { isOpened, duration } = nextProps
     if (!isOpened) {
       this.close()
@@ -92,7 +90,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     this.makeTimer(duration || 0)
   }
 
-  public render (): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { _isOpened } = this.state
     const { customStyle, text, icon, status, image, hasMask } = this.props
 
@@ -112,7 +110,11 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     return _isOpened ? (
       <View className={classNames('at-toast', this.props.className)}>
         {hasMask && <View className='at-toast__overlay' />}
-        <View className={bodyClass} style={customStyle} onClick={this.handleClick}>
+        <View
+          className={bodyClass}
+          style={customStyle}
+          onClick={this.handleClick}
+        >
           <View className='toast-body-content'>
             {realImg ? (
               <View className='toast-body-content__img'>

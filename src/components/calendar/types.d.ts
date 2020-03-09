@@ -1,7 +1,5 @@
 import dayjs from 'dayjs'
 
-export default Calendar
-
 declare namespace Calendar {
   export type DateArg = string | number | Date
 
@@ -60,9 +58,9 @@ declare namespace Calendar {
     maxDate?: DateArg
   }
 
-  export type List < T > = Array<T>
+  export type List<T> = Array<T>
 
-  export type ListInfo < T > = {
+  export type ListInfo<T> = {
     value: number
 
     list: List<T>
@@ -74,3 +72,5 @@ declare namespace Calendar {
     start: Calendar.DateArg
   }
 }
+
+export default Calendar

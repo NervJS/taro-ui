@@ -1,5 +1,5 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -20,11 +20,11 @@ export interface AtActionSheetProps extends AtComponent {
   /**
    * 元素被关闭触发的事件
    */
-  onClose?: CommonEventFunction
+  onClose?: (event?: CommonEvent) => void
   /**
    * 点击了底部取消按钮触发的事件
    */
-  onCancel?: CommonEventFunction
+  onCancel?: (event?: CommonEvent) => void
 }
 
 export interface AtActionSheetState {
@@ -43,7 +43,7 @@ export interface AtActionSheetItemProps extends AtComponent {
   /**
    * 点击 Item 触发的事件
    */
-  onClick?: CommonEventFunction
+  onClick?: (event?: CommonEvent) => void
 }
 
 declare const AtActionSheetItem: ComponentClass<AtActionSheetItemProps>

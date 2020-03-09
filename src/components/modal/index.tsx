@@ -1,34 +1,30 @@
-import Taro from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
-
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-
 import _isFunction from 'lodash/isFunction'
-
-import AtModalHeader from './header/index'
-import AtModalAction from './action/index'
-import AtModalContent from './content/index'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtModalProps, AtModalState } from 'types/modal'
+import { Button, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
-import { AtModalProps, AtModalState } from 'types/modal'
-import { CommonEvent } from '@tarojs/components/types/common'
+import AtModalAction from './action/index'
+import AtModalContent from './content/index'
+import AtModalHeader from './header/index'
 
 export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
   public static defaultProps: AtModalProps
   public static propTypes: InferProps<AtModalProps>
 
-  public constructor (props: AtModalProps) {
-    super(...arguments)
-
+  public constructor(props: AtModalProps) {
+    super(props)
     const { isOpened } = props
     this.state = {
       _isOpened: isOpened,
-      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB
     }
   }
 
-  public componentWillReceiveProps (nextProps: AtModalProps): void {
+  public componentWillReceiveProps(nextProps: AtModalProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -75,7 +71,7 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
     e.stopPropagation()
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { _isOpened, isWEB } = this.state
     const { title, content, cancelText, confirmText } = this.props
     const rootClass = classNames(
@@ -103,7 +99,15 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
             {content && (
               <AtModalContent>
                 <View className='content-simple'>
-                  { isWEB ? <Text dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}></Text> : <Text>{content}</Text> }
+                  {isWEB ? (
+                    <Text
+                      dangerouslySetInnerHTML={{
+                        __html: content.replace(/\n/g, '<br/>')
+                      }}
+                    ></Text>
+                  ) : (
+                    <Text>{content}</Text>
+                  )}
                 </View>
               </AtModalContent>
             )}

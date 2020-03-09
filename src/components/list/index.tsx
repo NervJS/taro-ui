@@ -1,15 +1,15 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtListProps } from 'types/list'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 export default class AtList extends AtComponent<AtListProps> {
   public static defaultProps: AtListProps
   public static propTypes: InferProps<AtListProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const rootClass = classNames(
       'at-list',
       {

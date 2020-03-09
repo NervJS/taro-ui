@@ -1,25 +1,26 @@
-import Taro from '@tarojs/taro'
+import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtSegmentedControlProps } from 'types/segmented-control'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
-import classNames from 'classnames'
-
-import { initTestEnv, pxTransform } from '../../common/utils'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
-import { AtSegmentedControlProps } from 'types/segmented-control'
+import { initTestEnv, pxTransform } from '../../common/utils'
 
 initTestEnv()
 
-export default class AtSegmentedControl extends AtComponent<AtSegmentedControlProps> {
+export default class AtSegmentedControl extends AtComponent<
+  AtSegmentedControlProps
+> {
   public static defaultProps: AtSegmentedControlProps
   public static propTypes: InferProps<AtSegmentedControlProps>
 
-  private handleClick (index: number, event: CommonEvent) {
+  private handleClick(index: number, event: CommonEvent) {
     if (this.props.disabled) return
     this.props.onClick(index, event)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       customStyle,
       className,
@@ -38,35 +39,39 @@ export default class AtSegmentedControl extends AtComponent<AtSegmentedControlPr
       color: selectedColor,
       fontSize: pxTransform(fontSize!),
       borderColor: selectedColor,
-      backgroundColor: color,
+      backgroundColor: color
     }
     const selectedItemStyle = {
       color,
       fontSize: pxTransform(fontSize!),
       borderColor: selectedColor,
-      backgroundColor: selectedColor,
+      backgroundColor: selectedColor
     }
-    const rootCls = classNames('at-segmented-control', {
-      'at-segmented-control--disabled': disabled
-    }, className)
+    const rootCls = classNames(
+      'at-segmented-control',
+      {
+        'at-segmented-control--disabled': disabled
+      },
+      className
+    )
 
     return (
       <View
         className={rootCls}
         style={this.mergeStyle(rootStyle, customStyle!)}
       >
-        {
-          values.map((value, i) => (
-            <View
-              className={classNames('at-segmented-control__item', {
-                'at-segmented-control__item--active': current === i
-              })}
-              style={current === i ? selectedItemStyle : itemStyle}
-              key={value}
-              onClick={this.handleClick.bind(this, i)}
-            >{value}</View>
-          ))
-        }
+        {values.map((value, i) => (
+          <View
+            className={classNames('at-segmented-control__item', {
+              'at-segmented-control__item--active': current === i
+            })}
+            style={current === i ? selectedItemStyle : itemStyle}
+            key={value}
+            onClick={this.handleClick.bind(this, i)}
+          >
+            {value}
+          </View>
+        ))}
       </View>
     )
   }
@@ -81,22 +86,16 @@ AtSegmentedControl.defaultProps = {
   disabled: false,
   selectedColor: '',
   values: [],
-  onClick: () => {},
+  onClick: () => {}
 }
 
 AtSegmentedControl.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   current: PropTypes.number,
   color: PropTypes.string,
   fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   values: PropTypes.array,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }

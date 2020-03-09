@@ -1,6 +1,9 @@
 import { MouseEvent, ComponentClass } from 'react'
 import { SelectorQuery } from '@tarojs/taro'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import {
+  CommonEventFunction,
+  CommonEvent
+} from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
