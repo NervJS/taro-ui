@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtButtonProps, AtButtonState } from 'types/button'
 import { Button, Form, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtLoading from '../loading/index'
 
 const SIZE_CLASS = {
@@ -17,7 +17,7 @@ const TYPE_CLASS = {
   secondary: 'secondary'
 }
 
-export default class AtButton extends AtComponent<
+export default class AtButton extends React.Component<
   AtButtonProps,
   AtButtonState
 > {
@@ -62,6 +62,7 @@ export default class AtButton extends AtComponent<
 
   private onSumit(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
+      // TODO: 3.0 this.$scope
       this.$scope.triggerEvent('submit', event.detail, {
         bubbles: true,
         composed: true
@@ -71,6 +72,7 @@ export default class AtButton extends AtComponent<
 
   private onReset(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
+      // TODO: 3.0 this.$scope
       this.$scope.triggerEvent('reset', event.detail, {
         bubbles: true,
         composed: true
@@ -123,9 +125,7 @@ export default class AtButton extends AtComponent<
       <Button
         className='at-button__wxbutton'
         lang={lang}
-        formType={
-          formType === 'submit' || formType === 'reset' ? formType : undefined
-        }
+        formType={formType}
       ></Button>
     )
 
@@ -175,28 +175,19 @@ export default class AtButton extends AtComponent<
 
 AtButton.defaultProps = {
   size: 'normal',
-  type: undefined,
   circle: false,
   full: false,
   loading: false,
   disabled: false,
   customStyle: {},
-  onClick: () => {},
   // Button props
-  formType: undefined,
-  openType: undefined,
   lang: 'en',
   sessionFrom: '',
   sendMessageTitle: '',
   sendMessagePath: '',
   sendMessageImg: '',
   showMessageCard: false,
-  appParameter: '',
-  onGetUserInfo: () => {},
-  onContact: () => {},
-  onGetPhoneNumber: () => {},
-  onError: () => {},
-  onOpenSetting: () => {}
+  appParameter: ''
 }
 
 AtButton.propTypes = {

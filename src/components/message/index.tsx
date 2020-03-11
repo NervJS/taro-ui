@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtMessageProps, AtMessageState } from 'types/message'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtMessage extends AtComponent<
+export default class AtMessage extends React.Component<
   AtMessageProps,
   AtMessageState
 > {

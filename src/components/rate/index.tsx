@@ -1,27 +1,31 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtRateProps } from 'types/rate'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
 
-initTestEnv()
-
-export default class AtRate extends AtComponent<AtRateProps> {
+export default class AtRate extends React.Component<AtRateProps> {
   public static defaultProps: AtRateProps
   public static propTypes: InferProps<AtRateProps>
 
-  private handleClick(event: CommonEvent) {
+  private handleClick(event: CommonEvent): void {
     this.props.onChange && this.props.onChange(event)
   }
 
   public render(): JSX.Element {
-    const { customStyle, className, value, max, size, margin } = this.props
+    const {
+      customStyle,
+      className,
+      value = 0,
+      max = 5,
+      size,
+      margin = 5
+    } = this.props
 
     const iconStyle = {
-      marginRight: Taro.pxTransform(margin!)
+      marginRight: Taro.pxTransform(margin)
     }
     const starIconStyle = {
       fontSize: size ? `${size}px` : ''
@@ -29,9 +33,9 @@ export default class AtRate extends AtComponent<AtRateProps> {
 
     // 生成星星颜色 className 数组，方便在jsx中直接map
     const classNameArr: string[] = []
-    const floorValue = Math.floor(value!)
-    const ceilValue = Math.ceil(value!)
-    for (let i = 0; i < max!; i++) {
+    const floorValue = Math.floor(value)
+    const ceilValue = Math.ceil(value)
+    for (let i = 0; i < max; i++) {
       if (floorValue > i) {
         classNameArr.push('at-rate__icon at-rate__icon--on')
       } else if (ceilValue - 1 === i) {
@@ -73,8 +77,7 @@ AtRate.defaultProps = {
   size: 0,
   value: 0,
   max: 5,
-  margin: 5,
-  onChange: () => {}
+  margin: 5
 }
 
 AtRate.propTypes = {

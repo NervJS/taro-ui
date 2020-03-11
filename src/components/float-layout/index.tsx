@@ -1,14 +1,13 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
 import { ScrollView, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
 
-export default class AtFloatLayout extends AtComponent<
+export default class AtFloatLayout extends React.Component<
   AtFloatLayoutProps,
   AtFloatLayoutState
 > {
@@ -24,7 +23,7 @@ export default class AtFloatLayout extends AtComponent<
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtFloatLayoutProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtFloatLayoutProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -38,9 +37,11 @@ export default class AtFloatLayout extends AtComponent<
     }
   }
 
-  private handleClose = () => {
+  private handleClose = (): void => {
     if (_isFunction(this.props.onClose)) {
-      // @ts-ignore // TODO: Fix typings
+      // TODO: Fix typings
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       this.props.onClose()
     }
   }
@@ -58,7 +59,7 @@ export default class AtFloatLayout extends AtComponent<
     e.stopPropagation()
   }
 
-  render() {
+  public render(): JSX.Element {
     const { _isOpened } = this.state
     const {
       title,
@@ -99,10 +100,13 @@ export default class AtFloatLayout extends AtComponent<
               upperThreshold={upperThreshold}
               lowerThreshold={lowerThreshold}
               scrollWithAnimation={scrollWithAnimation}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
               // @ts-ignore // TODO: Fix typings
               onScroll={this.props.onScroll}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
               // @ts-ignore // TODO: Fix typings
               onScrollToLower={this.props.onScrollToLower}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
               // @ts-ignore // TODO: Fix typings
               onScrollToUpper={this.props.onScrollToUpper}
               className='layout-body__content'
@@ -122,12 +126,7 @@ AtFloatLayout.defaultProps = {
 
   scrollY: true,
   scrollX: false,
-  scrollWithAnimation: false,
-
-  onClose: () => {},
-  onScroll: () => {},
-  onScrollToLower: () => {},
-  onScrollToUpper: () => {}
+  scrollWithAnimation: false
 }
 
 AtFloatLayout.propTypes = {

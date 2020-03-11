@@ -1,16 +1,14 @@
 import classNames from 'classnames'
 import isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtNavBarProps } from 'types/nav-bar'
 import { Text, View } from '@tarojs/components'
 import { ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
+import { mergeStyle } from '../../common/utils'
 
-initTestEnv()
-
-export default class AtNavBar extends AtComponent<AtNavBarProps> {
+export default class AtNavBar extends React.Component<AtNavBarProps> {
   public static defaultProps: AtNavBarProps
   public static propTypes: InferProps<AtNavBarProps>
 
@@ -103,7 +101,7 @@ export default class AtNavBar extends AtComponent<AtNavBarProps> {
           {leftIconType && (
             <Text
               className={leftIconClass}
-              style={this.mergeStyle(
+              style={mergeStyle(
                 {
                   color: leftIconInfo.color,
                   fontSize: `${Taro.pxTransform(
@@ -131,7 +129,7 @@ export default class AtNavBar extends AtComponent<AtNavBarProps> {
             {rightSecondIconType && (
               <Text
                 className={rightSecondIconClass}
-                style={this.mergeStyle(
+                style={mergeStyle(
                   {
                     color: rightSecondIconInfo.color,
                     fontSize: `${Taro.pxTransform(
@@ -154,7 +152,7 @@ export default class AtNavBar extends AtComponent<AtNavBarProps> {
             {rightFirstIconType && (
               <Text
                 className={rightFirstIconClass}
-                style={this.mergeStyle(
+                style={mergeStyle(
                   {
                     color: rightFirstIconInfo.color,
                     fontSize: `${Taro.pxTransform(
@@ -182,10 +180,7 @@ AtNavBar.defaultProps = {
   leftText: '',
   title: '',
   rightFirstIconType: '',
-  rightSecondIconType: '',
-  onClickLeftIcon: () => {},
-  onClickRgIconSt: () => {},
-  onClickRgIconNd: () => {}
+  rightSecondIconType: ''
 }
 
 AtNavBar.propTypes = {

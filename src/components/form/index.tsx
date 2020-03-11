@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtFormProps } from 'types/form'
 import { Form } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtForm extends AtComponent<AtFormProps> {
+export default class AtForm extends React.Component<AtFormProps> {
   public static defaultProps: AtFormProps
   public static propTypes: InferProps<AtFormProps>
 
@@ -38,9 +37,7 @@ export default class AtForm extends AtComponent<AtFormProps> {
 AtForm.defaultProps = {
   customStyle: '',
   className: '',
-  reportSubmit: false,
-  onSubmit: () => {},
-  onReset: () => {}
+  reportSubmit: false
 }
 
 AtForm.propTypes = {

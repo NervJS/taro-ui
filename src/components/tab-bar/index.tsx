@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtTabBarProps, TabItem } from 'types/tab-bar'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
+import { mergeStyle } from '../../common/utils'
 import AtBadge from '../badge/index'
 
-export default class AtTabBar extends AtComponent<AtTabBarProps> {
+export default class AtTabBar extends React.Component<AtTabBarProps> {
   public static defaultProps: AtTabBarProps
   public static propTypes: InferProps<AtTabBarProps>
 
@@ -35,7 +35,7 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
 
   public render(): JSX.Element {
     const {
-      customStyle,
+      customStyle = '',
       className,
       fixed,
       backgroundColor,
@@ -74,7 +74,7 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
           },
           className
         )}
-        style={this.mergeStyle(rootStyle, customStyle!)}
+        style={mergeStyle(rootStyle, customStyle)}
       >
         {tabList.map((item: TabItem, i: number) => (
           <View
@@ -164,7 +164,8 @@ AtTabBar.defaultProps = {
   fixed: false,
   current: 0,
   tabList: [],
-  onClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick: (): void => {}
 }
 
 AtTabBar.propTypes = {

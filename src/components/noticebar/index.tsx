@@ -1,12 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtNoticeBarProps, AtNoticeBarState } from 'types/noticebar'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtNoticebar extends AtComponent<
+export default class AtNoticebar extends React.Component<
   AtNoticeBarProps,
   AtNoticeBarState
 > {
@@ -41,7 +41,7 @@ export default class AtNoticebar extends AtComponent<
     this.props.onGotoMore && this.props.onGotoMore(event)
   }
 
-  public componentWillReceiveProps(): void {
+  public UNSAFE_componentWillReceiveProps(): void {
     if (!this.timeout) {
       this.interval && clearInterval(this.interval)
       this.initAnimation()
@@ -58,10 +58,11 @@ export default class AtNoticebar extends AtComponent<
     this.timeout = setTimeout(() => {
       this.timeout = null
       if (this.state.isWEB) {
+        const { speed = 100 } = this.props
         const elem = document.querySelector(`.${this.state.animElemId}`)
         if (!elem) return
         const width = elem.getBoundingClientRect().width
-        const dura = width / +this.props.speed!
+        const dura = width / +speed
         this.setState({ dura })
       } else if (isWEAPP || isALIPAY) {
         const query = isALIPAY
@@ -74,7 +75,8 @@ export default class AtNoticebar extends AtComponent<
             const queryRes = res[0]
             if (!queryRes) return
             const { width } = queryRes
-            const dura = width / +this.props.speed!
+            const { speed = 100 } = this.props
+            const dura = width / +speed
             const animation = Taro.createAnimation({
               duration: dura * 1000,
               timingFunction: 'linear'
@@ -87,7 +89,7 @@ export default class AtNoticebar extends AtComponent<
               duration: 0,
               timingFunction: 'linear'
             })
-            const animBody = () => {
+            const animBody = (): void => {
               resetOpacityAnimation.opacity(0).step()
               this.setState({ animationData: resetOpacityAnimation.export() })
 
@@ -204,9 +206,7 @@ AtNoticebar.defaultProps = {
   moreText: '查看详情',
   showMore: false,
   icon: '',
-  customStyle: {},
-  onClose: () => {},
-  onGotoMore: () => {}
+  customStyle: {}
 }
 
 AtNoticebar.propTypes = {

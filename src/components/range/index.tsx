@@ -1,13 +1,19 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtRangeProps, AtRangeState } from 'types/range'
 import { View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { delayQuerySelector, getEventDetail } from '../../common/utils'
+import {
+  delayQuerySelector,
+  getEventDetail,
+  mergeStyle
+} from '../../common/utils'
 
-export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
+export default class AtRange extends React.Component<
+  AtRangeProps,
+  AtRangeState
+> {
   public static defaultProps: AtRangeProps
   public static propTypes: InferProps<AtRangeProps>
 
@@ -77,19 +83,17 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
   }
 
   private setValue(value: number[]): void {
-    const aX = Math.round(
-      ((value[0] - this.props.min!) / this.deltaValue) * 100
-    ) // fix issue #670
-    const bX = Math.round(
-      ((value[1] - this.props.min!) / this.deltaValue) * 100
-    ) // fix issue #670
+    const { min = 0 } = this.props
+    const aX = Math.round(((value[0] - min) / this.deltaValue) * 100) // fix issue #670
+    const bX = Math.round(((value[1] - min) / this.deltaValue) * 100) // fix issue #670
     this.setState({ aX, bX })
   }
 
   private triggerEvent(funcName: string): void {
+    const { min = 0 } = this.props
     const { aX, bX } = this.state
-    const a = Math.round((aX / 100) * this.deltaValue) + this.props.min! // fix issue #670
-    const b = Math.round((bX / 100) * this.deltaValue) + this.props.min! // fix issue #670
+    const a = Math.round((aX / 100) * this.deltaValue) + min // fix issue #670
+    const b = Math.round((bX / 100) * this.deltaValue) + min // fix issue #670
     const result = [a, b].sort((x, y) => x - y) as [number, number]
 
     if (funcName === 'onChange') {
@@ -100,14 +104,13 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
   }
 
   private updatePos(): void {
-    delayQuerySelector(this, '.at-range__container', 0)
-      .then(rect => {
-        this.width = Math.round(rect[0].width)
-        this.left = Math.round(rect[0].left)
-      })
+    delayQuerySelector(this, '.at-range__container', 0).then(rect => {
+      this.width = Math.round(rect[0].width)
+      this.left = Math.round(rect[0].left)
+    })
   }
 
-  public componentWillReceiveProps(nextProps: AtRangeProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtRangeProps): void {
     const { value } = nextProps
     this.updatePos()
     if (
@@ -173,17 +176,17 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
           <View className='at-range__rail' style={railStyle}></View>
           <View
             className='at-range__track'
-            style={this.mergeStyle(atTrackStyle, trackStyle!)}
+            style={mergeStyle(atTrackStyle, trackStyle!)}
           ></View>
           <View
             className='at-range__slider'
-            style={this.mergeStyle(sliderAStyle, sliderStyle!)}
+            style={mergeStyle(sliderAStyle, sliderStyle!)}
             onTouchMove={this.handleTouchMove.bind(this, 'aX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'aX')}
           ></View>
           <View
             className='at-range__slider'
-            style={this.mergeStyle(sliderBStyle, sliderStyle!)}
+            style={mergeStyle(sliderBStyle, sliderStyle!)}
             onTouchMove={this.handleTouchMove.bind(this, 'bX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'bX')}
           ></View>
@@ -203,9 +206,7 @@ AtRange.defaultProps = {
   min: 0,
   max: 100,
   disabled: false,
-  blockSize: 0,
-  onChange: () => {},
-  onAfterChange: () => {}
+  blockSize: 0
 }
 
 AtRange.propTypes = {

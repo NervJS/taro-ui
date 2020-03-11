@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtActivityIndicatorProps } from 'types/activity-indicator'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtLoading from '../loading/index'
 
-export default class AtActivityIndicator extends AtComponent<
+export default class AtActivityIndicator extends React.Component<
   AtActivityIndicatorProps
 > {
   public static defaultProps: AtActivityIndicatorProps

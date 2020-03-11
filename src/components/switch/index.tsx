@@ -1,13 +1,11 @@
 import classNames from 'classnames'
-import _isUndefined from 'lodash/isUndefined'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtSwitchProps } from 'types/switch'
 import { Switch, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtSwitch extends AtComponent<AtSwitchProps> {
+export default class AtSwitch extends React.Component<AtSwitchProps> {
   public static defaultProps: AtSwitchProps
   public static propTypes: InferProps<AtSwitchProps>
 
@@ -63,8 +61,7 @@ AtSwitch.defaultProps = {
   color: '#6190e8',
   border: true,
   disabled: false,
-  checked: false,
-  onChange: () => {}
+  checked: false
 }
 
 AtSwitch.propTypes = {

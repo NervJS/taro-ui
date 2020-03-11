@@ -1,9 +1,8 @@
-import bind from 'bind-decorator'
 import classnames from 'classnames'
 import _isFunction from 'lodash/isFunction'
+import React from 'react'
 import { Calendar } from 'types/calendar'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import * as constant from '../../common/constant'
 
 const MAP: { [key: number]: string } = {
@@ -20,24 +19,20 @@ export interface Props {
   onLongClick?: (item: Calendar.Item) => void
 }
 
-export default class AtCalendarList extends Taro.Component<Props> {
-  static options = { addGlobalClass: true }
-
-  @bind
-  handleClick(item) {
+export default class AtCalendarList extends React.Component<Props> {
+  private handleClick = (item: Calendar.Item): void => {
     if (_isFunction(this.props.onClick)) {
       this.props.onClick(item)
     }
   }
 
-  @bind
-  handleLongClick(item) {
+  private handleLongClick = (item: Calendar.Item): void => {
     if (_isFunction(this.props.onLongClick)) {
       this.props.onLongClick(item)
     }
   }
 
-  render() {
+  public render(): JSX.Element | null {
     const { list } = this.props
     if (!list || list.length === 0) return null
 

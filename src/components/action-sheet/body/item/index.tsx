@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtActionSheetItemProps } from 'types/action-sheet'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../../common/component'
 
-export default class AtActionSheetItem extends AtComponent<
+export default class AtActionSheetItem extends React.Component<
   AtActionSheetItemProps
 > {
   public static defaultProps: AtActionSheetItemProps
@@ -27,10 +26,6 @@ export default class AtActionSheetItem extends AtComponent<
       </View>
     )
   }
-}
-
-AtActionSheetItem.defaultProps = {
-  onClick: () => {}
 }
 
 AtActionSheetItem.propTypes = {

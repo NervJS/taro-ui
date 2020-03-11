@@ -1,17 +1,14 @@
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
-
-initTestEnv()
 
 interface AtLoadingProps {
   size?: string | number
   color?: string | number
 }
 
-export default class AtLoading extends AtComponent<AtLoadingProps> {
+export default class AtLoading extends React.Component<AtLoadingProps> {
   public static defaultProps: AtLoadingProps
   public static propTypes: InferProps<AtLoadingProps>
 

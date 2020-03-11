@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtSliderProps, AtSliderState } from 'types/slider'
 import { Slider, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtSlider extends AtComponent<
+export default class AtSlider extends React.Component<
   AtSliderProps,
   AtSliderState
 > {
@@ -15,9 +14,9 @@ export default class AtSlider extends AtComponent<
 
   public constructor(props: AtSliderProps) {
     super(props)
-    const { value, min, max } = props
+    const { value = 0, min = 0, max = 100 } = props
     this.state = {
-      _value: AtSlider.clampNumber(value!, min!, max!)
+      _value: AtSlider.clampNumber(value, min, max)
     }
   }
 
@@ -46,10 +45,10 @@ export default class AtSlider extends AtComponent<
     this.props.onChange && this.props.onChange(value)
   }
 
-  public componentWillReceiveProps(props: AtSliderProps): void {
-    const { value, min, max } = props
+  public UNSAFE_componentWillReceiveProps(props: AtSliderProps): void {
+    const { value = 0, min = 0, max = 100 } = props
     this.setState({
-      _value: AtSlider.clampNumber(value!, min!, max!)
+      _value: AtSlider.clampNumber(value, min, max)
     })
   }
 
@@ -113,9 +112,7 @@ AtSlider.defaultProps = {
   backgroundColor: '#e9e9e9',
   blockSize: 28,
   blockColor: '#ffffff',
-  showValue: false,
-  onChange: () => {},
-  onChanging: () => {}
+  showValue: false
 }
 
 AtSlider.propTypes = {

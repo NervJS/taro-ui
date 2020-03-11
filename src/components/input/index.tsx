@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtInputProps } from 'types/input'
 import { Input, Label, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
 type PickAtInputProps = Pick<
   AtInputProps,
@@ -45,7 +44,7 @@ type ExtendEvent = {
   }
 }
 
-export default class AtInput extends AtComponent<AtInputProps> {
+export default class AtInput extends React.Component<AtInputProps> {
   public static defaultProps: AtInputProps
   public static propTypes: InferProps<AtInputProps>
 
@@ -207,12 +206,8 @@ AtInput.defaultProps = {
   autoFocus: false,
   focus: false,
   required: false,
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
-  onConfirm: () => {},
-  onErrorClick: () => {},
-  onClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtInput.propTypes = {

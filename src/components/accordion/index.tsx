@@ -1,16 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtAccordionProps, AtAccordionState } from 'types/accordion'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { delayQuerySelector, initTestEnv } from '../../common/utils'
+import { delayQuerySelector } from '../../common/utils'
 
-initTestEnv()
-
-// 文档
-export default class AtAccordion extends AtComponent<
+export default class AtAccordion extends React.Component<
   AtAccordionProps,
   AtAccordionState
 > {
@@ -69,7 +65,7 @@ export default class AtAccordion extends AtComponent<
     })
   }
 
-  public componentWillReceiveProps(nextProps: AtAccordionProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtAccordionProps): void {
     if (nextProps.open !== this.props.open) {
       this.startOpen = !!nextProps.open && !!nextProps.isAnimation
       this.toggleWithAnimation()
@@ -145,8 +141,7 @@ AtAccordion.defaultProps = {
   note: '',
   icon: { value: '' },
   hasBorder: true,
-  isAnimation: true,
-  onClick: () => {}
+  isAnimation: true
 }
 
 AtAccordion.propTypes = {

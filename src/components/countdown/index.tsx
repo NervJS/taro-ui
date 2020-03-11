@@ -1,10 +1,16 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtCountDownProps, AtCountdownState } from 'types/countdown'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtCountdownItem from './item'
+
+type TimeObject = {
+  day: number
+  hours: number
+  minutes: number
+  seconds: number
+}
 
 const toSeconds = (
   day: number,
@@ -13,7 +19,7 @@ const toSeconds = (
   seconds: number
 ): number => day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds
 
-export default class AtCountdown extends AtComponent<
+export default class AtCountdown extends React.Component<
   AtCountDownProps,
   AtCountdownState
 > {
@@ -25,8 +31,8 @@ export default class AtCountdown extends AtComponent<
 
   public constructor(props: AtCountDownProps) {
     super(props)
-    const { day, hours, minutes, seconds } = this.props
-    this.seconds = toSeconds(day!, hours!, minutes!, seconds!)
+    const { day = 0, hours = 0, minutes = 0, seconds = 0 } = this.props
+    this.seconds = toSeconds(day, hours, minutes, seconds)
     const {
       day: _day,
       hours: _hours,
@@ -40,7 +46,6 @@ export default class AtCountdown extends AtComponent<
       _minutes,
       _seconds
     }
-    this.timer = undefined
   }
 
   private setTimer(): void {
@@ -50,11 +55,10 @@ export default class AtCountdown extends AtComponent<
   private clearTimer(): void {
     if (this.timer) {
       clearTimeout(this.timer as number)
-      this.timer = undefined
     }
   }
 
-  private calculateTime() {
+  private calculateTime(): TimeObject {
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
@@ -97,7 +101,7 @@ export default class AtCountdown extends AtComponent<
     }, 1000)
   }
 
-  public componentWillReceiveProps(nextProps: AtCountDownProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtCountDownProps): void {
     if (JSON.stringify(this.props) === JSON.stringify(nextProps)) return
 
     const { day, hours, minutes, seconds } = nextProps
@@ -170,8 +174,7 @@ AtCountdown.defaultProps = {
   day: 0,
   hours: 0,
   minutes: 0,
-  seconds: 0,
-  onTimeUp() {}
+  seconds: 0
 }
 
 AtCountdown.propTypes = {

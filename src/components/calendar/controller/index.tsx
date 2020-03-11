@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
+import React from 'react'
 import {
   AtCalendarControllerProps,
   AtCalendarControllerState
@@ -11,9 +12,7 @@ export default class AtCalendarController extends Taro.Component<
   AtCalendarControllerProps,
   AtCalendarControllerState
 > {
-  static options = { addGlobalClass: true }
-
-  render() {
+  public render(): JSX.Element {
     const {
       generateDate,
       minDate,

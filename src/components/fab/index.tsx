@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtFabProps } from 'types/fab'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtFab extends AtComponent<AtFabProps> {
+export default class AtFab extends React.Component<AtFabProps> {
   public static defaultProps: AtFabProps
   public static propTypes: InferProps<AtFabProps>
 
@@ -34,6 +33,5 @@ AtFab.propTypes = {
 }
 
 AtFab.defaultProps = {
-  size: 'normal',
-  onClick: () => {}
+  size: 'normal'
 }

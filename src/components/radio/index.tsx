@@ -1,16 +1,15 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtRadioProps, RadioOption } from 'types/radio'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtRadio extends AtComponent<AtRadioProps<any>> {
+export default class AtRadio extends React.Component<AtRadioProps<any>> {
   public static defaultProps: AtRadioProps<any>
   public static propTypes: InferProps<AtRadioProps<any>>
 
-  private handleClick(option: RadioOption<any>, event: CommonEvent) {
+  private handleClick(option: RadioOption<any>, event: CommonEvent): void {
     if (option.disabled) return
     this.props.onClick(option.value, event)
   }
@@ -57,7 +56,8 @@ AtRadio.defaultProps = {
   className: '',
   value: '',
   options: [],
-  onClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick: (): void => {}
 }
 
 AtRadio.propTypes = {

@@ -1,25 +1,19 @@
 import classNames from 'classnames'
 import _findIndex from 'lodash/findIndex'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtIndexesProps, AtIndexesState, Item } from 'types/indexes'
 import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import {
-  delayQuerySelector,
-  initTestEnv,
-  isTest,
-  uuid
-} from '../../common/utils'
+import { delayQuerySelector, isTest, uuid } from '../../common/utils'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtToast from '../toast/index'
 
-initTestEnv()
 const ENV = Taro.getEnv()
 
-export default class AtIndexes extends AtComponent<
+export default class AtIndexes extends React.Component<
   AtIndexesProps,
   AtIndexesState
 > {
@@ -52,7 +46,6 @@ export default class AtIndexes extends AtComponent<
     // 当前索引
     this.currentIndex = -1
     this.listId = isTest() ? 'indexes-list-AOTU2018' : `list-${uuid()}`
-    this.timeoutTimer = undefined
   }
 
   private handleClick = (item: Item): void => {
@@ -80,8 +73,8 @@ export default class AtIndexes extends AtComponent<
   }
 
   private jumpTarget(_scrollIntoView: string, idx: number): void {
-    const { topKey, list } = this.props
-    const _tipText = idx === 0 ? topKey! : list[idx - 1].key
+    const { topKey = 'Top', list } = this.props
+    const _tipText = idx === 0 ? topKey : list[idx - 1].key
 
     if (ENV === Taro.ENV_TYPE.WEB) {
       delayQuerySelector(this, '.at-indexes', 0).then(rect => {
@@ -113,6 +106,7 @@ export default class AtIndexes extends AtComponent<
     const { isShowToast, isVibrate } = this.props
     const { _scrollIntoView, _tipText, _scrollTop } = state
     // TODO: Fix dirty hack
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     this.setState(
       {
         _scrollIntoView: _scrollIntoView!,
@@ -120,6 +114,7 @@ export default class AtIndexes extends AtComponent<
         _scrollTop: _scrollTop!,
         _isShowToast: isShowToast!
       },
+      /* eslint-enable @typescript-eslint/no-non-null-assertion */
       () => {
         clearTimeout(this.timeoutTimer as number)
         this.timeoutTimer = setTimeout(() => {
@@ -153,7 +148,7 @@ export default class AtIndexes extends AtComponent<
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtIndexesProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtIndexesProps): void {
     if (nextProps.list.length !== this.props.list.length) {
       this.initData()
     }
@@ -166,7 +161,7 @@ export default class AtIndexes extends AtComponent<
     this.initData()
   }
 
-  public componentWillMount(): void {
+  public UNSAFE_componentWillMount(): void {
     this.props.onScrollIntoView &&
       this.props.onScrollIntoView(this.__jumpTarget.bind(this))
   }
@@ -244,6 +239,7 @@ export default class AtIndexes extends AtComponent<
           id={this.listId}
           scrollY
           scrollWithAnimation={animation}
+          // eslint-disable-next-line no-undefined
           scrollTop={isWEB ? _scrollTop : undefined}
           scrollIntoView={!isWEB ? _scrollIntoView : ''}
           onScroll={this.handleScroll.bind(this)}
@@ -277,7 +273,5 @@ AtIndexes.defaultProps = {
   topKey: 'Top',
   isVibrate: true,
   isShowToast: true,
-  list: [],
-  onClick: () => {},
-  onScrollIntoView: () => {}
+  list: []
 }

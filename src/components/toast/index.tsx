@@ -1,14 +1,16 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtToastProps, AtToastState } from 'types/toast'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import statusImg from './img.json'
 
-export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
+export default class AtToast extends React.Component<
+  AtToastProps,
+  AtToastState
+> {
   public static defaultProps: AtToastProps
   public static propTypes: InferProps<AtToastProps>
 
@@ -58,6 +60,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
   private handleClose(event?: CommonEvent): void {
     // TODO: Fix dirty hack
     if (_isFunction(this.props.onClose)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.props.onClose(event!)
     }
   }
@@ -73,7 +76,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     this.close()
   }
 
-  public componentWillReceiveProps(nextProps: AtToastProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtToastProps): void {
     const { isOpened, duration } = nextProps
     if (!isOpened) {
       this.close()
@@ -94,8 +97,10 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
     const { _isOpened } = this.state
     const { customStyle, text, icon, status, image, hasMask } = this.props
 
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     const realImg = image || statusImg[status!] || null
     const isRenderIcon = !!(icon && !(image || statusImg[status!]))
+    /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
     const bodyClass = classNames('toast-body', {
       'at-toast__body--custom-image': image,

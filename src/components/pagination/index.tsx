@@ -1,13 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtPaginationProps, AtPaginationState } from 'types/pagination'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtButton from '../button/index'
 
 const MIN_MAXPAGE = 1
-const getMaxPage = (maxPage: number = 0): number => {
+const getMaxPage = (maxPage = 0): number => {
   if (maxPage <= 0) return MIN_MAXPAGE
   return maxPage
 }
@@ -17,7 +16,7 @@ const createPickerRange = (max: number): number[] => {
   return range
 }
 
-export default class AtPagination extends AtComponent<
+export default class AtPagination extends React.Component<
   AtPaginationProps,
   AtPaginationState
 > {
@@ -26,8 +25,8 @@ export default class AtPagination extends AtComponent<
 
   public constructor(props: AtPaginationProps) {
     super(props)
-    const { current, pageSize, total } = this.props
-    const maxPage = getMaxPage(Math.ceil(total / pageSize!))
+    const { current, pageSize = 20, total } = this.props
+    const maxPage = getMaxPage(Math.ceil(total / pageSize))
     this.state = {
       currentPage: current || 1,
       maxPage,
@@ -58,9 +57,9 @@ export default class AtPagination extends AtComponent<
     this.setState({ currentPage })
   }
 
-  public componentWillReceiveProps(props: AtPaginationProps): void {
-    const { total, pageSize, current } = props
-    const maxPage = getMaxPage(Math.ceil(total / pageSize!))
+  public UNSAFE_componentWillReceiveProps(props: AtPaginationProps): void {
+    const { total, pageSize = 20, current } = props
+    const maxPage = getMaxPage(Math.ceil(total / pageSize))
     if (maxPage !== this.state.maxPage) {
       this.setState({
         maxPage,
@@ -170,8 +169,7 @@ AtPagination.defaultProps = {
   total: 0,
   pageSize: 20,
   icon: false,
-  customStyle: {},
-  onPageChange: () => {}
+  customStyle: {}
 }
 
 AtPagination.propTypes = {

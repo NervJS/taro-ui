@@ -1,10 +1,11 @@
 import classNames from 'classnames'
+import React from 'react'
 import { AtModalContentProps } from 'types/modal'
 import { ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../common/component'
 
-export default class AtModalContent extends AtComponent<AtModalContentProps> {
+export default class AtModalContent extends React.Component<
+  AtModalContentProps
+> {
   public render(): JSX.Element {
     const rootClass = classNames('at-modal__content', this.props.className)
     return (

@@ -1,10 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtSearchBarProps, AtSearchBarState } from 'types/search-bar'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
 type ExtendEvent = {
   target: {
@@ -12,7 +11,7 @@ type ExtendEvent = {
   }
 }
 
-export default class AtSearchBar extends AtComponent<
+export default class AtSearchBar extends React.Component<
   AtSearchBarProps,
   AtSearchBarState
 > {
@@ -68,7 +67,7 @@ export default class AtSearchBar extends AtComponent<
       fixed,
       disabled,
       showActionButton,
-      actionName,
+      actionName = '搜索',
       inputType, // 处理issue#464
       className,
       customStyle
@@ -91,7 +90,7 @@ export default class AtSearchBar extends AtComponent<
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${(actionName!.length + 1) * fontSize +
+      actionStyle.marginRight = `-${(actionName.length + 1) * fontSize +
         fontSize / 2 +
         10}px`
     }
@@ -165,11 +164,8 @@ AtSearchBar.defaultProps = {
   showActionButton: false,
   actionName: '搜索',
   inputType: 'text',
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
-  onConfirm: () => {},
-  onActionClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtSearchBar.propTypes = {

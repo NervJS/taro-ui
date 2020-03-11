@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtCurtainProps } from 'types/curtain'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtCurtain extends AtComponent<AtCurtainProps> {
+export default class AtCurtain extends React.Component<AtCurtainProps> {
   public static defaultProps: AtCurtainProps
   public static propTypes: InferProps<AtCurtainProps>
 
@@ -59,7 +58,8 @@ AtCurtain.defaultProps = {
   className: '',
   isOpened: false,
   closeBtnPosition: 'bottom',
-  onClose: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClose: (): void => {}
 }
 
 AtCurtain.propTypes = {

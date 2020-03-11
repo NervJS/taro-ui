@@ -1,11 +1,8 @@
-import _chunk from 'lodash/chunk'
+import React from 'react'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 
-export default class AtCalendarHeader extends Taro.Component {
-  static options = { addGlobalClass: true }
-
-  render() {
+export default class AtCalendarHeader extends React.Component {
+  public render(): JSX.Element {
     return (
       <View className='at-calendar__header header'>
         <View className='header__flex'>

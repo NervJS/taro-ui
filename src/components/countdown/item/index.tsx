@@ -1,10 +1,11 @@
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtCountdownItemProps } from 'types/countdown'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../common/component'
 
-export default class AtCountdownItem extends AtComponent<AtCountdownItemProps> {
+export default class AtCountdownItem extends React.Component<
+  AtCountdownItemProps
+> {
   public static defaultProps: AtCountdownItemProps
   public static propTypes: InferProps<AtCountdownItemProps>
 

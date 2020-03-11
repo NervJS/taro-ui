@@ -1,14 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtDividerProps } from 'types/divider'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
+import { mergeStyle } from '../../common/utils'
 
-initTestEnv()
-
-export default class AtDivider extends AtComponent<AtDividerProps> {
+export default class AtDivider extends React.Component<AtDividerProps> {
   public static defaultProps: AtDividerProps
   public static propTypes: InferProps<AtDividerProps>
 
@@ -39,7 +37,7 @@ export default class AtDivider extends AtComponent<AtDividerProps> {
     return (
       <View
         className={classNames('at-divider', className)}
-        style={this.mergeStyle(rootStyle, customStyle as object)}
+        style={mergeStyle(rootStyle, customStyle as object)}
       >
         <View className='at-divider__content' style={fontStyle}>
           {content === '' ? this.props.children : content}

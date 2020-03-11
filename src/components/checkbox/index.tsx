@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtCheckboxProps } from 'types/checkbox'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtCheckbox extends AtComponent<AtCheckboxProps<any>> {
+export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
   public static defaultProps: AtCheckboxProps<any>
   public static propTypes: InferProps<AtCheckboxProps<any>>
 
@@ -66,7 +65,8 @@ AtCheckbox.defaultProps = {
   className: '',
   options: [],
   selectedList: [],
-  onChange() {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtCheckbox.propTypes = {

@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtTextareaProps } from 'types/textarea'
 import { Textarea, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
 
 type ExtendEvent = {
   target: {
@@ -24,9 +23,8 @@ function getMaxLength(
 }
 
 const ENV = Taro.getEnv()
-initTestEnv()
 
-export default class AtTextarea extends AtComponent<AtTextareaProps> {
+export default class AtTextarea extends React.Component<AtTextareaProps> {
   public static defaultProps: AtTextareaProps
   public static propTypes: InferProps<AtTextareaProps>
 
@@ -46,7 +44,7 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
     this.props.onConfirm && this.props.onConfirm(event)
   }
 
-  private handleLinechange = (event: CommonEvent) => {
+  private handleLinechange = (event: CommonEvent): void => {
     this.props.onLinechange && this.props.onLinechange(event)
   }
 
@@ -59,7 +57,7 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
       placeholder,
       placeholderStyle,
       placeholderClass,
-      maxLength,
+      maxLength = 200,
       count,
       disabled,
       autoFocus,
@@ -68,12 +66,12 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
       selectionStart,
       selectionEnd,
       fixed,
-      textOverflowForbidden,
+      textOverflowForbidden = true,
       height
     } = this.props
 
-    const _maxLength = parseInt(maxLength!.toString())
-    const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden!)
+    const _maxLength = parseInt(maxLength.toString())
+    const actualMaxLength = getMaxLength(_maxLength, textOverflowForbidden)
     const textareaStyle = height
       ? `height:${Taro.pxTransform(Number(height))}`
       : ''
@@ -138,11 +136,8 @@ AtTextarea.defaultProps = {
   fixed: false,
   height: '',
   textOverflowForbidden: true,
-  onLinechange: () => {},
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
-  onConfirm: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtTextarea.propTypes = {

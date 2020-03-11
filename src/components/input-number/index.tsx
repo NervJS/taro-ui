@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import _toString from 'lodash/toString'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtInputNumberProps, InputError } from 'types/input-number'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
 
 // TODO: Check all types
@@ -47,18 +47,17 @@ type ExtendEvent = {
   }
 }
 
-export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
+export default class AtInputNumber extends React.Component<AtInputNumberProps> {
   public static defaultProps: AtInputNumberProps
   public static propTypes: InferProps<AtInputNumberProps>
 
   private handleClick(clickType: 'minus' | 'plus', e: CommonEvent): void {
-    // TODO: Fix dirty hack
-    const { disabled, value, min, max, step } = this.props
-    const lowThanMin = clickType === 'minus' && value <= min!
-    const overThanMax = clickType === 'plus' && value >= max!
+    const { disabled, value, min = 0, max = 100, step = 1 } = this.props
+    const lowThanMin = clickType === 'minus' && value <= min
+    const overThanMax = clickType === 'plus' && value >= max
     if (lowThanMin || overThanMax || disabled) {
-      const deltaValue = clickType === 'minus' ? -step! : step
-      const errorValue = addNum(Number(value), deltaValue!)
+      const deltaValue = clickType === 'minus' ? -step : step
+      const errorValue = addNum(Number(value), deltaValue)
       if (disabled) {
         this.handleError({
           type: 'DISABLED',
@@ -72,29 +71,28 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
       }
       return
     }
-    const deltaValue = clickType === 'minus' ? -step! : step
-    let newValue = addNum(Number(value), deltaValue!)
+    const deltaValue = clickType === 'minus' ? -step : step
+    let newValue = addNum(Number(value), deltaValue)
     newValue = Number(this.handleValue(newValue))
     this.props.onChange(newValue, e)
   }
 
   private handleValue = (value: string | number): string => {
-    // TODO: Fix dirty hack
-    const { max, min } = this.props
+    const { max = 100, min = 0 } = this.props
     let resultValue = value === '' ? min : value
     // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
-    if (resultValue! > max!) {
+    if (resultValue > max) {
       resultValue = max
       this.handleError({
         type: 'OVER',
-        errorValue: resultValue!
+        errorValue: resultValue
       })
     }
-    if (resultValue! < min!) {
+    if (resultValue < min) {
       resultValue = min
       this.handleError({
         type: 'LOW',
-        errorValue: resultValue!
+        errorValue: resultValue
       })
     }
     if (resultValue && !Number(resultValue)) {
@@ -110,10 +108,10 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
     return resultValue
   }
 
-  private handleInput = (e: CommonEvent & ExtendEvent) => {
+  private handleInput = (e: CommonEvent & ExtendEvent): string => {
     const { value } = e.target
     const { disabled } = this.props
-    if (disabled) return
+    if (disabled) return ''
 
     const newValue = this.handleValue(value)
     this.props.onChange(Number(newValue), e)
@@ -138,8 +136,8 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
       disabled,
       value,
       type,
-      min,
-      max,
+      min = 0,
+      max = 100,
       size,
       disabledInput
     } = this.props
@@ -156,10 +154,10 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
       className
     )
     const minusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue <= min! || disabled
+      'at-input-number--disabled': inputValue <= min || disabled
     })
     const plusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue >= max! || disabled
+      'at-input-number--disabled': inputValue >= max || disabled
     })
 
     return (
@@ -202,8 +200,8 @@ AtInputNumber.defaultProps = {
   max: 100,
   step: 1,
   size: 'normal',
-  onChange: () => {},
-  onBlur: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtInputNumber.propTypes = {

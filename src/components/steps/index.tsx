@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtStepsProps } from 'types/steps'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtSteps extends AtComponent<AtStepsProps> {
+export default class AtSteps extends React.Component<AtStepsProps> {
   public static defaultProps: AtStepsProps
   public static propTypes: InferProps<AtStepsProps>
 
@@ -76,7 +75,8 @@ AtSteps.defaultProps = {
   className: '',
   current: 0,
   items: [],
-  onChange: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtSteps.propTypes = {

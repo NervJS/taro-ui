@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtCardProps } from 'types/card'
 import { Image, Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtCard extends AtComponent<AtCardProps> {
+export default class AtCard extends React.Component<AtCardProps> {
   public static defaultProps: AtCardProps
   public static propTypes: InferProps<AtCardProps>
 
@@ -85,9 +84,6 @@ AtCard.defaultProps = {
   thumb: '',
   title: '',
   extra: '',
-  icon: undefined,
-  onClick() {},
-  renderIcon: undefined,
   extraStyle: {}
 }
 

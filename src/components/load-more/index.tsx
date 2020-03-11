@@ -1,13 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtLoadMoreProps } from 'types/load-more'
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtActivityIndicator from '../activity-indicator/index'
 import AtButton from '../button/index'
 
-export default class AtLoadMore extends AtComponent<AtLoadMoreProps> {
+export default class AtLoadMore extends React.Component<AtLoadMoreProps> {
   public static defaultProps: AtLoadMoreProps
   public static propTypes: InferProps<AtLoadMoreProps>
 
@@ -69,8 +68,7 @@ AtLoadMore.defaultProps = {
   status: 'more',
   loadingText: '加载中',
   moreText: '查看更多',
-  noMoreText: '没有更多',
-  onClick: () => {}
+  noMoreText: '没有更多'
 }
 
 AtLoadMore.propTypes = {

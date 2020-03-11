@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 import isNaN from 'lodash/isNaN'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtBadgeProps } from 'types/badge'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
-export default class AtBadge extends AtComponent<AtBadgeProps> {
+export default class AtBadge extends React.Component<AtBadgeProps> {
   public static defaultProps: AtBadgeProps
   public static propTypes: InferProps<AtBadgeProps>
 
@@ -19,7 +18,8 @@ export default class AtBadge extends AtComponent<AtBadgeProps> {
     value: string | number | undefined,
     maxValue: number
   ): string | number {
-    if (value === '' || value === null || value === undefined) return ''
+    if (value === '' || value === null || typeof value === 'undefined')
+      return ''
     const numValue = +value
     if (isNaN(numValue)) {
       return value
@@ -28,10 +28,10 @@ export default class AtBadge extends AtComponent<AtBadgeProps> {
   }
 
   public render(): JSX.Element {
-    const { dot, value, maxValue, customStyle } = this.props
+    const { dot, value, maxValue = 99, customStyle } = this.props
     const rootClassName = ['at-badge']
 
-    const val = this.formatValue(value, maxValue!)
+    const val = this.formatValue(value, maxValue)
 
     return (
       <View

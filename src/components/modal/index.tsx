@@ -1,17 +1,20 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtModalProps, AtModalState } from 'types/modal'
 import { Button, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
 import AtModalAction from './action/index'
 import AtModalContent from './content/index'
 import AtModalHeader from './header/index'
 
-export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
+export default class AtModal extends React.Component<
+  AtModalProps,
+  AtModalState
+> {
   public static defaultProps: AtModalProps
   public static propTypes: InferProps<AtModalProps>
 
@@ -24,7 +27,7 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtModalProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtModalProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -51,6 +54,7 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
 
   private handleClose = (event?: CommonEvent): void => {
     if (_isFunction(this.props.onClose)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.props.onClose(event!)
     }
   }

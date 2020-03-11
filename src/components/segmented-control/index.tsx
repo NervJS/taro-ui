@@ -1,35 +1,32 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtSegmentedControlProps } from 'types/segmented-control'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv, pxTransform } from '../../common/utils'
+import { mergeStyle, pxTransform } from '../../common/utils'
 
-initTestEnv()
-
-export default class AtSegmentedControl extends AtComponent<
+export default class AtSegmentedControl extends React.Component<
   AtSegmentedControlProps
 > {
   public static defaultProps: AtSegmentedControlProps
   public static propTypes: InferProps<AtSegmentedControlProps>
 
-  private handleClick(index: number, event: CommonEvent) {
+  private handleClick(index: number, event: CommonEvent): void {
     if (this.props.disabled) return
     this.props.onClick(index, event)
   }
 
   public render(): JSX.Element {
     const {
-      customStyle,
+      customStyle = '',
       className,
       disabled,
       values,
       selectedColor,
       current,
       color,
-      fontSize
+      fontSize = 28
     } = this.props
 
     const rootStyle = {
@@ -37,13 +34,13 @@ export default class AtSegmentedControl extends AtComponent<
     }
     const itemStyle = {
       color: selectedColor,
-      fontSize: pxTransform(fontSize!),
+      fontSize: pxTransform(fontSize),
       borderColor: selectedColor,
       backgroundColor: color
     }
     const selectedItemStyle = {
       color,
-      fontSize: pxTransform(fontSize!),
+      fontSize: pxTransform(fontSize),
       borderColor: selectedColor,
       backgroundColor: selectedColor
     }
@@ -56,10 +53,7 @@ export default class AtSegmentedControl extends AtComponent<
     )
 
     return (
-      <View
-        className={rootCls}
-        style={this.mergeStyle(rootStyle, customStyle!)}
-      >
+      <View className={rootCls} style={mergeStyle(rootStyle, customStyle)}>
         {values.map((value, i) => (
           <View
             className={classNames('at-segmented-control__item', {
@@ -82,11 +76,12 @@ AtSegmentedControl.defaultProps = {
   className: '',
   current: 0,
   color: '',
-  fontSize: 0,
+  fontSize: 28,
   disabled: false,
   selectedColor: '',
   values: [],
-  onClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick: (): void => {}
 }
 
 AtSegmentedControl.propTypes = {

@@ -1,9 +1,6 @@
-import Taro from '@tarojs/taro'
 import './style/index.scss'
 import './style/themes/red.scss'
 import './style/themes/purple.scss'
-
-Taro.initPxTransform({ designWidth: 750, deviceRatio: {} })
 
 export { default as AtActionSheet } from './components/action-sheet'
 export { default as AtActionSheetItem } from './components/action-sheet/body/item'

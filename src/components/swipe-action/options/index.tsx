@@ -1,11 +1,10 @@
 import classNames from 'classnames'
+import React from 'react'
 import { AtSwipeActionOptionsProps } from 'types/swipe-action'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../common/component'
 import { delayQuerySelector } from '../../../common/utils'
 
-export default class AtSwipeActionOptions extends AtComponent<
+export default class AtSwipeActionOptions extends React.Component<
   AtSwipeActionOptionsProps
 > {
   private trrigerOptionsDomUpadte(): void {
@@ -21,7 +20,9 @@ export default class AtSwipeActionOptions extends AtComponent<
     this.trrigerOptionsDomUpadte()
   }
 
-  public componentWillReceiveProps(nextProps: AtSwipeActionOptionsProps): void {
+  public UNSAFE_componentWillReceiveProps(
+    nextProps: AtSwipeActionOptionsProps
+  ): void {
     if (nextProps.options !== this.props.options) {
       this.trrigerOptionsDomUpadte()
     }

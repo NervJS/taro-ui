@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtImagePickerProps, File } from 'types/image-picker'
 import { Image, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import { uuid } from '../../common/utils'
 
 interface MatrixFile extends Partial<File> {
@@ -16,7 +16,7 @@ const generateMatrix = (
   files: MatrixFile[],
   col: number,
   showAddBtn: boolean
-) => {
+): MatrixFile[][] => {
   const matrix: Array<MatrixFile>[] = []
   const length = showAddBtn ? files.length + 1 : files.length
   const row = Math.ceil(length / col)
@@ -43,7 +43,7 @@ const generateMatrix = (
 
 const ENV = Taro.getEnv()
 
-export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
+export default class AtImagePicker extends React.Component<AtImagePickerProps> {
   public static defaultProps: AtImagePickerProps
   public static propTypes: InferProps<AtImagePickerProps>
 
@@ -113,28 +113,25 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
               item.url ? (
                 <View
                   className='at-image-picker__flex-item'
-                  key={i * length! + j}
+                  key={i * length + j}
                 >
                   <View className='at-image-picker__item'>
                     <View
                       className='at-image-picker__remove-btn'
-                      onClick={this.handleRemoveImg.bind(this, i * length! + j)}
+                      onClick={this.handleRemoveImg.bind(this, i * length + j)}
                     ></View>
                     <Image
                       className='at-image-picker__preview-img'
                       mode={mode}
                       src={item.url}
-                      onClick={this.handleImageClick.bind(
-                        this,
-                        i * length! + j
-                      )}
+                      onClick={this.handleImageClick.bind(this, i * length + j)}
                     />
                   </View>
                 </View>
               ) : (
                 <View
                   className='at-image-picker__flex-item'
-                  key={i * length! + j}
+                  key={i * length + j}
                 >
                   {item.type === 'btn' && (
                     <View
@@ -163,9 +160,8 @@ AtImagePicker.defaultProps = {
   showAddBtn: true,
   multiple: false,
   length: 4,
-  onChange: () => {},
-  onImageClick: () => {},
-  onFail: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (): void => {}
 }
 
 AtImagePicker.propTypes = {

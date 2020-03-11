@@ -1,10 +1,9 @@
 import classNames from 'classnames'
+import React from 'react'
 import { AtActionSheetBodyProps } from 'types/action-sheet'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../common/component'
 
-export default class AtActionSheetBody extends AtComponent<
+export default class AtActionSheetBody extends React.Component<
   AtActionSheetBodyProps
 > {
   public render(): JSX.Element {

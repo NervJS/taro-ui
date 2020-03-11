@@ -1,10 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtTagProps } from 'types/tag'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 
 const SIZE_CLASS = {
   normal: 'normal',
@@ -15,17 +14,18 @@ const TYPE_CLASS = {
   primary: 'primary'
 }
 
-export default class AtTag extends AtComponent<AtTagProps> {
+export default class AtTag extends React.Component<AtTagProps> {
   public static defaultProps: AtTagProps
   public static propTypes: InferProps<AtTagProps>
 
   private onClick(event: CommonEvent): void {
-    if (!this.props.disabled) {
-      this.props.onClick &&
-        this.props.onClick(
+    const { name = '', active = false, disabled, onClick } = this.props
+    if (!disabled) {
+      typeof onClick === 'function' &&
+        onClick(
           {
-            name: this.props.name!,
-            active: this.props.active!
+            name,
+            active
           },
           event
         )
@@ -70,8 +70,7 @@ AtTag.defaultProps = {
   circle: false,
   active: false,
   disabled: false,
-  customStyle: {},
-  onClick: () => {}
+  customStyle: {}
 }
 
 AtTag.propTypes = {

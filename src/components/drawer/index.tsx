@@ -1,13 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtDrawerProps, AtDrawerState } from 'types/drawer'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 
-export default class AtDrawer extends AtComponent<
+export default class AtDrawer extends React.Component<
   AtDrawerProps,
   AtDrawerState
 > {
@@ -60,7 +59,7 @@ export default class AtDrawer extends AtComponent<
     this.animHide()
   }
 
-  public componentWillReceiveProps(nextProps: AtDrawerProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtDrawerProps): void {
     const { show } = nextProps
     if (show !== this.state._show) {
       show ? this.animShow() : this.animHide()
@@ -128,9 +127,7 @@ AtDrawer.defaultProps = {
   mask: true,
   width: '',
   right: false,
-  items: [],
-  onItemClick: () => {},
-  onClose: () => {}
+  items: []
 }
 
 AtDrawer.propTypes = {

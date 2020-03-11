@@ -1,8 +1,6 @@
-import bind from 'bind-decorator'
 import classnames from 'classnames'
 import dayjs from 'dayjs'
-import _chunk from 'lodash/chunk'
-import _throttle from 'lodash/throttle'
+import React from 'react'
 import {
   AtCalendarBodyListGroup,
   AtCalendarBodyProps,
@@ -11,13 +9,12 @@ import {
 } from 'types/calendar'
 import { Swiper, SwiperItem, View } from '@tarojs/components'
 import { BaseEvent, ITouch, ITouchEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
 import { delayQuerySelector } from '../../../common/utils'
 import generateCalendarGroup from '../common/helper'
 import AtCalendarDateList from '../ui/date-list/index'
 import AtCalendarDayList from '../ui/day-list/index'
 
-const ANIMTE_DURATION: number = 300
+const ANIMTE_DURATION = 300
 
 const defaultProps: Partial<AtCalendarBodyProps> = {
   marks: [],
@@ -35,7 +32,7 @@ export default class AtCalendarBody extends Taro.Component<
 > {
   static defaultProps: Partial<AtCalendarBodyProps> = defaultProps
 
-  constructor(props: AtCalendarBodyProps) {
+  public constructor(props: AtCalendarBodyProps) {
     super(props)
     const {
       validDates,
@@ -65,13 +62,15 @@ export default class AtCalendarBody extends Taro.Component<
     }
   }
 
-  componentDidMount() {
+  public componentDidMount(): void {
     delayQuerySelector(this, '.at-calendar-slider__main').then(res => {
       this.maxWidth = res[0].width
     })
   }
 
-  componentWillReceiveProps(nextProps: AtCalendarBodyProps) {
+  public UNSAFE_componentWillReceiveProps(
+    nextProps: AtCalendarBodyProps
+  ): void {
     const {
       validDates,
       marks,
@@ -99,15 +98,13 @@ export default class AtCalendarBody extends Taro.Component<
     })
   }
 
-  static options = { addGlobalClass: true }
-
-  private changeCount: number = 0
-  private currentSwiperIndex: number = 1
-  private startX: number = 0
-  private swipeStartPoint: number = 0
-  private isPreMonth: boolean = false
-  private maxWidth: number = 0
-  private isTouching: boolean = false
+  private changeCount = 0
+  private currentSwiperIndex = 1
+  private startX = 0
+  private swipeStartPoint = 0
+  private isPreMonth = false
+  private maxWidth = 0
+  private isTouching = false
 
   private generateFunc: (
     generateDate: number,
@@ -115,11 +112,10 @@ export default class AtCalendarBody extends Taro.Component<
     isShowStatus?: boolean
   ) => Calendar.ListInfo<Calendar.Item>
 
-  @bind
-  private getGroups(
+  private getGroups = (
     generateDate: number,
     selectedDate: Calendar.SelectedDate
-  ): AtCalendarBodyListGroup {
+  ): AtCalendarBodyListGroup => {
     const dayjsDate = dayjs(generateDate)
     const arr: AtCalendarBodyListGroup = []
     const preList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
@@ -150,8 +146,7 @@ export default class AtCalendarBody extends Taro.Component<
     return arr
   }
 
-  @bind
-  private handleTouchStart(e: ITouchEvent) {
+  private handleTouchStart = (e: ITouchEvent): void => {
     if (!this.props.isSwiper) {
       return
     }
@@ -159,7 +154,7 @@ export default class AtCalendarBody extends Taro.Component<
     this.startX = e.touches[0].clientX
   }
 
-  private handleTouchMove = (e: ITouchEvent) => {
+  private handleTouchMove = (e: ITouchEvent): void => {
     if (!this.props.isSwiper) {
       return
     }
@@ -173,7 +168,7 @@ export default class AtCalendarBody extends Taro.Component<
     })
   }
 
-  private animateMoveSlide(offset: number, callback?: Function) {
+  private animateMoveSlide = (offset: number, callback?: Function): void => {
     this.setState(
       {
         isAnimate: true
@@ -196,8 +191,7 @@ export default class AtCalendarBody extends Taro.Component<
     )
   }
 
-  @bind
-  private handleTouchEnd() {
+  private handleTouchEnd = (): void => {
     if (!this.props.isSwiper) {
       return
     }
@@ -219,8 +213,7 @@ export default class AtCalendarBody extends Taro.Component<
     this.animateMoveSlide(0)
   }
 
-  @bind
-  private handleChange(e: BaseEvent) {
+  private handleChange = (e: BaseEvent): void => {
     const { current, source } = e.detail
 
     if (source === 'touch') {
@@ -229,8 +222,7 @@ export default class AtCalendarBody extends Taro.Component<
     }
   }
 
-  @bind
-  private handleAnimateFinish() {
+  private handleAnimateFinish = (): void => {
     if (this.changeCount > 0) {
       this.props.onSwipeMonth(
         this.isPreMonth ? -this.changeCount : this.changeCount
@@ -239,25 +231,23 @@ export default class AtCalendarBody extends Taro.Component<
     }
   }
 
-  @bind
-  private handleSwipeTouchStart(
+  private handleSwipeTouchStart = (
     e: ITouchEvent & { changedTouches: Array<ITouch> }
-  ) {
+  ): void => {
     const { clientY, clientX } = e.changedTouches[0]
     this.swipeStartPoint = this.props.isVertical ? clientY : clientX
   }
 
-  @bind
-  private handleSwipeTouchEnd(
+  private handleSwipeTouchEnd = (
     e: ITouchEvent & { changedTouches: Array<ITouch> }
-  ) {
+  ): void => {
     const { clientY, clientX } = e.changedTouches[0]
     this.isPreMonth = this.props.isVertical
       ? clientY - this.swipeStartPoint > 0
       : clientX - this.swipeStartPoint > 0
   }
 
-  render() {
+  public render(): JSX.Element {
     const { isSwiper } = this.props
     const { isAnimate, offsetSize, listGroup } = this.state
 

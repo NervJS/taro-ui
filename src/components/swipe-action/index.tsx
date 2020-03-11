@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import _inRange from 'lodash/inRange'
 import _isEmpty from 'lodash/isEmpty'
 import _isFunction from 'lodash/isFunction'
-import _isNil from 'lodash/isNil'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import {
   AtSwipeActionProps,
   AtSwipeActionState,
@@ -11,8 +11,6 @@ import {
 } from 'types/swipe-action'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import {
   delayGetClientRect,
   delayGetScrollOffset,
@@ -21,7 +19,7 @@ import {
 } from '../../common/utils'
 import AtSwipeActionOptions from './options/index'
 
-export default class AtSwipeAction extends AtComponent<
+export default class AtSwipeAction extends React.Component<
   AtSwipeActionProps,
   AtSwipeActionState
 > {
@@ -32,7 +30,7 @@ export default class AtSwipeAction extends AtComponent<
   private startX: number
   private startY: number
   private maxOffsetSize: number
-  private domInfo: Taro.rectElement
+  private domInfo: any
   private isMoving: boolean
   private isTouching: boolean
 
@@ -73,7 +71,7 @@ export default class AtSwipeAction extends AtComponent<
     })
   }
 
-  public componentWillReceiveProps(nextProps: AtSwipeActionProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtSwipeActionProps): void {
     const { isOpened } = nextProps
     const { _isOpened } = this.state
 

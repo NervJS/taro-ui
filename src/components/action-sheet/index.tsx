@@ -1,16 +1,15 @@
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
 import AtActionSheetBody from './body/index'
 import AtActionSheetFooter from './footer/index'
 import AtActionSheetHeader from './header/index'
 
-export default class AtActionSheet extends AtComponent<
+export default class AtActionSheet extends React.Component<
   AtActionSheetProps,
   AtActionSheetState
 > {
@@ -26,7 +25,7 @@ export default class AtActionSheet extends AtComponent<
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtActionSheetProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtActionSheetProps): void {
     const { isOpened } = nextProps
     if (isOpened !== this.state._isOpened) {
       this.setState({

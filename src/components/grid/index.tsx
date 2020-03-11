@@ -3,13 +3,13 @@ import _chunk from 'lodash/chunk'
 import _isFunction from 'lodash/isFunction'
 import _isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtGridProps, Item } from 'types/grid'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
+import { mergeStyle } from '../../common/utils'
 
-export default class AtGrid extends AtComponent<AtGridProps> {
+export default class AtGrid extends React.Component<AtGridProps> {
   public static defaultProps: AtGridProps
   public static propTypes: InferProps<AtGridProps>
 
@@ -19,16 +19,15 @@ export default class AtGrid extends AtComponent<AtGridProps> {
     row: number,
     event: CommonEvent
   ): void => {
-    const { onClick, columnNum } = this.props
+    const { onClick, columnNum = 3 } = this.props
     if (_isFunction(onClick)) {
-      /* prettier-ignore */
-      const clickIndex = (row * columnNum!) + index
+      const clickIndex = row * columnNum + index
       onClick(item, clickIndex, event)
     }
   }
 
   public render(): JSX.Element | null {
-    const { data, mode, columnNum, hasBorder } = this.props
+    const { data, mode, columnNum = 3, hasBorder } = this.props
 
     if (Array.isArray(data) && data.length === 0) {
       return null
@@ -51,11 +50,11 @@ export default class AtGrid extends AtComponent<AtGridProps> {
               <View
                 key={`at-grid-item-${index}`}
                 className={classNames(bodyClass, {
-                  'at-grid-item--last': index === columnNum! - 1
+                  'at-grid-item--last': index === columnNum - 1
                 })}
                 onClick={this.handleClick.bind(this, childItem, index, i)}
                 style={{
-                  flex: `0 0 ${100 / columnNum!}%`
+                  flex: `0 0 ${100 / columnNum}%`
                 }}
               >
                 <View className='at-grid-item__content'>
@@ -80,11 +79,12 @@ export default class AtGrid extends AtComponent<AtGridProps> {
                             },
                             childItem.iconInfo.className
                           )}
-                          style={this.mergeStyle(
+                          style={mergeStyle(
                             {
                               color: childItem.iconInfo.color,
                               fontSize: `${childItem.iconInfo.size || 24}px`
                             },
+                            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                             childItem.iconInfo!.customStyle!
                           )}
                         />

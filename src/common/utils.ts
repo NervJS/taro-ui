@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { execObject, SelectorQuery } from '@tarojs/taro/types/index'
+import { SelectorQuery } from '@tarojs/taro/types/index'
 
 const ENV = Taro.getEnv()
 
@@ -19,29 +19,28 @@ function delayQuerySelector(
   self,
   selectorStr: string,
   delayTime = 500
-): Promise<Array<execObject>> {
-  const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
+): Promise<any[]> {
+  const selector: SelectorQuery = Taro.createSelectorQuery()
 
   return new Promise(resolve => {
     delay(delayTime).then(() => {
       selector
         .select(selectorStr)
         .boundingClientRect()
-        .exec((res: Array<execObject>) => {
+        .exec((res: any[]) => {
           resolve(res)
         })
     })
   })
 }
 
-function delayGetScrollOffset({ delayTime = 500 }): Promise<Array<execObject>> {
+function delayGetScrollOffset({ delayTime = 500 }): Promise<any[]> {
   return new Promise(resolve => {
     delay(delayTime).then(() => {
       Taro.createSelectorQuery()
         .selectViewport()
         .scrollOffset()
-        .exec((res: Array<execObject>) => {
+        .exec((res: any[]) => {
           resolve(res)
         })
     })
@@ -52,17 +51,15 @@ function delayGetClientRect({
   self,
   selectorStr,
   delayTime = 500
-}): Promise<Array<execObject>> {
-  const $scope =
-    ENV === Taro.ENV_TYPE.WEB || ENV === Taro.ENV_TYPE.SWAN ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
+}): Promise<any[]> {
+  const selector: SelectorQuery = Taro.createSelectorQuery()
 
   return new Promise(resolve => {
     delay(delayTime).then(() => {
       selector
         .select(selectorStr)
         .boundingClientRect()
-        .exec((res: Array<execObject>) => {
+        .exec((res: any[]) => {
           resolve(res)
         })
     })
@@ -215,7 +212,7 @@ function handleTouchScroll(flag: any): void {
     // 把脱离文档流的body拉上去！否则页面会回到顶部！
     document.body.style.top = `${-scrollTop}px`
   } else {
-    document.body.style.top = null
+    document.body.style.top = ''
     document.body.classList.remove('at-frozen')
 
     document.documentElement.scrollTop = scrollTop
@@ -225,6 +222,41 @@ function handleTouchScroll(flag: any): void {
 function pxTransform(size: number): string {
   if (!size) return ''
   return Taro.pxTransform(size)
+}
+
+function objectToString(style: object | string): string {
+  if (style && typeof style === 'object') {
+    let styleStr = ''
+    Object.keys(style).forEach(key => {
+      const lowerCaseKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+      styleStr += `${lowerCaseKey}:${style[key]};`
+    })
+    return styleStr
+  } else if (style && typeof style === 'string') {
+    return style
+  }
+  return ''
+}
+
+/**
+ * 合并 style
+ * @param {Object|String} style1
+ * @param {Object|String} style2
+ * @returns {String}
+ */
+function mergeStyle(
+  style1: object | string,
+  style2: object | string
+): object | string {
+  if (
+    style1 &&
+    typeof style1 === 'object' &&
+    style2 &&
+    typeof style2 === 'object'
+  ) {
+    return Object.assign({}, style1, style2)
+  }
+  return objectToString(style1) + objectToString(style2)
 }
 
 export {
@@ -237,5 +269,6 @@ export {
   pxTransform,
   handleTouchScroll,
   delayGetClientRect,
-  delayGetScrollOffset
+  delayGetScrollOffset,
+  mergeStyle
 }

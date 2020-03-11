@@ -1,17 +1,17 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtTabsProps, AtTabsState } from 'types/tabs'
 import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { isTest, uuid } from '../../common/utils'
+import { isTest, mergeStyle, uuid } from '../../common/utils'
 
 const ENV = Taro.getEnv()
 const MIN_DISTANCE = 100
 const MAX_INTERVAL = 10
 
-export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
+export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
   public static defaultProps: AtTabsProps
   public static propTypes: InferProps<AtTabsProps>
 
@@ -127,7 +127,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtTabsProps): void {
+  public UNSAFE_componentWillReceiveProps(nextProps: AtTabsProps): void {
     if (nextProps.scroll !== this.props.scroll) {
       this.getTabHeaderRef()
     }
@@ -147,7 +147,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
 
   public render(): JSX.Element {
     const {
-      customStyle,
+      customStyle = '',
       className,
       height,
       tabDirection,
@@ -207,10 +207,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     const scrollY = tabDirection === 'vertical'
 
     return (
-      <View
-        className={rootCls}
-        style={this.mergeStyle(heightStyle, customStyle!)}
-      >
+      <View className={rootCls} style={mergeStyle(heightStyle, customStyle)}>
         {scroll ? (
           <ScrollView
             id={this._tabId}
@@ -235,7 +232,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
           onTouchStart={this.handleTouchStart.bind(this)}
           onTouchEnd={this.handleTouchEnd.bind(this)}
           onTouchMove={this.handleTouchMove.bind(this)}
-          style={this.mergeStyle(bodyStyle, heightStyle)}
+          style={mergeStyle(bodyStyle, heightStyle)}
         >
           <View className='at-tabs__underline' style={underlineStyle}></View>
           {this.props.children}
@@ -255,7 +252,8 @@ AtTabs.defaultProps = {
   scroll: false,
   animated: true,
   tabList: [],
-  onClick: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick: (): void => {}
 }
 
 AtTabs.propTypes = {

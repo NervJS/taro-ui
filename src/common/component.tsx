@@ -1,4 +1,4 @@
-import { Component } from '@tarojs/taro'
+import { Component } from 'react'
 
 const objectToString = (style: object | string): string => {
   if (style && typeof style === 'object') {
@@ -15,10 +15,6 @@ const objectToString = (style: object | string): string => {
 }
 
 export default class AtComponent<P = {}, S = {}> extends Component<P, S> {
-  static options = {
-    addGlobalClass: true
-  }
-
   /**
    * 合并 style
    * @param {Object|String} style1

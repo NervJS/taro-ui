@@ -1,14 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtIconProps } from 'types/icon'
 import { Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import AtComponent from '../../common/component'
-import { initTestEnv } from '../../common/utils'
+import { mergeStyle } from '../../common/utils'
 
-initTestEnv()
-
-export default class AtIcon extends AtComponent<AtIconProps> {
+export default class AtIcon extends React.Component<AtIconProps> {
   public static defaultProps: AtIconProps
   public static propTypes: InferProps<AtIconProps>
 
@@ -35,7 +33,7 @@ export default class AtIcon extends AtComponent<AtIconProps> {
     return (
       <Text
         className={classNames(prefixClass, iconName, className)}
-        style={this.mergeStyle(rootStyle, customStyle as object)}
+        style={mergeStyle(rootStyle, customStyle as object)}
         onClick={this.handleClick.bind(this)}
       ></Text>
     )
@@ -48,8 +46,7 @@ AtIcon.defaultProps = {
   prefixClass: 'at-icon',
   value: '',
   color: '',
-  size: 24,
-  onClick: () => {}
+  size: 24
 }
 
 AtIcon.propTypes = {

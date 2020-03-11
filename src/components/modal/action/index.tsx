@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { AtModalActionProps } from 'types/modal'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import AtComponent from '../../../common/component'
 
-export default class AtModalAction extends AtComponent<AtModalActionProps> {
+export default class AtModalAction extends React.Component<AtModalActionProps> {
   public static defaultProps: AtModalActionProps
   public static propTypes: InferProps<AtModalActionProps>
 
