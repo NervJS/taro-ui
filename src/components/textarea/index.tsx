@@ -7,6 +7,12 @@ import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
 
+type ExtendEvent = {
+  target: {
+    value: string
+  }
+}
+
 function getMaxLength(
   maxLength: number,
   textOverflowForbidden: boolean
@@ -24,8 +30,8 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
   public static defaultProps: AtTextareaProps
   public static propTypes: InferProps<AtTextareaProps>
 
-  private handleInput = (event: CommonEvent): void => {
-    this.props.onChange(event)
+  private handleInput = (event: CommonEvent & ExtendEvent): void => {
+    this.props.onChange(event.target.value, event)
   }
 
   private handleFocus = (event: CommonEvent): void => {
