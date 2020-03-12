@@ -1,41 +1,37 @@
-import Taro from '@tarojs/taro'
-import { View, Image, Text, OpenData } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtAvatarProps, AtAvatarState } from 'types/avatar'
+import { Image, OpenData, Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 const SIZE_CLASS = {
   large: 'large',
   normal: 'normal',
-  small: 'small',
+  small: 'small'
 }
 
-export default class AtAvatar extends AtComponent<AtAvatarProps, AtAvatarState> {
+export default class AtAvatar extends AtComponent<
+  AtAvatarProps,
+  AtAvatarState
+> {
   public static defaultProps: AtAvatarProps
   public static propTypes: InferProps<AtAvatarProps>
 
-  public constructor () {
-    super(...arguments)
+  public constructor(props: AtAvatarProps) {
+    super(props)
     this.state = {
-      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP
     }
   }
 
-  public render (): JSX.Element {
-    const {
-      size,
-      circle,
-      image,
-      text,
-      openData,
-      customStyle,
-    } = this.props
+  public render(): JSX.Element {
+    const { size, circle, image, text, openData, customStyle } = this.props
     const rootClassName = ['at-avatar']
-    const iconSize = SIZE_CLASS[size ? size : 'normal']
+    const iconSize = SIZE_CLASS[size || 'normal']
     const classObject = {
       [`at-avatar--${iconSize}`]: iconSize,
-      'at-avatar--circle': circle,
+      'at-avatar--circle': circle
     }
 
     let letter = ''
@@ -43,17 +39,19 @@ export default class AtAvatar extends AtComponent<AtAvatarProps, AtAvatarState> 
 
     let elem
     if (openData && openData.type === 'userAvatarUrl' && this.state.isWEAPP) {
-      elem = (<OpenData type={openData.type}></OpenData>)
+      elem = <OpenData type={openData.type}></OpenData>
     } else if (image) {
-      elem = (<Image className='at-avatar__img' src={image} />)
+      elem = <Image className='at-avatar__img' src={image} />
     } else {
-      elem = (<Text className='at-avatar__text'>{letter}</Text>)
+      elem = <Text className='at-avatar__text'>{letter}</Text>
     }
     return (
       <View
         className={classNames(rootClassName, classObject, this.props.className)}
         style={customStyle}
-      >{elem}</View>
+      >
+        {elem}
+      </View>
     )
   }
 }
@@ -65,7 +63,7 @@ AtAvatar.defaultProps = {
   image: '',
   openData: undefined,
   customStyle: {},
-  className: '',
+  className: ''
 }
 
 AtAvatar.propTypes = {
@@ -75,5 +73,5 @@ AtAvatar.propTypes = {
   image: PropTypes.string,
   openData: PropTypes.object,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 }

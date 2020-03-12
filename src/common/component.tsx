@@ -25,9 +25,15 @@ export default class AtComponent<P = {}, S = {}> extends Component<P, S> {
    * @param {Object|String} style2
    * @returns {String}
    */
-  mergeStyle (style1: object | string, style2: object | string): object | string {
-    if ((style1 && typeof style1 === 'object')
-      && (style2 && typeof style2 === 'object')
+  mergeStyle(
+    style1: object | string,
+    style2: object | string
+  ): object | string {
+    if (
+      style1 &&
+      typeof style1 === 'object' &&
+      style2 &&
+      typeof style2 === 'object'
     ) {
       return Object.assign({}, style1, style2)
     }

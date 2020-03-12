@@ -1,11 +1,11 @@
-import Taro from '@tarojs/taro'
-import { View, ScrollView } from '@tarojs/components'
-import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import { uuid, isTest } from '../../common/utils'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtTabsProps, AtTabsState } from 'types/tabs'
+import { ScrollView, View } from '@tarojs/components'
+import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
+import { isTest, uuid } from '../../common/utils'
 
 const ENV = Taro.getEnv()
 const MIN_DISTANCE = 100
@@ -22,8 +22,8 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
   private _isMoving: boolean
   private tabHeaderRef: any
 
-  public constructor () {
-    super(...arguments)
+  public constructor(props: AtTabsProps) {
+    super(props)
     this.state = {
       _scrollLeft: 0,
       _scrollTop: 0,
@@ -46,35 +46,36 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
       switch (ENV) {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
-        case Taro.ENV_TYPE.SWAN:
+        case Taro.ENV_TYPE.SWAN: {
           const index = Math.max(idx - 1, 0)
           this.setState({
             _scrollIntoView: `tab${index}`
           })
           break
-
+        }
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]
-          prevTabItem && this.setState({
-            _scrollTop: prevTabItem.offsetTop,
-            _scrollLeft: prevTabItem.offsetLeft
-          })
+          prevTabItem &&
+            this.setState({
+              _scrollTop: prevTabItem.offsetTop,
+              _scrollLeft: prevTabItem.offsetLeft
+            })
           break
         }
-
-        default:
+        default: {
           console.warn('AtTab 组件在该环境还未适配')
           break
+        }
       }
     }
   }
 
-  private handleClick (index: number, event: CommonEvent): void {
+  private handleClick(index: number, event: CommonEvent): void {
     this.props.onClick(index, event)
   }
 
-  private handleTouchStart (e: ITouchEvent): void {
+  private handleTouchStart(e: ITouchEvent): void {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
     // 获取触摸时的原点
@@ -85,26 +86,25 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     }, 100)
   }
 
-  private handleTouchMove (e: ITouchEvent): void {
-    const {
-      swipeable,
-      tabDirection,
-      current,
-      tabList
-    } = this.props
+  private handleTouchMove(e: ITouchEvent): void {
+    const { swipeable, tabDirection, current, tabList } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
     const touchMove = e.touches[0].pageX
     const moveDistance = touchMove - this._touchDot
     const maxIndex = tabList.length
 
-    if (!this._isMoving && this._interval < MAX_INTERVAL && this._touchDot > 20) {
+    if (
+      !this._isMoving &&
+      this._interval < MAX_INTERVAL &&
+      this._touchDot > 20
+    ) {
       // 向左滑动
       if (current + 1 < maxIndex && moveDistance <= -MIN_DISTANCE) {
         this._isMoving = true
         this.handleClick(current + 1, e)
 
-      // 向右滑动
+        // 向右滑动
       } else if (current - 1 >= 0 && moveDistance >= MIN_DISTANCE) {
         this._isMoving = true
         this.handleClick(current - 1, e)
@@ -112,7 +112,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     }
   }
 
-  private handleTouchEnd (): void {
+  private handleTouchEnd(): void {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
@@ -121,13 +121,13 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     this._isMoving = false
   }
 
-  private getTabHeaderRef (): void {
+  private getTabHeaderRef(): void {
     if (ENV === Taro.ENV_TYPE.WEB) {
       this.tabHeaderRef = document.getElementById(this._tabId)
     }
   }
 
-  public componentWillReceiveProps (nextProps: AtTabsProps): void {
+  public componentWillReceiveProps(nextProps: AtTabsProps): void {
     if (nextProps.scroll !== this.props.scroll) {
       this.getTabHeaderRef()
     }
@@ -136,16 +136,16 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
     }
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     this.getTabHeaderRef()
     this.updateState(this.props.current)
   }
 
-  public componentWillUnmount (): void {
+  public componentWillUnmount(): void {
     this.tabHeaderRef = null
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       customStyle,
       className,
@@ -156,11 +156,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
       scroll,
       current
     } = this.props
-    const {
-      _scrollLeft,
-      _scrollTop,
-      _scrollIntoView
-    } = this.state
+    const { _scrollLeft, _scrollTop, _scrollIntoView } = this.state
 
     const heightStyle = { height }
     const underlineStyle = {
@@ -173,7 +169,7 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
       transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
     }
     Object.assign(bodyStyle, {
-      'transform': transformStyle,
+      transform: transformStyle,
       '-webkit-transform': transformStyle
     })
     if (!animated) {
@@ -186,22 +182,27 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
         'at-tabs__item--active': current === idx
       })
 
-      return <View
-        className={itemCls}
-        id={`tab${idx}`}
-        key={item.title}
-        onClick={this.handleClick.bind(this, idx)}
-      >
-        {item.title}
-        <View className='at-tabs__item-underline'></View>
-      </View>
+      return (
+        <View
+          className={itemCls}
+          id={`tab${idx}`}
+          key={item.title}
+          onClick={this.handleClick.bind(this, idx)}
+        >
+          {item.title}
+          <View className='at-tabs__item-underline'></View>
+        </View>
+      )
     })
-    const rootCls = classNames({
-      'at-tabs': true,
-      'at-tabs--scroll': scroll,
-      [`at-tabs--${tabDirection}`]: true,
-      [`at-tabs--${ENV}`]: true
-    }, className)
+    const rootCls = classNames(
+      {
+        'at-tabs': true,
+        'at-tabs--scroll': scroll,
+        [`at-tabs--${tabDirection}`]: true,
+        [`at-tabs--${ENV}`]: true
+      },
+      className
+    )
     const scrollX = tabDirection === 'horizontal'
     const scrollY = tabDirection === 'vertical'
 
@@ -210,28 +211,25 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
         className={rootCls}
         style={this.mergeStyle(heightStyle, customStyle!)}
       >
-        {
-          scroll
-            ? <ScrollView
-              id={this._tabId}
-              className='at-tabs__header'
-              style={heightStyle}
-              scrollX={scrollX}
-              scrollY={scrollY}
-              scrollWithAnimation
-              scrollLeft={_scrollLeft}
-              scrollTop={_scrollTop}
-              scrollIntoView={_scrollIntoView}
-            >
-              {tabItems}
-            </ScrollView>
-            : <View
-              id={this._tabId}
-              className='at-tabs__header'
-            >
-              {tabItems}
-            </View>
-        }
+        {scroll ? (
+          <ScrollView
+            id={this._tabId}
+            className='at-tabs__header'
+            style={heightStyle}
+            scrollX={scrollX}
+            scrollY={scrollY}
+            scrollWithAnimation
+            scrollLeft={_scrollLeft}
+            scrollTop={_scrollTop}
+            scrollIntoView={_scrollIntoView}
+          >
+            {tabItems}
+          </ScrollView>
+        ) : (
+          <View id={this._tabId} className='at-tabs__header'>
+            {tabItems}
+          </View>
+        )}
         <View
           className='at-tabs__body'
           onTouchStart={this.handleTouchStart.bind(this)}
@@ -257,18 +255,12 @@ AtTabs.defaultProps = {
   scroll: false,
   animated: true,
   tabList: [],
-  onClick: () => {},
+  onClick: () => {}
 }
 
 AtTabs.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   height: PropTypes.string,
   tabDirection: PropTypes.oneOf(['horizontal', 'vertical']),
   current: PropTypes.number,
@@ -276,5 +268,5 @@ AtTabs.propTypes = {
   scroll: PropTypes.bool,
   animated: PropTypes.bool,
   tabList: PropTypes.array,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }

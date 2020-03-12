@@ -1,43 +1,45 @@
-import Taro from '@tarojs/taro'
+import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtTagProps } from 'types/tag'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
-import classNames from 'classnames'
-
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
-import { AtTagProps } from 'types/tag'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  small: 'small',
+  small: 'small'
 }
 
 const TYPE_CLASS = {
-  primary: 'primary',
+  primary: 'primary'
 }
-
 
 export default class AtTag extends AtComponent<AtTagProps> {
   public static defaultProps: AtTagProps
   public static propTypes: InferProps<AtTagProps>
 
-  private onClick (event: CommonEvent): void {
+  private onClick(event: CommonEvent): void {
     if (!this.props.disabled) {
-      this.props.onClick && this.props.onClick({
-        name: this.props.name!,
-        active: this.props.active!
-      }, event)
+      this.props.onClick &&
+        this.props.onClick(
+          {
+            name: this.props.name!,
+            active: this.props.active!
+          },
+          event
+        )
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       size = 'normal',
       type = '',
       circle = false,
       disabled = false,
       active = false,
-      customStyle,
+      customStyle
     } = this.props
     const rootClassName = ['at-tag']
 
@@ -69,7 +71,7 @@ AtTag.defaultProps = {
   active: false,
   disabled: false,
   customStyle: {},
-  onClick: () => {},
+  onClick: () => {}
 }
 
 AtTag.propTypes = {
@@ -80,5 +82,5 @@ AtTag.propTypes = {
   active: PropTypes.bool,
   disabled: PropTypes.bool,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }

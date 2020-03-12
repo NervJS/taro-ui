@@ -1,11 +1,11 @@
 import _chunk from 'lodash/chunk'
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 
 export default class AtCalendarHeader extends Taro.Component {
   static options = { addGlobalClass: true }
 
-  render () {
+  render() {
     return (
       <View className='at-calendar__header header'>
         <View className='header__flex'>

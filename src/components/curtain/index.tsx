@@ -1,36 +1,34 @@
-import Taro from '@tarojs/taro'
-import PropTypes, { InferProps } from 'prop-types'
-import { View } from '@tarojs/components'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
-import { CommonEvent } from '@tarojs/components/types/common'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtCurtainProps } from 'types/curtain'
+import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 export default class AtCurtain extends AtComponent<AtCurtainProps> {
   public static defaultProps: AtCurtainProps
   public static propTypes: InferProps<AtCurtainProps>
 
-  private onClose (e: CommonEvent): void {
+  private onClose(e: CommonEvent): void {
     e.stopPropagation()
     this.props.onClose(e)
   }
 
-  private _stopPropagation (e: CommonEvent): void {
+  private _stopPropagation(e: CommonEvent): void {
     e.stopPropagation()
   }
 
-  public render (): JSX.Element {
-    const {
-      className,
-      customStyle,
-      isOpened,
-      closeBtnPosition
-    } = this.props
+  public render(): JSX.Element {
+    const { className, customStyle, isOpened, closeBtnPosition } = this.props
 
-    const curtainClass = classNames({
-      'at-curtain': true,
-      'at-curtain--closed': !isOpened
-    }, className)
+    const curtainClass = classNames(
+      {
+        'at-curtain': true,
+        'at-curtain--closed': !isOpened
+      },
+      className
+    )
     const btnCloseClass = classNames({
       'at-curtain__btn-close': true,
       [`at-curtain__btn-close--${closeBtnPosition}`]: closeBtnPosition
@@ -45,7 +43,10 @@ export default class AtCurtain extends AtComponent<AtCurtainProps> {
         <View className='at-curtain__container'>
           <View className='at-curtain__body'>
             {this.props.children}
-            <View className={btnCloseClass} onClick={this.onClose.bind(this)}></View>
+            <View
+              className={btnCloseClass}
+              onClick={this.onClose.bind(this)}
+            ></View>
           </View>
         </View>
       </View>
@@ -58,19 +59,13 @@ AtCurtain.defaultProps = {
   className: '',
   isOpened: false,
   closeBtnPosition: 'bottom',
-  onClose: () => {},
+  onClose: () => {}
 }
 
 AtCurtain.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   isOpened: PropTypes.bool,
   closeBtnPosition: PropTypes.string,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 }

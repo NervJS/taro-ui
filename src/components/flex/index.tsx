@@ -1,15 +1,15 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
-import _forEach from 'lodash/forEach'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import _forEach from 'lodash/forEach'
+import PropTypes, { InferProps } from 'prop-types'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { AtFlexProps } from '../../../types/flex'
+import AtComponent from '../../common/component'
 
 export default class AtFlex extends AtComponent<AtFlexProps> {
   public static propTypes: InferProps<AtFlexProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const rootClass = ['at-row']
 
     _forEach(this.props, (value, key) => {

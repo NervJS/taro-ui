@@ -1,22 +1,24 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtActionSheetBody from './body/index'
-import AtActionSheetHeader from './header/index'
-import AtActionSheetFooter from './footer/index'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
+import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
+import AtActionSheetBody from './body/index'
+import AtActionSheetFooter from './footer/index'
+import AtActionSheetHeader from './header/index'
 
-export default class AtActionSheet extends AtComponent<AtActionSheetProps, AtActionSheetState> {
+export default class AtActionSheet extends AtComponent<
+  AtActionSheetProps,
+  AtActionSheetState
+> {
   public static defaultProps: AtActionSheetProps
   public static propTypes: InferProps<AtActionSheetProps>
 
-  public constructor (props: AtActionSheetProps) {
-    super(...arguments)
+  public constructor(props: AtActionSheetProps) {
+    super(props)
     const { isOpened } = props
 
     this.state = {
@@ -24,7 +26,7 @@ export default class AtActionSheet extends AtComponent<AtActionSheetProps, AtAct
     }
   }
 
-  public componentWillReceiveProps (nextProps: AtActionSheetProps): void {
+  public componentWillReceiveProps(nextProps: AtActionSheetProps): void {
     const { isOpened } = nextProps
     if (isOpened !== this.state._isOpened) {
       this.setState({
@@ -62,14 +64,14 @@ export default class AtActionSheet extends AtComponent<AtActionSheetProps, AtAct
     e.preventDefault()
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { title, cancelText, className } = this.props
     const { _isOpened } = this.state
 
     const rootClass = classNames(
       'at-action-sheet',
       {
-        'at-action-sheet--active': _isOpened,
+        'at-action-sheet--active': _isOpened
       },
       className
     )
@@ -94,7 +96,7 @@ export default class AtActionSheet extends AtComponent<AtActionSheetProps, AtAct
 AtActionSheet.defaultProps = {
   title: '',
   cancelText: '',
-  isOpened: false,
+  isOpened: false
 }
 
 AtActionSheet.propTypes = {
@@ -102,5 +104,5 @@ AtActionSheet.propTypes = {
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
   isOpened: PropTypes.bool.isRequired,
-  cancelText: PropTypes.string,
+  cancelText: PropTypes.string
 }

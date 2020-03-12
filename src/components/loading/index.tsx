@@ -1,6 +1,6 @@
-import Taro from '@tarojs/taro'
 import PropTypes, { InferProps } from 'prop-types'
 import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
 
@@ -15,16 +15,18 @@ export default class AtLoading extends AtComponent<AtLoadingProps> {
   public static defaultProps: AtLoadingProps
   public static propTypes: InferProps<AtLoadingProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { color, size } = this.props
     const loadingSize = typeof size === 'string' ? size : String(size)
     const sizeStyle = {
       width: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : '',
-      height: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : '',
+      height: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : ''
     }
     const colorStyle = {
-      'border': color ? `1px solid ${color}` : '',
-      'border-color': color ? `${color} transparent transparent transparent` : '',
+      border: color ? `1px solid ${color}` : '',
+      'border-color': color
+        ? `${color} transparent transparent transparent`
+        : ''
     }
     const ringStyle = Object.assign({}, colorStyle, sizeStyle)
 
@@ -40,16 +42,10 @@ export default class AtLoading extends AtComponent<AtLoadingProps> {
 
 AtLoading.defaultProps = {
   size: 0,
-  color: '',
+  color: ''
 }
 
 AtLoading.propTypes = {
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  color: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  color: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }

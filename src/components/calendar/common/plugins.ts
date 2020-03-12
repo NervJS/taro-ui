@@ -1,6 +1,5 @@
 import dayjs from 'dayjs'
 import _isEmpty from 'lodash/isEmpty'
-
 import Calendar from '../types'
 
 interface PluginArg {
@@ -9,7 +8,7 @@ interface PluginArg {
   selectedDate: Calendar.SelectedDate
 }
 
-export function handleActive (
+export function handleActive(
   args: PluginArg,
   item: Calendar.Item
 ): Calendar.Item {
@@ -34,7 +33,7 @@ export function handleActive (
   return item
 }
 
-export function handleMarks (
+export function handleMarks(
   args: PluginArg,
   item: Calendar.Item
 ): Calendar.Item {
@@ -85,7 +84,7 @@ export function handleMarks (
 //   return item
 // }
 
-export function handleDisabled (
+export function handleDisabled(
   args: PluginArg,
   item: Calendar.Item
 ): Calendar.Item {
@@ -103,7 +102,7 @@ export function handleDisabled (
   return item
 }
 
-export function handleValid (
+export function handleValid(
   args: PluginArg,
   item: Calendar.Item
 ): Calendar.Item {
@@ -112,9 +111,11 @@ export function handleValid (
   const { validDates } = options
 
   if (!_isEmpty(validDates)) {
-    const isInclude = validDates.some(date => {
-      return dayjs(date.value).startOf('day').isSame(_value)
-    })
+    const isInclude = validDates.some(date =>
+      dayjs(date.value)
+        .startOf('day')
+        .isSame(_value)
+    )
 
     item.isDisabled = !isInclude
   }

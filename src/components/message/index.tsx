@@ -1,28 +1,31 @@
-import Taro from '@tarojs/taro'
-import PropTypes, { InferProps } from 'prop-types'
-import { View } from '@tarojs/components'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtMessageProps, AtMessageState } from 'types/message'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
-export default class AtMessage extends AtComponent<AtMessageProps, AtMessageState> {
+export default class AtMessage extends AtComponent<
+  AtMessageProps,
+  AtMessageState
+> {
   public static defaultProps: AtMessageProps
   public static propTypes: InferProps<AtMessageProps>
 
   private _timer: NodeJS.Timeout | number | null
 
-  public constructor () {
-    super(...arguments)
+  public constructor(props: AtMessageProps) {
+    super(props)
     this.state = {
       _isOpened: false,
       _message: '',
       _type: 'info',
-      _duration: 3000,
+      _duration: 3000
     }
     this._timer = null
   }
 
-  private bindMessageListener (): void {
+  private bindMessageListener(): void {
     Taro.eventCenter.on('atMessage', (options = {}) => {
       const { message, type, duration } = options
       const newState = {
@@ -41,59 +44,55 @@ export default class AtMessage extends AtComponent<AtMessageProps, AtMessageStat
       })
     })
     // 绑定函数
-    Taro.atMessage = Taro.eventCenter.trigger.bind(Taro.eventCenter, 'atMessage')
+    Taro.atMessage = Taro.eventCenter.trigger.bind(
+      Taro.eventCenter,
+      'atMessage'
+    )
   }
 
-  public componentDidShow (): void {
+  public componentDidShow(): void {
     this.bindMessageListener()
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     this.bindMessageListener()
   }
 
-  public componentDidHide (): void {
+  public componentDidHide(): void {
     Taro.eventCenter.off('atMessage')
   }
 
-  public componentWillUnmount (): void {
+  public componentWillUnmount(): void {
     Taro.eventCenter.off('atMessage')
   }
 
-  public render (): JSX.Element {
-    const {
-      className,
-      customStyle,
-    } = this.props
-    const {
-      _message,
-      _isOpened,
-      _type,
-    } = this.state
-    const rootCls = classNames({
-      'at-message': true,
-      'at-message--show': _isOpened,
-      'at-message--hidden': !_isOpened
-    }, `at-message--${_type}`, className)
+  public render(): JSX.Element {
+    const { className, customStyle } = this.props
+    const { _message, _isOpened, _type } = this.state
+    const rootCls = classNames(
+      {
+        'at-message': true,
+        'at-message--show': _isOpened,
+        'at-message--hidden': !_isOpened
+      },
+      `at-message--${_type}`,
+      className
+    )
 
-    return <View className={rootCls} style={customStyle}>
-      {_message}
-    </View>
+    return (
+      <View className={rootCls} style={customStyle}>
+        {_message}
+      </View>
+    )
   }
 }
 
 AtMessage.defaultProps = {
   customStyle: '',
-  className: '',
+  className: ''
 }
 
 AtMessage.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 }

@@ -1,13 +1,14 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
-import AtComponent from '../../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtActionSheetFooterProps } from 'types/action-sheet'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../../common/component'
 
-export default class AtActionSheetFooter extends AtComponent<AtActionSheetFooterProps> {
+export default class AtActionSheetFooter extends AtComponent<
+  AtActionSheetFooterProps
+> {
   public static defaultProps: AtActionSheetFooterProps
   public static propTypes: InferProps<AtActionSheetFooterProps>
 
@@ -17,7 +18,7 @@ export default class AtActionSheetFooter extends AtComponent<AtActionSheetFooter
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const rootClass = classNames(
       'at-action-sheet__footer',
       this.props.className

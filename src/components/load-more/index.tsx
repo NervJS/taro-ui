@@ -1,22 +1,21 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-
+import PropTypes, { InferProps } from 'prop-types'
+import { AtLoadMoreProps } from 'types/load-more'
+import { Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 import AtActivityIndicator from '../activity-indicator/index'
 import AtButton from '../button/index'
-import AtComponent from '../../common/component'
-import { AtLoadMoreProps } from 'types/load-more'
 
 export default class AtLoadMore extends AtComponent<AtLoadMoreProps> {
   public static defaultProps: AtLoadMoreProps
   public static propTypes: InferProps<AtLoadMoreProps>
 
-  private onClick (): void {
+  private onClick(): void {
     this.props.onClick && this.props.onClick(arguments as any)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       className,
       customStyle,
@@ -44,12 +43,11 @@ export default class AtLoadMore extends AtComponent<AtLoadMoreProps> {
         </View>
       )
     } else {
-      component = <Text
-        className='at-load-more__tip'
-        style={noMoreTextStyle}
-      >
-        {noMoreText}
-      </Text>
+      component = (
+        <Text className='at-load-more__tip' style={noMoreTextStyle}>
+          {noMoreText}
+        </Text>
+      )
     }
 
     return (
@@ -72,29 +70,17 @@ AtLoadMore.defaultProps = {
   loadingText: '加载中',
   moreText: '查看更多',
   noMoreText: '没有更多',
-  onClick: () => {},
+  onClick: () => {}
 }
 
 AtLoadMore.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
-  noMoreTextStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  moreBtnStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  noMoreTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  moreBtnStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   status: PropTypes.oneOf(['more', 'loading', 'noMore']),
   loadingText: PropTypes.string,
   moreText: PropTypes.string,
   noMoreText: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }

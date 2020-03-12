@@ -1,24 +1,30 @@
-import Taro from '@tarojs/taro'
-import PropTypes, { InferProps } from 'prop-types'
-import { View } from '@tarojs/components'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtCountDownProps, AtCountdownState } from 'types/countdown'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import AtCountdownItem from './item'
-import { AtCountDownProps, AtCountdownState } from 'types/countdown'
 
-const toSeconds = (day: number, hours: number, minutes: number, seconds: number): number => {
-  return (day * 60 * 60 * 24) + (hours * 60 * 60) + (minutes * 60) + seconds
-}
+const toSeconds = (
+  day: number,
+  hours: number,
+  minutes: number,
+  seconds: number
+): number => day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds
 
-export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdownState> {
+export default class AtCountdown extends AtComponent<
+  AtCountDownProps,
+  AtCountdownState
+> {
   public static defaultProps: AtCountDownProps
   public static propTypes: InferProps<AtCountDownProps>
 
   private seconds: number
   private timer: NodeJS.Timeout | number | undefined
 
-  public constructor () {
-    super(...arguments)
+  public constructor(props: AtCountDownProps) {
+    super(props)
     const { day, hours, minutes, seconds } = this.props
     this.seconds = toSeconds(day!, hours!, minutes!, seconds!)
     const {
@@ -37,25 +43,29 @@ export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdo
     this.timer = undefined
   }
 
-  private setTimer (): void {
+  private setTimer(): void {
     if (!this.timer) this.countdonwn()
   }
 
-  private clearTimer (): void {
+  private clearTimer(): void {
     if (this.timer) {
       clearTimeout(this.timer as number)
       this.timer = undefined
     }
   }
 
-  private calculateTime () {
+  private calculateTime() {
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
       day = this.props.isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
-      hours = Math.floor(this.seconds / (60 * 60)) - (day * 24)
-      minutes = Math.floor(this.seconds / 60) - (day * 24 * 60) - (hours * 60)
-      seconds = Math.floor(this.seconds) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
+      hours = Math.floor(this.seconds / (60 * 60)) - day * 24
+      minutes = Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
+      seconds =
+        Math.floor(this.seconds) -
+        day * 24 * 60 * 60 -
+        hours * 60 * 60 -
+        minutes * 60
     }
     return {
       day,
@@ -65,7 +75,7 @@ export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdo
     }
   }
 
-  private countdonwn (): void {
+  private countdonwn(): void {
     const { day, hours, minutes, seconds } = this.calculateTime()
 
     this.setState({
@@ -87,7 +97,7 @@ export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdo
     }, 1000)
   }
 
-  public componentWillReceiveProps (nextProps: AtCountDownProps): void {
+  public componentWillReceiveProps(nextProps: AtCountDownProps): void {
     if (JSON.stringify(this.props) === JSON.stringify(nextProps)) return
 
     const { day, hours, minutes, seconds } = nextProps
@@ -96,23 +106,23 @@ export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdo
     this.setTimer()
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     this.setTimer()
   }
 
-  public componentWillUnmount (): void {
+  public componentWillUnmount(): void {
     this.clearTimer()
   }
 
-  public componentDidHide (): void {
+  public componentDidHide(): void {
     this.clearTimer()
   }
 
-  public componentDidShow (): void {
+  public componentDidShow(): void {
     this.setTimer()
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       className,
       customStyle,
@@ -121,24 +131,23 @@ export default class AtCountdown extends AtComponent<AtCountDownProps, AtCountdo
       isCard,
       isShowHour
     } = this.props
-    const {
-      _day,
-      _hours,
-      _minutes,
-      _seconds
-    } = this.state
+    const { _day, _hours, _minutes, _seconds } = this.state
 
     return (
       <View
-        className={
-          classNames({
+        className={classNames(
+          {
             'at-countdown': true,
             'at-countdown--card': isCard
-          }, className)}
+          },
+          className
+        )}
         style={customStyle}
       >
-        {isShowDay && <AtCountdownItem num={_day} separator={format!.day} /> }
-        {isShowHour && <AtCountdownItem num={_hours} separator={format!.hours} /> }
+        {isShowDay && <AtCountdownItem num={_day} separator={format!.day} />}
+        {isShowHour && (
+          <AtCountdownItem num={_hours} separator={format!.hours} />
+        )}
         <AtCountdownItem num={_minutes} separator={format!.minutes} />
         <AtCountdownItem num={_seconds} separator={format!.seconds} />
       </View>
@@ -162,18 +171,12 @@ AtCountdown.defaultProps = {
   hours: 0,
   minutes: 0,
   seconds: 0,
-  onTimeUp () {},
+  onTimeUp() {}
 }
 
 AtCountdown.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   isCard: PropTypes.bool,
   isShowDay: PropTypes.bool,
   isShowHour: PropTypes.bool,
@@ -182,5 +185,5 @@ AtCountdown.propTypes = {
   hours: PropTypes.number,
   minutes: PropTypes.number,
   seconds: PropTypes.number,
-  onTimeUp: PropTypes.func,
+  onTimeUp: PropTypes.func
 }

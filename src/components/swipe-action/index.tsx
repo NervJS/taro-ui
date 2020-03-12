@@ -1,26 +1,30 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
-
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-
-import _isNil from 'lodash/isNil'
-import _isEmpty from 'lodash/isEmpty'
 import _inRange from 'lodash/inRange'
+import _isEmpty from 'lodash/isEmpty'
 import _isFunction from 'lodash/isFunction'
-
+import _isNil from 'lodash/isNil'
+import PropTypes, { InferProps } from 'prop-types'
+import {
+  AtSwipeActionProps,
+  AtSwipeActionState,
+  SwipeActionOption
+} from 'types/swipe-action'
+import { Text, View } from '@tarojs/components'
+import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
-import AtSwipeActionOptions from './options/index'
 import {
   delayGetClientRect,
   delayGetScrollOffset,
-  uuid,
-  isTest
+  isTest,
+  uuid
 } from '../../common/utils'
-import { AtSwipeActionProps, AtSwipeActionState, Option } from 'types/swipe-action'
+import AtSwipeActionOptions from './options/index'
 
-export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwipeActionState> {
+export default class AtSwipeAction extends AtComponent<
+  AtSwipeActionProps,
+  AtSwipeActionState
+> {
   public static defaultProps: AtSwipeActionProps
   public static propTypes: InferProps<AtSwipeActionProps>
 
@@ -32,16 +36,13 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
   private isMoving: boolean
   private isTouching: boolean
 
-  public constructor (props: AtSwipeActionProps) {
+  public constructor(props: AtSwipeActionProps) {
     super(props)
-
     const { isOpened } = props
-
     this.endValue = 0
     this.startX = 0
     this.startY = 0
     this.maxOffsetSize = 0
-
     this.domInfo = {
       top: 0,
       bottom: 0,
@@ -50,7 +51,6 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     }
     this.isMoving = false
     this.isTouching = false
-
     this.state = {
       componentId: isTest() ? 'tabs-AOTU2018' : uuid(),
       offsetSize: 0,
@@ -58,7 +58,7 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     }
   }
 
-  private getDomInfo (): Promise<void> {
+  private getDomInfo(): Promise<void> {
     return Promise.all([
       delayGetClientRect({
         self: this,
@@ -73,7 +73,7 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     })
   }
 
-  public componentWillReceiveProps (nextProps: AtSwipeActionProps): void {
+  public componentWillReceiveProps(nextProps: AtSwipeActionProps): void {
     const { isOpened } = nextProps
     const { _isOpened } = this.state
 
@@ -82,7 +82,7 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     }
   }
 
-  private _reset (isOpened: boolean): void {
+  private _reset(isOpened: boolean): void {
     this.isMoving = false
     this.isTouching = false
 
@@ -101,12 +101,11 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     }
   }
 
-  private computeTransform = (value: number): string | null => {
+  private computeTransform = (value: number): string | null =>
     // if (Taro.getEnv() === Taro.ENV_TYPE.ALIPAY) {
     //   return !_isNil(value) ? `translate3d(${value}px,0,0)` : null
     // }
-    return !!value ? `translate3d(${value}px,0,0)` : null
-  }
+    value ? `translate3d(${value}px,0,0)` : null
 
   private handleOpened = (event: CommonEvent): void => {
     const { onOpened } = this.props
@@ -150,7 +149,8 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
 
     if (!this.isMoving && inDom) {
       this.isMoving =
-        y === 0 || x / y >= Number.parseFloat(Math.tan((45 * Math.PI) / 180).toFixed(2))
+        y === 0 ||
+        x / y >= Number.parseFloat(Math.tan((45 * Math.PI) / 180).toFixed(2))
     }
 
     if (this.isTouching && this.isMoving) {
@@ -195,7 +195,11 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     this._reset(_isOpened)
   }
 
-  private handleClick = (item: Option, index: number, event: CommonEvent): void => {
+  private handleClick = (
+    item: SwipeActionOption,
+    index: number,
+    event: CommonEvent
+  ): void => {
     const { onClick, autoClose } = this.props
 
     if (_isFunction(onClick)) {
@@ -207,7 +211,7 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { offsetSize, componentId } = this.state
     const { options } = this.props
     const rootClass = classNames('at-swipe-action', this.props.className)

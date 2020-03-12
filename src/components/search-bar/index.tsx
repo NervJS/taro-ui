@@ -1,10 +1,10 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Input } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
-import AtComponent from '../../common/component'
 import { AtSearchBarProps, AtSearchBarState } from 'types/search-bar'
+import { Input, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
 type ExtendEvent = {
   target: {
@@ -12,11 +12,14 @@ type ExtendEvent = {
   }
 }
 
-export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchBarState> {
+export default class AtSearchBar extends AtComponent<
+  AtSearchBarProps,
+  AtSearchBarState
+> {
   public static defaultProps: AtSearchBarProps
   public static propTypes: InferProps<AtSearchBarProps>
 
-  public constructor (props: AtSearchBarProps) {
+  public constructor(props: AtSearchBarProps) {
     super(props)
     this.state = {
       isFocus: !!props.focus
@@ -57,7 +60,7 @@ export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchB
     this.props.onActionClick && this.props.onActionClick(event)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       value,
       placeholder,
@@ -76,7 +79,8 @@ export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchB
       'at-search-bar',
       {
         'at-search-bar--fixed': fixed
-      }, className
+      },
+      className
     )
     const placeholderWrapStyle: React.CSSProperties = {}
     const actionStyle: React.CSSProperties = {}
@@ -87,7 +91,9 @@ export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchB
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${((actionName!.length + 1) * fontSize) + (fontSize / 2) + 10}px`
+      actionStyle.marginRight = `-${(actionName!.length + 1) * fontSize +
+        fontSize / 2 +
+        10}px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1
@@ -101,12 +107,8 @@ export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchB
       placeholderStyle.visibility = 'visible'
     }
 
-
     return (
-      <View
-        className={rootCls}
-        style={customStyle}
-      >
+      <View className={rootCls} style={customStyle}>
         <View className='at-search-bar__input-cnt'>
           <View
             className='at-search-bar__placeholder-wrap'
@@ -167,7 +169,7 @@ AtSearchBar.defaultProps = {
   onFocus: () => {},
   onBlur: () => {},
   onConfirm: () => {},
-  onActionClick: () => {},
+  onActionClick: () => {}
 }
 
 AtSearchBar.propTypes = {
@@ -185,5 +187,5 @@ AtSearchBar.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func,
-  onClear: PropTypes.func,
+  onClear: PropTypes.func
 }

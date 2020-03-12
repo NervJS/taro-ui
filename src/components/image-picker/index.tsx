@@ -1,9 +1,8 @@
-/* eslint-disable no-nested-ternary */
-import Taro from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtImagePickerProps, File } from 'types/image-picker'
+import { Image, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { uuid } from '../../common/utils'
 
@@ -13,7 +12,11 @@ interface MatrixFile extends Partial<File> {
 }
 
 // 生成 jsx 二维矩阵
-const generateMatrix = (files: MatrixFile[], col: number, showAddBtn: boolean) => {
+const generateMatrix = (
+  files: MatrixFile[],
+  col: number,
+  showAddBtn: boolean
+) => {
   const matrix: Array<MatrixFile>[] = []
   const length = showAddBtn ? files.length + 1 : files.length
   const row = Math.ceil(length / col)
@@ -46,27 +49,37 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
 
   private chooseFile = (): void => {
     const { files = [], multiple, count, sizeType, sourceType } = this.props
-    const filePathName = ENV === Taro.ENV_TYPE.ALIPAY ? 'apFilePaths' : 'tempFiles'
+    const filePathName =
+      ENV === Taro.ENV_TYPE.ALIPAY ? 'apFilePaths' : 'tempFiles'
     // const count = multiple ? 99 : 1
     const params: any = {}
-    if (multiple) { params.count = 99 }
-    if (count) { params.count = count }
-    if (sizeType) { params.sizeType = sizeType }
-    if (sourceType) { params.sourceType = sourceType }
-    Taro.chooseImage(params).then(res => {
-      const targetFiles = res.tempFilePaths.map(
-        (path, i) => ({
+    if (multiple) {
+      params.count = 99
+    }
+    if (count) {
+      params.count = count
+    }
+    if (sizeType) {
+      params.sizeType = sizeType
+    }
+    if (sourceType) {
+      params.sourceType = sourceType
+    }
+    Taro.chooseImage(params)
+      .then(res => {
+        const targetFiles = res.tempFilePaths.map((path, i) => ({
           url: path,
           file: res[filePathName][i]
-        })
-      )
-      const newFiles = files.concat(targetFiles)
-      this.props.onChange(newFiles, 'add')
-    }).catch(this.props.onFail)
+        }))
+        const newFiles = files.concat(targetFiles)
+        this.props.onChange(newFiles, 'add')
+      })
+      .catch(this.props.onFail)
   }
 
   private handleImageClick = (idx: number): void => {
-    this.props.onImageClick && this.props.onImageClick(idx, this.props.files[idx])
+    this.props.onImageClick &&
+      this.props.onImageClick(idx, this.props.files[idx])
   }
 
   private handleRemoveImg = (idx: number): void => {
@@ -78,7 +91,7 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
     this.props.onChange(newFiles, 'remove', idx)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       className,
       customStyle,
@@ -92,40 +105,53 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
     const matrix = generateMatrix(files as MatrixFile[], rowLength, showAddBtn)
     const rootCls = classNames('at-image-picker', className)
 
-    return <View className={rootCls} style={customStyle}>
-      {matrix.map((row, i) => (
-        <View className='at-image-picker__flex-box' key={i + 1}>
-          {row.map((item, j) => (
-            item.url
-              ? <View className='at-image-picker__flex-item' key={(i * length!) + j}>
-                <View className='at-image-picker__item'>
-                  <View
-                    className='at-image-picker__remove-btn'
-                    onClick={this.handleRemoveImg.bind(this, (i * length!) + j)}
-                  ></View>
-                  <Image
-                    className='at-image-picker__preview-img'
-                    mode={mode}
-                    src={item.url}
-                    onClick={this.handleImageClick.bind(this, (i * length!) + j)}
-                  />
-                </View>
-              </View>
-              : <View className='at-image-picker__flex-item' key={(i * length!) + j}>
-                {item.type === 'btn' && (
-                  <View
-                    className='at-image-picker__item at-image-picker__choose-btn'
-                    onClick={this.chooseFile}
-                  >
-                    <View className='add-bar'></View>
-                    <View className='add-bar'></View>
+    return (
+      <View className={rootCls} style={customStyle}>
+        {matrix.map((row, i) => (
+          <View className='at-image-picker__flex-box' key={i + 1}>
+            {row.map((item, j) =>
+              item.url ? (
+                <View
+                  className='at-image-picker__flex-item'
+                  key={i * length! + j}
+                >
+                  <View className='at-image-picker__item'>
+                    <View
+                      className='at-image-picker__remove-btn'
+                      onClick={this.handleRemoveImg.bind(this, i * length! + j)}
+                    ></View>
+                    <Image
+                      className='at-image-picker__preview-img'
+                      mode={mode}
+                      src={item.url}
+                      onClick={this.handleImageClick.bind(
+                        this,
+                        i * length! + j
+                      )}
+                    />
                   </View>
-                )}
-              </View>
-          ))}
-        </View>
-      ))}
-    </View>
+                </View>
+              ) : (
+                <View
+                  className='at-image-picker__flex-item'
+                  key={i * length! + j}
+                >
+                  {item.type === 'btn' && (
+                    <View
+                      className='at-image-picker__item at-image-picker__choose-btn'
+                      onClick={this.chooseFile}
+                    >
+                      <View className='add-bar'></View>
+                      <View className='add-bar'></View>
+                    </View>
+                  )}
+                </View>
+              )
+            )}
+          </View>
+        ))}
+      </View>
+    )
   }
 }
 
@@ -139,18 +165,12 @@ AtImagePicker.defaultProps = {
   length: 4,
   onChange: () => {},
   onImageClick: () => {},
-  onFail: () => {},
+  onFail: () => {}
 }
 
 AtImagePicker.propTypes = {
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]),
-  customStyle: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  customStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   files: PropTypes.array,
   mode: PropTypes.oneOf([
     'scaleToFill',
@@ -175,5 +195,5 @@ AtImagePicker.propTypes = {
   onFail: PropTypes.func,
   count: PropTypes.number,
   sizeType: PropTypes.array,
-  sourceType: PropTypes.array,
+  sourceType: PropTypes.array
 }

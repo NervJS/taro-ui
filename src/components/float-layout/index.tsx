@@ -1,21 +1,22 @@
-/* eslint-disable taro/function-naming */
-import Taro from '@tarojs/taro'
-import { View, Text, ScrollView } from '@tarojs/components'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
-
+import PropTypes, { InferProps } from 'prop-types'
+import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
+import { ScrollView, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { handleTouchScroll } from '../../common/utils'
-import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
-import { CommonEvent } from '@tarojs/components/types/common'
 
-export default class AtFloatLayout extends AtComponent<AtFloatLayoutProps, AtFloatLayoutState> {
+export default class AtFloatLayout extends AtComponent<
+  AtFloatLayoutProps,
+  AtFloatLayoutState
+> {
   public static defaultProps: AtFloatLayoutProps
   public static propTypes: InferProps<AtFloatLayoutProps>
 
-  public constructor (props: AtFloatLayoutProps) {
-    super(...arguments)
+  public constructor(props: AtFloatLayoutProps) {
+    super(props)
 
     const { isOpened } = props
     this.state = {
@@ -23,7 +24,7 @@ export default class AtFloatLayout extends AtComponent<AtFloatLayoutProps, AtFlo
     }
   }
 
-  public componentWillReceiveProps (nextProps: AtFloatLayoutProps): void {
+  public componentWillReceiveProps(nextProps: AtFloatLayoutProps): void {
     const { isOpened } = nextProps
 
     if (this.props.isOpened !== isOpened) {
@@ -57,7 +58,7 @@ export default class AtFloatLayout extends AtComponent<AtFloatLayoutProps, AtFlo
     e.stopPropagation()
   }
 
-  render () {
+  render() {
     const { _isOpened } = this.state
     const {
       title,

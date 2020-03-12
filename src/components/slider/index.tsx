@@ -1,29 +1,35 @@
-import Taro from '@tarojs/taro'
-import { View, Slider } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
-import AtComponent from '../../common/component'
+import PropTypes, { InferProps } from 'prop-types'
 import { AtSliderProps, AtSliderState } from 'types/slider'
+import { Slider, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import AtComponent from '../../common/component'
 
-export default class AtSlider extends AtComponent<AtSliderProps, AtSliderState> {
+export default class AtSlider extends AtComponent<
+  AtSliderProps,
+  AtSliderState
+> {
   public static defaultProps: AtSliderProps
   public static propTypes: InferProps<AtSliderProps>
 
-  public constructor (props: AtSliderProps) {
-    super(...arguments)
-
+  public constructor(props: AtSliderProps) {
+    super(props)
     const { value, min, max } = props
     this.state = {
       _value: AtSlider.clampNumber(value!, min!, max!)
     }
   }
 
-  protected static clampNumber (value: number, lower: number, upper: number): number {
+  protected static clampNumber(
+    value: number,
+    lower: number,
+    upper: number
+  ): number {
     return Math.max(lower, Math.min(upper, value))
   }
 
-  private handleChanging (e: CommonEvent): void {
+  private handleChanging(e: CommonEvent): void {
     const { _value } = this.state
     const { value }: { value: number } = e.detail
 
@@ -33,21 +39,21 @@ export default class AtSlider extends AtComponent<AtSliderProps, AtSliderState> 
     this.props.onChanging && this.props.onChanging(value)
   }
 
-  private handleChange (e: CommonEvent): void {
+  private handleChange(e: CommonEvent): void {
     const { value } = e.detail
 
     this.setState({ _value: value })
     this.props.onChange && this.props.onChange(value)
   }
 
-  public componentWillReceiveProps (props: AtSliderProps): void {
+  public componentWillReceiveProps(props: AtSliderProps): void {
     const { value, min, max } = props
     this.setState({
       _value: AtSlider.clampNumber(value!, min!, max!)
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { _value } = this.state
     const {
       customStyle,
@@ -65,12 +71,13 @@ export default class AtSlider extends AtComponent<AtSliderProps, AtSliderState> 
 
     return (
       <View
-        className={
-          classNames({
+        className={classNames(
+          {
             'at-slider': true,
             'at-slider--disabled': disabled
-          }, className)
-        }
+          },
+          className
+        )}
         style={customStyle}
       >
         <View className='at-slider__inner'>
@@ -88,9 +95,7 @@ export default class AtSlider extends AtComponent<AtSliderProps, AtSliderState> 
             onChange={this.handleChange.bind(this)}
           ></Slider>
         </View>
-        {
-          showValue && <View className='at-slider__text'>{`${_value}`}</View>
-        }
+        {showValue && <View className='at-slider__text'>{`${_value}`}</View>}
       </View>
     )
   }
@@ -110,18 +115,12 @@ AtSlider.defaultProps = {
   blockColor: '#ffffff',
   showValue: false,
   onChange: () => {},
-  onChanging: () => {},
+  onChanging: () => {}
 }
 
 AtSlider.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
@@ -133,5 +132,5 @@ AtSlider.propTypes = {
   blockColor: PropTypes.string,
   showValue: PropTypes.bool,
   onChange: PropTypes.func,
-  onChanging: PropTypes.func,
+  onChanging: PropTypes.func
 }

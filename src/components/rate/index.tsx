@@ -1,11 +1,11 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
-import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
+import PropTypes, { InferProps } from 'prop-types'
+import { AtRateProps } from 'types/rate'
+import { Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import { initTestEnv } from '../../common/utils'
-import { AtRateProps } from 'types/rate'
 
 initTestEnv()
 
@@ -13,25 +13,18 @@ export default class AtRate extends AtComponent<AtRateProps> {
   public static defaultProps: AtRateProps
   public static propTypes: InferProps<AtRateProps>
 
-  private handleClick (event: CommonEvent) {
+  private handleClick(event: CommonEvent) {
     this.props.onChange && this.props.onChange(event)
   }
 
-  public render (): JSX.Element {
-    const {
-      customStyle,
-      className,
-      value,
-      max,
-      size,
-      margin
-    } = this.props
+  public render(): JSX.Element {
+    const { customStyle, className, value, max, size, margin } = this.props
 
     const iconStyle = {
       marginRight: Taro.pxTransform(margin!)
     }
     const starIconStyle = {
-      fontSize: size ? `${size}px` : '',
+      fontSize: size ? `${size}px` : ''
     }
 
     // 生成星星颜色 className 数组，方便在jsx中直接map
@@ -49,25 +42,26 @@ export default class AtRate extends AtComponent<AtRateProps> {
     }
 
     return (
-      <View
-        className={classNames('at-rate', className)}
-        style={customStyle}
-      >
-        {
-          classNameArr.map((cls, i) => (
-            <View
-              className={cls}
-              key={`at-rate-star-${i}`}
-              style={iconStyle}
-              onClick={this.handleClick.bind(this, i + 1)}
-            >
-              <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
-              <View className='at-rate__left'>
-                <Text className='at-icon at-icon-star-2' style={starIconStyle}></Text>
-              </View>
+      <View className={classNames('at-rate', className)} style={customStyle}>
+        {classNameArr.map((cls, i) => (
+          <View
+            className={cls}
+            key={`at-rate-star-${i}`}
+            style={iconStyle}
+            onClick={this.handleClick.bind(this, i + 1)}
+          >
+            <Text
+              className='at-icon at-icon-star-2'
+              style={starIconStyle}
+            ></Text>
+            <View className='at-rate__left'>
+              <Text
+                className='at-icon at-icon-star-2'
+                style={starIconStyle}
+              ></Text>
             </View>
-          ))
-        }
+          </View>
+        ))}
       </View>
     )
   }
@@ -80,24 +74,15 @@ AtRate.defaultProps = {
   value: 0,
   max: 5,
   margin: 5,
-  onChange: () => {},
+  onChange: () => {}
 }
 
 AtRate.propTypes = {
-  customStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.string
-  ]),
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.number,
   max: PropTypes.number,
   margin: PropTypes.number,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 }
