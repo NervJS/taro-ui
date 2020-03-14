@@ -13,7 +13,6 @@ import { DefaultProps, Props, PropsWithDefaults, State } from './interface'
 import Calendar from './types'
 
 const defaultProps: DefaultProps = {
-  validDates: [],
   marks: [],
   isSwiper: true,
   hideArrow: false,
