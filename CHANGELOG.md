@@ -1,3 +1,21 @@
+## [2.3.1](https://github.com/nervjs/taro-ui/compare/v2.3.0...v2.3.1) (2020-03-14)
+
+
+### Bug Fixes
+
+* 修复文档编译 ([8d2d91d](https://github.com/nervjs/taro-ui/commit/8d2d91d6ea57ff5337d662436e80c181c3c644c5))
+* 添加 AtActionSheetItem 导出 close [#981](https://github.com/nervjs/taro-ui/issues/981) ([f8938c2](https://github.com/nervjs/taro-ui/commit/f8938c21919f4bc44734c4d68e579700944eb9bd))
+* 移动 AtCalendar 的类型声明 close [#968](https://github.com/nervjs/taro-ui/issues/968) ([d14bd84](https://github.com/nervjs/taro-ui/commit/d14bd848194d765651c36cc4190ffdcefb0f665a))
+* **range:** 组件位置计算问题 close [#969](https://github.com/nervjs/taro-ui/issues/969) ([#970](https://github.com/nervjs/taro-ui/issues/970)) ([31f3af9](https://github.com/nervjs/taro-ui/commit/31f3af999f8f4ef7170e37078fedc4bb6a6b0fff))
+
+
+### Features
+
+* 修改 AtTextarea onChange 的方法签名与 AtInput 一致 close [#967](https://github.com/nervjs/taro-ui/issues/967) ([908c1b7](https://github.com/nervjs/taro-ui/commit/908c1b7cc5e712b301ea517b35090b44a5ebfb67))
+* **tab-bar:** 增加了 AtTabBar 的 paddingBottom close [#958](https://github.com/nervjs/taro-ui/issues/958) ([#959](https://github.com/nervjs/taro-ui/issues/959)) ([625b886](https://github.com/nervjs/taro-ui/commit/625b88651c156b1971e6ece44892de6b96f06da5))
+
+
+
 # [2.3.0](https://github.com/nervjs/taro-ui/compare/v2.2.4...v2.3.0) (2020-02-29)
 
 
