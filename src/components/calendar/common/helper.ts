@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs'
 import _flow from 'lodash/flow'
-import Calendar from '../types'
+import { Calendar } from 'types/calendar'
 import * as constant from './constant'
 import plugins from './plugins'
 

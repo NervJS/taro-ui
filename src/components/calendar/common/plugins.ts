@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import _isEmpty from 'lodash/isEmpty'
-import Calendar from '../types'
+import { Calendar } from 'types/calendar'
 
 interface PluginArg {
   options: Calendar.GroupOptions

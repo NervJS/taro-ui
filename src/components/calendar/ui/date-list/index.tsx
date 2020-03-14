@@ -1,10 +1,10 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import _isFunction from 'lodash/isFunction'
+import { Calendar } from 'types/calendar'
 import { Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import * as constant from '../../common/constant'
-import Calendar from '../../types'
 
 const MAP: { [key: number]: string } = {
   [constant.TYPE_PRE_MONTH]: 'pre',

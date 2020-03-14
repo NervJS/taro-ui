@@ -3,19 +3,23 @@ import classnames from 'classnames'
 import dayjs from 'dayjs'
 import _chunk from 'lodash/chunk'
 import _throttle from 'lodash/throttle'
+import {
+  AtCalendarBodyListGroup,
+  AtCalendarBodyProps,
+  AtCalendarBodyState,
+  Calendar
+} from 'types/calendar'
 import { Swiper, SwiperItem, View } from '@tarojs/components'
 import { BaseEvent, ITouch, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { delayQuerySelector } from '../../../common/utils'
 import generateCalendarGroup from '../common/helper'
-import Calendar from '../types'
 import AtCalendarDateList from '../ui/date-list/index'
 import AtCalendarDayList from '../ui/day-list/index'
-import { ListGroup, Props, State } from './interface'
 
 const ANIMTE_DURATION: number = 300
 
-const defaultProps: Partial<Props> = {
+const defaultProps: Partial<AtCalendarBodyProps> = {
   marks: [],
   selectedDate: {
     end: Date.now(),
@@ -26,12 +30,12 @@ const defaultProps: Partial<Props> = {
 }
 
 export default class AtCalendarBody extends Taro.Component<
-  Props,
-  Readonly<State>
+  AtCalendarBodyProps,
+  Readonly<AtCalendarBodyState>
 > {
-  static defaultProps: Partial<Props> = defaultProps
+  static defaultProps: Partial<AtCalendarBodyProps> = defaultProps
 
-  constructor(props: Props) {
+  constructor(props: AtCalendarBodyProps) {
     super(props)
     const {
       validDates,
@@ -67,7 +71,7 @@ export default class AtCalendarBody extends Taro.Component<
     })
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: AtCalendarBodyProps) {
     const {
       validDates,
       marks,
@@ -115,9 +119,9 @@ export default class AtCalendarBody extends Taro.Component<
   private getGroups(
     generateDate: number,
     selectedDate: Calendar.SelectedDate
-  ): ListGroup {
+  ): AtCalendarBodyListGroup {
     const dayjsDate = dayjs(generateDate)
-    const arr: ListGroup = []
+    const arr: AtCalendarBodyListGroup = []
     const preList: Calendar.ListInfo<Calendar.Item> = this.generateFunc(
       dayjsDate.subtract(1, 'month').valueOf(),
       selectedDate
