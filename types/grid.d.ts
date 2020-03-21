@@ -1,9 +1,8 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEvent } from '@tarojs/components/types/common'
-
 import AtComponent, { AtIconBaseProps } from './base'
 
-export interface Item {
+export interface AtGridItem {
   /**
    * 宫格图片
    */
@@ -16,13 +15,17 @@ export interface Item {
    * 宫格图标
    */
   iconInfo?: AtIconBaseProps
+  /**
+   * 允许用户扩充 Item 字段
+   */
+  [key: string]: any
 }
 
 export interface AtGridProps extends AtComponent {
   /**
    * 宫格布局数据源
    */
-  data: Array<Item>
+  data: Array<AtGridItem>
   /**
    * 每一列有多少个
    */
@@ -40,7 +43,7 @@ export interface AtGridProps extends AtComponent {
   /**
    * 点击宫格触发的事件
    */
-  onClick?: (item: Item, index: number, event: CommonEvent) => void
+  onClick?: (item: AtGridItem, index: number, event: CommonEvent) => void
 }
 
 declare const AtGrid: ComponentClass<AtGridProps>

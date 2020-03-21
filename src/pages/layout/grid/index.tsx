@@ -1,28 +1,16 @@
-import { AtGrid } from 'taro-ui';
-import { AtIconProps } from 'types/icon';
-
-import { View } from '@tarojs/components';
-import Taro from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import { AtGrid } from 'taro-ui'
+import { AtGridItem } from 'types/grid'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-type DataItem = {
-  value: string
-  image?: string
-  iconInfo?: AtIconProps
-}
-
 interface GridPageState {
-  data: DataItem[]
+  data: AtGridItem[]
 }
 
 export default class GridPage extends Taro.Component<{}, GridPageState> {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       data: [
@@ -57,17 +45,26 @@ export default class GridPage extends Taro.Component<{}, GridPageState> {
             size: 30,
             color: 'red',
             value: 'bookmark'
-          }
+          },
+          url: '支持自定义字段'
         }
       ]
     }
   }
 
-  private handleClick = (value: DataItem, index: number): void => {
-    console.log(value, index)
+  public config: Taro.PageConfig = {
+    navigationBarTitleText: 'Taro UI'
   }
 
-  public render (): JSX.Element {
+  private handleClick = (value: AtGridItem, index: number): void => {
+    Taro.showModal({
+      title: '提示',
+      content: `Value: ${value}, Index: ${index}`,
+      showCancel: false
+    })
+  }
+
+  public render(): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Grid 栅格' />
