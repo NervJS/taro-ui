@@ -97,6 +97,15 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
         errorValue: resultValue!
       })
     }
+    if (resultValue && !Number(resultValue)) {
+      resultValue = parseFloat(String(resultValue)) || min
+
+      this.handleError({
+        type: 'OVER',
+        errorValue: resultValue!
+      })
+    }
+
     resultValue = parseValue(String(resultValue))
     return resultValue
   }
