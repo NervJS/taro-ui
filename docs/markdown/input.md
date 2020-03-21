@@ -242,3 +242,4 @@ export default class Index extends Taro.Component {
 | onConfirm | √ | x | 点击完成按钮时触发，v2.0.3 版本可以获取 event 参数 | (value,event) => void   |
 | onErrorClick | √ | √ | 点击错误按钮触发的事件 | () => void |
 | onClick | √ | √ | 当 editable 为 false时，点击组件触发的事件  | () => void |
+| onKeyboardHeightChange | √ |   | 键盘高度发生变化的时候触发此事件 | (event) => void |

@@ -1,11 +1,16 @@
-import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import { ComponentClass } from 'react'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
-
 import AtComponent from './base'
 
-declare type OmitInputProps = Omit<InputProps, 'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'>
-declare type InputFunction<T extends string | number> = (value: T, event: CommonEvent) => void
+declare type OmitInputProps = Omit<
+  InputProps,
+  'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'
+>
+declare type InputFunction<T extends string | number> = (
+  value: T,
+  event: CommonEvent
+) => void
 
 export interface AtInputProps extends AtComponent, OmitInputProps {
   /**

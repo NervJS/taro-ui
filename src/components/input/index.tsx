@@ -104,7 +104,8 @@ export default class AtInput extends AtComponent<AtInputProps> {
       autoFocus,
       focus,
       value,
-      required
+      required,
+      onKeyboardHeightChange
     } = this.props
     const { type, maxLength, disabled, password } = getInputProps(this.props)
 
@@ -162,6 +163,7 @@ export default class AtInput extends AtComponent<AtInputProps> {
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onConfirm={this.onConfirm}
+            onKeyboardHeightChange={onKeyboardHeightChange}
           />
           {clear && value && (
             <View className='at-input__icon' onTouchEnd={this.clearValue}>
