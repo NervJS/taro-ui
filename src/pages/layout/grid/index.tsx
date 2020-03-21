@@ -59,7 +59,7 @@ export default class GridPage extends Taro.Component<{}, GridPageState> {
   private handleClick = (value: AtGridItem, index: number): void => {
     Taro.showModal({
       title: '提示',
-      content: `Value: ${value}, Index: ${index}`,
+      content: `Value: ${JSON.stringify(value)}, Index: ${index}`,
       showCancel: false
     })
   }
