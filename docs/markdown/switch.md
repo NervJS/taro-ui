@@ -59,6 +59,14 @@ export default class Index extends Taro.Component {
 
 :::
 
+> AtSwitch 组件拥有两个 SCSS 变量，可以修改它们来调整标题的颜色和大小，默认的样式为 `#333` 和 `28(r)px`。
+
+```scss
+/* Switch */
+$at-switch-title-color: $color-text-base !default; // #333
+$at-switch-title-size: $font-size-base !default; // 14px * 2
+```
+
 ## 参数
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
