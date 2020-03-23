@@ -3,6 +3,8 @@
 ---
 多行文本输入框，可控制是否显示当前字数，可自定义高度。
 
+> 自 Taro UI 2.3.1 版本以后，AtTextarea 的 onChange 事件与 AtInput 保持一致，接收两个参数，函数签名为 `onChange: (value: string, event?: CommonEvent | undefined) => void`，不再需要使用 `event.target.value` 获取输入的值。
+
 ## 使用指南
 
 在 Taro 文件中引入组件
@@ -106,7 +108,7 @@ export default class Index extends Taro.Component {
 
 | 事件名称 |   微信小程序 |  h5 | 说明          | 返回参数  |
 |---------| ---  | --------| --------- |---------- |
-| onChange |  √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件的 event.target.value 来更新 value 值变化，onChange 函数必填 | event  |
+| onChange |  √ | √ | 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填 | (value, event) => void  |
 | onFocus |  √ | √ | 输入框获得焦点时触发，event.detail = {'{value, height}'} ，height 为键盘高度，在基础库 1.9.90 起支持| event  |
 | onBlur |  √ | √ | 输入框失去焦点时触发，event.detail = {'{ value, cursor }'}  | event  |
 | onConfirm |  √ | x | 点击完成时，触发 confirm 事件，event.detail = {'{ value: value }'}  | event  |

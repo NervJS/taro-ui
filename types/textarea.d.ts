@@ -86,7 +86,7 @@ export interface AtTextareaProps extends AtComponent {
   cursorSpacing?: number
   /**
    * 输入框值改变时触发的事件，
-   * 开发者需要通过 onChange 事件的 event.target.value 来更新 value 值变化，
+   * 开发者需要通过 onChange 事件来更新 value 值变化，
    * onChange 函数必填
    */
   onChange: (value: string, event?: CommonEvent) => void
