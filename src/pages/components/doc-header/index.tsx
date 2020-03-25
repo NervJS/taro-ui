@@ -1,18 +1,17 @@
-import Taro, { Component } from '@tarojs/taro'
 import PropTypes, { InferProps } from 'prop-types'
+import React from 'react'
 import { View } from '@tarojs/components'
-
 import './index.scss'
 
 export interface DocsHeaderProps {
   title?: string
 }
 
-export default class DocsHeader extends Component<DocsHeaderProps> {
+export default class DocsHeader extends React.Component<DocsHeaderProps> {
   public static defaultProps: DocsHeaderProps
   public static propTypes: InferProps<DocsHeaderProps>
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { title } = this.props
 
     return (

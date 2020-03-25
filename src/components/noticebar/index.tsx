@@ -65,9 +65,7 @@ export default class AtNoticebar extends React.Component<
         const dura = width / +speed
         this.setState({ dura })
       } else if (isWEAPP || isALIPAY) {
-        const query = isALIPAY
-          ? Taro.createSelectorQuery()
-          : Taro.createSelectorQuery().in(this.$scope)
+        const query = Taro.createSelectorQuery()
         query
           .select(`.${this.state.animElemId}`)
           .boundingClientRect()
@@ -112,7 +110,7 @@ export default class AtNoticebar extends React.Component<
             this.interval = setInterval(animBody, dura * 1000 + 1000)
           })
       }
-    }, 100)
+    }, 1000)
   }
 
   public render(): JSX.Element | boolean {
@@ -171,6 +169,7 @@ export default class AtNoticebar extends React.Component<
             )}
             <View className='at-noticebar__content-text'>
               <View
+                id={this.state.animElemId}
                 animation={{
                   actions: this.state.animationData
                 }}

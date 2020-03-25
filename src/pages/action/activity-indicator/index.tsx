@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtActivityIndicator, AtSwitch } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,25 +9,28 @@ interface ActivityIndicatorPageState {
   isOpened: boolean
 }
 
-export default class ActivityIndicatorPage extends Taro.Component<{}, ActivityIndicatorPageState> {
+export default class ActivityIndicatorPage extends React.Component<
+  {},
+  ActivityIndicatorPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       isOpened: true
     }
   }
 
-  private handleChange (value: boolean): void {
+  private handleChange(value: boolean): void {
     this.setState({
       isOpened: value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page activity-indicator-page'>
         {/* S Header */}
@@ -41,7 +45,7 @@ export default class ActivityIndicatorPage extends Taro.Component<{}, ActivityIn
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtActivityIndicator size={20} ></AtActivityIndicator>
+                  <AtActivityIndicator size={20}></AtActivityIndicator>
                 </View>
                 <View className='subitem'>
                   <AtActivityIndicator size={24} />
@@ -85,9 +89,17 @@ export default class ActivityIndicatorPage extends Taro.Component<{}, ActivityIn
           <View className='panel'>
             <View className='panel__title'>状态切换</View>
             <View className='panel__content '>
-              <AtSwitch border={false} title={this.state.isOpened ? '开启中' : '关闭中'} checked={this.state.isOpened} onChange={this.handleChange.bind(this)} />
+              <AtSwitch
+                border={false}
+                title={this.state.isOpened ? '开启中' : '关闭中'}
+                checked={this.state.isOpened}
+                onChange={this.handleChange.bind(this)}
+              />
               <View className='example-item'>
-                <AtActivityIndicator content='加载中...' isOpened={this.state.isOpened} />
+                <AtActivityIndicator
+                  content='加载中...'
+                  isOpened={this.state.isOpened}
+                />
               </View>
             </View>
           </View>

@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtRange } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,26 +9,26 @@ interface IndexState {
   [key: string]: [number, number]
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       value1: [50, 60],
-      value2: [50, 60],
+      value2: [50, 60]
     }
   }
 
-  private handleChange (stateName: string, value: [number, number]): void {
+  private handleChange(stateName: string, value: [number, number]): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -69,10 +70,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
           <View className='panel'>
             <View className='panel__title'>禁止状态</View>
             <View className='panel__content'>
-              <AtRange
-                value={[30, 50]}
-                disabled
-              />
+              <AtRange value={[30, 50]} disabled />
             </View>
           </View>
         </View>

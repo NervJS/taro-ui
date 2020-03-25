@@ -1,3 +1,4 @@
+import React from 'react'
 import { AtForm, AtInput } from 'taro-ui'
 import { Image, View } from '@tarojs/components'
 import { BaseEventOrig } from '@tarojs/components/types/common'
@@ -29,9 +30,9 @@ interface IndexState {
   [key: string]: string | boolean | number
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public constructor() {
-    super(...arguments)
+    super(arguments)
     this.state = {
       value1: '',
       value2: '',

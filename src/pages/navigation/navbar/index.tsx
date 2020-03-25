@@ -1,47 +1,48 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtNavBar } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Taro.Component {
+export default class Index extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  private handleClick (title: string): void {
+  private handleClick(title: string): void {
     Taro.showToast({
-      'title': title,
-      'duration': 2000,
-      'icon': 'success'
+      title,
+      duration: 2000,
+      icon: 'success'
     })
   }
 
-  private clickReturn (): void {
+  private clickReturn(): void {
     Taro.showToast({
-      'title': '返回',
-      'duration': 2000,
-      'icon': 'success'
+      title: '返回',
+      duration: 2000,
+      icon: 'success'
     })
   }
 
-  private clickMy (): void {
+  private clickMy(): void {
     Taro.showToast({
-      'title': '我的',
-      'duration': 2000,
-      'icon': 'success'
+      title: '我的',
+      duration: 2000,
+      icon: 'success'
     })
   }
 
-  private clickList (): void {
+  private clickList(): void {
     Taro.showToast({
-      'title': '功能列表',
-      'duration': 2000,
-      'icon': 'success'
+      title: '功能列表',
+      duration: 2000,
+      icon: 'success'
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='NavBar 导航栏'></DocsHeader>

@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtIcon } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import ICONS from './icons'
 import './index.scss'
@@ -21,19 +22,19 @@ interface IconPageState {
   }
 }
 
-export default class IconPage extends Taro.Component<{}, IconPageState> {
+export default class IconPage extends React.Component<{}, IconPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super()
+  public constructor() {
+    super(arguments)
     this.state = {
       icons: ICONS
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { icons } = this.state
     const iconColor = '#999'
     const iconSize = 30
@@ -54,7 +55,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.main.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -71,7 +76,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.file.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -88,7 +97,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.text.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -105,7 +118,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.arrow.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -122,7 +139,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.media.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -139,7 +160,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.photo.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>
@@ -156,7 +181,11 @@ export default class IconPage extends Taro.Component<{}, IconPageState> {
                 {icons.logo.map((icon, index) => (
                   <View className='icon-list__item' key={`at-icon-${index}`}>
                     <View className='icon-list__icon'>
-                      <AtIcon value={icon} color={iconColor} size={iconSize}></AtIcon>
+                      <AtIcon
+                        value={icon}
+                        color={iconColor}
+                        size={iconSize}
+                      ></AtIcon>
                     </View>
                     <View className='icon-list__name'>{icon}</View>
                   </View>

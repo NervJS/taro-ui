@@ -1,3 +1,4 @@
+import React from 'react'
 import { AtGrid } from 'taro-ui'
 import { AtGridItem } from 'types/grid'
 import { View } from '@tarojs/components'
@@ -9,9 +10,9 @@ interface GridPageState {
   data: AtGridItem[]
 }
 
-export default class GridPage extends Taro.Component<{}, GridPageState> {
+export default class GridPage extends React.Component<{}, GridPageState> {
   public constructor() {
-    super(...arguments)
+    super(arguments)
     this.state = {
       data: [
         {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { AtTextarea } from 'taro-ui'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -8,9 +9,9 @@ interface IndexState {
   [key: string]: string
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public constructor() {
-    super(...arguments)
+    super(arguments)
     this.state = {
       value1: '',
       value2: '',

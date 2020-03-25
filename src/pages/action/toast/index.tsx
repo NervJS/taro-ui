@@ -1,6 +1,7 @@
-import Taro, { Component } from '@tarojs/taro'
+import React from 'react'
+import { AtButton, AtToast } from 'taro-ui'
 import { View } from '@tarojs/components'
-import { AtToast, AtButton } from 'taro-ui'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,7 +9,6 @@ const INIT_STATE: ToastPageState = {
   image: '',
   icon: '',
   text: '',
-  status: undefined,
   duration: 3000,
   hasMask: false,
   isOpened: false
@@ -24,17 +24,17 @@ interface ToastPageState {
   isOpened: boolean
 }
 
-export default class ToastPage extends Component<{}, ToastPageState> {
+export default class ToastPage extends React.Component<{}, ToastPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = INIT_STATE
   }
 
-  private handleClick = (params: ToastPageState) => {
+  private handleClick = (params: ToastPageState): void => {
     if (this.state.isOpened) {
       return this.setState(INIT_STATE)
     }
@@ -50,7 +50,7 @@ export default class ToastPage extends Component<{}, ToastPageState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       text,
       icon,

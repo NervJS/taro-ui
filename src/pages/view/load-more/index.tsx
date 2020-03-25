@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtLoadMore } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,19 +9,22 @@ interface LoadMorePageState {
   status: 'more' | 'loading' | 'noMore'
 }
 
-export default class LoadMorePage extends Taro.Component<{}, LoadMorePageState> {
+export default class LoadMorePage extends React.Component<
+  {},
+  LoadMorePageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       status: 'more'
     }
   }
 
-  private handleClick (): void {
+  private handleClick(): void {
     this.setState({
       status: 'loading'
     })
@@ -31,7 +35,7 @@ export default class LoadMorePage extends Taro.Component<{}, LoadMorePageState> 
     }, 2000)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -44,7 +48,10 @@ export default class LoadMorePage extends Taro.Component<{}, LoadMorePageState> 
           <View className='panel'>
             <View className='panel__title'>一般用法</View>
             <View className='panel__content no-padding'>
-              <AtLoadMore onClick={this.handleClick.bind(this)} status={this.state.status} />
+              <AtLoadMore
+                onClick={this.handleClick.bind(this)}
+                status={this.state.status}
+              />
             </View>
           </View>
         </View>

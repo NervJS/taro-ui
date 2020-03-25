@@ -3,15 +3,11 @@ import { SelectorQuery } from '@tarojs/taro/types/index'
 
 const ENV = Taro.getEnv()
 
-function delay(delayTime = 500): Promise<null> {
+function delay(delayTime = 25): Promise<null> {
   return new Promise(resolve => {
-    if ([Taro.ENV_TYPE.WEB, Taro.ENV_TYPE.SWAN].includes(ENV)) {
-      setTimeout(() => {
-        resolve()
-      }, delayTime)
-      return
-    }
-    resolve()
+    setTimeout(() => {
+      resolve()
+    }, delayTime)
   })
 }
 
@@ -20,9 +16,8 @@ function delayQuerySelector(
   selectorStr: string,
   delayTime = 500
 ): Promise<any[]> {
-  const selector: SelectorQuery = Taro.createSelectorQuery()
-
   return new Promise(resolve => {
+    const selector: SelectorQuery = Taro.createSelectorQuery()
     delay(delayTime).then(() => {
       selector
         .select(selectorStr)

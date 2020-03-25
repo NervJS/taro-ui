@@ -108,8 +108,12 @@
           "jest": true
         },
         "rules": {
-          "@typescript-eslint/no-explicit-any": ["off"],
-          "@typescript-eslint/member-delimiter-style": ["off"],
+          "@typescript-eslint/no-explicit-any": [
+            "off"
+          ],
+          "@typescript-eslint/member-delimiter-style": [
+            "off"
+          ],
           "class-methods-use-this": "off",
           "prefer-rest-params": "off",
           "arrow-body-style": "warn",
@@ -227,9 +231,11 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-rc.1",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-typescript": "^7.9.0",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@mapbox/jsxtreme-markdown-loader": "^0.8.3",

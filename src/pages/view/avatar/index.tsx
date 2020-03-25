@@ -1,16 +1,18 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtAvatar } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class AvatarPage extends Taro.Component {
+export default class AvatarPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public render (): JSX.Element {
-    const avatarImg = 'http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
+  public render(): JSX.Element {
+    const avatarImg =
+      'http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
 
     return (
       <View className='page'>
@@ -93,25 +95,39 @@ export default class AvatarPage extends Taro.Component {
           </View>
 
           {/* openData 头像（仅微信小程序支持） */}
-          {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && <View className='panel'>
-            <View className='panel__title'>openData 头像（仅微信小程序支持）</View>
-            <View className='panel__content'>
-              <View className='example-item'>
-                <View className='subitem'>
-                  <AtAvatar openData={{ type: 'userAvatarUrl' }} size='small'></AtAvatar>
-                </View>
-                <View className='subitem'>
-                  <AtAvatar openData={{ type: 'userAvatarUrl' }}></AtAvatar>
-                </View>
-                <View className='subitem'>
-                  <AtAvatar size='large' openData={{ type: 'userAvatarUrl' }}></AtAvatar>
-                </View>
-                <View className='subitem'>
-                  <AtAvatar size='large' circle openData={{ type: 'userAvatarUrl' }}></AtAvatar>
+          {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
+            <View className='panel'>
+              <View className='panel__title'>
+                openData 头像（仅微信小程序支持）
+              </View>
+              <View className='panel__content'>
+                <View className='example-item'>
+                  <View className='subitem'>
+                    <AtAvatar
+                      openData={{ type: 'userAvatarUrl' }}
+                      size='small'
+                    ></AtAvatar>
+                  </View>
+                  <View className='subitem'>
+                    <AtAvatar openData={{ type: 'userAvatarUrl' }}></AtAvatar>
+                  </View>
+                  <View className='subitem'>
+                    <AtAvatar
+                      size='large'
+                      openData={{ type: 'userAvatarUrl' }}
+                    ></AtAvatar>
+                  </View>
+                  <View className='subitem'>
+                    <AtAvatar
+                      size='large'
+                      circle
+                      openData={{ type: 'userAvatarUrl' }}
+                    ></AtAvatar>
+                  </View>
                 </View>
               </View>
             </View>
-          </View>}
+          )}
         </View>
         {/* E Body */}
       </View>

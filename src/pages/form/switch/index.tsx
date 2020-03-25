@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
+import React from 'react'
+import { AtForm, AtSwitch } from 'taro-ui'
 import { View } from '@tarojs/components'
-import { AtSwitch, AtForm } from 'taro-ui'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,15 +9,15 @@ interface IndexState {
   switchValue: boolean
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
-      switchValue: true,
+      switchValue: true
     }
   }
 
@@ -26,7 +27,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -41,7 +42,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtForm>
-                  <AtSwitch title='开启中' checked={this.state.switchValue} onChange={this.handleChange} />
+                  <AtSwitch
+                    title='开启中'
+                    checked={this.state.switchValue}
+                    onChange={this.handleChange}
+                  />
                   <AtSwitch title='已关闭' border={false} />
                 </AtForm>
               </View>

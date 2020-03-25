@@ -1,15 +1,16 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtCountdown } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class CountDownPage extends Taro.Component {
+export default class CountDownPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  private onTimeUp (): void {
+  private onTimeUp(): void {
     Taro.showToast({
       title: '时间到',
       icon: 'success',
@@ -17,7 +18,7 @@ export default class CountDownPage extends Taro.Component {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -58,11 +59,7 @@ export default class CountDownPage extends Taro.Component {
           <View className='panel'>
             <View className='panel__title'>卡片式</View>
             <View className='panel__content'>
-              <AtCountdown
-                isCard
-                minutes={1}
-                seconds={10}
-              />
+              <AtCountdown isCard minutes={1} seconds={10} />
             </View>
             <View className='panel__content'>
               <AtCountdown

@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtTag } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -17,13 +18,13 @@ interface TagPageState {
   solidTagList2: ListItem[]
 }
 
-export default class TagPage extends Taro.Component<{}, TagPageState> {
+export default class TagPage extends React.Component<{}, TagPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       tagList: [
         { name: 'tag-1', active: false },
@@ -54,11 +55,11 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
         { name: '标签2', active: false },
         { name: '标签3', active: true },
         { name: '标签4', active: true }
-      ],
+      ]
     }
   }
 
-  private onClick (data: ListItem): void {
+  private onClick(data: ListItem): void {
     const { tagList } = this.state
     const findIndex = tagList.findIndex(item => item.name === data.name)
     const active = !tagList[findIndex].active
@@ -72,11 +73,9 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
     } else {
       Taro.showModal({ content, showCancel: false })
     }
-
-    console.log(data)
   }
 
-  private handleHollowClick (data: ListItem): void {
+  private handleHollowClick(data: ListItem): void {
     const { hollowTagList } = this.state
     const findIndex = hollowTagList.findIndex(item => item.name === data.name)
 
@@ -84,7 +83,7 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
     this.setState({ hollowTagList })
   }
 
-  private handleSolidClick (data: ListItem): void {
+  private handleSolidClick(data: ListItem): void {
     const { solidTagList } = this.state
     const findIndex = solidTagList.findIndex(item => item.name === data.name)
 
@@ -92,7 +91,7 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
     this.setState({ solidTagList })
   }
 
-  private handleHollowSmallClick (data: ListItem): void {
+  private handleHollowSmallClick(data: ListItem): void {
     const { hollowTagList2 } = this.state
     const findIndex = hollowTagList2.findIndex(item => item.name === data.name)
 
@@ -100,7 +99,7 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
     this.setState({ hollowTagList2 })
   }
 
-  private handleSolidSmallClick (data: ListItem): void {
+  private handleSolidSmallClick(data: ListItem): void {
     const { solidTagList2 } = this.state
     const findIndex = solidTagList2.findIndex(item => item.name === data.name)
 
@@ -108,7 +107,7 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
     this.setState({ solidTagList2 })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -129,7 +128,9 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
                       active={item.active}
                       circle={index % 2 === 0}
                       onClick={this.handleHollowClick.bind(this)}
-                    >标签</AtTag>
+                    >
+                      标签
+                    </AtTag>
                   </View>
                 ))}
               </View>
@@ -149,7 +150,9 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
                       active={item.active}
                       circle={index % 2 === 0}
                       onClick={this.handleSolidClick.bind(this)}
-                    >标签</AtTag>
+                    >
+                      标签
+                    </AtTag>
                   </View>
                 ))}
               </View>
@@ -161,8 +164,19 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>点击事件</View>
             <View className='panel__content'>
               <View className='example-item'>
-                {this.state.tagList.map((item, index) => <View className='subitem' key={`at-tag-${index}`}><AtTag name={item.name} type='primary' active={item.active} circle={index % 2 === 0} onClick={this.onClick.bind(this)}>tag-{index + 1}</AtTag></View>
-                )}
+                {this.state.tagList.map((item, index) => (
+                  <View className='subitem' key={`at-tag-${index}`}>
+                    <AtTag
+                      name={item.name}
+                      type='primary'
+                      active={item.active}
+                      circle={index % 2 === 0}
+                      onClick={this.onClick.bind(this)}
+                    >
+                      tag-{index + 1}
+                    </AtTag>
+                  </View>
+                ))}
               </View>
             </View>
           </View>
@@ -173,10 +187,14 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag type='primary' circle disabled>标签</AtTag>
+                  <AtTag type='primary' circle disabled>
+                    标签
+                  </AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag type='primary' disabled>标签</AtTag>
+                  <AtTag type='primary' disabled>
+                    标签
+                  </AtTag>
                 </View>
               </View>
             </View>
@@ -195,7 +213,9 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
                       active={item.active}
                       circle={index % 2 === 0}
                       onClick={this.handleHollowSmallClick.bind(this)}
-                    >标签</AtTag>
+                    >
+                      标签
+                    </AtTag>
                   </View>
                 ))}
               </View>
@@ -216,7 +236,9 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
                       active={item.active}
                       circle={index % 2 === 0}
                       onClick={this.handleSolidSmallClick.bind(this)}
-                    >标签</AtTag>
+                    >
+                      标签
+                    </AtTag>
                   </View>
                 ))}
               </View>
@@ -229,10 +251,14 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='subitem'>
-                  <AtTag size='small' type='primary' circle disabled>标签</AtTag>
+                  <AtTag size='small' type='primary' circle disabled>
+                    标签
+                  </AtTag>
                 </View>
                 <View className='subitem'>
-                  <AtTag size='small' type='primary' disabled>标签</AtTag>
+                  <AtTag size='small' type='primary' disabled>
+                    标签
+                  </AtTag>
                 </View>
               </View>
             </View>

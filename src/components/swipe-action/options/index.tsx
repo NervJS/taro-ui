@@ -10,7 +10,8 @@ export default class AtSwipeActionOptions extends React.Component<
   private trrigerOptionsDomUpadte(): void {
     delayQuerySelector(
       this,
-      `#swipeActionOptions-${this.props.componentId}`
+      `#swipeActionOptions-${this.props.componentId}`,
+      100
     ).then(res => {
       this.props.onQueryedDom(res[0])
     })

@@ -1,21 +1,21 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtSearchBar } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 interface IndexState {
   [key: string]: string
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       value1: '',
       value2: '',
@@ -24,13 +24,13 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private onChange (stateName: string, value: string): void {
+  private onChange(stateName: string, value: string): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  private onActionClick (): void {
+  private onActionClick(): void {
     Taro.showToast({
       title: '开始搜索',
       icon: 'success',
@@ -38,7 +38,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

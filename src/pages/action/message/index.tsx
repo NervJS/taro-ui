@@ -1,24 +1,25 @@
-import Taro, { Component } from '@tarojs/taro'
+import React from 'react'
+import { AtButton, AtMessage } from 'taro-ui'
 import { View } from '@tarojs/components'
-import { AtMessage, AtButton } from 'taro-ui'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 type MessageType = 'info' | 'success' | 'error' | 'warning'
 
-export default class ToastPage extends Component {
+export default class ToastPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  private handleClick (type: MessageType): void {
+  private handleClick(type: MessageType): void {
     Taro.atMessage({
       message: '消息通知',
-      type: type,
+      type
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page toast-page'>
         {/* S Header */}

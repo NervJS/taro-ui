@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import React from 'react'
 import { AtActionSheet, AtActionSheetItem, AtButton } from 'taro-ui'
+import { Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -11,13 +12,16 @@ interface ActionSheetPageState {
   [key: string]: boolean
 }
 
-export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageState> {
+export default class ActionSheetPage extends React.Component<
+  {},
+  ActionSheetPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       isOpened1: false,
       isOpened2: false,
@@ -32,9 +36,12 @@ export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageS
   }
 
   private handleClose = (name: string): void => {
-    console.log(`第 ${name} 个Action Sheet已经关闭`)
     this.setState({
       [`isOpened${name}`]: false
+    })
+    Taro.showToast({
+      title: `第 ${name} 个Action Sheet已经关闭`,
+      icon: 'none'
     })
   }
 
@@ -49,7 +56,7 @@ export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageS
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (

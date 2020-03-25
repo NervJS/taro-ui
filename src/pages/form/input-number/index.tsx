@@ -1,7 +1,8 @@
-import Taro from '@tarojs/taro'
+import React from 'react'
+import { AtInputNumber } from 'taro-ui'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import { AtInputNumber } from 'taro-ui'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -9,13 +10,13 @@ interface IndexState {
   [key: string]: number
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       number1: 1,
       number2: 1,
@@ -26,7 +27,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private handleNumberChange (stateName: string, value: number, e: CommonEvent): void {
+  private handleNumberChange(
+    stateName: string,
+    value: number,
+    e: CommonEvent
+  ): void {
     this.setState({
       [stateName]: value
     })
@@ -34,7 +39,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
     console.log('Event:', e)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -48,7 +53,9 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='example-item__desc'>min=0, max=10, step=1</View>
+                <View className='example-item__desc'>
+                  min=0, max=10, step=1
+                </View>
                 <AtInputNumber
                   min={0}
                   max={10}
@@ -65,7 +72,9 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__title'>小数</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='example-item__desc'>min=0, max=10, step=0.1</View>
+                <View className='example-item__desc'>
+                  min=0, max=10, step=0.1
+                </View>
                 <AtInputNumber
                   type='digit'
                   min={0}

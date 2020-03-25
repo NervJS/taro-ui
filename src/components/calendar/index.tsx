@@ -10,7 +10,7 @@ import {
   Calendar
 } from 'types/calendar'
 import { View } from '@tarojs/components'
-import { BaseEvent } from '@tarojs/components/types/common'
+import { BaseEventOrig } from '@tarojs/components/types/common'
 import AtCalendarBody from './body/index'
 import AtCalendarController from './controller/index'
 
@@ -213,9 +213,7 @@ export default class AtCalendar extends Taro.Component<
   }
 
   // picker 选择时间改变时触发
-  private handleSelectDate = (
-    e: BaseEvent & { detail: { value: string } }
-  ): void => {
+  private handleSelectDate = (e: BaseEventOrig<{ value: string }>): void => {
     const { value } = e.detail
 
     const _generateDate: Dayjs = dayjs(value)

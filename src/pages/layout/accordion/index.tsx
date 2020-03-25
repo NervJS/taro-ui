@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtAccordion, AtList, AtListItem } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -8,28 +9,28 @@ interface CardPageState {
   [key: string]: boolean
 }
 
-export default class CardPage extends Taro.Component<{}, CardPageState> {
+export default class CardPage extends React.Component<{}, CardPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       value1: false,
       value2: true,
       value3: false,
-      value4: false,
+      value4: false
     }
   }
 
-  private onClick (stateName: string, value: boolean): void {
+  private onClick(stateName: string, value: boolean): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { value1, value2, value3, value4 } = this.state
 
     return (

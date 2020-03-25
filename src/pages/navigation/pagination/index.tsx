@@ -1,10 +1,9 @@
-import { AtButton, AtPagination } from 'taro-ui';
-import { PageChangeData } from 'types/pagination';
-
-import { View } from '@tarojs/components';
-import Taro from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import React from 'react'
+import { AtButton, AtPagination } from 'taro-ui'
+import { PageChangeData } from 'types/pagination'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 interface PaginationPageState {
@@ -13,42 +12,48 @@ interface PaginationPageState {
   pageSize: number
 }
 
-export default class PaginationPage extends Taro.Component<{}, PaginationPageState> {
+export default class PaginationPage extends React.Component<
+  {},
+  PaginationPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       list: [],
       current: 1,
-      pageSize: 10,
+      pageSize: 10
     }
   }
 
-  private onPage (data: PageChangeData): void {
-    console.log('pagination: ', data)
+  private onPage(data: PageChangeData): void {
     this.setState({
-      current: data.current,
+      current: data.current
+    })
+    Taro.showToast({
+      title: `Pagination: ${data}`,
+      icon: 'none'
     })
   }
 
-  private onPageDataChange (): void {
+  private onPageDataChange(): void {
     const _list = new Array(10).fill(1)
     this.setState({
-      list: this.state.list.concat(_list),
+      list: this.state.list.concat(_list)
     })
   }
 
-  private onCurrentChange (): void {
+  private onCurrentChange(): void {
     this.setState({
       current: 1,
-      list: [],
+      list: []
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const len = this.state.list.length
     return (
       <View className='page'>
@@ -62,7 +67,11 @@ export default class PaginationPage extends Taro.Component<{}, PaginationPageSta
             <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination total={20} pageSize={10} current={1}></AtPagination>
+                <AtPagination
+                  total={20}
+                  pageSize={10}
+                  current={1}
+                ></AtPagination>
               </View>
             </View>
           </View>
@@ -72,7 +81,12 @@ export default class PaginationPage extends Taro.Component<{}, PaginationPageSta
             <View className='panel__title'>图标类型</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination icon total={20} pageSize={10} current={1}></AtPagination>
+                <AtPagination
+                  icon
+                  total={20}
+                  pageSize={10}
+                  current={1}
+                ></AtPagination>
               </View>
             </View>
           </View>
@@ -82,7 +96,12 @@ export default class PaginationPage extends Taro.Component<{}, PaginationPageSta
             <View className='panel__title'>picker快速选择页码</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination icon total={20} pageSize={10} current={1}></AtPagination>
+                <AtPagination
+                  icon
+                  total={20}
+                  pageSize={10}
+                  current={1}
+                ></AtPagination>
               </View>
             </View>
           </View>
@@ -92,15 +111,29 @@ export default class PaginationPage extends Taro.Component<{}, PaginationPageSta
             <View className='panel__title'>改变数据长度</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                <AtPagination icon total={len} pageSize={this.state.pageSize} current={this.state.current} onPageChange={this.onPage.bind(this)}></AtPagination>
+                <AtPagination
+                  icon
+                  total={len}
+                  pageSize={this.state.pageSize}
+                  current={this.state.current}
+                  onPageChange={this.onPage.bind(this)}
+                ></AtPagination>
                 <View className='btn-item'>
-                当前页：{this.state.current}，当前数据：{len}条，分页大小：{this.state.pageSize}
+                  当前页：{this.state.current}，当前数据：{len}条，分页大小：
+                  {this.state.pageSize}
                 </View>
                 <View className='btn-item'>
-                  <AtButton type='primary' onClick={this.onPageDataChange.bind(this)}>增加10条数据</AtButton>
+                  <AtButton
+                    type='primary'
+                    onClick={this.onPageDataChange.bind(this)}
+                  >
+                    增加10条数据
+                  </AtButton>
                 </View>
                 <View className='btn-item'>
-                  <AtButton onClick={this.onCurrentChange.bind(this)}>重置</AtButton>
+                  <AtButton onClick={this.onCurrentChange.bind(this)}>
+                    重置
+                  </AtButton>
                 </View>
               </View>
             </View>

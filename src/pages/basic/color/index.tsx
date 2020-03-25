@@ -1,14 +1,14 @@
+import React from 'react'
+import { Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-
 import DocsHeader from '../../components/doc-header'
-
 import './index.scss'
 
 type Color = {
   name: string
   hex: string
 }
+
 type ColorData = {
   type: string
   data: Color[]
@@ -18,13 +18,13 @@ interface BasicColorState {
   colorData: ColorData[]
 }
 
-export default class BasicColor extends Taro.Component<{}, BasicColorState> {
+export default class BasicColor extends React.Component<{}, BasicColorState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super()
+  public constructor() {
+    super(arguments)
 
     this.state = {
       colorData: [
@@ -132,7 +132,7 @@ export default class BasicColor extends Taro.Component<{}, BasicColorState> {
     }
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { colorData } = this.state
 
     return (
@@ -150,13 +150,21 @@ export default class BasicColor extends Taro.Component<{}, BasicColorState> {
                 <View className='color-list'>
                   {item.data.map(color => (
                     <View className='color-item' key={color.hex}>
-                      <View className='color-item__circle' style={`background: ${color.hex}`}>
+                      <View
+                        className='color-item__circle'
+                        style={`background: ${color.hex}`}
+                      >
                         <View className='inner-circle-1'></View>
-                        <View className='inner-circle-2' style={`border-color: ${color.hex}`}></View>
+                        <View
+                          className='inner-circle-2'
+                          style={`border-color: ${color.hex}`}
+                        ></View>
                       </View>
                       <View className='color-item__info'>
                         <Text className='name'>{color.name}</Text>
-                        <Text className='hex' selectable>{color.hex}</Text>
+                        <Text className='hex' selectable>
+                          {color.hex}
+                        </Text>
                       </View>
                     </View>
                   ))}

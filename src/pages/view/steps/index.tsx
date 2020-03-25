@@ -1,7 +1,8 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtSteps } from 'taro-ui'
-import { Item } from 'types/steps';
+import { Item } from 'types/steps'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -9,33 +10,33 @@ interface TimelinePageState {
   [key: string]: number
 }
 
-export default class TimelinePage extends Taro.Component<{}, TimelinePageState> {
+export default class TimelinePage extends React.Component<
+  {},
+  TimelinePageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       current1: 0,
       current2: 0,
       current3: 0,
       current4: 0,
-      current5: 1,
+      current5: 1
     }
   }
 
-  private onChange (stateName: string, current: number): void {
+  private onChange(stateName: string, current: number): void {
     this.setState({
       [stateName]: current
     })
   }
 
-  public render (): JSX.Element {
-    const items1: Item[] = [
-      { title: '步骤一' },
-      { title: '步骤二' }
-    ]
+  public render(): JSX.Element {
+    const items1: Item[] = [{ title: '步骤一' }, { title: '步骤二' }]
 
     const items2: Item[] = [
       { title: '步骤一' },
@@ -57,7 +58,7 @@ export default class TimelinePage extends Taro.Component<{}, TimelinePageState> 
           value: 'sound',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
-          size: '14',
+          size: '14'
         }
       },
       {
@@ -67,7 +68,7 @@ export default class TimelinePage extends Taro.Component<{}, TimelinePageState> 
           value: 'shopping-cart',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
-          size: '14',
+          size: '14'
         }
       },
       {
@@ -77,7 +78,7 @@ export default class TimelinePage extends Taro.Component<{}, TimelinePageState> 
           value: 'camera',
           activeColor: '#fff',
           inactiveColor: '#78A4FA',
-          size: '14',
+          size: '14'
         }
       }
     ]

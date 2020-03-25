@@ -1,6 +1,7 @@
-import Taro from '@tarojs/taro'
-import { View, PickerView, PickerViewColumn } from '@tarojs/components'
+import React from 'react'
+import { PickerView, PickerViewColumn, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -16,13 +17,13 @@ interface IndexState {
   isAlipay: boolean
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     const date = new Date()
     const years: number[] = []
     const months: number[] = []
@@ -51,11 +52,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     const env = Taro.getEnv()
     this.setState({
       isWeapp: env === Taro.ENV_TYPE.WEAPP,
-      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
+      isAlipay: env === Taro.ENV_TYPE.ALIPAY
     })
   }
 
@@ -70,8 +71,18 @@ export default class Index extends Taro.Component<{}, IndexState> {
     })
   }
 
-  public render (): JSX.Element {
-    const { years, months, days, value, year, month, day, isWeapp, isAlipay } = this.state
+  public render(): JSX.Element {
+    const {
+      years,
+      months,
+      days,
+      value,
+      year,
+      month,
+      day,
+      isWeapp,
+      isAlipay
+    } = this.state
 
     return (
       <View className='page'>
@@ -87,28 +98,47 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>嵌入页面的滑动选择器</View>
-                {
-                  isWeapp || isAlipay ? (
-                    <View>
-                      <View className='title-date'>{year}年{month}月{day}日</View>
-                      <PickerView indicatorStyle='height: 50px;' className='picker' style='width: 100%; height: 300px; text-align: center;' value={value} onChange={this.handleChange}>
-                        <PickerViewColumn>
-                          { years.map((item, idx) => <View key={idx} style='line-height: 50px'>{item}年</View>) }
-                        </PickerViewColumn>
-                        <PickerViewColumn>
-                          { months.map((item, idx) => <View key={idx} style='line-height: 50px'>{item}月</View>) }
-                        </PickerViewColumn>
-                        <PickerViewColumn>
-                          { days.map((item, idx) => <View key={idx} style='line-height: 50px'>{item}日</View>) }
-                        </PickerViewColumn>
-                      </PickerView>
+                {isWeapp || isAlipay ? (
+                  <View>
+                    <View className='title-date'>
+                      {year}年{month}月{day}日
                     </View>
-                  ) : <View className='title-date'>暂时仅支持微信小程序</View>
-                }
+                    <PickerView
+                      indicatorStyle='height: 50px;'
+                      className='picker'
+                      style='width: 100%; height: 300px; text-align: center;'
+                      value={value}
+                      onChange={this.handleChange}
+                    >
+                      <PickerViewColumn>
+                        {years.map((item, idx) => (
+                          <View key={idx} style='line-height: 50px'>
+                            {item}年
+                          </View>
+                        ))}
+                      </PickerViewColumn>
+                      <PickerViewColumn>
+                        {months.map((item, idx) => (
+                          <View key={idx} style='line-height: 50px'>
+                            {item}月
+                          </View>
+                        ))}
+                      </PickerViewColumn>
+                      <PickerViewColumn>
+                        {days.map((item, idx) => (
+                          <View key={idx} style='line-height: 50px'>
+                            {item}日
+                          </View>
+                        ))}
+                      </PickerViewColumn>
+                    </PickerView>
+                  </View>
+                ) : (
+                  <View className='title-date'>暂时仅支持微信小程序</View>
+                )}
               </View>
             </View>
           </View>
-
         </View>
         {/* E Body */}
       </View>

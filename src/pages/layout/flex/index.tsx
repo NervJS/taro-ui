@@ -1,15 +1,16 @@
-import Taro from '@tarojs/taro'
+import React from 'react'
 import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import '../../../style/components/flex.scss'
 import './index.scss'
 
-export default class FlexPage extends Taro.Component {
+export default class FlexPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page flex-page'>
         <DocsHeader title='Flex 弹性布局' />

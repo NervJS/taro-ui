@@ -1,19 +1,23 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtCard, AtIcon } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class CardPage extends Taro.Component {
+export default class CardPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
   private handleClick = (): void => {
-    console.log('Card handleClick')
+    Taro.showToast({
+      title: 'Card handleClick',
+      icon: 'none'
+    })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='Card 卡片' />
@@ -65,7 +69,13 @@ export default class CardPage extends Taro.Component {
                 <AtCard
                   title='这是个标题'
                   renderIcon={
-                    <AtIcon prefixClass='at-icon' value='image' size='16' color='#6190e8' customStyle={{ marginRight: '8px' }} ></AtIcon>
+                    <AtIcon
+                      prefixClass='at-icon'
+                      value='image'
+                      size='16'
+                      color='#6190e8'
+                      customStyle={{ marginRight: '8px' }}
+                    ></AtIcon>
                   }
                 >
                   这也是内容区 可以随意定义功能
@@ -96,7 +106,11 @@ export default class CardPage extends Taro.Component {
                 <AtCard
                   note='小Tips'
                   extra='2019/01/23 22:33:33'
-                  extraStyle={{ fontSize: '12px', maxWidth: '200px', color: '#6190e8' }}
+                  extraStyle={{
+                    fontSize: '12px',
+                    maxWidth: '200px',
+                    color: '#6190e8'
+                  }}
                   title='这是个标题'
                   thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
                 >

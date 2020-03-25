@@ -1,16 +1,14 @@
-import { Image, Text, View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro, { ShareAppMessageReturn } from '@tarojs/taro';
-
-import iconAction from '../../assets/images/icon-list-action.png';
-import iconBasic from '../../assets/images/icon-list-basic.png';
-import iconForm from '../../assets/images/icon-list-form.png';
-import iconHOC from '../../assets/images/icon-list-hoc.png';
-import iconLayout from '../../assets/images/icon-list-layout.png';
-import iconNavigation from '../../assets/images/icon-list-navigation.png';
-import iconView from '../../assets/images/icon-list-view.png';
-import logoImg from '../../assets/images/logo_taro.png';
-
+import React from 'react'
+import { Image, Text, View } from '@tarojs/components'
+import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
+import iconAction from '../../assets/images/icon-list-action.png'
+import iconBasic from '../../assets/images/icon-list-basic.png'
+import iconForm from '../../assets/images/icon-list-form.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
+import iconLayout from '../../assets/images/icon-list-layout.png'
+import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconView from '../../assets/images/icon-list-view.png'
+import logoImg from '../../assets/images/logo_taro.png'
 import './index.scss'
 
 interface IndexState {
@@ -23,13 +21,13 @@ interface IndexState {
   }[]
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
 
     this.state = {
       list: [
@@ -68,7 +66,8 @@ export default class Index extends Taro.Component<{}, IndexState> {
           title: '导航',
           content: '包含标签栏、导航栏、分段器等',
           icon: iconNavigation
-        }, {
+        },
+        {
           id: 'Advanced',
           title: '高阶组件',
           content: '包含日历等',
@@ -78,7 +77,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  public onShareAppMessage (): ShareAppMessageReturn {
+  public onShareAppMessage(): ShareAppMessageReturn {
     return {
       title: 'Taro UI',
       path: '/pages/index/index',
@@ -86,14 +85,13 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private gotoPanel = (e: CommonEvent): void => {
-    const { id } = e.currentTarget.dataset
+  private gotoPanel = (id: string): void => {
     Taro.navigateTo({
       url: `/pages/panel/index?id=${id.toLowerCase()}`
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { list } = this.state
 
     return (
@@ -110,7 +108,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
               data-id={item.id}
               data-name={item.title}
               data-list={item.subpages}
-              onClick={this.gotoPanel}
+              onTap={this.gotoPanel(item.id)}
             >
               <View className='module-list__icon'>
                 <Image src={item.icon} className='img' mode='widthFix' />

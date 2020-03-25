@@ -1,15 +1,16 @@
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import React from 'react'
 import { AtSlider } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class PageSlider extends Taro.Component {
+export default class PageSlider extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -45,8 +46,16 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__title'>设置最大/最小值</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <View className='example-item__desc'>step=1, min=50, max=200</View>
-                <AtSlider step={1} value={100} min={50} max={200} showValue></AtSlider>
+                <View className='example-item__desc'>
+                  step=1, min=50, max=200
+                </View>
+                <AtSlider
+                  step={1}
+                  value={100}
+                  min={50}
+                  max={200}
+                  showValue
+                ></AtSlider>
               </View>
             </View>
           </View>
@@ -57,7 +66,14 @@ export default class PageSlider extends Taro.Component {
             <View className='panel__content'>
               <View className='example-item'>
                 <View className='example-item__desc'>step=1, blockSize=24</View>
-                <AtSlider step={1} value={50} activeColor='#4285F4' backgroundColor='#BDBDBD' blockColor='#4285F4' blockSize={24}></AtSlider>
+                <AtSlider
+                  step={1}
+                  value={50}
+                  activeColor='#4285F4'
+                  backgroundColor='#BDBDBD'
+                  blockColor='#4285F4'
+                  blockSize={24}
+                ></AtSlider>
               </View>
             </View>
           </View>
@@ -72,7 +88,6 @@ export default class PageSlider extends Taro.Component {
               </View>
             </View>
           </View>
-
         </View>
         {/* E Body */}
       </View>

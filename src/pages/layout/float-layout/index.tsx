@@ -1,23 +1,25 @@
-import { AtButton, AtFloatLayout } from 'taro-ui';
-
-import { View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import React from 'react'
+import { AtButton, AtFloatLayout } from 'taro-ui'
+import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 interface FloatLayoutPageState {
   [key: string]: boolean
 }
 
-export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageState> {
+export default class FloatLayoutPage extends React.Component<
+  {},
+  FloatLayoutPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super(arguments)
     this.state = {
       isOpened1: false,
       isOpened2: false,
@@ -26,15 +28,24 @@ export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageS
   }
 
   private onScroll = (event: CommonEvent): void => {
-    console.log('onScroll', event)
+    Taro.showToast({
+      title: `onScroll: ${event}`,
+      icon: 'none'
+    })
   }
 
-  private onScrollToLower = (event: CommonEvent) => {
-    console.log('onScrollToLower', event)
+  private onScrollToLower = (event: CommonEvent): void => {
+    Taro.showToast({
+      title: `onScrollToLower: ${event}`,
+      icon: 'none'
+    })
   }
 
   private onScrollToUpper = (event: CommonEvent): void => {
-    console.log('onScrollToUpper', event)
+    Taro.showToast({
+      title: `onScrollToUpper: ${event}`,
+      icon: 'none'
+    })
   }
 
   private handleClick = (type: string): void => {
@@ -44,13 +55,16 @@ export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageS
   }
 
   private handleClose = (type: string): void => {
-    console.log('handleClose')
     this.setState({
       [`isOpened${type}`]: false
     })
+    Taro.showToast({
+      title: `handleClose: ${type}`,
+      icon: 'none'
+    })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (
