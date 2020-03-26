@@ -1,4 +1,3 @@
-/* eslint-disable import/no-commonjs */
 module.exports = {
   env: {
     NODE_ENV: '"development"'
@@ -9,7 +8,7 @@ module.exports = {
       url: {
         enable: true,
         config: {
-          limit: 102400000000
+          limit: 2046
         }
       }
     }
