@@ -3,8 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtDividerProps } from 'types/divider'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import { mergeStyle } from '../../common/utils'
+import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtDivider extends React.Component<AtDividerProps> {
   public static defaultProps: AtDividerProps
@@ -22,12 +21,12 @@ export default class AtDivider extends React.Component<AtDividerProps> {
     } = this.props
 
     const rootStyle = {
-      height: height ? `${Taro.pxTransform(Number(height))}` : ''
+      height: height ? `${pxTransform(Number(height))}` : ''
     }
 
     const fontStyle = {
       color: fontColor,
-      'font-size': fontSize ? `${Taro.pxTransform(Number(fontSize))}` : ''
+      'font-size': fontSize ? `${pxTransform(Number(fontSize))}` : ''
     }
 
     const lineStyle: React.CSSProperties = {

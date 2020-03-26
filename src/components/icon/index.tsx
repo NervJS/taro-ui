@@ -3,8 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtIconProps } from 'types/icon'
 import { Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import { mergeStyle } from '../../common/utils'
+import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtIcon extends React.Component<AtIconProps> {
   public static defaultProps: AtIconProps
@@ -25,7 +24,7 @@ export default class AtIcon extends React.Component<AtIconProps> {
     } = this.props
 
     const rootStyle = {
-      fontSize: `${Taro.pxTransform(parseInt(String(size)) * 2)}`,
+      fontSize: `${pxTransform(parseInt(String(size)) * 2)}`,
       color
     }
 

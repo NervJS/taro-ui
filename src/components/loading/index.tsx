@@ -1,7 +1,7 @@
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { pxTransform } from '../../common/utils'
 
 interface AtLoadingProps {
   size?: string | number
@@ -16,8 +16,8 @@ export default class AtLoading extends React.Component<AtLoadingProps> {
     const { color, size } = this.props
     const loadingSize = typeof size === 'string' ? size : String(size)
     const sizeStyle = {
-      width: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : '',
-      height: size ? `${Taro.pxTransform(parseInt(loadingSize))}` : ''
+      width: size ? `${pxTransform(parseInt(loadingSize))}` : '',
+      height: size ? `${pxTransform(parseInt(loadingSize))}` : ''
     }
     const colorStyle = {
       border: color ? `1px solid ${color}` : '',

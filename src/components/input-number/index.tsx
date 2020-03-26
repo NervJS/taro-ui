@@ -5,8 +5,7 @@ import React from 'react'
 import { AtInputNumberProps, InputError } from 'types/input-number'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import { initTestEnv } from '../../common/utils'
+import { pxTransform } from '../../common/utils'
 
 // TODO: Check all types
 
@@ -38,8 +37,6 @@ function parseValue(num: string): string {
   }
   return _toString(num)
 }
-
-initTestEnv()
 
 type ExtendEvent = {
   target: {
@@ -100,7 +97,7 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
 
       this.handleError({
         type: 'OVER',
-        errorValue: resultValue!
+        errorValue: resultValue
       })
     }
 
@@ -143,7 +140,7 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
     } = this.props
 
     const inputStyle = {
-      width: width ? `${Taro.pxTransform(width)}` : ''
+      width: width ? `${pxTransform(width)}` : ''
     }
     const inputValue = Number(this.handleValue(value))
     const rootCls = classNames(

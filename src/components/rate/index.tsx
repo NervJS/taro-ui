@@ -4,7 +4,7 @@ import React from 'react'
 import { AtRateProps } from 'types/rate'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
+import { pxTransform } from '../../common/utils'
 
 export default class AtRate extends React.Component<AtRateProps> {
   public static defaultProps: AtRateProps
@@ -25,7 +25,7 @@ export default class AtRate extends React.Component<AtRateProps> {
     } = this.props
 
     const iconStyle = {
-      marginRight: Taro.pxTransform(margin)
+      marginRight: pxTransform(margin)
     }
     const starIconStyle = {
       fontSize: size ? `${size}px` : ''

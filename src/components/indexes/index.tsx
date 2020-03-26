@@ -6,7 +6,12 @@ import { AtIndexesProps, AtIndexesState, Item } from 'types/indexes'
 import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import { delayQuerySelector, isTest, uuid } from '../../common/utils'
+import {
+  delayQuerySelector,
+  isTest,
+  uuid,
+  pxTransform
+} from '../../common/utils'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 import AtToast from '../toast/index'
@@ -176,7 +181,7 @@ export default class AtIndexes extends React.Component<
       isWEB
     } = this.state
 
-    const toastStyle = { minWidth: Taro.pxTransform(100) }
+    const toastStyle = { minWidth: pxTransform(100) }
     const rootCls = classNames('at-indexes', className)
 
     const menuList = list.map((dataList, i) => {

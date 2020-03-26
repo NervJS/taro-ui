@@ -5,8 +5,7 @@ import React from 'react'
 import { AtNavBarProps } from 'types/nav-bar'
 import { Text, View } from '@tarojs/components'
 import { ITouchEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
-import { mergeStyle } from '../../common/utils'
+import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtNavBar extends React.Component<AtNavBarProps> {
   public static defaultProps: AtNavBarProps
@@ -104,7 +103,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
               style={mergeStyle(
                 {
                   color: leftIconInfo.color,
-                  fontSize: `${Taro.pxTransform(
+                  fontSize: `${pxTransform(
                     parseInt(leftIconInfo.size.toString()) * 2
                   )}`
                 },
@@ -132,7 +131,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
                 style={mergeStyle(
                   {
                     color: rightSecondIconInfo.color,
-                    fontSize: `${Taro.pxTransform(
+                    fontSize: `${pxTransform(
                       parseInt(rightSecondIconInfo.size.toString()) * 2
                     )}`
                   },
@@ -155,7 +154,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
                 style={mergeStyle(
                   {
                     color: rightFirstIconInfo.color,
-                    fontSize: `${Taro.pxTransform(
+                    fontSize: `${pxTransform(
                       parseInt(rightFirstIconInfo.size.toString()) * 2
                     )}`
                   },
