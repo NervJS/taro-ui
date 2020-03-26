@@ -21,9 +21,7 @@ export default class AtLoading extends React.Component<AtLoadingProps> {
     }
     const colorStyle = {
       border: color ? `1px solid ${color}` : '',
-      'border-color': color
-        ? `${color} transparent transparent transparent`
-        : ''
+      borderColor: color ? `${color} transparent transparent transparent` : ''
     }
     const ringStyle = Object.assign({}, colorStyle, sizeStyle)
 

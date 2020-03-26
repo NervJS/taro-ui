@@ -27,7 +27,7 @@ const defaultProps: AtCalendarDefaultProps = {
   monthFormat: 'YYYY年MM月'
 }
 
-export default class AtCalendar extends Taro.Component<
+export default class AtCalendar extends React.Component<
   AtCalendarProps,
   Readonly<AtCalendarState>
 > {

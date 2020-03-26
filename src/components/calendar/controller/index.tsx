@@ -6,9 +6,8 @@ import {
   AtCalendarControllerState
 } from 'types/calendar'
 import { Picker, Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 
-export default class AtCalendarController extends Taro.Component<
+export default class AtCalendarController extends React.Component<
   AtCalendarControllerProps,
   AtCalendarControllerState
 > {

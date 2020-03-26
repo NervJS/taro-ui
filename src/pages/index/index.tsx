@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Text, View } from '@tarojs/components'
+import { CommonEvent, Image, Text, View } from '@tarojs/components'
 import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
 import iconAction from '../../assets/images/icon-list-action.png'
 import iconBasic from '../../assets/images/icon-list-basic.png'
@@ -85,7 +85,7 @@ export default class Index extends React.Component<{}, IndexState> {
     }
   }
 
-  private gotoPanel = (id: string): void => {
+  private gotoPanel = (e: CommonEvent, id: string): void => {
     Taro.navigateTo({
       url: `/pages/panel/index?id=${id.toLowerCase()}`
     })
@@ -108,7 +108,7 @@ export default class Index extends React.Component<{}, IndexState> {
               data-id={item.id}
               data-name={item.title}
               data-list={item.subpages}
-              onTap={this.gotoPanel(item.id)}
+              onTap={(e: CommonEvent): void => this.gotoPanel(e, item.id)}
             >
               <View className='module-list__icon'>
                 <Image src={item.icon} className='img' mode='widthFix' />

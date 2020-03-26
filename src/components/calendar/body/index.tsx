@@ -30,7 +30,7 @@ const defaultProps: Partial<AtCalendarBodyProps> = {
   generateDate: Date.now()
 }
 
-export default class AtCalendarBody extends Taro.Component<
+export default class AtCalendarBody extends React.Component<
   AtCalendarBodyProps,
   Readonly<AtCalendarBodyState>
 > {

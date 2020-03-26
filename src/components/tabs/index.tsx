@@ -49,7 +49,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
         case Taro.ENV_TYPE.SWAN: {
           const index = Math.max(idx - 1, 0)
           this.setState({
-            _scrollIntoView: `tab${index}`
+            _scrollIntoView: `tab${this._tabId}${index}`
           })
           break
         }
@@ -185,7 +185,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
       return (
         <View
           className={itemCls}
-          id={`tab${idx}`}
+          id={`tab${this._tabId}${idx}`}
           key={item.title}
           onClick={this.handleClick.bind(this, idx)}
         >
