@@ -28,8 +28,8 @@ export default class SwiperPage extends React.Component<{}, SwiperPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       current: 1,
       duration: 500,

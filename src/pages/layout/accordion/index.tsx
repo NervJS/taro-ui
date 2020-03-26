@@ -14,8 +14,8 @@ export default class CardPage extends React.Component<{}, CardPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       value1: false,
       value2: true,

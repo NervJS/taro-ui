@@ -31,8 +31,8 @@ interface IndexState {
 }
 
 export default class Index extends React.Component<{}, IndexState> {
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       value1: '',
       value2: '',

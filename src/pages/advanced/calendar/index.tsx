@@ -26,8 +26,8 @@ export default class Index extends React.Component<{}, IndexState> {
     navigationBarTitleText: 'Taro日历组件展示'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       now: Date.now(),
       minDate: '2018/06/11',

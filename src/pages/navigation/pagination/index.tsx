@@ -20,8 +20,8 @@ export default class PaginationPage extends React.Component<
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       list: [],
       current: 1,

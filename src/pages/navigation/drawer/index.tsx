@@ -19,8 +19,8 @@ export default class DrawerPage extends React.Component<{}, DrawerPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       leftDrawerShow: false,
       rightDrawerShow: false,

@@ -20,8 +20,8 @@ export default class Index extends React.Component<{}, IndexState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       checkedList1: ['list1'],
       checkedList2: ['list1'],

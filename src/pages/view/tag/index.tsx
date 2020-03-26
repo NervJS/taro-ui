@@ -23,8 +23,8 @@ export default class TagPage extends React.Component<{}, TagPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       tagList: [
         { name: 'tag-1', active: false },

@@ -11,8 +11,8 @@ interface GridPageState {
 }
 
 export default class GridPage extends React.Component<{}, GridPageState> {
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       data: [
         {

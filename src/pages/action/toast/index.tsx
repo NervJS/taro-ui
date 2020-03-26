@@ -29,8 +29,8 @@ export default class ToastPage extends React.Component<{}, ToastPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = INIT_STATE
   }
 

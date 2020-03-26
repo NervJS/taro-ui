@@ -22,8 +22,8 @@ export default class ModalPage extends React.Component<{}, ModalPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       isOpened1: false,
       isOpened2: false,

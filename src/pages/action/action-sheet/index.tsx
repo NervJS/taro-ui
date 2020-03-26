@@ -20,8 +20,8 @@ export default class ActionSheetPage extends React.Component<
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       isOpened1: false,
       isOpened2: false,

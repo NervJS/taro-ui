@@ -30,8 +30,8 @@ export default class Index extends React.Component<{}, IndexState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       files1: Array.from(dogaImages),
       files2: Array.from(dogaImages),

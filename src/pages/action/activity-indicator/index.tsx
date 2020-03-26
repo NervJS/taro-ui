@@ -17,8 +17,8 @@ export default class ActivityIndicatorPage extends React.Component<
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       isOpened: true
     }

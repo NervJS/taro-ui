@@ -41,8 +41,8 @@ export default class SwipeActionPage extends React.Component<
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       isOpened2: false,
       list: [

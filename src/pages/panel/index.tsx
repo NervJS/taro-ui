@@ -32,8 +32,8 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
 
     this.state = {
       panelNames: {

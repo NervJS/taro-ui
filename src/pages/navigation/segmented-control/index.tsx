@@ -14,8 +14,8 @@ export default class Index extends React.Component<{}, IndexPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       current1: 0,
       current2: 0

@@ -19,8 +19,8 @@ export default class ProgressPage extends React.Component<
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       percent: 0
     }

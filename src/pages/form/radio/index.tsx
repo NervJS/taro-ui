@@ -20,8 +20,8 @@ export default class Index extends React.Component<{}, IndexState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       radioValue1: 'option1',
       radioValue2: 'option1',

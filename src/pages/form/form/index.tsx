@@ -20,8 +20,8 @@ export default class PageForm extends React.Component<{}, PageFormState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     this.state = {
       value1: '',
       value2: '',

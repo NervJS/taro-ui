@@ -22,8 +22,8 @@ export default class Index extends React.Component<{}, IndexState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor() {
-    super(arguments)
+  public constructor(props: any) {
+    super(props)
     const date = new Date()
     const years: number[] = []
     const months: number[] = []
