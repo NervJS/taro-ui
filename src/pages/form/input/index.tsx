@@ -2,6 +2,8 @@ import React from 'react'
 import { AtForm, AtInput } from 'taro-ui'
 import { Image, View } from '@tarojs/components'
 import { BaseEventOrig } from '@tarojs/components/types/common'
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import { InputProps } from '@tarojs/components/types/Input'
 import Taro from '@tarojs/taro'
 import verificationCode from '../../../assets/images/verification_code.png'
@@ -107,6 +109,8 @@ export default class Index extends React.Component<{}, IndexState> {
   }
 
   private handleKeyboardHeightChange(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     event: BaseEventOrig<InputProps.onKeyboardHeightChangeEventDetail>
   ): void {
     Taro.showToast({
@@ -279,6 +283,8 @@ export default class Index extends React.Component<{}, IndexState> {
                     placeholder='监听键盘高度事件'
                     value={this.state.value17}
                     onChange={this.handleInput.bind(this, 'value17')}
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore
                     onKeyboardHeightChange={this.handleKeyboardHeightChange.bind(
                       this
                     )}

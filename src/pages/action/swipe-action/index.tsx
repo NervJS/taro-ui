@@ -85,7 +85,7 @@ export default class SwipeActionPage extends React.Component<
   }
 
   private handleClicked = (index: number): void => {
-    const list = this.state.list.filter((item, key) => key !== index)
+    const list = this.state.list.filter((_item, key) => key !== index)
     // console.log(list)
     this.setState({
       list

@@ -59,7 +59,6 @@ export default class AtSwipeAction extends React.Component<
   private getDomInfo(): Promise<void> {
     return Promise.all([
       delayGetClientRect({
-        self: this,
         delayTime: 0,
         selectorStr: `#swipeAction-${this.state.componentId}`
       }),

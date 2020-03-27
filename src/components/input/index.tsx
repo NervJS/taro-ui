@@ -104,6 +104,8 @@ export default class AtInput extends React.Component<AtInputProps> {
       focus,
       value,
       required,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       onKeyboardHeightChange
     } = this.props
     const { type, maxLength, disabled, password } = getInputProps(this.props)
@@ -162,6 +164,8 @@ export default class AtInput extends React.Component<AtInputProps> {
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onConfirm={this.onConfirm}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             onKeyboardHeightChange={onKeyboardHeightChange}
           />
           {clear && value && (

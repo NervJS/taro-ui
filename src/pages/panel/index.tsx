@@ -290,6 +290,8 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
   }
 
   public componentDidMount(): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     const { id } = Taro.Current.router.params
     this.setState({
       currentId: id.toLowerCase() || ''

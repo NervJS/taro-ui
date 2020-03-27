@@ -104,7 +104,7 @@ export default class AtRange extends React.Component<
   }
 
   private updatePos(): void {
-    delayQuerySelector(this, '.at-range__container', 0).then(rect => {
+    delayQuerySelector('.at-range__container', 0).then(rect => {
       this.width = Math.round(rect[0].width)
       this.left = Math.round(rect[0].left)
     })

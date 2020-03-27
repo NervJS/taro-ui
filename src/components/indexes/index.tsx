@@ -82,7 +82,7 @@ export default class AtIndexes extends React.Component<
     const _tipText = idx === 0 ? topKey : list[idx - 1].key
 
     if (ENV === Taro.ENV_TYPE.WEB) {
-      delayQuerySelector(this, '.at-indexes', 0).then(rect => {
+      delayQuerySelector('.at-indexes', 0).then(rect => {
         const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
         const _scrollTop = targetOffsetTop - rect[0].top
         this.updateState({
@@ -137,7 +137,7 @@ export default class AtIndexes extends React.Component<
   }
 
   private initData(): void {
-    delayQuerySelector(this, '.at-indexes__menu').then(rect => {
+    delayQuerySelector('.at-indexes__menu').then(rect => {
       const len = this.props.list.length
       this.menuHeight = rect[0].height
       this.startTop = rect[0].top

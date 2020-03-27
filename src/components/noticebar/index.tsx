@@ -171,6 +171,8 @@ export default class AtNoticebar extends React.Component<
               <View
                 id={this.state.animElemId}
                 animation={{
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                  // @ts-ignore
                   actions: this.state.animationData
                 }}
                 className={classNames(innerClassName)}

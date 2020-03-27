@@ -67,7 +67,7 @@ export default class AtCalendarBody extends React.Component<
   }
 
   public componentDidMount(): void {
-    delayQuerySelector(this, '.at-calendar-slider__main').then(res => {
+    delayQuerySelector('.at-calendar-slider__main').then(res => {
       this.maxWidth = res[0].width
     })
   }

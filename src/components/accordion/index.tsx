@@ -37,7 +37,7 @@ export default class AtAccordion extends React.Component<
     if (!this.isCompleted || !isAnimation) return
 
     this.isCompleted = false
-    delayQuerySelector(this, '.at-accordion__body', 0).then(rect => {
+    delayQuerySelector('.at-accordion__body', 0).then(rect => {
       const height = parseInt(rect[0].height.toString())
       const startHeight = open ? height : 0
       const endHeight = open ? 0 : height

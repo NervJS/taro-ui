@@ -4,7 +4,7 @@ import _isFunction from 'lodash/isFunction'
 import _isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtGridProps, Item } from 'types/grid'
+import { AtGridProps, AtGridItem } from 'types/grid'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { mergeStyle } from '../../common/utils'
@@ -14,7 +14,7 @@ export default class AtGrid extends React.Component<AtGridProps> {
   public static propTypes: InferProps<AtGridProps>
 
   private handleClick = (
-    item: Item,
+    item: AtGridItem,
     index: number,
     row: number,
     event: CommonEvent

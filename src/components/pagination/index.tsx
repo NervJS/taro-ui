@@ -12,7 +12,7 @@ const getMaxPage = (maxPage = 0): number => {
 }
 
 const createPickerRange = (max: number): number[] => {
-  const range = new Array(max).fill(0).map((val, index) => index + 1)
+  const range = new Array(max).fill(0).map((_val, index) => index + 1)
   return range
 }
 

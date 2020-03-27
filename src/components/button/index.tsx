@@ -63,6 +63,8 @@ export default class AtButton extends React.Component<
   private onSumit(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       // TODO: 3.0 this.$scope
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       this.$scope.triggerEvent('submit', event.detail, {
         bubbles: true,
         composed: true
@@ -73,6 +75,8 @@ export default class AtButton extends React.Component<
   private onReset(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       // TODO: 3.0 this.$scope
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       this.$scope.triggerEvent('reset', event.detail, {
         bubbles: true,
         composed: true
