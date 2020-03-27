@@ -148,8 +148,11 @@ export default class BasicColor extends React.Component<{}, BasicColorState> {
               <View className='panel__title'>{item.type}</View>
               <View className='panel__content'>
                 <View className='color-list'>
-                  {item.data.map(color => (
-                    <View className='color-item' key={color.hex}>
+                  {item.data.map((color: Color, index: number) => (
+                    <View
+                      className='color-item'
+                      key={`color-${color.hex}-${index}`}
+                    >
                       <View
                         className='color-item__circle'
                         style={`background: ${color.hex}`}

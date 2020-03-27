@@ -1,6 +1,5 @@
 import React from 'react'
 import { Image, Text, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import iconAction from '../../assets/images/icon-list-action.png'
 import iconBasic from '../../assets/images/icon-list-basic.png'
@@ -297,8 +296,7 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
     })
   }
 
-  private gotoComponent = (e: CommonEvent): void => {
-    const { id, parent } = e.currentTarget.dataset
+  private gotoComponent(id: string, parent: string): void {
     Taro.navigateTo({
       url: `/pages/${parent.toLowerCase()}/${id.toLowerCase()}/index`
     })
@@ -332,9 +330,7 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
               <View
                 className='component-list__item'
                 key={item.id}
-                data-id={item.id}
-                data-parent={currentId}
-                onClick={this.gotoComponent}
+                onClick={this.gotoComponent.bind(this, item.id, currentId)}
               >
                 <Text className='name'>{`${item.id} ${item.name}`}</Text>
                 <Text className='at-icon at-icon-chevron-right' />
