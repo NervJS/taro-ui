@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import isNaN from 'lodash/isNaN'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtBadgeProps } from 'types/badge'
 import { View } from '@tarojs/components'
@@ -21,7 +20,7 @@ export default class AtBadge extends AtComponent<AtBadgeProps> {
   ): string | number {
     if (value === '' || value === null || value === undefined) return ''
     const numValue = +value
-    if (isNaN(numValue)) {
+    if (Number.isNaN(numValue)) {
       return value
     }
     return numValue > maxValue ? `${maxValue}+` : numValue

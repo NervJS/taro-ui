@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _findIndex from 'lodash/findIndex'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtIndexesProps, AtIndexesState, Item } from 'types/indexes'
 import { ScrollView, View } from '@tarojs/components'
@@ -104,7 +103,8 @@ export default class AtIndexes extends AtComponent<
 
   private __jumpTarget(key: string): void {
     const { list } = this.props
-    const index = _findIndex(list, ['key', key])
+    // const index = _findIndex(list, ['key', key])
+    const index = list.findIndex(item => item.key === key)
     const targetView = `at-indexes__list-${key}`
     this.jumpTarget(targetView, index + 1)
   }

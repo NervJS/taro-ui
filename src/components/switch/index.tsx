@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isUndefined from 'lodash/isUndefined'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtSwitchProps } from 'types/switch'
 import { Switch, View } from '@tarojs/components'

@@ -1,9 +1,7 @@
 import classNames from 'classnames'
 import _chunk from 'lodash/chunk'
-import _isFunction from 'lodash/isFunction'
-import _isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
-import { AtGridProps, Item } from 'types/grid'
+import { AtGridItem, AtGridProps } from 'types/grid'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
@@ -14,13 +12,13 @@ export default class AtGrid extends AtComponent<AtGridProps> {
   public static propTypes: InferProps<AtGridProps>
 
   private handleClick = (
-    item: Item,
+    item: AtGridItem,
     index: number,
     row: number,
     event: CommonEvent
   ): void => {
     const { onClick, columnNum } = this.props
-    if (_isFunction(onClick)) {
+    if (typeof onClick === 'function') {
       /* prettier-ignore */
       const clickIndex = (row * columnNum!) + index
       onClick(item, clickIndex, event)
@@ -68,7 +66,7 @@ export default class AtGrid extends AtComponent<AtGridProps> {
                           mode='scaleToFill'
                         />
                       )}
-                      {_isObject(childItem.iconInfo) && !childItem.image && (
+                      {childItem.iconInfo && !childItem.image && (
                         <Text
                           className={classNames(
                             childItem.iconInfo.prefixClass || 'at-icon',

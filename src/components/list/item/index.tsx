@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtListItemProps } from 'types/list'
 import { Image, Switch, Text, View } from '@tarojs/components'
@@ -13,7 +12,7 @@ export default class AtListItem extends AtComponent<AtListItemProps> {
   public static propTypes: InferProps<AtListItemProps>
 
   private handleClick = (event: ITouchEvent): void => {
-    if (_isFunction(this.props.onClick) && !this.props.disabled) {
+    if (typeof this.props.onClick === 'function' && !this.props.disabled) {
       this.props.onClick(event)
     }
   }
@@ -23,7 +22,10 @@ export default class AtListItem extends AtComponent<AtListItemProps> {
   }
 
   private handleSwitchChange = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onSwitchChange) && !this.props.disabled) {
+    if (
+      typeof this.props.onSwitchChange === 'function' &&
+      !this.props.disabled
+    ) {
       this.props.onSwitchChange(event)
     }
   }

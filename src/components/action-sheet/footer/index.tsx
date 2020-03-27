@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtActionSheetFooterProps } from 'types/action-sheet'
 import { View } from '@tarojs/components'
@@ -13,7 +12,7 @@ export default class AtActionSheetFooter extends AtComponent<
   public static propTypes: InferProps<AtActionSheetFooterProps>
 
   private handleClick = (...args: any[]): void => {
-    if (_isFunction(this.props.onClick)) {
+    if (typeof this.props.onClick === 'function') {
       this.props.onClick(...args)
     }
   }

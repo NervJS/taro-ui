@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
 import { ScrollView, Text, View } from '@tarojs/components'
@@ -39,7 +38,7 @@ export default class AtFloatLayout extends AtComponent<
   }
 
   private handleClose = () => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       // @ts-ignore // TODO: Fix typings
       this.props.onClose()
     }

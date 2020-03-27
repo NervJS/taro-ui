@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
 import { View } from '@tarojs/components'
@@ -38,13 +37,13 @@ export default class AtActionSheet extends AtComponent<
   }
 
   private handleClose = (): void => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       this.props.onClose()
     }
   }
 
   private handleCancel = (): void => {
-    if (_isFunction(this.props.onCancel)) {
+    if (typeof this.props.onCancel === 'function') {
       return this.props.onCancel()
     }
     this.close()

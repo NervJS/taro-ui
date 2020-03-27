@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtModalProps, AtModalState } from 'types/modal'
 import { Button, Text, View } from '@tarojs/components'
@@ -50,19 +49,19 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
   }
 
   private handleClose = (event?: CommonEvent): void => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       this.props.onClose(event!)
     }
   }
 
   private handleCancel = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onCancel)) {
+    if (typeof this.props.onCancel === 'function') {
       this.props.onCancel(event)
     }
   }
 
   private handleConfirm = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onConfirm)) {
+    if (typeof this.props.onConfirm === 'function') {
       this.props.onConfirm(event)
     }
   }
@@ -101,6 +100,7 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
                 <View className='content-simple'>
                   {isWEB ? (
                     <Text
+                      // @ts-ignore
                       dangerouslySetInnerHTML={{
                         __html: content.replace(/\n/g, '<br/>')
                       }}

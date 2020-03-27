@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtToastProps, AtToastState } from 'types/toast'
 import { Image, Text, View } from '@tarojs/components'
@@ -57,7 +56,7 @@ export default class AtToast extends AtComponent<AtToastProps, AtToastState> {
 
   private handleClose(event?: CommonEvent): void {
     // TODO: Fix dirty hack
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       this.props.onClose(event!)
     }
   }

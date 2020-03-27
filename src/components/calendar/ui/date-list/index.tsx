@@ -1,6 +1,5 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import { Calendar } from 'types/calendar'
 import { Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -25,14 +24,14 @@ export default class AtCalendarList extends Taro.Component<Props> {
 
   @bind
   handleClick(item) {
-    if (_isFunction(this.props.onClick)) {
+    if (typeof this.props.onClick === 'function') {
       this.props.onClick(item)
     }
   }
 
   @bind
   handleLongClick(item) {
-    if (_isFunction(this.props.onLongClick)) {
+    if (typeof this.props.onLongClick === 'function') {
       this.props.onLongClick(item)
     }
   }

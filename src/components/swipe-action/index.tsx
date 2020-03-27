@@ -1,8 +1,6 @@
 import classNames from 'classnames'
 import _inRange from 'lodash/inRange'
 import _isEmpty from 'lodash/isEmpty'
-import _isFunction from 'lodash/isFunction'
-import _isNil from 'lodash/isNil'
 import PropTypes, { InferProps } from 'prop-types'
 import {
   AtSwipeActionProps,
@@ -202,7 +200,7 @@ export default class AtSwipeAction extends AtComponent<
   ): void => {
     const { onClick, autoClose } = this.props
 
-    if (_isFunction(onClick)) {
+    if (typeof onClick === 'function') {
       onClick(item, index, event)
     }
     if (autoClose) {

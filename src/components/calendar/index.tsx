@@ -1,9 +1,6 @@
 import bind from 'bind-decorator'
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
-import _isFunction from 'lodash/isFunction'
-import _isObject from 'lodash/isObject'
-import _pick from 'lodash/pick'
 import {
   AtCalendarDefaultProps,
   AtCalendarProps,
@@ -12,7 +9,7 @@ import {
   Calendar
 } from 'types/calendar'
 import { View } from '@tarojs/components'
-import { BaseEvent } from '@tarojs/components/types/common'
+import { BaseEventOrig } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import AtCalendarBody from './body/index'
 import AtCalendarController from './controller/index'
@@ -174,7 +171,7 @@ export default class AtCalendar extends Taro.Component<
   private triggerChangeDate(value: Dayjs) {
     const { format } = this.props
 
-    if (!_isFunction(this.props.onMonthChange)) return
+    if (typeof this.props.onMonthChange !== 'function') return
 
     this.props.onMonthChange(value.format(format))
   }
@@ -189,7 +186,7 @@ export default class AtCalendar extends Taro.Component<
       generateDate: _generateDate.valueOf()
     })
 
-    if (vectorCount && _isFunction(this.props.onMonthChange)) {
+    if (vectorCount && typeof this.props.onMonthChange === 'function') {
       this.props.onMonthChange(_generateDate.format(format))
     }
   }
@@ -202,7 +199,7 @@ export default class AtCalendar extends Taro.Component<
 
     this.setMonth(-1)
 
-    if (_isFunction(this.props.onClickPreMonth)) {
+    if (typeof this.props.onClickPreMonth === 'function') {
       this.props.onClickPreMonth()
     }
   }
@@ -215,14 +212,14 @@ export default class AtCalendar extends Taro.Component<
 
     this.setMonth(1)
 
-    if (_isFunction(this.props.onClickNextMonth)) {
+    if (typeof this.props.onClickNextMonth === 'function') {
       this.props.onClickNextMonth()
     }
   }
 
   // picker 选择时间改变时触发
   @bind
-  handleSelectDate(e: BaseEvent & { detail: { value: string } }) {
+  handleSelectDate(e: BaseEventOrig<{ value: string }>) {
     const { value } = e.detail
 
     const _generateDate: Dayjs = dayjs(value)
@@ -257,14 +254,14 @@ export default class AtCalendar extends Taro.Component<
       this.handleSelectedDate()
     })
 
-    if (_isFunction(this.props.onDayClick)) {
+    if (typeof this.props.onDayClick === 'function') {
       this.props.onDayClick({ value: item.value })
     }
   }
 
   handleSelectedDate() {
     const selectDate = this.state.selectedDate
-    if (_isFunction(this.props.onSelectDate)) {
+    if (typeof this.props.onSelectDate === 'function') {
       const info: Calendar.SelectedDate = {
         start: dayjs(selectDate.start).format(this.props.format)
       }
@@ -281,7 +278,7 @@ export default class AtCalendar extends Taro.Component<
 
   @bind
   handleDayLongClick(item: Calendar.Item) {
-    if (_isFunction(this.props.onDayLongClick)) {
+    if (typeof this.props.onDayLongClick === 'function') {
       this.props.onDayLongClick({ value: item.value })
     }
   }

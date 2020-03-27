@@ -10,7 +10,11 @@ import {
   Calendar
 } from 'types/calendar'
 import { Swiper, SwiperItem, View } from '@tarojs/components'
-import { BaseEvent, ITouch, ITouchEvent } from '@tarojs/components/types/common'
+import {
+  BaseEventOrig,
+  ITouch,
+  ITouchEvent
+} from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { delayQuerySelector } from '../../../common/utils'
 import generateCalendarGroup from '../common/helper'
@@ -220,7 +224,12 @@ export default class AtCalendarBody extends Taro.Component<
   }
 
   @bind
-  private handleChange(e: BaseEvent) {
+  private handleChange(
+    e: BaseEventOrig<{
+      current: number
+      source: string
+    }>
+  ) {
     const { current, source } = e.detail
 
     if (source === 'touch') {
