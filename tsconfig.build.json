@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es2017",
+    "module": "es6",
+    "baseUrl": ".",
+    "outDir": "./dist/es"
+  },
+  "include": [
+    "src/common/*",
+    "src/components/*",
+    "src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
