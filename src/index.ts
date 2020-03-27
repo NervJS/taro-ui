@@ -1,7 +1,3 @@
-import './style/index.scss'
-import './style/themes/red.scss'
-import './style/themes/purple.scss'
-
 export { default as AtActionSheet } from './components/action-sheet'
 export { default as AtActionSheetItem } from './components/action-sheet/body/item'
 export { default as AtActivityIndicator } from './components/activity-indicator'
