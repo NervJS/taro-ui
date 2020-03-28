@@ -1,3 +1,26 @@
+# [3.0.0-alpha.0](https://github.com/nervjs/taro-ui/compare/v2.3.1...v3.0.0-alpha.0) (2020-03-28)
+
+
+### Bug Fixes
+
+* fix or ignore typescript error ([a34e6eb](https://github.com/nervjs/taro-ui/commit/a34e6eba767d4a06111992d444a0273154ecbb08))
+* fix tsc error ([70f23a5](https://github.com/nervjs/taro-ui/commit/70f23a521b0bab6d13386787b30a6565c6de2288))
+* 使 AtGridItem 支持自定义字段 close [#983](https://github.com/nervjs/taro-ui/issues/983) ([8b25687](https://github.com/nervjs/taro-ui/commit/8b2568762a030d464facc8fe9dd6e447d5fd57ab))
+* 修复 pxTransform 问题 ([ffd80b1](https://github.com/nervjs/taro-ui/commit/ffd80b1358d67ea8551d6ca9115612c4eb9ded6d))
+* 修复 React 警告 ([22ca02c](https://github.com/nervjs/taro-ui/commit/22ca02c0d6547745098adf5d4eab7167a29f80ab))
+* 修复组件和页面的错误 ([a455447](https://github.com/nervjs/taro-ui/commit/a4554470a0f4c21486011eb1d1fd7ead488c1dcb))
+* 修复页面跳转和循环key重复问题 ([dc1a9fc](https://github.com/nervjs/taro-ui/commit/dc1a9fc44beff9e1a25ca93b7ac6ac4fc02cb90b))
+* 更新 AtTextarea 的文档 ([19e3460](https://github.com/nervjs/taro-ui/commit/19e346023547e0040ec15447d950c5e38bd57976))
+* **input-number:** 在微信小程序中可以输入非数字或者不合法数字 [#985](https://github.com/nervjs/taro-ui/issues/985) ([#986](https://github.com/nervjs/taro-ui/issues/986)) ([5606017](https://github.com/nervjs/taro-ui/commit/56060177619497fd9e8a5685914cd7a9d45b78ef))
+
+
+### Features
+
+* taro ui next build config ([5da4427](https://github.com/nervjs/taro-ui/commit/5da44271a3e1ce28107b18c3f1d5d56c48f31a2b))
+* 增加 onKeyboardHeightChange 事件支持 close [#974](https://github.com/nervjs/taro-ui/issues/974) ([7c47959](https://github.com/nervjs/taro-ui/commit/7c47959c98450c8b7b2fd535da071b8ac8ebe29f))
+
+
+
 ## [2.3.1](https://github.com/nervjs/taro-ui/compare/v2.3.0...v2.3.1) (2020-03-14)
 
 
