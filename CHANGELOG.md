@@ -1,3 +1,19 @@
+## [2.3.2](https://github.com/nervjs/taro-ui/compare/v2.3.1...v2.3.2) (2020-03-28)
+
+
+### Bug Fixes
+
+* 更新 AtTextarea 的文档 ([19e3460](https://github.com/nervjs/taro-ui/commit/19e346023547e0040ec15447d950c5e38bd57976))
+* **input-number:** 在微信小程序中可以输入非数字或者不合法数字 [#985](https://github.com/nervjs/taro-ui/issues/985) ([#986](https://github.com/nervjs/taro-ui/issues/986)) ([5606017](https://github.com/nervjs/taro-ui/commit/56060177619497fd9e8a5685914cd7a9d45b78ef))
+* 使 AtGridItem 支持自定义字段 close [#983](https://github.com/nervjs/taro-ui/issues/983) ([8b25687](https://github.com/nervjs/taro-ui/commit/8b2568762a030d464facc8fe9dd6e447d5fd57ab))
+
+
+### Features
+
+* 增加 onKeyboardHeightChange 事件支持 close [#974](https://github.com/nervjs/taro-ui/issues/974) ([7c47959](https://github.com/nervjs/taro-ui/commit/7c47959c98450c8b7b2fd535da071b8ac8ebe29f))
+
+
+
 ## [2.3.1](https://github.com/nervjs/taro-ui/compare/v2.3.0...v2.3.1) (2020-03-14)
 
 
