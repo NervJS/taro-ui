@@ -1,6 +1,5 @@
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
-import _isFunction from 'lodash/isFunction'
 import React from 'react'
 import {
   AtCalendarDefaultProps,
@@ -169,7 +168,7 @@ export default class AtCalendar extends React.Component<
   private triggerChangeDate = (value: Dayjs): void => {
     const { format } = this.props
 
-    if (!_isFunction(this.props.onMonthChange)) return
+    if (typeof this.props.onMonthChange !== 'function') return
 
     this.props.onMonthChange(value.format(format))
   }
@@ -183,7 +182,7 @@ export default class AtCalendar extends React.Component<
       generateDate: _generateDate.valueOf()
     })
 
-    if (vectorCount && _isFunction(this.props.onMonthChange)) {
+    if (vectorCount && typeof this.props.onMonthChange === 'function') {
       this.props.onMonthChange(_generateDate.format(format))
     }
   }
@@ -195,7 +194,7 @@ export default class AtCalendar extends React.Component<
 
     this.setMonth(-1)
 
-    if (_isFunction(this.props.onClickPreMonth)) {
+    if (typeof this.props.onClickPreMonth === 'function') {
       this.props.onClickPreMonth()
     }
   }
@@ -207,7 +206,7 @@ export default class AtCalendar extends React.Component<
 
     this.setMonth(1)
 
-    if (_isFunction(this.props.onClickNextMonth)) {
+    if (typeof this.props.onClickNextMonth === 'function') {
       this.props.onClickNextMonth()
     }
   }
@@ -247,14 +246,14 @@ export default class AtCalendar extends React.Component<
       this.handleSelectedDate()
     })
 
-    if (_isFunction(this.props.onDayClick)) {
+    if (typeof this.props.onDayClick === 'function') {
       this.props.onDayClick({ value: item.value })
     }
   }
 
   private handleSelectedDate = (): void => {
     const selectDate = this.state.selectedDate
-    if (_isFunction(this.props.onSelectDate)) {
+    if (typeof this.props.onSelectDate === 'function') {
       const info: Calendar.SelectedDate = {
         start: dayjs(selectDate.start).format(this.props.format)
       }
@@ -270,7 +269,7 @@ export default class AtCalendar extends React.Component<
   }
 
   private handleDayLongClick = (item: Calendar.Item): void => {
-    if (_isFunction(this.props.onDayLongClick)) {
+    if (typeof this.props.onDayLongClick === 'function') {
       this.props.onDayLongClick({ value: item.value })
     }
   }

@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
@@ -37,13 +36,13 @@ export default class AtActionSheet extends React.Component<
   }
 
   private handleClose = (): void => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       this.props.onClose()
     }
   }
 
   private handleCancel = (): void => {
-    if (_isFunction(this.props.onCancel)) {
+    if (typeof this.props.onCancel === 'function') {
       return this.props.onCancel()
     }
     this.close()

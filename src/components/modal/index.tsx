@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtModalProps, AtModalState } from 'types/modal'
@@ -53,20 +52,20 @@ export default class AtModal extends React.Component<
   }
 
   private handleClose = (event?: CommonEvent): void => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.props.onClose(event!)
     }
   }
 
   private handleCancel = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onCancel)) {
+    if (typeof this.props.onCancel === 'function') {
       this.props.onCancel(event)
     }
   }
 
   private handleConfirm = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onConfirm)) {
+    if (typeof this.props.onConfirm === 'function') {
       this.props.onConfirm(event)
     }
   }

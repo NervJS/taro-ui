@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import isNaN from 'lodash/isNaN'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtBadgeProps } from 'types/badge'
@@ -21,7 +20,7 @@ export default class AtBadge extends React.Component<AtBadgeProps> {
     if (value === '' || value === null || typeof value === 'undefined')
       return ''
     const numValue = +value
-    if (isNaN(numValue)) {
+    if (Number.isNaN(numValue)) {
       return value
     }
     return numValue > maxValue ? `${maxValue}+` : numValue

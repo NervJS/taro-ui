@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtCardProps } from 'types/card'
@@ -10,7 +9,7 @@ export default class AtCard extends React.Component<AtCardProps> {
   public static propTypes: InferProps<AtCardProps>
 
   private handleClick = (args: any): void => {
-    if (_isFunction(this.props.onClick)) {
+    if (typeof this.props.onClick === 'function') {
       this.props.onClick(args)
     }
   }

@@ -3,17 +3,20 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtFabProps } from 'types/fab'
 import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 export default class AtFab extends React.Component<AtFabProps> {
   public static defaultProps: AtFabProps
   public static propTypes: InferProps<AtFabProps>
 
-  private onClick(): void {
-    this.props.onClick && this.props.onClick(arguments as any)
+  private onClick(e: CommonEvent): void {
+    if (typeof this.props.onClick === 'function') {
+      this.props.onClick(e)
+    }
   }
 
   public render(): JSX.Element {
-    const { size, className } = this.props
+    const { size, className, children } = this.props
 
     const rootClass = classNames('at-fab', className, {
       [`at-fab--${size}`]: size
@@ -21,7 +24,7 @@ export default class AtFab extends React.Component<AtFabProps> {
 
     return (
       <View className={rootClass} onClick={this.onClick.bind(this)}>
-        {this.props.children}
+        {children}
       </View>
     )
   }

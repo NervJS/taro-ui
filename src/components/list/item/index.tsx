@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtListItemProps } from 'types/list'
@@ -12,7 +11,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
   public static propTypes: InferProps<AtListItemProps>
 
   private handleClick = (event: ITouchEvent): void => {
-    if (_isFunction(this.props.onClick) && !this.props.disabled) {
+    if (typeof this.props.onClick === 'function' && !this.props.disabled) {
       this.props.onClick(event)
     }
   }
@@ -22,7 +21,10 @@ export default class AtListItem extends React.Component<AtListItemProps> {
   }
 
   private handleSwitchChange = (event: CommonEvent): void => {
-    if (_isFunction(this.props.onSwitchChange) && !this.props.disabled) {
+    if (
+      typeof this.props.onSwitchChange === 'function' &&
+      !this.props.disabled
+    ) {
       this.props.onSwitchChange(event)
     }
   }

@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtToastProps, AtToastState } from 'types/toast'
@@ -59,7 +58,7 @@ export default class AtToast extends React.Component<
 
   private handleClose(event?: CommonEvent): void {
     // TODO: Fix dirty hack
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.props.onClose(event!)
     }

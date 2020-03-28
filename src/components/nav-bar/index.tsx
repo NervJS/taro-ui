@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtNavBarProps } from 'types/nav-bar'
@@ -47,9 +46,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       size: 24
     }
 
-    const leftIconInfo = isObject(leftIconType)
-      ? { ...defaultIconInfo, ...leftIconType }
-      : { ...defaultIconInfo, value: leftIconType }
+    const leftIconInfo =
+      leftIconType instanceof Object
+        ? { ...defaultIconInfo, ...leftIconType }
+        : { ...defaultIconInfo, value: leftIconType }
     const leftIconClass = classNames(
       leftIconInfo.prefixClass,
       {
@@ -58,9 +58,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       leftIconInfo.className
     )
 
-    const rightFirstIconInfo = isObject(rightFirstIconType)
-      ? { ...defaultIconInfo, ...rightFirstIconType }
-      : { ...defaultIconInfo, value: rightFirstIconType }
+    const rightFirstIconInfo =
+      rightFirstIconType instanceof Object
+        ? { ...defaultIconInfo, ...rightFirstIconType }
+        : { ...defaultIconInfo, value: rightFirstIconType }
     const rightFirstIconClass = classNames(
       rightFirstIconInfo.prefixClass,
       {
@@ -69,9 +70,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       rightFirstIconInfo.className
     )
 
-    const rightSecondIconInfo = isObject(rightSecondIconType)
-      ? { ...defaultIconInfo, ...rightSecondIconType }
-      : { ...defaultIconInfo, value: rightSecondIconType }
+    const rightSecondIconInfo =
+      rightSecondIconType instanceof Object
+        ? { ...defaultIconInfo, ...rightSecondIconType }
+        : { ...defaultIconInfo, value: rightSecondIconType }
     const rightSecondIconClass = classNames(
       rightSecondIconInfo.prefixClass,
       {

@@ -217,7 +217,12 @@ export default class AtCalendarBody extends React.Component<
     this.animateMoveSlide(0)
   }
 
-  private handleChange = (e: BaseEventOrig<any>): void => {
+  private handleChange = (
+    e: BaseEventOrig<{
+      current: number
+      source: string
+    }>
+  ): void => {
     const { current, source } = e.detail
 
     if (source === 'touch') {

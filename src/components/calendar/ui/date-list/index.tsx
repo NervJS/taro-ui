@@ -1,5 +1,4 @@
 import classnames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import React from 'react'
 import { Calendar } from 'types/calendar'
 import { Text, View } from '@tarojs/components'
@@ -21,13 +20,13 @@ export interface Props {
 
 export default class AtCalendarList extends React.Component<Props> {
   private handleClick = (item: Calendar.Item): void => {
-    if (_isFunction(this.props.onClick)) {
+    if (typeof this.props.onClick === 'function') {
       this.props.onClick(item)
     }
   }
 
   private handleLongClick = (item: Calendar.Item): void => {
-    if (_isFunction(this.props.onLongClick)) {
+    if (typeof this.props.onLongClick === 'function') {
       this.props.onLongClick(item)
     }
   }

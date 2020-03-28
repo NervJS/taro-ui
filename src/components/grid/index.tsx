@@ -1,10 +1,8 @@
 import classNames from 'classnames'
 import _chunk from 'lodash/chunk'
-import _isFunction from 'lodash/isFunction'
-import _isObject from 'lodash/isObject'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtGridProps, AtGridItem } from 'types/grid'
+import { AtGridItem, AtGridProps } from 'types/grid'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { mergeStyle } from '../../common/utils'
@@ -20,7 +18,7 @@ export default class AtGrid extends React.Component<AtGridProps> {
     event: CommonEvent
   ): void => {
     const { onClick, columnNum = 3 } = this.props
-    if (_isFunction(onClick)) {
+    if (typeof onClick === 'function') {
       const clickIndex = row * columnNum + index
       onClick(item, clickIndex, event)
     }
@@ -67,7 +65,7 @@ export default class AtGrid extends React.Component<AtGridProps> {
                           mode='scaleToFill'
                         />
                       )}
-                      {_isObject(childItem.iconInfo) && !childItem.image && (
+                      {childItem.iconInfo && !childItem.image && (
                         <Text
                           className={classNames(
                             childItem.iconInfo.prefixClass || 'at-icon',

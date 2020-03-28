@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import _isFunction from 'lodash/isFunction'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
@@ -38,7 +37,7 @@ export default class AtFloatLayout extends React.Component<
   }
 
   private handleClose = (): void => {
-    if (_isFunction(this.props.onClose)) {
+    if (typeof this.props.onClose === 'function') {
       // TODO: Fix typings
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
