@@ -158,7 +158,6 @@ export default class AtButton extends AtComponent<
         {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && (
           <Form
-            reportSubmit
             onSubmit={this.onSumit.bind(this)}
             onReset={this.onReset.bind(this)}
           >
