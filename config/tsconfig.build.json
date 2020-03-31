@@ -4,15 +4,15 @@
     "skipLibCheck": true,
     "target": "es2017",
     "module": "es6",
-    "baseUrl": ".",
-    "outDir": "./dist/es"
+    "baseUrl": "../",
+    "outDir": "../lib"
   },
   "include": [
-    "src/common/*",
-    "src/components/*",
-    "src/index.ts"
+    "../src/common/*",
+    "../src/components/*",
+    "../src/index.ts"
   ],
   "exclude": [
-    "node_modules"
+    "../node_modules/*"
   ]
 }
