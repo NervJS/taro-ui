@@ -3,6 +3,7 @@ import RollupJson from '@rollup/plugin-json'
 import RollupNodeResolve from '@rollup/plugin-node-resolve'
 import RollupCommonjs from '@rollup/plugin-commonjs'
 import RollupTypescript from 'rollup-plugin-typescript2'
+import RollupCopy from 'rollup-plugin-copy'
 import Package from '../package.json'
 
 const resolveFile = path => NodePath.resolve(__dirname, '..', path)
@@ -54,6 +55,14 @@ export default {
     RollupJson(),
     RollupTypescript({
       tsconfig: NodePath.resolve(__dirname, 'tsconfig.rollup.json')
+    }),
+    RollupCopy({
+      targets: [
+        {
+          src: resolveFile('src/style'),
+          dest: resolveFile('dist')
+        }
+      ]
     })
   ]
 }
