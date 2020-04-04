@@ -1,3 +1,12 @@
+# [3.0.0-alpha.1](https://github.com/nervjs/taro-ui/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2020-04-04)
+
+
+### Features
+
+* replace webpack with rollup ([f119305](https://github.com/nervjs/taro-ui/commit/f1193056ae7cf7632ad149a1b7a882bfe3d8879a))
+
+
+
 # [3.0.0-alpha.0](https://github.com/nervjs/taro-ui/compare/v2.3.1...v3.0.0-alpha.0) (2020-03-28)
 
 
