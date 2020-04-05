@@ -2,7 +2,6 @@ import React from 'react'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
-import '../../../style/components/flex.scss'
 import './index.scss'
 
 export default class FlexPage extends React.Component {

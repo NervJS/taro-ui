@@ -2,7 +2,6 @@ import React from 'react'
 import { Image, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
-import '../../../style/components/article.scss'
 import './index.scss'
 
 export default class ArticlePage extends React.Component {
