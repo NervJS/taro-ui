@@ -54,7 +54,7 @@ export default {
     }),
     RollupJson(),
     RollupTypescript({
-      tsconfig: NodePath.resolve(__dirname, 'tsconfig.rollup.json')
+      tsconfig: resolveFile('tsconfig.rollup.json')
     }),
     RollupCopy({
       targets: [

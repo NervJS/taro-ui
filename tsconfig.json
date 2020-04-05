@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.build",
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "taro-ui": ["taro-ui/src/index.ts"]
+    }
+  }
+}

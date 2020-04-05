@@ -9,9 +9,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
     "resolveJsonModule": true
   },
-  "compileOnSave": false
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules/*",
+    "packages/dist/*"
+  ]
 }
