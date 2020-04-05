@@ -1,18 +1,32 @@
 {
-  "extends": "./config/tsconfig.base",
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "lib",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2017",
     "typeRoots": [
       "node_modules/@types",
-      "global.d.ts",
-      "types"
-    ],
-    "paths": {
-      "taro-ui": [
-        "src/index.ts"
-      ]
-    }
-  }
+      "global.d.ts"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

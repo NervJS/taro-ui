@@ -58,7 +58,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: 'Taro UI',
     navigationBarTextStyle: 'black'
   }
 }
