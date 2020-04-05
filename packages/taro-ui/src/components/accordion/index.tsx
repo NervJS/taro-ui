@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtAccordionProps, AtAccordionState } from 'types/accordion'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtAccordionProps, AtAccordionState } from '../../../types/accordion'
 import { delayQuerySelector } from '../../common/utils'
 
 export default class AtAccordion extends React.Component<

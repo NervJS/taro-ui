@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtRangeProps, AtRangeState } from 'types/range'
 import { View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { AtRangeProps, AtRangeState } from '../../../types/range'
 import {
   delayQuerySelector,
   getEventDetail,

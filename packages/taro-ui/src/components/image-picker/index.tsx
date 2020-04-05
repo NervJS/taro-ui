@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtImagePickerProps, File } from 'types/image-picker'
 import { Image, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
+import { AtImagePickerProps, File } from '../../../types/image-picker'
 import { uuid } from '../../common/utils'
 
 interface MatrixFile extends Partial<File> {

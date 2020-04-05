@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import _isEmpty from 'lodash/isEmpty'
-import { Calendar } from 'types/calendar'
+import { Calendar } from '../../../../types/calendar'
 
 interface PluginArg {
   options: Calendar.GroupOptions
@@ -42,9 +42,7 @@ export function handleMarks(
   const { marks } = options
 
   const markList = marks.filter(mark =>
-    dayjs(mark.value)
-      .startOf('day')
-      .isSame(_value)
+    dayjs(mark.value).startOf('day').isSame(_value)
   )
 
   item.marks = markList.slice(0, 1)
@@ -112,9 +110,7 @@ export function handleValid(
 
   if (!_isEmpty(validDates)) {
     const isInclude = validDates.some(date =>
-      dayjs(date.value)
-        .startOf('day')
-        .isSame(_value)
+      dayjs(date.value).startOf('day').isSame(_value)
     )
 
     item.isDisabled = !isInclude

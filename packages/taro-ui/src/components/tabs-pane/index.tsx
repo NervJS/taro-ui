@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtTabsPaneProps } from 'types/tabs-pane'
 import { View } from '@tarojs/components'
+import { AtTabsPaneProps } from '../../../types/tabs-pane'
 
 export default class AtTabsPane extends React.Component<AtTabsPaneProps> {
   public static defaultProps: AtTabsPaneProps

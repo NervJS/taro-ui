@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtTagProps } from 'types/tag'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtTagProps } from '../../../types/tag'
 
 const SIZE_CLASS = {
   normal: 'normal',

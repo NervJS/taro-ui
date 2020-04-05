@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtSearchBarProps, AtSearchBarState } from 'types/search-bar'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtSearchBarProps, AtSearchBarState } from '../../../types/search-bar'
 
 type ExtendEvent = {
   target: {
@@ -90,9 +90,9 @@ export default class AtSearchBar extends React.Component<
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${(actionName.length + 1) * fontSize +
-        fontSize / 2 +
-        10}px`
+      actionStyle.marginRight = `-${
+        (actionName.length + 1) * fontSize + fontSize / 2 + 10
+      }px`
     }
     if (showActionButton) {
       actionStyle.opacity = 1

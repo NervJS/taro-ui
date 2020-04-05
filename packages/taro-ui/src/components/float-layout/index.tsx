@@ -1,9 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtFloatLayoutProps, AtFloatLayoutState } from 'types/float-layout'
 import { ScrollView, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import {
+  AtFloatLayoutProps,
+  AtFloatLayoutState
+} from '../../../types/float-layout'
 import { handleTouchScroll } from '../../common/utils'
 
 export default class AtFloatLayout extends React.Component<

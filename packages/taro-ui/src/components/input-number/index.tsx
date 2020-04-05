@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import _toString from 'lodash/toString'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtInputNumberProps, InputError } from 'types/input-number'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { AtInputNumberProps, InputError } from '../../../types/input-number'
 import { pxTransform } from '../../common/utils'
 
 // TODO: Check all types

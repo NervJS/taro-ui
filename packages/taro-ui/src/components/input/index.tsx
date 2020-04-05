@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtInputProps } from 'types/input'
 import { Input, Label, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
+import { AtInputProps } from '../../../types/input'
 
 type PickAtInputProps = Pick<
   AtInputProps,
@@ -132,8 +132,9 @@ export default class AtInput extends React.Component<AtInputProps> {
           <View className={overlayCls} onClick={this.onClick}></View>
           {title && (
             <Label
-              className={`at-input__title ${required &&
-                'at-input__title--required'}`}
+              className={`at-input__title ${
+                required && 'at-input__title--required'
+              }`}
               for={name}
             >
               {title}

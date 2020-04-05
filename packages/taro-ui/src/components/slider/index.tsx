@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtSliderProps, AtSliderState } from 'types/slider'
 import { Slider, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtSliderProps, AtSliderState } from '../../../types/slider'
 
 export default class AtSlider extends React.Component<
   AtSliderProps,

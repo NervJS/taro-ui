@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtListProps } from 'types/list'
 import { View } from '@tarojs/components'
+import { AtListProps } from '../../../types/list'
 
 export default class AtList extends React.Component<AtListProps> {
   public static defaultProps: AtListProps

@@ -1,15 +1,15 @@
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
 import React from 'react'
+import { View } from '@tarojs/components'
+import { BaseEventOrig } from '@tarojs/components/types/common'
 import {
   AtCalendarDefaultProps,
   AtCalendarProps,
   AtCalendarPropsWithDefaults,
   AtCalendarState,
   Calendar
-} from 'types/calendar'
-import { View } from '@tarojs/components'
-import { BaseEventOrig } from '@tarojs/components/types/common'
+} from '../../../types/calendar'
 import AtCalendarBody from './body/index'
 import AtCalendarController from './controller/index'
 
@@ -145,11 +145,7 @@ export default class AtCalendar extends React.Component<
       start = dayjsStart.startOf('day').valueOf()
       generateDateValue = dayjsStart.startOf('month').valueOf()
 
-      end = cEnd
-        ? dayjs(cEnd)
-            .startOf('day')
-            .valueOf()
-        : start
+      end = cEnd ? dayjs(cEnd).startOf('day').valueOf() : start
     } else {
       const dayjsStart = dayjs(currentDate as Calendar.DateArg)
 

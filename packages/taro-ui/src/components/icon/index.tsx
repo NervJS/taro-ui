@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtIconProps } from 'types/icon'
 import { Text } from '@tarojs/components'
+import { AtIconProps } from '../../../types/icon'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtIcon extends React.Component<AtIconProps> {

@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtCountDownProps, AtCountdownState } from 'types/countdown'
 import { View } from '@tarojs/components'
+import { AtCountDownProps, AtCountdownState } from '../../../types/countdown'
 import AtCountdownItem from './item'
 
 type TimeObject = {

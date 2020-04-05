@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtTabBarProps, TabItem } from 'types/tab-bar'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtTabBarProps, TabItem } from '../../../types/tab-bar'
 import { mergeStyle } from '../../common/utils'
 import AtBadge from '../badge/index'
 

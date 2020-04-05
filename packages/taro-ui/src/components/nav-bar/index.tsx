@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtNavBarProps } from 'types/nav-bar'
 import { Text, View } from '@tarojs/components'
 import { ITouchEvent } from '@tarojs/components/types/common'
+import { AtNavBarProps } from '../../../types/nav-bar'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtNavBar extends React.Component<AtNavBarProps> {

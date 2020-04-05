@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtTabsProps, AtTabsState } from 'types/tabs'
 import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
+import { AtTabsProps, AtTabsState } from '../../../types/tabs'
 import { isTest, mergeStyle, uuid } from '../../common/utils'
 
 const ENV = Taro.getEnv()

@@ -1,9 +1,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtActionSheetProps, AtActionSheetState } from 'types/action-sheet'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import {
+  AtActionSheetProps,
+  AtActionSheetState
+} from '../../../types/action-sheet'
 import AtActionSheetBody from './body/index'
 import AtActionSheetFooter from './footer/index'
 import AtActionSheetHeader from './header/index'

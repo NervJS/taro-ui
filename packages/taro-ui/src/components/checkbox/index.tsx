@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtCheckboxProps } from 'types/checkbox'
 import { Text, View } from '@tarojs/components'
+import { AtCheckboxProps } from '../../../types/checkbox'
 
 export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
   public static defaultProps: AtCheckboxProps<any>

@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtButtonProps, AtButtonState } from 'types/button'
 import { Button, Form, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
+import { AtButtonProps, AtButtonState } from '../../../types/button'
 import AtLoading from '../loading/index'
 
 const SIZE_CLASS = {

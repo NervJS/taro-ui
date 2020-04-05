@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
-import { AtSwipeActionOptionsProps } from 'types/swipe-action'
 import { View } from '@tarojs/components'
+import { AtSwipeActionOptionsProps } from '../../../../types/swipe-action'
 import { delayQuerySelector } from '../../../common/utils'
 
 export default class AtSwipeActionOptions extends React.Component<

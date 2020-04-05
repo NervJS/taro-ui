@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtDrawerProps, AtDrawerState } from 'types/drawer'
 import { View } from '@tarojs/components'
+import { AtDrawerProps, AtDrawerState } from '../../../types/drawer'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 

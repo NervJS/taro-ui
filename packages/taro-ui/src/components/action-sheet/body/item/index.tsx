@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtActionSheetItemProps } from 'types/action-sheet'
 import { View } from '@tarojs/components'
+import { AtActionSheetItemProps } from '../../../../../types/action-sheet'
 
 export default class AtActionSheetItem extends React.Component<
   AtActionSheetItemProps

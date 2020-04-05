@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtSegmentedControlProps } from 'types/segmented-control'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtSegmentedControlProps } from '../../../types/segmented-control'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtSegmentedControl extends React.Component<

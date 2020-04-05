@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtAvatarProps, AtAvatarState } from 'types/avatar'
 import { Image, OpenData, Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
+import { AtAvatarProps, AtAvatarState } from '../../../types/avatar'
 
 const SIZE_CLASS = {
   large: 'large',

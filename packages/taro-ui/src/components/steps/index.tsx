@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtStepsProps } from 'types/steps'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtStepsProps } from '../../../types/steps'
 
 export default class AtSteps extends React.Component<AtStepsProps> {
   public static defaultProps: AtStepsProps

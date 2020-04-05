@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtBadgeProps } from 'types/badge'
 import { View } from '@tarojs/components'
+import { AtBadgeProps } from '../../../types/badge'
 
 export default class AtBadge extends React.Component<AtBadgeProps> {
   public static defaultProps: AtBadgeProps

@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtCardProps } from 'types/card'
 import { Image, Text, View } from '@tarojs/components'
+import { AtCardProps } from '../../../types/card'
 
 export default class AtCard extends React.Component<AtCardProps> {
   public static defaultProps: AtCardProps

@@ -1,11 +1,11 @@
 import classnames from 'classnames'
 import dayjs, { Dayjs } from 'dayjs'
 import React from 'react'
+import { Picker, Text, View } from '@tarojs/components'
 import {
   AtCalendarControllerProps,
   AtCalendarControllerState
-} from 'types/calendar'
-import { Picker, Text, View } from '@tarojs/components'
+} from '../../../../types/calendar'
 
 export default class AtCalendarController extends React.Component<
   AtCalendarControllerProps,

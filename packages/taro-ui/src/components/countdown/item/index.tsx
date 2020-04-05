@@ -1,7 +1,7 @@
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtCountdownItemProps } from 'types/countdown'
 import { Text, View } from '@tarojs/components'
+import { AtCountdownItemProps } from '../../../../types/countdown'
 
 export default class AtCountdownItem extends React.Component<
   AtCountdownItemProps

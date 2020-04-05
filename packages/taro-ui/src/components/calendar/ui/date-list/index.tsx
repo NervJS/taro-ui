@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import React from 'react'
-import { Calendar } from 'types/calendar'
 import { Text, View } from '@tarojs/components'
+import { Calendar } from '../../../../../types/calendar'
 import * as constant from '../../common/constant'
 
 const MAP: { [key: number]: string } = {

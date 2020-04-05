@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtPaginationProps, AtPaginationState } from 'types/pagination'
 import { Text, View } from '@tarojs/components'
+import { AtPaginationProps, AtPaginationState } from '../../../types/pagination'
 import AtButton from '../button/index'
 
 const MIN_MAXPAGE = 1

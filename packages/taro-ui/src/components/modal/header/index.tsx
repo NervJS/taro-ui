@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
-import { AtModalHeaderProps } from 'types/modal'
 import { View } from '@tarojs/components'
+import { AtModalHeaderProps } from '../../../../types/modal'
 
 export default class AtModalHeader extends React.Component<AtModalHeaderProps> {
   public render(): JSX.Element {

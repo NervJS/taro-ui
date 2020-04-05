@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtRateProps } from 'types/rate'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtRateProps } from '../../../types/rate'
 import { pxTransform } from '../../common/utils'
 
 export default class AtRate extends React.Component<AtRateProps> {

@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtCurtainProps } from 'types/curtain'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtCurtainProps } from '../../../types/curtain'
 
 export default class AtCurtain extends React.Component<AtCurtainProps> {
   public static defaultProps: AtCurtainProps

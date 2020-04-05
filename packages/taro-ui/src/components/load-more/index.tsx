@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtLoadMoreProps } from 'types/load-more'
 import { Text, View } from '@tarojs/components'
+import { AtLoadMoreProps } from '../../../types/load-more'
 import AtActivityIndicator from '../activity-indicator/index'
 import AtButton from '../button/index'
 

@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtListItemProps } from 'types/list'
 import { Image, Switch, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { AtListItemProps } from '../../../../types/list'
 import { mergeStyle } from '../../../common/utils'
 
 export default class AtListItem extends React.Component<AtListItemProps> {
@@ -61,8 +61,9 @@ export default class AtListItem extends React.Component<AtListItemProps> {
     const iconClass = classNames(
       (iconInfo && iconInfo.prefixClass) || 'at-icon',
       {
-        [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${iconInfo &&
-          iconInfo.value}`]: iconInfo && iconInfo.value
+        [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${
+          iconInfo && iconInfo.value
+        }`]: iconInfo && iconInfo.value
       },
       iconInfo && iconInfo.className
     )

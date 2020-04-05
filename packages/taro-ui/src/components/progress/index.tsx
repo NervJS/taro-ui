@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtProgressProps } from 'types/progress'
 import { Text, View } from '@tarojs/components'
+import { AtProgressProps } from '../../../types/progress'
 
 export default class AtProgress extends React.Component<AtProgressProps> {
   public static propTypes: InferProps<AtProgressProps>

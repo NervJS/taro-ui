@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtRadioProps, RadioOption } from 'types/radio'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtRadioProps, RadioOption } from '../../../types/radio'
 
 export default class AtRadio extends React.Component<AtRadioProps<any>> {
   public static defaultProps: AtRadioProps<any>

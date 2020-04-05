@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
-import { AtActionSheetHeaderProps } from 'types/action-sheet'
 import { View } from '@tarojs/components'
+import { AtActionSheetHeaderProps } from '../../../../types/action-sheet'
 
 export default class AtActionSheetHeader extends React.Component<
   AtActionSheetHeaderProps

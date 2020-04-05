@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtDividerProps } from 'types/divider'
 import { View } from '@tarojs/components'
+import { AtDividerProps } from '../../../types/divider'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtDivider extends React.Component<AtDividerProps> {

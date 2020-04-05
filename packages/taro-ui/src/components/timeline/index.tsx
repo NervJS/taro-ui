@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtTimelineProps } from 'types/timeline'
 import { Text, View } from '@tarojs/components'
+import { AtTimelineProps } from '../../../types/timeline'
 
 export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static defaultProps: AtTimelineProps

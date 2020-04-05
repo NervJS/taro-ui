@@ -1,15 +1,15 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtIndexesProps, AtIndexesState, Item } from 'types/indexes'
 import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
+import { AtIndexesProps, AtIndexesState, Item } from '../../../types/indexes'
 import {
   delayQuerySelector,
   isTest,
-  uuid,
-  pxTransform
+  pxTransform,
+  uuid
 } from '../../common/utils'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'

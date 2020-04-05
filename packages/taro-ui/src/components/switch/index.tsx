@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtSwitchProps } from 'types/switch'
 import { Switch, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtSwitchProps } from '../../../types/switch'
 
 export default class AtSwitch extends React.Component<AtSwitchProps> {
   public static defaultProps: AtSwitchProps

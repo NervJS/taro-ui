@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import _chunk from 'lodash/chunk'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtGridItem, AtGridProps } from 'types/grid'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtGridItem, AtGridProps } from '../../../types/grid'
 import { mergeStyle } from '../../common/utils'
 
 export default class AtGrid extends React.Component<AtGridProps> {
@@ -70,10 +70,10 @@ export default class AtGrid extends React.Component<AtGridProps> {
                           className={classNames(
                             childItem.iconInfo.prefixClass || 'at-icon',
                             {
-                              [`${childItem.iconInfo.prefixClass ||
-                                'at-icon'}-${
-                                childItem.iconInfo.value
-                              }`]: childItem.iconInfo.value
+                              [`${
+                                childItem.iconInfo.prefixClass || 'at-icon'
+                              }-${childItem.iconInfo.value}`]: childItem
+                                .iconInfo.value
                             },
                             childItem.iconInfo.className
                           )}

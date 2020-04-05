@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { AtToastProps, AtToastState } from 'types/toast'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { AtToastProps, AtToastState } from '../../../types/toast'
 import statusImg from './img.json'
 
 export default class AtToast extends React.Component<

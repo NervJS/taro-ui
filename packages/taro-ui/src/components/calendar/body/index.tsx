@@ -1,18 +1,18 @@
 import classnames from 'classnames'
 import dayjs from 'dayjs'
 import React from 'react'
-import {
-  AtCalendarBodyListGroup,
-  AtCalendarBodyProps,
-  AtCalendarBodyState,
-  Calendar
-} from 'types/calendar'
 import { Swiper, SwiperItem, View } from '@tarojs/components'
 import {
   BaseEventOrig,
   ITouch,
   ITouchEvent
 } from '@tarojs/components/types/common'
+import {
+  AtCalendarBodyListGroup,
+  AtCalendarBodyProps,
+  AtCalendarBodyState,
+  Calendar
+} from '../../../../types/calendar'
 import { delayQuerySelector } from '../../../common/utils'
 import generateCalendarGroup from '../common/helper'
 import AtCalendarDateList from '../ui/date-list/index'
