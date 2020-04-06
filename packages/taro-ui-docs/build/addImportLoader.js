@@ -17,7 +17,7 @@ md = md({
 })
   .enable(['smartquotes'])
   .set({
-    highlight (content, languageHint) {
+    highlight(content, languageHint) {
       let highlightedContent
 
       highlight.configure({

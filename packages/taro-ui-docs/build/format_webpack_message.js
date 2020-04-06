@@ -2,11 +2,11 @@ const chalk = require('chalk')
 
 const syntaxErrorLabel = 'Syntax error:'
 
-function isLikelyASyntaxError (message) {
+function isLikelyASyntaxError(message) {
   return message.indexOf(syntaxErrorLabel) >= 0
 }
 
-function formatMessage (message) {
+function formatMessage(message) {
   let lines = message.split('\n')
   if (lines.length > 2 && lines[1] === '') {
     lines.splice(1, 1)
@@ -44,11 +44,14 @@ function formatMessage (message) {
   lines[0] = chalk.inverse(lines[0])
   message = lines.join('\n')
 
-  message = message.replace(/^\s*at\s((?!webpack:).)*:\d+:\d+[\s)]*(\n|$)/gm, '')
+  message = message.replace(
+    /^\s*at\s((?!webpack:).)*:\d+:\d+[\s)]*(\n|$)/gm,
+    ''
+  )
   return message.trim()
 }
 
-module.exports = function formatWebpackMessage (message) {
+module.exports = function formatWebpackMessage(message) {
   const errors = message.errors.map(item => formatMessage(item))
   const warnings = message.warnings.map(item => formatMessage(item))
 

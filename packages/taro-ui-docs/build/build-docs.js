@@ -7,10 +7,14 @@ const webpackBaseConf = require('./webpack.base.config')
 const webpackProdConf = require('./webpack.prod.config')
 const formatWebpackMessage = require('./format_webpack_message')
 
-function printBuildError (err) {
+function printBuildError(err) {
   const message = err != null && err.message
   const stack = err != null && err.stack
-  if (stack && typeof message === 'string' && message.indexOf('from UglifyJs') !== -1) {
+  if (
+    stack &&
+    typeof message === 'string' &&
+    message.indexOf('from UglifyJs') !== -1
+  ) {
     try {
       const matched = /(.+)\[(.+):(.+),(.+)\]\[.+\]/.exec(stack)
       if (!matched) {
@@ -47,13 +51,15 @@ webpackCompiler.run((err, stats) => {
   const isSuccess = !errors.length && !warnings.length
   if (isSuccess) {
     buildSpinner.succeed(chalk.green('Compile successfully!\n'))
-    process.stdout.write(`${stats.toString({
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false
-    })}\n`)
+    process.stdout.write(
+      `${stats.toString({
+        colors: true,
+        modules: false,
+        children: false,
+        chunks: false,
+        chunkModules: false
+      })}\n`
+    )
     return
   }
   if (errors.length) {

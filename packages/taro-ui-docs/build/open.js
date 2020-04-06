@@ -1,9 +1,9 @@
 const exec = require('child_process').exec
 
-module.exports = function open (target, appName, callback) {
+module.exports = function open(target, appName, callback) {
   let opener
 
-  if (typeof (appName) === 'function') {
+  if (typeof appName === 'function') {
     callback = appName
     appName = null
   }
@@ -38,6 +38,6 @@ module.exports = function open (target, appName, callback) {
   return exec(`${opener} "${escape(target)}"`, callback)
 }
 
-function escape (s) {
+function escape(s) {
   return s.replace(/"/g, '\\"')
 }

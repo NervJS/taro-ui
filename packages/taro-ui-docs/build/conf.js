@@ -1,3 +1,3 @@
 module.exports = {
-  output: 'site'
+  output: 'dist'
 }

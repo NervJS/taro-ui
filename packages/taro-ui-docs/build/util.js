@@ -2,7 +2,7 @@ const path = require('path')
 const url = require('url')
 const os = require('os')
 
-function _normalizeFamily (family) {
+function _normalizeFamily(family) {
   return family ? family.toLowerCase() : 'ipv4'
 }
 
@@ -26,7 +26,10 @@ exports.formatTime = function (date) {
   const day = date.getDate()
   const hour = date.getHours()
   const minute = date.getMinutes()
-  return `${year}-${exports.zeroPad(month, 2)}-${exports.zeroPad(day, 2)} ${exports.zeroPad(hour, 2)}:${exports.zeroPad(minute, 2)}`
+  return `${year}-${exports.zeroPad(month, 2)}-${exports.zeroPad(
+    day,
+    2
+  )} ${exports.zeroPad(hour, 2)}:${exports.zeroPad(minute, 2)}`
 }
 
 exports.getLocalIp = function (name, family) {
@@ -51,29 +54,32 @@ exports.getLocalIp = function (name, family) {
     return res[0].address
   }
 
-  const all = Object.keys(interfaces).map(nic => {
-    //
-    // Note: name will only be `public` or `private`
-    // when this is called.
-    //
-    const addresses = interfaces[nic].filter(details => {
-      details.family = details.family.toLowerCase()
-      if (details.family !== family || exports.isLoopback(details.address)) {
-        return false
-      } else if (!name) {
-        return true
-      }
+  const all = Object.keys(interfaces)
+    .map(nic => {
+      //
+      // Note: name will only be `public` or `private`
+      // when this is called.
+      //
+      const addresses = interfaces[nic].filter(details => {
+        details.family = details.family.toLowerCase()
+        if (details.family !== family || exports.isLoopback(details.address)) {
+          return false
+        } else if (!name) {
+          return true
+        }
 
-      return name === 'public' ? !exports.isPrivate(details.address)
-        : exports.isPrivate(details.address)
+        return name === 'public'
+          ? !exports.isPrivate(details.address)
+          : exports.isPrivate(details.address)
+      })
+      return addresses.length ? addresses[0].address : undefined
     })
-    return addresses.length ? addresses[0].address : undefined
-  }).filter(Boolean)
+    .filter(Boolean)
 
   return !all.length ? exports.loopback(family) : all[0]
 }
 
-exports.loopback = function loopback (family) {
+exports.loopback = function loopback(family) {
   //
   // Default to `ipv4`
   //
@@ -86,29 +92,32 @@ exports.loopback = function loopback (family) {
   return family === 'ipv4' ? '127.0.0.1' : 'fe80::1'
 }
 
-exports.isLoopback = function isLoopback (addr) {
-  return /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})/
-    .test(addr) ||
+exports.isLoopback = function isLoopback(addr) {
+  return (
+    /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})/.test(addr) ||
     /^fe80::1$/.test(addr) ||
     /^::1$/.test(addr) ||
     /^::$/.test(addr)
+  )
 }
 
-exports.isPrivate = function isPrivate (addr) {
-  return /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/
-    .test(addr) ||
+exports.isPrivate = function isPrivate(addr) {
+  return (
+    /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/.test(addr) ||
     /^(::f{4}:)?192\.168\.([0-9]{1,3})\.([0-9]{1,3})$/.test(addr) ||
-    /^(::f{4}:)?172\.(1[6-9]|2\d|30|31)\.([0-9]{1,3})\.([0-9]{1,3})$/
-      .test(addr) ||
+    /^(::f{4}:)?172\.(1[6-9]|2\d|30|31)\.([0-9]{1,3})\.([0-9]{1,3})$/.test(
+      addr
+    ) ||
     /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/.test(addr) ||
     /^(::f{4}:)?169\.254\.([0-9]{1,3})\.([0-9]{1,3})$/.test(addr) ||
     /^fc00:/i.test(addr) ||
     /^fe80:/i.test(addr) ||
     /^::1$/.test(addr) ||
     /^::$/.test(addr)
+  )
 }
 
-exports.isPublic = function isPublic (addr) {
+exports.isPublic = function isPublic(addr) {
   return !exports.isPrivate(addr)
 }
 

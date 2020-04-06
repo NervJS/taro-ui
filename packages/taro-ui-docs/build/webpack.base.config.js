@@ -32,7 +32,10 @@ module.exports = {
           },
           {
             test: /\.md$/,
-            loader: `babel-loader!${path.join(__dirname, './addImportLoader.js')}`
+            loader: `babel-loader!${path.join(
+              __dirname,
+              './addImportLoader.js'
+            )}`
           },
           {
             test: /\.(css|scss|sass)(\?.*)?$/,
@@ -51,7 +54,13 @@ module.exports = {
                   ident: 'postcss',
                   plugins: () => [
                     autoprefixer({
-                      overrideBrowserslist: ['ie >= 9', 'Chrome >= 21', 'Firefox >= 1', 'Edge >= 13', 'last 3 versions'],
+                      overrideBrowserslist: [
+                        'ie >= 9',
+                        'Chrome >= 21',
+                        'Firefox >= 1',
+                        'Edge >= 13',
+                        'last 3 versions'
+                      ],
                       flexbox: 'no-2009'
                     })
                   ]
@@ -100,7 +109,7 @@ module.exports = {
     alias: {
       react: 'nervjs',
       'react-dom': 'nervjs',
-      '@md': path.resolve(__dirname, '../docs/markdown/'),
+      '@md': path.resolve(__dirname, '../docs/markdown/')
     }
   },
   plugins: [
