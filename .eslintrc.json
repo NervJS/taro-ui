@@ -33,16 +33,18 @@
   "overrides": [
     {
       "files": [
-        "build/*.js"
+        "packages/taro-ui-docs/build/*.js"
       ],
       "rules": {
-        "import/no-commonjs": "off"
+        "import/no-commonjs": "off",
+        "no-console": "off",
+        "no-undefined": "off"
       }
     },
     {
       "files": [
-        "test/**/*.test.js",
-        "test/**/test.js"
+        "**/test/**/*.test.js",
+        "**/test/**/test.js"
       ],
       "rules": {
         "taro/no-stateless-component": "off",

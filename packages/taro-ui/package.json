@@ -31,12 +31,9 @@
   "scripts": {
     "dev": "yarn run dev:lib",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
-    "dev:doc": "yarn run build:h5-static && node ./build/dev-server",
     "build": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",
-    "build:h5-static": "yarn run build:h5 && node ./build/build-static",
-    "build:doc": "yarn run build:h5-static && node ./build/build-docs",
     "prepublishOnly": "yarn run clean && yarn run build",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
