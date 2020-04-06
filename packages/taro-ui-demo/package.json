@@ -16,6 +16,7 @@
     "css": "sass"
   },
   "scripts": {
+    "build": "yarn run build:h5",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -24,14 +25,14 @@
     "build:rn": "taro build --type rn",
     "build:qq": "taro build --type qq",
     "build:quickapp": "taro build --type quickapp",
-    "dev:weapp": "npm run build:weapp -- --watch",
-    "dev:swan": "npm run build:swan -- --watch",
-    "dev:alipay": "npm run build:alipay -- --watch",
-    "dev:tt": "npm run build:tt -- --watch",
-    "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch",
-    "dev:qq": "npm run build:qq -- --watch",
-    "dev:quickapp": "npm run build:quickapp -- --watch"
+    "dev:weapp": "yarn run build:weapp --watch",
+    "dev:swan": "yarn run build:swan --watch",
+    "dev:alipay": "yarn run build:alipay --watch",
+    "dev:tt": "yarn run build:tt --watch",
+    "dev:h5": "yarn run build:h5 --watch",
+    "dev:rn": "yarn run build:rn --watch",
+    "dev:qq": "yarn run build:qq --watch",
+    "dev:quickapp": "yarn run build:quickapp --watch"
   },
   "browserslist": [
     "last 3 versions",
@@ -50,7 +51,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
-    "@tarojs/cli": "^3.0.0-beta.2",
+    "@tarojs/cli": "3.0.0-beta.2",
     "@tarojs/mini-runner": "3.0.0-beta.2",
     "@tarojs/webpack-runner": "3.0.0-beta.2",
     "@types/react": "^16.0.0",
