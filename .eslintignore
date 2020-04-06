@@ -1,11 +1,21 @@
+# Node modules
 node_modules/
-dist/
-lib/
-coverage/
-.vscode/
+
+# Editor and IDE files
+.vscode
+.idea
+
+# Build outputs
+packages/taro-ui/lib/
+packages/**/dist/
+
+# Test files
+coverage
+jest.config.js
+test/__mock__/
+
+# Others
 .nyc_output/
 git_stats/
 yarn-offline/
 docs/
-jest.config.js
-test/__mock__/

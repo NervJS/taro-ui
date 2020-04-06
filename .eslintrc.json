@@ -1,16 +1,14 @@
 {
+  "root": true,
   "extends": [
     "o2team",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
-  "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
-  "env": {
-    "jest": true
-  },
   "rules": {
     "class-methods-use-this": "off",
     "prefer-rest-params": "off",
@@ -65,19 +63,19 @@
       ],
       "parser": "@typescript-eslint/parser",
       "plugins": [
-        "react",
         "@typescript-eslint"
       ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
         "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
         "plugin:prettier/recommended"
       ],
-      "env": {
-        "jest": true
-      },
       "rules": {
         "@typescript-eslint/no-explicit-any": [
           "off"
