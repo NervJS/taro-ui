@@ -32,6 +32,7 @@
     "@types/react-dom": "^16.9.6",
     "@types/webpack-env": "^1.15.1",
     "at-ui-style": "^1.5.1",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chalk": "^4.0.0",
     "classnames": "^2.2.6",

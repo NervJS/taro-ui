@@ -3,48 +3,13 @@
   "extends": [
     "o2team",
     "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
-  "rules": {
-    "class-methods-use-this": "off",
-    "prefer-rest-params": "off",
-    "arrow-body-style": "warn",
-    "taro/custom-component-children": "off",
-    "no-unused-vars": [
-      "error",
-      {
-        "varsIgnorePattern": "React"
-      }
-    ],
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "warn",
-          "error"
-        ]
-      }
-    ]
-  },
   "overrides": [
     {
       "files": [
-        "packages/taro-ui-docs/build/*.js"
-      ],
-      "rules": {
-        "import/no-commonjs": "off",
-        "no-console": "off",
-        "no-undefined": "off"
-      }
-    },
-    {
-      "files": [
-        "test/**/*.test.js",
-        "test/**/test.js"
+        "packages/**/test/**/*.test.js",
+        "packages/**/test/**/test.js"
       ],
       "rules": {
         "taro/no-stateless-component": "off",
@@ -60,8 +25,8 @@
     },
     {
       "files": [
-        "**/*.ts",
-        "**/*.tsx"
+        "packages/**/*.ts",
+        "packages/**/*.tsx"
       ],
       "parser": "@typescript-eslint/parser",
       "plugins": [
@@ -99,6 +64,84 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "files": [
+        "packages/taro-ui-docs/**/*.js",
+        "packages/taro-ui-docs/**/*.jsx"
+      ],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "babelOptions": {
+          "configFile": "./babel.config.json",
+          "rootMode": "upward"
+        }
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "class-methods-use-this": "off",
+        "prefer-rest-params": "off",
+        "arrow-body-style": "warn",
+        "taro/custom-component-children": "off",
+        "no-unused-vars": [
+          "error",
+          {
+            "varsIgnorePattern": "React"
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ],
+        "camelcase": [
+          "error",
+          {
+            "allow": [
+              "^UNSAFE_"
+            ]
+          }
+        ]
+      },
+      "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [
+              ".js",
+              ".jsx"
+            ]
+          },
+          "eslint-import-resolver-custom-alias": {
+            "alias": {
+              "@md": "./markdown"
+            },
+            "packages": [
+              "packages/taro-ui-docs"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "files": [
+        "packages/taro-ui-docs/build/*.js"
+      ],
+      "rules": {
+        "import/no-commonjs": "off",
+        "no-console": "off",
+        "no-undefined": "off"
       }
     }
   ]
