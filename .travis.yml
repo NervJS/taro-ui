@@ -1,15 +1,15 @@
 language: node_js
 node_js:
   - "10"
-
+os: linux
+dist: xenial
+arch: amd64
 cache:
   yarn: true
   directories:
     - node_modules
-
 jobs:
   include:
-
     - stage: test
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -21,9 +21,8 @@ jobs:
         - yarn run build:component
       script:
         - yarn run test:ci
-
-    - stage: deploy
-      if: (branch = master) AND (NOT (type IN (pull_request)))
+    - stage: release
+      if: "(branch IN (master, ui-next)) AND (NOT (type IN (pull_request)))"
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
         - export PATH="$HOME/.yarn/bin:$PATH"
@@ -33,15 +32,32 @@ jobs:
         - yarn run clean
       script:
         - yarn run build
+      before_deploy:
+        - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
-        - yarn run publish
-      after_deploy:
+        provider: script
+        skip_cleanup: true
+        script: "yarn run publish"
+        on:
+          tags: true
+          repo: NervJS/taro-ui
+    - stage: deploy
+      if: "(branch = master) AND (NOT (type IN (pull_request)))"
+      before_install:
+        - curl -o- -L https://yarnpkg.com/install.sh | bash
+        - export PATH="$HOME/.yarn/bin:$PATH"
+      install:
+        - yarn --frozen-lockfile
+      before_script:
+        - yarn run clean
+      script:
+        - yarn run build
+      after_script:
         - cd packages/taro-ui-docs/dist
         - git init
         - git add -A
         - git commit -m "Update Document"
         - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages
-
 env:
   global:
-    - GH_REF: github.com/NervJS/taro-ui.git
+    - GH_REF=github.com/NervJS/taro-ui.git
