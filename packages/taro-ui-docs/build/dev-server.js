@@ -20,6 +20,7 @@ const port = 8002
 const protocol = 'http'
 const urls = prepareUrls(protocol, host, port)
 const webpackConf = webpackMerge(webpackBaseConf, webpackDevConf)
+// eslint-disable-next-line no-unused-vars
 for (const key in webpackConf.entry) {
   const entryItem = webpackConf.entry[key]
   if (Array.isArray(entryItem)) {

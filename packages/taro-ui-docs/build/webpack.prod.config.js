@@ -31,7 +31,7 @@ module.exports = {
       BASE_NAME: `'/taro-ui'`
     }),
     new FaviconWebpackPlugin({
-      logo: path.resolve(projectRoot, 'docs/assets/favicon.png'),
+      logo: path.resolve(projectRoot, 'assets/favicon.png'),
       prefix: 'favicons/'
     })
   ]

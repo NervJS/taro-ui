@@ -62,7 +62,7 @@ const formatModule = (imports, js, jsx, state, method) => {
 
     ${js}
 
-    class MarkdownItReactComponent extends Nerv.Component {
+    class MarkdownItReactComponent extends React.Component {
         constructor(props){
             super(props);
             this.state = ${state || '{}'};
@@ -116,7 +116,7 @@ module.exports = function (source) {
     attributes: { imports: importMap }
   } = frontMatter(source)
 
-  const imports = `import * as Nerv from 'nervjs';  import copy from 'copy-to-clipboard';${importMap}`
+  const imports = `import React from 'react';  import copy from 'copy-to-clipboard';${importMap}`
 
   const moduleJS = []
   const state = ''

@@ -1,13 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const conf = require('./conf')
+// const conf = require('./conf')
 const { getProjectRoot } = require('./util')
 
 const projectRoot = getProjectRoot()
-const siteRoot = path.join(projectRoot, 'docs')
+const siteRoot = path.join(projectRoot)
 
 module.exports = {
   entry: {
@@ -20,7 +20,10 @@ module.exports = {
           {
             test: /\.jsx?$/,
             exclude: /(node_modules|bower_components)/,
-            use: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              rootMode: 'upward'
+            }
           },
           {
             test: /\.html$/,
@@ -32,10 +35,15 @@ module.exports = {
           },
           {
             test: /\.md$/,
-            loader: `babel-loader!${path.join(
-              __dirname,
-              './addImportLoader.js'
-            )}`
+            use: [
+              {
+                loader: 'babel-loader',
+                options: {
+                  rootMode: 'upward'
+                }
+              },
+              `${path.join(__dirname, './addImportLoader.js')}`
+            ]
           },
           {
             test: /\.(css|scss|sass)(\?.*)?$/,
@@ -107,21 +115,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      react: 'nervjs',
-      'react-dom': 'nervjs',
-      '@md': path.resolve(__dirname, '../docs/markdown/')
+      '@md': path.resolve(__dirname, '../markdown/')
     }
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: `${siteRoot}/index.html`
-    }),
+    })
     // copy static h5 pages
-    new CopyWebpackPlugin([
-      {
-        from: path.join(siteRoot, 'h5'),
-        to: path.resolve(projectRoot, conf.output, 'h5')
-      }
-    ])
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.join(siteRoot, 'h5'),
+    //     to: path.resolve(projectRoot, conf.output, 'h5')
+    //   }
+    // ])
   ]
 }
