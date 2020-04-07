@@ -32,7 +32,8 @@
     "dev:h5": "yarn run build:h5 --watch",
     "dev:rn": "yarn run build:rn --watch",
     "dev:qq": "yarn run build:qq --watch",
-    "dev:quickapp": "yarn run build:quickapp --watch"
+    "dev:quickapp": "yarn run build:quickapp --watch",
+    "clean": "rimraf .temp dist"
   },
   "browserslist": [
     "last 3 versions",

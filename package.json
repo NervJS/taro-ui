@@ -15,7 +15,12 @@
     ]
   },
   "scripts": {
-    "build": "lerna run build"
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "build:component": "lerna run --scope taro-ui build",
+    "clean": "lerna run clean",
+    "clean:component": "lerna run --scope taro-ui clean",
+    "publish": "lerna publish from-git --yes"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
