@@ -1,9 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-// const conf = require('./conf')
+const conf = require('./conf')
 const { getProjectRoot } = require('./util')
 
 const projectRoot = getProjectRoot()
@@ -121,13 +121,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: `${siteRoot}/index.html`
-    })
-    // copy static h5 pages
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.join(siteRoot, 'h5'),
-    //     to: path.resolve(projectRoot, conf.output, 'h5')
-    //   }
-    // ])
+    }),
+    // copy static files
+    new CopyWebpackPlugin([
+      {
+        from: path.join(siteRoot, 'static'),
+        to: path.resolve(projectRoot, conf.output)
+      }
+    ])
   ]
 }
