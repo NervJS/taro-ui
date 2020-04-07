@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SwitchDoc from '@md/switch.md'
 
-class SwitchView extends Nerv.Component {
+class SwitchView extends React.Component {
   render() {
-    return (
-      <SwitchDoc />
-    )
+    return <SwitchDoc />
   }
 }
 

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import AvatarDoc from '@md/avatar.md'
 
-class AvatarView extends Nerv.Component {
-  render () {
-    return (
-      <AvatarDoc />
-    )
+class AvatarView extends React.Component {
+  render() {
+    return <AvatarDoc />
   }
 }
 

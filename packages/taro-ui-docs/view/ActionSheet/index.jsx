@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ActionSheetDoc from '@md/action-sheet.md'
 
-class ActionSheetView extends Nerv.Component {
-  render () {
+class ActionSheetView extends React.Component {
+  render() {
     return <ActionSheetDoc />
   }
 }

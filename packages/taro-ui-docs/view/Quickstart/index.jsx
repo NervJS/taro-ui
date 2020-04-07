@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import QuickStartDoc from '@md/quickstart.md'
 
-class QuickStartView extends Nerv.Component {
+class QuickStartView extends React.Component {
   render() {
-    return (
-      <QuickStartDoc />
-    )
+    return <QuickStartDoc />
   }
 }
 

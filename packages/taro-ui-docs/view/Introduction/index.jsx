@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import IntroductionDoc from '@md/introduction.md'
 
-class IntroductionView extends Nerv.Component {
-  render () {
+class IntroductionView extends React.Component {
+  render() {
     return <IntroductionDoc />
   }
 }

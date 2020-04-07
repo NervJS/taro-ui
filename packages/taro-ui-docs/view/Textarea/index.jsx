@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import TextareaDoc from '@md/textarea.md'
 
-class TextareaView extends Nerv.Component {
+class TextareaView extends React.Component {
   render() {
-    return (
-      <TextareaDoc />
-    )
+    return <TextareaDoc />
   }
 }
 

@@ -1,24 +1,26 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 const ANIMATION_DURATION = 300
 
-export default class CollapseTransition extends Nerv.Component {
-  componentDidMount () {
+export default class CollapseTransition extends React.Component {
+  componentDidMount() {
     this.beforeEnter()
     if (this.props.isShow) {
       this.enter()
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.beforeLeave()
     this.leave()
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (this.props.isShow !== nextProps.isShow) { this.triggerChange(nextProps.isShow) }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (this.props.isShow !== nextProps.isShow) {
+      this.triggerChange(nextProps.isShow)
+    }
   }
 
-  triggerChange (isShow) {
+  triggerChange(isShow) {
     clearTimeout(this.enterTimer)
     clearTimeout(this.leaveTimer)
     if (isShow) {
@@ -30,7 +32,7 @@ export default class CollapseTransition extends Nerv.Component {
     }
   }
 
-  beforeEnter () {
+  beforeEnter() {
     const el = this.selfRef
     // prepare
     el.dataset.oldPaddingTop = el.style.paddingTop
@@ -41,12 +43,12 @@ export default class CollapseTransition extends Nerv.Component {
     el.style.paddingBottom = 0
   }
 
-  enter () {
+  enter() {
     const el = this.selfRef
     // start
     el.style.display = 'block'
     if (el.scrollHeight !== 0) {
-      el.style.height = el.scrollHeight + 'px'
+      el.style.height = `${el.scrollHeight}px`
       el.style.paddingTop = el.dataset.oldPaddingTop
       el.style.paddingBottom = el.dataset.oldPaddingBottom
     } else {
@@ -60,14 +62,14 @@ export default class CollapseTransition extends Nerv.Component {
     this.enterTimer = setTimeout(() => this.afterEnter(), ANIMATION_DURATION)
   }
 
-  afterEnter () {
+  afterEnter() {
     const el = this.selfRef
     el.style.display = 'block'
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
   }
 
-  beforeLeave () {
+  beforeLeave() {
     const el = this.selfRef
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
@@ -75,12 +77,12 @@ export default class CollapseTransition extends Nerv.Component {
 
     el.style.display = 'block'
     if (el.scrollHeight !== 0) {
-      el.style.height = el.scrollHeight + 'px'
+      el.style.height = `${el.scrollHeight}px`
     }
     el.style.overflow = 'hidden'
   }
 
-  leave () {
+  leave() {
     const el = this.selfRef
     if (el.scrollHeight !== 0) {
       el.style.height = 0
@@ -90,9 +92,11 @@ export default class CollapseTransition extends Nerv.Component {
     this.leaveTimer = setTimeout(() => this.afterLeave(), ANIMATION_DURATION)
   }
 
-  afterLeave () {
+  afterLeave() {
     const el = this.selfRef
-    if (!el) { return }
+    if (!el) {
+      return
+    }
 
     el.style.display = 'none'
     el.style.height = ''
@@ -101,14 +105,17 @@ export default class CollapseTransition extends Nerv.Component {
     el.style.paddingBottom = el.dataset.oldPaddingBottom
   }
 
-  render () {
+  render() {
     return (
       <div
         className='collapse-transition'
         style={{
           overflow: 'hidden'
         }}
-        ref={e => { this.selfRef = e }}>
+        ref={e => {
+          this.selfRef = e
+        }}
+      >
         {this.props.children}
       </div>
     )

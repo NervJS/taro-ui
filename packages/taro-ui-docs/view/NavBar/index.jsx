@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import NavBarDoc from '@md/navbar.md'
 
-class NavBarView extends Nerv.Component {
+class NavBarView extends React.Component {
   render() {
-    return (
-      <NavBarDoc />
-    )
+    return <NavBarDoc />
   }
 }
 

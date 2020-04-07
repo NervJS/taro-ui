@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import GridDoc from '@md/grid.md'
 
-class ButtonView extends Nerv.Component {
-  render () {
+class ButtonView extends React.Component {
+  render() {
     return <GridDoc />
   }
 }

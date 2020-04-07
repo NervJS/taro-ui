@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import CountdownDoc from '@md/countdown.md'
 
-class CountdownView extends Nerv.Component {
+class CountdownView extends React.Component {
   render() {
-    return (
-      <CountdownDoc />
-    )
+    return <CountdownDoc />
   }
 }
 

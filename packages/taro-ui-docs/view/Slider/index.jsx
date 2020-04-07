@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SliderDoc from '@md/slider.md'
 
-class SliderView extends Nerv.Component {
+class SliderView extends React.Component {
   render() {
-    return (
-      <SliderDoc />
-    )
+    return <SliderDoc />
   }
 }
 

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import RateDoc from '@md/rate.md'
 
-class RateView extends Nerv.Component {
+class RateView extends React.Component {
   render() {
-    return (
-      <RateDoc />
-    )
+    return <RateDoc />
   }
 }
 

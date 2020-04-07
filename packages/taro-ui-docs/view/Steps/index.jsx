@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import StepsDoc from '@md/steps.md'
 
-class StepsView extends Nerv.Component {
+class StepsView extends React.Component {
   render() {
-    return (
-      <StepsDoc />
-    )
+    return <StepsDoc />
   }
 }
 

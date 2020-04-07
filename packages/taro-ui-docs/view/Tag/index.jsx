@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import TagDoc from '@md/tag.md'
 
-class TagView extends Nerv.Component {
-  render () {
-    return (
-      <TagDoc />
-    )
+class TagView extends React.Component {
+  render() {
+    return <TagDoc />
   }
 }
 

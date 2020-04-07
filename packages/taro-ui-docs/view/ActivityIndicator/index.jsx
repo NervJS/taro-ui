@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ActivityIndicatorDoc from '@md/activity-indicator.md'
 
-class ActivityIndicatorView extends Nerv.Component {
-  render () {
+class ActivityIndicatorView extends React.Component {
+  render() {
     return <ActivityIndicatorDoc />
   }
 }

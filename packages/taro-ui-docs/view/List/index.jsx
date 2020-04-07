@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ListDoc from '@md/list.md'
 
-class ListView extends Nerv.Component {
-  render () {
+class ListView extends React.Component {
+  render() {
     return <ListDoc />
   }
 }

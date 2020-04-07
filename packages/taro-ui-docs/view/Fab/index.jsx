@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import FabDoc from '@md/fab.md'
 
-class FabView extends Nerv.Component {
-  render () {
+class FabView extends React.Component {
+  render() {
     return <FabDoc />
   }
 }

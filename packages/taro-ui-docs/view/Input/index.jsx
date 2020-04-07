@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import InputDoc from '@md/input.md'
 
-class InputView extends Nerv.Component {
+class InputView extends React.Component {
   render() {
-    return (
-      <InputDoc />
-    )
+    return <InputDoc />
   }
 }
 

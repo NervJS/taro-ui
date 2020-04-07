@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import TimelineDoc from '@md/timeline.md'
 
-class TimelineView extends Nerv.Component {
-  render () {
-    return (
-      <TimelineDoc />
-    )
+class TimelineView extends React.Component {
+  render() {
+    return <TimelineDoc />
   }
 }
 

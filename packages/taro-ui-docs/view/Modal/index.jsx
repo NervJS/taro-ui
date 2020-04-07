@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ModalDoc from '@md/modal.md'
 
-class ModalView extends Nerv.Component {
-  render () {
+class ModalView extends React.Component {
+  render() {
     return <ModalDoc />
   }
 }

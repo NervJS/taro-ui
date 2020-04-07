@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SwipeActionDoc from '@md/swipe-action.md'
 
-class SwipeActionView extends Nerv.Component {
+class SwipeActionView extends React.Component {
   render() {
-    return (
-      <SwipeActionDoc />
-    )
+    return <SwipeActionDoc />
   }
 }
 

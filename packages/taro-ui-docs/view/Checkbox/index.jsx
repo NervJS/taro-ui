@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import CheckboxDoc from '@md/checkbox.md'
 
-class CheckboxView extends Nerv.Component {
+class CheckboxView extends React.Component {
   render() {
-    return (
-      <CheckboxDoc />
-    )
+    return <CheckboxDoc />
   }
 }
 

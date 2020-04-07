@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import LoadMoreDoc from '@md/load-more.md'
 
-class LoadMoreView extends Nerv.Component {
+class LoadMoreView extends React.Component {
   render() {
-    return (
-      <LoadMoreDoc />
-    )
+    return <LoadMoreDoc />
   }
 }
 

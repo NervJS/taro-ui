@@ -1,4 +1,5 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import 'at-ui-style'
@@ -7,24 +8,24 @@ import Index from './pages/index.jsx'
 import Docs from './pages/docs.jsx'
 import Guide from './pages/guide.jsx'
 
-class App extends Nerv.Component {
-  constructor (...args) {
+class App extends React.Component {
+  constructor(...args) {
     super(...args)
     this.state = {
       visible: false
     }
   }
-  componentDidMount () {
+  componentDidMount() {
     this.setState({
       visible: true
     })
   }
-  
-  shouldComponentUpdate () {
+
+  shouldComponentUpdate() {
     return true
   }
 
-  render () {
+  render() {
     return (
       <div className='wrapper' style={{ backgroundColor: '#F8FAFF' }}>
         <Switch>
@@ -37,8 +38,8 @@ class App extends Nerv.Component {
   }
 }
 
-Nerv.render(
-  <Router >
+ReactDOM.render(
+  <Router>
     <App />
   </Router>,
   document.getElementById('container')

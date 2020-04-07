@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ProgressDoc from '@md/progress.md'
 
-class ProgressView extends Nerv.Component {
-  render () {
+class ProgressView extends React.Component {
+  render() {
     return <ProgressDoc />
   }
 }

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import IconDoc from '@md/icon.md'
 
-class IconView extends Nerv.Component {
-  render () {
-    return (
-      <IconDoc />
-    )
+class IconView extends React.Component {
+  render() {
+    return <IconDoc />
   }
 }
 

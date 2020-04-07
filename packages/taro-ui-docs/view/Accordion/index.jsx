@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import AccordionDoc from '@md/accordion.md'
 
-class AccordionView extends Nerv.Component {
+class AccordionView extends React.Component {
   render() {
-    return (
-      <AccordionDoc />
-    )
+    return <AccordionDoc />
   }
 }
 

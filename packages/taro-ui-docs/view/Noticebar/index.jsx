@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import NoticebarDoc from '@md/noticebar.md'
 
-class NoticebarView extends Nerv.Component {
-  render () {
-    return (
-      <NoticebarDoc />
-    )
+class NoticebarView extends React.Component {
+  render() {
+    return <NoticebarDoc />
   }
 }
 

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SearchBarDoc from '@md/search-bar.md'
 
-class SearchBarView extends Nerv.Component {
+class SearchBarView extends React.Component {
   render() {
-    return (
-      <SearchBarDoc />
-    )
+    return <SearchBarDoc />
   }
 }
 

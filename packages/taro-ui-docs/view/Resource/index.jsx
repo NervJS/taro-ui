@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ResourceDoc from '@md/resource.md'
 
-class Resource extends Nerv.Component {
-  render () {
+class Resource extends React.Component {
+  render() {
     return <ResourceDoc />
   }
 }

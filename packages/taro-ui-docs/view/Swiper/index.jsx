@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SwiperDoc from '@md/swiper.md'
 
-class SwiperView extends Nerv.Component {
-  render () {
+class SwiperView extends React.Component {
+  render() {
     return <SwiperDoc />
   }
 }

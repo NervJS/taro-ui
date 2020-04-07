@@ -1,30 +1,30 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import classnames from 'classnames'
 import { Link, NavLink, withRouter } from 'react-router-dom'
 import taroUILogo from '../../assets/logo-taro.png'
 import './style.scss'
 
-class PageHeader extends Nerv.Component {
-  constructor (...args) {
+class PageHeader extends React.Component {
+  constructor(...args) {
     super(...args)
     this.state = {
       toggle: true
     }
   }
-  toggleMenu = () => {
+  toggleMenu() {
     const _toggle = this.state.toggle
     this.setState({
       toggle: !_toggle
     })
   }
-  goToGuide (e) {
+  goToGuide(e) {
     e.preventDefault()
   }
-  goToSource (e) {
+  goToSource(e) {
     e.preventDefault()
   }
 
-  render () {
+  render() {
     const { collapse, style } = this.props
     const { toggle } = this.state
     return (
@@ -49,16 +49,33 @@ class PageHeader extends Nerv.Component {
           >
             <ul className='navbar'>
               <li>
-                <NavLink activeClassName='router-link-active' to='/docs/introduction'>组件</NavLink>
+                <NavLink
+                  activeClassName='router-link-active'
+                  to='/docs/introduction'
+                >
+                  组件
+                </NavLink>
               </li>
               <li>
-                <NavLink activeClassName='router-link-active' to='/docs/resource'>设计资源</NavLink>
+                <NavLink
+                  activeClassName='router-link-active'
+                  to='/docs/resource'
+                >
+                  设计资源
+                </NavLink>
               </li>
               <li>
-                <a href='https://nervjs.github.io/taro-ui-theme-preview/' target='__blank'>主题生成器</a>
+                <a
+                  href='https://nervjs.github.io/taro-ui-theme-preview/'
+                  target='__blank'
+                >
+                  主题生成器
+                </a>
               </li>
               <li>
-                <a href='https://aotu.io/' target='__blank'>关于我们</a>
+                <a href='https://aotu.io/' target='__blank'>
+                  关于我们
+                </a>
               </li>
             </ul>
           </div>

@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import FloatLayoutDoc from '@md/float-layout.md'
 
-class FloatLayoutView extends Nerv.Component {
-  render () {
+class FloatLayoutView extends React.Component {
+  render() {
     return <FloatLayoutDoc />
   }
 }

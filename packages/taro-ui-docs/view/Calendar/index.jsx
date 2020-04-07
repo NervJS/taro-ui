@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import CalendarDoc from '@md/calendar.md'
 
-class CalendarView extends Nerv.Component {
+class CalendarView extends React.Component {
   render() {
-    return (
-      <CalendarDoc />
-    )
+    return <CalendarDoc />
   }
 }
 

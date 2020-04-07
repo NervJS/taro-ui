@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import RangeDoc from '@md/range.md'
 
-class RangeView extends Nerv.Component {
+class RangeView extends React.Component {
   render() {
-    return (
-      <RangeDoc />
-    )
+    return <RangeDoc />
   }
 }
 

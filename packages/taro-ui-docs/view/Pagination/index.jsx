@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import PaginationDoc from '@md/pagination.md'
 
-class PaginationView extends Nerv.Component {
-  render () {
-    return (
-      <PaginationDoc />
-    )
+class PaginationView extends React.Component {
+  render() {
+    return <PaginationDoc />
   }
 }
 

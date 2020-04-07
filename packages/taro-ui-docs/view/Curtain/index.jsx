@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import CurtainDoc from '@md/curtain.md'
 
-class CurtainView extends Nerv.Component {
+class CurtainView extends React.Component {
   render() {
-    return (
-      <CurtainDoc />
-    )
+    return <CurtainDoc />
   }
 }
 

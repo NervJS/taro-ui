@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import IndexesDoc from '@md/indexes.md'
 
-class IndexesView extends Nerv.Component {
+class IndexesView extends React.Component {
   render() {
-    return (
-      <IndexesDoc />
-    )
+    return <IndexesDoc />
   }
 }
 

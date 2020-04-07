@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import CardDoc from '@md/card.md'
 
-class ButtonView extends Nerv.Component {
-  render () {
+class ButtonView extends React.Component {
+  render() {
     return <CardDoc />
   }
 }

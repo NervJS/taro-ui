@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ImagePickerDoc from '@md/image-picker.md'
 
-class ImagePickerView extends Nerv.Component {
+class ImagePickerView extends React.Component {
   render() {
-    return (
-      <ImagePickerDoc />
-    )
+    return <ImagePickerDoc />
   }
 }
 

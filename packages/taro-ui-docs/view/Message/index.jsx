@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import MessageDoc from '@md/message.md'
 
-class MessageView extends Nerv.Component {
+class MessageView extends React.Component {
   render() {
-    return (
-      <MessageDoc />
-    )
+    return <MessageDoc />
   }
 }
 

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ArticleDoc from '@md/article.md'
 
-class ArticleView extends Nerv.Component {
-  render () {
-    return (
-      <ArticleDoc />
-    )
+class ArticleView extends React.Component {
+  render() {
+    return <ArticleDoc />
   }
 }
 

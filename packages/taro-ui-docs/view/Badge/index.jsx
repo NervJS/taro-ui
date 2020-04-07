@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import BadgeDoc from '@md/badge.md'
 
-class BadgeView extends Nerv.Component {
-  render () {
-    return (
-      <BadgeDoc />
-    )
+class BadgeView extends React.Component {
+  render() {
+    return <BadgeDoc />
   }
 }
 

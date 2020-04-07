@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import SegmentedControlDoc from '@md/segmented-control.md'
 
-class SegmentedControlView extends Nerv.Component {
+class SegmentedControlView extends React.Component {
   render() {
-    return (
-      <SegmentedControlDoc />
-    )
+    return <SegmentedControlDoc />
   }
 }
 

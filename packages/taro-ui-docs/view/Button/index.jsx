@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ButtonDoc from '@md/button.md'
 
-class ButtonView extends Nerv.Component {
-  render () {
-    return (
-      <ButtonDoc />
-    )
+class ButtonView extends React.Component {
+  render() {
+    return <ButtonDoc />
   }
 }
 

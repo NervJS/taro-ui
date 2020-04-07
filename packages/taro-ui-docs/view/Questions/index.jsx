@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import QuestionDoc from '@md/questions.md'
 
-class QuestionsView extends Nerv.Component {
-  render () {
+class QuestionsView extends React.Component {
+  render() {
     return <QuestionDoc />
   }
 }

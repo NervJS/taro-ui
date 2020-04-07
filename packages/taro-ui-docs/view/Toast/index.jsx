@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import ToastDoc from '@md/toast.md'
 
-class ToastView extends Nerv.Component {
-  render () {
+class ToastView extends React.Component {
+  render() {
     return <ToastDoc />
   }
 }

@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import TabBarDoc from '@md/tabbar.md'
 
-class TabBarView extends Nerv.Component {
+class TabBarView extends React.Component {
   render() {
-    return (
-      <TabBarDoc />
-    )
+    return <TabBarDoc />
   }
 }
 

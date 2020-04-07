@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import DrawerDoc from '@md/drawer.md'
 
-class DrawerView extends Nerv.Component {
-  render () {
-    return (
-      <DrawerDoc />
-    )
+class DrawerView extends React.Component {
+  render() {
+    return <DrawerDoc />
   }
 }
 

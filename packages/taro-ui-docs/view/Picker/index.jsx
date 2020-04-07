@@ -1,8 +1,8 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import PickerDoc from '@md/picker.md'
 
-class PickerView extends Nerv.Component {
-  render () {
+class PickerView extends React.Component {
+  render() {
     return <PickerDoc />
   }
 }

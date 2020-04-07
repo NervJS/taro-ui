@@ -1,11 +1,9 @@
-import * as Nerv from 'nervjs'
+import React from 'react'
 import RadioDoc from '@md/radio.md'
 
-class RadioView extends Nerv.Component {
+class RadioView extends React.Component {
   render() {
-    return (
-      <RadioDoc />
-    )
+    return <RadioDoc />
   }
 }
 
