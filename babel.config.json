@@ -1,18 +1,6 @@
 {
   "overrides": [
     {
-      "include": "packages/taro-ui-demo/**",
-      "presets": [
-        [
-          "taro",
-          {
-            "framework": "react",
-            "ts": true
-          }
-        ]
-      ]
-    },
-    {
       "include": "packages/taro-ui-docs/**",
       "presets": [
         [
@@ -31,19 +19,15 @@
             },
             "loose": false,
             "forceAllTransforms": true,
-            "useBuiltIns": "entry"
+            "useBuiltIns": "entry",
+            "corejs": "3.6"
           }
-        ]
+        ],
+        "@babel/preset-react"
       ],
       "plugins": [
         "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-proposal-class-properties",
-        [
-          "@babel/plugin-transform-react-jsx",
-          {
-            "pragma": "React.createElement"
-          }
-        ]
+        "@babel/plugin-proposal-class-properties"
       ]
     }
   ]
