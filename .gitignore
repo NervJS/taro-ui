@@ -17,6 +17,7 @@ package-lock.json
 # Build outputs
 packages/taro-ui/lib/
 packages/**/dist/
+dist/
 
 # Docs outputs
 site/
