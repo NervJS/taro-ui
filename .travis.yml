@@ -1,3 +1,4 @@
+version: ">= 1.0.0"
 language: node_js
 node_js:
   - "10"
@@ -22,7 +23,7 @@ jobs:
       script:
         - yarn run test:ci
     - stage: release
-      if: "(branch IN (master, ui-next)) AND (NOT (type IN (pull_request)))"
+      if: "(branch IN (master, ui-next)) AND (NOT (type IN (pull_request))) AND (tag =~ /^v3/)"
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
         - export PATH="$HOME/.yarn/bin:$PATH"
@@ -36,7 +37,7 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
-        skip_cleanup: true
+        cleanup: false
         script: "yarn run publish"
         on:
           tags: true
