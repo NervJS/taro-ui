@@ -30,7 +30,7 @@ export default class AtSwipeAction extends AtComponent<
   private startX: number
   private startY: number
   private maxOffsetSize: number
-  private domInfo: Taro.rectElement
+  private domInfo: any
   private isMoving: boolean
   private isTouching: boolean
 
@@ -243,7 +243,7 @@ export default class AtSwipeAction extends AtComponent<
               <View
                 key={`${item.text}-${key}`}
                 style={item.style}
-                onClick={this.handleClick.bind(this, item, key)}
+                onClick={e => this.handleClick(item, key, e)}
                 className={classNames(
                   'at-swipe-action__option',
                   item.className
