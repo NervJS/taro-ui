@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtButtonProps, AtButtonState } from 'types/button'
 import { Button, Form, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
+import { ButtonProps } from '@tarojs/components/types/Button'
+import { BaseEventOrig, CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import AtLoading from '../loading/index'
@@ -43,9 +44,10 @@ export default class AtButton extends AtComponent<
     this.props.onGetUserInfo && this.props.onGetUserInfo(event)
   }
 
-  private onContact(event: CommonEvent): void {
-    // TODO: Change Taro button component types
-    this.props.onContact && this.props.onContact(event as any)
+  private onContact(
+    event: BaseEventOrig<ButtonProps.onContactEventDetail>
+  ): void {
+    this.props.onContact && this.props.onContact(event)
   }
 
   private onGetPhoneNumber(event: CommonEvent): void {
