@@ -1,3 +1,15 @@
+## [2.3.3](https://github.com/nervjs/taro-ui/compare/v2.3.2...v2.3.3) (2020-04-11)
+
+
+### Bug Fixes
+
+* 删除过时的 form 参数, close [#998](https://github.com/nervjs/taro-ui/issues/998) ([ea31144](https://github.com/nervjs/taro-ui/commit/ea31144beb63cd634ab825e15375a98837d0ed9a))
+* 利用完整日期做唯一 ID, close [#976](https://github.com/nervjs/taro-ui/issues/976) ([ae6f01f](https://github.com/nervjs/taro-ui/commit/ae6f01f0961caf8082599cafc92150273b759328))
+* 用了箭头函数不应再用 bind ([d68541a](https://github.com/nervjs/taro-ui/commit/d68541a5c53079b3b1ea44a069eea72e3a1e42c6))
+* **input:** 修复 onChange 不能通过 return 改变 value 的问题, close [#980](https://github.com/nervjs/taro-ui/issues/980) ([c87d025](https://github.com/nervjs/taro-ui/commit/c87d025dae416c8d003018acd07c4661d72187d3))
+
+
+
 ## [2.3.2](https://github.com/nervjs/taro-ui/compare/v2.3.1...v2.3.2) (2020-03-28)
 
 
