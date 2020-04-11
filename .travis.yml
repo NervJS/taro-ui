@@ -19,7 +19,7 @@ jobs:
       script:
         - yarn run test:ci
     - stage: release
-      if: "(branch = master) AND (NOT (type IN (pull_request))) AND (tag =~ /^v2/)"
+      if: "(tag =~ /^v2/) AND (NOT (type IN (pull_request)))"
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
         - export PATH="$HOME/.yarn/bin:$PATH"
