@@ -1,11 +1,12 @@
 language: node_js
 node_js:
   - "10"
-
+os: linux
+dist: xenial
+arch: amd64
 cache:
   directories:
     - node_modules
-
 jobs:
   include:
     - stage: test
@@ -13,8 +14,22 @@ jobs:
         - npm install
       script:
         - npm run test:ci
+    - stage: release
+      install:
+        - npm install
+      script:
+        - npm run prepublishOnly
+      deploy:
+        provider: npm
+        email: npmjs@550.moe
+        api_key:
+          secure: npdpG0sNovdDNHNlnClzkHWkvMQqpAiSEukUVw3fVRYerENzdvI9rdz5KSrdztDsQADlyYeNHXNjnoAx81nSEZAA9XvA20W+Gaf114MIWfz80dcCb/qKwDAKaXM6SZYo1XZqEvqYRkKeXYAR4T6HIrMF8JZCwJZacR2MCoX2gywFheT3IB43JOkYrSDr/czdkwM3Ar3PY8QXz+JhBt/WuMS/fHZm4X5oAa6TCUH68jfPdzc4g6+IEnYagDbYmqDwnHuxmPqSGFijjynDrZgnM2KiQCZzVAufGccy+8xTgywrEShnKJF5xO/S+CG3Sn/jX53ib56HKZ8D/BNapR9I8MLtcsqzHn1wTCIF/4jJ26h5Ka3LPPaOfNwZboBbslOYIReS1wHoTBDogS37MaMo56S5f4It+lCARUuCQ9ToKp5ZRJatJRymtupa0TmaKycBDrhTyAMtxaNcFfnD49OD0FJTOl8vokOiy7fp74mi9A2KZdx0YO6QrmuVMf7uvBCXldKsfm0GF3LK0mCypa/57mEp4gIgEwfAKkz+icUows2feTa8Js2KcFVXiXYnOOFktr+TmntbeBHPNGyvzLuslpszi7J6lF/+02ODwCQOeuXIDxU4N8//cQFz9ZA9+lZ1nf1BL6yi27uQciNTg9QN+Ticcx4qU0uByLupfwTgbHk=
+        on:
+          tags: true
+          repo: NervJS/taro-ui
+          branch: master
     - stage: deploy
-      if: (branch = master) AND (NOT (type IN (pull_request)))
+      if: "(branch = master) AND (NOT (type IN (pull_request)))"
       install:
         - npm install
       script:
@@ -26,7 +41,6 @@ jobs:
         - git add .
         - git commit -m "Update Document"
         - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages
-
 env:
   global:
     - GH_REF: github.com/NervJS/taro-ui.git
