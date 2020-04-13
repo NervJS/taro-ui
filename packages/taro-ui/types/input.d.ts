@@ -1,16 +1,51 @@
 import { ComponentClass } from 'react'
-import { CommonEvent } from '@tarojs/components/types/common'
+import { BaseEventOrig, ITouchEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
 import AtComponent from './base'
 
 declare type OmitInputProps = Omit<
   InputProps,
-  'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'
+  | 'className'
+  | 'type'
+  | 'onBlur'
+  | 'onFocus'
+  | 'onChange'
+  | 'onConfirm'
+  | 'onKeyboardHeightChange'
 >
-declare type InputFunction<T extends string | number> = (
+
+declare type InputFunction<T extends string | number, U = any, R = void> = (
   value: T,
-  event: CommonEvent
-) => void
+  event?: BaseEventOrig<U>
+) => R
+
+declare type InputBaseEventDetail = {
+  /** 输入值 */
+  value: string | number
+}
+
+export declare type InputEventDetail = InputBaseEventDetail & {
+  /** 光标位置 */
+  cursor: number
+  /** 键值 */
+  keyCode: number
+}
+
+export declare type FocusEventDetail = InputBaseEventDetail & {
+  /** 键盘高度 */
+  height: number
+}
+
+export declare type BlurEventDetail = InputBaseEventDetail
+
+export declare type ConfirmEventDetail = InputBaseEventDetail
+
+export declare type KeyboardHeightEventDetail = {
+  /** 键盘高度 */
+  height: number
+  /** 持续时间 */
+  duration: number
+}
 
 export interface AtInputProps extends AtComponent, OmitInputProps {
   /**
@@ -86,28 +121,34 @@ export interface AtInputProps extends AtComponent, OmitInputProps {
   /**
    * 输入框失去焦点时触发的事件，v2.0.3 版本可以获取 event 参数
    */
-  onBlur?: InputFunction<string | number>
+  onBlur?: InputFunction<string | number, BlurEventDetail>
   /**
    * 输入框被选中时触发的事件，v2.0.3 版本可以获取 event 参数
    */
-  onFocus?: InputFunction<string | number>
+  onFocus?: InputFunction<string | number, FocusEventDetail>
   /**
    * 输入框值改变时触发的事件，开发者需要通过 onChange 事件来更新 value 值变化，onChange 函数必填。
    * 小程序中，如果想改变 value 的值，需要 return value 从而改变输入框的当前值, v2.0.3 版本可以获取 event 参数
    */
-  onChange: InputFunction<string | number>
+  onChange: InputFunction<string | number, InputEventDetail, any>
   /**
    * 点击完成按钮时触发，v2.0.3 版本可以获取 event 参数
    */
-  onConfirm?: InputFunction<string | number>
+  onConfirm?: InputFunction<string | number, ConfirmEventDetail>
   /**
-   * 当 editable 为 false 时，点击组件触发的事件
+   * 当 editable 为 false 时，点击组件触发的事件，v2.3.3 版本可以获取 event 参数
    */
-  onClick?: () => void
+  onClick?: (event?: ITouchEvent) => void
   /**
-   * 点击错误按钮触发的事件
+   * 键盘高度发生变化的时候触发此事件
    */
-  onErrorClick?: () => void
+  onKeyboardHeightChange?: (
+    event?: BaseEventOrig<KeyboardHeightEventDetail>
+  ) => void
+  /**
+   * 点击错误按钮触发的事件，v2.3.3 版本可以获取 event 参数
+   */
+  onErrorClick?: (event?: ITouchEvent) => void
 }
 
 declare const AtInput: ComponentClass<AtInputProps>

@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Button, Form, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
+import { ButtonProps } from '@tarojs/components/types/Button'
+import { BaseEventOrig, CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { AtButtonProps, AtButtonState } from '../../../types/button'
 import AtLoading from '../loading/index'
@@ -43,9 +44,10 @@ export default class AtButton extends React.Component<
     this.props.onGetUserInfo && this.props.onGetUserInfo(event)
   }
 
-  private onContact(event: CommonEvent): void {
-    // TODO: Change Taro button component types
-    this.props.onContact && this.props.onContact(event as any)
+  private onContact(
+    event: BaseEventOrig<ButtonProps.onContactEventDetail>
+  ): void {
+    this.props.onContact && this.props.onContact(event)
   }
 
   private onGetPhoneNumber(event: CommonEvent): void {
@@ -162,7 +164,6 @@ export default class AtButton extends React.Component<
         {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && (
           <Form
-            reportSubmit
             onSubmit={this.onSumit.bind(this)}
             onReset={this.onReset.bind(this)}
           >

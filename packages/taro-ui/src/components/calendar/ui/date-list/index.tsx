@@ -37,9 +37,9 @@ export default class AtCalendarList extends React.Component<Props> {
 
     return (
       <View className='at-calendar__list flex'>
-        {list.map((item, index) => (
+        {list.map((item: Calendar.Item) => (
           <View
-            key={`list-item-${index}`}
+            key={`list-item-${item.value}`}
             onClick={this.handleClick.bind(this, item)}
             onLongPress={this.handleLongClick.bind(this, item)}
             className={classnames(

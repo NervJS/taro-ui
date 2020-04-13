@@ -8,6 +8,19 @@
 
 
 # [3.0.0-alpha.0](https://github.com/nervjs/taro-ui/compare/v2.3.1...v3.0.0-alpha.0) (2020-03-28)
+## [2.3.3](https://github.com/nervjs/taro-ui/compare/v2.3.2...v2.3.3) (2020-04-11)
+
+
+### Bug Fixes
+
+* 删除过时的 form 参数, close [#998](https://github.com/nervjs/taro-ui/issues/998) ([ea31144](https://github.com/nervjs/taro-ui/commit/ea31144beb63cd634ab825e15375a98837d0ed9a))
+* 利用完整日期做唯一 ID, close [#976](https://github.com/nervjs/taro-ui/issues/976) ([ae6f01f](https://github.com/nervjs/taro-ui/commit/ae6f01f0961caf8082599cafc92150273b759328))
+* 用了箭头函数不应再用 bind ([d68541a](https://github.com/nervjs/taro-ui/commit/d68541a5c53079b3b1ea44a069eea72e3a1e42c6))
+* **input:** 修复 onChange 不能通过 return 改变 value 的问题, close [#980](https://github.com/nervjs/taro-ui/issues/980) ([c87d025](https://github.com/nervjs/taro-ui/commit/c87d025dae416c8d003018acd07c4661d72187d3))
+
+
+
+## [2.3.2](https://github.com/nervjs/taro-ui/compare/v2.3.1...v2.3.2) (2020-03-28)
 
 
 ### Bug Fixes
@@ -21,6 +34,9 @@
 * 修复页面跳转和循环key重复问题 ([dc1a9fc](https://github.com/nervjs/taro-ui/commit/dc1a9fc44beff9e1a25ca93b7ac6ac4fc02cb90b))
 * 更新 AtTextarea 的文档 ([19e3460](https://github.com/nervjs/taro-ui/commit/19e346023547e0040ec15447d950c5e38bd57976))
 * **input-number:** 在微信小程序中可以输入非数字或者不合法数字 [#985](https://github.com/nervjs/taro-ui/issues/985) ([#986](https://github.com/nervjs/taro-ui/issues/986)) ([5606017](https://github.com/nervjs/taro-ui/commit/56060177619497fd9e8a5685914cd7a9d45b78ef))
+* 更新 AtTextarea 的文档 ([19e3460](https://github.com/nervjs/taro-ui/commit/19e346023547e0040ec15447d950c5e38bd57976))
+* **input-number:** 在微信小程序中可以输入非数字或者不合法数字 [#985](https://github.com/nervjs/taro-ui/issues/985) ([#986](https://github.com/nervjs/taro-ui/issues/986)) ([5606017](https://github.com/nervjs/taro-ui/commit/56060177619497fd9e8a5685914cd7a9d45b78ef))
+* 使 AtGridItem 支持自定义字段 close [#983](https://github.com/nervjs/taro-ui/issues/983) ([8b25687](https://github.com/nervjs/taro-ui/commit/8b2568762a030d464facc8fe9dd6e447d5fd57ab))
 
 
 ### Features

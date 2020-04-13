@@ -241,7 +241,7 @@ export default class AtSwipeAction extends React.Component<
               <View
                 key={`${item.text}-${key}`}
                 style={item.style}
-                onClick={this.handleClick.bind(this, item, key)}
+                onClick={e => this.handleClick(item, key, e)}
                 className={classNames(
                   'at-swipe-action__option',
                   item.className

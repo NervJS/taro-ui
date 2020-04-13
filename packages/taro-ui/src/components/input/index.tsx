@@ -2,9 +2,16 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Input, Label, Text, View } from '@tarojs/components'
-import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { BaseEventOrig, ITouchEvent } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
-import { AtInputProps } from '../../../types/input'
+import {
+  AtInputProps,
+  BlurEventDetail,
+  ConfirmEventDetail,
+  FocusEventDetail,
+  InputEventDetail,
+  KeyboardHeightEventDetail
+} from '../../../types/input'
 
 type PickAtInputProps = Pick<
   AtInputProps,
@@ -38,49 +45,66 @@ function getInputProps(props: AtInputProps): GetInputPropsReturn {
   return actualProps as GetInputPropsReturn
 }
 
-type ExtendEvent = {
-  target: {
-    value: string | number
-  }
-}
-
 export default class AtInput extends React.Component<AtInputProps> {
   public static defaultProps: AtInputProps
   public static propTypes: InferProps<AtInputProps>
+  // TODO: 有待考证是否为合理方式处理 #840
+  private inputClearing = false
 
-  private onInput = (event: CommonEvent & ExtendEvent): void => {
-    this.props.onChange(event.target.value, event)
-  }
+  private handleInput = (event: BaseEventOrig<InputEventDetail>): void =>
+    this.props.onChange(event.detail.value, event)
 
-  private onFocus = (event: CommonEvent & ExtendEvent): void => {
-    this.props.onFocus && this.props.onFocus(event.target.value, event)
-  }
-
-  private onBlur = (event: CommonEvent & ExtendEvent): void => {
-    this.props.onBlur && this.props.onBlur(event.target.value, event)
-    // fix # 583 AtInput 不触发 onChange 的问题
-    this.props.onChange(event.target.value, event)
-  }
-
-  private onConfirm = (event: CommonEvent & ExtendEvent): void => {
-    this.props.onConfirm && this.props.onConfirm(event.target.value, event)
-  }
-
-  private onClick = (): void => {
-    if (!this.props.editable) {
-      this.props.onClick && this.props.onClick()
+  private handleFocus = (event: BaseEventOrig<FocusEventDetail>): void => {
+    if (typeof this.props.onFocus === 'function') {
+      this.props.onFocus(event.detail.value, event)
     }
   }
 
-  private clearValue = (event: ITouchEvent): void => {
-    // fix #840
-    setTimeout(() => {
-      this.props.onChange('', event)
-    }, 50)
+  private handleBlur = (event: BaseEventOrig<BlurEventDetail>): void => {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event.detail.value, event)
+    }
+    if (event.type === 'blur' && !this.inputClearing) {
+      // fix # 583 AtInput 不触发 onChange 的问题
+      this.props.onChange(
+        event.detail.value,
+        event as BaseEventOrig<InputEventDetail>
+      )
+    }
+    // 还原状态
+    this.inputClearing = false
   }
 
-  private onErrorClick = (): void =>
-    this.props.onErrorClick && this.props.onErrorClick()
+  private handleConfirm = (event: BaseEventOrig<ConfirmEventDetail>): void => {
+    if (typeof this.props.onConfirm === 'function') {
+      this.props.onConfirm(event.detail.value, event)
+    }
+  }
+
+  private handleClick = (event: ITouchEvent): void => {
+    if (!this.props.editable && typeof this.props.onClick === 'function') {
+      this.props.onClick(event)
+    }
+  }
+
+  private handleClearValue = (event: ITouchEvent): void => {
+    this.inputClearing = true
+    this.props.onChange('', event)
+  }
+
+  private handleKeyboardHeightChange = (
+    event: BaseEventOrig<KeyboardHeightEventDetail>
+  ): void => {
+    if (typeof this.props.onKeyboardHeightChange === 'function') {
+      this.props.onKeyboardHeightChange(event)
+    }
+  }
+
+  private handleErrorClick = (event: ITouchEvent): void => {
+    if (typeof this.props.onErrorClick === 'function') {
+      this.props.onErrorClick(event)
+    }
+  }
 
   public render(): JSX.Element {
     const {
@@ -103,10 +127,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       autoFocus,
       focus,
       value,
-      required,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      onKeyboardHeightChange
+      required
     } = this.props
     const { type, maxLength, disabled, password } = getInputProps(this.props)
 
@@ -129,7 +150,7 @@ export default class AtInput extends React.Component<AtInputProps> {
     return (
       <View className={rootCls} style={customStyle}>
         <View className={containerCls}>
-          <View className={overlayCls} onClick={this.onClick}></View>
+          <View className={overlayCls} onClick={this.handleClick}></View>
           {title && (
             <Label
               className={`at-input__title ${
@@ -159,23 +180,24 @@ export default class AtInput extends React.Component<AtInputProps> {
             selectionStart={selectionStart}
             selectionEnd={selectionEnd}
             adjustPosition={adjustPosition}
-            onInput={this.onInput}
-            // fix # 840 input 清除问题
-            // onChange={this.onInput}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            onConfirm={this.onConfirm}
+            onInput={this.handleInput}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onConfirm={this.handleConfirm}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore
-            onKeyboardHeightChange={onKeyboardHeightChange}
+            onKeyboardHeightChange={this.handleKeyboardHeightChange}
           />
           {clear && value && (
-            <View className='at-input__icon' onTouchEnd={this.clearValue}>
+            <View className='at-input__icon' onTouchEnd={this.handleClearValue}>
               <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
             </View>
           )}
           {error && (
-            <View className='at-input__icon' onTouchStart={this.onErrorClick}>
+            <View
+              className='at-input__icon'
+              onTouchStart={this.handleErrorClick}
+            >
               <Text className='at-icon at-icon-alert-circle at-input__icon-alert'></Text>
             </View>
           )}
