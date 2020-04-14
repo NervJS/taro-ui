@@ -178,6 +178,9 @@
         "packages/**/test/**/*.test.js",
         "packages/**/test/**/test.js"
       ],
+      "env": {
+        "jest": true
+      },
       "rules": {
         "taro/no-stateless-component": "off",
         "react/react-in-jsx-scope": "off",

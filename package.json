@@ -20,7 +20,8 @@
     "build:component": "lerna run --scope taro-ui build",
     "clean": "lerna run clean",
     "clean:component": "lerna run --scope taro-ui clean",
-    "publish": "lerna publish from-git --yes"
+    "publish": "lerna publish from-git --yes",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

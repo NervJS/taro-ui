@@ -1,4 +1,7 @@
 {
+  "babelrcRoots": [
+    "packages/**"
+  ],
   "overrides": [
     {
       "include": "packages/taro-ui-docs/**",
@@ -28,6 +31,13 @@
       "plugins": [
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-proposal-class-properties"
+      ]
+    },
+    {
+      "include": "packages/taro-ui/test/**",
+      "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
       ]
     }
   ]
