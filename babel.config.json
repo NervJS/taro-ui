@@ -1,6 +1,6 @@
 {
   "babelrcRoots": [
-    "packages/**"
+    "packages/*"
   ],
   "overrides": [
     {
@@ -36,8 +36,21 @@
     {
       "include": "packages/taro-ui/test/**",
       "presets": [
-        "@babel/preset-env",
+        [
+          "@babel/preset-env",
+          {
+            "debug": true,
+            "targets": {
+              "node": true
+            },
+            "modules": "commonjs",
+            "forceAllTransforms": true
+          }
+        ],
         "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
       ]
     }
   ]

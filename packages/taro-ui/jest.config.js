@@ -3,12 +3,14 @@ module.exports = {
   rootDir: __dirname,
   testMatch: ['<rootDir>/test/**/*.test.js', '<rootDir>/test/**/test.js'],
   transform: {
-    '^.+.js$': [
+    '^.+\\.js$': [
       'babel-jest',
       {
         rootMode: 'upward'
       }
     ]
   },
-  transformIgnorePatterns: ['node_modules']
+  moduleNameMapper: {
+    '@tarojs/components': '<rootDir>/../../node_modules/@tarojs/components/h5/react'
+  }
 }
