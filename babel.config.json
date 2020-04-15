@@ -34,30 +34,39 @@
       ]
     },
     {
-      "include": "packages/taro-ui/test/**",
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "debug": false,
-            "targets": {
-              "node": true
-            },
-            "modules": "commonjs",
-            "forceAllTransforms": true
-          }
-        ],
-        "@babel/preset-react"
+      "include": [
+        "packages/taro-ui/test/**",
+        "packages/taro-ui/lib/**",
+        "node_modules/@tarojs/**"
       ],
-      "plugins": [
-        "@babel/plugin-transform-modules-commonjs",
-        [
-          "@babel/plugin-proposal-class-properties",
-          {
-            "loose": true
-          }
-        ]
-      ]
+      "env": {
+        "test": {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "debug": false,
+                "targets": {
+                  "node": "current"
+                },
+                "modules": "commonjs",
+                "forceAllTransforms": true
+              }
+            ],
+            "@babel/preset-react"
+          ],
+          "plugins": [
+            "@babel/plugin-transform-modules-commonjs",
+            [
+              "@babel/plugin-proposal-class-properties",
+              {
+                "loose": true
+              }
+            ],
+            "@babel/plugin-transform-runtime"
+          ]
+        }
+      }
     }
   ]
 }
