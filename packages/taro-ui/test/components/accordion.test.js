@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { AtAccordion } from '../../dist'
+import AtAccordion from '../../lib/components/accordion'
 
 describe('AtAccordion Component', () => {
   it('render initial AtAccordion', () => {
