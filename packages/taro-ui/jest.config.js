@@ -23,5 +23,8 @@ module.exports = {
   moduleNameMapper: {
     '@tarojs/components': '<rootDir>/node_modules/@tarojs/components/h5/react'
   },
+  setupFilesAfterEnv: [
+    `<rootDir>/packages/${pack.name}/test/setup/setupEnzyme.js`
+  ],
   coverageDirectory: `<rootDir>/packages/${pack.name}/coverage`
 }
