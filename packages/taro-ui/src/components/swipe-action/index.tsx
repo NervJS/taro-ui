@@ -13,7 +13,6 @@ import {
 import {
   delayGetClientRect,
   delayGetScrollOffset,
-  isTest,
   uuid
 } from '../../common/utils'
 import AtSwipeActionOptions from './options/index'
@@ -49,7 +48,7 @@ export default class AtSwipeAction extends React.Component<
     this.isMoving = false
     this.isTouching = false
     this.state = {
-      componentId: isTest() ? 'tabs-AOTU2018' : uuid(),
+      componentId: uuid(),
       offsetSize: 0,
       _isOpened: !!isOpened
     }
@@ -105,14 +104,14 @@ export default class AtSwipeAction extends React.Component<
 
   private handleOpened = (event: CommonEvent): void => {
     const { onOpened } = this.props
-    if (typeof onOpened === 'function' && !this.state._isOpened) {
+    if (typeof onOpened === 'function' && this.state._isOpened) {
       onOpened(event)
     }
   }
 
   private handleClosed = (event: CommonEvent): void => {
     const { onClosed } = this.props
-    if (typeof onClosed === 'function' && this.state._isOpened) {
+    if (typeof onClosed === 'function' && !this.state._isOpened) {
       onClosed(event)
     }
   }
@@ -241,7 +240,7 @@ export default class AtSwipeAction extends React.Component<
               <View
                 key={`${item.text}-${key}`}
                 style={item.style}
-                onClick={e => this.handleClick(item, key, e)}
+                onClick={(e): void => this.handleClick(item, key, e)}
                 className={classNames(
                   'at-swipe-action__option',
                   item.className
