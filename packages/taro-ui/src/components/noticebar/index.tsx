@@ -114,28 +114,38 @@ export default class AtNoticebar extends React.Component<
   }
 
   public render(): JSX.Element | boolean {
-    const { single, icon, marquee, customStyle } = this.props
+    const {
+      single,
+      icon,
+      marquee,
+      customStyle,
+      className,
+      moreText = '查看详情'
+    } = this.props
     let { showMore, close } = this.props
-    const { dura } = this.state
+    const {
+      dura,
+      show,
+      animElemId,
+      animationData,
+      isWEAPP,
+      isALIPAY
+    } = this.state
     const rootClassName = ['at-noticebar']
-    let _moreText = this.props.moreText
 
     if (!single) showMore = false
-
-    if (!_moreText) _moreText = '查看详情'
 
     const style = {}
     const innerClassName = ['at-noticebar__content-inner']
     if (marquee) {
       close = false
       style['animation-duration'] = `${dura}s`
-      innerClassName.push(this.state.animElemId)
+      innerClassName.push(animElemId)
     }
 
     const classObject = {
       'at-noticebar--marquee': marquee,
-      'at-noticebar--weapp':
-        marquee && (this.state.isWEAPP || this.state.isALIPAY),
+      'at-noticebar--weapp': marquee && (isWEAPP || isALIPAY),
       'at-noticebar--single': !marquee && single
     }
 
@@ -143,13 +153,9 @@ export default class AtNoticebar extends React.Component<
     if (icon) iconClass.push(`at-icon-${icon}`)
 
     return (
-      this.state.show && (
+      show && (
         <View
-          className={classNames(
-            rootClassName,
-            classObject,
-            this.props.className
-          )}
+          className={classNames(rootClassName, classObject, className)}
           style={customStyle}
         >
           {close && (
@@ -169,12 +175,8 @@ export default class AtNoticebar extends React.Component<
             )}
             <View className='at-noticebar__content-text'>
               <View
-                id={this.state.animElemId}
-                animation={{
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                  // @ts-ignore
-                  actions: this.state.animationData
-                }}
+                id={animElemId}
+                animation={animationData}
                 className={classNames(innerClassName)}
                 style={style}
               >
@@ -187,7 +189,7 @@ export default class AtNoticebar extends React.Component<
               className='at-noticebar__more'
               onClick={this.onGotoMore.bind(this)}
             >
-              <Text className='text'>{_moreText}</Text>
+              <Text className='text'>{moreText}</Text>
               <View className='at-noticebar__more-icon'>
                 <Text className='at-icon at-icon-chevron-right'></Text>
               </View>
