@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "UI KIT for Taro",
   "browser": "dist/index.umd.js",
   "module": "dist/index.esm.js",
@@ -57,9 +57,9 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "@tarojs/components": "3.0.0-beta.2",
-    "@tarojs/react": "3.0.0-beta.2",
-    "@tarojs/taro": "3.0.0-beta.2",
+    "@tarojs/components": "3.0.0-beta.4",
+    "@tarojs/react": "3.0.0-beta.4",
+    "@tarojs/taro": "3.0.0-beta.4",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.23",
@@ -73,8 +73,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@tarojs/components": ">=3.0.0-beta.2",
-    "@tarojs/react": ">=3.0.0-beta.2",
+    "@tarojs/components": ">=3.0.0-beta.4",
+    "@tarojs/react": ">=3.0.0-beta.4",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0"
   }
