@@ -169,9 +169,8 @@ export default class AtNoticebar extends AtComponent<
             )}
             <View className='at-noticebar__content-text'>
               <View
-                animation={{
-                  actions: this.state.animationData
-                }}
+                // @ts-ignore
+                animation={this.state.animationData}
                 className={classNames(innerClassName)}
                 style={style}
               >
