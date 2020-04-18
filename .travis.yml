@@ -23,21 +23,21 @@ jobs:
       script:
         - yarn run test:ci
     - stage: release
-      if: "(tag =~ /^v3/) AND (NOT (type IN (pull_request)))"
+      if: "(tag =~ /^taro-ui@3/) AND (NOT (type IN (pull_request)))"
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
         - export PATH="$HOME/.yarn/bin:$PATH"
       install:
         - yarn --frozen-lockfile
       before_script:
-        - yarn run clean
+        - yarn run clean:component
       script:
-        - yarn run build
+        - yarn run build:component
       before_deploy:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
       deploy:
         provider: script
-        cleanup: false
+        skip_cleanup: true
         script: "yarn run publish"
         on:
           tags: true
