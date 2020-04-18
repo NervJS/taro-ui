@@ -1,3 +1,20 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 3.0.0-alpha.2 (2020-04-18)
+
+
+### Bug Fixes
+
+* 修复 NoticeBar 的 animation 属性问题 close [#1005](https://github.com/nervjs/taro-ui/issues/1005) ([c453770](https://github.com/nervjs/taro-ui/commit/c453770e7437f8f706a279079d991db25cdd6ae8))
+* 修复 SwipeAction 的 onOpened, onClosed 方法判断问题 close [#1004](https://github.com/nervjs/taro-ui/issues/1004) ([7edf2e2](https://github.com/nervjs/taro-ui/commit/7edf2e2f00124d143f166353445f9349455ffeb3))
+
+
+
+
+
 # [3.0.0-alpha.1](https://github.com/nervjs/taro-ui/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2020-04-04)
 
 
@@ -1157,6 +1174,3 @@
 * 新增表单组件 ([c8b1fa3](https://github.com/nervjs/taro-ui/commit/c8b1fa33a9f493923c2a6eb794fc6f0f088ed766))
 * 更改 mixins 引入路径&StyleLint ([485daad](https://github.com/nervjs/taro-ui/commit/485daad2a1f66135ed6804527f4444d390e70004))
 * 添加默认主题的 SCSS 变量 ([d79ebdf](https://github.com/nervjs/taro-ui/commit/d79ebdfca4d743ce1580c48cd1a3204eed948754))
-
-
-
