@@ -33,7 +33,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
-    "taro-ui-demo": "*"
+    "taro-ui-demo": "file:../taro-ui-demo"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
