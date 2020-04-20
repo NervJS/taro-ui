@@ -13,14 +13,15 @@
 ## 使用指南
 
 在 Taro 文件中引入组件
+
 > 注意，这边引入的是 taro 的基础组件库
 
 :::demo
-
 ```js
 import { Picker } from '@tarojs/components'
 import { AtList, AtListItem } from 'taro-ui'
 ```
+:::
 
 **组件依赖的样式文件（仅按需引用时需要）**
 
@@ -28,8 +29,6 @@ import { AtList, AtListItem } from 'taro-ui'
 ```scss
 @import "~taro-ui/dist/style/components/list.scss";
 ```
-:::
-
 :::
 
 ## 示例
