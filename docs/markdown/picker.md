@@ -4,6 +4,7 @@
 
 从底部弹起的滚动选择器，这里用的是微信小程序自带的 `Picker` 原生组件，`taro-ui` 引用的是 `taro` 封装的基础组件。
 现支持四种选择器，通过 `mode` 来区分（默认是普通选择器），分别是：
+
 - 普通选择器
 - 多列选择器
 - 时间选择器
@@ -12,13 +13,22 @@
 ## 使用指南
 
 在 Taro 文件中引入组件
-> 注意，这边引入的是 taro 的基础组件库，H5 版本的 Picker 字体大小有问题，会在下个版本修复
+> 注意，这边引入的是 taro 的基础组件库
 
 :::demo
 
 ```js
 import { Picker } from '@tarojs/components'
+import { AtList, AtListItem } from 'taro-ui'
 ```
+
+**组件依赖的样式文件（仅按需引用时需要）**
+
+:::demo
+```scss
+@import "~taro-ui/dist/style/components/list.scss";
+```
+:::
 
 :::
 
@@ -29,6 +39,7 @@ import { Picker } from '@tarojs/components'
 ```js
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Picker } from '@tarojs/components'
+import { AtList, AtListItem } from 'taro-ui'
 
 export default class PagePicker extends Component {
   state = {
@@ -63,9 +74,12 @@ export default class PagePicker extends Component {
             <Text>地区选择器</Text>
             <View>
               <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
-                <View className='picker'>
-                  当前选择：{this.state.selectorChecked}
-                </View>
+                <AtList>
+                  <AtListItem
+                    title='国家地区'
+                    extraText={this.state.selectorChecked}
+                  />
+                </AtList>
               </Picker>
             </View>
           </View>
@@ -73,9 +87,9 @@ export default class PagePicker extends Component {
             <Text>时间选择器</Text>
             <View>
               <Picker mode='time' onChange={this.onTimeChange}>
-                <View className='picker'>
-                  当前选择：{this.state.timeSel}
-                </View>
+                <AtList>
+                  <AtListItem title='请选择时间' extraText={this.state.timeSel} />
+                </AtList>
               </Picker>
             </View>
           </View>
@@ -83,9 +97,9 @@ export default class PagePicker extends Component {
             <Text>日期选择器</Text>
             <View>
               <Picker mode='date' onChange={this.onDateChange}>
-                <View className='picker'>
-                  当前选择：{this.state.dateSel}
-                </View>
+                <AtList>
+                  <AtListItem title='请选择日期' extraText={this.state.dateSel} />
+                </AtList>
               </Picker>
             </View>
           </View>
