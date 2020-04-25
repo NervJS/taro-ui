@@ -13,23 +13,23 @@ export default class CardPage extends Taro.Component<{}, CardPageState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       value1: false,
       value2: true,
       value3: false,
-      value4: false,
+      value4: false
     }
   }
 
-  private onClick (stateName: string, value: boolean): void {
+  private onClick(stateName: string, value: boolean): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { value1, value2, value3, value4 } = this.state
 
     return (
@@ -41,9 +41,9 @@ export default class CardPage extends Taro.Component<{}, CardPageState> {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  onClick={this.onClick.bind(this, 'value1')}
-                  title='标题一'
+                  title='基础用法'
                   open={value1}
+                  onClick={this.onClick.bind(this, 'value1')}
                 >
                   <AtList hasBorder={false}>
                     <AtListItem
@@ -57,9 +57,18 @@ export default class CardPage extends Taro.Component<{}, CardPageState> {
                     />
                   </AtList>
                 </AtAccordion>
+              </View>
+            </View>
+          </View>
+
+          {/* 默认开启 */}
+          <View className='panel'>
+            <View className='panel__title'>默认开启</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
                 <AtAccordion
-                  open={value2}
                   title='默认开启'
+                  open={value2}
                   onClick={this.onClick.bind(this, 'value2')}
                 >
                   <AtList hasBorder={false}>
@@ -89,8 +98,8 @@ export default class CardPage extends Taro.Component<{}, CardPageState> {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  title='标题三'
-                  open={value4}
+                  title='配置图标'
+                  open={value3}
                   icon={{ value: 'tags', color: '#77a1fd' }}
                   onClick={this.onClick.bind(this, 'value3')}
                 >
@@ -116,11 +125,11 @@ export default class CardPage extends Taro.Component<{}, CardPageState> {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  title='标题三'
+                  title='包含描述信息'
                   note='描述信息'
-                  open={value3}
+                  open={value4}
                   icon={{ value: 'tags', color: '#77a1fd' }}
-                  onClick={this.onClick.bind(this, 'value3')}
+                  onClick={this.onClick.bind(this, 'value4')}
                 >
                   <AtList hasBorder={false}>
                     <AtListItem
