@@ -1,3 +1,15 @@
+## [2.3.4](https://github.com/nervjs/taro-ui/compare/v2.3.3...v2.3.4) (2020-04-25)
+
+
+### Bug Fixes
+
+* **accordion:** 修复 Accordion 示例的 Bug, close [#995](https://github.com/nervjs/taro-ui/issues/995) ([ebcf943](https://github.com/nervjs/taro-ui/commit/ebcf943593d45b153cc740c13b946e9a89bee53e))
+* **calendar:** 纯日期 key 导致下月 key 重复，样式更新失败 close [#1024](https://github.com/nervjs/taro-ui/issues/1024) ([9fb3515](https://github.com/nervjs/taro-ui/commit/9fb3515e82c98f234dcd789a98bdec62ee561f22))
+* **range:** 在 delayQuerySelector 时增加 30ms 延迟, close [#1021](https://github.com/nervjs/taro-ui/issues/1021) ([9f4f025](https://github.com/nervjs/taro-ui/commit/9f4f0254da23819a2bb1f9ff15d8f4d79e4fd053))
+* 修复 NoticeBar 的 animation 属性问题 close [#993](https://github.com/nervjs/taro-ui/issues/993) ([e12d1c9](https://github.com/nervjs/taro-ui/commit/e12d1c9fc4a6be750631344988bb1c86a09296c6))
+
+
+
 ## [2.3.3](https://github.com/nervjs/taro-ui/compare/v2.3.2...v2.3.3) (2020-04-11)
 
 
