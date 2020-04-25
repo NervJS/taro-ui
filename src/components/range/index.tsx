@@ -100,11 +100,10 @@ export default class AtRange extends AtComponent<AtRangeProps, AtRangeState> {
   }
 
   private updatePos(): void {
-    delayQuerySelector(this, '.at-range__container', 0)
-      .then(rect => {
-        this.width = Math.round(rect[0].width)
-        this.left = Math.round(rect[0].left)
-      })
+    delayQuerySelector(this, '.at-range__container', 30).then(rect => {
+      this.width = Math.round(rect[0].width)
+      this.left = Math.round(rect[0].left)
+    })
   }
 
   public componentWillReceiveProps(nextProps: AtRangeProps): void {
