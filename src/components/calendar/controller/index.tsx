@@ -33,10 +33,10 @@ export default class AtCalendarController extends Taro.Component<
       dayjsMaxDate && dayjsMaxDate.startOf('month').isSame(dayjsDate)
 
     const minDateValue: string = dayjsMinDate
-      ? dayjsMinDate.format('YYYY-MM')
+      ? dayjsMinDate.format('YYYY-MM-DD')
       : ''
     const maxDateValue: string = dayjsMaxDate
-      ? dayjsMaxDate.format('YYYY-MM')
+      ? dayjsMaxDate.format('YYYY-MM-DD')
       : ''
 
     return (
@@ -55,7 +55,7 @@ export default class AtCalendarController extends Taro.Component<
           end={maxDateValue}
           start={minDateValue}
           onChange={this.props.onSelectDate}
-          value={dayjsDate.format('YYYY-MM')}
+          value={dayjsDate.format('YYYY-MM-DD')}
         >
           <Text className='controller__info'>
             {dayjsDate.format(monthFormat)}
