@@ -45,6 +45,7 @@ import { AtFloatLayout } from "taro-ui"
 | scrollX             | 是否水平滚动                               | Boolean | -      | `false` |
 | scrollTop           | 设置竖向滚动条位置                         | Boolean | -      | `false` |
 | scrollLeft          | 设置横向滚动条位置                         | Boolean | -      | `false` |
+| closeOnClickOverlay | 点击浮层的时候时候自动关闭 | Boolean | -      | `true` |
 | upperThreshold      | 距顶部/左边多远时，触发 scrolltolower 事件 | Boolean | -      | `false` |
 | lowerThreshold      | 距底部/右边多远时，触发 scrolltolower 事件 | Boolean | -      | `false` |
 | scrollWithAnimation | 在设置滚动条位置时使用动画过渡             | Boolean | -      | `false` |
