@@ -133,6 +133,7 @@ AtFloatLayout.defaultProps = {
   scrollY: true,
   scrollX: false,
   scrollWithAnimation: false,
+  closeOnClickOverlay: true
 
   onClose: () => {},
   onScroll: () => {},
@@ -150,6 +151,7 @@ AtFloatLayout.propTypes = {
   upperThreshold: PropTypes.number,
   lowerThreshold: PropTypes.number,
   scrollWithAnimation: PropTypes.bool,
+  closeOnClickOverlay: PropTypes.bool,
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
