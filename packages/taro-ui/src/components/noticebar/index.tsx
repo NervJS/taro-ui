@@ -22,7 +22,9 @@ export default class AtNoticebar extends React.Component<
     this.state = {
       show: true,
       animElemId,
-      animationData: [{}],
+      animationData: {
+        actions: [{}]
+      },
       dura: 15,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
       isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,

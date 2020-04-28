@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
@@ -51,7 +51,9 @@ export interface AtNoticeBarProps extends AtComponent {
 export interface AtNoticeBarState {
   show: boolean
   animElemId: string
-  animationData: object[]
+  animationData: {
+    actions: object[]
+  }
   dura: number
   isWEAPP: boolean
   isALIPAY: boolean
