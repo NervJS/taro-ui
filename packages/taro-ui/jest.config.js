@@ -26,5 +26,6 @@ module.exports = {
   setupFilesAfterEnv: [
     `<rootDir>/packages/${pack.name}/test/setup/setupEnzyme.js`
   ],
+  collectCoverage: true,
   coverageDirectory: `<rootDir>/packages/${pack.name}/coverage`
 }
