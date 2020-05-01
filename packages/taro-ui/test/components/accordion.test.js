@@ -1,48 +1,67 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React, { useState } from 'react'
+import { mount } from 'enzyme'
 import AtAccordion from '../../lib/components/accordion'
 
-describe('AtAccordion Component', () => {
-  it('render initial AtAccordion', () => {
-    const component = shallow(<AtAccordion />)
+const iconObject = { prefixClass: 'prefix', value: 'chevron-down', color: 'red' }
+const iconStyle = { color: 'red', fontSize: 'undefinedpx' } // TODO: 确保不出现 undefinedpx
+
+const TestComponent = () => {
+  const [open, setOpen] = useState(false)
+  const handleSetOpen = (value) => {
+    setOpen(value)
+  }
+  return (
+    <AtAccordion open={open} onClick={handleSetOpen} />
+  )
+}
+
+describe('Accordion Component', () => {
+  it('render initial Accordion', () => {
+    const component = mount(<AtAccordion />)
+    expect(component.find('taro-view-core')).toHaveLength(8)
+    expect(component.find('taro-text-core')).toHaveLength(1)
+    expect(component.html()).toMatchSnapshot()
+  })
+
+  it('render Accordion -- props title', () => {
+    const component = mount(<AtAccordion title='title' />)
+    expect(component.prop('title')).toBe('title')
+    expect(component.html()).toMatchSnapshot()
+  })
+
+  it('render Accordion -- props open', () => {
+    const component = mount(<AtAccordion open />)
+    expect(component.find('.at-accordion__arrow--folded').length).toBeGreaterThanOrEqual(1)
+    expect(component.html()).toMatchSnapshot()
+  })
+
+  it('render Accordion -- props hasBorder', () => {
+    const component = mount(<AtAccordion hasBorder={false} />)
+    expect(component.find('.at-accordion__header--noborder').length).toBeGreaterThanOrEqual(1)
+    expect(component.html()).toMatchSnapshot()
+  })
+
+  it('render Accordion -- props icon', () => {
+    const component = mount(<AtAccordion icon={iconObject} />)
+    expect(component.props().icon).toEqual(iconObject)
+    expect(component.find('.prefix.prefix-chevron-down').length).toBeGreaterThanOrEqual(1)
+    expect(component.find('.prefix.prefix-chevron-down').first().prop('className')).toBe('prefix prefix-chevron-down at-accordion__icon')
+    expect(component.find('.prefix.prefix-chevron-down').first().prop('style')).toEqual(iconStyle)
     expect(component).toMatchSnapshot()
   })
 
-  // it('render AtAccordion -- props title', () => {
-  //   const component = renderToString(<AtAccordion title='title' />)
-  //   expect(component).toMatchSnapshot()
-  // })
+  it('render Accordion -- props note', () => {
+    const component = mount(<AtAccordion note='note' />)
+    expect(component.prop('note')).toBe('note')
+    expect(component).toMatchSnapshot()
+  })
+})
 
-  // it('render AtAccordion -- props open', () => {
-  //   const component = renderToString(<AtAccordion open />)
-  //   expect(component).toMatchSnapshot()
-  // })
-
-  // it('render AtAccordion -- props icon', () => {
-  //   const component = renderToString(
-  //     <AtAccordion icon={{ value: 'chevron-down', color: 'red' }}>
-  //       <View></View>
-  //     </AtAccordion>
-  //   )
-  //   expect(component).toMatchSnapshot()
-  // })
-  // it('render AtIcon -- props icon prefixClass', () => {
-  //   const component = renderToString(
-  //     <AtAccordion
-  //       icon={{ prefixClass: 'prefixClass', value: 'star', color: 'red' }}
-  //     >
-  //       <View></View>
-  //     </AtAccordion>
-  //   )
-  //   expect(component).toMatchSnapshot()
-  // })
-
-  // it('render AtAccordion -- props note', () => {
-  //   const component = renderToString(
-  //     <AtAccordion note='note'>
-  //       <View></View>
-  //     </AtAccordion>
-  //   )
-  //   expect(component).toMatchSnapshot()
-  // })
+describe('Accordion Behavior', () => {
+  it('handle Accordion -- event onClick', () => {
+    const handleClick = jest.fn()
+    const component = mount(<AtAccordion onClick={handleClick} />)
+    component.instance().handleClick()
+    expect(handleClick).toBeCalled()
+  })
 })

@@ -17576,7 +17576,7 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "3.0.0-beta.5"
     react "^16.10.0"
     react-dom "^16.10.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.1-92ce01c6-a905-44bd-8d61-83a91fdce68b-1588090587960/node_modules/taro-ui"
+    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.1-9ac00b0b-e15e-43ca-b1b7-801a34beaad8-1588355006634/node_modules/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
   version "3.0.0-alpha.2"
