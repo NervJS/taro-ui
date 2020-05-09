@@ -9,7 +9,7 @@ const config = {
   designWidth: 750,
   sourceRoot: 'src',
   outputRoot: isBuildComponent ? 'dist' : `dist/${process.env.TARO_ENV}`,
-  plugins: {},
+  plugins: [],
   babel: {
     sourceMap: true,
     presets: [
