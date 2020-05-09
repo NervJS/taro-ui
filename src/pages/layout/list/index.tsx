@@ -69,7 +69,8 @@ export default class ListPage extends Component {
                   <AtListItem
                     title='标题文字'
                     arrow='right'
-                    thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
+                    thumb='https://bp-file-1301098965.cos.ap-shanghai.myqcloud.com/other/ic_baby_a.png'
+                    thumbMode='aspectFit'
                   />
                   <AtListItem
                     title='标题文字'
