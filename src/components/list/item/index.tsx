@@ -35,7 +35,6 @@ export default class AtListItem extends AtComponent<AtListItemProps> {
       note,
       arrow,
       thumb,
-      thumbMode = 'scaleToFill',
       iconInfo,
       disabled,
       isSwitch,
@@ -76,7 +75,7 @@ export default class AtListItem extends AtComponent<AtListItemProps> {
             <View className='at-list__item-thumb item-thumb'>
               <Image
                 className='item-thumb__info'
-                mode={thumbMode}
+                mode='scaleToFill'
                 src={thumb}
               />
             </View>
