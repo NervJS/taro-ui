@@ -76,6 +76,7 @@ export default class Index extends Taro.Component {
       </View>
     )
   }
+ }
 ```
 
 :::
