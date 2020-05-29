@@ -133,7 +133,7 @@ export default class AtImagePicker extends AtComponent<AtImagePickerProps> {
                 </View>
               ) : (
                 <View
-                  className='at-image-picker__flex-item'
+                  className='at-image-picker__flex-item at-image-picker__choose-btn-item'
                   key={i * length! + j}
                 >
                   {item.type === 'btn' && (
