@@ -42,23 +42,23 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@tarojs/components": "3.0.0-beta.5",
-    "@tarojs/react": "3.0.0-beta.5",
-    "@tarojs/runtime": "3.0.0-beta.5",
-    "@tarojs/taro": "3.0.0-beta.5",
+    "@tarojs/components": "3.0.0-rc.3",
+    "@tarojs/react": "3.0.0-rc.3",
+    "@tarojs/runtime": "3.0.0-rc.3",
+    "@tarojs/taro": "3.0.0-rc.3",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "taro-ui": "file:../taro-ui"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
-    "@tarojs/cli": "3.0.0-beta.5",
-    "@tarojs/mini-runner": "3.0.0-beta.5",
-    "@tarojs/webpack-runner": "3.0.0-beta.5",
+    "@tarojs/cli": "3.0.0-rc.3",
+    "@tarojs/mini-runner": "3.0.0-rc.3",
+    "@tarojs/webpack-runner": "3.0.0-rc.3",
     "@types/react": "^16.0.0",
     "@types/webpack-env": "^1.13.6",
-    "babel-preset-taro": "3.0.0-beta.5",
-    "eslint-config-taro": "3.0.0-beta.5",
+    "babel-preset-taro": "3.0.0-rc.3",
+    "eslint-config-taro": "3.0.0-rc.3",
     "typescript": "^3.8.3"
   }
 }

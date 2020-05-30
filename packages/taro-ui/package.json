@@ -41,7 +41,7 @@
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "test": "cross-env NODE_ENV=test && jest --coverage",
+    "test": "jest --coverage",
     "test:ci": "yarn run build:h5 && yarn run test",
     "test:analyze": "rollup --config ./config/rollup.config.analyze.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -62,9 +62,9 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "@tarojs/components": "3.0.0-beta.5",
-    "@tarojs/react": "3.0.0-beta.5",
-    "@tarojs/taro": "3.0.0-beta.5",
+    "@tarojs/components": "3.0.0-rc.3",
+    "@tarojs/react": "3.0.0-rc.3",
+    "@tarojs/taro": "3.0.0-rc.3",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
@@ -85,8 +85,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@tarojs/components": ">=3.0.0-beta.4",
-    "@tarojs/react": ">=3.0.0-beta.4",
+    "@tarojs/components": ">=3.0.0-rc.3",
+    "@tarojs/react": ">=3.0.0-rc.3",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0"
   }
