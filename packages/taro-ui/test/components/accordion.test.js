@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { mount } from 'enzyme'
 import AtAccordion from '../../lib/components/accordion'
 
-const iconObject = { prefixClass: 'prefix', value: 'chevron-down', color: 'red' }
-const iconStyle = { color: 'red', fontSize: 'undefinedpx' } // TODO: 确保不出现 undefinedpx
-
-const TestComponent = () => {
-  const [open, setOpen] = useState(false)
-  const handleSetOpen = (value) => {
-    setOpen(value)
-  }
-  return (
-    <AtAccordion open={open} onClick={handleSetOpen} />
-  )
+const iconObject = {
+  prefixClass: 'prefix',
+  value: 'chevron-down',
+  color: 'red'
 }
+const iconStyle = { color: 'red', fontSize: 'undefinedpx' } // TODO: 确保不出现 undefinedpx
 
 describe('Accordion Component', () => {
   it('render initial Accordion', () => {
@@ -31,22 +25,32 @@ describe('Accordion Component', () => {
 
   it('render Accordion -- props open', () => {
     const component = mount(<AtAccordion open />)
-    expect(component.find('.at-accordion__arrow--folded').length).toBeGreaterThanOrEqual(1)
+    expect(
+      component.find('.at-accordion__arrow--folded').length
+    ).toBeGreaterThanOrEqual(1)
     expect(component.html()).toMatchSnapshot()
   })
 
   it('render Accordion -- props hasBorder', () => {
     const component = mount(<AtAccordion hasBorder={false} />)
-    expect(component.find('.at-accordion__header--noborder').length).toBeGreaterThanOrEqual(1)
+    expect(
+      component.find('.at-accordion__header--noborder').length
+    ).toBeGreaterThanOrEqual(1)
     expect(component.html()).toMatchSnapshot()
   })
 
   it('render Accordion -- props icon', () => {
     const component = mount(<AtAccordion icon={iconObject} />)
     expect(component.props().icon).toEqual(iconObject)
-    expect(component.find('.prefix.prefix-chevron-down').length).toBeGreaterThanOrEqual(1)
-    expect(component.find('.prefix.prefix-chevron-down').first().prop('className')).toBe('prefix prefix-chevron-down at-accordion__icon')
-    expect(component.find('.prefix.prefix-chevron-down').first().prop('style')).toEqual(iconStyle)
+    expect(
+      component.find('.prefix.prefix-chevron-down').length
+    ).toBeGreaterThanOrEqual(1)
+    expect(
+      component.find('.prefix.prefix-chevron-down').first().prop('className')
+    ).toBe('prefix prefix-chevron-down at-accordion__icon')
+    expect(
+      component.find('.prefix.prefix-chevron-down').first().prop('style')
+    ).toEqual(iconStyle)
     expect(component).toMatchSnapshot()
   })
 

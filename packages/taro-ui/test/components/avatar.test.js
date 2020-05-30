@@ -19,7 +19,9 @@ describe('Avatar Component', () => {
 
   it('render Avatar -- props size(normal) ', () => {
     const component = mount(<AtAvatar size='normal' />)
-    expect(component.find('.at-avatar--normal').length).toBeGreaterThanOrEqual(1)
+    expect(component.find('.at-avatar--normal').length).toBeGreaterThanOrEqual(
+      1
+    )
     expect(component.html()).toMatchSnapshot()
   })
 
@@ -31,17 +33,19 @@ describe('Avatar Component', () => {
 
   it('render Avatar -- props circle', () => {
     const component = mount(<AtAvatar circle />)
-    expect(component.find('.at-avatar--circle').length).toBeGreaterThanOrEqual(1)
+    expect(component.find('.at-avatar--circle').length).toBeGreaterThanOrEqual(
+      1
+    )
     expect(component.html()).toMatchSnapshot()
   })
 
   it('render Avatar -- props image', () => {
-    const component = mount(
-      <AtAvatar image='https://jdc.jd.com/img/100' />
-    )
+    const component = mount(<AtAvatar image='https://jdc.jd.com/img/100' />)
     expect(component.prop('image')).toBe('https://jdc.jd.com/img/100')
     expect(component.find('taro-image-core')).toHaveLength(1)
-    expect(component.find('.at-avatar__img').first().prop('src')).toBe('https://jdc.jd.com/img/100')
+    expect(component.find('.at-avatar__img').first().prop('src')).toBe(
+      'https://jdc.jd.com/img/100'
+    )
     expect(component.html()).toMatchSnapshot()
   })
 

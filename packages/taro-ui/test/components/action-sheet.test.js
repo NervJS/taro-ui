@@ -12,8 +12,12 @@ describe('ActionSheet Component', () => {
       </AtActionSheet>
     )
     expect(component.find('taro-view-core')).toHaveLength(6)
-    expect(component.find('.at-action-sheet__item').children().first().text()).toBe('按钮一')
-    expect(component.find('.at-action-sheet__item').children().last().text()).toBe('按钮二')
+    expect(
+      component.find('.at-action-sheet__item').children().first().text()
+    ).toBe('按钮一')
+    expect(
+      component.find('.at-action-sheet__item').children().last().text()
+    ).toBe('按钮二')
     expect(component.html()).toMatchSnapshot()
   })
 
@@ -24,7 +28,9 @@ describe('ActionSheet Component', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component.find('.at-action-sheet__header').children().first().text()).toBe('title')
+    expect(
+      component.find('.at-action-sheet__header').children().first().text()
+    ).toBe('title')
     expect(component.html()).toMatchSnapshot()
   })
 
@@ -35,7 +41,9 @@ describe('ActionSheet Component', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component.find('.at-action-sheet__footer').children().first().text()).toBe('cancel')
+    expect(
+      component.find('.at-action-sheet__footer').children().first().text()
+    ).toBe('cancel')
     expect(component.html()).toMatchSnapshot()
   })
 
@@ -46,7 +54,9 @@ describe('ActionSheet Component', () => {
         <AtActionSheetItem>按钮二</AtActionSheetItem>
       </AtActionSheet>
     )
-    expect(component.find('.at-action-sheet--active').length).toBeGreaterThanOrEqual(1)
+    expect(
+      component.find('.at-action-sheet--active').length
+    ).toBeGreaterThanOrEqual(1)
     expect(component.html()).toMatchSnapshot()
   })
 })
