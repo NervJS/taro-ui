@@ -15,14 +15,14 @@ import {
 
 type PickAtInputProps = Pick<
   AtInputProps,
-  'maxLength' | 'disabled' | 'password'
+  'maxlength' | 'disabled' | 'password'
 >
 type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
 
 function getInputProps(props: AtInputProps): GetInputPropsReturn {
   const actualProps = {
     type: props.type,
-    maxLength: props.maxLength,
+    maxLength: props.maxlength,
     disabled: props.disabled,
     password: false
   }
@@ -129,7 +129,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       value,
       required
     } = this.props
-    const { type, maxLength, disabled, password } = getInputProps(this.props)
+    const { type, maxlength, disabled, password } = getInputProps(this.props)
 
     const rootCls = classNames(
       'at-input',
@@ -171,7 +171,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             placeholderClass={placeholderCls}
             placeholder={placeholder}
             cursorSpacing={cursorSpacing}
-            maxLength={maxLength}
+            maxlength={maxlength}
             autoFocus={autoFocus}
             focus={focus}
             value={value}
@@ -223,7 +223,7 @@ AtInput.defaultProps = {
   selectionStart: -1,
   selectionEnd: -1,
   adjustPosition: true,
-  maxLength: 140,
+  maxlength: 140,
   type: 'text',
   disabled: false,
   border: true,
@@ -252,7 +252,7 @@ AtInput.propTypes = {
   selectionEnd: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   adjustPosition: PropTypes.bool,
   cursorSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  maxlength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   type: PropTypes.string,
   disabled: PropTypes.bool,
   border: PropTypes.bool,
