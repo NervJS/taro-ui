@@ -120,7 +120,7 @@ handleActionClick () {
 | isVibrate | 是否切换 key 的震动，只在微信小程序有效 | Boolean  | - | true |
 | isShowToast | 是否用弹框显示当前 key | Boolean  | - | true |
 | topKey | 右侧导航第一个名称 | String  | - | Top |
-| list | `[ {'{title:列表标题,key:右侧导航标题,items:[{name: 列表项内容}]}'}]` | Array  | - | - |
+| list | `[ {'{title:列表标题,key:右侧导航标题,items:[{name: 列表项内容, thumb?: 元素的主要缩略图 ,iconInfo?: icon 信息 { value , size? , color?, prefixClass?,className?,customStyle? } }]}'}]` | Array  | - | - |
 
 ## 事件
 
