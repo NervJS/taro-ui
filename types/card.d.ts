@@ -7,7 +7,7 @@ export interface AtCardProps extends AtComponent {
   /**
    * 元素的辅助信息
    */
-  note?: string
+  note?: JSX.Element
   /**
    * 是否通栏
    */
@@ -19,11 +19,11 @@ export interface AtCardProps extends AtComponent {
   /**
    * 元素的标题
    */
-  title?: string
+  title?: JSX.Element
   /**
    * 元素的额外信息
    */
-  extra?: string
+  extra?: JSX.Element
   /**
    * 元素的额外信息自定义样式
    */
