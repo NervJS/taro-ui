@@ -23,18 +23,16 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
     }
   }
 
-  public componentWillReceiveProps(nextProps: AtModalProps): void {
-    const { isOpened } = nextProps
-
-    if (this.props.isOpened !== isOpened) {
+  static getDerivedStateFromProps(props: AtModalProps, state) {
+    const { isOpened } = props;
+    const {_isOpened} = state
+    if(isOpened !== _isOpened){
       handleTouchScroll(isOpened)
-    }
-
-    if (isOpened !== this.state._isOpened) {
-      this.setState({
+      return {
         _isOpened: isOpened
-      })
+      }
     }
+    return null
   }
 
   private handleClickOverlay = (): void => {
