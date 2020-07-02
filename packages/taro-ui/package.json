@@ -62,9 +62,9 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "@tarojs/components": "3.0.0-rc.3",
-    "@tarojs/react": "3.0.0-rc.3",
-    "@tarojs/taro": "3.0.0-rc.3",
+    "@tarojs/components": "~3.0.2",
+    "@tarojs/react": "~3.0.2",
+    "@tarojs/taro": "~3.0.2",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
@@ -85,8 +85,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@tarojs/components": ">=3.0.0-rc.3",
-    "@tarojs/react": ">=3.0.0-rc.3",
+    "@tarojs/components": ">=3",
+    "@tarojs/react": ">=3",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0"
   }
