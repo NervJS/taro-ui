@@ -23,7 +23,7 @@ jobs:
       script:
         - yarn run test:ci
     - stage: release
-      if: "(tag =~ /^taro-ui@3/) AND (NOT (type IN (pull_request)))"
+      if: "(tag =~ /^v3/) AND (NOT (type IN (pull_request)))"
       before_install:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
         - export PATH="$HOME/.yarn/bin:$PATH"
