@@ -175,6 +175,24 @@
     },
     {
       "files": [
+        "packages/taro-ui-demo/**/*.ts",
+        "packages/taro-ui-demo/**/*.tsx"
+      ],
+      "extends": [
+        "taro/react"
+      ]
+    },
+    {
+      "files": [
+        "packages/taro-ui-demo/config/*.js",
+        "packages/taro-ui-demo/babel.config.js"
+      ],
+      "rules": {
+        "import/no-commonjs": "off"
+      }
+    },
+    {
+      "files": [
         "packages/**/test/**/*.test.js",
         "packages/**/test/**/test.js"
       ],
