@@ -4,7 +4,7 @@
 
 一款基于 `Taro` 框架开发的多端 UI 组件库
 
-> Taro UI 3 目前仍在开发中，在 `next` 分支，已经支持到 Taro v3.0.0-alpha.3，如体验需安装 Taro CLI v3.0.0-alpha.3
+> Taro UI 3 目前仍在开发中，在 [`next`](https://github.com/NervJS/taro-ui/tree/next) 分支，已经支持到 Taro v3.0.0-alpha.3，如体验，安装命令 `npm i —save taro-ui@next`
 
 ## 特性
 
