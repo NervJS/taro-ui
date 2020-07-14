@@ -22,7 +22,7 @@ type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
 function getInputProps(props: AtInputProps): GetInputPropsReturn {
   const actualProps = {
     type: props.type,
-    maxLength: props.maxlength,
+    maxlength: props.maxlength,
     disabled: props.disabled,
     password: false
   }
@@ -30,7 +30,7 @@ function getInputProps(props: AtInputProps): GetInputPropsReturn {
   switch (actualProps.type) {
     case 'phone':
       actualProps.type = 'number'
-      actualProps.maxLength = 11
+      actualProps.maxlength = 11
       break
     case 'password':
       actualProps.type = 'text'
