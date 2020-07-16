@@ -46,5 +46,6 @@ export default {
   tabs: 'navigation/tabs',
   indexes: 'navigation/indexes',
   calendar: 'advanced/calendar',
+  ellipsis: 'advanced/ellipsis',
   form: 'form/form'
 }
