@@ -53,7 +53,8 @@ export default {
     'pages/form/image-picker/index',
     'pages/form/range/index',
     'pages/advanced/calendar/index',
-    'pages/theme/index'
+    'pages/theme/index',
+    'pages/advanced/ellipsis/index'
   ],
   window: {
     backgroundTextStyle: 'light',

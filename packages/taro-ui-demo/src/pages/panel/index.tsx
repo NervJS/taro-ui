@@ -282,6 +282,10 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
           {
             id: 'Calendar',
             name: '日历'
+          },
+          {
+            id: 'Ellipsis',
+            name: '省略器'
           }
         ]
       },
