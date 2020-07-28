@@ -8,7 +8,7 @@ import { delayQuerySelector } from '../../../common/utils'
 export default class AtSwipeActionOptions extends AtComponent<
   AtSwipeActionOptionsProps
 > {
-  private trrigerOptionsDomUpadte(): void {
+  private triggerOptionsDomUpadte(): void {
     delayQuerySelector(
       this,
       `#swipeActionOptions-${this.props.componentId}`
@@ -18,12 +18,12 @@ export default class AtSwipeActionOptions extends AtComponent<
   }
 
   public componentDidMount(): void {
-    this.trrigerOptionsDomUpadte()
+    this.triggerOptionsDomUpadte()
   }
 
   public componentWillReceiveProps(nextProps: AtSwipeActionOptionsProps): void {
     if (nextProps.options !== this.props.options) {
-      this.trrigerOptionsDomUpadte()
+      this.triggerOptionsDomUpadte()
     }
   }
 
