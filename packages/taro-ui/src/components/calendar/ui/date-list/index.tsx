@@ -65,9 +65,7 @@ export default class AtCalendarList extends React.Component<Props> {
               {item.marks && item.marks.length > 0 ? (
                 <View className='extra-marks'>
                   {item.marks.map((mark, key) => (
-                    <Text key={key} className='mark'>
-                      {mark}
-                    </Text>
+                    <Text key={key} className='mark' />
                   ))}
                 </View>
               ) : null}
