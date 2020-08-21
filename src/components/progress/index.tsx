@@ -38,7 +38,7 @@ export default class AtProgress extends AtComponent<AtProgressProps> {
     const progressStyle = {
       width: percent && `${+percent}%`,
       height: strokeWidth && `${+strokeWidth}px`,
-      backgroundColor: color
+      background: color
     }
 
     return (
