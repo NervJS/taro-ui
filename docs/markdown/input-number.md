@@ -52,6 +52,7 @@ export default class Index extends Taro.Component {
   render () {
     return (
       <AtInputNumber
+        type="number"
         min={0}
         max={10}
         step={1}
@@ -90,6 +91,7 @@ export default class Index extends Taro.Component {
 ```html
 <AtInputNumber
   disabled
+  type="number"
   min={0}
   max={10}
   step={1}
@@ -107,6 +109,7 @@ export default class Index extends Taro.Component {
 ```html
 <AtInputNumber
   disabledInput
+  type="number"
   min={0}
   max={10}
   step={1}
@@ -123,6 +126,7 @@ export default class Index extends Taro.Component {
 
 ```html
 <AtInputNumber
+  type="number"
   min={0}
   max={10}
   step={1}
