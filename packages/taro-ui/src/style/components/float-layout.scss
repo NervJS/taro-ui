@@ -3,6 +3,12 @@
 
 $float-layout-timer: 300ms;
 
+/* To support the handleTouchScroll function in utils */
+.at-frozen {
+  position: fixed;
+  width: 100%;
+}
+
 .at-float-layout {
   position: fixed;
   width: 100%;

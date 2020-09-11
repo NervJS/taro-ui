@@ -3,6 +3,12 @@
 
 $at-modal-duration: 200ms;
 
+/* To support the handleTouchScroll function in utils */
+.at-frozen {
+  position: fixed;
+  width: 100%;
+}
+
 .at-modal {
   position: fixed;
   width: 100%;
