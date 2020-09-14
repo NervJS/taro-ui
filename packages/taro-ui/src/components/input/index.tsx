@@ -147,6 +147,7 @@ export default class AtInput extends React.Component<AtInputProps> {
     })
     const placeholderCls = classNames('placeholder', placeholderClass)
 
+    const id = name && { id: name }
     return (
       <View className={rootCls} style={customStyle}>
         <View className={containerCls}>
@@ -163,7 +164,7 @@ export default class AtInput extends React.Component<AtInputProps> {
           )}
           <Input
             className='at-input__input'
-            id={name}
+            {...id}
             name={name}
             type={type}
             password={password}
