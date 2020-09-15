@@ -3,7 +3,7 @@ on:
   # When Release Pull Request is merged
   push:
     branches:
-      - gh-pages
+      - master
 
 env:
   CI: true
@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - name: build
+        run: |
+          yarn --frozen-lockfile
+          yarn run build:doc
       - name: Deploy static to Tencent CloudBase
         id: deployStatic
         uses: TencentCloudBase/cloudbase-action@v1.1.1
@@ -20,4 +24,4 @@ jobs:
           secretId: ${{ secrets.TCB_SECRET_ID }}
           secretKey: ${{ secrets.TCB_SECRET_KEY }}
           envId: ${{ secrets.TCB_TARO_UI_ENV_ID }}
-          staticSrcPath: ./
+          staticSrcPath: site
