@@ -77,13 +77,17 @@ export default class AtCountdown extends AtComponent<
 
   private countdonwn(): void {
     const { day, hours, minutes, seconds } = this.calculateTime()
-
+    const { pause } = this.props
     this.setState({
       _day: day,
       _hours: hours,
       _minutes: minutes,
       _seconds: seconds
     })
+    if (pause) {
+      this.clearTimer()
+      return
+    }
     this.seconds--
 
     if (this.seconds < 0) {
