@@ -53,18 +53,22 @@ export interface AtSwipeActionProps extends AtComponent {
    * 完全关闭时触发
    */
   onClosed?: CommonEventFunction
+
+  maxDistance: number
+
+  areaWidth: number
 }
 
 export interface AtSwipeActionState {
   componentId: string
   offsetSize: number
   _isOpened: boolean
+  needAnimation: boolean
 }
 
 export interface AtSwipeActionOptionsProps extends AtComponent {
   componentId: string
   options: SwipeActionOption[]
-  onQueryedDom: (res: any) => void
 }
 
 declare const AtSwipeAction: ComponentClass<AtSwipeActionProps>

@@ -2,7 +2,6 @@
   "name": "taro-ui",
   "version": "3.0.0-alpha.3",
   "description": "UI KIT for Taro",
-  "browser": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
   "source": "src/index.ts",

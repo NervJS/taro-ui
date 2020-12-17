@@ -29,17 +29,6 @@ export default {
       file: resolveFile(Package.module),
       format: 'es',
       sourcemap: true
-    },
-    {
-      file: resolveFile(Package.browser),
-      format: 'umd',
-      name: 'taro-ui',
-      sourcemap: true,
-      globals: {
-        react: 'React',
-        '@tarojs/components': 'components',
-        '@tarojs/taro': 'Taro'
-      }
     }
   ],
   external: externalPackages,
