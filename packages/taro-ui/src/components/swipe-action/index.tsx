@@ -125,6 +125,10 @@ export default class AtSwipeAction extends React.Component<
     this.moveX = e.detail.x
   }
 
+  componentDidMount(): void {
+    this._reset(!!this.props.isOpened)
+  }
+
   public render(): JSX.Element {
     const { componentId, offsetSize } = this.state
     const { options } = this.props
