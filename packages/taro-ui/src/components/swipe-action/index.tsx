@@ -41,7 +41,9 @@ export default class AtSwipeAction extends React.Component<
     const { _isOpened } = this.state
 
     if (isOpened !== _isOpened) {
-      this._reset(!!isOpened) // TODO: Check behavior
+      const isOpened = !!this.props.isOpened
+      this.moveX = isOpened ? 0 : this.maxOffsetSize
+      this._reset(isOpened) // TODO: Check behavior
     }
   }
 
@@ -126,7 +128,9 @@ export default class AtSwipeAction extends React.Component<
   }
 
   componentDidMount(): void {
-    this._reset(!!this.props.isOpened)
+    const isOpened = !!this.props.isOpened
+    this.moveX = isOpened ? 0 : this.maxOffsetSize
+    this._reset(isOpened)
   }
 
   public render(): JSX.Element {
