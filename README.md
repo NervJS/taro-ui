@@ -4,6 +4,10 @@
 
 一款基于 `Taro` 框架开发的多端 UI 组件库
 
+> Taro 3 使用 Taro UI 安装命令： `npm i —save taro-ui@next`
+
+> Taro UI Vue 版请访问：https://github.com/psaren/taro-ui-vue 了解更多
+
 ## 特性
 
 - 基于 `Taro` 开发 UI 组件
