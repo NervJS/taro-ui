@@ -29,11 +29,12 @@ export default class AtSwipeAction extends React.Component<
     this.maxOffsetSize = maxDistance
     this.state = {
       componentId: uuid(),
-      offsetSize: 0,
+      // eslint-disable-next-line no-extra-boolean-cast
+      offsetSize: !!isOpened ? -this.maxOffsetSize : 0,
       _isOpened: !!isOpened,
       needAnimation: false
     }
-    this.moveX = 0
+    this.moveX = this.state.offsetSize
     this.eleWidth = areaWidth
     this.moveRatio = moveRatio || 0.5
   }
@@ -43,9 +44,8 @@ export default class AtSwipeAction extends React.Component<
     const { _isOpened } = this.state
 
     if (isOpened !== _isOpened) {
-      const isOpened = !!this.props.isOpened
       this.moveX = isOpened ? 0 : this.maxOffsetSize
-      this._reset(isOpened) // TODO: Check behavior
+      this._reset(!!isOpened) // TODO: Check behavior
     }
   }
 
@@ -53,7 +53,7 @@ export default class AtSwipeAction extends React.Component<
     if (isOpened) {
       this.setState({
         _isOpened: true,
-        offsetSize: 0
+        offsetSize: -this.maxOffsetSize
       })
     } else {
       this.setState(
@@ -62,7 +62,7 @@ export default class AtSwipeAction extends React.Component<
         },
         () => {
           this.setState({
-            offsetSize: this.maxOffsetSize,
+            offsetSize: 0,
             _isOpened: false
           })
         }
@@ -101,22 +101,22 @@ export default class AtSwipeAction extends React.Component<
   }
 
   onTouchEnd = e => {
-    if (this.moveX === 0) {
+    if (this.moveX === -this.maxOffsetSize) {
       this._reset(true)
       this.handleOpened(e)
       return
     }
-    if (this.moveX === this.maxOffsetSize) {
+    if (this.moveX === 0) {
       this._reset(false)
       this.handleClosed(e)
       return
     }
-    if (this.state._isOpened && this.moveX > 0) {
+    if (this.state._isOpened && this.moveX < 0) {
       this._reset(false)
       this.handleClosed(e)
       return
     }
-    if (this.maxOffsetSize - this.moveX < this.maxOffsetSize * this.moveRatio) {
+    if (Math.abs(this.moveX) < this.maxOffsetSize * this.moveRatio) {
       this._reset(false)
       this.handleClosed(e)
     } else {
@@ -127,12 +127,6 @@ export default class AtSwipeAction extends React.Component<
 
   onChange = e => {
     this.moveX = e.detail.x
-  }
-
-  componentDidMount(): void {
-    const isOpened = !!this.props.isOpened
-    this.moveX = isOpened ? 0 : this.maxOffsetSize
-    this._reset(isOpened)
   }
 
   public render(): JSX.Element {
@@ -163,7 +157,8 @@ export default class AtSwipeAction extends React.Component<
             onTouchEnd={this.onTouchEnd}
             onChange={this.onChange}
             style={{
-              width: `${this.eleWidth}px`
+              width: `${this.eleWidth}px`,
+              left: `${this.maxOffsetSize}px`
             }}
           >
             {this.props.children}
