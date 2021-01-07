@@ -350,7 +350,7 @@ export default class AtCalendarBody extends React.Component<
           onTouchStart={this.handleSwipeTouchStart}
         >
           {listGroup.map((item, key) => (
-            <SwiperItem key={item.value} itemId={key.toString()}>
+            <SwiperItem key={key} itemId={key.toString()}>
               <AtCalendarDateList
                 list={item.list}
                 onClick={this.props.onDayClick}
