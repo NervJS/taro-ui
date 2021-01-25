@@ -131,7 +131,7 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
               ) : (
                 <View
                   className='at-image-picker__flex-item'
-                  key={i * length + j}
+                  key={'empty_' + i * length + j}
                 >
                   {item.type === 'btn' && (
                     <View
