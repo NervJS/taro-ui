@@ -51,10 +51,17 @@ export default class AtSwipeAction extends React.Component<
 
   private _reset(isOpened: boolean): void {
     if (isOpened) {
-      this.setState({
-        _isOpened: true,
-        offsetSize: -this.maxOffsetSize
-      })
+      if (process.env.TARO_ENV === 'jd') {
+        this.setState({
+          _isOpened: true,
+          offsetSize: -this.maxOffsetSize + 0.01
+        })
+      } else {
+        this.setState({
+          _isOpened: true,
+          offsetSize: -this.maxOffsetSize
+        })
+      }
     } else {
       this.setState(
         {
