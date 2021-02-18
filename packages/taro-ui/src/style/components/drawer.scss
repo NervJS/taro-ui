@@ -1,7 +1,7 @@
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
-$at-drawer-duration: 300ms;
+$at-drawer-duration: 300ms !default;
 
 .at-drawer {
   position: relative;
