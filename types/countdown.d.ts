@@ -70,6 +70,10 @@ export interface AtCountDownProps extends AtComponent {
    * 倒计时时间到，执行的回调函数
    */
   onTimeUp?: Function
+  /**
+   * [description]
+   */
+  pause?: boolean
 }
 
 export interface AtCountdownState {
