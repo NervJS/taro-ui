@@ -119,7 +119,7 @@ AtFloatLayout.defaultProps = {
   title: '',
   isOpened: false,
 
-  scrollY: true,
+  scrollY: false,
   scrollX: false,
   scrollWithAnimation: false,
 

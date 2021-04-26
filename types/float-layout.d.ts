@@ -16,7 +16,7 @@ export interface AtFloatLayoutProps extends AtComponent {
   title?: string
   /**
    * 是否垂直滚动
-   * @default true
+   * @default false
    */
   scrollY?: boolean
   /**
