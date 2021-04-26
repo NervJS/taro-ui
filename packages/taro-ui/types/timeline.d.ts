@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { MouseEvent, ComponentClass, ReactNode } from 'react'
 
 import AtComponent from './base'
 
@@ -6,11 +6,11 @@ export interface Item {
   /**
    * 标题
    */
-  title: string
+  title: ReactNode
   /**
    * 子项内容
    */
-  content?: string[]
+  content?: ReactNode[]
   /**
    * 自定义 icon
    */
