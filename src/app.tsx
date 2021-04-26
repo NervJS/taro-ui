@@ -58,6 +58,7 @@ class App extends Component {
       'pages/form/image-picker/index',
       'pages/form/range/index',
       'pages/advanced/calendar/index',
+      'pages/advanced/ellipsis/index',
       'pages/theme/index'
     ],
     window: {
@@ -68,15 +69,15 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentCatchError () {}
+  componentCatchError() {}
 
-  render () {
+  render() {
     return <Index />
   }
 }

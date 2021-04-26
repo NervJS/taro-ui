@@ -1,0 +1,33 @@
+
+.at-ellipsis {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  word-break: break-all;
+
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  line-height: $line-height-zh;
+  font-size: $at-ellipsis-text-font-size;
+  color: $at-ellipsis-text-color;
+
+  &__block {
+    visibility: hidden;
+    height: 0;
+  }
+
+  &__btn {
+    position: absolute;
+    padding: 0 $spacing-h-sm;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  &--lineclamp {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+  }
+}

@@ -1,16 +1,16 @@
-import { Image, Text, View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro, { Component } from '@tarojs/taro';
+import { Image, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro, { Component } from '@tarojs/taro'
 
-import iconAction from '../../assets/images/icon-list-action.png';
-import iconBasic from '../../assets/images/icon-list-basic.png';
-import iconForm from '../../assets/images/icon-list-form.png';
-import iconHOC from '../../assets/images/icon-list-hoc.png';
-import iconLayout from '../../assets/images/icon-list-layout.png';
-import iconNavigation from '../../assets/images/icon-list-navigation.png';
-import iconView from '../../assets/images/icon-list-view.png';
+import iconAction from '../../assets/images/icon-list-action.png'
+import iconBasic from '../../assets/images/icon-list-basic.png'
+import iconForm from '../../assets/images/icon-list-form.png'
+import iconHOC from '../../assets/images/icon-list-hoc.png'
+import iconLayout from '../../assets/images/icon-list-layout.png'
+import iconNavigation from '../../assets/images/icon-list-navigation.png'
+import iconView from '../../assets/images/icon-list-view.png'
 
-import './index.scss';
+import './index.scss'
 
 interface PanelBasicState {
   panelNames: {
@@ -33,7 +33,7 @@ export default class PanelBasic extends Component<{}, PanelBasicState> {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
 
     this.state = {
@@ -284,6 +284,10 @@ export default class PanelBasic extends Component<{}, PanelBasicState> {
           {
             id: 'Calendar',
             name: '日历'
+          },
+          {
+            id: 'Ellipsis',
+            name: '省略器'
           }
         ]
       },
@@ -291,7 +295,7 @@ export default class PanelBasic extends Component<{}, PanelBasicState> {
     }
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     const { id } = this.$router.params
     this.setState({
       currentId: id.toLowerCase() || ''
@@ -305,7 +309,7 @@ export default class PanelBasic extends Component<{}, PanelBasicState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { list, currentId, panelNames } = this.state
     const itemList = list[currentId] || []
     const title = (panelNames[currentId] && panelNames[currentId].name) || ''
