@@ -98,7 +98,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
         errorValue: resultValue!
       })
     }
-    if (resultValue && !Number(resultValue)) {
+    if (resultValue && isNaN(resultValue)) {
       resultValue = parseFloat(String(resultValue)) || min
 
       this.handleError({
