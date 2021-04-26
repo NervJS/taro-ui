@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { MouseEvent, ComponentClass, CSSProperties } from 'react'
 import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
 import AtComponent from './base'
 
@@ -21,7 +21,7 @@ export interface AtInputNumberProps extends AtComponent {
    */
   value: number | string
 
-  style?: string
+  customStyle?: CSSProperties
   /**
    * 最小值
    * @type {number}
