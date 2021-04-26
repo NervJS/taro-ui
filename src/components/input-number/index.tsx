@@ -81,7 +81,8 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
   private handleValue = (value: string | number): string => {
     // TODO: Fix dirty hack
     const { max, min } = this.props
-    let resultValue = value === '' ? min : value
+    // let resultValue = value === '' ? min : value
+    let resultValue = value
     // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
     if (resultValue! > max!) {
       resultValue = max
@@ -91,7 +92,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
       })
     }
     if (resultValue! < min!) {
-      resultValue = min
+      // resultValue = min
       this.handleError({
         type: 'LOW',
         errorValue: resultValue!
@@ -112,16 +113,29 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
 
   private handleInput = (e: CommonEvent & ExtendEvent) => {
     const { value } = e.target
-    const { disabled } = this.props
+    const {
+      disabled,
+      max
+     } = this.props
     if (disabled) return
 
     const newValue = this.handleValue(value)
     this.props.onChange(Number(newValue), e)
-    return newValue
+    // return newValue
+    if(max <= Number(newValue)){
+      return newValue
+    }
   }
 
-  private handleBlur = (event: ITouchEvent): void =>
+  private handleBlur = (event: ITouchEvent): void => {
+    const { value } = event.target
+    const { min } = this.props
+    const newValue = this.handleValue(value)
     this.props.onBlur && this.props.onBlur(event)
+    if(newValue < min){
+      this.props.onChange(min)
+    }
+  }
 
   private handleError = (errorValue: InputError): void => {
     if (!this.props.onErrorInput) {
