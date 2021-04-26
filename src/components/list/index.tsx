@@ -18,14 +18,16 @@ export default class AtList extends AtComponent<AtListProps> {
       this.props.className
     )
 
-    return <View className={rootClass}>{this.props.children}</View>
+    return <View className={rootClass} style={this.props.customStyle}>{this.props.children}</View>
   }
 }
 
 AtList.defaultProps = {
-  hasBorder: true
+  hasBorder: true,
+  customStyle: {}
 }
 
 AtList.propTypes = {
-  hasBorder: PropTypes.bool
+  hasBorder: PropTypes.bool,
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 }

@@ -69,7 +69,7 @@ export default class AtListItem extends AtComponent<AtListItemProps> {
     )
 
     return (
-      <View className={rootClass} onClick={this.handleClick}>
+      <View className={rootClass} style={this.props.customStyle} onClick={this.handleClick}>
         <View className='at-list__item-container'>
           {thumb && (
             <View className='at-list__item-thumb item-thumb'>
@@ -153,6 +153,7 @@ AtListItem.defaultProps = {
   extraText: '',
   extraThumb: '',
   iconInfo: { value: '' },
+  customStyle: {},
   onSwitchChange: () => {},
   onClick: () => {}
 }
@@ -171,6 +172,7 @@ AtListItem.propTypes = {
   extraThumb: PropTypes.string,
   onSwitchChange: PropTypes.func,
   arrow: PropTypes.oneOf(['up', 'down', 'right']),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   iconInfo: PropTypes.shape({
     size: PropTypes.number,
     value: PropTypes.string,
