@@ -186,7 +186,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
         <View
           className={itemCls}
           id={`tab${this._tabId}${idx}`}
-          key={item.title}
+          key={`at-tabs-item-${idx}`}
           onClick={this.handleClick.bind(this, idx)}
         >
           {item.title}
