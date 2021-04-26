@@ -57,6 +57,17 @@ export default class AtFloatLayout extends AtComponent<
     e.stopPropagation()
   }
 
+  private handleClickOverlay = (): void => {
+    if (this.props.closeOnClickOverlay) {
+      this.setState(
+        {
+          _isOpened: false
+        },
+        this.handleClose
+      )
+    }
+  }
+
   render() {
     const { _isOpened } = this.state
     const {
@@ -81,7 +92,7 @@ export default class AtFloatLayout extends AtComponent<
 
     return (
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-float-layout__overlay' />
+        <View onClick={this.handleClickOverlay} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           {title ? (
             <View className='layout-header'>
@@ -122,6 +133,7 @@ AtFloatLayout.defaultProps = {
   scrollY: false,
   scrollX: false,
   scrollWithAnimation: false,
+  closeOnClickOverlay: true
 
   onClose: () => {},
   onScroll: () => {},
@@ -139,6 +151,7 @@ AtFloatLayout.propTypes = {
   upperThreshold: PropTypes.number,
   lowerThreshold: PropTypes.number,
   scrollWithAnimation: PropTypes.bool,
+  closeOnClickOverlay: PropTypes.bool,
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,

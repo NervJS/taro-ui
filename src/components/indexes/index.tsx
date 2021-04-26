@@ -211,6 +211,8 @@ export default class AtIndexes extends AtComponent<
               <AtListItem
                 key={item.name}
                 title={item.name}
+                thumb={item.thumb}
+                iconInfo={item.iconInfo}
                 onClick={this.handleClick.bind(this, item)}
               />
             ))}

@@ -1,12 +1,22 @@
 import { ComponentClass } from 'react'
 
-import AtComponent from './base'
+import AtComponent, { AtIconBaseProps } from './base'
 
 export interface Item {
   /**
    * 列表项内容
    */
   name: string
+
+  /**
+   * 列表项缩略图(当为 string 类型时作为 img src)
+   */
+  thumb?: string
+
+  /**
+   * icon 信息
+   */
+  iconInfo?: AtIconBaseProps
 
   [propName: string]: any
 }

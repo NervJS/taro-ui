@@ -15,6 +15,11 @@ export interface AtFloatLayoutProps extends AtComponent {
    */
   title?: string
   /**
+   * 点击浮层的时候时候自动关闭
+   * @default true
+   */
+  closeOnClickOverlay?: boolean
+  /**
    * 是否垂直滚动
    * @default false
    */
