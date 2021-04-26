@@ -69,10 +69,8 @@ export default class AtCalendarList extends Taro.Component<Props> {
             <View className='flex__item-extra extra'>
               {item.marks && item.marks.length > 0 ? (
                 <View className='extra-marks'>
-                  {item.marks.map((mark, key) => (
-                    <Text key={key} className='mark'>
-                      {mark}
-                    </Text>
+                  {item.marks.map((_mark, key) => (
+                    <View key={key} className='mark'></View>
                   ))}
                 </View>
               ) : null}
