@@ -12,6 +12,11 @@ function getFullItem(
   selectedDate: Calendar.SelectedDate,
   isShowStatus?: boolean
 ): any {
+  if (options.marks.find(x => x.value === item.value)) {
+    (item.marks as Array<Calendar.Mark>) = [{
+      value: item.value as string
+    }]
+  }
   if (!isShowStatus) return item
 
   const bindedPlugins = plugins.map(fn =>
