@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Image, View } from '@tarojs/components'
+import { ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { AtImagePickerProps, File } from '../../../types/image-picker'
 import { uuid } from '../../common/utils'
@@ -82,7 +83,9 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
       this.props.onImageClick(idx, this.props.files[idx])
   }
 
-  private handleRemoveImg = (idx: number): void => {
+  private handleRemoveImg = (idx: number, event: ITouchEvent): void => {
+    event.stopPropagation()
+    event.preventDefault()
     const { files = [] } = this.props
     if (ENV === Taro.ENV_TYPE.WEB) {
       window.URL.revokeObjectURL(files[idx].url)
