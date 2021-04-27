@@ -25,7 +25,7 @@ export default class AtAccordion extends AtComponent<
     this.isCompleted = true
     this.startOpen = false
     this.state = {
-      wrapperHeight: 0
+      wrapperHeight: 'unset'
     }
   }
 
@@ -109,8 +109,9 @@ export default class AtAccordion extends AtComponent<
       color: (icon && icon.color) || '',
       fontSize: (icon && `${icon.size}px`) || ''
     }
-    const contentStyle = { height: `${wrapperHeight}px` }
-
+    const contentStyle = {
+      height: wrapperHeight === 'unset' ? wrapperHeight : `${wrapperHeight}px`
+    }
     if (this.isCompleted) {
       contentStyle.height = ''
     }
