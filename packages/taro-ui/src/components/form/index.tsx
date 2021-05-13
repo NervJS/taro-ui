@@ -8,12 +8,12 @@ export default class AtForm extends React.Component<AtFormProps> {
   public static defaultProps: AtFormProps
   public static propTypes: InferProps<AtFormProps>
 
-  private onSubmit(): void {
-    this.props.onSubmit && this.props.onSubmit(arguments as any)
+  private onSubmit(...params): void {
+    this.props.onSubmit && this.props.onSubmit(...params)
   }
 
-  private onReset(): void {
-    this.props.onReset && this.props.onReset(arguments as any)
+  private onReset(...params): void {
+    this.props.onReset && this.props.onReset(...params)
   }
 
   public render(): JSX.Element {
