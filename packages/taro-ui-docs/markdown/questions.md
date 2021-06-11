@@ -35,6 +35,24 @@ h5: {
 ```
 :::
 
+## 出现 `Can't resolve './style/index.scss'` 怎么办？
+升级至 `taro` 匹配的 `taro-ui` 版本就可以解决
+例如 taro 3.x
+```json
+  ...
+  "dependencies": {
+    "@tarojs/components": "3.2.2-beta.0",
+    "@tarojs/react": "3.2.2-beta.0",
+    "@tarojs/runtime": "3.2.2-beta.0",
+    "@tarojs/taro": "3.2.2-beta.0",
+  },
+  ...
+```
+那么需要升级至
+```
+"taro-ui": "^3.0.0-alpha.3"
+```
+
 ## 如何自定义样式？
 
 请查看 [「自定义主题」](https://taro-ui.aotu.io/#/docs/customizetheme) 章节
