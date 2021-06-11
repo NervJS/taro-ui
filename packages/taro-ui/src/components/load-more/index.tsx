@@ -10,8 +10,8 @@ export default class AtLoadMore extends React.Component<AtLoadMoreProps> {
   public static defaultProps: AtLoadMoreProps
   public static propTypes: InferProps<AtLoadMoreProps>
 
-  private onClick(): void {
-    this.props.onClick && this.props.onClick(arguments as any)
+  private onClick(...params): void {
+    this.props.onClick && this.props.onClick(...params)
   }
 
   public render(): JSX.Element {

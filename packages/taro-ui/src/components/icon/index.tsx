@@ -9,8 +9,8 @@ export default class AtIcon extends React.Component<AtIconProps> {
   public static defaultProps: AtIconProps
   public static propTypes: InferProps<AtIconProps>
 
-  private handleClick(): void {
-    this.props.onClick && this.props.onClick(arguments as any)
+  private handleClick(...params): void {
+    this.props.onClick && this.props.onClick(...params)
   }
 
   public render(): JSX.Element {
