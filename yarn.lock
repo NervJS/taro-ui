@@ -9248,7 +9248,12 @@ highlight-es@^1.0.0:
     is-es2016-keyword "^1.0.0"
     js-tokens "^3.0.0"
 
-highlight.js@^9.18.1, highlight.js@^9.6.0:
+highlight.js@^10.4.1:
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.4.1.tgz#d48fbcf4a9971c4361b3f95f302747afe19dbad0"
+  integrity sha512-yR5lWvNz7c85OhVAEAeFhVCc/GV4C30Fjzc/rCP0aCWzc1UUOPUk55dK/qdwTZHBvMZo+eZ2jpk62ndX/xMFlg==
+
+highlight.js@^9.6.0:
   version "9.18.1"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
   integrity sha512-OrVKYz70LHsnCgmbXctv/bfuvntIKDz177h0Co37DQ5jamGZLVmoCVMtjMtNZY3X9DrCcKfklHPNeA0uPZhSJg==
@@ -16405,7 +16410,7 @@ taro-css-to-react-native@^2.0.4:
     postcss-value-parser "^3.3.0"
 
 "taro-ui-demo@file:packages/taro-ui-demo":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.9"
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@tarojs/components" "~3.0.2"
@@ -16414,10 +16419,10 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "~3.0.2"
     react "^16.13.0"
     react-dom "^16.13.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.0-alpha.2-25b21f29-67e3-4b8f-808c-37229355eb71-1593715396950/node_modules/taro-ui"
+    taro-ui "file:packages/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.9"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
