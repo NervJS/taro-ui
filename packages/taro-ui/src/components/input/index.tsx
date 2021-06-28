@@ -232,7 +232,7 @@ AtInput.defaultProps = {
   error: false,
   clear: false,
   autoFocus: false,
-  focus: false,
+  focus: null,
   required: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: (): void => {}
