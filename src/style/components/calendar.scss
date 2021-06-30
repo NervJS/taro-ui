@@ -159,6 +159,10 @@
 }
 
 .at-calendar-slider__main {
+  &.disable .flex__item {
+    color: #e1e4e7;
+  }
+
   .main__body {
     @include display-flex;
 

@@ -22,6 +22,7 @@ const defaultProps: AtCalendarDefaultProps = {
   isVertical: false,
   selectedDates: [],
   isMultiSelect: false,
+  disabled: false,
   format: 'YYYY-MM-DD',
   currentDate: Date.now(),
   monthFormat: 'YYYY年MM月'
@@ -235,10 +236,10 @@ export default class AtCalendar extends Taro.Component<
 
   @bind
   handleDayClick(item: Calendar.Item) {
-    const { isMultiSelect } = this.props
+    const { isMultiSelect, disabled } = this.props
     const { isDisabled, value } = item
 
-    if (isDisabled) return
+    if (disabled || isDisabled) return
 
     const dayjsDate: Dayjs = dayjs(value)
 
@@ -325,6 +326,7 @@ export default class AtCalendar extends Taro.Component<
           onDayClick={this.handleDayClick}
           onSwipeMonth={this.setMonth}
           onLongClick={this.handleDayLongClick}
+          disable={this.props.disabled}
         />
       </View>
     )

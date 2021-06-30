@@ -101,6 +101,8 @@ export interface AtCalendarPropsBase {
 
   className?: Calendar.classNameType
 
+  disabled?: boolean
+
   onClickPreMonth?: () => void
 
   onClickNextMonth?: () => void
@@ -150,6 +152,8 @@ export interface AtCalendarDefaultProps {
   isMultiSelect: boolean
 
   selectedDates: Array<Calendar.SelectedDate>
+
+  disabled: boolean
 }
 
 export interface AtCalendarState {
@@ -203,6 +207,8 @@ export interface AtCalendarBodyProps {
   isVertical: boolean
 
   generateDate: number
+
+  disabled?: boolean
 
   selectedDate: Calendar.SelectedDate
 

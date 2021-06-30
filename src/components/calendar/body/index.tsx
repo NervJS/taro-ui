@@ -300,7 +300,8 @@ export default class AtCalendarBody extends Taro.Component<
           className={classnames(
             'main',
             'at-calendar-slider__main',
-            `at-calendar-slider__main--${process.env.TARO_ENV}`
+            `at-calendar-slider__main--${process.env.TARO_ENV} ${this.props
+              .disable && 'disable'}`
           )}
           onTouchEnd={this.handleTouchEnd}
           onTouchMove={this.handleTouchMove}

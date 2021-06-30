@@ -1,10 +1,10 @@
-import bind from 'bind-decorator';
-import { AtButton, AtCalendar } from 'taro-ui';
+import bind from 'bind-decorator'
+import { AtButton, AtCalendar } from 'taro-ui'
 
-import { View } from '@tarojs/components';
-import Taro, { Component } from '@tarojs/taro';
+import { View } from '@tarojs/components'
+import Taro, { Component } from '@tarojs/taro'
 
-import DocsHeader from '../../components/doc-header';
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 export default class Index extends Component {
@@ -15,7 +15,7 @@ export default class Index extends Component {
   state = {
     now: Date.now(),
     minDate: '2018/06/11',
-    maxDate: '2020/12/12',
+    maxDate: '2022/12/12',
     multiCurentDate: {
       start: Date.now()
     },
@@ -37,38 +37,46 @@ export default class Index extends Component {
       {
         value: '2019/05/28'
       }
-    ]
+    ],
+    selectDate: '2021/06/30'
   }
 
   @bind
-  private handleClick (key: string, value: string): void {
+  private handleClick(key: string, value: string): void {
     this.setState({
       [key]: value
     })
   }
 
   @bind
-  private handleDayClick (...arg): void {
-    console.log('handleDayClick', arg)
+  private handleDayClick(...arg): void {
+    // console.log('handleDayClick', arg)
   }
 
   @bind
-  private handleDayLongClick (...arg): void {
-    console.log('handleDayLongClick', arg)
+  private handleDayLongClick(...arg): void {
+    // console.log('handleDayLongClick', arg)
   }
 
   @bind
-  private handleDateChange (arg): void {
-    console.log('handleDateChange', arg)
+  private handleDateChange(arg): void {
+    // console.log('handleDateChange', arg)
   }
 
   @bind
-  private handleMonthChange (arg): void {
-    console.log('handleMonthChange', arg)
+  private handleMonthChange(arg): void {
+    // console.log('handleMonthChange', arg)
   }
 
-  public render (): JSX.Element {
-    const { now, minDate, maxDate, mark, multiCurentDate, validDates } = this.state
+  public render(): JSX.Element {
+    const {
+      now,
+      minDate,
+      maxDate,
+      mark,
+      multiCurentDate,
+      validDates
+    } = this.state
     return (
       <View className='page calendar-page'>
         <DocsHeader title='Calendar 日历' />
@@ -77,7 +85,18 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>一般案例</View>
             <View className='panel__content'>
-              <AtCalendar onMonthChange={this.handleMonthChange} />
+              {this.state.selectDate}----
+              <AtCalendar
+                disabled
+                onMonthChange={this.handleMonthChange}
+                currentDate={this.state.selectDate}
+                onDayClick={v => {
+                  if (Math.random() * 10 > 5) {
+                    return
+                  }
+                  this.setState({ selectDate: v.value })
+                }}
+              />
             </View>
           </View>
 
@@ -153,7 +172,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>垂直滑动</View>
             <View className='panel__content'>
-              <AtCalendar isVertical onSelectDate={this.handleDateChange}/>
+              <AtCalendar isVertical onSelectDate={this.handleDateChange} />
             </View>
           </View>
 
@@ -183,7 +202,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>有效时间组</View>
             <View className='panel__content'>
-              <AtCalendar validDates={validDates}/>
+              <AtCalendar validDates={validDates} />
             </View>
           </View>
         </View>
