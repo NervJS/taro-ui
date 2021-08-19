@@ -12,7 +12,7 @@ export interface AtModalProps extends AtComponent {
    * 是否显示模态框
    * @default false
    */
-  isOpened: boolean
+  isOpened?: boolean
   /**
    * 元素的内容
    */
