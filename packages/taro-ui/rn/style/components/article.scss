@@ -1,0 +1,54 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-article {
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: $line-height-zh;
+
+  /* elements */
+  &__h1,
+  &__h2,
+  &__h3 {
+    margin: 0 30px;
+    color: $color-grey-0;
+  }
+
+  &__h1 {
+    margin-top: 30px;
+    font-size: 48px;
+    line-height: 72px;
+  }
+
+  &__info {
+    margin: 0 30px;
+    color: $color-grey-3;
+    font-size: $font-size-base;
+    line-height: 42px;
+  }
+
+  &__h2 {
+    margin-top: 30px;
+    font-size: $font-size-xxl;
+    line-height: 60px;
+  }
+
+  &__h3 {
+    font-size: $font-size-lg;
+    line-height: 48px;
+  }
+
+  &__p {
+    margin: 25px 30px 0;
+    color: $color-grey-1;
+    font-size: $font-size-base;
+    line-height: 42px;
+  }
+
+  &__img {
+    display: block;
+    margin: 20px auto 0;
+    width: 690px;
+    border-radius: 4px;
+  }
+}

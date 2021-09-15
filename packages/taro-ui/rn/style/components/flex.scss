@@ -1,0 +1,155 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-row {
+  @include display-flex();
+
+  width: 100%;
+
+  &__direction {
+    &--row {
+      flex-direction: row;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--column-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__align {
+    &--start {
+      @include align-items(flex-start);
+    }
+
+    &--end {
+      @include align-items(flex-end);
+    }
+
+    &--center {
+      @include align-items(center);
+    }
+
+    &--stretch {
+      @include align-items(stretch);
+    }
+
+    &--baseline {
+      @include align-items(baseline);
+    }
+  }
+
+  &__justify {
+    &--start {
+      @include justify-content(flex-start);
+    }
+
+    &--end {
+      @include justify-content(flex-end);
+    }
+
+    &--center {
+      @include justify-content(center);
+    }
+
+    &--between {
+      @include justify-content(space-between);
+    }
+
+    &--around {
+      @include justify-content(space-around);
+    }
+  }
+
+  &__align-content {
+    &--start {
+      @include align-content(flex-start);
+    }
+
+    &--end {
+      @include align-content(flex-end);
+    }
+
+    &--center {
+      @include align-content(center);
+    }
+
+    &--between {
+      @include align-content(space-between);
+    }
+
+    &--around {
+      @include align-content(space-around);
+    }
+
+    &--stretch {
+      @include align-content(stretch);
+    }
+  }
+
+  &--no-wrap {
+    @include flex-wrap(nowrap);
+  }
+
+  &--wrap {
+    @include flex-wrap(wrap);
+  }
+
+  &--wrap-reverse {
+    @include flex-wrap(wrap-reverse);
+  }
+}
+
+.at-col {
+  @include flex(1);
+
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  @for $col from 1 through 12 {
+    $width: ($col / 12) * 100%;
+
+    &-#{$col} {
+      @include flex(0, 0, $width);
+
+      max-width: $width;
+    }
+
+    &__offset-#{$col} {
+      margin-left: $width;
+    }
+  }
+
+  &__align {
+    &--top {
+      @include align-self(flex-start);
+    }
+
+    &--bottom {
+      @include align-self(flex-end);
+    }
+
+    &--center {
+      @include align-self(center);
+    }
+  }
+
+  &--auto {
+    max-width: initial;
+    word-break: keep-all;
+  }
+
+  &--wrap {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}

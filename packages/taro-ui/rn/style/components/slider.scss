@@ -1,0 +1,26 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-slider {
+  display: flex;
+  align-items: center;
+
+  /* elements */
+  &__inner {
+    flex: 1;
+  }
+
+  &__text {
+    width: 80px;
+    color: $at-slider-text-color;
+    font-size: $at-slider-text-size;
+    text-align: center;
+  }
+
+  /* modifiers */
+  &--disabled {
+    .at-slider__inner {
+      opacity: $opacity-disabled;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$component: '.at-input-number';
+$at-input-number-btn-padding: 12px;
+$at-input-number-btn-padding-lg: 20px;
+
+#{$component} {
+  display: inline-flex;
+  @include border-thin($width: 1PX);
+
+  font-size: $at-input-number-font-size;
+  border-radius: $border-radius-md;
+  background-color: $color-bg;
+  overflow: hidden;
+
+  /* elements */
+  &__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $at-input-number-btn-padding;
+    color: $at-input-number-btn-color;
+    font-size: 0;
+    text-align: center;
+    line-height: $line-height-base;
+    overflow: hidden;
+    @include active;
+
+    &-subtract,
+    &-add {
+      font-size: $at-input-number-btn-size;
+      line-height: $at-input-number-btn-size;
+    }
+  }
+
+  &__input,
+  input {
+    display: inline-block;
+    width: $at-input-number-width-min;
+    height: auto;
+    border-radius: 0;
+    color: $at-input-number-text-color;
+    font-size: $at-input-number-font-size;
+    text-align: center;
+    line-height: $line-height-zh;
+    @include border-thin($width: 1PX, $directions: left right);
+  }
+
+  /* modifiers */
+  &--disabled {
+    color: $color-text-disabled;
+
+    &:active {
+      background-color: inherit;
+    }
+  }
+
+  &--lg {
+    #{$component}__btn {
+      padding: $at-input-number-btn-padding-lg;
+      font-size: $at-input-number-font-size-lg;
+
+      &-subtract,
+      &-add {
+        font-size: $at-input-number-btn-size-lg;
+      }
+    }
+
+    input,
+    #{$component}__input {
+      padding: $spacing-v-sm;
+      font-size: $at-input-number-font-size-lg;
+      width: $at-input-number-width-min-lg;
+    }
+  }
+}

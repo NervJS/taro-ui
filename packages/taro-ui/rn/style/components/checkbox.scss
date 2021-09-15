@@ -1,0 +1,87 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$component: '.at-checkbox';
+
+#{$component} {
+  position: relative;
+  background-color: $color-bg;
+  @include hairline-top-relative();
+  @include hairline-bottom-relative();
+
+  /* elements */
+  &__option-wrap {
+    padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
+  }
+
+  &__option-cnt {
+    display: flex;
+  }
+
+  &__title {
+    display: inline-flex;
+    color: $at-checkbox-title-color;
+    font-size: $at-checkbox-title-font-size;
+    line-height: $line-height-zh;
+    text-align: left;
+  }
+
+  &__icon-cnt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    margin-right: $spacing-h-lg;
+    width: $at-checkbox-circle-size;
+    min-width: $at-checkbox-circle-size;
+    height: $at-checkbox-circle-size;
+    color: transparent;
+    font-size: $at-checkbox-icon-size;
+    line-height: 1;
+    border: 2px solid rgba($color: $at-checkbox-icon-color, $alpha: 0.2);
+    border-radius: $border-radius-circle;
+    background-color: $color-bg;
+    box-sizing: border-box;
+    transition: all 0.2s;
+  }
+
+  &__desc {
+    display: block;
+    padding-left: $at-checkbox-circle-size + $spacing-h-lg;
+    color: $at-checkbox-desc-color;
+    font-size: $at-checkbox-desc-font-size;
+    text-align: left;
+    line-height: $line-height-zh;
+    letter-spacing: 0;
+  }
+
+  &__option {
+    padding-left: $spacing-h-xl;
+    @include active;
+
+    &--disabled {
+      #{$component}__option-cnt,
+      #{$component}__desc {
+        opacity: $opacity-disabled;
+      }
+
+      &:active {
+        background-color: $color-bg;
+      }
+    }
+
+    &--selected {
+      #{$component}__icon-cnt {
+        color: $at-checkbox-icon-color-checked;
+        border: none;
+        background-color: $at-checkbox-icon-color;
+      }
+    }
+  }
+
+  &__option + &__option {
+    #{$component}__option-wrap {
+      @include hairline-top();
+    }
+  }
+}

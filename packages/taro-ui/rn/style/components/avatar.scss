@@ -1,0 +1,42 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-avatar {
+  width: $at-avatar-size-md;
+  height: $at-avatar-size-md;
+  color: $at-avatar-color;
+  font-size: $at-avatar-size-md / 2.5;
+  line-height: $at-avatar-size-md;
+  text-align: center;
+  border-radius: $border-radius-md;
+  background: $at-avatar-bg-color;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+
+  /* elements */
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* modifiers */
+  &--large {
+    width: $at-avatar-size-lg;
+    height: $at-avatar-size-lg;
+    font-size: $at-avatar-size-lg / 2.5;
+    line-height: $at-avatar-size-lg;
+  }
+
+  &--small {
+    width: $at-avatar-size-sm;
+    height: $at-avatar-size-sm;
+    font-size: $at-avatar-size-sm / 2.5;
+    line-height: $at-avatar-size-sm;
+  }
+
+  &--circle {
+    border-radius: 50%;
+    background-clip: border-box;
+    overflow: hidden;
+  }
+}

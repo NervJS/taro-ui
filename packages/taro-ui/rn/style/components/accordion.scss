@@ -1,0 +1,79 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-accordion {
+  &__header {
+    position: relative;
+    padding: $spacing-v-lg $spacing-h-lg;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: $font-size-lg;
+    color: $color-text-base;
+    font-size: $font-size-lg;
+    box-sizing: border-box;
+    @include hairline-bottom();
+    @include active;
+
+    &--noborder {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    flex: 1;
+    text-align: left;
+    line-height: 1.6;
+
+    &__title {
+      @include line;
+
+      color: inherit;
+      font-size: inherit;
+      line-height: $line-height-zh;
+    }
+
+    &__note {
+      @include line;
+
+      color: $at-list-content-color;
+      font-size: $font-size-base;
+      line-height: $line-height-zh;
+    }
+  }
+
+  &__icon {
+    margin-right: 15px;
+    color: $color-text-base;
+    font-size: 48px;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: height 500ms $ease-in-sine;
+    @include hairline-top();
+
+    &--inactive {
+      position: absolute;
+      visibility: hidden;
+      height: 0;
+      z-index: -10;
+    }
+  }
+
+  &__arrow {
+    color: $at-accordion-color-arrow;
+    font-size: 48px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+
+    &--folded {
+      transform: rotate(180deg);
+    }
+  }
+}

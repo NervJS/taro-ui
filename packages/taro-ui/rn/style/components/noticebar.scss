@@ -1,0 +1,123 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-noticebar {
+  position: relative;
+  padding: $spacing-v-sm $spacing-h-lg;
+  color: $at-noticebar-text-color;
+  background: $at-noticebar-bg-color;
+
+  /* elements */
+  &__content {
+
+    &--hide {
+      flex-direction: row;
+      opacity: 0;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+    }
+
+    &-icon {
+      margin-right: 12px;
+    }
+
+    &-text {
+      display: flex;
+      flex-wrap: nowrap;
+      font-size: $at-noticebar-font-size;
+
+      &-wrap {
+        width: 100%;
+      }
+    }
+
+    &-inner {
+      display: flex;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 50%;
+    left: $spacing-h-lg;
+    width: $at-noticebar-btn-close-size;
+    height: $at-noticebar-btn-close-size;
+    // transform: translate3d(0, -50%, 0);
+
+    .at-icon {
+      color: $at-noticebar-btn-close-color;
+      font-size: $at-noticebar-btn-close-size;
+    }
+
+    + .at-noticebar__content {
+      margin-left: 50px;
+    }
+  }
+
+  &__more {
+    // color: $color-grey-2;
+    font-size: 0;
+
+    .text {
+      // font-size: $at-noticebar-font-size;
+      // line-height: $line-height-zh;
+      // vertical-align: middle;
+    }
+
+    &-icon {
+      // display: inline-block;
+      // width: $at-noticebar-font-size;
+      // vertical-align: middle;
+      overflow: hidden;
+
+      .at-icon {
+        font-size: $at-noticebar-font-size;
+      }
+    }
+  }
+
+
+  /* modifiers */
+  &--single {
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+
+  &--marquee {
+    .at-noticebar__content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      overflow: hidden;
+
+      &-text {
+        flex: 1;
+        overflow: hidden;
+      }
+
+      &-inner {
+        // display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;
+        height: $at-noticebar-font-size * 1.5;
+        animation: marquee 1s linear infinite both;
+        transform: translateZ(0);
+      }
+    }
+  }
+
+  &--more {
+    .at-noticebar__content {
+      max-width: 525px;
+    }
+  }
+
+  &--weapp {
+    .at-noticebar__content-inner {
+      animation: none;
+    }
+  }
+}

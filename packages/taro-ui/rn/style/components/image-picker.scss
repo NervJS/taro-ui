@@ -1,0 +1,114 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-image-picker {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* elements */
+  &__flex-box {
+    display: flex;
+    padding: $spacing-h-sm;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &__flex-item {
+    position: relative;
+    margin-left: $spacing-h-sm;
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: $border-radius-md;
+    transform: translateY(-50%);
+    overflow: hidden;
+  }
+
+  &__choose-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    box-sizing: border-box;
+    @include border-thin($width: 1PX);
+
+    .add-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 60px;
+      height: 2PX;
+      border-radius: 1PX;
+      background: $at-image-picker-btn-add-color;
+
+      &:nth-child(1) {
+        transform: translate3d(-50%, -50%, 0) rotate(90deg);
+      }
+
+      &:nth-child(2) {
+        transform: translate3d(-50%, -50%, 0) rotate(0);
+      }
+    }
+  }
+
+  &__remove-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 6PX;
+    right: 6PX;
+    z-index: 2;
+    width: 18PX;
+    height: 18PX;
+    font-size: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    background-color: $at-image-picker-btn-remove-bg-color;
+    opacity: 0.8;
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 10PX;
+      height: 1PX;
+      border-radius: 1PX;
+      background: $at-image-picker-btn-remove-color;
+    }
+
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+    }
+  }
+
+  &__preview-img {
+    width: 100%;
+    height: 100%;
+  }
+}

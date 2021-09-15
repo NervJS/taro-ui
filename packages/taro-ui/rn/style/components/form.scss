@@ -1,0 +1,12 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-form-bg-color: $color-bg;
+
+.at-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: $at-form-bg-color;
+  @include hairline-top-bottom();
+}

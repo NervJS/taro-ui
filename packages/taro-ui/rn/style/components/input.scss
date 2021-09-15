@@ -1,0 +1,135 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-input {
+  position: relative;
+  padding: $spacing-v-lg 0;
+  color: $at-input-label-color;
+  background-color: $color-bg;
+  margin-left: $spacing-h-xl;
+
+  /* 修复底线隐藏问题 */
+  margin-bottom: 1PX;
+  @include hairline-bottom();
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-form;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  /* elements */
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-right: $spacing-h-md;
+    width: 172px;
+    font-size: $at-input-font-size;
+    line-height: $line-height-zh;
+    vertical-align: middle;
+    text-align: left;
+
+    &--required {
+      &::before {
+        display: inline-block;
+        margin-right: 8px;
+        color: $color-error;
+        font-size: 28px;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+    }
+  }
+
+  &__input {
+    flex: 1;
+    display: inline-block;
+    padding-right: $spacing-v-md;
+    color: $at-input-text-color;
+    font-size: $at-input-font-size;
+    line-height: $line-height-zh;
+    vertical-align: middle;
+    @include placeholder($at-input-placeholder-color);
+  }
+
+  input {
+    color: $at-input-text-color;
+    font-size: $at-input-font-size;
+    height: $at-input-font-size * 1.4;
+    line-height: $line-height-zh;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    min-width: 40px;
+    height: 100%;
+    font-size: $at-input-font-size;
+    text-align: center;
+    line-height: 1;
+
+    &-close {
+      color: #ccc;
+    }
+
+    &-alert {
+      color: #FF4949;
+    }
+  }
+
+  &__children {
+    display: inline-flex;
+    @include hairline-left();
+
+    > view,
+    div,
+    span,
+    text,
+    image,
+    .taro-img {
+      display: inline-block;
+      padding: 0 $spacing-v-md;
+      color: $color-brand-dark;
+      font-size: $at-input-font-size;
+      text-align: center;
+    }
+
+    > image,
+    img,
+    .taro-img {
+      display: inline-block;
+      width: 145px;
+      height: 60px;
+      vertical-align: middle;
+    }
+  }
+
+  /* modifiers */
+  &--error {
+    color: $color-error;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--without-border {
+    &::after {
+      border: none;
+    }
+  }
+}
