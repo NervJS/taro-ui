@@ -7,7 +7,7 @@ const pages = [
   'pages/basic/typo/index',
   'pages/view/noticebar/index',
   // 'pages/view/badge/index',
-  // 'pages/view/tag/index',
+  'pages/view/tag/index',
   // 'pages/view/avatar/index',
   // 'pages/view/article/index',
   // 'pages/view/timeline/index',

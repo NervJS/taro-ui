@@ -19,10 +19,6 @@ interface TagPageState {
 }
 
 export default class TagPage extends React.Component<{}, TagPageState> {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
   public constructor(props: any) {
     super(props)
     this.state = {
