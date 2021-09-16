@@ -4,6 +4,7 @@ import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
+import NOTICE from './notice.png'
 
 export default class NoticebarPage extends React.Component {
   public config: Taro.PageConfig = {
@@ -60,7 +61,7 @@ export default class NoticebarPage extends React.Component {
                 </AtNoticebar>
               </View>
               <View className='panel__content-bar-item'>
-                <AtNoticebar marquee icon='volume-plus'>
+                <AtNoticebar marquee icon={NOTICE} speed={200}>
                   [带icon]这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏[结束]
                 </AtNoticebar>
               </View>
@@ -77,13 +78,13 @@ export default class NoticebarPage extends React.Component {
             <View className='panel__title'>图标</View>
             <View className='panel__content'>
               <View className='panel__content-bar-item'>
-                <AtNoticebar icon='volume-plus' single>
+                <AtNoticebar icon={NOTICE} single>
                   [单行]
                   这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏
                 </AtNoticebar>
               </View>
               <View className='panel__content-bar-item'>
-                <AtNoticebar icon='volume-plus'>
+                <AtNoticebar icon={NOTICE}>
                   [多行]
                   这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏
                 </AtNoticebar>
@@ -108,7 +109,7 @@ export default class NoticebarPage extends React.Component {
               <View className='panel__content-bar-item'>
                 <AtNoticebar
                   showMore
-                  icon='volume-plus'
+                  icon={NOTICE}
                   single
                   onGotoMore={this.onGotoMore.bind(this)}
                 >
@@ -130,7 +131,7 @@ export default class NoticebarPage extends React.Component {
                 <AtNoticebar
                   showMore
                   moreText='更多内容'
-                  icon='volume-plus'
+                  icon={NOTICE}
                   onGotoMore={this.onGotoMore.bind(this)}
                 >
                   [多行]
@@ -151,7 +152,7 @@ export default class NoticebarPage extends React.Component {
                 </AtNoticebar>
               </View>
               <View className='panel__content-bar-item'>
-                <AtNoticebar close icon='volume-plus' single>
+                <AtNoticebar close icon={NOTICE} single>
                   [单行]
                   这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏
                 </AtNoticebar>
@@ -170,7 +171,7 @@ export default class NoticebarPage extends React.Component {
               <View className='panel__content-bar-item'>
                 <AtNoticebar
                   close
-                  icon='volume-plus'
+                  icon={NOTICE}
                   showMore
                   onGotoMore={this.onGotoMore.bind(this)}
                   single
@@ -192,7 +193,7 @@ export default class NoticebarPage extends React.Component {
                 </AtNoticebar>
               </View>
               <View className='panel__content-bar-item'>
-                <AtNoticebar close icon='volume-plus'>
+                <AtNoticebar close icon={NOTICE}>
                   [多行]
                   这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏
                 </AtNoticebar>
