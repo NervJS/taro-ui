@@ -10,7 +10,7 @@ const pages = [
   'pages/view/tag/index',
   // 'pages/view/avatar/index',
   // 'pages/view/article/index',
-  // 'pages/view/timeline/index',
+  'pages/view/timeline/index',
   // 'pages/view/swiper/index',
   // 'pages/view/load-more/index',
   // 'pages/view/divider/index',

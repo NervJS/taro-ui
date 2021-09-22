@@ -4,6 +4,7 @@ import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
+import CLOCK from './clock.png'
 
 export default class TimelinePage extends React.Component {
   public config: Taro.PageConfig = {
@@ -57,10 +58,10 @@ export default class TimelinePage extends React.Component {
               <View className='panel__content--example-item'>
                 <AtTimeline
                   items={[
-                    { title: '刷牙洗脸', icon: 'check-circle' },
-                    { title: '吃早餐', icon: 'clock' },
-                    { title: '上班', icon: 'clock' },
-                    { title: '睡觉', icon: 'clock' }
+                    { title: '刷牙洗脸', icon: CLOCK },
+                    { title: '吃早餐', icon: CLOCK },
+                    { title: '上班', icon: CLOCK },
+                    { title: '睡觉', icon: CLOCK }
                   ]}
                 ></AtTimeline>
               </View>
@@ -96,19 +97,19 @@ export default class TimelinePage extends React.Component {
                     {
                       title: '刷牙洗脸',
                       content: ['大概8:00'],
-                      icon: 'check-circle'
+                      icon: CLOCK
                     },
                     {
                       title: '吃早餐',
                       content: ['牛奶+面包', '餐后记得吃药'],
-                      icon: 'clock'
+                      icon: CLOCK
                     },
                     {
                       title: '上班',
                       content: ['查看邮件', '写PPT', '发送PPT给领导'],
-                      icon: 'clock'
+                      icon: CLOCK
                     },
-                    { title: '睡觉', content: ['不超过23:00'], icon: 'clock' }
+                    { title: '睡觉', content: ['不超过23:00'], icon: CLOCK }
                   ]}
                 ></AtTimeline>
               </View>

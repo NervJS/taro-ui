@@ -1,8 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import { Image, View } from '@tarojs/components'
 import { AtTimelineProps } from '../../../types/timeline'
+import '../../style/components/timeline.scss'
 
 export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static defaultProps: AtTimelineProps
@@ -21,31 +23,40 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
     const itemElems = items.map((item, index) => {
       const { title = '', color, icon, content = [] } = item
 
-      const iconClass = classNames({
-        'at-icon': true,
-        [`at-icon-${icon}`]: icon
-      })
-
       const itemRootClassName = ['at-timeline-item']
-      if (color) itemRootClassName.push(`at-timeline-item--${color}`)
 
-      const dotClass: string[] = []
-      if (icon) {
-        dotClass.push('at-timeline-item__icon')
-      } else {
-        dotClass.push('at-timeline-item__dot')
-      }
+      const dotClass: string[] = ['at-timeline-item__dot']
+
+      if (icon) dotClass.push(`at-timeline-item__dot--has-icon`)
+
+      if (color) dotClass.push(`at-timeline-item__dot--${color}`)
+
+      const isLast = index === items.length - 1
+
+      const isSecondLast = index === items.length - 2
+
+      // rn对于dotted的支持不全面，这里用透明度代替
+      const isDotted = isSecondLast ? { opacity: 0.75 } : {}
+
+      const contentMinHeight = isSecondLast
+        ? { minHeight: Taro.pxTransform(80) }
+        : {}
+
+      const hideStyle = isLast ? { display: 'none' } : {}
 
       return (
         <View
           className={classNames(itemRootClassName)}
           key={`at-timeline-item-${index}`}
         >
-          <View className='at-timeline-item__tail'></View>
+          <View
+            className='at-timeline-item__tail'
+            style={{ ...hideStyle, ...isDotted }}
+          />
           <View className={classNames(dotClass)}>
-            {icon && <Text className={iconClass}></Text>}
+            {!!icon && <Image className='at-timeline-item__icon' src={icon} />}
           </View>
-          <View className='at-timeline-item__content'>
+          <View className='at-timeline-item__content' style={contentMinHeight}>
             <View className='at-timeline-item__content-item'>{title}</View>
             {content.map((sub, subIndex) => (
               <View

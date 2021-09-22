@@ -72,6 +72,7 @@ view {
  * Example 样式
  */
 .panel__content {
+  padding: 0 20px;
   &--example-item {
     display: flex;
     flex-direction: row;
