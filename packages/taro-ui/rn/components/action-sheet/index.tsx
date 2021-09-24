@@ -10,7 +10,6 @@ import {
 import AtActionSheetBody from './body/index'
 import AtActionSheetFooter from './footer/index'
 import AtActionSheetHeader from './header/index'
-import '../../style/components/action-sheet.scss'
 
 export default class AtActionSheet extends React.Component<
   AtActionSheetProps,

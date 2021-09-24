@@ -4,7 +4,7 @@ import React from 'react'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtFabProps } from '../../../types/fab'
-import '../../style/components/fab.scss'
+
 export default class AtFab extends React.Component<AtFabProps> {
   public static defaultProps: AtFabProps
   public static propTypes: InferProps<AtFabProps>

@@ -7,12 +7,11 @@ import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { AtNoticeBarProps } from '../../../types/noticebar'
-import '../../style/components/noticebar.scss'
 import { Animated, Easing } from 'react-native'
 // @ts-ignore
-import CLOSE from './CLOSE.png'
+import CLOSE from '../../assets/CLOSE.png'
 // @ts-ignore
-import RIGHT from './chevron-right.png'
+import RIGHT from '../../assets/chevron-right.png'
 
 export default class AtNoticebar extends React.Component<
   AtNoticeBarProps,

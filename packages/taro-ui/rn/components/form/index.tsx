@@ -3,7 +3,6 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Form } from '@tarojs/components'
 import { AtFormProps } from '../../../types/form'
-import '../../style/components/form.scss'
 
 export default class AtForm extends React.Component<AtFormProps> {
   public static defaultProps: AtFormProps

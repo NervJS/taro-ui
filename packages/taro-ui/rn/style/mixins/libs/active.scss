@@ -2,7 +2,7 @@
  * 点击态
  */
 @mixin active {
-  transition: background-color 0.3s;
+  // background-color: $color-grey-5;
 
   &:active {
     background-color: $color-grey-5;

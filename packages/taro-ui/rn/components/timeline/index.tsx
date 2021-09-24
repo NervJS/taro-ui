@@ -4,7 +4,6 @@ import React from 'react'
 import Taro from '@tarojs/taro'
 import { Image, View } from '@tarojs/components'
 import { AtTimelineProps } from '../../../types/timeline'
-import '../../style/components/timeline.scss'
 
 export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static defaultProps: AtTimelineProps

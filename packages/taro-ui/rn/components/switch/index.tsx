@@ -33,17 +33,20 @@ export default class AtSwitch extends React.Component<AtSwitchProps> {
       },
       className
     )
-    const containerCls = classNames('at-switch__container', {
-      'at-switch--disabled': disabled
-    })
+
+    const disabledCls = disabled ? 'at-switch__switch--disabled' : ''
 
     return (
       <View className={rootCls} style={customStyle}>
         <View className='at-switch__title'>{title}</View>
-        <View className={containerCls}>
-          <View className='at-switch__mask'></View>
+        <View className={`at-switch__container ${disabledCls}`}>
+          <View
+            className={`at-switch__mask ${
+              disabled ? 'at-switch__mask--disabled' : ''
+            }`}
+          />
           <Switch
-            className='at-switch__switch'
+            className={`at-switch__switch ${disabledCls}`}
             checked={checked}
             color={color}
             onChange={this.handleChange}

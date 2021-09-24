@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Image, Switch, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtListItemProps } from '../../../../types/list'
-import { mergeStyle } from '../../../common/utils'
+import { TouchableHighlight } from 'react-native'
+// @ts-ignore
+import RIGHT from '../../../assets/chevron-right.png'
 
 export default class AtListItem extends React.Component<AtListItemProps> {
   public static defaultProps: AtListItemProps
@@ -17,7 +20,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
   }
 
   private handleSwitchClick(e: CommonEvent): void {
-    e.stopPropagation()
+    e.stopPropagation && e.stopPropagation()
   }
 
   private handleSwitchChange = (event: CommonEvent): void => {
@@ -34,7 +37,6 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       note,
       arrow,
       thumb,
-      iconInfo,
       disabled,
       isSwitch,
       hasBorder,
@@ -58,64 +60,74 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       },
       this.props.className
     )
-    const iconClass = classNames(
-      (iconInfo && iconInfo.prefixClass) || 'at-icon',
-      {
-        [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${
-          iconInfo && iconInfo.value
-        }`]: iconInfo && iconInfo.value
-      },
-      iconInfo && iconInfo.className
-    )
+    const containerClass = classNames('at-list__item-container', {
+      'at-list__item-container--disabled': disabled
+    })
+
+    const TouchView = disabled ? View : TouchableHighlight
 
     return (
-      <View className={rootClass} onClick={this.handleClick}>
-        <View className='at-list__item-container'>
-          {thumb && (
-            <View className='at-list__item-thumb item-thumb'>
+      <TouchView
+        activeOpacity={1}
+        className={rootClass}
+        underlayColor='#f0f0f0'
+        // @ts-ignore
+        onPress={this.handleClick}
+      >
+        <View className={containerClass}>
+          {!!thumb && (
+            <View className='at-list__item--thumb'>
               <Image
-                className='item-thumb__info'
+                className='at-list__item--thumb__info'
                 mode='scaleToFill'
                 src={thumb}
               />
             </View>
           )}
-          {iconInfo && iconInfo.value && (
-            <View className='at-list__item-icon item-icon'>
+          <View className='at-list__item-content'>
+            <View className='at-list__item-content__info'>
               <Text
-                className={iconClass}
-                style={mergeStyle(
-                  {
-                    color: iconInfo.color || '',
-                    fontSize: `${iconInfo.size || 24}px`
-                  },
-                  iconInfo.customStyle || ''
-                )}
-              ></Text>
-            </View>
-          )}
-          <View className='at-list__item-content item-content'>
-            <View className='item-content__info'>
-              <View className='item-content__info-title'>{title}</View>
-              {note && <View className='item-content__info-note'>{note}</View>}
+                className='at-list__item-content__info-title'
+                // @ts-ignore
+                numberOfLines={1}
+              >
+                {title}
+              </Text>
+              {!!note && (
+                <Text
+                  className='at-list__item-content__info-note'
+                  // @ts-ignore
+                  numberOfLines={1}
+                >
+                  {note}
+                </Text>
+              )}
             </View>
           </View>
-          <View className='at-list__item-extra item-extra'>
-            {extraText && <View className='item-extra__info'>{extraText}</View>}
+          <View className='at-list__item-extra'>
+            {!!extraText && (
+              <Text
+                className='at-list__item-extra__info'
+                // @ts-ignore
+                numberOfLines={1}
+              >
+                {extraText}
+              </Text>
+            )}
 
-            {extraThumb && !extraText && (
-              <View className='item-extra__image'>
+            {!!extraThumb && !extraText && (
+              <View className='at-list__item-extra__image'>
                 <Image
-                  className='item-extra__image-info'
+                  className='at-list__item-extra__image-info'
                   mode='aspectFit'
                   src={extraThumb}
                 />
               </View>
             )}
 
-            {isSwitch && !extraThumb && !extraText && (
+            {!!isSwitch && !extraThumb && !extraText && (
               <View
-                className='item-extra__switch'
+                className='at-list__item-extra__switch'
                 onClick={this.handleSwitchClick}
               >
                 <Switch
@@ -128,15 +140,16 @@ export default class AtListItem extends React.Component<AtListItemProps> {
             )}
 
             {arrow ? (
-              <View className='item-extra__icon'>
-                <Text
-                  className={`at-icon item-extra__icon-arrow at-icon-chevron-${arrow}`}
+              <View className='at-list__item-extra__icon'>
+                <Image
+                  src={RIGHT}
+                  className='at-list__item-extra__icon-arrow'
                 />
               </View>
             ) : null}
           </View>
         </View>
-      </View>
+      </TouchView>
     )
   }
 }

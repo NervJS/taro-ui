@@ -4,7 +4,6 @@ import React from 'react'
 import { Text, View } from '@tarojs/components'
 import { AtActivityIndicatorProps } from '../../../types/activity-indicator'
 import AtLoading from '../loading/index'
-import '../../style/components/activity-indicator.scss'
 
 export default class AtActivityIndicator extends React.Component<
   AtActivityIndicatorProps

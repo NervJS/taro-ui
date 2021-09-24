@@ -100,13 +100,10 @@
   $width: 1PX
 ) {
   position: relative;
-
-  &::after {
-    @include hairline-base($color, $style);
-
-    border-top-width: $width;
-    border-bottom-width: $width;
-  }
+  border-top-width: $width;
+  border-bottom-width: $width;
+  border-style: $style;
+  border-color: $color;
 }
 
 @mixin hairline-bottom-relative(
@@ -116,17 +113,9 @@
   $left: 0
 ) {
   position: relative;
-
-  &::after {
-    @include hairline-common();
-
-    top: auto;
-    left: $left;
-    right: 0;
-    bottom: 0;
-    transform: scaleY(0.5);
-    border-bottom: $width $style $color;
-  }
+  border-bottom-width: $width;
+  border-style: $style;
+  border-color: $color;
 }
 
 @mixin hairline-top-relative(

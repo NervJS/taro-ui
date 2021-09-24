@@ -9,7 +9,6 @@ import {
   View
 } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -24,10 +23,6 @@ interface SwiperPageState {
 }
 
 export default class SwiperPage extends React.Component<{}, SwiperPageState> {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
   public constructor(props: any) {
     super(props)
     this.state = {
@@ -100,6 +95,7 @@ export default class SwiperPage extends React.Component<{}, SwiperPageState> {
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <Swiper
+                  className='panel__content--example-item--swiper'
                   indicatorColor='#999'
                   indicatorActiveColor='#333'
                   current={current}
@@ -112,12 +108,15 @@ export default class SwiperPage extends React.Component<{}, SwiperPageState> {
                 >
                   {imgUrls.map((item, idx) => (
                     <SwiperItem key={idx}>
-                      <Image src={item} className='slide-image' />
+                      <Image
+                        src={item}
+                        className='panel__content--example-item--slide-image'
+                      />
                     </SwiperItem>
                   ))}
                 </Swiper>
 
-                <View className='control-cnt'>
+                <View className='panel__content--example-item--control-cnt'>
                   <AtList>
                     <AtListItem
                       title='指示点'
@@ -139,12 +138,12 @@ export default class SwiperPage extends React.Component<{}, SwiperPageState> {
                     />
                   </AtList>
 
-                  <View className='slider-list'>
-                    <View className='slider-list__item'>
-                      <View className='slider-list__item-header'>
+                  <View className='panel__content--example-item--slider-list'>
+                    <View className='panel__content--example-item--slider-list__item'>
+                      <View className='panel__content--example-item--slider-list__item-header'>
                         <Text>幻灯片切换时长(ms)</Text>
                       </View>
-                      <View className='slider-list__item-body'>
+                      <View className='panel__content--example-item--slider-list__item-body'>
                         <Slider
                           activeColor='#6190e8'
                           showValue
@@ -156,11 +155,11 @@ export default class SwiperPage extends React.Component<{}, SwiperPageState> {
                         ></Slider>
                       </View>
                     </View>
-                    <View className='slider-list__item'>
-                      <View className='slider-list__item-header'>
+                    <View className='panel__content--example-item--slider-list__item'>
+                      <View className='panel__content--example-item--slider-list__item-header'>
                         <Text>自动播放间隔时长(ms)</Text>
                       </View>
-                      <View className='slider-list__item-body'>
+                      <View className='panel__content--example-item--slider-list__item-body'>
                         <Slider
                           activeColor='#6190e8'
                           showValue

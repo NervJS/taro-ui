@@ -1,45 +1,18 @@
-import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text } from '@tarojs/components'
 import { AtIconProps } from '../../../types/icon'
-import { mergeStyle, pxTransform } from '../../common/utils'
 
 export default class AtIcon extends React.Component<AtIconProps> {
   public static defaultProps: AtIconProps
   public static propTypes: InferProps<AtIconProps>
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   componentDidMount() {
     console.warn('RN暂不支持Icon')
   }
 
-  private handleClick(): void {
-    this.props.onClick && this.props.onClick(arguments as any)
-  }
-
-  public render(): JSX.Element {
-    const {
-      customStyle,
-      className,
-      prefixClass,
-      value,
-      size,
-      color
-    } = this.props
-
-    const rootStyle = {
-      fontSize: `${pxTransform(parseInt(String(size)) * 2)}`,
-      color
-    }
-
-    const iconName = value ? `${prefixClass}-${value}` : ''
-    return (
-      <Text
-        className={classNames(prefixClass, iconName, className)}
-        style={mergeStyle(rootStyle, customStyle as object)}
-        onClick={this.handleClick.bind(this)}
-      />
-    )
+  public render(): JSX.Element | null {
+    return null
   }
 }
 
