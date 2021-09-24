@@ -15,7 +15,7 @@ const pages = [
   // 'pages/view/load-more/index',
   'pages/view/divider/index',
   // 'pages/view/countdown/index',
-  // 'pages/view/steps/index',
+  'pages/view/steps/index',
   // 'pages/view/curtain/index',
   // 'pages/action/toast/index',
   // 'pages/action/modal/index',

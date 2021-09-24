@@ -2,7 +2,6 @@ import React from 'react'
 import { AtSteps } from 'taro-ui'
 import { Item } from 'taro-ui/types/steps'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -14,10 +13,6 @@ export default class TimelinePage extends React.Component<
   {},
   TimelinePageState
 > {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
   public constructor(props: any) {
     super(props)
     this.state = {
