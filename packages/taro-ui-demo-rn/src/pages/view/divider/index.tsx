@@ -1,6 +1,6 @@
 import React from 'react'
-import { AtDivider, AtIcon } from 'taro-ui'
-import { View } from '@tarojs/components'
+import { AtDivider } from 'taro-ui'
+import { View, Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -23,7 +23,7 @@ export default class LoadMorePage extends React.Component {
           <View className='doc-body--panel'>
             <View className='panel__title'>一般用法</View>
             <View className='panel__content no-padding'>
-              <AtDivider content='分割线' />
+              <AtDivider height={10} content='分割线' />
             </View>
           </View>
 
@@ -54,7 +54,10 @@ export default class LoadMorePage extends React.Component {
             <View className='panel__title'>自定义内容</View>
             <View className='panel__content no-padding'>
               <AtDivider>
-                <AtIcon value='check-circle'></AtIcon>
+                <Image
+                  className='panel__content-img'
+                  src='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+                />
               </AtDivider>
             </View>
           </View>

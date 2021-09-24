@@ -13,7 +13,7 @@ const pages = [
   'pages/view/timeline/index',
   'pages/view/swiper/index',
   // 'pages/view/load-more/index',
-  // 'pages/view/divider/index',
+  'pages/view/divider/index',
   // 'pages/view/countdown/index',
   // 'pages/view/steps/index',
   // 'pages/view/curtain/index',

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { AtDividerProps } from '../../../types/divider'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
@@ -21,16 +21,16 @@ export default class AtDivider extends React.Component<AtDividerProps> {
     } = this.props
 
     const rootStyle = {
-      height: height ? `${pxTransform(Number(height))}` : ''
+      ...(height ? { height: pxTransform(Number(height)) } : {})
     }
 
     const fontStyle = {
-      color: fontColor,
-      'font-size': fontSize ? `${pxTransform(Number(fontSize))}` : ''
+      ...(fontColor ? { color: fontColor } : {}),
+      ...(fontSize ? { fontSize: pxTransform(Number(fontSize)) } : {})
     }
 
     const lineStyle: React.CSSProperties = {
-      backgroundColor: lineColor
+      ...(lineColor ? { backgroundColor: lineColor } : {})
     }
 
     return (
@@ -38,10 +38,17 @@ export default class AtDivider extends React.Component<AtDividerProps> {
         className={classNames('at-divider', className)}
         style={mergeStyle(rootStyle, customStyle as object)}
       >
-        <View className='at-divider__content' style={fontStyle}>
-          {content === '' ? this.props.children : content}
-        </View>
-        <View className='at-divider__line' style={lineStyle}></View>
+        {content ? (
+          <Text className='at-divider__content' style={fontStyle}>
+            {content}
+          </Text>
+        ) : (
+          <View className='at-divider__content' style={fontStyle}>
+            {this.props.children}
+          </View>
+        )}
+
+        <View className='at-divider__line' style={lineStyle} />
       </View>
     )
   }
