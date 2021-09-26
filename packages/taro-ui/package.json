@@ -1,10 +1,11 @@
 {
   "name": "taro-ui",
-  "version": "3.0.0-alpha.10",
+  "version": "3.0.0-alpha.11",
   "description": "UI KIT for Taro",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
   "source": "src/index.ts",
+  "react-native": "rn/index.ts",
   "sideEffects": [
     "*.scss",
     "*.css"
@@ -18,7 +19,8 @@
   "files": [
     "lib",
     "dist",
-    "types"
+    "types",
+    "rn"
   ],
   "author": "O2Team <aotu.io>",
   "homepage": "https://taro-ui.aotu.io",
@@ -32,8 +34,6 @@
   },
   "scripts": {
     "dev": "yarn run dev:lib",
-    "dev:lib-rn": "nodemon --exec yarn cp:code --watch rn --ext tsx,ts,scss",
-    "cp:code": "rm -rf ../taro-ui-demo-rn/node_modules/taro-ui/rn && mkdir -p ../taro-ui-demo-rn/node_modules/taro-ui/rn  && cp -rf rn/ types ../taro-ui-demo-rn/node_modules/taro-ui/rn",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental && cp -rf src/**/*.scss ../taro-ui-demo/taro-ui/",
     "build": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
@@ -59,7 +59,6 @@
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@tarojs/components": "~3.0.2",
-    "@tarojs/components-rn": "^3.2.8",
     "@tarojs/react": "~3.0.2",
     "@tarojs/taro": "~3.0.2",
     "@types/classnames": "^2.2.9",
@@ -67,9 +66,9 @@
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-native": "^0.64.13",
-    "nodemon": "^2.0.7",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-native": "^0.64.0",
     "rollup": "^2.3.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-typescript2": "^0.27.0",

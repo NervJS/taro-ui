@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-import omit from 'omit.js'
+import { omit } from 'lodash'
 
 interface AtLoadingProps {
   size?: string | number
@@ -20,10 +20,10 @@ export default class AtLoading extends React.Component<AtLoadingProps> {
 
 AtLoading.defaultProps = {
   size: 0,
-  color: ''
+  color: '',
 }
 
 AtLoading.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  color: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
