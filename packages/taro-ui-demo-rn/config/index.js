@@ -27,10 +27,10 @@ const config = {
   },
   alias: {
     // TODO: 暂时使用这个，后面更新 taro-rn 版本修复，修复后配置 taro-ui/dist 转 taro-ui/rn
-    '~': `${path.resolve(__dirname, '..', 'node_modules')}/`,
+    // '~': `${path.resolve(__dirname, '..', 'node_modules')}/`,
 
     // 主要是样式文件 alias，rn 不读 dist 里面的样式
-    // 'taro-ui/dist': `taro-ui/rn`,
+    '~taro-ui/dist': `~taro-ui/rn`,
   },
   mini: {
     postcss: {
@@ -72,7 +72,7 @@ const config = {
   },
   rn: {
     resolve: {
-      include: ['taro-ui'],
+      include: ['../taro-ui'],
     },
   },
 }
