@@ -21,7 +21,7 @@ const modules = [
 
 module.exports = {
   // maxWorkers: 1,
-  resetCache: true,
+  // resetCache: true,
   watchFolders: [taroUI, __dirname],
   resolver: {
     extraNodeModules: modules.reduce((acc, name) => {

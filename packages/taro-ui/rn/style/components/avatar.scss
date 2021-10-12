@@ -10,7 +10,9 @@
   text-align: center;
   border-radius: $border-radius-md;
   background: $at-avatar-bg-color;
+  /*  #ifndef  rn  */
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.05);
+  /*  #endif  */
   overflow: hidden;
 
   /* elements */
@@ -35,8 +37,10 @@
   }
 
   &--circle {
+    /*  #ifndef  rn  */
     border-radius: 50%;
     background-clip: border-box;
+    /*  #endif  */
     overflow: hidden;
   }
 }

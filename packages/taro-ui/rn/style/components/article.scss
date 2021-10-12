@@ -2,8 +2,10 @@
 @import '../mixins/index.scss';
 
 .at-article {
+  /*  #ifndef  rn  */
   word-break: break-all;
   word-wrap: break-word;
+  /*  #endif  */
   line-height: $line-height-zh;
 
   /* elements */
@@ -46,7 +48,10 @@
   }
 
   &__img {
+    display: flex;
+    /*  #ifndef  rn  */
     display: block;
+    /*  #endif  */
     margin: 20px auto 0;
     width: 690px;
     border-radius: 4px;

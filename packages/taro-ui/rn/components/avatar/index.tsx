@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Image, Text, View } from '@tarojs/components'
+import { Image, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { AtAvatarProps, AtAvatarState } from '../../../types/avatar'
 
@@ -15,7 +15,7 @@ if (process.env.TARO_ENV === 'rn') {
 const SIZE_CLASS = {
   large: 'large',
   normal: 'normal',
-  small: 'small'
+  small: 'small',
 }
 
 export default class AtAvatar extends React.Component<
@@ -28,7 +28,7 @@ export default class AtAvatar extends React.Component<
   public constructor(props: AtAvatarProps) {
     super(props)
     this.state = {
-      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP
+      isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
     }
   }
 
@@ -38,7 +38,7 @@ export default class AtAvatar extends React.Component<
     const iconSize = SIZE_CLASS[size || 'normal']
     const classObject = {
       [`at-avatar--${iconSize}`]: iconSize,
-      'at-avatar--circle': circle
+      'at-avatar--circle': circle,
     }
 
     let letter = ''
@@ -50,7 +50,9 @@ export default class AtAvatar extends React.Component<
     } else if (image) {
       elem = <Image className='at-avatar__img' src={image} />
     } else {
-      elem = <Text className='at-avatar__text'>{letter}</Text>
+      // elem = <Text className='at-avatar__text'>{letter}</Text>
+      // TODO: RN
+      elem = letter
     }
     return (
       <View
@@ -69,7 +71,7 @@ AtAvatar.defaultProps = {
   text: '',
   image: '',
   customStyle: {},
-  className: ''
+  className: '',
 }
 
 AtAvatar.propTypes = {
@@ -79,5 +81,5 @@ AtAvatar.propTypes = {
   image: PropTypes.string,
   openData: PropTypes.object,
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }

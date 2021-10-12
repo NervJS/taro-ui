@@ -6,10 +6,10 @@ const pages = [
   'pages/basic/color/index',
   'pages/basic/typo/index',
   'pages/view/noticebar/index',
-  // 'pages/view/badge/index',
+  'pages/view/badge/index',
   'pages/view/tag/index',
-  // 'pages/view/avatar/index',
-  // 'pages/view/article/index',
+  'pages/view/avatar/index',
+  'pages/view/article/index',
   'pages/view/timeline/index',
   'pages/view/swiper/index',
   // 'pages/view/load-more/index',
@@ -43,7 +43,7 @@ const pages = [
   // 'pages/form/input-number/index',
   // 'pages/form/radio/index',
   // 'pages/form/textarea/index',
-  'pages/form/switch/index'
+  'pages/form/switch/index',
   // 'pages/form/rate/index',
   // 'pages/form/picker/index',
   // 'pages/form/picker-view/index',
@@ -61,6 +61,6 @@ export default {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'Taro UI',
-    navigationBarTextStyle: 'black'
-  }
+    navigationBarTextStyle: 'black',
+  },
 }
