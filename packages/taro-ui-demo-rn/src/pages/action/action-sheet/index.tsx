@@ -17,7 +17,7 @@ export default class ActionSheetPage extends React.Component<
   ActionSheetPageState
 > {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
@@ -25,23 +25,23 @@ export default class ActionSheetPage extends React.Component<
     this.state = {
       isOpened1: false,
       isOpened2: false,
-      isOpened3: false
+      isOpened3: false,
     }
   }
 
   private handleClick = (type: string): void => {
     this.setState({
-      [`isOpened${type}`]: true
+      [`isOpened${type}`]: true,
     })
   }
 
   private handleClose = (name: string): void => {
     this.setState({
-      [`isOpened${name}`]: false
+      [`isOpened${name}`]: false,
     })
     Taro.showToast({
       title: `第 ${name} 个Action Sheet已经关闭`,
-      icon: 'none'
+      icon: 'none',
     })
   }
 
@@ -52,7 +52,7 @@ export default class ActionSheetPage extends React.Component<
   private showToast = (name: string): void => {
     Taro.showToast({
       icon: 'none',
-      title: name
+      title: name,
     })
   }
 
@@ -72,7 +72,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 1)}>
+                <AtButton full onClick={this.handleClick.bind(this, 1)}>
                   打开 ActionSheet
                 </AtButton>
               </View>
@@ -84,7 +84,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>含标题</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 2)}>
+                <AtButton full onClick={this.handleClick.bind(this, 2)}>
                   打开 ActionSheet
                 </AtButton>
               </View>
@@ -96,7 +96,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>自定义选项</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton onClick={this.handleClick.bind(this, 3)}>
+                <AtButton full onClick={this.handleClick.bind(this, 3)}>
                   打开 ActionSheet
                 </AtButton>
               </View>

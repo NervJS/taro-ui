@@ -12,7 +12,7 @@ const pages = [
   'pages/view/article/index',
   'pages/view/timeline/index',
   'pages/view/swiper/index',
-  // 'pages/view/load-more/index',
+  'pages/view/load-more/index',
   'pages/view/divider/index',
   // 'pages/view/countdown/index',
   'pages/view/steps/index',

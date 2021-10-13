@@ -7,10 +7,8 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
 .at-badge {
   position: relative;
   /*  #ifdef  rn  */
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  // 行内样式自己的宽度，不撑满一行
+  align-self: flex-start;
   /*  #endif  */
   /*  #ifndef  rn  */
   display: inline-block;
@@ -19,14 +17,9 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
 
   /* elements */
   &__dot {
-    position: relative;
-    right: 6px;
-    top: -6px - $at-badge-dot-size;
-    /*  #ifndef  rn  */
     position: absolute;
     right: -6px;
     top: -6px;
-    /*  #endif  */
     width: $at-badge-dot-size;
     height: $at-badge-dot-size;
     border-radius: $at-badge-dot-size / 2;
@@ -38,14 +31,9 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
   }
 
   &__num {
-    position: relative;
-    right: 6px;
-    top: -6px - $at-badge-dot-size;
-    /*  #ifndef  rn  */
     position: absolute;
     top: -$at-badge-border-radius;
     right: -6PX;
-    /*  #endif  */
     padding: 0 $spacing-h-sm;
     color: $at-badge-color;
     font-size: $at-badge-font-size;

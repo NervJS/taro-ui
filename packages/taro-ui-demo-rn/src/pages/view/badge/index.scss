@@ -2,11 +2,9 @@
   &--badge-item {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
     &--subitem {
-      display: flex;
-      flex-direction: row;
-      margin-left: 24px;
+      align-self: flex-start;
+      margin-right: 20px;
     }
   }
 }
