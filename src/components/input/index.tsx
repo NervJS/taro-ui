@@ -174,6 +174,7 @@ export default class AtInput extends AtComponent<AtInputProps> {
             maxLength={maxLength}
             autoFocus={autoFocus}
             focus={focus}
+            disabled={disabled}
             value={value}
             confirmType={confirmType}
             cursor={cursor}
