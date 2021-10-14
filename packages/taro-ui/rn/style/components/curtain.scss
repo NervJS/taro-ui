@@ -4,8 +4,13 @@
 $at-curtain-btn-size: 56px;
 
 .at-curtain {
+  /*  #ifndef  rn  */
   display: block;
   position: fixed;
+  /*  #endif  */
+  /*  #ifdef  rn  */
+  position: absolute;
+  /*  #endif  */
   top: 0;
   bottom: 0;
   left: 0;
@@ -22,7 +27,9 @@ $at-curtain-btn-size: 56px;
     height: 100%;
     justify-content: center;
     align-items: center;
+    /*  #ifndef  rn  */
     box-sizing: border-box;
+    /*  #endif  */
     opacity: 1;
   }
 
@@ -42,10 +49,13 @@ $at-curtain-btn-size: 56px;
     align-items: center;
     justify-content: center;
     border: 2PX solid $at-curtain-btn-color;
-    border-radius: 50%;
+    border-radius: $at-curtain-btn-size / 2;
+    /*  #ifndef  rn  */
     box-sizing: border-box;
+    /*  #endif  */
     z-index: $zindex-curtain;
 
+    /*  #ifndef  rn  */
     &::before,
     &::after {
       content: '';
@@ -66,6 +76,7 @@ $at-curtain-btn-size: 56px;
     &::after {
       transform: translate3d(-50%, -50%, 0) rotate(-45deg);
     }
+    /*  #endif  */
 
     &--top {
       margin-left: -$at-curtain-btn-size / 2;
@@ -107,6 +118,7 @@ $at-curtain-btn-size: 56px;
 
   /* modifiers */
   &--closed {
-    visibility: hidden;
+    display: none;
+    // visibility: hidden;
   }
 }
