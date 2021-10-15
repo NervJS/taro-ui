@@ -2,6 +2,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Text, View } from '@tarojs/components'
 import { AtCountdownItemProps } from '../../../../types/countdown'
+import '../../../style/components/countdown.scss'
 
 export default class AtCountdownItem extends React.Component<
   AtCountdownItemProps
@@ -14,12 +15,17 @@ export default class AtCountdownItem extends React.Component<
   }
 
   public render(): JSX.Element {
-    const { num, separator } = this.props
+    const { num, separator, isCard } = this.props
 
     return (
       <View className='at-countdown__item'>
-        <View className='at-countdown__time-box'>
-          <Text className='at-countdown__time'>{this.formatNum(num)}</Text>
+        <View className={`at-countdown${isCard ? '--card' : ''}__time-box`}>
+          <Text className={`at-countdown${isCard ? '--card' : ''}__time`}>
+            {this.formatNum(num)}
+          </Text>
+          {isCard && (
+            <View className='at-countdown--card__time-box__crossbar'></View>
+          )}
         </View>
         <Text className='at-countdown__separator'>{separator}</Text>
       </View>
@@ -29,10 +35,12 @@ export default class AtCountdownItem extends React.Component<
 
 AtCountdownItem.defaultProps = {
   num: 0,
-  separator: ':'
+  separator: ':',
+  isCard: false
 }
 
 AtCountdownItem.propTypes = {
   num: PropTypes.number.isRequired,
-  separator: PropTypes.string
+  separator: PropTypes.string,
+  isCard: PropTypes.bool
 }
