@@ -1,21 +1,17 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { View } from '@tarojs/components'
+import { Modal } from 'react-native'
+import { View, Image } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtCurtainProps } from '../../../types/curtain'
-
+import CLOSE from '../../assets/CLOSE.png'
 export default class AtCurtain extends React.Component<AtCurtainProps> {
   public static defaultProps: AtCurtainProps
   public static propTypes: InferProps<AtCurtainProps>
 
   private onClose(e: CommonEvent): void {
-    e.stopPropagation()
     this.props.onClose(e)
-  }
-
-  private _stopPropagation(e: CommonEvent): void {
-    e.stopPropagation()
   }
 
   public render(): JSX.Element {
@@ -24,31 +20,37 @@ export default class AtCurtain extends React.Component<AtCurtainProps> {
     const curtainClass = classNames(
       {
         'at-curtain': true,
-        'at-curtain--closed': !isOpened
+        'at-curtain--closed': !isOpened,
       },
-      className
+      className,
     )
     const btnCloseClass = classNames({
       'at-curtain__btn-close': true,
-      [`at-curtain__btn-close--${closeBtnPosition}`]: closeBtnPosition
+      [`at-curtain__btn-close--${closeBtnPosition}`]: closeBtnPosition,
     })
 
     return (
-      <View
-        className={curtainClass}
-        style={customStyle}
-        onClick={this._stopPropagation}
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={isOpened}
+        onRequestClose={() => {
+          this.props.onClose({} as any)
+        }}
       >
-        <View className='at-curtain__container'>
-          <View className='at-curtain__body'>
-            {this.props.children}
-            <View
-              className={btnCloseClass}
-              onClick={this.onClose.bind(this)}
-            ></View>
+        <View className={curtainClass} style={customStyle}>
+          <View className='at-curtain__container'>
+            <View className='at-curtain__body'>
+              {this.props.children}
+              <Image
+                className={btnCloseClass}
+                src={CLOSE}
+                onClick={this.onClose.bind(this)}
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </Modal>
     )
   }
 }
@@ -59,7 +61,7 @@ AtCurtain.defaultProps = {
   isOpened: false,
   closeBtnPosition: 'bottom',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onClose: (): void => {}
+  onClose: (): void => {},
 }
 
 AtCurtain.propTypes = {
@@ -67,5 +69,5 @@ AtCurtain.propTypes = {
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   isOpened: PropTypes.bool,
   closeBtnPosition: PropTypes.string,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 }
