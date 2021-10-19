@@ -111,16 +111,18 @@
   @include flex(1);
 
   width: 100%;
+
+  /*  #ifndef  rn  */
   display: block;
   white-space: nowrap;
   box-sizing: border-box;
-
+  /*  #endif  */
   @for $col from 1 through 12 {
     $width: ($col / 12) * 100%;
 
     &-#{$col} {
-      @include flex(0, 0, $width);
-
+      // @include flex(0, 0, $width);
+      flex-basis: $width;
       max-width: $width;
     }
 
@@ -142,14 +144,15 @@
       @include align-self(center);
     }
   }
+  /*  #ifndef  rn  */
+  // &--auto {
+  //   max-width: initial;
+  //   word-break: keep-all;
+  // }
 
-  &--auto {
-    max-width: initial;
-    word-break: keep-all;
-  }
-
-  &--wrap {
-    white-space: normal;
-    word-wrap: break-word;
-  }
+  // &--wrap {
+  //   white-space: normal;
+  //   word-wrap: break-word;
+  // }
+  /*  #endif  */
 }
