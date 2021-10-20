@@ -32,7 +32,7 @@ const pages = [
   // 'pages/navigation/navbar/index',
   // 'pages/navigation/indexes/index',
   'pages/layout/flex/index',
-  // 'pages/layout/grid/index',
+  'pages/layout/grid/index',
   // 'pages/layout/float-layout/index',
   // 'pages/layout/card/index',
   'pages/layout/list/index',
