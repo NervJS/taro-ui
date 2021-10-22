@@ -44,109 +44,117 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
       color,
       iconSize,
       fontSize,
-      selectedColor
+      selectedColor,
     } = this.props
     // const { isIPhoneX } = this.state
     const defaultStyle = {
-      color: color || ''
+      color: color || '',
     }
     const selectedStyle = {
-      color: selectedColor || ''
+      color: selectedColor || '',
     }
     const titleStyle = {
-      fontSize: fontSize ? `${fontSize}px` : ''
+      fontSize: +(fontSize ? `${fontSize}` : ''),
     }
     const rootStyle = {
-      backgroundColor: backgroundColor || ''
+      backgroundColor: backgroundColor || '',
     }
-    const imgStyle = {
-      width: `${iconSize}px`,
-      height: `${iconSize}px`
-    }
+    // const imgStyle = {
+    //   width: `${iconSize}`,
+    //   height: `${iconSize}`
+    // }
 
     return (
       <View
         className={classNames(
           {
             'at-tab-bar': true,
-            'at-tab-bar--fixed': fixed
+            'at-tab-bar--fixed': fixed,
             // 'at-tab-bar--ipx': isIPhoneX
           },
-          className
+          className,
         )}
         style={mergeStyle(rootStyle, customStyle)}
       >
         {tabList.map((item: TabItem, i: number) => (
           <View
             className={classNames('at-tab-bar__item', {
-              'at-tab-bar__item--active': current === i
+              'at-tab-bar__item--active': current === i,
             })}
             style={current === i ? selectedStyle : defaultStyle}
             key={item.title}
             onClick={this.handleClick.bind(this, i)}
           >
-            {item.iconType ? (
-              <AtBadge
-                dot={!!item.dot}
-                value={item.text}
-                maxValue={Number(item.max)}
-              >
-                <View className='at-tab-bar__icon'>
-                  <Text
-                    className={classNames(
-                      `${item.iconPrefixClass || 'at-icon'}`,
-                      {
-                        [`${item.iconPrefixClass || 'at-icon'}-${
-                          item.selectedIconType
-                        }`]: current === i && item.selectedIconType,
-                        [`${item.iconPrefixClass || 'at-icon'}-${
-                          item.iconType
-                        }`]: !(current === i && item.selectedIconType)
-                      }
-                    )}
-                    style={{
-                      color: current === i ? selectedColor : color,
-                      fontSize: iconSize ? `${iconSize}px` : ''
-                    }}
-                  ></Text>
-                </View>
-              </AtBadge>
-            ) : null}
-
-            {item.image ? (
-              <AtBadge
-                dot={!!item.dot}
-                value={item.text}
-                maxValue={Number(item.max)}
-              >
-                <View className='at-tab-bar__icon'>
-                  <Image
-                    className={classNames('at-tab-bar__inner-img', {
-                      'at-tab-bar__inner-img--inactive': current !== i
-                    })}
-                    mode='widthFix'
-                    src={item.selectedImage || item.image}
-                    style={imgStyle}
-                  ></Image>
-                  <Image
-                    className={classNames('at-tab-bar__inner-img', {
-                      'at-tab-bar__inner-img--inactive': current === i
-                    })}
-                    mode='widthFix'
-                    src={item.image}
-                    style={imgStyle}
-                  ></Image>
-                </View>
-              </AtBadge>
-            ) : null}
-
+            <View>
+              {item.iconType ? (
+                <AtBadge
+                  dot={!!item.dot}
+                  value={item.text}
+                  maxValue={Number(item.max)}
+                >
+                  <View className='at-tab-bar__icon'>
+                    <Text
+                      className={classNames(
+                        `${item.iconPrefixClass || 'at-icon'}`,
+                        {
+                          [`${item.iconPrefixClass || 'at-icon'}-${
+                            item.selectedIconType
+                          }`]: current === i && item.selectedIconType,
+                          [`${item.iconPrefixClass || 'at-icon'}-${
+                            item.iconType
+                          }`]: !(current === i && item.selectedIconType),
+                        },
+                      )}
+                      style={{
+                        color: current === i ? selectedColor : color,
+                        fontSize: +(iconSize ? `${iconSize}` : ''),
+                      }}
+                    ></Text>
+                  </View>
+                </AtBadge>
+              ) : null}
+            </View>
+            <View>
+              {item.image ? (
+                <AtBadge
+                  dot={!!item.dot}
+                  value={item.text}
+                  maxValue={Number(item.max)}
+                >
+                  <View className='at-tab-bar__icon'>
+                    <Image
+                      className={classNames('at-tab-bar__inner-img', {
+                        'at-tab-bar__inner-img--inactive': current !== i,
+                      })}
+                      mode='widthFix'
+                      src={item.selectedImage || item.image}
+                      // style={imgStyle}
+                    ></Image>
+                    <Image
+                      className={classNames('at-tab-bar__inner-img', {
+                        'at-tab-bar__inner-img--inactive': current === i,
+                      })}
+                      mode='widthFix'
+                      src={item.image}
+                      // style={imgStyle}
+                    ></Image>
+                  </View>
+                </AtBadge>
+              ) : null}
+            </View>
             <View>
               <AtBadge
                 dot={item.iconType || item.image ? false : !!item.dot}
                 value={item.iconType || item.image ? '' : item.text}
                 maxValue={item.iconType || item.image ? 0 : Number(item.max)}
               >
-                <View className='at-tab-bar__title' style={titleStyle}>
+                <View
+                  className='at-tab-bar__title'
+                  style={{
+                    ...titleStyle,
+                    color: current === i ? selectedColor : color,
+                  }}
+                >
                   {item.title}
                 </View>
               </AtBadge>
@@ -161,11 +169,13 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
 AtTabBar.defaultProps = {
   customStyle: '',
   className: '',
+  selectedColor: '#6190E8',
+  color: '#333',
   fixed: false,
   current: 0,
   tabList: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onClick: (): void => {}
+  onClick: (): void => {},
 }
 
 AtTabBar.propTypes = {
@@ -179,5 +189,5 @@ AtTabBar.propTypes = {
   color: PropTypes.string,
   selectedColor: PropTypes.string,
   tabList: PropTypes.array,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }

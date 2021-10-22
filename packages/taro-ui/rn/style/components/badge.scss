@@ -14,11 +14,12 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
   display: inline-block;
   vertical-align: middle;
   /*  #endif  */
+  width: 100%;
 
   /* elements */
   &__dot {
     position: absolute;
-    right: -6px;
+    right: -16px;
     top: -6px;
     width: $at-badge-dot-size;
     height: $at-badge-dot-size;
@@ -33,7 +34,7 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
   &__num {
     position: absolute;
     top: -$at-badge-border-radius;
-    right: -6PX;
+    right: -16PX;
     padding: 0 $spacing-h-sm;
     color: $at-badge-color;
     font-size: $at-badge-font-size;
