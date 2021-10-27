@@ -11,7 +11,7 @@ interface IndexPageState {
 
 export default class Index extends React.Component<{}, IndexPageState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
@@ -21,13 +21,13 @@ export default class Index extends React.Component<{}, IndexPageState> {
       current2: 0,
       current3: 0,
       current4: 0,
-      current5: 0
+      current5: 0,
     }
   }
 
   private handleClick(stateName: string, value: number): void {
     this.setState({
-      [stateName]: value
+      [stateName]: value,
     })
   }
 
@@ -36,7 +36,7 @@ export default class Index extends React.Component<{}, IndexPageState> {
     const tabList1 = [
       { title: '标签页1' },
       { title: '标签页2' },
-      { title: '标签页3' }
+      { title: '标签页3' },
     ]
     const tabList2 = [
       { title: '标签页1' },
@@ -44,7 +44,7 @@ export default class Index extends React.Component<{}, IndexPageState> {
       { title: '标签页3' },
       { title: '标签页4' },
       { title: '标签页5' },
-      { title: '标签页6' }
+      { title: '标签页6' },
     ]
 
     return (
@@ -55,7 +55,7 @@ export default class Index extends React.Component<{}, IndexPageState> {
           {/* 基础用法 */}
           <View className='doc-body--panel'>
             <View className='panel__title'>等宽标签栏</View>
-            <View className='panel__content'>
+            <View>
               <AtTabs
                 swipeable={false}
                 current={current1}
@@ -130,7 +130,7 @@ export default class Index extends React.Component<{}, IndexPageState> {
             <View className='panel__title'>垂直模式</View>
             <View className='panel__content'>
               <AtTabs
-                height='200px'
+                height='200'
                 scroll
                 tabDirection='vertical'
                 current={current4}

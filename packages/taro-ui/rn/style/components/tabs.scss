@@ -16,26 +16,25 @@ $at-tabs-pane-min-height: 100px;
     padding: $spacing-v-lg $spacing-h-lg;
     color: $at-tabs-color;
     font-size: $at-tabs-font-size;
-    text-overflow: ellipsis;
+    // text-overflow: ellipsis;
     overflow: hidden;
 
     &-underline {
-      display: block;
       position: absolute;
       left: 0;
       bottom: 0;
       width: 100%;
       height: $at-tabs-line-height;
       background-color: $at-tabs-color-active;
-      transform: scaleX(0);
-      transition: all 0.15s;
+      // transform: scaleX(0);
+      // transition: all 0.15s;
     }
 
     &--active {
       color: $at-tabs-color-active;
 
       #{$component}__item-underline {
-        transform: scaleX(1);
+        // transform: scaleX(1);
       }
     }
   }
@@ -43,32 +42,43 @@ $at-tabs-pane-min-height: 100px;
   &__header {
     position: relative;
     display: flex;
-    width: 100%;
+    flex-grow: 0;
+    // width: 100%;
     text-align: center;
-    white-space: nowrap;
+    flex-direction: row;
+    // white-space: nowrap;
     background-color: $at-tabs-bg-color;
-    box-sizing: border-box;
-    overflow: -moz-scrollbars-none;
+    // box-sizing: border-box;
+    // overflow: -moz-scrollbars-none;
 
-    &::-webkit-scrollbar {
-      display: none;
-      width: 0 !important;
-      height: 0 !important;
-      background: transparent;
+    &--horizontal {
+      flex-direction: row;
     }
+
+    &--vertical {
+      flex-direction: column;
+    }
+
+    // &::-webkit-scrollbar {
+    //   display: none;
+    //   width: 0 !important;
+    //   height: 0 !important;
+    //   background: transparent;
+    // }
   }
 
   &__body {
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-    transition: all 0.3s;
-    will-change: transform, left, top;
+    display: flex;
+    flex: 1;
+    // width: 100%;
+    // white-space: nowrap;
+    // transition: all 0.3s;
+    // will-change: transform, left, top;
     overflow: visible;
   }
 
   &__underline {
-    display: block;
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -83,26 +93,27 @@ $at-tabs-pane-min-height: 100px;
   &--scroll {
     #{$component}__header {
       overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
+      // -webkit-overflow-scrolling: touch;
+      // white-space: nowrap;
     }
 
     #{$component}__item {
-      display: inline-block;
+      display: flex;
       overflow: visible;
     }
   }
 
   &--vertical {
     display: flex;
-    flex: 1;
+    // flex: 1;
+    flex-direction: row;
     overflow: hidden;
 
     #{$component}__body {
-      display: inline-block;
+      display: flex;
       flex: 1;
       height: $at-tabs-pane-min-height;
-      width: auto;
+      // width: auto;
     }
 
     #{$component}__underline {
@@ -114,8 +125,8 @@ $at-tabs-pane-min-height: 100px;
     }
 
     #{$component}__header {
-      display: inline-block;
-      width: auto;
+      display: flex;
+      // width: auto;
     }
 
     #{$component}__item {
@@ -125,19 +136,19 @@ $at-tabs-pane-min-height: 100px;
       align-items: center;
 
       &-underline {
-        display: block;
+        display: flex;
         top: 0;
         right: 0;
         bottom: auto;
         left: auto;
         width: $at-tabs-line-height;
         height: 100%;
-        transform: scaleY(0);
+        // transform: scaleY(0);
       }
 
       &--active {
         #{$component}__item-underline {
-          transform: scaleY(1);
+          // transform: scaleY(1);
         }
       }
     }
@@ -155,11 +166,11 @@ $at-tabs-pane-min-height: 100px;
 /* hack SWAN */
 
 .at-tabs-pane {
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
-  white-space: initial;
-  vertical-align: top;
+  display: flex;
+  height: 100%;
+  // box-sizing: border-box;
+  // white-space: initial;
+  // vertical-align: top;
 
   /* modifiers */
   &--active {
@@ -172,7 +183,7 @@ $at-tabs-pane-min-height: 100px;
   }
 
   &--vertical {
-    display: block;
+    display: flex;
     height: 100%;
     overflow: scroll;
   }
