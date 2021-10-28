@@ -9,8 +9,10 @@
   $width: 1px
 ) {
   @each $value in $directions {
-    border-#{$value}: $width $color $style;
+    border-#{$value}-width: $width;
+    border-#{$value}-color: $color;
   }
+  border-style: $style;
 }
 
 @mixin border-thin-top(

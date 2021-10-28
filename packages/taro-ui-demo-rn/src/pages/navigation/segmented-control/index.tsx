@@ -11,20 +11,20 @@ interface IndexPageState {
 
 export default class Index extends React.Component<{}, IndexPageState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
     super(props)
     this.state = {
       current1: 0,
-      current2: 0
+      current2: 0,
     }
   }
 
   private handleClick(num: number, value: number): void {
     this.setState({
-      [`current${num}`]: value
+      [`current${num}`]: value,
     })
   }
 
@@ -51,7 +51,9 @@ export default class Index extends React.Component<{}, IndexPageState> {
                   current={current1}
                   values={tabList2}
                 />
-                <View className='tab-content'>标签 {current1 + 1} 的内容</View>
+                <View className='tab-content'>{`标签${
+                  current1 + 1
+                }的内容`}</View>
               </View>
             </View>
           </View>
@@ -68,7 +70,9 @@ export default class Index extends React.Component<{}, IndexPageState> {
                   current={current2}
                   values={tabList2}
                 />
-                <View className='tab-content'>标签 {current2 + 1} 的内容</View>
+                <View className='tab-content'>{`标签${
+                  current2 + 1
+                }的内容`}</View>
               </View>
             </View>
           </View>
