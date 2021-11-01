@@ -1,7 +1,7 @@
 import React from 'react'
 import { AtButton, AtPagination } from 'taro-ui'
 import { PageChangeData } from 'taro-ui/types/pagination'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -17,7 +17,7 @@ export default class PaginationPage extends React.Component<
   PaginationPageState
 > {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
@@ -25,31 +25,31 @@ export default class PaginationPage extends React.Component<
     this.state = {
       list: [],
       current: 1,
-      pageSize: 10
+      pageSize: 10,
     }
   }
 
   private onPage(data: PageChangeData): void {
     this.setState({
-      current: data.current
+      current: data.current,
     })
     Taro.showToast({
       title: `Pagination: ${data}`,
-      icon: 'none'
+      icon: 'none',
     })
   }
 
   private onPageDataChange(): void {
     const _list = new Array(10).fill(1)
     this.setState({
-      list: this.state.list.concat(_list)
+      list: this.state.list.concat(_list),
     })
   }
 
   private onCurrentChange(): void {
     this.setState({
       current: 1,
-      list: []
+      list: [],
     })
   }
 
@@ -110,7 +110,7 @@ export default class PaginationPage extends React.Component<
           <View className='doc-body--panel'>
             <View className='panel__title'>改变数据长度</View>
             <View className='panel__content no-padding'>
-              <View className='panel__content--example-item'>
+              <View>
                 <AtPagination
                   icon
                   total={len}
@@ -119,8 +119,7 @@ export default class PaginationPage extends React.Component<
                   onPageChange={this.onPage.bind(this)}
                 ></AtPagination>
                 <View className='btn-item'>
-                  当前页：{this.state.current}，当前数据：{len}条，分页大小：
-                  {this.state.pageSize}
+                  {`当前页：${this.state.current}，当前数据：${len}条，分页大小：${this.state.pageSize}`}
                 </View>
                 <View className='btn-item'>
                   <AtButton

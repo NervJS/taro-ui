@@ -3,9 +3,12 @@
 
 .at-pagination {
   position: relative;
+  // width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-grow: 1;
   margin: 0 $at-pagination-margin;
 
   &__btn-prev,
@@ -19,7 +22,6 @@
   }
 
   &__number {
-    flex: 1;
     color: $at-pagination-num-color;
     font-size: $at-pagination-num-font-size;
     text-align: center;
@@ -27,6 +29,10 @@
 
     &-current {
       color: $at-pagination-current-num-color;
+    }
+
+    &-wrap {
+      line-height: $at-button-height-sm;
     }
   }
 }
