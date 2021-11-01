@@ -232,7 +232,7 @@ AtInput.defaultProps = {
   error: false,
   clear: false,
   autoFocus: false,
-  focus: false,
+  focus: null,
   required: false,
   onChange: () => {},
   onFocus: () => {},
