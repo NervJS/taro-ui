@@ -24,7 +24,7 @@ const pages = [
   // 'pages/action/swipe-action/index',
   'pages/action/activity-indicator/index',
   // 'pages/action/message/index',
-  // 'pages/navigation/drawer/index',
+  'pages/navigation/drawer/index',
   'pages/navigation/pagination/index',
   'pages/navigation/tabs/index',
   'pages/navigation/tabbar/index',

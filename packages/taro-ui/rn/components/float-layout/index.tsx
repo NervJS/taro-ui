@@ -10,6 +10,7 @@ import {
 import { handleTouchScroll } from '../../common/utils'
 import CLOSE from '../../assets/CLOSE.png'
 
+const duration = 300
 export default class AtFloatLayout extends React.Component<
   AtFloatLayoutProps,
   AtFloatLayoutState
@@ -35,24 +36,48 @@ export default class AtFloatLayout extends React.Component<
     }
 
     if (isOpened !== this.state._isOpened) {
-      this.setState({
-        _isOpened: isOpened,
-      })
-      if (isOpened) {
-        this.setState(
-          {
-            translateY: new Animated.Value(Dimensions.get('window').height),
-          },
-          () => {
-            Animated.timing(this.state.translateY, {
-              toValue: 0,
-              duration: 300,
-              useNativeDriver: true,
-            }).start()
-          },
-        )
-      }
+      this.animateLayout(isOpened)
     }
+  }
+
+  private animateLayout(isOpened: boolean, cb?: Function): void {
+    let fromValue
+    let toValue
+    let setStateDelay = 0
+    if (isOpened) {
+      fromValue = Dimensions.get('window').height
+      toValue = 0
+    } else {
+      setStateDelay = duration
+      fromValue = 0
+      toValue = Dimensions.get('window').height
+    }
+
+    const translateY = new Animated.Value(fromValue)
+
+    this.setState(
+      {
+        translateY,
+      },
+      () => {
+        setTimeout(() => {
+          this.setState(
+            {
+              _isOpened: isOpened,
+            },
+            () => {
+              cb && cb()
+            },
+          )
+        }, setStateDelay)
+
+        Animated.timing(this.state.translateY, {
+          toValue,
+          duration,
+          useNativeDriver: true,
+        }).start()
+      },
+    )
   }
 
   private handleClose = (): void => {
@@ -65,16 +90,17 @@ export default class AtFloatLayout extends React.Component<
   }
 
   private close = (): void => {
-    this.setState(
-      {
-        _isOpened: false,
-      },
-      this.handleClose,
-    )
+    this.animateLayout(false, this.handleClose)
+    // this.setState(
+    //   {
+    //     _isOpened: false,
+    //   },
+    //   this.handleClose,
+    // )
   }
 
   public render(): JSX.Element {
-    const { _isOpened } = this.state
+    const { _isOpened, translateY } = this.state
     const {
       title,
       scrollY,
@@ -108,7 +134,7 @@ export default class AtFloatLayout extends React.Component<
           />
           <Animated.View
             className='at-float-layout__container layout'
-            style={{ transform: [{ translateY: this.state.translateY }] }}
+            style={{ transform: [{ translateY }] }}
           >
             {title ? (
               <View className='layout-header'>

@@ -1,10 +1,14 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import { Modal, Animated, Dimensions } from 'react-native'
 import { AtDrawerProps, AtDrawerState } from '../../../types/drawer'
 import AtList from '../list/index'
 import AtListItem from '../list/item/index'
+
+const duration = 300
 
 export default class AtDrawer extends React.Component<
   AtDrawerProps,
@@ -16,108 +20,148 @@ export default class AtDrawer extends React.Component<
   public constructor(props: AtDrawerProps) {
     super(props)
     this.state = {
-      animShow: false,
-      _show: props.show
+      // animShow: false,
+      _show: props.show,
+      translateX: 0,
     }
   }
 
-  public componentDidMount(): void {
-    const { _show } = this.state
-    if (_show) this.animShow()
-  }
+  // public componentDidMount(): void {
+  //   const { _show } = this.state
+  // }
 
   private onItemClick(index: number): void {
     this.props.onItemClick && this.props.onItemClick(index)
-    this.animHide()
+    this.animateDrawer(false)
   }
 
   private onHide(): void {
-    this.setState({ _show: false }, () => {
-      this.props.onClose && this.props.onClose()
-    })
-  }
-
-  private animHide(): void {
-    this.setState({
-      animShow: false
-    })
-    setTimeout(() => {
-      this.onHide()
-    }, 300)
-  }
-
-  private animShow(): void {
-    this.setState({ _show: true })
-    setTimeout(() => {
-      this.setState({
-        animShow: true
-      })
-    }, 200)
+    this.animateDrawer(false, this.props.onClose)
   }
 
   private onMaskClick(): void {
-    this.animHide()
+    this.onHide()
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: AtDrawerProps): void {
     const { show } = nextProps
     if (show !== this.state._show) {
-      show ? this.animShow() : this.animHide()
+      this.animateDrawer(show)
     }
   }
 
+  private animateDrawer(isOpened: boolean, cb?: Function): void {
+    let fromValue
+    let toValue
+    let setStateDelay = 0
+    const direction = this.props.right ? 1 : -1
+    // const offset = Dimensions.get('window').width - this.state._width
+    if (isOpened) {
+      fromValue = Dimensions.get('window').width * direction
+      toValue = 0
+    } else {
+      setStateDelay = duration
+      fromValue = 0
+      toValue = Dimensions.get('window').width * direction
+    }
+
+    const translateX = new Animated.Value(fromValue)
+
+    this.setState(
+      {
+        translateX,
+      },
+      () => {
+        setTimeout(() => {
+          this.setState(
+            {
+              _show: isOpened,
+            },
+            () => {
+              cb && cb()
+            },
+          )
+        }, setStateDelay)
+
+        Animated.timing(this.state.translateX, {
+          toValue,
+          duration,
+          useNativeDriver: true,
+        }).start()
+      },
+    )
+  }
+
   public render(): JSX.Element {
-    const { mask, width, right, items } = this.props
-    const { animShow, _show } = this.state
+    const { mask, right, items, width } = this.props
+    const { _show, translateX } = this.state
     const rootClassName = ['at-drawer']
 
     const maskStyle = {
-      display: mask ? 'block' : 'none',
-      opacity: animShow ? 1 : 0
+      opacity: _show ? 1 : 0,
+      display: mask ? 'flex' : 'none',
     }
-    const listStyle = {
-      width,
-      transition: animShow
-        ? 'all 225ms cubic-bezier(0, 0, 0.2, 1)'
-        : 'all 195ms cubic-bezier(0.4, 0, 0.6, 1)'
+
+    const listStyle: Record<string, any> = {}
+
+    if (width) {
+      listStyle.width = Taro.pxTransform(width)
     }
 
     const classObject = {
-      'at-drawer--show': animShow,
-      'at-drawer--right': right,
-      'at-drawer--left': !right
+      'at-drawer--show': _show,
     }
 
-    return _show ? (
-      <View
-        className={classNames(rootClassName, classObject, this.props.className)}
+    const contentClass = {
+      'at-drawer__content--right': right,
+      'at-drawer__content--left': !right,
+    }
+
+    return (
+      <Modal
+        animationType='none'
+        transparent={true}
+        visible={_show}
+        onRequestClose={this.onMaskClick.bind(this)}
       >
         <View
-          className='at-drawer__mask'
-          style={maskStyle}
-          onClick={this.onMaskClick.bind(this)}
-        ></View>
-
-        <View className='at-drawer__content' style={listStyle}>
-          {!!items && items.length ? (
-            <AtList>
-              {items.map((name, index) => (
-                <AtListItem
-                  key={`${name}-${index}`}
-                  data-index={index}
-                  onClick={this.onItemClick.bind(this, index)}
-                  title={name}
-                  arrow='right'
-                ></AtListItem>
-              ))}
-            </AtList>
-          ) : (
-            this.props.children
+          className={classNames(
+            rootClassName,
+            classObject,
+            this.props.className,
           )}
+        >
+          <View
+            className='at-drawer__mask'
+            style={maskStyle}
+            onClick={this.onMaskClick.bind(this)}
+          />
+
+          <Animated.View
+            className={classNames('at-drawer__content', contentClass)}
+            style={{
+              ...listStyle,
+              transform: [{ translateX }],
+            }}
+          >
+            {!!items && items.length ? (
+              <AtList>
+                {items.map((name, index) => (
+                  <AtListItem
+                    key={`${name}-${index}`}
+                    data-index={index}
+                    onClick={this.onItemClick.bind(this, index)}
+                    title={name}
+                    arrow='right'
+                  ></AtListItem>
+                ))}
+              </AtList>
+            ) : (
+              this.props.children
+            )}
+          </Animated.View>
         </View>
-      </View>
-    ) : (
-      <View></View>
+      </Modal>
     )
   }
 }
@@ -127,7 +171,7 @@ AtDrawer.defaultProps = {
   mask: true,
   width: '',
   right: false,
-  items: []
+  items: [],
 }
 
 AtDrawer.propTypes = {
@@ -136,5 +180,5 @@ AtDrawer.propTypes = {
   width: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
   onItemClick: PropTypes.func,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 }
