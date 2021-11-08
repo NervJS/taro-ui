@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { ScrollView, Text, View, Image } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { Modal, Animated, Dimensions } from 'react-native'
 import {
   AtFloatLayoutProps,
@@ -11,6 +12,10 @@ import { handleTouchScroll } from '../../common/utils'
 import CLOSE from '../../assets/CLOSE.png'
 
 const duration = 300
+const {
+  safeArea: { top: safeAreaTop },
+} = Taro.getSystemInfoSync()
+
 export default class AtFloatLayout extends React.Component<
   AtFloatLayoutProps,
   AtFloatLayoutState
@@ -127,7 +132,7 @@ export default class AtFloatLayout extends React.Component<
         visible={_isOpened}
         onRequestClose={this.close.bind(this)}
       >
-        <View className={rootClass}>
+        <View className={rootClass} style={{ top: safeAreaTop }}>
           <View
             onClick={this.close.bind(this)}
             className='at-float-layout__overlay'

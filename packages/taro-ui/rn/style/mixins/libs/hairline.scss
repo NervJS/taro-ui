@@ -29,13 +29,18 @@
   $style: solid,
   $width: 1PX
 ) {
-  position: relative;
 
-  &::after {
-    @include hairline-base($color, $style);
+  border-width: $width;
+  border-color: $color;
+  border-style: $style;
 
-    border-width: $width;
-  }
+  // position: relative;
+
+  // &::after {
+  //   @include hairline-base($color, $style);
+
+  //   border-width: $width;
+  // }
 }
 
 @mixin hairline-top(
@@ -43,13 +48,17 @@
   $style: solid,
   $width: 1PX
 ) {
-  position: relative;
+  border-top-width: $width;
+  border-top-color: $color;
+  border-style: $style;
 
-  &::after {
-    @include hairline-base($color, $style);
+  // position: relative;
 
-    border-top-width: $width;
-  }
+  // &::after {
+  //   @include hairline-base($color, $style);
+
+  //   border-top-width: $width;
+  // }
 }
 
 @mixin hairline-bottom(
@@ -57,13 +66,16 @@
   $style: solid,
   $width: 1PX
 ) {
-  position: relative;
+  border-bottom-width: $width;
+  border-bottom-color: $color;
+  border-style: $style;
+  // position: relative;
 
-  &::after {
-    @include hairline-base($color, $style);
+  // &::after {
+  //   @include hairline-base($color, $style);
 
-    border-bottom-width: $width;
-  }
+  //   border-bottom-width: $width;
+  // }
 }
 
 @mixin hairline-left(
@@ -71,13 +83,16 @@
   $style: solid,
   $width: 1PX
 ) {
-  position: relative;
+  border-left-width: $width;
+  border-left-color: $color;
+  border-style: $style;
+  // position: relative;
 
-  &::after {
-    @include hairline-base($color, $style);
+  // &::after {
+  //   @include hairline-base($color, $style);
 
-    border-left-width: $width;
-  }
+  //   border-left-width: $width;
+  // }
 }
 
 @mixin hairline-right(
@@ -85,13 +100,16 @@
   $style: solid,
   $width: 1PX
 ) {
-  position: relative;
+  border-right-width: $width;
+  border-right-color: $color;
+  border-style: $style;
+  // position: relative;
 
-  &::after {
-    @include hairline-base($color, $style);
+  // &::after {
+  //   @include hairline-base($color, $style);
 
-    border-right-width: $width;
-  }
+  //   border-right-width: $width;
+  // }
 }
 
 @mixin hairline-top-bottom(
@@ -112,10 +130,12 @@
   $width: 1PX,
   $left: 0
 ) {
-  position: relative;
   border-bottom-width: $width;
-  border-style: $style;
-  border-color: $color;
+  border-bottom-color: $color;
+  // position: relative;
+  // border-bottom-width: $width;
+  // border-style: $style;
+  // border-color: $color;
 }
 
 @mixin hairline-top-relative(
@@ -124,18 +144,22 @@
   $width: 1PX,
   $left: 0
 ) {
-  position: relative;
 
-  &::before {
-    @include hairline-common();
+  border-top-width: $width;
+  border-top-color: $color;
 
-    top: 0;
-    left: $left;
-    right: 0;
-    bottom: auto;
-    transform: scaleY(0.5);
-    border-top: $width $style $color;
-  }
+  // position: relative;
+
+  // &::before {
+  //   @include hairline-common();
+
+  //   top: 0;
+  //   left: $left;
+  //   right: 0;
+  //   bottom: auto;
+  //   transform: scaleY(0.5);
+  //   border-top: $width $style $color;
+  // }
 }
 
 @mixin hairline-left-relative(
@@ -144,18 +168,20 @@
   $width: 1PX,
   $top: 0
 ) {
-  position: relative;
+  border-left-width: $width;
+  border-left-color: $color;
 
-  &::after {
-    @include hairline-common();
+  // position: relative;
+  // &::after {
+  //   @include hairline-common();
 
-    top: $top;
-    left: 0;
-    right: auto;
-    bottom: 0;
-    transform: scaleX(0.5);
-    border-left: $width $style $color;
-  }
+  //   top: $top;
+  //   left: 0;
+  //   right: auto;
+  //   bottom: 0;
+  //   transform: scaleX(0.5);
+  //   border-left: $width $style $color;
+  // }
 }
 
 @mixin hairline-right-relative(
@@ -164,16 +190,20 @@
   $width: 1PX,
   $top: 0
 ) {
-  position: relative;
 
-  &::after {
-    @include hairline-common();
+  border-right-width: $width;
+  border-right-color: $color;
 
-    top: $top;
-    left: auto;
-    right: 0;
-    bottom: 0;
-    transform: scaleX(0.5);
-    border-right: $width $style $color;
-  }
+  // position: relative;
+
+  // &::after {
+  //   @include hairline-common();
+
+  //   top: $top;
+  //   left: auto;
+  //   right: 0;
+  //   bottom: 0;
+  //   transform: scaleX(0.5);
+  //   border-right: $width $style $color;
+  // }
 }

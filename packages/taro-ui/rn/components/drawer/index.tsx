@@ -9,6 +9,9 @@ import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 
 const duration = 300
+const {
+  safeArea: { top: safeAreaTop },
+} = Taro.getSystemInfoSync()
 
 export default class AtDrawer extends React.Component<
   AtDrawerProps,
@@ -130,6 +133,9 @@ export default class AtDrawer extends React.Component<
             classObject,
             this.props.className,
           )}
+          style={{
+            top: safeAreaTop,
+          }}
         >
           <View
             className='at-drawer__mask'
