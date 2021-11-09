@@ -23,7 +23,7 @@ const pages = [
   'pages/action/action-sheet/index',
   // 'pages/action/swipe-action/index',
   'pages/action/activity-indicator/index',
-  // 'pages/action/message/index',
+  'pages/action/message/index',
   'pages/navigation/drawer/index',
   'pages/navigation/pagination/index',
   'pages/navigation/tabs/index',

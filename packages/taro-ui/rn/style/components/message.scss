@@ -2,7 +2,7 @@
 @import '../mixins/index.scss';
 
 .at-message {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -13,12 +13,12 @@
   text-align: center;
   line-height: $line-height-zh;
   background: $at-message-bg-color;
-  animation: ease both;
-  transform: translate3d(0, -100%, 0);
-  transition: all 300ms $ease-in-sine;
-  opacity: 0;
+  // animation: ease both;
+  // transform: translate3d(0, -100%, 0);
+  // transition: all 300ms $ease-in-sine;
+  // opacity: 0;
   z-index: $zindex-message;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 
   /* modifiers */
   &--success {
@@ -39,11 +39,11 @@
 
   &--show {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    // transform: translate3d(0, 0, 0);
   }
 
   &--hidden {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
+    // transform: translate3d(0, -100%, 0);
   }
 }
