@@ -47,7 +47,7 @@ const pages = [
   // 'pages/form/rate/index',
   'pages/form/picker/index',
   // 'pages/form/picker-view/index',
-  // 'pages/form/slider/index',
+  'pages/form/slider/index',
   // 'pages/form/search-bar/index',
   // 'pages/form/image-picker/index',
   // 'pages/form/range/index',

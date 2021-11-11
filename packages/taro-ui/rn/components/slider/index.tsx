@@ -16,14 +16,14 @@ export default class AtSlider extends React.Component<
     super(props)
     const { value = 0, min = 0, max = 100 } = props
     this.state = {
-      _value: AtSlider.clampNumber(value, min, max)
+      _value: AtSlider.clampNumber(value, min, max),
     }
   }
 
   protected static clampNumber(
     value: number,
     lower: number,
-    upper: number
+    upper: number,
   ): number {
     return Math.max(lower, Math.min(upper, value))
   }
@@ -40,7 +40,6 @@ export default class AtSlider extends React.Component<
 
   private handleChange(e: CommonEvent): void {
     const { value } = e.detail
-
     this.setState({ _value: value })
     this.props.onChange && this.props.onChange(value)
   }
@@ -48,7 +47,7 @@ export default class AtSlider extends React.Component<
   public UNSAFE_componentWillReceiveProps(props: AtSliderProps): void {
     const { value = 0, min = 0, max = 100 } = props
     this.setState({
-      _value: AtSlider.clampNumber(value, min, max)
+      _value: AtSlider.clampNumber(value, min, max),
     })
   }
 
@@ -65,7 +64,7 @@ export default class AtSlider extends React.Component<
       backgroundColor,
       blockSize,
       blockColor,
-      showValue
+      showValue,
     } = this.props
 
     return (
@@ -73,13 +72,17 @@ export default class AtSlider extends React.Component<
         className={classNames(
           {
             'at-slider': true,
-            'at-slider--disabled': disabled
           },
-          className
+          className,
         )}
         style={customStyle}
       >
-        <View className='at-slider__inner'>
+        <View
+          className={classNames({
+            'at-slider__inner': true,
+            'at-slider__inner--disabled': disabled,
+          })}
+        >
           <Slider
             min={min}
             max={max}
@@ -112,7 +115,7 @@ AtSlider.defaultProps = {
   backgroundColor: '#e9e9e9',
   blockSize: 28,
   blockColor: '#ffffff',
-  showValue: false
+  showValue: false,
 }
 
 AtSlider.propTypes = {
@@ -129,5 +132,5 @@ AtSlider.propTypes = {
   blockColor: PropTypes.string,
   showValue: PropTypes.bool,
   onChange: PropTypes.func,
-  onChanging: PropTypes.func
+  onChanging: PropTypes.func,
 }
