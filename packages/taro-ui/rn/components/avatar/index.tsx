@@ -29,10 +29,17 @@ export default class AtAvatar extends React.Component<
     super(props)
     this.state = {
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      _width: 0,
     }
   }
 
+  private onLayout = (event: any): void => {
+    const { width } = event.nativeEvent.layout
+    this.setState({ _width: width })
+  }
+
   public render(): JSX.Element {
+    const { _width } = this.state
     const { size, circle, image, text, openData, customStyle } = this.props
     const rootClassName = ['at-avatar']
     const iconSize = SIZE_CLASS[size || 'normal']
@@ -54,10 +61,17 @@ export default class AtAvatar extends React.Component<
       // TODO: RN
       elem = letter
     }
+
+    let style = customStyle
+    if (typeof customStyle === 'object' && _width && circle) {
+      style = { ...customStyle, borderRadius: _width / 2 }
+    }
+
     return (
       <View
         className={classNames(rootClassName, classObject, this.props.className)}
-        style={customStyle}
+        style={style}
+        onLayout={this.onLayout}
       >
         {elem}
       </View>
@@ -80,6 +94,6 @@ AtAvatar.propTypes = {
   text: PropTypes.string,
   image: PropTypes.string,
   openData: PropTypes.object,
-  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  customStyle: PropTypes.oneOfType([PropTypes.object]),
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 }
