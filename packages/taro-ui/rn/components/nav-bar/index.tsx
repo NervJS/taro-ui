@@ -1,10 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View } from '@tarojs/components'
+import { Text, View, Image } from '@tarojs/components'
 import { ITouchEvent } from '@tarojs/components/types/common'
 import { AtNavBarProps } from '../../../types/nav-bar'
 import { mergeStyle, pxTransform } from '../../common/utils'
+import chevronLeft from '../../assets/chevron-left.png'
 
 export default class AtNavBar extends React.Component<AtNavBarProps> {
   public static defaultProps: AtNavBarProps
@@ -82,6 +83,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       rightSecondIconInfo.className
     )
 
+
     return (
       <View
         className={classNames(
@@ -98,21 +100,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           className='at-nav-bar__left-view'
           onClick={this.handleClickLeftView.bind(this)}
           style={linkStyle}
-        >
-          {leftIconType && (
-            <Text
-              className={leftIconClass}
-              style={mergeStyle(
-                {
-                  color: leftIconInfo.color,
-                  fontSize: `${pxTransform(
-                    parseInt(leftIconInfo.size.toString()) * 2
-                  )}`
-                },
-                leftIconInfo.customStyle
-              )}
-            ></Text>
-          )}
+        >         
+            <Image src={leftIconInfo.value || chevronLeft} style={leftIconInfo.customStyle} className={leftIconClass}/>
           <Text className='at-nav-bar__text'>{leftText}</Text>
         </View>
         <View className='at-nav-bar__title'>
@@ -127,19 +116,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
             style={linkStyle}
             onClick={this.handleClickNd.bind(this)}
           >
-            {rightSecondIconType && (
-              <Text
-                className={rightSecondIconClass}
-                style={mergeStyle(
-                  {
-                    color: rightSecondIconInfo.color,
-                    fontSize: `${pxTransform(
-                      parseInt(rightSecondIconInfo.size.toString()) * 2
-                    )}`
-                  },
-                  rightSecondIconInfo.customStyle
-                )}
-              ></Text>
+            {!!rightSecondIconType && (
+              <Image src={ rightSecondIconInfo.value || ''} style={rightSecondIconInfo.customStyle} className={rightSecondIconClass}/>
             )}
           </View>
           <View
@@ -150,19 +128,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
             style={linkStyle}
             onClick={this.handleClickSt.bind(this)}
           >
-            {rightFirstIconType && (
-              <Text
-                className={rightFirstIconClass}
-                style={mergeStyle(
-                  {
-                    color: rightFirstIconInfo.color,
-                    fontSize: `${pxTransform(
-                      parseInt(rightFirstIconInfo.size.toString()) * 2
-                    )}`
-                  },
-                  rightFirstIconInfo.customStyle
-                )}
-              ></Text>
+            {!!rightFirstIconType && (
+              <Image src={ rightFirstIconInfo.value || '' } style={rightFirstIconInfo.customStyle} className={rightFirstIconClass}/>
             )}
           </View>
         </View>

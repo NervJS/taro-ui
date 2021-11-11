@@ -29,7 +29,7 @@ const pages = [
   'pages/navigation/tabs/index',
   'pages/navigation/tabbar/index',
   'pages/navigation/segmented-control/index',
-  // 'pages/navigation/navbar/index',
+  'pages/navigation/navbar/index',
   // 'pages/navigation/indexes/index',
   'pages/layout/flex/index',
   'pages/layout/grid/index',
