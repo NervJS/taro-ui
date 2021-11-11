@@ -45,7 +45,7 @@ const pages = [
   // 'pages/form/textarea/index',
   'pages/form/switch/index',
   // 'pages/form/rate/index',
-  // 'pages/form/picker/index',
+  'pages/form/picker/index',
   // 'pages/form/picker-view/index',
   // 'pages/form/slider/index',
   // 'pages/form/search-bar/index',

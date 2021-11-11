@@ -14,7 +14,7 @@ export default class AtProgress extends React.Component<AtProgressProps> {
     }
   }
 
-  get iconStatus() {
+  get iconStatus(): string {
     const { status } = this.props
     if (status === 'error') {
       return 'cancel'
@@ -22,6 +22,7 @@ export default class AtProgress extends React.Component<AtProgressProps> {
     if (status === 'success') {
       return 'success'
     }
+    return ''
   }
 
   onLayout = event => {

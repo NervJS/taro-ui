@@ -13,55 +13,62 @@ interface IndexState {
   timeSel: string
   dateSel: string
   isAlipay: boolean
+  width: number
 }
 
 export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public state: IndexState = {
     selector: ['中国', '美国', '巴西', '日本'],
     multiSelector: [
       ['饭', '粥', '粉'],
-      ['猪肉', '牛肉']
+      ['猪肉', '牛肉'],
     ],
     selectorValue: 0,
     mulitSelectorValues: [0, 1],
     timeSel: '06:18',
     dateSel: '2018-06-18',
-    isAlipay: false
+    isAlipay: false,
+    width: 0,
   }
 
   public componentDidMount(): void {
     const env = Taro.getEnv()
     this.setState({
-      isAlipay: env === Taro.ENV_TYPE.ALIPAY
+      isAlipay: env === Taro.ENV_TYPE.ALIPAY,
     })
   }
 
   private handleChange = (e: CommonEvent): void => {
     this.setState({
-      selectorValue: e.detail.value
+      selectorValue: e.detail.value,
     })
   }
 
   private handleMulitChange = (e: CommonEvent): void => {
     this.setState({
-      mulitSelectorValues: e.detail.value
+      mulitSelectorValues: e.detail.value,
     })
   }
 
   private handleTimeChange = (e: CommonEvent): void => {
     this.setState({
-      timeSel: e.detail.value
+      timeSel: e.detail.value,
     })
   }
 
   private handleDateChange = (e: CommonEvent): void => {
     this.setState({
-      dateSel: e.detail.value
+      dateSel: e.detail.value,
     })
+  }
+
+  private onLayout = (event): void => {
+    const { width } = event.nativeEvent.layout
+    this.setState({ width })
   }
 
   public render(): JSX.Element {
@@ -72,7 +79,8 @@ export default class Index extends React.Component<{}, IndexState> {
       mulitSelectorValues,
       timeSel,
       dateSel,
-      isAlipay
+      isAlipay,
+      width,
     } = this.state
 
     return (
@@ -87,14 +95,17 @@ export default class Index extends React.Component<{}, IndexState> {
           <View className='doc-body--panel'>
             <View className='panel__title'>普通选择器</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View
+                className='panel__content--example-item'
+                onLayout={this.onLayout}
+              >
                 <Picker
                   mode='selector'
                   range={selector}
                   value={selectorValue}
                   onChange={this.handleChange}
                 >
-                  <View className='demo-list-item'>
+                  <View className='demo-list-item' style={{ width }}>
                     <View className='demo-list-item__label'>国家地区</View>
                     <View className='demo-list-item__value'>
                       {selector[selectorValue]}
@@ -117,7 +128,7 @@ export default class Index extends React.Component<{}, IndexState> {
                     value={mulitSelectorValues}
                     onChange={this.handleMulitChange}
                   >
-                    <View className='demo-list-item'>
+                    <View className='demo-list-item' style={{ width }}>
                       <View className='demo-list-item__label'>请选择早餐</View>
                       <View className='demo-list-item__value'>{`${
                         multiSelector[0][mulitSelectorValues[0]]
@@ -139,7 +150,7 @@ export default class Index extends React.Component<{}, IndexState> {
                   value={timeSel}
                   onChange={this.handleTimeChange}
                 >
-                  <View className='demo-list-item'>
+                  <View className='demo-list-item' style={{ width }}>
                     <View className='demo-list-item__label'>请选择时间</View>
                     <View className='demo-list-item__value'>{timeSel}</View>
                   </View>
@@ -158,7 +169,7 @@ export default class Index extends React.Component<{}, IndexState> {
                   value={dateSel}
                   onChange={this.handleDateChange}
                 >
-                  <View className='demo-list-item'>
+                  <View className='demo-list-item' style={{ width }}>
                     <View className='demo-list-item__label'>请选择日期</View>
                     <View className='demo-list-item__value'>{dateSel}</View>
                   </View>
