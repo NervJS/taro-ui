@@ -1,20 +1,14 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { View, Icon } from '@tarojs/components'
+import { View, Icon, Progress } from '@tarojs/components'
 import { AtProgressProps } from '../../../types/progress'
 
 export default class AtProgress extends React.Component<AtProgressProps> {
+  public static defaultProps: AtProgressProps
   public static propTypes: InferProps<AtProgressProps>
 
-  public constructor(props: AtProgressProps) {
-    super(props)
-    this.state = {
-      width: 0,
-    }
-  }
-
-  get iconStatus(): string {
+  get iconStatus(): 'cancel' | 'success' | 'waiting' {
     const { status } = this.props
     if (status === 'error') {
       return 'cancel'
@@ -22,18 +16,12 @@ export default class AtProgress extends React.Component<AtProgressProps> {
     if (status === 'success') {
       return 'success'
     }
-    return ''
-  }
-
-  onLayout = event => {
-    const { width } = event.nativeEvent.layout
-    this.setState({ width })
+    return 'waiting'
   }
 
   public render(): JSX.Element {
-    const { color } = this.props
+    const { color = '#78A4F4' } = this.props
     let { percent } = this.props
-    const { width } = this.state
     const { strokeWidth, status, isHidePercent } = this.props
 
     if (typeof percent !== 'number') {
@@ -53,32 +41,17 @@ export default class AtProgress extends React.Component<AtProgressProps> {
       },
       this.props.className,
     )
-    // const iconClass = classNames('at-icon', {
-    //   'at-icon-close-circle': status === 'error',
-    //   'at-icon-check-circle': status === 'success'
-    // })
-
-    const progressStyle = {
-      width: percent && (width * parseInt(percent)) / 100,
-    }
-
-    if (color) {
-      progressStyle.backgroundColor = color
-    }
-
-    if (strokeWidth) {
-      progressStyle.height = strokeWidth
-    }
 
     return (
       <View className={rootClass}>
         <View className='at-progress__outer'>
-          <View className='at-progress__outer-inner' onLayout={this.onLayout}>
-            <View
-              className='at-progress__outer-inner-background'
-              style={progressStyle}
-            />
-          </View>
+          <Progress
+            percent={percent}
+            strokeWidth={strokeWidth}
+            active
+            activeColor={color}
+            borderRadius={10}
+          />
         </View>
 
         {!isHidePercent && (
@@ -94,6 +67,10 @@ export default class AtProgress extends React.Component<AtProgressProps> {
       </View>
     )
   }
+}
+
+AtProgress.defaultProps = {
+  color: '#78A4F4',
 }
 
 AtProgress.propTypes = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtButton, AtIcon, AtProgress } from 'taro-ui'
+import { AtButton, AtProgress } from 'taro-ui'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
