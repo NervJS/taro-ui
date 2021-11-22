@@ -52,7 +52,8 @@
     "classnames": "^2.2.6",
     "dayjs": "^1.7.7",
     "lodash": "^4.17.10",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-native-modal": "^13.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
