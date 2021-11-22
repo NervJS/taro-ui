@@ -2,10 +2,11 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { View } from '@tarojs/components'
+import Modal from 'react-native-modal'
 import { CommonEvent } from '@tarojs/components/types/common'
 import {
   AtActionSheetProps,
-  AtActionSheetState
+  AtActionSheetState,
 } from '../../../types/action-sheet'
 import AtActionSheetBody from './body/index'
 import AtActionSheetFooter from './footer/index'
@@ -23,7 +24,7 @@ export default class AtActionSheet extends React.Component<
     const { isOpened } = props
 
     this.state = {
-      _isOpened: isOpened
+      _isOpened: isOpened,
     }
   }
 
@@ -31,7 +32,7 @@ export default class AtActionSheet extends React.Component<
     const { isOpened } = nextProps
     if (isOpened !== this.state._isOpened) {
       this.setState({
-        _isOpened: isOpened
+        _isOpened: isOpened,
       })
 
       !isOpened && this.handleClose()
@@ -54,9 +55,9 @@ export default class AtActionSheet extends React.Component<
   private close = (): void => {
     this.setState(
       {
-        _isOpened: false
+        _isOpened: false,
       },
-      this.handleClose
+      this.handleClose,
     )
   }
 
@@ -69,18 +70,29 @@ export default class AtActionSheet extends React.Component<
     const { title, cancelText, className } = this.props
     const { _isOpened } = this.state
 
-    const rootClass = classNames(
-      'at-action-sheet',
-      {
-        'at-action-sheet--active': _isOpened
-      },
-      className
-    )
+    // const rootClass = classNames(
+    //   'at-action-sheet',
+    //   {
+    //     'at-action-sheet--active': _isOpened
+    //   },
+    //   className
+    // )
+    const containerClass = classNames('at-action-sheet__container', className)
 
     return (
-      <View className={rootClass} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-action-sheet__overlay' />
-        <View className='at-action-sheet__container'>
+      <Modal
+        animationIn='fadeInUp'
+        animationOut='fadeOutDown'
+        isVisible={_isOpened}
+        hasBackdrop
+        onModalHide={this.handleClose}
+        onBackButtonPress={this.handleClose}
+        onBackdropPress={this.handleClose}
+        style={{
+          margin: 0,
+        }}
+      >
+        <View className={containerClass}>
           {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
           <AtActionSheetBody>{this.props.children}</AtActionSheetBody>
           {cancelText && (
@@ -89,7 +101,7 @@ export default class AtActionSheet extends React.Component<
             </AtActionSheetFooter>
           )}
         </View>
-      </View>
+      </Modal>
     )
   }
 }
@@ -97,7 +109,7 @@ export default class AtActionSheet extends React.Component<
 AtActionSheet.defaultProps = {
   title: '',
   cancelText: '',
-  isOpened: false
+  isOpened: false,
 }
 
 AtActionSheet.propTypes = {
@@ -105,5 +117,5 @@ AtActionSheet.propTypes = {
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
   isOpened: PropTypes.bool.isRequired,
-  cancelText: PropTypes.string
+  cancelText: PropTypes.string,
 }
