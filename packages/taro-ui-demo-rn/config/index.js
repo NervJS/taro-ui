@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 
 const config = {
   projectName: 'taro-ui-demo',
@@ -19,11 +19,11 @@ const config = {
   },
   framework: 'react',
   sass: {
-    resource: path.resolve(
-      __dirname,
-      '..',
-      'node_modules/taro-ui/rn/style/index.scss',
-    ),
+    // resource: path.resolve(
+    //   __dirname,
+    //   '..',
+    //   'node_modules/taro-ui/rn/style/index.scss',
+    // ),
   },
   alias: {
     // TODO: 暂时使用这个，后面更新 taro-rn 版本修复，修复后配置 taro-ui/dist 转 taro-ui/rn
