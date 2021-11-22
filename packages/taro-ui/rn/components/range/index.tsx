@@ -1,14 +1,16 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtRangeProps, AtRangeState } from '../../../types/range'
 import {
-  delayQuerySelector,
-  getEventDetail,
-  mergeStyle
+  // delayQuerySelector,
+  // getEventDetail,
+  mergeStyle,
 } from '../../common/utils'
+import '../../style/components/range.scss'
 
 export default class AtRange extends React.Component<
   AtRangeProps,
@@ -33,24 +35,25 @@ export default class AtRange extends React.Component<
     this.currentSlider = ''
     this.state = {
       aX: 0,
-      bX: 0
+      bX: 0,
     }
   }
 
   private handleClick = (event: CommonEvent): void => {
     if (this.currentSlider && !this.props.disabled) {
       let sliderValue = 0
-      const detail = getEventDetail(event)
-      sliderValue = detail.x - this.left
+      // const detail = getEventDetail(event)
+      // sliderValue = detail.x - this.left
+      const x = event.detail.x
+      sliderValue = x - this.left
       this.setSliderValue(this.currentSlider, sliderValue, 'onChange')
     }
   }
 
   private handleTouchMove(sliderName: string, event: ITouchEvent): void {
     if (this.props.disabled) return
-    event.stopPropagation()
 
-    const clientX = event.touches[0].clientX
+    const clientX = event.nativeEvent.pageX
     this.setSliderValue(sliderName, clientX - this.left, 'onChange')
   }
 
@@ -64,20 +67,20 @@ export default class AtRange extends React.Component<
   private setSliderValue(
     sliderName: string,
     targetValue: number,
-    funcName: string
+    funcName: string,
   ): void {
     const distance = Math.min(Math.max(targetValue, 0), this.width)
     const sliderValue = Math.floor((distance / this.width) * 100)
     if (funcName) {
       this.setState(
         {
-          [sliderName]: sliderValue
+          [sliderName]: sliderValue,
         },
-        () => this.triggerEvent(funcName)
+        () => this.triggerEvent(funcName),
       )
     } else {
       this.setState({
-        [sliderName]: sliderValue
+        [sliderName]: sliderValue,
       })
     }
   }
@@ -103,16 +106,22 @@ export default class AtRange extends React.Component<
     }
   }
 
-  private updatePos(): void {
-    delayQuerySelector('.at-range__container', 0).then(rect => {
-      this.width = Math.round(rect[0].width)
-      this.left = Math.round(rect[0].left)
-    })
+  // private updatePos(): void {
+  //   delayQuerySelector('.at-range__container', 0).then(rect => {
+  //     this.width = Math.round(rect[0].width)
+  //     this.left = Math.round(rect[0].left)
+  //   })
+  // }
+
+  private onLayout = (event: any): void => {
+    const { width, x } = event.nativeEvent.layout
+    this.width = width
+    this.left = x
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: AtRangeProps): void {
     const { value } = nextProps
-    this.updatePos()
+    // this.updatePos()
     if (
       this.props.value![0] !== value![0] ||
       this.props.value![1] !== value![1]
@@ -123,7 +132,7 @@ export default class AtRange extends React.Component<
 
   public componentDidMount(): void {
     const { value } = this.props
-    this.updatePos()
+    // this.updatePos()
     this.setValue(value!)
   }
 
@@ -135,44 +144,59 @@ export default class AtRange extends React.Component<
       railStyle,
       trackStyle,
       blockSize,
-      disabled
+      disabled,
     } = this.props
 
     const rootCls = classNames(
       'at-range',
       {
-        'at-range--disabled': disabled
+        'at-range--disabled': disabled,
       },
-      className
+      className,
     )
 
     const { aX, bX } = this.state
-    const sliderCommonStyle = {
-      width: blockSize ? `${blockSize}PX` : '',
-      height: blockSize ? `${blockSize}PX` : '',
-      marginLeft: blockSize ? `${-blockSize / 2}PX` : ''
+    // const sliderCommonStyle = {
+    //   width: blockSize ? `${blockSize}PX` : '',
+    //   height: blockSize ? `${blockSize}PX` : '',
+    //   marginLeft: blockSize ? `${-blockSize / 2}PX` : ''
+    // }
+    const sliderCommonStyle: React.CSSProperties = {}
+    if (blockSize) {
+      sliderCommonStyle.width = Taro.pxTransform(blockSize)
+      sliderCommonStyle.height = Taro.pxTransform(blockSize)
+      sliderCommonStyle.marginLeft = Taro.pxTransform(-blockSize / 2)
     }
+
     const sliderAStyle = {
       ...sliderCommonStyle,
-      left: `${aX}%`
+      left: `${aX}%`,
     }
     const sliderBStyle = {
       ...sliderCommonStyle,
-      left: `${bX}%`
+      left: `${bX}%`,
     }
-    const containerStyle = {
-      height: blockSize ? `${blockSize}PX` : ''
+    const containerStyle: React.CSSProperties = {}
+    if (blockSize) {
+      containerStyle.height = Taro.pxTransform(blockSize)
     }
+    // const containerStyle = {
+    //   height: blockSize ? `${blockSize}PX` : ''
+    // }
     const smallerX = Math.min(aX, bX)
     const deltaX = Math.abs(aX - bX)
     const atTrackStyle = {
       left: `${smallerX}%`,
-      width: `${deltaX}%`
+      width: `${deltaX}%`,
     }
 
     return (
       <View className={rootCls} style={customStyle} onClick={this.handleClick}>
-        <View className='at-range__container' style={containerStyle}>
+        <View
+          className='at-range__container'
+          style={containerStyle}
+          onLayout={this.onLayout}
+        >
           <View className='at-range__rail' style={railStyle}></View>
           <View
             className='at-range__track'
@@ -206,7 +230,7 @@ AtRange.defaultProps = {
   min: 0,
   max: 100,
   disabled: false,
-  blockSize: 0
+  blockSize: 0,
 }
 
 AtRange.propTypes = {
@@ -221,5 +245,5 @@ AtRange.propTypes = {
   disabled: PropTypes.bool,
   blockSize: PropTypes.number,
   onChange: PropTypes.func,
-  onAfterChange: PropTypes.func
+  onAfterChange: PropTypes.func,
 }

@@ -11,6 +11,7 @@
   &__container {
     position: relative;
     display: flex;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     height: $at-range-slider-size;
@@ -36,9 +37,10 @@
     margin-left: -$at-range-slider-size / 2;
     width: $at-range-slider-size;
     height: $at-range-slider-size;
-    border-radius: 50%;
+    border-radius: $at-range-slider-size / 2;
     background-color: $at-range-slider-color;
-    box-shadow: $at-range-slider-shadow;
+    //box-shadow: $at-range-slider-shadow;
+    // TODO: box-shadow 替代
     box-sizing: border-box;
   }
 
