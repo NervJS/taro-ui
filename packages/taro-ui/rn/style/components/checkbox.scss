@@ -19,7 +19,7 @@ $component: '.at-checkbox';
   }
 
   &__title {
-    display: inline-flex;
+    //  display: inline-flex;
     color: $at-checkbox-title-color;
     font-size: $at-checkbox-title-font-size;
     line-height: $line-height-zh;
@@ -27,7 +27,7 @@ $component: '.at-checkbox';
   }
 
   &__icon-cnt {
-    display: inline-flex;
+    //  display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-top: 4px;
@@ -41,12 +41,12 @@ $component: '.at-checkbox';
     border: 2px solid rgba($color: $at-checkbox-icon-color, $alpha: 0.2);
     border-radius: $border-radius-circle;
     background-color: $color-bg;
-    box-sizing: border-box;
-    transition: all 0.2s;
+    // box-sizing: border-box;
+    //  transition:: all 0.2s;
   }
 
   &__desc {
-    display: block;
+    //  display: block;
     padding-left: $at-checkbox-circle-size + $spacing-h-lg;
     color: $at-checkbox-desc-color;
     font-size: $at-checkbox-desc-font-size;

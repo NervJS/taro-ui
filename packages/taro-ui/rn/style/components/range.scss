@@ -5,7 +5,7 @@
   position: relative;
   padding: 0 $at-range-slider-size / 2 + 4PX;
   width: 100%;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 
   /* elements */
   &__container {
@@ -15,14 +15,14 @@
     align-items: center;
     width: 100%;
     height: $at-range-slider-size;
-    box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
   &__rail {
     width: 100%;
     height: $at-range-rail-height;
     background-color: $at-range-rail-bg-color;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -41,7 +41,7 @@
     background-color: $at-range-slider-color;
     //box-shadow: $at-range-slider-shadow;
     // TODO: box-shadow 替代
-    box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
   /* modifiers */

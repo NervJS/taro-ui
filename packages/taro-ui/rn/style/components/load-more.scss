@@ -11,7 +11,7 @@
   height: $at-load-more-height;
   overflow: hidden;
   /*  #ifndef  rn  */
-  box-sizing: border-box;
+  // box-sizing: border-box;
   /*  #endif  */
 
   &__cnt {

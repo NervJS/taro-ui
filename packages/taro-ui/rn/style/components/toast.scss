@@ -3,11 +3,11 @@
 
 @keyframes atRotate {
   0% {
-    transform: rotate(0deg);
+    //  transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    //  transform: rotate(360deg);
   }
 }
 
@@ -23,7 +23,7 @@ $at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
   &__overlay {
     @include overlay;
 
-    position: fixed;
+    //  position: fixed;
     opacity: 0;
     z-index: $zindex-toast;
   }
@@ -31,7 +31,7 @@ $at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
   &__body {
     &--loading {
       .toast-body-content__img-item {
-        animation: atRotate 1350ms linear infinite;
+       //  animation: atRotate 1350ms linear infinite;
       }
     }
   }

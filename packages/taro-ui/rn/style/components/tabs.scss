@@ -92,7 +92,8 @@ $at-tabs-pane-min-height: 100px;
   /* modifiers */
   &--scroll {
     #{$component}__header {
-      overflow-x: scroll;
+      overflow: scroll;
+      // overflow-x: scroll;
       // -webkit-overflow-scrolling: touch;
       // white-space: nowrap;
     }

@@ -3,8 +3,8 @@
 
 .at-article {
   /*  #ifndef  rn  */
-  word-break: break-all;
-  word-wrap: break-word;
+  // word-break: break-all;
+  // word-wrap: break-word;
   /*  #endif  */
   line-height: $line-height-zh;
 
@@ -50,7 +50,7 @@
   &__img {
     display: flex;
     /*  #ifndef  rn  */
-    display: block;
+    //  display: block;
     /*  #endif  */
     margin: 20px auto 0;
     width: 690px;

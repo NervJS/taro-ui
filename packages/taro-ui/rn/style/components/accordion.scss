@@ -11,7 +11,7 @@
     min-height: $font-size-lg;
     color: $color-text-base;
     font-size: $font-size-lg;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     @include hairline-bottom();
     @include active;
 
@@ -28,7 +28,7 @@
     line-height: 1.6;
 
     &__title {
-      @include line;
+      // @include line;
 
       color: inherit;
       font-size: inherit;
@@ -36,7 +36,7 @@
     }
 
     &__note {
-      @include line;
+      // @include line;
 
       color: $at-list-content-color;
       font-size: $font-size-base;
@@ -54,12 +54,12 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    transition: height 500ms $ease-in-sine;
+    //  transition:: height 500ms $ease-in-sine;
     @include hairline-top();
 
     &--inactive {
       position: absolute;
-      visibility: hidden;
+     //  visibility: hidden;
       height: 0;
       z-index: -10;
     }
@@ -69,11 +69,11 @@
     color: $at-accordion-color-arrow;
     font-size: 48px;
     line-height: 1;
-    transition: transform 0.2s ease;
-    transform-origin: center;
+    //  transition:: transform 0.2s ease;
+    //  transform-origin: center;
 
     &--folded {
-      transform: rotate(180deg);
+      //  transform: rotate(180deg);
     }
   }
 }

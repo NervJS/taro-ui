@@ -19,7 +19,7 @@
 
     &-title,
     &-extra {
-      @include line;
+      // @include line;
 
       line-height: $line-height-zh;
     }
@@ -28,7 +28,7 @@
       @include flex(0, 0, $at-card-thumb-size);
 
       height: $at-card-thumb-size;
-      display: block;
+      //  display: block;
       line-height: 0;
       margin-right: $spacing-h-md;
 
@@ -46,7 +46,7 @@
     &-title {
       @include flex(auto);
 
-      display: block;
+      //  display: block;
       color: $at-card-title-color;
       font-size: $font-size-lg;
     }

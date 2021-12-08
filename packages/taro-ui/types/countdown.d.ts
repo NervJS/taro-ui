@@ -82,7 +82,7 @@ export interface AtCountdownState {
 export interface AtCountdownItemProps extends AtComponent {
   num: number
   separator: string
-  isCard: boolean
+  isCard?: boolean
 }
 
 declare const AtCountDown: ComponentClass<AtCountDownProps>

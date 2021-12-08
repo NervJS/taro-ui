@@ -5,20 +5,20 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 
   &__content {
     width: 100%;
     overflow: hidden;
-    box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
   &__menu {
-    position: fixed;
+    //  position: fixed;
     top: 50%;
     right: 0;
     overflow: hidden;
-    transform: translate3d(0, -50%, 0);
+    //  transform: translate3d(0, -50%, 0);
     z-index: $zindex-indexes;
   }
 
@@ -32,12 +32,12 @@
   &__body {
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
   &__list {
     width: 100%;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -47,7 +47,7 @@
     color: $at-indexes-title-color;
     font-size: $at-indexes-title-font-size;
     background-color: $at-indexes-title-bg-color;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     overflow: hidden;
   }
 }

@@ -36,12 +36,12 @@
     width: 172px;
     font-size: $at-input-font-size;
     line-height: $line-height-zh;
-    vertical-align: middle;
+    //  vertical-align: middle;
     text-align: left;
 
     &--required {
       &::before {
-        display: inline-block;
+        //  display: inline-block;
         margin-right: 8px;
         color: $color-error;
         font-size: 28px;
@@ -54,12 +54,12 @@
 
   &__input {
     flex: 1;
-    display: inline-block;
+    //  display: inline-block;
     padding-right: $spacing-v-md;
     color: $at-input-text-color;
     font-size: $at-input-font-size;
     line-height: $line-height-zh;
-    vertical-align: middle;
+    //  vertical-align: middle;
     @include placeholder($at-input-placeholder-color);
   }
 
@@ -71,7 +71,7 @@
   }
 
   &__icon {
-    display: inline-flex;
+    //  display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
@@ -92,7 +92,7 @@
   }
 
   &__children {
-    display: inline-flex;
+    //  display: inline-flex;
     @include hairline-left();
 
     > view,
@@ -101,7 +101,7 @@
     text,
     image,
     .taro-img {
-      display: inline-block;
+      //  display: inline-block;
       padding: 0 $spacing-v-md;
       color: $color-brand-dark;
       font-size: $at-input-font-size;
@@ -111,10 +111,10 @@
     > image,
     img,
     .taro-img {
-      display: inline-block;
+      //  display: inline-block;
       width: 145px;
       height: 60px;
-      vertical-align: middle;
+      //  vertical-align: middle;
     }
   }
 

@@ -4,12 +4,12 @@
 // @keyframes progress-active {
 //   from {
 //     opacity: 0.5;
-//     transform: translate(-100%);
+//     //  transform: translate(-100%);
 //   }
 
 //   to {
 //     opacity: 0.1;
-//     transform: translate(0);
+//     //  transform: translate(0);
 //   }
 // }
 
@@ -30,7 +30,7 @@
       width: 100%;
       background-color: $at-progress-inner-bg-color;
       border-radius: $at-progress-height / 2;
-      vertical-align: middle;
+      //  vertical-align: middle;
 
       &-background {
         position: relative;
@@ -66,7 +66,7 @@
   //     bottom: 0;
   //     background: $at-progress-bar-bg-color-active;
   //     border-radius: $at-progress-height / 2;
-  //     animation: progress-active 2s $ease-out-quad infinite;
+  //    //  animation: progress-active 2s $ease-out-quad infinite;
   //   }
   // }
 

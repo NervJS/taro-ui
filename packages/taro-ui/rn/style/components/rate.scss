@@ -7,7 +7,7 @@
 
   /* elements */
   &__left {
-    display: inline-block;
+    //  display: inline-block;
     position: absolute;
     left: 0;
     top: 0;
@@ -20,11 +20,11 @@
 
   &__icon {
     position: relative;
-    display: inline-block;
+    //  display: inline-block;
     color: $at-rate-star-color;
     font-size: 0;
     line-height: 0;
-    transition: all 0.2s;
+    //  transition:: all 0.2s;
 
     .at-icon {
       font-size: $at-rate-icon-size;

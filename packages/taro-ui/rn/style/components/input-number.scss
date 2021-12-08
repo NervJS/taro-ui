@@ -6,7 +6,7 @@ $at-input-number-btn-padding: 12px;
 $at-input-number-btn-padding-lg: 20px;
 
 #{$component} {
-  display: inline-flex;
+  //  display: inline-flex;
   @include border-thin($width: 1PX);
 
   font-size: $at-input-number-font-size;
@@ -17,7 +17,7 @@ $at-input-number-btn-padding-lg: 20px;
   /* elements */
   &__btn {
     position: relative;
-    display: inline-flex;
+    //  display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: $at-input-number-btn-padding;
@@ -37,7 +37,7 @@ $at-input-number-btn-padding-lg: 20px;
 
   &__input,
   input {
-    display: inline-block;
+    //  display: inline-block;
     width: $at-input-number-width-min;
     height: auto;
     border-radius: 0;

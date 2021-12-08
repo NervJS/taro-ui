@@ -14,8 +14,8 @@ $at-nav-bar-back-font-size: 16PX;
   padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
   width: 100%;
   background-color: $color-bg;
-  box-sizing: border-box;
-  white-space: nowrap;
+  // box-sizing: border-box;
+  //  white-space: nowrap;
   overflow: hidden;
   border-bottom-width: 1px;
   border-bottom-color: $color-border-light;
@@ -57,7 +57,7 @@ $at-nav-bar-back-font-size: 16PX;
     color: $at-nav-bar-title-color;
     font-size: $at-nav-bar-font-size;
     text-align: center;
-    vertical-align: middle;
+    //  vertical-align: middle;
     // line-height: $line-height-base;
     // @include line;
   }
@@ -89,7 +89,7 @@ $at-nav-bar-back-font-size: 16PX;
 
     &--hide {
       display: none;
-      visibility: hidden;
+     //  visibility: hidden;
     }
   }
 
@@ -102,7 +102,7 @@ $at-nav-bar-back-font-size: 16PX;
   }
 
   // &--fixed {
-  //   position: fixed;
+  //   //  position: fixed;
   //   top: 0;
   //   left: 0;
   //   right: 0;

@@ -20,7 +20,7 @@
     z-index: 2;
 
     &.animtion {
-      transition: transform 300ms $timing-func;
+      //  transition:: transform 300ms $timing-func;
     }
   }
 
@@ -28,7 +28,7 @@
     @include active;
     @include align-items(center);
 
-    display: inline-flex;
+    //  display: inline-flex;
     padding: 0 $spacing-h-xl;
     height: 100%;
     color: $at-swipe-action-color;
@@ -42,7 +42,7 @@
   &__options {
     @include align-items(center);
 
-    display: inline-flex;
+    //  display: inline-flex;
     position: absolute;
     top: 0;
     right: 0;

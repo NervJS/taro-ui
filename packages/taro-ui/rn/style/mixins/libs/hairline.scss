@@ -5,8 +5,8 @@
 @mixin hairline-common() {
   content: '';
   position: absolute;
-  transform-origin: center;
-  box-sizing: border-box;
+  //  transform-origin: center;
+  // box-sizing: border-box;
   pointer-events: none;
 }
 
@@ -21,7 +21,7 @@
   right: -50%;
   bottom: -50%;
   border: 0 $style $color;
-  transform: scale(0.5);
+  //  transform: scale(0.5);
 }
 
 @mixin hairline-surround(
@@ -157,7 +157,7 @@
   //   left: $left;
   //   right: 0;
   //   bottom: auto;
-  //   transform: scaleY(0.5);
+  //   //  transform: scaleY(0.5);
   //   border-top: $width $style $color;
   // }
 }
@@ -179,7 +179,7 @@
   //   left: 0;
   //   right: auto;
   //   bottom: 0;
-  //   transform: scaleX(0.5);
+  //   //  transform: scaleX(0.5);
   //   border-left: $width $style $color;
   // }
 }
@@ -203,7 +203,7 @@
   //   left: auto;
   //   right: 0;
   //   bottom: 0;
-  //   transform: scaleX(0.5);
+  //   //  transform: scaleX(0.5);
   //   border-right: $width $style $color;
   // }
 }

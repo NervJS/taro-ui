@@ -33,14 +33,14 @@ $float-layout-timer: 300ms;
 
   /* modifiers */
   // &--active {
-  //   visibility: visible;
+  //  //  visibility: visible;
 
   //   .at-float-layout__overlay {
   //     opacity: 1;
   //   }
 
   //   .at-float-layout__container {
-  //     transform: translate3d(0, 0, 0);
+  //     //  transform: translate3d(0, 0, 0);
   //   }
   // }
 }
@@ -82,7 +82,7 @@ $float-layout-timer: 300ms;
       //   position: absolute;
       //   top: 50%;
       //   left: 50%;
-      //   display: inline-block;
+      //   //  display: inline-block;
       //   width: 36px;
       //   height: 2PX;
       //   border-radius: 1PX;
@@ -90,11 +90,11 @@ $float-layout-timer: 300ms;
       // }
 
       // &::before {
-      //   transform: translate3d(-50%, -50%, 0) rotate(45deg);
+      //   //  transform: translate3d(-50%, -50%, 0) rotate(45deg);
       // }
 
       // &::after {
-      //   transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+      //   //  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
       // }
     }
   }

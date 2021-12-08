@@ -113,9 +113,9 @@
   width: 100%;
 
   /*  #ifndef  rn  */
-  display: block;
-  white-space: nowrap;
-  box-sizing: border-box;
+  //  display: block;
+  //  white-space: nowrap;
+  // box-sizing: border-box;
   /*  #endif  */
   @for $col from 1 through 12 {
     $width: ($col / 12) * 100%;
@@ -147,11 +147,11 @@
   /*  #ifndef  rn  */
   // &--auto {
   //   max-width: initial;
-  //   word-break: keep-all;
+  //   //  word-break: keep-all;
   // }
 
   // &--wrap {
-  //   white-space: normal;
+  //   //  white-space: normal;
   //   word-wrap: break-word;
   // }
   /*  #endif  */

@@ -11,8 +11,8 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
   align-self: flex-start;
   /*  #endif  */
   /*  #ifndef  rn  */
-  display: inline-block;
-  vertical-align: middle;
+  //  display: inline-block;
+  //  vertical-align: middle;
   /*  #endif  */
   width: 100%;
 
@@ -27,7 +27,7 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
     overflow: hidden;
     background: $at-badge-bg;
     /*  #ifndef  rn  */
-    box-shadow: $at-badge-box-shadow;
+    //  box-shadow: $at-badge-box-shadow;
     /*  #endif  */
   }
 
@@ -42,8 +42,8 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
     background: $at-badge-bg;
     line-height: $at-badge-font-size * 1.4;
     /*  #ifndef  rn  */
-    box-shadow: $at-badge-box-shadow;
-    transform: translate(50%, 0);
+    //  box-shadow: $at-badge-box-shadow;
+    //  transform: translate(50%, 0);
     /*  #endif  */
     overflow: hidden;
     z-index: 1;

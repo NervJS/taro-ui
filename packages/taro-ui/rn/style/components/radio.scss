@@ -22,7 +22,7 @@
     font-size: $at-radio-title-size;
     text-align: left;
     line-height: $line-height-zh;
-    word-break: break-all;
+    //  word-break: break-all;
   }
 
   &__icon {
@@ -30,10 +30,10 @@
     font-size: $at-radio-title-size;
     text-align: right;
     overflow: hidden;
-    visibility: hidden;
+   //  visibility: hidden;
 
     &--checked {
-      visibility: visible;
+     //  visibility: visible;
     }
 
     .at-icon {
@@ -42,14 +42,14 @@
   }
 
   &__desc {
-    display: block;
+    //  display: block;
     width: 86%;
     color: $at-radio-desc-color;
     font-size: $at-radio-desc-size;
     text-align: left;
     line-height: $line-height-zh;
     letter-spacing: 0;
-    word-break: break-all;
+    //  word-break: break-all;
   }
 
   &__option {

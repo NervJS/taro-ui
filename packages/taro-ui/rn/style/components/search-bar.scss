@@ -16,7 +16,7 @@ $at-search-bar-placeholder-padding: 12PX;
   padding: $spacing-v-sm $spacing-v-md;
   background-color: $color-bg;
   overflow: hidden;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   @include hairline-bottom();
 
   /* elements */
@@ -44,9 +44,9 @@ $at-search-bar-placeholder-padding: 12PX;
     // width: 100%;
     height: $at-search-bar-input-height;
     line-height: 0;
-    vertical-align: middle;
+    //  vertical-align: middle;
     opacity: 1;
-    transition: flex 0.3s;
+    //  transition:: flex 0.3s;
     // background: #0084ff;
 
     .at-icon {
@@ -65,7 +65,7 @@ $at-search-bar-placeholder-padding: 12PX;
 
   &__input {
     position: absolute;
-    display: block;
+    //  display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -75,8 +75,8 @@ $at-search-bar-placeholder-padding: 12PX;
     font-size: $at-search-bar-font-size !important;
     text-align: left;
     background-color: transparent;
-    transition: width 0.3s;
-    box-sizing: border-box;
+    //  transition:: width 0.3s;
+    // box-sizing: border-box;
   }
 
   &__clear {
@@ -91,12 +91,12 @@ $at-search-bar-placeholder-padding: 12PX;
     color: $at-search-bar-placholder-color;
     font-size: $at-search-bar-font-size;
     line-height: 0;
-    vertical-align: middle;
+    //  vertical-align: middle;
   }
 
   &__action {
     flex: none;
-    display: block;
+    //  display: block;
     margin-left: 10PX;
     padding: 0 $at-search-bar-btn-padding;
     height: $at-search-bar-input-height;
@@ -105,13 +105,13 @@ $at-search-bar-placeholder-padding: 12PX;
     line-height: $at-search-bar-input-height;
     border-radius: 4PX;
     background-color: $at-search-bar-btn-bg-color;
-    transition: margin-right 0.3s, opacity 0.3s;
+    //  transition:: margin-right 0.3s, opacity 0.3s;
     opacity: 0;
   }
 
   /* modifiers */
   &--fixed {
-    position: fixed;
+    //  position: fixed;
     top: 0;
     left: 0;
     right: 0;

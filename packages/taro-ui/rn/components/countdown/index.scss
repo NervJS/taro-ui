@@ -9,16 +9,16 @@
 $font-size: $font-size-lg;
 
 .at-count-down {
-  display: inline-block;
+  //  display: inline-block;
   min-height: $font-size;
 
   &__item {
-    display: inline-flex;
+    //  display: inline-flex;
     align-items: center;
   }
 
   &__time-box {
-    display: inline-block;
+    //  display: inline-block;
     text-align: center;
     min-width: $font-size;
     font: {
@@ -33,12 +33,12 @@ $font-size: $font-size-lg;
     text-rendering: auto;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    vertical-align: middle;
+    //  vertical-align: middle;
   }
 
   &__separator {
     font-size: $font-size-base;
-    display: inline-flex;
+    //  display: inline-flex;
     align-items: center;
     text-align: justify;
     padding: 0 $spacing-v-xs;
@@ -50,7 +50,7 @@ $font-size: $font-size-lg;
       border: 1PX solid $color-border-grey;
       border-radius: $border-radius-md;
       color: #FF4949;
-      display: inline-block;
+      //  display: inline-block;
       background-color: #fff;
       position: relative;
 
