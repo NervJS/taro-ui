@@ -10,7 +10,7 @@ Created by iconfont
 </metadata>
 <defs>
 <font d="iconfont" horiz-adv-x="1024" >
-  <font-face 
+  <font-face
     font-family="iconfont"
     font-weight="400"
     font-stretch="normal"
@@ -30,7 +30,6 @@ Created by iconfont
     <glyph glyph-name="add-circle" unicode="&#xe901;" d="M512 845q196 -5 326 -135t135 -326q-5 -196 -135 -326t-326 -135q-196 5 -326 135t-135 326q5 196 135 326t326 135zM512 -11q168 4 279.5 115.5t115.5 279.5q-4 168 -115.5 279.5t-279.5 115.5q-168 -4 -279.5 -115.5t-115.5 -279.5q4 -168 115.5 -279.5t279.5 -115.5z M545 581v-164h164v-66h-164v-164h-66v164h-164v66h164v164h66z"/>
     <glyph glyph-name="align-center" unicode="&#xe902;" d="M307 497v82h410v-82h-410zM307 169v82h410v-82h-410zM102 333v82h820v-82h-820zM102 5v82h820v-82h-820zM102 660v82h820v-82h-820z"/>
     <glyph glyph-name="align-left" unicode="&#xe903;" d="M102 497v82h410v-82h-410zM102 169v82h410v-82h-410zM102 333v82h820v-82h-820zM102 5v82h820v-82h-820zM102 660v82h820v-82h-820z"/>
-    <glyph glyph-name="align-left" unicode="&#xe904;" d="M102 497v82h410v-82h-410zM102 169v82h410v-82h-410zM102 333v82h820v-82h-820zM102 5v82h820v-82h-820zM102 660v82h820v-82h-820z"/>
     <glyph glyph-name="arrow-down" unicode="&#xe905;" d="M667 180l-118 -119v784h-73v-782l-117 117l-52 -51l206 -206l206 206z"/>
     <glyph glyph-name="arrow-left" unicode="&#xe907;" d="M308 537l-119 -118h784v-73h-782l117 -117l-51 -52l-206 206l206 206z"/>
     <glyph glyph-name="arrow-right" unicode="&#xe908;" d="M716 229l119 118h-784v73h782l-117 117l51 52l206 -206l-206 -206z"/>

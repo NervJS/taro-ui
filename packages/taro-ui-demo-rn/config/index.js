@@ -74,6 +74,7 @@ const config = {
     resolve: {
       include: ['../taro-ui'],
     },
+    enableSvgTransform: true,
   },
 }
 
