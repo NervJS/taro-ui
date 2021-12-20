@@ -22,8 +22,7 @@ export default class AtIcon extends React.Component<AtIconProps> {
       // tips: 字体转换的 svg 需要沿着 Y 轴旋转 180 度
       transform: [{ rotateY: '180deg' }],
     }
-
-    return React.createElement(ICONS[value], {
+    return React.createElement(ICONS[value] || ((): any => null), {
       fill: color,
       style: Object.assign(style, customStyle),
     })
