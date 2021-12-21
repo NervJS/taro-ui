@@ -34,7 +34,7 @@ const pages = [
   'pages/layout/flex/index',
   'pages/layout/grid/index',
   'pages/layout/float-layout/index',
-  // 'pages/layout/card/index',
+  'pages/layout/card/index',
   'pages/layout/list/index',
   // 'pages/layout/accordion/index',
   // 'pages/form/form/index',

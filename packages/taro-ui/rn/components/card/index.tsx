@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Image, Text, View } from '@tarojs/components'
+import AtIcon from '../icon'
 import { AtCardProps } from '../../../types/card'
 
 export default class AtCard extends React.Component<AtCardProps> {
@@ -15,34 +16,26 @@ export default class AtCard extends React.Component<AtCardProps> {
   }
 
   public render(): JSX.Element {
-    const {
-      title,
-      note,
-      extra,
-      extraStyle,
-      thumb,
-      isFull,
-      icon,
-      renderIcon
-    } = this.props
+    const { title, note, extra, extraStyle, thumb, isFull, icon, renderIcon } =
+      this.props
 
     const rootClass = classNames(
       'at-card',
       {
-        'at-card--full': isFull
+        'at-card--full': isFull,
       },
-      this.props.className
+      this.props.className,
     )
-    const iconClass = classNames({
-      'at-icon': true,
-      [`at-icon-${icon && icon.value}`]: icon && icon.value,
-      'at-card__header-icon': true
-    })
+    // const iconClass = classNames({
+    //   'at-icon': true,
+    //   [`at-icon-${icon && icon.value}`]: icon && icon.value,
+    //   'at-card__header-icon': true
+    // })
 
-    const iconStyle = {
-      color: (icon && icon.color) || '',
-      fontSize: (icon && `${icon.size}px`) || ''
-    }
+    // const iconStyle = {
+    //   color: (icon && icon.color) || '',
+    //   fontSize: (icon && `${icon.size}px`) || ''
+    // }
 
     return (
       <View onClick={this.handleClick} className={rootClass}>
@@ -58,7 +51,12 @@ export default class AtCard extends React.Component<AtCardProps> {
           )}
           {renderIcon || ''}
           {!thumb && icon && icon.value && (
-            <Text className={iconClass} style={iconStyle}></Text>
+            <AtIcon
+              customStyle={icon.customStyle}
+              value={icon.value}
+              size={icon.size}
+              color={icon.color}
+            />
           )}
 
           <Text className='at-card__header-title'>{title}</Text>
@@ -70,7 +68,7 @@ export default class AtCard extends React.Component<AtCardProps> {
         </View>
         <View className='at-card__content'>
           <View className='at-card__content-info'>{this.props.children}</View>
-          {note && <View className='at-card__content-note'>{note}</View>}
+          {note ? <View className='at-card__content-note'>{note}</View> : null}
         </View>
       </View>
     )
@@ -83,7 +81,7 @@ AtCard.defaultProps = {
   thumb: '',
   title: '',
   extra: '',
-  extraStyle: {}
+  extraStyle: {},
 }
 
 AtCard.propTypes = {
@@ -95,5 +93,5 @@ AtCard.propTypes = {
   icon: PropTypes.object,
   onClick: PropTypes.func,
   renderIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  extraStyle: PropTypes.object // 自定义extra样式
+  extraStyle: PropTypes.object, // 自定义extra样式
 }

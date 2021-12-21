@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtButton, AtProgress } from 'taro-ui'
+import { AtButton, AtProgress, AtIcon } from 'taro-ui'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
@@ -155,12 +155,12 @@ export default class ProgressPage extends React.Component<
                 <View className='example-item__buttons'>
                   <View className='btn'>
                     <AtButton size='small' onClick={this.reduce}>
-                      {/* <AtIcon value='subtract' size={12} /> */}
+                      <AtIcon value='subtract' size={12} />
                     </AtButton>
                   </View>
                   <View className='btn'>
                     <AtButton size='small' onClick={this.increase}>
-                      {/* <AtIcon value='add' size={12} /> */}
+                      <AtIcon value='add' size={12} />
                     </AtButton>
                   </View>
                 </View>

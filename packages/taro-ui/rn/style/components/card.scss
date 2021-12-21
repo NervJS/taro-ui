@@ -3,7 +3,7 @@
 
 .at-card {
   @include border-thin($color: $color-border-light, $width: 1PX);
-
+  flex: 1;
   margin: 0 $spacing-h-lg;
   border-radius: $border-radius-lg;
   background-color: $color-bg;
