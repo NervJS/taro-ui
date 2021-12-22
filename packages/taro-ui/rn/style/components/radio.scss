@@ -4,16 +4,22 @@
 .at-radio {
   position: relative;
   background-color: $color-bg;
-  @include hairline-top-relative();
-  @include hairline-bottom-relative();
+  @include hairline-top-relative(#d6e4ef);
+  @include hairline-bottom-relative(#d6e4ef);
 
   /* elements */
   &__option-wrap {
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
+    @include border-thin-bottom(#d6e4ef);
+
+    &--no-border {
+      border-bottom-width: 0;
+    }
   }
 
   &__option-container {
     display: flex;
+    flex-direction: row;
   }
 
   &__title {
@@ -23,6 +29,10 @@
     text-align: left;
     line-height: $line-height-zh;
     //  word-break: break-all;
+
+    &--disabled {
+      opacity: $opacity-disabled;
+    }
   }
 
   &__icon {
@@ -50,6 +60,10 @@
     line-height: $line-height-zh;
     letter-spacing: 0;
     //  word-break: break-all;
+
+    &--disabled {
+      opacity: $opacity-disabled;
+    }
   }
 
   &__option {

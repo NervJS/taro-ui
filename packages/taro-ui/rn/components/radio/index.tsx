@@ -1,9 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtRadioProps, RadioOption } from '../../../types/radio'
+import AtIcon from '../icon'
 
 export default class AtRadio extends React.Component<AtRadioProps<any>> {
   public static defaultProps: AtRadioProps<any>
@@ -19,29 +20,44 @@ export default class AtRadio extends React.Component<AtRadioProps<any>> {
 
     return (
       <View className={classNames('at-radio', className)} style={customStyle}>
-        {options.map(option => (
+        {options.map((option, index) => (
           <View
             key={option.value}
             onClick={this.handleClick.bind(this, option)}
             className={classNames({
               'at-radio__option': true,
-              'at-radio__option--disabled': option.disabled
+              'at-radio__option--disabled': option.disabled,
             })}
           >
-            <View className='at-radio__option-wrap'>
+            <View
+              className={classNames({
+                'at-radio__option-wrap': true,
+                'at-radio__option-wrap--no-border':
+                  options.length === index + 1,
+              })}
+            >
               <View className='at-radio__option-container'>
-                <View className='at-radio__title'>{option.label}</View>
                 <View
                   className={classNames({
-                    'at-radio__icon': true,
-                    'at-radio__icon--checked': value === option.value
+                    'at-radio__title': true,
+                    'at-radio__title--disabled': option.disabled,
                   })}
                 >
-                  <Text className='at-icon at-icon-check'></Text>
+                  {option.label}
                 </View>
+                {value === option.value && (
+                  <AtIcon value='check' size='16' color='#6190e8' />
+                )}
               </View>
               {option.desc && (
-                <View className='at-radio__desc'>{option.desc}</View>
+                <View
+                  className={classNames({
+                    'at-radio__desc': true,
+                    'at-radio__desc--disabled': option.disabled,
+                  })}
+                >
+                  {option.desc}
+                </View>
               )}
             </View>
           </View>
@@ -57,7 +73,7 @@ AtRadio.defaultProps = {
   value: '',
   options: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onClick: (): void => {}
+  onClick: (): void => {},
 }
 
 AtRadio.propTypes = {
@@ -65,5 +81,5 @@ AtRadio.propTypes = {
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   value: PropTypes.string,
   options: PropTypes.array,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
