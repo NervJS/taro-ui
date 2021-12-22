@@ -3,6 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Image, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
+import AtIcon from '../icon'
 import { AtImagePickerProps, File } from '../../../types/image-picker'
 import { uuid } from '../../common/utils'
 
@@ -15,7 +16,7 @@ interface MatrixFile extends Partial<File> {
 const generateMatrix = (
   files: MatrixFile[],
   col: number,
-  showAddBtn: boolean
+  showAddBtn: boolean,
 ): MatrixFile[][] => {
   const matrix: Array<MatrixFile>[] = []
   const length = showAddBtn ? files.length + 1 : files.length
@@ -69,7 +70,7 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
       .then(res => {
         const targetFiles = res.tempFilePaths.map((path, i) => ({
           url: path,
-          file: res[filePathName][i]
+          file: res[filePathName][i],
         }))
         const newFiles = files.concat(targetFiles)
         this.props.onChange(newFiles, 'add')
@@ -98,7 +99,7 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
       files,
       mode,
       length = 4,
-      showAddBtn = true
+      showAddBtn = true,
     } = this.props
     const rowLength = length <= 0 ? 1 : length
     // 行数
@@ -119,7 +120,9 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
                     <View
                       className='at-image-picker__remove-btn'
                       onClick={this.handleRemoveImg.bind(this, i * length + j)}
-                    ></View>
+                    >
+                      <AtIcon value='close-circle' size={16} />
+                    </View>
                     <Image
                       className='at-image-picker__preview-img'
                       mode={mode}
@@ -138,12 +141,11 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
                       className='at-image-picker__item at-image-picker__choose-btn'
                       onClick={this.chooseFile}
                     >
-                      <View className='add-bar'></View>
-                      <View className='add-bar'></View>
+                      <AtIcon value='add' size={32} color='#ccc' />
                     </View>
                   )}
                 </View>
-              )
+              ),
             )}
           </View>
         ))}
@@ -161,7 +163,7 @@ AtImagePicker.defaultProps = {
   multiple: false,
   length: 4,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtImagePicker.propTypes = {
@@ -181,7 +183,7 @@ AtImagePicker.propTypes = {
     'top left',
     'top right',
     'bottom left',
-    'bottom right'
+    'bottom right',
   ]),
   showAddBtn: PropTypes.bool,
   multiple: PropTypes.bool,
@@ -191,5 +193,5 @@ AtImagePicker.propTypes = {
   onFail: PropTypes.func,
   count: PropTypes.number,
   sizeType: PropTypes.array,
-  sourceType: PropTypes.array
+  sourceType: PropTypes.array,
 }
