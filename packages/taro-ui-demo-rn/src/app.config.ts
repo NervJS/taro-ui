@@ -40,7 +40,7 @@ const pages = [
   // 'pages/form/form/index',
   // 'pages/form/checkbox/index',
   // 'pages/form/input/index',
-  // 'pages/form/input-number/index',
+  'pages/form/input-number/index',
   // 'pages/form/radio/index',
   'pages/form/textarea/index',
   'pages/form/switch/index',

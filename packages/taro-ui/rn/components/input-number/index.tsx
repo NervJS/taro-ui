@@ -2,10 +2,11 @@ import classNames from 'classnames'
 import _toString from 'lodash/toString'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Input, Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import { Input, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtInputNumberProps, InputError } from '../../../types/input-number'
-import { pxTransform } from '../../common/utils'
+import AtIcon from '../icon'
 
 // TODO: Check all types
 
@@ -48,6 +49,12 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
   public static defaultProps: AtInputNumberProps
   public static propTypes: InferProps<AtInputNumberProps>
 
+  state = {
+    width: null,
+  }
+
+  widths = [] as number[]
+
   private handleClick(clickType: 'minus' | 'plus', e: CommonEvent): void {
     const { disabled, value, min = 0, max = 100, step = 1 } = this.props
     const lowThanMin = clickType === 'minus' && value <= min
@@ -58,12 +65,12 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
       if (disabled) {
         this.handleError({
           type: 'DISABLED',
-          errorValue
+          errorValue,
         })
       } else {
         this.handleError({
           type: lowThanMin ? 'LOW' : 'OVER',
-          errorValue
+          errorValue,
         })
       }
       return
@@ -82,14 +89,14 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
       resultValue = max
       this.handleError({
         type: 'OVER',
-        errorValue: resultValue
+        errorValue: resultValue,
       })
     }
     if (resultValue < min) {
       resultValue = min
       this.handleError({
         type: 'LOW',
-        errorValue: resultValue
+        errorValue: resultValue,
       })
     }
     if (resultValue && !Number(resultValue)) {
@@ -97,7 +104,7 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
 
       this.handleError({
         type: 'OVER',
-        errorValue: resultValue
+        errorValue: resultValue,
       })
     }
 
@@ -125,6 +132,19 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
     this.props.onErrorInput(errorValue)
   }
 
+  private onLayout = (type?: string) => (event: any) => {
+    const { width } = event.nativeEvent.layout
+    this.widths.push(width)
+    if (this.widths.length === 2) {
+      const widths = type === 'input' ? this.widths : this.widths.reverse()
+      const [btnWidth, inputWidth] = widths
+      this.setState({
+        width: btnWidth * 2 + inputWidth,
+      })
+    }
+    // console.log('event.nativeEvent.layout', event.nativeEvent.layout)
+  }
+
   public render(): JSX.Element {
     const {
       customStyle,
@@ -136,34 +156,45 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
       min = 0,
       max = 100,
       size,
-      disabledInput
+      disabledInput,
     } = this.props
 
-    const inputStyle = {
-      width: width ? `${pxTransform(width)}` : ''
+    const inputStyle: any = {}
+    if (width) {
+      inputStyle.width = Taro.pxTransform(width)
     }
+
+    const rootStyle: any = {}
+    if (this.state.width) {
+      rootStyle.width = this.state.width
+    }
+
     const inputValue = Number(this.handleValue(value))
     const rootCls = classNames(
       'at-input-number',
       {
-        'at-input-number--lg': size === 'large'
+        'at-input-number--lg': size === 'large',
       },
-      className
+      className,
     )
-    const minusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue <= min || disabled
-    })
-    const plusBtnCls = classNames('at-input-number__btn', {
-      'at-input-number--disabled': inputValue >= max || disabled
-    })
+    const minusBtnCls = classNames('at-input-number__btn')
+    const plusBtnCls = classNames('at-input-number__btn')
+
+    const minusDisabled = inputValue <= min || disabled
+    const addDisabled = inputValue >= max || disabled
 
     return (
-      <View className={rootCls} style={customStyle}>
+      <View className={rootCls} style={Object.assign(rootStyle, customStyle)}>
         <View
           className={minusBtnCls}
           onClick={this.handleClick.bind(this, 'minus')}
+          onLayout={this.onLayout()}
         >
-          <Text className='at-icon at-icon-subtract at-input-number__btn-subtract'></Text>
+          <AtIcon
+            value='subtract'
+            size='16'
+            color={minusDisabled ? '#ccc' : '#6190e8'}
+          />
         </View>
         <Input
           className='at-input-number__input'
@@ -173,12 +204,17 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
           disabled={disabledInput || disabled}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
+          onLayout={this.onLayout('input')}
         />
         <View
           className={plusBtnCls}
           onClick={this.handleClick.bind(this, 'plus')}
         >
-          <Text className='at-icon at-icon-add at-input-number__btn-add'></Text>
+          <AtIcon
+            value='add'
+            size='16'
+            color={addDisabled ? '#ccc' : '#6190e8'}
+          />
         </View>
       </View>
     )
@@ -186,7 +222,7 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
 }
 
 AtInputNumber.defaultProps = {
-  customStyle: '',
+  customStyle: {},
   className: '',
   disabled: false,
   disabledInput: false,
@@ -198,7 +234,7 @@ AtInputNumber.defaultProps = {
   step: 1,
   size: 'normal',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtInputNumber.propTypes = {
@@ -215,5 +251,5 @@ AtInputNumber.propTypes = {
   disabledInput: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  onErrorInput: PropTypes.func
+  onErrorInput: PropTypes.func,
 }
