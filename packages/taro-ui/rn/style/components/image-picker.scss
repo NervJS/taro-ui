@@ -75,7 +75,8 @@
     /*  #ifdef  rn  */
     width: 36px;
     height: 36px;
-    background-color: transparent;
+    border-radius: 18px;
+    background-color: #999;
     /*  #endif  */
 
     &::before,

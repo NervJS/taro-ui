@@ -1,8 +1,9 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { AtCheckboxProps } from '../../../types/checkbox'
+import AtIcon from '../icon'
 
 export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
   public static defaultProps: AtCheckboxProps<any>
@@ -34,7 +35,7 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
           const { value, disabled, label, desc } = option
           const optionCls = classNames('at-checkbox__option', {
             'at-checkbox__option--disabled': disabled,
-            'at-checkbox__option--selected': selectedList.includes(value)
+            'at-checkbox__option--selected': selectedList.includes(value),
           })
 
           return (
@@ -44,13 +45,33 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
               onClick={this.handleClick.bind(this, idx)}
             >
               <View className='at-checkbox__option-wrap'>
-                <View className='at-checkbox__option-cnt'>
-                  <View className='at-checkbox__icon-cnt'>
-                    <Text className='at-icon at-icon-check'></Text>
+                <View
+                  className={classNames({
+                    'at-checkbox__option-cnt': true,
+                    'at-checkbox__option-cnt--disabled': disabled,
+                  })}
+                >
+                  <View
+                    className={classNames({
+                      'at-checkbox__icon-cnt': true,
+                      'at-checkbox__icon-cnt--check':
+                        selectedList.includes(value),
+                    })}
+                  >
+                    <AtIcon value='check' size='16' color='#FFF' />
                   </View>
                   <View className='at-checkbox__title'>{label}</View>
                 </View>
-                {desc && <View className='at-checkbox__desc'>{desc}</View>}
+                {desc && (
+                  <View
+                    className={classNames({
+                      'at-checkbox__desc': true,
+                      'at-checkbox__desc--disabled': disabled,
+                    })}
+                  >
+                    {desc}
+                  </View>
+                )}
               </View>
             </View>
           )
@@ -66,7 +87,7 @@ AtCheckbox.defaultProps = {
   options: [],
   selectedList: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtCheckbox.propTypes = {
@@ -74,5 +95,5 @@ AtCheckbox.propTypes = {
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   options: PropTypes.array,
   selectedList: PropTypes.array,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }
