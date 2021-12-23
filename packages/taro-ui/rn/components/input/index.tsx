@@ -10,8 +10,10 @@ import {
   ConfirmEventDetail,
   FocusEventDetail,
   InputEventDetail,
-  KeyboardHeightEventDetail
+  KeyboardHeightEventDetail,
 } from '../../../types/input'
+import '../../style/components/input.scss'
+import AtIcon from '../icon'
 
 type PickAtInputProps = Pick<
   AtInputProps,
@@ -22,15 +24,15 @@ type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
 function getInputProps(props: AtInputProps): GetInputPropsReturn {
   const actualProps = {
     type: props.type,
-    maxLength: props.maxlength,
+    maxlength: props.maxlength,
     disabled: props.disabled,
-    password: false
+    password: false,
   }
 
   switch (actualProps.type) {
     case 'phone':
       actualProps.type = 'number'
-      actualProps.maxLength = 11
+      actualProps.maxlength = 11
       break
     case 'password':
       actualProps.type = 'text'
@@ -68,7 +70,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       // fix # 583 AtInput 不触发 onChange 的问题
       this.props.onChange(
         event.detail.value,
-        event as BaseEventOrig<InputEventDetail>
+        event as BaseEventOrig<InputEventDetail>,
       )
     }
     // 还原状态
@@ -93,7 +95,7 @@ export default class AtInput extends React.Component<AtInputProps> {
   }
 
   private handleKeyboardHeightChange = (
-    event: BaseEventOrig<KeyboardHeightEventDetail>
+    event: BaseEventOrig<KeyboardHeightEventDetail>,
   ): void => {
     if (typeof this.props.onKeyboardHeightChange === 'function') {
       this.props.onKeyboardHeightChange(event)
@@ -127,43 +129,51 @@ export default class AtInput extends React.Component<AtInputProps> {
       autoFocus,
       focus,
       value,
-      required
+      required,
     } = this.props
     const { type, maxlength, disabled, password } = getInputProps(this.props)
 
-    const rootCls = classNames(
-      'at-input',
-      {
-        'at-input--without-border': !border
-      },
-      className
-    )
-    const containerCls = classNames('at-input__container', {
-      'at-input--error': error,
-      'at-input--disabled': disabled
-    })
     const overlayCls = classNames('at-input__overlay', {
-      'at-input__overlay--hidden': !disabled
+      'at-input__overlay--hidden': !disabled,
     })
     const placeholderCls = classNames('placeholder', placeholderClass)
 
+    const id = name && { id: name }
     return (
-      <View className={rootCls} style={customStyle}>
-        <View className={containerCls}>
-          <View className={overlayCls} onClick={this.handleClick}></View>
+      <View
+        className={classNames(
+          'at-input',
+          {
+            'at-input--without-border': !border,
+          },
+          className,
+        )}
+        style={customStyle}
+      >
+        <View
+          className={classNames('at-input__container', {
+            'at-input--error': error,
+            'at-input--disabled': disabled,
+          })}
+        >
+          <View className={overlayCls} onClick={this.handleClick} />
           {title && (
-            <Label
-              className={`at-input__title ${
-                required && 'at-input__title--required'
-              }`}
-              for={name}
-            >
-              {title}
-            </Label>
+            <React.Fragment>
+              {required && <Text className='at-input--required'>*</Text>}
+              <Label
+                className={classNames('at-input__title', {
+                  'at-input__title--error': error,
+                  'at-input__title--disabled': disabled,
+                })}
+                for={name}
+              >
+                {title}
+              </Label>
+            </React.Fragment>
           )}
           <Input
             className='at-input__input'
-            id={name}
+            {...id}
             name={name}
             type={type}
             password={password}
@@ -190,7 +200,7 @@ export default class AtInput extends React.Component<AtInputProps> {
           />
           {clear && value && (
             <View className='at-input__icon' onTouchEnd={this.handleClearValue}>
-              <Text className='at-icon at-icon-close-circle at-input__icon-close'></Text>
+              <AtIcon value='close-circle' size='16' color='#ccc' />
             </View>
           )}
           {error && (
@@ -198,7 +208,7 @@ export default class AtInput extends React.Component<AtInputProps> {
               className='at-input__icon'
               onTouchStart={this.handleErrorClick}
             >
-              <Text className='at-icon at-icon-alert-circle at-input__icon-alert'></Text>
+              <AtIcon value='alert-circle' size='16' color='#FF4949' />
             </View>
           )}
           <View className='at-input__children'>{this.props.children}</View>
@@ -210,7 +220,7 @@ export default class AtInput extends React.Component<AtInputProps> {
 
 AtInput.defaultProps = {
   className: '',
-  customStyle: '',
+  customStyle: {},
   value: '',
   name: '',
   placeholder: '',
@@ -234,7 +244,7 @@ AtInput.defaultProps = {
   focus: false,
   required: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtInput.propTypes = {
@@ -267,5 +277,5 @@ AtInput.propTypes = {
   onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
   onClick: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 }

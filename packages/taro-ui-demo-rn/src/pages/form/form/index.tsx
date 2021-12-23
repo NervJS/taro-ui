@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtButton, AtCheckbox, AtForm, AtInput, AtToast } from 'taro-ui'
+import { AtButton, AtCheckbox, AtForm, AtInput /** , AtToast**/ } from 'taro-ui'
 import { CheckboxOption } from 'taro-ui/types/checkbox'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -17,7 +17,7 @@ interface PageFormState {
 
 export default class PageForm extends React.Component<{}, PageFormState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
@@ -26,51 +26,51 @@ export default class PageForm extends React.Component<{}, PageFormState> {
       value1: '',
       value2: '',
       value3: [],
-      text: '',
-      isOpened: false
+      // text: '',
+      // isOpened: false
     }
   }
 
   private handleChange(stateName: string, value: any): void {
     this.setState({
-      [stateName]: value
+      [stateName]: value,
     })
   }
 
   private handleSubmit(): void {
-    const { value1, value2, value3 } = this.state
-    if (!value1 || !value2) {
-      this.setState({
-        isOpened: true,
-        text: `表单必填项未填写完整`
-      })
-    } else {
-      this.setState({
-        isOpened: true,
-        text:
-          value3 && value3.length > 0
-            ? `${value1} / ${value2} / ${value3.join(',')}`
-            : `${value1} / ${value2}`
-      })
-    }
+    // const { value1, value2, value3 } = this.state
+    // if (!value1 || !value2) {
+    //   this.setState({
+    //     isOpened: true,
+    //     text: `表单必填项未填写完整`
+    //   })
+    // } else {
+    //   this.setState({
+    //     isOpened: true,
+    //     text:
+    //       value3 && value3.length > 0
+    //         ? `${value1} / ${value2} / ${value3.join(',')}`
+    //         : `${value1} / ${value2}`
+    //   })
+    // }
     this.closeToast()
   }
 
   private closeToast(): void {
     setTimeout(() => {
       this.setState({
-        isOpened: false
+        // isOpened: false
       })
     }, 2000)
   }
 
   private handleReset(): void {
     this.setState({
-      isOpened: true,
-      text: `表单已被重置`,
+      // isOpened: true,
+      // text: `表单已被重置`,
       value1: '',
       value2: '',
-      value3: []
+      value3: [],
     })
     this.closeToast()
   }
@@ -110,7 +110,7 @@ export default class PageForm extends React.Component<{}, PageFormState> {
                   <AtCheckbox
                     options={[
                       { label: 'iPhone X', value: 'iPhone X' },
-                      { label: 'HUAWEI P20', value: 'HUAWEI P20' }
+                      { label: 'HUAWEI P20', value: 'HUAWEI P20' },
                     ]}
                     selectedList={this.state.value3}
                     onChange={this.handleChange.bind(this, 'value3')}
@@ -130,10 +130,10 @@ export default class PageForm extends React.Component<{}, PageFormState> {
             </View>
           </View>
         </View>
-        <AtToast
+        {/* <AtToast
           text={this.state.text}
           isOpened={this.state.isOpened}
-        ></AtToast>
+        ></AtToast> */}
       </View>
     )
   }

@@ -28,7 +28,15 @@
   /* elements */
   &__container {
     display: flex;
+    flex-direction: row;
     align-items: center;
+  }
+
+  &--required {
+    margin-right: 8px;
+    color: $color-error;
+    font-size: 28px;
+    line-height: 28px;
   }
 
   &__title {
@@ -36,30 +44,26 @@
     width: 172px;
     font-size: $at-input-font-size;
     line-height: $line-height-zh;
-    //  vertical-align: middle;
+    // vertical-align: middle;
     text-align: left;
-
-    &--required {
-      &::before {
-        //  display: inline-block;
-        margin-right: 8px;
-        color: $color-error;
-        font-size: 28px;
-        font-family: SimSun, sans-serif;
-        line-height: 1;
-        content: "*";
-      }
+    &--error {
+      color: $color-error;
     }
   }
 
   &__input {
     flex: 1;
-    //  display: inline-block;
+    //display: inline-block;
+    padding-top: 0;
     padding-right: $spacing-v-md;
+    padding-left: 0;
+    padding-bottom: 0;
     color: $at-input-text-color;
     font-size: $at-input-font-size;
     line-height: $line-height-zh;
-    //  vertical-align: middle;
+    /*postcss-pxtransform rn eject enable*/
+    vertical-align: middle;
+    /*postcss-pxtransform rn eject disable*/
     @include placeholder($at-input-placeholder-color);
   }
 
@@ -71,16 +75,16 @@
   }
 
   &__icon {
-    //  display: inline-flex;
+    // display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
     width: 40px;
     min-width: 40px;
-    height: 100%;
+    // height: 100%;
     font-size: $at-input-font-size;
     text-align: center;
-    line-height: 1;
+    line-height: $at-input-font-size;
 
     &-close {
       color: #ccc;
@@ -92,30 +96,34 @@
   }
 
   &__children {
-    //  display: inline-flex;
+    // display: inline-flex;
     @include hairline-left();
+    padding: 0 $spacing-v-md;
+    color: $color-brand-dark;
+    font-size: $at-input-font-size;
+    text-align: center;
 
-    > view,
-    div,
-    span,
-    text,
-    image,
-    .taro-img {
-      //  display: inline-block;
-      padding: 0 $spacing-v-md;
-      color: $color-brand-dark;
-      font-size: $at-input-font-size;
-      text-align: center;
-    }
+    // > view,
+    // div,
+    // span,
+    // text,
+    // image,
+    // .taro-img {
+    //   //display: inline-block;
+    //   padding: 0 $spacing-v-md;
+    //   color: $color-brand-dark;
+    //   font-size: $at-input-font-size;
+    //   text-align: center;
+    // }
 
-    > image,
-    img,
-    .taro-img {
-      //  display: inline-block;
-      width: 145px;
-      height: 60px;
-      //  vertical-align: middle;
-    }
+    // > image,
+    // img,
+    // .taro-img {
+    //   // display: inline-block;
+    //   width: 145px;
+    //   height: 60px;
+    //   vertical-align: middle;
+    // }
   }
 
   /* modifiers */
@@ -127,9 +135,9 @@
     opacity: $opacity-disabled;
   }
 
-  &--without-border {
-    &::after {
-      border: none;
-    }
-  }
+  // &--without-border {
+  //   &::after {
+  //     border: none;
+  //   }
+  // }
 }
