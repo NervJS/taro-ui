@@ -1,10 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtRateProps } from '../../../types/rate'
-import { pxTransform } from '../../common/utils'
+import AtIcon from '../icon'
 
 export default class AtRate extends React.Component<AtRateProps> {
   public static defaultProps: AtRateProps
@@ -21,48 +22,58 @@ export default class AtRate extends React.Component<AtRateProps> {
       value = 0,
       max = 5,
       size,
-      margin = 5
+      margin = 5,
     } = this.props
 
     const iconStyle = {
-      marginRight: pxTransform(margin)
+      marginRight: Taro.pxTransform(margin),
     }
-    const starIconStyle = {
-      fontSize: size ? `${size}px` : ''
-    }
+    // const starIconStyle = {
+    //   fontSize: size ? `${size}px` : ''
+    // }
 
     // 生成星星颜色 className 数组，方便在jsx中直接map
-    const classNameArr: string[] = []
+    const classNameArr: any[] = []
     const floorValue = Math.floor(value)
     const ceilValue = Math.ceil(value)
     for (let i = 0; i < max; i++) {
       if (floorValue > i) {
-        classNameArr.push('at-rate__icon at-rate__icon--on')
+        classNameArr.push('at-rate__icon at-rate__icon--on'.split(' '))
       } else if (ceilValue - 1 === i) {
-        classNameArr.push('at-rate__icon at-rate__icon--half')
+        classNameArr.push('at-rate__icon at-rate__icon--half'.split(' '))
       } else {
-        classNameArr.push('at-rate__icon at-rate__icon--off')
+        classNameArr.push('at-rate__icon at-rate__icon--off'.split(' '))
       }
     }
 
+    // [
+    //   'at-rate__icon at-rate__icon--on',
+    //   'at-rate__icon at-rate__icon--on',
+    //   'at-rate__icon at-rate__icon--on',
+    //   'at-rate__icon at-rate__icon--off',
+    //   'at-rate__icon at-rate__icon--off'
+    // ]
+
     return (
       <View className={classNames('at-rate', className)} style={customStyle}>
-        {classNameArr.map((cls, i) => (
+        {classNameArr.map(([cls, iconCls], i) => (
           <View
             className={cls}
             key={`at-rate-star-${i}`}
             style={iconStyle}
             onClick={this.handleClick.bind(this, i + 1)}
           >
-            <Text
-              className='at-icon at-icon-star-2'
-              style={starIconStyle}
-            ></Text>
+            <AtIcon
+              value='star-2'
+              size={size}
+              color={iconCls === 'at-rate__icon--on' ? '#ffca3e' : '#ececec'}
+            />
             <View className='at-rate__left'>
-              <Text
-                className='at-icon at-icon-star-2'
-                style={starIconStyle}
-              ></Text>
+              <AtIcon
+                value='star-2'
+                size={size}
+                color={iconCls !== 'at-rate__icon--off' ? '#ffca3e' : '#ececec'}
+              />
             </View>
           </View>
         ))}
@@ -74,10 +85,10 @@ export default class AtRate extends React.Component<AtRateProps> {
 AtRate.defaultProps = {
   customStyle: '',
   className: '',
-  size: 0,
+  size: 20,
   value: 0,
   max: 5,
-  margin: 5
+  margin: 5,
 }
 
 AtRate.propTypes = {
@@ -87,5 +98,5 @@ AtRate.propTypes = {
   value: PropTypes.number,
   max: PropTypes.number,
   margin: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }

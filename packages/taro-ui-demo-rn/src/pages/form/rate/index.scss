@@ -2,3 +2,8 @@
   color: #333;
   font-size: 28px;
 }
+.panel__content {
+  &--example-item {
+    flex-direction: column;
+  }
+}
