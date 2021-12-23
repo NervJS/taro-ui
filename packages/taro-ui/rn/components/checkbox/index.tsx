@@ -58,7 +58,14 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
                         selectedList.includes(value),
                     })}
                   >
-                    <AtIcon value='check' size='16' color='#FFF' />
+                    <AtIcon
+                      className={classNames({
+                        'at-checkbox__icon-cnt--check':
+                          selectedList.includes(value),
+                      })}
+                      value='check'
+                      color='#FFF'
+                    />
                   </View>
                   <View className='at-checkbox__title'>{label}</View>
                 </View>

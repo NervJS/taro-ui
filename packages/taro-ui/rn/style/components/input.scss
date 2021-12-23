@@ -88,10 +88,12 @@
 
     &-close {
       color: #ccc;
+      font-size: $at-input-font-size;
     }
 
     &-alert {
       color: #FF4949;
+      font-size: $at-input-font-size;
     }
   }
 

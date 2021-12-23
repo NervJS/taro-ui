@@ -200,7 +200,7 @@ export default class AtInput extends React.Component<AtInputProps> {
           />
           {clear && value && (
             <View className='at-input__icon' onTouchEnd={this.handleClearValue}>
-              <AtIcon value='close-circle' size='16' color='#ccc' />
+              <AtIcon className='at-input__icon-close' value='close-circle' />
             </View>
           )}
           {error && (
@@ -208,7 +208,7 @@ export default class AtInput extends React.Component<AtInputProps> {
               className='at-input__icon'
               onTouchStart={this.handleErrorClick}
             >
-              <AtIcon value='alert-circle' size='16' color='#FF4949' />
+              <AtIcon className='at-input__icon-alert' value='alert-circle' />
             </View>
           )}
           <View className='at-input__children'>{this.props.children}</View>

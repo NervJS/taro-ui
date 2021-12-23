@@ -74,30 +74,33 @@ $at-list-item-horizontal-padding: 24px;
         }
       }
     }
-
-    &-extra {
-      max-width: $at-list-extra-width;
-      text-align: right;
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-
-      &__info {
-        max-width: 100%;
-        color: $at-list-extra-color;
-        padding-right: 30px;
-        font-size: $font-size-lg;
-      }
-
-      &__icon {
-        margin-right: -12px;
-
-        &-arrow {
-          width: 32px;
-          height: 32px;
-        }
-      }
-    }
-
   }
+}
+
+.item-extra {
+  max-width: $at-list-extra-width;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &__info {
+    max-width: 100%;
+    color: $at-list-extra-color;
+    padding-right: 30px;
+    font-size: $font-size-lg;
+  }
+
+  &__icon {
+    margin-right: -12px;
+
+    &-arrow {
+      color: $at-list-arrow-color;
+      font-size: 48px;
+    }
+  }
+}
+
+.item-icon {
+  margin-right: $at-list-item-horizontal-padding;
 }

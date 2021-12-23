@@ -139,7 +139,7 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
       const widths = type === 'input' ? this.widths : this.widths.reverse()
       const [btnWidth, inputWidth] = widths
       this.setState({
-        width: btnWidth * 2 + inputWidth,
+        width: btnWidth * 2 + inputWidth + 2,
       })
     }
     // console.log('event.nativeEvent.layout', event.nativeEvent.layout)
@@ -192,8 +192,10 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
         >
           <AtIcon
             value='subtract'
-            size='16'
-            color={minusDisabled ? '#ccc' : '#6190e8'}
+            className={classNames({
+              'at-input-number__btn-subtract': true,
+              'at-input-number--disabled': minusDisabled,
+            })}
           />
         </View>
         <Input
@@ -212,8 +214,10 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
         >
           <AtIcon
             value='add'
-            size='16'
-            color={addDisabled ? '#ccc' : '#6190e8'}
+            className={classNames({
+              'at-input-number__btn-add': true,
+              'at-input-number--disabled': addDisabled,
+            })}
           />
         </View>
       </View>

@@ -8,20 +8,20 @@ import './index.scss'
 
 export default class ListPage extends React.Component {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   private handleChange = (e: CommonEvent): void => {
     Taro.showToast({
       title: `Change Switch: ${e}`,
-      icon: 'none'
+      icon: 'none',
     })
   }
 
   private handleClick = (e: CommonEvent): void => {
     Taro.showToast({
       title: `Click Item: ${e}`,
-      icon: 'none'
+      icon: 'none',
     })
   }
 
@@ -96,7 +96,34 @@ export default class ListPage extends React.Component {
 
           {/* 图标 */}
           <View className='doc-body--panel'>
-            <View className='panel__title'>不支持图标</View>
+            <View className='panel__title'>支持图标(不能与thumb同时存在)</View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtList>
+                  <AtListItem
+                    title='标题文字'
+                    note='描述信息'
+                    arrow='right'
+                    iconInfo={{
+                      size: 25,
+                      color: '#78A4FA',
+                      value: 'calendar',
+                    }}
+                  />
+                  <AtListItem
+                    title='标题文字'
+                    note='描述信息'
+                    extraText='详细信息'
+                    arrow='right'
+                    iconInfo={{
+                      size: 25,
+                      color: '#FF4949',
+                      value: 'bookmark',
+                    }}
+                  />
+                </AtList>
+              </View>
+            </View>
           </View>
 
           {/* 无边框 */}

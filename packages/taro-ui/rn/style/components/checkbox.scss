@@ -50,6 +50,7 @@ $component: '.at-checkbox';
     //  transition:: all 0.2s;
     &--check {
       background-color: $color-brand;
+      font-size: $at-checkbox-icon-size;
     }
   }
 

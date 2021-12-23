@@ -121,7 +121,7 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
                       className='at-image-picker__remove-btn'
                       onClick={this.handleRemoveImg.bind(this, i * length + j)}
                     >
-                      <AtIcon value='close' size='12' color='#FFF' />
+                      <AtIcon value='close' size='10' color='#FFF' />
                     </View>
                     <Image
                       className='at-image-picker__preview-img'

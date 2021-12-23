@@ -51,12 +51,6 @@ $at-search-bar-placholder-color: $color-grey-2;
     opacity: 1;
     // transition: flex 0.3s;
     // background: #0084ff;
-
-    .at-icon {
-      color: $at-search-bar-placholder-color;
-      font-size: $at-search-bar-font-size;
-      flex-shrink: 0;
-    }
   }
 
   &__placeholder {
@@ -124,4 +118,10 @@ $at-search-bar-placholder-color: $color-grey-2;
     right: 0;
     z-index: $zindex-search-bar;
   }
+}
+
+.at-icon {
+  color: $at-search-bar-placholder-color;
+  font-size: $at-search-bar-font-size;
+  flex-shrink: 0;
 }

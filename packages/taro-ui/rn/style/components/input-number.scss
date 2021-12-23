@@ -33,6 +33,7 @@ $at-input-number-btn-padding-lg: 20px;
 
     &-subtract,
     &-add {
+      color: $at-input-number-btn-color;
       font-size: $at-input-number-btn-size;
       line-height: $at-input-number-btn-size;
     }

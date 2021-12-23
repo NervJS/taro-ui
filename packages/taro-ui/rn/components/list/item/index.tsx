@@ -37,6 +37,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       note,
       arrow,
       thumb,
+      iconInfo,
       disabled,
       isSwitch,
       hasBorder,
@@ -60,6 +61,17 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       },
       this.props.className,
     )
+
+    // const iconClass = classNames(
+    //   (iconInfo && iconInfo.prefixClass) || 'at-icon',
+    //   {
+    //     [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${
+    //       iconInfo && iconInfo.value
+    //     }`]: iconInfo && iconInfo.value
+    //   },
+    //   iconInfo && iconInfo.className
+    // )
+
     const containerClass = classNames('at-list__item-container', {
       'at-list__item-container--disabled': disabled,
     })
@@ -84,6 +96,16 @@ export default class AtListItem extends React.Component<AtListItemProps> {
               />
             </View>
           )}
+          {iconInfo && iconInfo.value && (
+            <View className='at-list__item-icon item-icon'>
+              <AtIcon
+                value={iconInfo.value}
+                size={iconInfo.size}
+                color={iconInfo.color}
+                customStyle={iconInfo.customStyle}
+              />
+            </View>
+          )}
           <View className='at-list__item-content'>
             <View className='at-list__item-content__info'>
               <Text
@@ -104,10 +126,10 @@ export default class AtListItem extends React.Component<AtListItemProps> {
               )}
             </View>
           </View>
-          <View className='at-list__item-extra'>
+          <View className='at-list__item-extra item-extra'>
             {!!extraText && (
               <Text
-                className='at-list__item-extra__info'
+                className='item-extra__info'
                 // @ts-ignore
                 numberOfLines={1}
               >
@@ -116,9 +138,9 @@ export default class AtListItem extends React.Component<AtListItemProps> {
             )}
 
             {!!extraThumb && !extraText && (
-              <View className='at-list__item-extra__image'>
+              <View className='item-extra__image'>
                 <Image
-                  className='at-list__item-extra__image-info'
+                  className='item-extra__image-info'
                   mode='aspectFit'
                   src={extraThumb}
                 />
@@ -127,7 +149,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
 
             {!!isSwitch && !extraThumb && !extraText && (
               <View
-                className='at-list__item-extra__switch'
+                className='item-extra__switch'
                 onClick={this.handleSwitchClick}
               >
                 <Switch
@@ -140,8 +162,11 @@ export default class AtListItem extends React.Component<AtListItemProps> {
             )}
 
             {arrow ? (
-              <View className='at-list__item-extra__icon'>
-                <AtIcon value='chevron-right' size='24' color='#666' />
+              <View className='item-extra__icon'>
+                <AtIcon
+                  value={`chevron-${arrow}`}
+                  className='item-extra__icon-arrow'
+                />
               </View>
             ) : null}
           </View>

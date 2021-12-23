@@ -14,28 +14,38 @@ export default class AtIcon extends React.Component<AtIconProps> {
   }
 
   public render(): JSX.Element | null {
-    const { value, color, size, customStyle = {} } = this.props
-    const fontSize = pxTransform(parseInt(String(size)) * 2)
-    const style = {
-      width: fontSize,
-      height: fontSize,
+    const { value, color, size, customStyle = {}, style = {} } = this.props
+
+    const fontSize = style.fontSize || (customStyle as any).fontSize
+
+    const _fontSize =
+      pxTransform(parseInt(String(size)) * 2) ||
+      fontSize ||
+      pxTransform(parseInt('24') * 2)
+
+    const _style = {
+      width: _fontSize,
+      height: _fontSize,
       // tips: 字体转换的 svg 需要沿着 Y 轴旋转 180 度
       transform: [{ rotateY: '180deg' }],
     }
+
     return React.createElement(ICONS[value] || ((): any => null), {
-      fill: color,
-      style: Object.assign(style, customStyle),
+      // 图标色值优先级
+      fill: color || (customStyle as any).color || style.color,
+      style: Object.assign({}, style, customStyle, _style),
     })
   }
 }
 
 AtIcon.defaultProps = {
+  style: {},
   customStyle: {},
   className: '',
   prefixClass: 'at-icon',
   value: '',
   color: '',
-  size: 24,
+  size: '',
 }
 
 AtIcon.propTypes = {
