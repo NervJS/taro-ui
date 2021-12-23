@@ -1,9 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
+import Taro from '@tarojs/taro'
 import { Input, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtSearchBarProps, AtSearchBarState } from '../../../types/search-bar'
+import AtIcon from '../icon'
 
 type ExtendEvent = {
   target: {
@@ -21,20 +23,20 @@ export default class AtSearchBar extends React.Component<
   public constructor(props: AtSearchBarProps) {
     super(props)
     this.state = {
-      isFocus: !!props.focus
+      isFocus: !!props.focus,
     }
   }
 
   private handleFocus = (event: CommonEvent): void => {
     this.setState({
-      isFocus: true
+      isFocus: true,
     })
     this.props.onFocus && this.props.onFocus(event)
   }
 
   private handleBlur = (event: CommonEvent): void => {
     this.setState({
-      isFocus: false
+      isFocus: false,
     })
     this.props.onBlur && this.props.onBlur(event)
   }
@@ -70,33 +72,34 @@ export default class AtSearchBar extends React.Component<
       actionName = '搜索',
       inputType, // 处理issue#464
       className,
-      customStyle
+      customStyle,
     } = this.props
     const { isFocus } = this.state
     const fontSize = 14
     const rootCls = classNames(
       'at-search-bar',
       {
-        'at-search-bar--fixed': fixed
+        'at-search-bar--fixed': fixed,
       },
-      className
+      className,
     )
     const placeholderWrapStyle: React.CSSProperties = {}
     const actionStyle: React.CSSProperties = {}
     if (isFocus || (!isFocus && value)) {
       actionStyle.opacity = 1
-      actionStyle.marginRight = `0`
+      actionStyle.marginRight = Taro.pxTransform(0)
       placeholderWrapStyle.flexGrow = 0
     } else if (!isFocus && !value) {
       placeholderWrapStyle.flexGrow = 1
       actionStyle.opacity = 0
-      actionStyle.marginRight = `-${
-        (actionName.length + 1) * fontSize + fontSize / 2 + 10
-      }px`
+      actionStyle.display = 'none'
+      actionStyle.marginRight = Taro.pxTransform(
+        (actionName.length + 1) * fontSize + fontSize / 2 + 10,
+      )
     }
     if (showActionButton) {
       actionStyle.opacity = 1
-      actionStyle.marginRight = `0`
+      actionStyle.marginRight = Taro.pxTransform(0)
     }
 
     const clearIconStyle: React.CSSProperties = { display: 'flex' }
@@ -113,7 +116,7 @@ export default class AtSearchBar extends React.Component<
             className='at-search-bar__placeholder-wrap'
             style={placeholderWrapStyle}
           >
-            <Text className='at-icon at-icon-search'></Text>
+            <AtIcon value='search' size={16} color='#999' />
             <Text
               className='at-search-bar__placeholder'
               style={placeholderStyle}
@@ -139,7 +142,7 @@ export default class AtSearchBar extends React.Component<
             style={clearIconStyle}
             onTouchStart={this.handleClear}
           >
-            <Text className='at-icon at-icon-close-circle'></Text>
+            <AtIcon value='close-circle' size={16} color='#999' />
           </View>
         </View>
         <View
@@ -147,7 +150,7 @@ export default class AtSearchBar extends React.Component<
           style={actionStyle}
           onClick={this.handleActionClick}
         >
-          {actionName}
+          <Text className='at-search-bar__action__text'>{actionName}</Text>
         </View>
       </View>
     )
@@ -165,7 +168,7 @@ AtSearchBar.defaultProps = {
   actionName: '搜索',
   inputType: 'text',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtSearchBar.propTypes = {
@@ -183,5 +186,5 @@ AtSearchBar.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func,
-  onClear: PropTypes.func
+  onClear: PropTypes.func,
 }

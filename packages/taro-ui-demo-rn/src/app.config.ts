@@ -48,7 +48,7 @@ const pages = [
   'pages/form/picker/index',
   // 'pages/form/picker-view/index',
   'pages/form/slider/index',
-  // 'pages/form/search-bar/index',
+  'pages/form/search-bar/index',
   'pages/form/image-picker/index',
   'pages/form/range/index',
   // 'pages/advanced/calendar/index',
