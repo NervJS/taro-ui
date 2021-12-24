@@ -67,7 +67,12 @@ $float-layout-timer: 300ms;
       top: $spacing-h-sm;
       right: $spacing-v-md;
       width: 40px;
-      height: 40px;
+      height: 48px;
+
+      &__at-icon {
+        font-size: 30px;
+        color: $float-layout-btn-color;
+      }
 
       &--image {
         width: 100%;

@@ -160,7 +160,6 @@ export default class AtListItem extends React.Component<AtListItemProps> {
                 />
               </View>
             )}
-
             {arrow ? (
               <View className='item-extra__icon'>
                 <AtIcon

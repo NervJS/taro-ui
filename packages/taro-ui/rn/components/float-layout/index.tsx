@@ -1,20 +1,16 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { ScrollView, Text, View, Image } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { ScrollView, Text, View } from '@tarojs/components'
 import { Modal, Animated, Dimensions } from 'react-native'
 import {
   AtFloatLayoutProps,
   AtFloatLayoutState,
 } from '../../../types/float-layout'
 import { handleTouchScroll } from '../../common/utils'
-import CLOSE from '../../assets/CLOSE.png'
+import AtIcon from '../icon'
 
 const duration = 300
-const {
-  safeArea: { top: safeAreaTop },
-} = Taro.getSystemInfoSync()
 
 export default class AtFloatLayout extends React.Component<
   AtFloatLayoutProps,
@@ -45,7 +41,10 @@ export default class AtFloatLayout extends React.Component<
     }
   }
 
+  animating = false
+
   private animateLayout(isOpened: boolean, cb?: Function): void {
+    this.animating = true
     let fromValue
     let toValue
     let setStateDelay = 0
@@ -80,7 +79,9 @@ export default class AtFloatLayout extends React.Component<
           toValue,
           duration,
           useNativeDriver: true,
-        }).start()
+        }).start(() => {
+          this.animating = false
+        })
       },
     )
   }
@@ -95,13 +96,10 @@ export default class AtFloatLayout extends React.Component<
   }
 
   private close = (): void => {
+    if (this.animating) {
+      return
+    }
     this.animateLayout(false, this.handleClose)
-    // this.setState(
-    //   {
-    //     _isOpened: false,
-    //   },
-    //   this.handleClose,
-    // )
   }
 
   public render(): JSX.Element {
@@ -132,7 +130,7 @@ export default class AtFloatLayout extends React.Component<
         visible={_isOpened}
         onRequestClose={this.close.bind(this)}
       >
-        <View className={rootClass} style={{ top: safeAreaTop }}>
+        <View className={rootClass}>
           <View
             onClick={this.close.bind(this)}
             className='at-float-layout__overlay'
@@ -144,11 +142,19 @@ export default class AtFloatLayout extends React.Component<
             {title ? (
               <View className='layout-header'>
                 <Text className='layout-header__title'>{title}</Text>
-                <View className='layout-header__btn-close'>
-                  <Image
+                <View
+                  onClick={this.close.bind(this)}
+                  className='layout-header__btn-close'
+                >
+                  {/* <Image
                     src={CLOSE}
                     onClick={this.close.bind(this)}
                     className='layout-header__btn-close'
+                  /> */}
+                  <AtIcon
+                    value='close'
+                    className='layout-header__btn-close__at-icon'
+                    // onClick={this.close.bind(this)}
                   />
                 </View>
               </View>

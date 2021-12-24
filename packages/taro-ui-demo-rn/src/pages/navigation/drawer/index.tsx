@@ -16,7 +16,7 @@ interface DrawerPageState {
 
 export default class DrawerPage extends React.Component<{}, DrawerPageState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public constructor(props: any) {
@@ -26,25 +26,27 @@ export default class DrawerPage extends React.Component<{}, DrawerPageState> {
       rightDrawerShow: false,
       childrenDrawerShow: false,
       childrenItem: ['首页', '可自定义结构', '或自定义样式', '消息', '个人'],
-      icons: ['home', '', '', 'message', 'user']
+      // childrenItem: ['消息'],
+      icons: ['home', '', '', 'message', 'user'],
+      // icons: ['message']
     }
   }
 
   private leftDrawerClick(): void {
     this.setState({
-      leftDrawerShow: !this.state.leftDrawerShow
+      leftDrawerShow: !this.state.leftDrawerShow,
     })
   }
 
   private rightDrawerClick(): void {
     this.setState({
-      rightDrawerShow: !this.state.rightDrawerShow
+      rightDrawerShow: !this.state.rightDrawerShow,
     })
   }
 
   private childrenDrawerClick(): void {
     this.setState({
-      childrenDrawerShow: !this.state.childrenDrawerShow
+      childrenDrawerShow: !this.state.childrenDrawerShow,
     })
   }
 
@@ -64,7 +66,7 @@ export default class DrawerPage extends React.Component<{}, DrawerPageState> {
     this.setState({
       leftDrawerShow: false,
       rightDrawerShow: false,
-      childrenDrawerShow: false
+      childrenDrawerShow: false,
     })
   }
 
@@ -128,18 +130,28 @@ export default class DrawerPage extends React.Component<{}, DrawerPageState> {
                   {this.state.childrenItem.map((item, index) => (
                     <View
                       className={classNames('drawer-item', {
-                        'drawer-item--sub': index === 1 || index === 2
+                        'drawer-item--sub': index === 1 || index === 2,
                       })}
                       onClick={this.onItemClick.bind(this, index)}
                       key={`drawer-item-${index}`}
                     >
                       {item}
                       {index !== 3 && icons[index] && (
-                        <AtIcon value={icons[index]} size='20' />
+                        <AtIcon
+                          className='drawer-item__at-icon'
+                          value={icons[index]}
+                          size='20'
+                          color='#666'
+                        />
                       )}
                       {index === 3 && icons[index] && (
-                        <AtBadge value='3'>
-                          <AtIcon value={icons[index]} size='20' />
+                        <AtBadge className='drawer-item__at-badge' value='3'>
+                          <AtIcon
+                            className='drawer-item__at-badge__at-icon'
+                            value={icons[index]}
+                            size='20'
+                            color='#666'
+                          />
                         </AtBadge>
                       )}
                     </View>

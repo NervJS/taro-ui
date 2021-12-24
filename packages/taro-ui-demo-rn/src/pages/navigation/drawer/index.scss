@@ -16,19 +16,19 @@
   border-bottom: 1px solid #eee;
   position: relative;
 
-  .at-icon {
+  &__at-icon {
     position: absolute;
     right: 5px;
     top: 25px;
   }
 
-  .at-badge {
+  &__at-badge {
     position: absolute;
     right: 5px;
     top: 25px;
 
-    .at-icon {
-      position: static;
+    &__at-icon {
+      // position: static;
       margin-top: -45px;
     }
   }

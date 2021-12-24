@@ -9,9 +9,6 @@ import AtList from '../list/index'
 import AtListItem from '../list/item/index'
 
 const duration = 300
-const {
-  safeArea: { top: safeAreaTop },
-} = Taro.getSystemInfoSync()
 
 export default class AtDrawer extends React.Component<
   AtDrawerProps,
@@ -33,12 +30,17 @@ export default class AtDrawer extends React.Component<
   //   const { _show } = this.state
   // }
 
+  animating = false
+
   private onItemClick(index: number): void {
     this.props.onItemClick && this.props.onItemClick(index)
     this.animateDrawer(false)
   }
 
   private onHide(): void {
+    if (this.animating) {
+      return
+    }
     this.animateDrawer(false, this.props.onClose)
   }
 
@@ -54,6 +56,7 @@ export default class AtDrawer extends React.Component<
   }
 
   private animateDrawer(isOpened: boolean, cb?: Function): void {
+    this.animating = true
     let fromValue
     let toValue
     let setStateDelay = 0
@@ -90,7 +93,9 @@ export default class AtDrawer extends React.Component<
           toValue,
           duration,
           useNativeDriver: true,
-        }).start()
+        }).start(() => {
+          this.animating = false
+        })
       },
     )
   }
@@ -133,9 +138,6 @@ export default class AtDrawer extends React.Component<
             classObject,
             this.props.className,
           )}
-          style={{
-            top: safeAreaTop,
-          }}
         >
           <View
             className='at-drawer__mask'
