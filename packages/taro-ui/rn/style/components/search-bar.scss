@@ -118,10 +118,16 @@ $at-search-bar-placholder-color: $color-grey-2;
     right: 0;
     z-index: $zindex-search-bar;
   }
+
+  &__at-icon {
+    color: $at-search-bar-placholder-color;
+    font-size: $at-search-bar-font-size;
+    flex-shrink: 0;
+  }
 }
 
-.at-icon {
-  color: $at-search-bar-placholder-color;
-  font-size: $at-search-bar-font-size;
-  flex-shrink: 0;
-}
+// .at-icon {
+//   color: $at-search-bar-placholder-color;
+//   font-size: $at-search-bar-font-size;
+//   flex-shrink: 0;
+// }

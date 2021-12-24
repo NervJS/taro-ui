@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Text, View, Image } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { ITouchEvent } from '@tarojs/components/types/common'
 import { AtNavBarProps } from '../../../types/nav-bar'
-import { mergeStyle, pxTransform } from '../../common/utils'
-import chevronLeft from '../../assets/chevron-left.png'
+import AtIcon from '../icon'
 
 export default class AtNavBar extends React.Component<AtNavBarProps> {
   public static defaultProps: AtNavBarProps
@@ -34,9 +33,15 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       leftText,
       title,
       rightFirstIconType,
-      rightSecondIconType
+      rightSecondIconType,
     } = this.props
-    const linkStyle = { color }
+    const linkStyle: any = {
+      // color,
+    }
+
+    if (color) {
+      linkStyle.color = color
+    }
 
     const defaultIconInfo = {
       customStyle: '',
@@ -44,7 +49,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       prefixClass: 'at-icon',
       value: '',
       color: '',
-      size: 24
+      size: 24,
     }
 
     const leftIconInfo =
@@ -53,10 +58,12 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
         : { ...defaultIconInfo, value: leftIconType }
     const leftIconClass = classNames(
       leftIconInfo.prefixClass,
+      'at-nav-bar__at-icon',
       {
-        [`${leftIconInfo.prefixClass}-${leftIconInfo.value}`]: leftIconInfo.value
+        [`${leftIconInfo.prefixClass}-${leftIconInfo.value}`]:
+          leftIconInfo.value,
       },
-      leftIconInfo.className
+      leftIconInfo.className,
     )
 
     const rightFirstIconInfo =
@@ -65,10 +72,12 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
         : { ...defaultIconInfo, value: rightFirstIconType }
     const rightFirstIconClass = classNames(
       rightFirstIconInfo.prefixClass,
+      'at-nav-bar__at-icon',
       {
-        [`${rightFirstIconInfo.prefixClass}-${rightFirstIconInfo.value}`]: rightFirstIconInfo.value
+        [`${rightFirstIconInfo.prefixClass}-${rightFirstIconInfo.value}`]:
+          rightFirstIconInfo.value,
       },
-      rightFirstIconInfo.className
+      rightFirstIconInfo.className,
     )
 
     const rightSecondIconInfo =
@@ -77,12 +86,13 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
         : { ...defaultIconInfo, value: rightSecondIconType }
     const rightSecondIconClass = classNames(
       rightSecondIconInfo.prefixClass,
+      'at-nav-bar__at-icon',
       {
-        [`${rightSecondIconInfo.prefixClass}-${rightSecondIconInfo.value}`]: rightSecondIconInfo.value
+        [`${rightSecondIconInfo.prefixClass}-${rightSecondIconInfo.value}`]:
+          rightSecondIconInfo.value,
       },
-      rightSecondIconInfo.className
+      rightSecondIconInfo.className,
     )
-
 
     return (
       <View
@@ -90,9 +100,9 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           {
             'at-nav-bar': true,
             'at-nav-bar--fixed': fixed,
-            'at-nav-bar--no-border': !border
+            'at-nav-bar--no-border': !border,
           },
-          className
+          className,
         )}
         style={customStyle}
       >
@@ -100,9 +110,27 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           className='at-nav-bar__left-view'
           onClick={this.handleClickLeftView.bind(this)}
           style={linkStyle}
-        >         
-            <Image src={leftIconInfo.value || chevronLeft} style={leftIconInfo.customStyle} className={leftIconClass}/>
-          <Text className='at-nav-bar__text'>{leftText}</Text>
+        >
+          {leftIconType && (
+            <AtIcon
+              className={leftIconClass}
+              value={leftIconInfo.value}
+              size={leftIconInfo.size}
+              color={leftIconInfo.color}
+              customStyle={Object.assign(
+                {},
+                linkStyle,
+                leftIconInfo.customStyle,
+              )}
+            />
+          )}
+          {/* <Image src={leftIconInfo.value || chevronLeft} style={leftIconInfo.customStyle} className={leftIconClass}/> */}
+          <Text
+            className='at-nav-bar__text at-nav-bar__left-view__text'
+            style={linkStyle}
+          >
+            {leftText}
+          </Text>
         </View>
         <View className='at-nav-bar__title'>
           {title || this.props.children}
@@ -111,26 +139,52 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           <View
             className={classNames({
               'at-nav-bar__container': true,
-              'at-nav-bar__container--hide': !rightSecondIconType
+              'at-nav-bar__container--hide': !rightSecondIconType,
             })}
             style={linkStyle}
             onClick={this.handleClickNd.bind(this)}
           >
-            {!!rightSecondIconType && (
-              <Image src={ rightSecondIconInfo.value || ''} style={rightSecondIconInfo.customStyle} className={rightSecondIconClass}/>
+            {rightSecondIconType && (
+              <AtIcon
+                className={rightSecondIconClass}
+                value={rightSecondIconInfo.value}
+                size={rightSecondIconInfo.size}
+                color={rightSecondIconInfo.color}
+                customStyle={Object.assign(
+                  {},
+                  linkStyle,
+                  leftIconInfo.customStyle,
+                )}
+              />
             )}
+            {/* {!!rightSecondIconType && (
+              <Image src={ rightSecondIconInfo.value || ''} style={rightSecondIconInfo.customStyle} className={rightSecondIconClass}/>
+            )} */}
           </View>
           <View
             className={classNames({
               'at-nav-bar__container': true,
-              'at-nav-bar__container--hide': !rightFirstIconType
+              'at-nav-bar__container--hide': !rightFirstIconType,
             })}
             style={linkStyle}
             onClick={this.handleClickSt.bind(this)}
           >
-            {!!rightFirstIconType && (
-              <Image src={ rightFirstIconInfo.value || '' } style={rightFirstIconInfo.customStyle} className={rightFirstIconClass}/>
+            {rightFirstIconType && (
+              <AtIcon
+                className={rightFirstIconClass}
+                value={rightFirstIconInfo.value}
+                size={rightFirstIconInfo.size}
+                color={rightFirstIconInfo.color}
+                customStyle={Object.assign(
+                  {},
+                  linkStyle,
+                  leftIconInfo.customStyle,
+                )}
+              />
             )}
+            {/* {!!rightFirstIconType && (
+              <Image src={ rightFirstIconInfo.value || '' } style={rightFirstIconInfo.customStyle} className={rightFirstIconClass}/>
+            )} */}
           </View>
         </View>
       </View>
@@ -148,7 +202,7 @@ AtNavBar.defaultProps = {
   leftText: '',
   title: '',
   rightFirstIconType: '',
-  rightSecondIconType: ''
+  rightSecondIconType: '',
 }
 
 AtNavBar.propTypes = {
@@ -163,9 +217,9 @@ AtNavBar.propTypes = {
   rightFirstIconType: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   rightSecondIconType: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object
+    PropTypes.object,
   ]),
   onClickLeftIcon: PropTypes.func,
   onClickRgIconSt: PropTypes.func,
-  onClickRgIconNd: PropTypes.func
+  onClickRgIconNd: PropTypes.func,
 }

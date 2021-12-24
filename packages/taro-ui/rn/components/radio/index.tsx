@@ -50,7 +50,7 @@ export default class AtRadio extends React.Component<AtRadioProps<any>> {
                     value='check'
                     className={classNames({
                       'at-radio__icon': true,
-                      'at-icon': true,
+                      'at-radio__at-icon': true,
                     })}
                   />
                 )}

@@ -37,9 +37,13 @@ $at-nav-bar-back-font-size: 16PX;
     overflow: hidden;
     // @include active;
 
-    .at-icon {
-      font-size: 48px;
+    &__text {
+      color: $at-nav-bar-link-color;
     }
+
+    // .at-icon {
+    //   font-size: 48px;
+    // }
   }
 
   &__right-view {
@@ -75,7 +79,7 @@ $at-nav-bar-back-font-size: 16PX;
 
   &__container {
     display: flex;
-    // padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+    padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
     width: 50%;
     height: 100%;
     font-size: $at-nav-bar-font-size;
@@ -83,14 +87,22 @@ $at-nav-bar-back-font-size: 16PX;
     // box-sizing: border-box;
     // @include active;
 
-    .at-icon {
-      font-size: 48px;
-    }
+    // .at-icon {
+    //   font-size: 48px;
+    // }
 
     &--hide {
-      display: none;
      //  visibility: hidden;
+     opacity: 0;
+     height: 0
     }
+  }
+
+  &__at-icon {
+    // width: $at-fab-icon-size;
+    // height: $at-fab-icon-size;
+    font-size: 48px;
+    color: $at-nav-bar-link-color;
   }
 
   /* modifiers */

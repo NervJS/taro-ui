@@ -7,14 +7,14 @@ import './index.scss'
 
 export default class Index extends React.Component {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   private handleClick(title: string): void {
     Taro.showToast({
       title,
       duration: 2000,
-      icon: 'success'
+      icon: 'success',
     })
   }
 
@@ -22,7 +22,7 @@ export default class Index extends React.Component {
     Taro.showToast({
       title: '返回',
       duration: 2000,
-      icon: 'success'
+      icon: 'success',
     })
   }
 
@@ -30,7 +30,7 @@ export default class Index extends React.Component {
     Taro.showToast({
       title: '我的',
       duration: 2000,
-      icon: 'success'
+      icon: 'success',
     })
   }
 
@@ -38,7 +38,7 @@ export default class Index extends React.Component {
     Taro.showToast({
       title: '功能列表',
       duration: 2000,
-      icon: 'success'
+      icon: 'success',
     })
   }
 
@@ -56,14 +56,14 @@ export default class Index extends React.Component {
                 <AtNavBar
                   onClickLeftIcon={this.handleClick.bind(this, '返回')}
                   title='NavBar 导航栏示例'
-                  // leftIconType='chevron-left'
+                  leftIconType='chevron-left'
                 />
               </View>
               <View className='panel__content--example-item'>
                 <AtNavBar
                   onClickLeftIcon={this.handleClick.bind(this, '返回')}
                   title='NavBar 导航栏示例'
-                  // leftIconType='chevron-left'
+                  leftIconType='chevron-left'
                   rightFirstIconType='bullet-list'
                   rightSecondIconType='user'
                 />
@@ -72,7 +72,7 @@ export default class Index extends React.Component {
                 <AtNavBar
                   onClickLeftIcon={this.handleClick.bind(this, '返回')}
                   title='NavBar 导航栏示例'
-                  // leftIconType='chevron-left'
+                  leftIconType='chevron-left'
                   rightFirstIconType='user'
                 />
               </View>
@@ -88,7 +88,7 @@ export default class Index extends React.Component {
                   onClickLeftIcon={this.handleClick.bind(this, '返回')}
                   title='NavBar 导航栏示例'
                   leftText='返回'
-                  // leftIconType='chevron-left'
+                  leftIconType='chevron-left'
                   rightFirstIconType='bullet-list'
                   rightSecondIconType='user'
                 />

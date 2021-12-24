@@ -15,10 +15,15 @@
   &__btn-next {
     font-size: 0;
 
-    .at-icon {
-      color: $at-pagination-icon-color;
-      font-size: $at-pagination-icon-font-size;
-    }
+    // .at-icon {
+    //   color: $at-pagination-icon-color;
+    //   font-size: $at-pagination-icon-font-size;
+    // }
+  }
+
+  &__at-icon {
+    color: $at-pagination-icon-color;
+    font-size: $at-pagination-icon-font-size;
   }
 
   &__number {

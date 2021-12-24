@@ -2,10 +2,10 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Modal } from 'react-native'
-import { View, Image } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtCurtainProps } from '../../../types/curtain'
-import CLOSE from '../../assets/CLOSE.png'
+import AtIcon from '../icon'
 export default class AtCurtain extends React.Component<AtCurtainProps> {
   public static defaultProps: AtCurtainProps
   public static propTypes: InferProps<AtCurtainProps>
@@ -42,11 +42,13 @@ export default class AtCurtain extends React.Component<AtCurtainProps> {
           <View className='at-curtain__container'>
             <View className='at-curtain__body'>
               {this.props.children}
-              <Image
-                className={btnCloseClass}
-                src={CLOSE}
-                onClick={this.onClose.bind(this)}
-              />
+              <View className={btnCloseClass} onClick={this.onClose.bind(this)}>
+                <AtIcon
+                  className='at-curtain__btn-close__at-icon'
+                  value='close'
+                  size={16}
+                />
+              </View>
             </View>
           </View>
         </View>

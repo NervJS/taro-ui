@@ -55,6 +55,10 @@ $at-curtain-btn-size: 56px;
     /*  #endif  */
     z-index: $zindex-curtain;
 
+    &__at-icon {
+      color: $at-curtain-btn-color;
+    }
+
     /*  #ifndef  rn  */
     &::before,
     &::after {

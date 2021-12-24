@@ -83,8 +83,12 @@
       @include hairline-top();
     }
   }
+
+  &__at-icon {
+    color: $at-radio-check-color;
+  }
 }
 
-.at-icon {
-  color: $at-radio-check-color;
-}
+// .at-icon {
+//   color: $at-radio-check-color;
+// }

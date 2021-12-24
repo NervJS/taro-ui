@@ -116,7 +116,7 @@ export default class AtSearchBar extends React.Component<
             className='at-search-bar__placeholder-wrap'
             style={placeholderWrapStyle}
           >
-            <AtIcon className='at-icon' value='search' />
+            <AtIcon className='at-search-bar__at-icon' value='search' />
             <Text
               className='at-search-bar__placeholder'
               style={placeholderStyle}
@@ -142,7 +142,7 @@ export default class AtSearchBar extends React.Component<
             style={clearIconStyle}
             onTouchStart={this.handleClear}
           >
-            <AtIcon className='at-icon' value='close-circle' />
+            <AtIcon className='at-search-bar__at-icon' value='close-circle' />
           </View>
         </View>
         <View

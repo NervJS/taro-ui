@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Image, Text, View } from '@tarojs/components'
+import { Image, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtTabBarProps, TabItem } from '../../../types/tab-bar'
-import { mergeStyle } from '../../common/utils'
 import AtBadge from '../badge/index'
+import AtIcon from '../icon'
 
 export default class AtTabBar extends React.Component<AtTabBarProps> {
   public static defaultProps: AtTabBarProps
@@ -35,7 +35,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
 
   public render(): JSX.Element {
     const {
-      customStyle = '',
+      customStyle = {},
       className,
       fixed,
       backgroundColor,
@@ -59,10 +59,14 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
     const rootStyle = {
       backgroundColor: backgroundColor || '',
     }
-    // const imgStyle = {
-    //   width: `${iconSize}`,
-    //   height: `${iconSize}`
-    // }
+    const imgStyle: any = {
+      // width: iconSize,
+      // height: iconSize
+    }
+    if (iconSize) {
+      imgStyle.width = iconSize
+      imgStyle.height = iconSize
+    }
 
     return (
       <View
@@ -74,7 +78,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
           },
           className,
         )}
-        style={mergeStyle(rootStyle, customStyle)}
+        style={Object.assign(rootStyle, customStyle)}
       >
         {tabList.map((item: TabItem, i: number) => (
           <View
@@ -93,7 +97,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                   maxValue={Number(item.max)}
                 >
                   <View className='at-tab-bar__icon'>
-                    <Text
+                    {/* <Text
                       className={classNames(
                         `${item.iconPrefixClass || 'at-icon'}`,
                         {
@@ -109,7 +113,13 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                         color: current === i ? selectedColor : color,
                         fontSize: +(iconSize ? `${iconSize}` : ''),
                       }}
-                    ></Text>
+                    ></Text> */}
+                    <AtIcon
+                      value={item.iconType}
+                      size={iconSize}
+                      color={current === i ? selectedColor : color}
+                      className='at-tab-bar__icon'
+                    />
                   </View>
                 </AtBadge>
               ) : null}
@@ -128,7 +138,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                       })}
                       mode='widthFix'
                       src={item.selectedImage || item.image}
-                      // style={imgStyle}
+                      style={imgStyle}
                     ></Image>
                     <Image
                       className={classNames('at-tab-bar__inner-img', {
@@ -136,7 +146,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                       })}
                       mode='widthFix'
                       src={item.image}
-                      // style={imgStyle}
+                      style={imgStyle}
                     ></Image>
                   </View>
                 </AtBadge>
@@ -167,7 +177,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
 }
 
 AtTabBar.defaultProps = {
-  customStyle: '',
+  customStyle: {},
   className: '',
   selectedColor: '#6190E8',
   color: '#333',
