@@ -1,8 +1,11 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Image, Text, View } from '@tarojs/components'
+import { Image, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
+// eslint-disable-next-line
+import RootSiblings from 'react-native-root-siblings'
+import AtIcon from '../icon'
 import { AtToastProps, AtToastState } from '../../../types/toast'
 import statusImg from './img.json'
 
@@ -23,9 +26,13 @@ export default class AtToast extends React.Component<
     }
     this._timer = null
     this.state = {
-      _isOpened: isOpened
+      _isOpened: isOpened,
     }
   }
+
+  toast: any
+
+  layout: any = null
 
   private clearTimmer(): void {
     if (this._timer) {
@@ -48,11 +55,12 @@ export default class AtToast extends React.Component<
     if (_isOpened) {
       this.setState(
         {
-          _isOpened: false
+          _isOpened: false,
         },
-        this.handleClose // TODO: Fix dirty hack
+        this.handleClose, // TODO: Fix dirty hack
       )
       this.clearTimmer()
+      this.toast.update(null)
     }
   }
 
@@ -83,17 +91,40 @@ export default class AtToast extends React.Component<
     }
 
     if (!this.state._isOpened) {
-      this.setState({
-        _isOpened: true
+      this.setState({ _isOpened: true }, () => {
+        this.toast.update(this.renderContent())
       })
     } else {
       this.clearTimmer()
+      this.toast.update(null)
     }
     this.makeTimer(duration || 0)
   }
 
-  public render(): JSX.Element | null {
+  public componentDidMount(): void {
     const { _isOpened } = this.state
+    if (!this.toast) {
+      this.toast = new RootSiblings()
+    }
+
+    if (_isOpened) {
+      this.toast.update(this.renderContent())
+    }
+  }
+
+  public componentWillUnmount(): void {
+    this.toast.destroy()
+  }
+
+  onLayout = (event): void => {
+    const { _isOpened } = this.state
+    if (_isOpened) {
+      this.layout = event.nativeEvent.layout
+      this.toast.update(this.renderContent())
+    }
+  }
+
+  private renderContent = (): React.ReactNode => {
     const { customStyle, text, icon, status, image, hasMask } = this.props
 
     /* eslint-disable @typescript-eslint/no-non-null-assertion */
@@ -102,18 +133,31 @@ export default class AtToast extends React.Component<
     /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
     const bodyClass = classNames('toast-body', {
-      'at-toast__body--custom-image': image,
+      // 'at-toast__body--custom-image': image,
       'toast-body--text': !realImg && !icon,
-      [`at-toast__body--${status}`]: !!status
+      // [`at-toast__body--${status}`]: !!status
     })
 
-    const iconClass = classNames('at-icon', {
-      [`at-icon-${icon}`]: icon
+    const iconClass = classNames('at-icon', 'toast-body-content__icon')
+
+    const rootClass = classNames('at-toast', this.props.className, {
+      'at-toast--no-mask': !hasMask,
     })
 
-    return _isOpened ? (
-      <View className={classNames('at-toast', this.props.className)}>
-        {hasMask && <View className='at-toast__overlay' />}
+    const textClass = classNames('toast-body-content__info', {
+      'toast-body-content__info-no-margin': !realImg && !icon,
+    })
+
+    const rootStyle: any = {}
+    if (!hasMask) {
+      rootStyle.backgroundColor = 'red'
+      rootStyle.marginLeft = this.layout ? (this.layout.width * -1) / 2 : 0
+      rootStyle.marginTop = this.layout ? (this.layout.height * -1) / 2 : 0
+      rootStyle.opacity = this.layout ? 1 : 0
+    }
+
+    return (
+      <View className={rootClass} style={rootStyle} onLayout={this.onLayout}>
         <View
           className={bodyClass}
           style={customStyle}
@@ -131,24 +175,24 @@ export default class AtToast extends React.Component<
             ) : null}
             {isRenderIcon && (
               <View className='toast-body-content__icon'>
-                <Text className={iconClass} />
+                <AtIcon className={iconClass} value={icon} />
               </View>
             )}
-            {text && (
-              <View className='toast-body-content__info'>
-                <Text>{text}</Text>
-              </View>
-            )}
+            {text && <View className={textClass}>{text}</View>}
           </View>
         </View>
       </View>
-    ) : null
+    )
+  }
+
+  public render(): JSX.Element | null {
+    return null
   }
 }
 
 AtToast.defaultProps = {
   duration: 3000,
-  isOpened: false
+  isOpened: false,
 }
 
 AtToast.propTypes = {
@@ -160,5 +204,5 @@ AtToast.propTypes = {
   duration: PropTypes.number,
   status: PropTypes.oneOf(['', 'error', 'loading', 'success']),
   onClick: PropTypes.func,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 }

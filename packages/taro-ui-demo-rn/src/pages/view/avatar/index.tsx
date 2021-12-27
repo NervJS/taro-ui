@@ -7,12 +7,12 @@ import './index.scss'
 
 export default class AvatarPage extends React.Component {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public render(): JSX.Element {
     const avatarImg =
-      'http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
+      'https://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
 
     return (
       <View className='page'>

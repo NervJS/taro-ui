@@ -14,6 +14,7 @@ const modules = [
   '@tarojs/components-rn',
   '@tarojs/taro-rn',
   'react-native-svg',
+  'react-native-root-siblings',
   ...Object.keys({
     ...pak.dependencies,
     ...pak.peerDependencies,

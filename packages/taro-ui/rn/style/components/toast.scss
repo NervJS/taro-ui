@@ -19,6 +19,22 @@ $at-toast-color: $color-white;
 $at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
 
 .at-toast {
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+
+  &--no-mask {
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
   /* elements */
   &__overlay {
     @include overlay;
@@ -35,57 +51,62 @@ $at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
       }
     }
   }
+}
 
-  .toast-body {
-    @include absolute-center(fixed);
+.toast-body {
+  // @include absolute-center(fixed);
 
-    padding: $spacing-v-lg $spacing-h-xl;
-    min-width: $at-toast-min-width;
-    border-radius: $border-radius-md;
-    background-color: $at-toast-bg-color;
-    z-index: $zindex-toast;
+  padding: $spacing-v-lg $spacing-h-xl;
+  min-width: $at-toast-min-width;
+  border-radius: $border-radius-md;
+  background-color: $at-toast-bg-color;
+  z-index: $zindex-toast;
 
-    &-content {
-      &__icon {
-        color: $at-toast-color;
-        font-size: $at-toast-icon-size;
-        text-align: center;
-      }
+  &-content {
+    &__icon {
+      color: $at-toast-color;
+      font-size: $at-toast-icon-size;
+      align-items: center;
+    }
 
-      &__img {
-        line-height: 0;
-        text-align: center;
+    &__img {
+      line-height: 0;
+      align-items: center;
 
-        &-item {
-          width: $at-toast-image-size;
-          height: $at-toast-image-size;
-        }
-      }
-
-      &__info {
-        margin-top: $spacing-v-md;
-        color: $at-toast-color;
-        font-size: $at-toast-font-size;
-        line-height: $line-height-zh;
-        text-align: center;
+      &-item {
+        width: $at-toast-image-size;
+        height: $at-toast-image-size;
       }
     }
 
-    &--text {
-      padding: $spacing-v-sm $spacing-h-lg;
+    &__info {
+      margin-top: $spacing-v-md;
+      color: $at-toast-color;
+      font-size: $at-toast-font-size;
       line-height: $line-height-zh;
-      min-width: initial;
+      text-align: center;
 
-      .toast-body-content__info {
+      &-no-margin {
         margin-top: 0;
       }
     }
+  }
 
-    &.at-toast__body--custom-image,
-    &.at-toast__body--success,
-    &.at-toast__body--error,
-    &.at-toast__body--loading {
-      padding-bottom: $spacing-v-lg - (($at-toast-font-size * $line-height-zh - $at-toast-font-size) / 2);
-    }
+  &--text {
+    color: $at-toast-color;
+    padding: $spacing-v-sm $spacing-h-lg;
+    line-height: $line-height-zh;
+    // min-width: initial;
+
+    // .toast-body-content__info {
+    //   margin-top: 0;
+    // }
+  }
+
+  &.at-toast__body--custom-image,
+  &.at-toast__body--success,
+  &.at-toast__body--error,
+  &.at-toast__body--loading {
+    // padding-bottom: $spacing-v-lg - (($at-toast-font-size * $line-height-zh - $at-toast-font-size) / 2);
   }
 }

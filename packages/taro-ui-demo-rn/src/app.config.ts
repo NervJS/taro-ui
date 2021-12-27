@@ -17,7 +17,7 @@ const pages = [
   'pages/view/countdown/index',
   'pages/view/steps/index',
   'pages/view/curtain/index',
-  // 'pages/action/toast/index',
+  'pages/action/toast/index',
   'pages/action/modal/index',
   'pages/action/progress/index',
   'pages/action/action-sheet/index',
