@@ -28,3 +28,6 @@ stats.html
 
 # Test files
 coverage
+
+# taro rn release
+!packages/taro-ui-demo-rn/release/**
