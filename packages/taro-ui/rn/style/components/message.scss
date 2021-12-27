@@ -13,6 +13,14 @@
   text-align: center;
   line-height: $line-height-zh;
   background: $at-message-bg-color;
+
+  &--content {
+    color: $at-message-color;
+    font-size: $at-message-font-size;
+    text-align: center;
+    line-height: $line-height-zh;
+    background: transparent
+  }
   // animation: ease both;
   // transform: translate3d(0, -100%, 0);
   // transition: all 300ms $ease-in-sine;

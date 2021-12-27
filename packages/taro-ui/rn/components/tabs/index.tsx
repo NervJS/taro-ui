@@ -5,7 +5,7 @@ import { ScrollView, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
 import { AtTabsProps, AtTabsState } from '../../../types/tabs'
-import { isTest, mergeStyle, uuid } from '../../common/utils'
+import { isTest, uuid } from '../../common/utils'
 
 const ENV = Taro.getEnv()
 const MIN_DISTANCE = 100
@@ -40,8 +40,11 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     this._isMoving = false
   }
 
+  tabLayoutMap = new Map()
+
   private updateState = (idx: number): void => {
-    if (this.props.scroll) {
+    const { scroll, tabDirection } = this.props
+    if (scroll) {
       // 标签栏滚动
       switch (ENV) {
         case Taro.ENV_TYPE.WEAPP:
@@ -63,6 +66,36 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
             })
           break
         }
+        case Taro.ENV_TYPE.RN: {
+          const layout = this.tabLayoutMap.get(idx)
+          if (layout) {
+            const scrollX = tabDirection === 'horizontal'
+            const scrollY = tabDirection === 'vertical'
+            if (scrollX) {
+              let current = idx - 1
+              let width = 0
+              while (current > 0) {
+                width += this.tabLayoutMap.get(current).width
+                current--
+              }
+              this.setState({
+                _scrollLeft: width,
+              })
+            }
+            if (scrollY) {
+              let current = idx - 1
+              let height = 0
+              while (current > 0) {
+                height += this.tabLayoutMap.get(current).height
+                current--
+              }
+              this.setState({
+                _scrollTop: height,
+              })
+            }
+          }
+          break
+        }
         default: {
           console.warn('AtTab 组件在该环境还未适配')
           break
@@ -80,6 +113,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     if (!swipeable || tabDirection === 'vertical') return
     // 获取触摸时的原点
     this._touchDot = e.touches[0].pageX
+    this.clearMoveState()
     // 使用js计时器记录时间
     this._timer = setInterval(() => {
       this._interval++
@@ -93,7 +127,6 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     const touchMove = e.nativeEvent.pageX
     const moveDistance = touchMove - this._touchDot
     const maxIndex = tabList.length
-
     if (
       !this._isMoving &&
       this._interval < MAX_INTERVAL &&
@@ -115,9 +148,13 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
   private handleTouchEnd(): void {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
+    this.clearMoveState()
+  }
 
-    clearInterval(this._timer as NodeJS.Timeout)
+  private clearMoveState(): void {
+    this._timer && clearInterval(this._timer as NodeJS.Timeout)
     this._interval = 0
+    this._timer = null
     this._isMoving = false
   }
 
@@ -143,6 +180,10 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
 
   public componentWillUnmount(): void {
     this.tabHeaderRef = null
+  }
+
+  onLayout = idx => event => {
+    this.tabLayoutMap.set(idx, event.nativeEvent.layout)
   }
 
   public render(): JSX.Element {
@@ -189,12 +230,14 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
           id={`tab${this._tabId}${idx}`}
           key={item.title}
           onClick={this.handleClick.bind(this, idx)}
+          onLayout={this.onLayout(idx)}
         >
           {item.title}
           <View className='at-tabs__item-underline'></View>
         </View>
       )
     })
+
     const rootCls = classNames(
       {
         'at-tabs': true,
@@ -208,13 +251,15 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     const scrollY = tabDirection === 'vertical'
 
     return (
-      <View className={rootCls} style={mergeStyle(heightStyle, customStyle)}>
+      <View
+        className={rootCls}
+        style={Object.assign({}, heightStyle, customStyle)}
+      >
         {scroll ? (
           <ScrollView
             id={this._tabId}
             className={`at-tabs__header at-tabs__header--${tabDirection}`}
             style={heightStyle}
-            // style={{ ...heightStyle, flexDirection: scrollX ? 'row' : 'column' }}
             scrollX={scrollX}
             scrollY={scrollY}
             scrollWithAnimation
@@ -229,13 +274,12 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
             {tabItems}
           </View>
         )}
-        {/* <View>111</View> */}
         <View
           className='at-tabs__body'
           onTouchStart={this.handleTouchStart.bind(this)}
           onTouchEnd={this.handleTouchEnd.bind(this)}
           onTouchMove={this.handleTouchMove.bind(this)}
-          style={mergeStyle(bodyStyle, heightStyle)}
+          style={Object.assign({}, bodyStyle, heightStyle)}
         >
           <View className='at-tabs__underline' style={underlineStyle}></View>
           {this.props.children}

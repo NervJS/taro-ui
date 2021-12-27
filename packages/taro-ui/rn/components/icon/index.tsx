@@ -16,7 +16,14 @@ export default class AtIcon extends React.Component<AtIconProps> {
   public render(): JSX.Element | null {
     const { value, color, size, customStyle = {}, style = {} } = this.props
 
-    const fontSize = (customStyle as any).fontSize || style.fontSize
+    let inputStyle = style
+
+    // 兼容 style 是数组情况
+    if (Array.isArray(style)) {
+      inputStyle = style.reduce((sty, obj) => Object.assign(sty, obj), {})
+    }
+
+    const fontSize = (customStyle as any).fontSize || inputStyle.fontSize
 
     const _fontSize =
       pxTransform(parseInt(String(size)) * 2) ||
@@ -32,8 +39,8 @@ export default class AtIcon extends React.Component<AtIconProps> {
 
     return React.createElement(ICONS[value] || ((): any => null), {
       // 图标色值优先级
-      fill: color || (customStyle as any).color || style.color || '',
-      style: Object.assign({}, style, customStyle, _style),
+      fill: color || (customStyle as any).color || inputStyle.color || '',
+      style: Object.assign({}, inputStyle, customStyle, _style),
     })
   }
 }
