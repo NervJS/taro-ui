@@ -54,6 +54,18 @@
     // }
   }
 
+  &__at-icon {
+    font-size: $at-progress-icon-size;
+
+    &--error {
+      color: $color-error;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+  }
+
   /* modifiers */
   // &--progress {
   //   .at-progress__outer-inner-background::before {

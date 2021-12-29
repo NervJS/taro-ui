@@ -76,7 +76,6 @@ view {
  * Example 样式
  */
 .panel__content {
-  padding: 0 20px;
   &--example-item {
     display: flex;
     flex-direction: row;
@@ -114,11 +113,8 @@ view {
   &--panel {
     margin: 32px 0 56px;
 
-
-
     &__content {
       padding: 0 20px;
-
     }
   }
 }

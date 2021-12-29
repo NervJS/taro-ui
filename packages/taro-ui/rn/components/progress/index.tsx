@@ -1,22 +1,23 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { View, Icon, Progress } from '@tarojs/components'
+import { View, Progress } from '@tarojs/components'
 import { AtProgressProps } from '../../../types/progress'
+import AtIcon from '../icon'
 
 export default class AtProgress extends React.Component<AtProgressProps> {
   public static defaultProps: AtProgressProps
   public static propTypes: InferProps<AtProgressProps>
 
-  get iconStatus(): 'cancel' | 'success' | 'waiting' {
+  get iconStatus(): 'close-circle' | 'check-circle' | 'clock' {
     const { status } = this.props
     if (status === 'error') {
-      return 'cancel'
+      return 'close-circle'
     }
     if (status === 'success') {
-      return 'success'
+      return 'check-circle'
     }
-    return 'waiting'
+    return 'clock'
   }
 
   public render(): JSX.Element {
@@ -42,6 +43,11 @@ export default class AtProgress extends React.Component<AtProgressProps> {
       this.props.className,
     )
 
+    const iconClass = classNames('at-progress__at-icon', {
+      'at-progress__at-icon--error': status === 'error',
+      'at-progress__at-icon--success': status === 'success',
+    })
+
     return (
       <View className={rootClass}>
         <View className='at-progress__outer'>
@@ -49,6 +55,7 @@ export default class AtProgress extends React.Component<AtProgressProps> {
             percent={percent}
             strokeWidth={strokeWidth}
             active
+            activeMode='forwards'
             activeColor={color}
             borderRadius={10}
           />
@@ -60,7 +67,7 @@ export default class AtProgress extends React.Component<AtProgressProps> {
               `${percent}%`
             ) : (
               // <Text className={iconClass}></Text>
-              <Icon size='20' type={this.iconStatus} />
+              <AtIcon className={iconClass} value={this.iconStatus} />
             )}
           </View>
         )}
