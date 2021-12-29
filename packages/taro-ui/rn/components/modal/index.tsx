@@ -12,9 +12,6 @@ import AtModalContent from './content/index'
 import AtModalHeader from './header/index'
 
 const duration = 300
-const {
-  safeArea: { top: safeAreaTop },
-} = Taro.getSystemInfoSync()
 
 export default class AtModal extends React.Component<
   AtModalProps,
@@ -139,10 +136,7 @@ export default class AtModal extends React.Component<
           visible={_isOpened}
           onRequestClose={this.close.bind(this)}
         >
-          <Animated.View
-            className={rootClass}
-            style={{ opacity, top: safeAreaTop }}
-          >
+          <Animated.View className={rootClass} style={{ opacity }}>
             <View
               onClick={this.handleClickOverlay}
               className='at-modal__overlay'
@@ -174,18 +168,22 @@ export default class AtModal extends React.Component<
                 <AtModalAction isSimple>
                   {cancelText && (
                     <Button
-                      className='at-modal__action--button at-modal__action--button-no-border'
+                      className='at-modal__action--button at-modal__action--button__no-border'
                       onClick={this.handleCancel}
                     >
-                      {cancelText}
+                      <View className='at-modal__action--button__text'>
+                        {cancelText}
+                      </View>
                     </Button>
                   )}
                   {confirmText && (
                     <Button
-                      className='at-modal__action--button at-modal__action--button-confirm'
+                      className='at-modal__action--button'
                       onClick={this.handleConfirm}
                     >
-                      {confirmText}
+                      <View className='at-modal__action--button__text at-modal__action--button__text--confirm'>
+                        {confirmText}
+                      </View>
                     </Button>
                   )}
                 </AtModalAction>

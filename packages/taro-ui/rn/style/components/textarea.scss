@@ -9,7 +9,7 @@ $at-textarea-bg-color: $color-bg;
   padding: $spacing-v-md;
   width: 100%;
   font-size: $at-textarea-font-size;
-  line-height: $line-height-zh;
+  line-height: $line-height-zh * $at-textarea-font-size;
   border-radius: $border-radius-md;
   background-color: $at-textarea-bg-color;
   // box-sizing: border-box;
@@ -35,7 +35,7 @@ $at-textarea-bg-color: $color-bg;
     color: $at-textarea-tips-color;
     font-size: $at-textarea-tips-size;
     text-align: right;
-    line-height: $line-height-base;
+    line-height: $line-height-base * $at-textarea-tips-size;
 
     &--error {
       color: $color-error;

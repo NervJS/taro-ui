@@ -2,8 +2,9 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import Taro from '@tarojs/taro'
-import { Image, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { AtTimelineProps } from '../../../types/timeline'
+import AtIcon from '../icon'
 
 export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static defaultProps: AtTimelineProps
@@ -16,11 +17,17 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
     if (pending) rootClassName.push('at-timeline--pending')
 
     const rootClassObject = {
-      'at-timeline--pending': pending
+      'at-timeline--pending': pending,
     }
 
     const itemElems = items.map((item, index) => {
       const { title = '', color, icon, content = [] } = item
+
+      const iconClass = classNames({
+        'at-icon': true,
+        'at-timeline-item__at-icon': true,
+        // [`at-icon-${icon}`]: icon
+      })
 
       const itemRootClassName = ['at-timeline-item']
 
@@ -53,7 +60,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
             style={{ ...hideStyle, ...isDotted }}
           />
           <View className={classNames(dotClass)}>
-            {!!icon && <Image className='at-timeline-item__icon' src={icon} />}
+            {icon && <AtIcon className={iconClass} value={icon} />}
           </View>
           <View className='at-timeline-item__content' style={contentMinHeight}>
             <View className='at-timeline-item__content-item'>{title}</View>
@@ -74,7 +81,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
         className={classNames(
           rootClassName,
           rootClassObject,
-          this.props.className
+          this.props.className,
         )}
         style={customStyle}
       >
@@ -87,11 +94,11 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
 AtTimeline.defaultProps = {
   pending: false,
   items: [],
-  customStyle: {}
+  customStyle: {},
 }
 
 AtTimeline.propTypes = {
   pending: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object),
-  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 }

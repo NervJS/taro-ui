@@ -27,7 +27,7 @@
     color: $at-radio-title-color;
     font-size: $at-radio-title-size;
     text-align: left;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-radio-title-size;
     //  word-break: break-all;
 
     &--disabled {
@@ -53,7 +53,7 @@
     color: $at-radio-desc-color;
     font-size: $at-radio-desc-size;
     text-align: left;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-radio-desc-size;
     letter-spacing: 0;
     //  word-break: break-all;
 

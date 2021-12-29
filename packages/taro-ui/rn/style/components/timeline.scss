@@ -22,7 +22,7 @@
   &__dot {
     position: absolute;
     left: 0;
-    top: 3px;
+    top: 0;
     width: $at-timeline-dot-size;
     height: $at-timeline-dot-size;
     font-size: 0;
@@ -53,7 +53,7 @@
 
   &__icon {
     position: absolute;
-    left: -3px;
+    left: 0;
     top: 0;
     width: $at-timeline-dot-size;
     height: $at-timeline-dot-size;
@@ -63,6 +63,10 @@
     z-index: 1;
   }
 
+  &__at-icon {
+    font-size: $at-timeline-dot-size;
+    color: $at-timeline-dot-border-color;
+  }
 
   &__tail {
     position: absolute;

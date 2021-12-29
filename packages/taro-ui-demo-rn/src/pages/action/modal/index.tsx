@@ -182,9 +182,7 @@ export default class ModalPage extends React.Component<{}, ModalPageState> {
         {/* 无标题 */}
         <AtModal
           isOpened={isOpened3}
-          content={`这里是正文内容，欢迎加入京东凹凸实验室
-          这里是正文内容，欢迎加入京东凹凸实验室
-          这里是正文内容，欢迎加入京东凹凸实验室`}
+          content={`这里是正文内容，欢迎加入京东凹凸实验室\n这里是正文内容，欢迎加入京东凹凸实验室\n这里是正文内容，欢迎加入京东凹凸实验室`}
           onClose={this.closeModal.bind(this, 3, 'Modal被关闭了')}
           onCancel={this.closeModal.bind(this, 3, '点击了取消')}
           onConfirm={this.closeModalConfirm.bind(this, 3, '点击了确认')}

@@ -21,7 +21,7 @@
     &-extra {
       // @include line;
 
-      line-height: $line-height-zh;
+      // line-height: $line-height-zh;
     }
 
     &-thumb {
@@ -49,6 +49,7 @@
       //  display: block;
       color: $at-card-title-color;
       font-size: $font-size-lg;
+      line-height: $line-height-zh * $font-size-lg;
     }
 
     &-extra {
@@ -58,6 +59,7 @@
       margin-left: $spacing-h-lg;
       color: $at-card-extra-color;
       font-size: $font-size-base;
+      line-height: $line-height-zh * $font-size-base;
     }
   }
 

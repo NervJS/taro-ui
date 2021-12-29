@@ -43,7 +43,7 @@
     margin-right: $spacing-h-md;
     width: 172px;
     font-size: $at-input-font-size;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-input-font-size;
     // vertical-align: middle;
     text-align: left;
     &--error {
@@ -60,19 +60,21 @@
     padding-bottom: 0;
     color: $at-input-text-color;
     font-size: $at-input-font-size;
-    line-height: $line-height-zh;
+    // height: $at-input-font-size * 1.4;
+    // line-height: $line-height-zh * $at-input-font-size;
+    line-height: 1.2 * $at-input-font-size;
     /*postcss-pxtransform rn eject enable*/
     vertical-align: middle;
     /*postcss-pxtransform rn eject disable*/
     @include placeholder($at-input-placeholder-color);
   }
 
-  input {
-    color: $at-input-text-color;
-    font-size: $at-input-font-size;
-    height: $at-input-font-size * 1.4;
-    line-height: $line-height-zh;
-  }
+  // input {
+  //   color: $at-input-text-color;
+  //   font-size: $at-input-font-size;
+  //   height: $at-input-font-size * 1.4;
+  //   line-height: $line-height-zh * $at-input-font-size;
+  // }
 
   &__icon {
     // display: inline-flex;

@@ -4,11 +4,10 @@ import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
-import CLOCK from './clock.png'
 
 export default class TimelinePage extends React.Component {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
+    navigationBarTitleText: 'Taro UI',
   }
 
   public render(): JSX.Element {
@@ -18,16 +17,16 @@ export default class TimelinePage extends React.Component {
 
         <View className='doc-body'>
           {/* 基础用法 */}
-          <View className='doc-body--panel'>
+          <View className='panel'>
             <View className='panel__title'>基础用法</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View className='example-item'>
                 <AtTimeline
                   items={[
                     { title: '刷牙洗脸' },
                     { title: '吃早餐' },
                     { title: '上班' },
-                    { title: '睡觉' }
+                    { title: '睡觉' },
                   ]}
                 ></AtTimeline>
               </View>
@@ -35,16 +34,16 @@ export default class TimelinePage extends React.Component {
           </View>
 
           {/* 自定义颜色 */}
-          <View className='doc-body--panel'>
+          <View className='panel'>
             <View className='panel__title'>自定义颜色</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View className='example-item'>
                 <AtTimeline
                   items={[
                     { title: '刷牙洗脸' },
                     { title: '吃早餐', color: 'green' },
                     { title: '上班', color: 'red' },
-                    { title: '睡觉', color: 'yellow' }
+                    { title: '睡觉', color: 'yellow' },
                   ]}
                 ></AtTimeline>
               </View>
@@ -52,16 +51,16 @@ export default class TimelinePage extends React.Component {
           </View>
 
           {/* 自定义图标 */}
-          <View className='doc-body--panel'>
+          <View className='panel'>
             <View className='panel__title'>自定义图标</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View className='example-item'>
                 <AtTimeline
                   items={[
-                    { title: '刷牙洗脸', icon: CLOCK },
-                    { title: '吃早餐', icon: CLOCK },
-                    { title: '上班', icon: CLOCK },
-                    { title: '睡觉', icon: CLOCK }
+                    { title: '刷牙洗脸', icon: 'check-circle' },
+                    { title: '吃早餐', icon: 'clock' },
+                    { title: '上班', icon: 'clock' },
+                    { title: '睡觉', icon: 'clock' },
                   ]}
                 ></AtTimeline>
               </View>
@@ -69,17 +68,17 @@ export default class TimelinePage extends React.Component {
           </View>
 
           {/* 幽灵节点 */}
-          <View className='doc-body--panel'>
+          <View className='panel'>
             <View className='panel__title'>幽灵节点</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View className='example-item'>
                 <AtTimeline
                   pending
                   items={[
                     { title: '刷牙洗脸' },
                     { title: '吃早餐' },
                     { title: '上班' },
-                    { title: '睡觉' }
+                    { title: '睡觉' },
                   ]}
                 ></AtTimeline>
               </View>
@@ -87,29 +86,29 @@ export default class TimelinePage extends React.Component {
           </View>
 
           {/* 丰富内容 */}
-          <View className='doc-body--panel'>
+          <View className='panel'>
             <View className='panel__title'>丰富内容</View>
             <View className='panel__content'>
-              <View className='panel__content--example-item'>
+              <View className='example-item'>
                 <AtTimeline
                   pending
                   items={[
                     {
                       title: '刷牙洗脸',
                       content: ['大概8:00'],
-                      icon: CLOCK
+                      icon: 'check-circle',
                     },
                     {
                       title: '吃早餐',
                       content: ['牛奶+面包', '餐后记得吃药'],
-                      icon: CLOCK
+                      icon: 'clock',
                     },
                     {
                       title: '上班',
                       content: ['查看邮件', '写PPT', '发送PPT给领导'],
-                      icon: CLOCK
+                      icon: 'clock',
                     },
-                    { title: '睡觉', content: ['不超过23:00'], icon: CLOCK }
+                    { title: '睡觉', content: ['不超过23:00'], icon: 'clock' },
                   ]}
                 ></AtTimeline>
               </View>

@@ -85,9 +85,9 @@ $font-size-xl: 18px * $hd !default; // 大标题
 $font-size-xxl: 20px * $hd !default; // 用于大号的数字
 
 /* Line Height */
-$line-height-base: 14px * 1 * $hd !default; // 单行
-$line-height-en: 14px * 1.3 * $hd !default; // 英文多行
-$line-height-zh: 14px * 1.5 * $hd !default; // 中文多行
+$line-height-base: 1 !default; // 单行
+$line-height-en: 1.3 !default; // 英文多行
+$line-height-zh: 1.5 !default; // 中文多行
 /*  #ifndef  rn  */
 $line-height-base: 1 !default; // 单行
 $line-height-en: 1.3 !default; // 英文多行

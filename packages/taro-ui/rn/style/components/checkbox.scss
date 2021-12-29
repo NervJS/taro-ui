@@ -27,7 +27,7 @@ $component: '.at-checkbox';
     //  display: inline-flex;
     color: $at-checkbox-title-color;
     font-size: $at-checkbox-title-font-size;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-checkbox-title-font-size;
     text-align: left;
   }
 
@@ -60,7 +60,7 @@ $component: '.at-checkbox';
     color: $at-checkbox-desc-color;
     font-size: $at-checkbox-desc-font-size;
     text-align: left;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-checkbox-desc-font-size;
     letter-spacing: 0;
 
     &--disabled {

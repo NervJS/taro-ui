@@ -11,14 +11,14 @@
   color: $at-message-color;
   font-size: $at-message-font-size;
   text-align: center;
-  line-height: $line-height-zh;
+  line-height: $line-height-zh * $at-message-font-size;
   background: $at-message-bg-color;
 
   &--content {
     color: $at-message-color;
     font-size: $at-message-font-size;
     text-align: center;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-message-font-size;
     background: transparent
   }
   // animation: ease both;

@@ -5,6 +5,7 @@ import React from 'react'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtStepsProps } from '../../../types/steps'
+import AtIcon from '../icon'
 
 export default class AtSteps extends React.Component<AtStepsProps> {
   public static defaultProps: AtStepsProps
@@ -29,39 +30,62 @@ export default class AtSteps extends React.Component<AtStepsProps> {
                 className={classNames({
                   'at-steps__item': true,
                   'at-steps__item--active': active,
-                  'at-steps__item--inactive': inactive
+                  'at-steps__item--inactive': inactive,
                 })}
                 onClick={this.handleClick.bind(this, i)}
               >
                 <View className='at-steps__circular-wrap'>
                   {i !== 0 && <View className='at-steps__left-line' />}
                   {item.status ? (
-                    <View
-                      className={classNames({
-                        'at-icon': true,
-                        'at-icon-check-circle': item.status === 'success',
-                        'at-icon-close-circle': item.status === 'error',
+                    // <View
+                    //   className={classNames({
+                    //     'at-icon': true,
+                    //     'at-icon-check-circle': item.status === 'success',
+                    //     'at-icon-close-circle': item.status === 'error',
+                    //     'at-steps__single-icon': true,
+                    //     'at-steps__single-icon--success':
+                    //       item.status === 'success',
+                    //     'at-steps__single-icon--error': item.status === 'error',
+                    //   })}
+                    // ></View>
+                    <AtIcon
+                      className={classNames('at-icon', {
                         'at-steps__single-icon': true,
                         'at-steps__single-icon--success':
                           item.status === 'success',
-                        'at-steps__single-icon--error': item.status === 'error'
+                        'at-steps__single-icon--error': item.status === 'error',
                       })}
-                    ></View>
+                      value={
+                        item.status === 'success'
+                          ? 'check-circle'
+                          : 'close-circle'
+                      }
+                    />
                   ) : (
                     <View
                       className={classNames('at-steps__circular', {
-                        'at-steps__circular--active': active
+                        'at-steps__circular--active': active,
                       })}
                     >
                       {item.icon ? (
-                        <Text
+                        <AtIcon
                           className={classNames('at-icon', {
-                            [`at-icon-${item.icon.value}`]: item.icon.value,
-                            'at-steps__circle-icon': true
+                            'at-steps__circle-icon': true,
+                            'at-steps__circle-icon--active': active,
+                            'at-steps__circle-icon--inactive': inactive,
                           })}
-                        ></Text>
+                          value={item.icon.value}
+                        />
                       ) : (
-                        <Text className='at-steps__num'>{i + 1}</Text>
+                        <Text
+                          className={classNames({
+                            'at-steps__num': true,
+                            'at-steps__item--text__active': active,
+                            'at-steps__item--inactive': inactive,
+                          })}
+                        >
+                          {i + 1}
+                        </Text>
                       )}
                     </View>
                   )}
@@ -79,7 +103,7 @@ export default class AtSteps extends React.Component<AtStepsProps> {
                 <Text
                   className='at-steps__desc'
                   // @ts-ignore
-                  numberOfLines={1}
+                  numberOfLines={2}
                 >
                   {item.desc}
                 </Text>
@@ -97,7 +121,7 @@ AtSteps.defaultProps = {
   current: 0,
   items: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
 }
 
 AtSteps.propTypes = {
@@ -105,5 +129,5 @@ AtSteps.propTypes = {
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   current: PropTypes.number,
   items: PropTypes.array,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }

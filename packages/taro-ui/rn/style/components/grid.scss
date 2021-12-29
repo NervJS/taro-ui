@@ -75,7 +75,7 @@
     flex: 0 0 auto;
     color: $at-grid-text-color;
     font-size: $at-grid-font-size;
-    line-height: $line-height-zh;
+    line-height: $line-height-zh * $at-grid-font-size;
     text-align: center;
     // @include line(2);
     &--rect {
