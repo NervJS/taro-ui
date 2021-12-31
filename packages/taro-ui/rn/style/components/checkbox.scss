@@ -91,10 +91,17 @@ $component: '.at-checkbox';
       }
     }
   }
+  // &__option + &__option {
+  //   #{$component}__option-wrap {
+  //     @include hairline-top();
+  //   }
+  // }
+}
 
-  &__option + &__option {
-    #{$component}__option-wrap {
-      @include hairline-top();
-    }
+#{$component}__option-wrap {
+  @include hairline-top();
+
+  &--without-border {
+    border-top-width: 0;
   }
 }

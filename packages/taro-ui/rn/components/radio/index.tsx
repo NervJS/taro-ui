@@ -16,7 +16,7 @@ export default class AtRadio extends React.Component<AtRadioProps<any>> {
   }
 
   public render(): JSX.Element {
-    const { customStyle, className, options, value } = this.props
+    const { customStyle, className, options, value, border } = this.props
 
     return (
       <View className={classNames('at-radio', className)} style={customStyle}>
@@ -32,8 +32,8 @@ export default class AtRadio extends React.Component<AtRadioProps<any>> {
             <View
               className={classNames({
                 'at-radio__option-wrap': true,
-                'at-radio__option-wrap--no-border':
-                  options.length === index + 1,
+                'at-radio__option-wrap--without-border':
+                  !border || options.length === index + 1,
               })}
             >
               <View className='at-radio__option-container'>
@@ -77,6 +77,7 @@ AtRadio.defaultProps = {
   customStyle: '',
   className: '',
   value: '',
+  border: true,
   options: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick: (): void => {},

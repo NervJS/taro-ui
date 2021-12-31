@@ -139,6 +139,10 @@
     opacity: $opacity-disabled;
   }
 
+  &--without-border {
+    border-bottom-width: 0;
+  }
+
   // &--without-border {
   //   &::after {
   //     border: none;

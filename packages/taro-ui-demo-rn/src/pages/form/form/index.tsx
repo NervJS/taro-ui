@@ -100,6 +100,7 @@ export default class PageForm extends React.Component<{}, PageFormState> {
                   />
                   <AtInput
                     required
+                    border={false}
                     name='value2'
                     title='密码'
                     type='password'

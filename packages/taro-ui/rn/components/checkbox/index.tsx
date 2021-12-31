@@ -25,7 +25,7 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
   }
 
   public render(): JSX.Element {
-    const { customStyle, className, options, selectedList } = this.props
+    const { customStyle, className, options, selectedList, border } = this.props
 
     const rootCls = classNames('at-checkbox', className)
 
@@ -44,7 +44,13 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
               key={value}
               onClick={this.handleClick.bind(this, idx)}
             >
-              <View className='at-checkbox__option-wrap'>
+              <View
+                className={classNames({
+                  'at-checkbox__option-wrap': true,
+                  'at-checkbox__option-wrap--without-border':
+                    !border || idx === 0,
+                })}
+              >
                 <View
                   className={classNames({
                     'at-checkbox__option-cnt': true,
@@ -91,6 +97,7 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
 AtCheckbox.defaultProps = {
   customStyle: '',
   className: '',
+  border: true,
   options: [],
   selectedList: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function

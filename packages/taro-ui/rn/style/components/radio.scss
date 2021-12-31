@@ -12,7 +12,7 @@
     padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
     @include border-thin-bottom(#d6e4ef);
 
-    &--no-border {
+    &--without-border {
       border-bottom-width: 0;
     }
   }
