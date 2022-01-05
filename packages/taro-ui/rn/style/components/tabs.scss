@@ -17,24 +17,38 @@ $at-tabs-pane-min-height: 100px;
     color: $at-tabs-color;
     font-size: $at-tabs-font-size;
     // text-overflow: ellipsis;
+    text-align: center;
     overflow: hidden;
 
-    &-underline {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: $at-tabs-line-height;
-      background-color: $at-tabs-color-active;
-      // transform: scaleX(0);
-      // transition: all 0.15s;
-    }
+    // &-underline {
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   // width: 100%;
+    //   height: $at-tabs-line-height;
+    //   // transform: scaleX(0);
+    //   // transition: all 0.15s;
+    // }
 
     &--active {
       color: $at-tabs-color-active;
 
-      #{$component}__item-underline {
+      // #{$component}__item-underline {
         // transform: scaleX(1);
+      // }
+    }
+
+    &--horizontal {
+      @include hairline-bottom($color-border-light, solid, 0.5);
+      &--active {
+        @include hairline-bottom($at-tabs-color-active, solid, 1);
+      }
+    }
+
+    &--vertical {
+      @include hairline-right($color-border-light, solid, 0.5);
+      &--active {
+        @include hairline-right($at-tabs-color-active, solid, 1);
       }
     }
   }
@@ -42,10 +56,10 @@ $at-tabs-pane-min-height: 100px;
   &__header {
     position: relative;
     display: flex;
+    flex-direction: row;
     flex-grow: 0;
     // width: 100%;
     text-align: center;
-    flex-direction: row;
     // white-space: nowrap;
     background-color: $at-tabs-bg-color;
     // box-sizing: border-box;

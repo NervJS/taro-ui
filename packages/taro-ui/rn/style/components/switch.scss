@@ -52,9 +52,10 @@ $component: '.at-switch';
   }
 
 
-  // &--without-border {
-  //   &::after {
-  //     border: none;
-  //   }
-  // }
+  &--without-border {
+    border-bottom-width: 0;
+    // &::after {
+    //   border: none;
+    // }
+  }
 }

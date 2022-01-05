@@ -146,15 +146,9 @@ export default class AtFloatLayout extends React.Component<
                   onClick={this.close.bind(this)}
                   className='layout-header__btn-close'
                 >
-                  {/* <Image
-                    src={CLOSE}
-                    onClick={this.close.bind(this)}
-                    className='layout-header__btn-close'
-                  /> */}
                   <AtIcon
                     value='close'
                     className='layout-header__btn-close__at-icon'
-                    // onClick={this.close.bind(this)}
                   />
                 </View>
               </View>

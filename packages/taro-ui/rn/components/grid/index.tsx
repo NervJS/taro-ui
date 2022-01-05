@@ -5,7 +5,8 @@ import React from 'react'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtGridItem, AtGridProps } from '../../../types/grid'
-import { mergeStyle } from '../../common/utils'
+import AtIcon from '../icon'
+// import { mergeStyle } from '../../common/utils'
 
 export default class AtGrid extends React.Component<AtGridProps> {
   public static defaultProps: AtGridProps
@@ -68,24 +69,19 @@ export default class AtGrid extends React.Component<AtGridProps> {
                     <View className='content-inner__icon'>
                       {childItem.image && (
                         <Image
-                          className='content-inner__img'
+                          className={classNames(
+                            'content-inner__img',
+                            `at-grid-item__content--${mode}__img`,
+                          )}
                           src={childItem.image}
                           mode='aspectFit'
                         />
                       )}
                       {childItem.iconInfo && !childItem.image && (
-                        <Text
-                          className={classNames(
-                            childItem.iconInfo.prefixClass || 'at-icon',
-                            {
-                              [`${
-                                childItem.iconInfo.prefixClass || 'at-icon'
-                              }-${childItem.iconInfo.value}`]:
-                                childItem.iconInfo.value,
-                            },
-                            childItem.iconInfo.className,
-                          )}
-                          style={mergeStyle(
+                        <AtIcon
+                          value={childItem.iconInfo.value}
+                          style={Object.assign(
+                            {},
                             {
                               color: childItem.iconInfo.color,
                               fontSize: `${childItem.iconInfo.size || 24}px`,
@@ -94,6 +90,26 @@ export default class AtGrid extends React.Component<AtGridProps> {
                             childItem.iconInfo!.customStyle!,
                           )}
                         />
+                        // <Text
+                        //   className={classNames(
+                        //     childItem.iconInfo.prefixClass || 'at-icon',
+                        //     {
+                        //       [`${
+                        //         childItem.iconInfo.prefixClass || 'at-icon'
+                        //       }-${childItem.iconInfo.value}`]:
+                        //         childItem.iconInfo.value,
+                        //     },
+                        //     childItem.iconInfo.className,
+                        //   )}
+                        //   style={mergeStyle(
+                        //     {
+                        //       color: childItem.iconInfo.color,
+                        //       fontSize: `${childItem.iconInfo.size || 24}px`,
+                        //     },
+                        //     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        //     childItem.iconInfo!.customStyle!,
+                        //   )}
+                        // />
                       )}
                     </View>
                     <Text

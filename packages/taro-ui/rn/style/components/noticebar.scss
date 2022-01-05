@@ -31,14 +31,20 @@
     }
 
     &-icon {
-      width: 30px;
-      height: 30px;
+      // width: 30px;
+      // height: 30px;
+
+      &__at-icon {
+        color: $at-noticebar-text-color;
+        font-size: $at-noticebar-btn-close-size;
+      }
     }
 
     &-text {
       display: flex;
       flex-wrap: nowrap;
       font-size: $at-noticebar-font-size;
+      color: $at-noticebar-text-color;
 
       &-wrap {
         position: relative;
@@ -62,8 +68,10 @@
     height: $at-noticebar-btn-close-size;
 
     &-icon {
-      width: $at-noticebar-btn-close-size;
-      height: $at-noticebar-btn-close-size;
+      // width: $at-noticebar-btn-close-size;
+      // height: $at-noticebar-btn-close-size;
+      color: $at-noticebar-btn-close-color;
+      font-size: $at-noticebar-btn-close-size;
     }
 
   }
@@ -79,13 +87,17 @@
       color: $color-grey-2;
     }
 
+
     &-icon {
+      display: inline-block;
+      width: $at-noticebar-font-size;
+      vertical-align: middle;
+      overflow: hidden;
 
-      &-img {
-        width: 24px;
-        height: 24px;
+      &__at-icon {
+        color: $color-grey-2;
+        font-size: $at-noticebar-font-size;
       }
-
     }
   }
 

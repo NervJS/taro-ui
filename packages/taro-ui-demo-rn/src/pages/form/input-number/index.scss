@@ -15,3 +15,9 @@
     flex-direction: column;
   }
 }
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

@@ -12,7 +12,7 @@
   }
 
   &__flex {
-    @include display-flex;
+    // @include display-flex;
     flex-direction: row;
     flex-wrap: wrap;
 
@@ -36,7 +36,7 @@
     top: 0;
 
     &-inner {
-      @include display-flex;
+      // @include display-flex;
       @include align-items(center);
       @include justify-content(center);
       // @include active;
@@ -50,6 +50,11 @@
     }
     &--rect {
       padding-bottom: 130px;
+
+      &__img {
+        width: $at-gird-img-size-sm;
+        height: $at-gird-img-size-sm;
+      }
     }
     &--square {
       padding-bottom: 100%;
@@ -94,5 +99,6 @@
     width: $at-grid-img-size;
     height: $at-grid-img-size;
   }
+
 }
 

@@ -41,7 +41,7 @@ export default class GridPage extends React.Component<{}, GridPageState> {
           value: '领京豆',
         },
         {
-          value: '不支持Icon',
+          value: '支持Icon',
           iconInfo: {
             size: 30,
             color: 'red',

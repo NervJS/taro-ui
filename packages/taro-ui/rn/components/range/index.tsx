@@ -5,11 +5,6 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtRangeProps, AtRangeState } from '../../../types/range'
-import {
-  // delayQuerySelector,
-  // getEventDetail,
-  mergeStyle,
-} from '../../common/utils'
 import '../../style/components/range.scss'
 
 export default class AtRange extends React.Component<
@@ -190,6 +185,15 @@ export default class AtRange extends React.Component<
       width: `${deltaX}%`,
     }
 
+    const shadowStyle = {
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+    }
+
     return (
       <View className={rootCls} style={customStyle} onClick={this.handleClick}>
         <View
@@ -200,17 +204,17 @@ export default class AtRange extends React.Component<
           <View className='at-range__rail' style={railStyle}></View>
           <View
             className='at-range__track'
-            style={mergeStyle(atTrackStyle, trackStyle!)}
+            style={Object.assign({}, atTrackStyle, trackStyle!)}
           ></View>
           <View
             className='at-range__slider'
-            style={mergeStyle(sliderAStyle, sliderStyle!)}
+            style={Object.assign({}, shadowStyle, sliderAStyle, sliderStyle!)}
             onTouchMove={this.handleTouchMove.bind(this, 'aX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'aX')}
           ></View>
           <View
             className='at-range__slider'
-            style={mergeStyle(sliderBStyle, sliderStyle!)}
+            style={Object.assign({}, shadowStyle, sliderBStyle, sliderStyle!)}
             onTouchMove={this.handleTouchMove.bind(this, 'bX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'bX')}
           ></View>

@@ -127,7 +127,17 @@ view {
   font-size: 32px;
   font-weight: bold;
 
+  /*  #ifdef  rn  */
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #6190e8;
+  /*  #endif  */
+
+
   /*  #ifndef  rn  */
+  padding-left: 50px;
   line-height: 1.5;
 
   &::before {

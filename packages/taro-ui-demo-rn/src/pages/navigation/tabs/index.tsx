@@ -55,7 +55,7 @@ export default class Index extends React.Component<{}, IndexPageState> {
           {/* 基础用法 */}
           <View className='doc-body--panel'>
             <View className='panel__title'>等宽标签栏</View>
-            <View>
+            <View className='panel__content'>
               <AtTabs
                 swipeable={false}
                 current={current1}

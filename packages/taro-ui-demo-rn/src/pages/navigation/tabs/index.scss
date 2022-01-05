@@ -13,3 +13,9 @@
   text-align: center;
   background-color: #FAFBFC;
 }
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

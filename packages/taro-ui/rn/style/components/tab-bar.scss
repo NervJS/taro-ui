@@ -14,7 +14,7 @@ $at-tab-bar-title-max-width: 200px;
   align-items: flex-start;
   // box-sizing: border-box;
   background-color: $at-tab-bar-bg-color;
-  // @include hairline-top();
+  @include hairline-top($color-border-light, solid, 0.5);
 
   /* elements */
   &__item {

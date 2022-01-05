@@ -71,7 +71,7 @@ $float-layout-timer: 300ms;
       height: 48px;
 
       &__at-icon {
-        font-size: 30px;
+        font-size: $float-layout-title-font-size;
         color: $float-layout-btn-color;
       }
 

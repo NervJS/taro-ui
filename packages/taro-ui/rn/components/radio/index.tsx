@@ -45,15 +45,17 @@ export default class AtRadio extends React.Component<AtRadioProps<any>> {
                 >
                   {option.label}
                 </View>
-                {value === option.value && (
-                  <AtIcon
-                    value='check'
-                    className={classNames({
-                      'at-radio__icon': true,
-                      'at-radio__at-icon': true,
-                    })}
-                  />
-                )}
+                <View>
+                  {value === option.value && (
+                    <AtIcon
+                      value='check'
+                      className={classNames({
+                        'at-radio__icon': true,
+                        'at-radio__at-icon': true,
+                      })}
+                    />
+                  )}
+                </View>
               </View>
               {option.desc && (
                 <View

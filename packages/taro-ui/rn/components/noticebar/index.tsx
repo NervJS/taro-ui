@@ -3,15 +3,12 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React, { CSSProperties, ReactElement, ReactNode } from 'react'
-import { Image, Text, View } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
-import { AtNoticeBarProps } from '../../../types/noticebar'
 import { Animated, Easing } from 'react-native'
-// @ts-ignore
-import CLOSE from '../../assets/CLOSE.png'
-// @ts-ignore
-import RIGHT from '../../assets/chevron-right.png'
+import { AtNoticeBarProps } from '../../../types/noticebar'
+import AtIcon from '../icon'
 
 export default class AtNoticebar extends React.Component<
   AtNoticeBarProps,
@@ -24,13 +21,13 @@ export default class AtNoticebar extends React.Component<
     super(props)
     this.state = {
       show: true,
-      transformX: new Animated.Value(0)
+      transformX: new Animated.Value(0),
     }
   }
 
   private onClose(event: CommonEvent): void {
     this.setState({
-      show: false
+      show: false,
     })
     this.props.onClose && this.props.onClose(event)
   }
@@ -62,7 +59,16 @@ export default class AtNoticebar extends React.Component<
         style={icon ? { marginLeft: Taro.pxTransform(12) } : {}}
         {...numberOfLines}
       >
-        {!!icon && <Image className='at-noticebar__content-icon' src={icon} />}
+        {!!icon && (
+          <AtIcon
+            customStyle={{
+              marginRight: -3,
+              marginBottom: -3,
+            }}
+            className='at-noticebar__content-icon__at-icon'
+            value={icon}
+          />
+        )}
         {
           // rn中图文混排 不支持设置margin 用空格hack
         }
@@ -81,7 +87,7 @@ export default class AtNoticebar extends React.Component<
         toValue: -textWidth,
         duration: (textWidth * 30) / (speed / 100),
         easing: Easing.linear,
-        useNativeDriver: true
+        useNativeDriver: true,
       }).start(({ finished }) => {
         if (finished) {
           this.move()
@@ -90,12 +96,14 @@ export default class AtNoticebar extends React.Component<
     }
   }
 
-  onLayout = (key: string) => (event: any): void => {
-    const { width } = event.nativeEvent.layout
-    this.setState({
-      [key]: width
-    })
-  }
+  onLayout =
+    (key: string) =>
+    (event: any): void => {
+      const { width } = event.nativeEvent.layout
+      this.setState({
+        [key]: width,
+      })
+    }
 
   public render(): JSX.Element | boolean {
     const {
@@ -103,7 +111,7 @@ export default class AtNoticebar extends React.Component<
       marquee,
       customStyle,
       className,
-      moreText = '查看详情'
+      moreText = '查看详情',
     } = this.props
     let { showMore, close } = this.props
     const { show } = this.state
@@ -117,6 +125,9 @@ export default class AtNoticebar extends React.Component<
       style.width = 1024
     }
 
+    // const iconClass = ['at-icon']
+    // if (icon) iconClass.push(`at-icon-${icon}`)
+
     return (
       !!show && (
         <View
@@ -128,7 +139,7 @@ export default class AtNoticebar extends React.Component<
               className='at-noticebar__close'
               onClick={this.onClose.bind(this)}
             >
-              <Image className='at-noticebar__close-icon' src={CLOSE} />
+              <AtIcon value='close' className='at-noticebar__close-icon' />
             </View>
           )}
           <View
@@ -141,7 +152,7 @@ export default class AtNoticebar extends React.Component<
               style={{
                 flex: 1,
                 paddingLeft: 10,
-                paddingRight: 10
+                paddingRight: 10,
               }}
             >
               <View style={style}>
@@ -163,9 +174,10 @@ export default class AtNoticebar extends React.Component<
                 onClick={this.onGotoMore.bind(this)}
               >
                 <Text className='at-noticebar__more-text'>{moreText}</Text>
-                <View className='at-noticebar__more-icon'>
-                  <Image src={RIGHT} className='at-noticebar__more-icon-img' />
-                </View>
+                <AtIcon
+                  value='chevron-right'
+                  className='at-noticebar__more-icon__at-icon'
+                />
               </View>
             )}
           </View>
@@ -183,7 +195,7 @@ AtNoticebar.defaultProps = {
   moreText: '查看详情',
   showMore: false,
   icon: '',
-  customStyle: {}
+  customStyle: {},
 }
 
 AtNoticebar.propTypes = {
@@ -196,5 +208,5 @@ AtNoticebar.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onClose: PropTypes.func,
-  onGotoMore: PropTypes.func
+  onGotoMore: PropTypes.func,
 }

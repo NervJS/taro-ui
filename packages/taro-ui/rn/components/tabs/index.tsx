@@ -222,18 +222,26 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
       const itemCls = classNames({
         'at-tabs__item': true,
         'at-tabs__item--active': current === idx,
+        [`at-tabs__item--${tabDirection}`]: true,
+        [`at-tabs__item--${tabDirection}--active`]: current === idx,
       })
 
       return (
         <View
           className={itemCls}
+          style={{ textAlign: 'center' }}
           id={`tab${this._tabId}${idx}`}
           key={item.title}
           onClick={this.handleClick.bind(this, idx)}
           onLayout={this.onLayout(idx)}
         >
           {item.title}
-          <View className='at-tabs__item-underline'></View>
+          {/* <View
+            className={classNames({
+              'at-tabs__item-underline': true,
+              'at-tabs__item-underline--active': current === idx,
+            })}
+          ></View> */}
         </View>
       )
     })
