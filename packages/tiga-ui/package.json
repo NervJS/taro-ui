@@ -1,0 +1,75 @@
+{
+  "name": "tiga-ui",
+  "version": "0.0.1",
+  "description": "UI KIT for Tiga",
+  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "react-native": "src/index.ts",
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
+  "types": "./types/index.d.ts",
+  "keywords": [
+    "tiga",
+    "tiga-ui",
+    "ui"
+  ],
+  "files": [
+    "lib",
+    "dist",
+    "types",
+    "src"
+  ],
+  "scripts": {
+    "dev": "yarn run dev:lib",
+    "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental && cp -rf src/**/*.scss ../tiga-ui-demo/tiga-ui/",
+    "build": "yarn run build:rollup && yarn run build:lib",
+    "build:lib": "tsc --project ./tsconfig.build.json",
+    "build:rollup": "rollup --config ./config/rollup.config.js",
+    "lint": "eslint ./src --fix",
+    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
+    "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
+    "test": "cross-env NODE_ENV=test && jest --coverage",
+    "test:ci": "yarn run build:h5 && yarn run test",
+    "test:analyze": "rollup --config ./config/rollup.config.analyze.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "clean": "rimraf .temp dist lib coverage"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "dayjs": "^1.7.7",
+    "lodash": "^4.17.10",
+    "prop-types": "^15.7.2",
+    "react-native-modal": "^13.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@tarojs/components": "~3.3.19",
+    "@tarojs/react": "~3.3.19",
+    "@tarojs/taro": "~3.3.19",
+    "@types/classnames": "^2.2.9",
+    "@types/node": "^13.11.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-native": "^0.64.13",
+    "camelize": "^1.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-native": "^0.66.0",
+    "rollup": "^2.3.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "rollup-plugin-visualizer": "^4.0.2",
+    "typescript": "4.3.5"
+  },
+  "peerDependencies": {
+    "@tarojs/components": ">=3",
+    "@tarojs/react": ">=3",
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "packages": [
+    "packages/tiga-ui",
+    "packages/tiga-ui-demo"
+  ],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s"
+    }
+  },
+  "version": "0.0.1",
+  "npmClient": "yarn"
+}

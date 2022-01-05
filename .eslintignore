@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Editor and IDE files
+.vscode
+.idea
+
+# Build outputs
+packages/tiga-ui/lib/
+packages/**/dist/
+
+# Test files
+coverage
+jest.config.js
+test/__mock__/
+
+# Others
+.nyc_output/
+git_stats/
+yarn-offline/
+docs/

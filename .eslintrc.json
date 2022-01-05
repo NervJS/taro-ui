@@ -1,0 +1,214 @@
+{
+  "root": true,
+  "extends": [
+    "o2team",
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "packages/**/*.ts",
+        "packages/**/*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "warnOnUnsupportedTypeScriptVersion": true
+      },
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": [
+          "off"
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "off"
+        ],
+        "import/no-named-as-default": "off",
+        "class-methods-use-this": "off",
+        "prefer-rest-params": "off",
+        "react/jsx-filename-extension": [
+          2,
+          {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".ts",
+              ".tsx"
+            ]
+          }
+        ],
+        "no-unused-vars": [
+          "error",
+          {
+            "varsIgnorePattern": "React"
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ],
+        "camelcase": [
+          "error",
+          {
+            "allow": [
+              "^UNSAFE_"
+            ]
+          }
+        ]
+      },
+      "settings": {
+        "import/ignore": ["react-native"],
+        "react": {
+          "version": "detect"
+        }
+      }
+    },
+    {
+      "files": [
+        "packages/**/*.js",
+        "packages/**/*.jsx"
+      ],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "babelOptions": {
+          "configFile": "./babel.config.json",
+          "rootMode": "upward"
+        }
+      },
+      "extends": [
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+      ],
+      "rules": {
+        "class-methods-use-this": "off",
+        "prefer-rest-params": "off",
+        "react/jsx-filename-extension": [
+          2,
+          {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".ts",
+              ".tsx"
+            ]
+          }
+        ],
+        "no-unused-vars": [
+          "error",
+          {
+            "varsIgnorePattern": "React"
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "warn",
+              "error"
+            ]
+          }
+        ],
+        "camelcase": [
+          "error",
+          {
+            "allow": [
+              "^UNSAFE_"
+            ]
+          }
+        ]
+      },
+      "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [
+              ".js",
+              ".jsx"
+            ]
+          },
+          "eslint-import-resolver-custom-alias": {
+            "alias": {
+              "@md": "./markdown"
+            },
+            "packages": [
+              "packages/tiga-ui-docs"
+            ]
+          }
+        },
+        "react": {
+          "version": "detect"
+        }
+      }
+    },
+    {
+      "files": [
+        "packages/tiga-ui-docs/build/*.js"
+      ],
+      "rules": {
+        "no-console": "off",
+        "no-undefined": "off"
+      }
+    },
+    {
+      "files": [
+        "packages/tiga-ui-demo/**/*.ts",
+        "packages/tiga-ui-demo/**/*.tsx"
+      ],
+      "extends": [
+        "taro/react"
+      ]
+    },
+    {
+      "files": [
+        "packages/tiga-ui-demo/config/*.js",
+        "packages/tiga-ui-demo/babel.config.js"
+      ],
+      "rules": {
+        "import/no-commonjs": "off"
+      }
+    },
+    {
+      "files": [
+        "packages/**/test/**/*.test.js",
+        "packages/**/test/**/test.js"
+      ],
+      "rules": {
+        "taro/no-stateless-component": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/no-find-dom-node": "off",
+        "no-unused-vars": [
+          "error",
+          {
+            "varsIgnorePattern": "Nerv"
+          }
+        ]
+      }
+    }
+  ]
+}

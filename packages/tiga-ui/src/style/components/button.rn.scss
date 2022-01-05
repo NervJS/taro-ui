@@ -1,0 +1,79 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: $at-button-height;
+  color: $color-text-base;
+  font-size: $font-size-lg;
+  line-height: $at-button-height - 2;
+  text-align: center;
+  border-radius: $border-radius-md;
+  border: 1PX solid $color-border-base;
+  margin: 0 $spacing-h-xl;
+  // &:active {
+  //   opacity: $opacity-active;
+  // }
+
+  /* elements */
+
+  &__icon {
+    margin: 2PX 20px 0 20px;
+  }
+
+  /* modifiers */
+  &--active {
+    opacity: $opacity-active;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--primary {
+    color: $color-text-base-inverse;
+    border: 1PX solid $at-button-border-color-primary;
+    background: $at-button-bg;
+  }
+
+  &--secondary {
+    border: 1PX solid $at-button-border-color-secondary;
+    background-color: $color-white;
+
+    &--text {
+      color: $at-button-color;
+      font-size: 36px;
+    }
+  }
+
+  &--circle {
+    border-radius: $at-button-height / 2;
+    overflow: hidden;
+  }
+
+  &--small {
+    align-self: flex-start;
+    margin: 0;
+    width: auto;
+    min-width: 100px;
+    max-width: 710px;
+    height: $at-button-height-sm;
+
+    &--text {
+      font-size: 26px;
+    }
+  }
+
+  &--full {
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+.at-button--circle {
+  border-radius: $at-button-height-sm / 2;
+}
