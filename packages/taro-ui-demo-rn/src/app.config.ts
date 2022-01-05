@@ -50,7 +50,7 @@ const pages = [
   'pages/form/slider/index',
   'pages/form/search-bar/index',
   'pages/form/image-picker/index',
-  'pages/form/range/index',
+  'pages/form/range/index'
   // 'pages/advanced/calendar/index',
   // 'pages/theme/index'
 ]
@@ -61,6 +61,6 @@ export default {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'Taro UI',
-    navigationBarTextStyle: 'black',
-  },
+    navigationBarTextStyle: 'black'
+  }
 }

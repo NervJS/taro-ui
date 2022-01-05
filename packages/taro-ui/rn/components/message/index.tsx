@@ -23,7 +23,7 @@ export default class AtMessage extends React.Component<
       _type: 'info',
       _duration: 3000,
       _height: 0,
-      translateY: 0,
+      translateY: 0
     }
     this._timer = null
   }
@@ -37,13 +37,13 @@ export default class AtMessage extends React.Component<
         _message: message,
         _type: type,
         _duration: duration || this.state._duration,
-        translateY: new Animated.Value(fromValue),
+        translateY: new Animated.Value(fromValue)
       }
       this.setState(newState, () => {
         Animated.timing(this.state.translateY, {
           toValue: 0,
           duration: 300,
-          useNativeDriver: true,
+          useNativeDriver: true
         }).start(() => {
           // this.animating = false
         })
@@ -53,10 +53,10 @@ export default class AtMessage extends React.Component<
             Animated.timing(this.state.translateY, {
               toValue: fromValue,
               duration: 300,
-              useNativeDriver: true,
+              useNativeDriver: true
             }).start(() => {
               this.setState({
-                _isOpened: false,
+                _isOpened: false
               })
             })
           })
@@ -66,7 +66,7 @@ export default class AtMessage extends React.Component<
     // 绑定函数
     Taro.atMessage = Taro.eventCenter.trigger.bind(
       Taro.eventCenter,
-      'atMessage',
+      'atMessage'
     )
   }
 
@@ -98,10 +98,10 @@ export default class AtMessage extends React.Component<
       {
         'at-message': true,
         'at-message--show': _isOpened,
-        'at-message--hidden': !_isOpened,
+        'at-message--hidden': !_isOpened
       },
       `at-message--${_type}`,
-      className,
+      className
     )
 
     return (
@@ -109,7 +109,7 @@ export default class AtMessage extends React.Component<
         className={rootCls}
         onLayout={this.onLayout.bind(this)}
         style={Object.assign({}, customStyle, {
-          transform: [{ translateY }],
+          transform: [{ translateY }]
         })}
       >
         <View className='at-message--content'>{_message}</View>
@@ -120,10 +120,10 @@ export default class AtMessage extends React.Component<
 
 AtMessage.defaultProps = {
   customStyle: {},
-  className: '',
+  className: ''
 }
 
 AtMessage.propTypes = {
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 }

@@ -17,7 +17,7 @@ const externalPackages = [
   '@tarojs/components',
   '@tarojs/runtime',
   '@tarojs/taro',
-  '@tarojs/react',
+  '@tarojs/react'
 ]
 
 export default {
@@ -26,33 +26,33 @@ export default {
     {
       file: resolveFile(Package.main),
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: true
     },
     {
       file: resolveFile(Package.module),
       format: 'es',
-      sourcemap: true,
-    },
+      sourcemap: true
+    }
   ],
   external: externalPackages,
   plugins: [
     RollupNodeResolve({
       customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
+        moduleDirectory: 'node_modules'
+      }
     }),
     RollupCommonjs({
-      include: /\/node_modules\//,
+      include: /\/node_modules\//
     }),
     RollupJson(),
     RollupTypescript({
-      tsconfig: resolveFile('tsconfig.rollup.json'),
+      tsconfig: resolveFile('tsconfig.rollup.json')
     }),
     RollupCopy({
       targets: [
         {
           src: resolveFile('src/style'),
-          dest: resolveFile('dist'),
+          dest: resolveFile('dist')
         },
         {
           src: resolveFile('rn/style/**/*.scss'),
@@ -61,9 +61,9 @@ export default {
             const relativePath = NodePath.relative(resolveFile('rn'), fullpath)
 
             return relativePath.replace('.scss', '.rn.scss')
-          },
-        },
-      ],
-    }),
-  ],
+          }
+        }
+      ]
+    })
+  ]
 }

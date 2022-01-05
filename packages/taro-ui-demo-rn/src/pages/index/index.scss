@@ -3,9 +3,9 @@
   background-color: #f8f8f8;
 
   /*  #ifndef  rn  */
-  view {
-    box-sizing: border-box;
-  }
+  // view {
+  //   box-sizing: border-box;
+  // }
 
   /*  #endif  */
 }
@@ -83,16 +83,16 @@
     text-align: left;
     margin-left: 24px;
 
-    .title {
-      color: #6A6A77;
-      font-size: 28px;
-      font-weight: bold;
-    }
+    // .title {
+    //   color: #6A6A77;
+    //   font-size: 28px;
+    //   font-weight: bold;
+    // }
 
-    .content {
-      color: #88889C;
-      font-size: 22px;
-    }
+    // .content {
+    //   color: #88889C;
+    //   font-size: 22px;
+    // }
   }
 
   &__arrow {
@@ -126,9 +126,9 @@
   border-radius: 4px;
   overflow: hidden;
 
-  &:first-child {
-    margin-top: 0;
-  }
+  // &:first-child {
+  //   margin-top: 0;
+  // }
 }
 
 .group-info {
@@ -147,41 +147,41 @@
 .group-list {
   font-size: 28px;
 
-  .list-component {
-    padding: 20px 0;
-    position: relative;
-    align-items: center;
+  // .list-component {
+  //   padding: 20px 0;
+  //   position: relative;
+  //   align-items: center;
 
-    &::before {
-      content: " ";
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      height: 1px;
-      border-top: 1px solid #d8d8d8;
-      color: #d8d8d8;
-    }
+  //   &::before {
+  //     content: " ";
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     right: 0;
+  //     height: 1px;
+  //     border-top: 1px solid #d8d8d8;
+  //     color: #d8d8d8;
+  //   }
 
-    &:first-child::before {
-      display: none;
-    }
+  //   &:first-child::before {
+  //     display: none;
+  //   }
 
-    &-info {
-      width: 100%;
-    }
+  //   &-info {
+  //     width: 100%;
+  //   }
 
-    &-arrow {
-      display: inline-block;
-      height: 18px;
-      width: 18px;
-      border-width: 2px 2px 0 0;
-      border-color: #888;
-      border-style: solid;
-      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) translate(-50%);
-      position: absolute;
-      top: 50%;
-      right: 0;
-    }
-  }
+  //   &-arrow {
+  //     display: inline-block;
+  //     height: 18px;
+  //     width: 18px;
+  //     border-width: 2px 2px 0 0;
+  //     border-color: #888;
+  //     border-style: solid;
+  //     transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) translate(-50%);
+  //     position: absolute;
+  //     top: 50%;
+  //     right: 0;
+  //   }
+  // }
 }

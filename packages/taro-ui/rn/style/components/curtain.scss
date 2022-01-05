@@ -60,26 +60,26 @@ $at-curtain-btn-size: 56px;
     }
 
     /*  #ifndef  rn  */
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      //  display: inline-block;
-      width: 34px;
-      height: 2PX;
-      border-radius: 1PX;
-      background: $at-curtain-btn-color;
-    }
+    // &::before,
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //    display: inline-block;
+    //   width: 34px;
+    //   height: 2PX;
+    //   border-radius: 1PX;
+    //   background: $at-curtain-btn-color;
+    // }
 
-    &::before {
-      //  transform: translate3d(-50%, -50%, 0) rotate(45deg);
-    }
+    // &::before {
+    //   transform: translate3d(-50%, -50%, 0) rotate(45deg);
+    // }
 
-    &::after {
-      //  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
-    }
+    // &::after {
+    //   transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+    // }
     /*  #endif  */
 
     &--top {

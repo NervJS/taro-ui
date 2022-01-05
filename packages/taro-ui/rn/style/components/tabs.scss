@@ -104,19 +104,19 @@ $at-tabs-pane-min-height: 100px;
   }
 
   /* modifiers */
-  &--scroll {
-    #{$component}__header {
-      overflow: scroll;
-      // overflow-x: scroll;
-      // -webkit-overflow-scrolling: touch;
-      // white-space: nowrap;
-    }
+  // &--scroll {
+  //   #{$component}__header {
+  //     overflow: scroll;
+  //     // overflow-x: scroll;
+  //     // -webkit-overflow-scrolling: touch;
+  //     // white-space: nowrap;
+  //   }
 
-    #{$component}__item {
-      display: flex;
-      overflow: visible;
-    }
-  }
+  //   #{$component}__item {
+  //     display: flex;
+  //     overflow: visible;
+  //   }
+  // }
 
   &--vertical {
     display: flex;
@@ -124,59 +124,59 @@ $at-tabs-pane-min-height: 100px;
     flex-direction: row;
     overflow: hidden;
 
-    #{$component}__body {
-      display: flex;
-      flex: 1;
-      height: $at-tabs-pane-min-height;
-      // width: auto;
-    }
+    // #{$component}__body {
+    //   display: flex;
+    //   flex: 1;
+    //   height: $at-tabs-pane-min-height;
+    //   // width: auto;
+    // }
 
-    #{$component}__underline {
-      top: 0;
-      left: 0;
-      bottom: auto;
-      width: $at-tabs-line-height;
-      height: 100%;
-    }
+    // #{$component}__underline {
+    //   top: 0;
+    //   left: 0;
+    //   bottom: auto;
+    //   width: $at-tabs-line-height;
+    //   height: 100%;
+    // }
 
-    #{$component}__header {
-      display: flex;
-      // width: auto;
-    }
+    // #{$component}__header {
+    //   display: flex;
+    //   // width: auto;
+    // }
 
-    #{$component}__item {
-      display: flex;
-      justify-content: center;
-      width: auto;
-      align-items: center;
+    // #{$component}__item {
+    //   display: flex;
+    //   justify-content: center;
+    //   width: auto;
+    //   align-items: center;
 
-      &-underline {
-        display: flex;
-        top: 0;
-        right: 0;
-        bottom: auto;
-        left: auto;
-        width: $at-tabs-line-height;
-        height: 100%;
-        // transform: scaleY(0);
-      }
+    //   &-underline {
+    //     display: flex;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: auto;
+    //     left: auto;
+    //     width: $at-tabs-line-height;
+    //     height: 100%;
+    //     // transform: scaleY(0);
+    //   }
 
-      &--active {
-        #{$component}__item-underline {
-          // transform: scaleY(1);
-        }
-      }
-    }
+    //   &--active {
+    //     #{$component}__item-underline {
+    //       // transform: scaleY(1);
+    //     }
+    //   }
+    // }
   }
 }
 
 /* hack SWAN */
 
-#{$component}--scroll#{$component}--horizontal#{$component}--SWAN {
-  #{$component}__item-underline {
-    bottom: $at-tabs-line-height;
-  }
-}
+// #{$component}--scroll#{$component}--horizontal#{$component}--SWAN {
+//   #{$component}__item-underline {
+//     bottom: $at-tabs-line-height;
+//   }
+// }
 
 /* hack SWAN */
 

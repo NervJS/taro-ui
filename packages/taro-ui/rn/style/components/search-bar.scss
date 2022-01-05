@@ -47,7 +47,7 @@ $at-search-bar-placholder-color: $color-grey-2;
     // width: 100%;
     height: $at-search-bar-input-height;
     line-height: 0;
-    vertical-align: middle;
+    // vertical-align: middle;
     opacity: 1;
     // transition: flex 0.3s;
     // background: #0084ff;
@@ -87,7 +87,7 @@ $at-search-bar-placholder-color: $color-grey-2;
     color: $at-search-bar-placholder-color;
     font-size: $at-search-bar-font-size;
     line-height: 0;
-    vertical-align: middle;
+    // vertical-align: middle;
   }
 
   &__action {

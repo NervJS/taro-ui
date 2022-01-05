@@ -67,22 +67,22 @@
     @include active;
 
     &--disabled {
-      .at-radio__option-container,
-      .at-radio__desc {
-        opacity: $opacity-disabled;
-      }
+      // .at-radio__option-container,
+      // .at-radio__desc {
+      //   opacity: $opacity-disabled;
+      // }
 
-      &:active {
-        background-color: inherit;
-      }
+      // &:active {
+      //   background-color: inherit;
+      // }
     }
   }
 
-  &__option + &__option {
-    .at-radio__option-wrap {
-      @include hairline-top();
-    }
-  }
+  // &__option + &__option {
+  //   .at-radio__option-wrap {
+  //     @include hairline-top();
+  //   }
+  // }
 
   &__at-icon {
     color: $at-radio-check-color;

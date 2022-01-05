@@ -48,7 +48,7 @@ $at-action-sheet-duration: 300ms;
     border-top-width: 12px;
     border-style: solid;
     text-align: center;
-    border-top-color:  rgba($color: $color-border-base, $alpha: 0.3);
+    border-top-color: rgba($color: $color-border-base, $alpha: 0.3);
     // @include active();
   }
 
@@ -69,12 +69,12 @@ $at-action-sheet-duration: 300ms;
   &--active {
     // visibility: visible;
 
-    .at-action-sheet__overlay {
-      opacity: 1;
-    }
+    // .at-action-sheet__overlay {
+    //   opacity: 1;
+    // }
 
-    .at-action-sheet__container {
-      // transform: translate3d(0, 0, 0);
-    }
+    // .at-action-sheet__container {
+    // transform: translate3d(0, 0, 0);
+    // }
   }
 }

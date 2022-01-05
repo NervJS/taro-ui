@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-import omit from 'omit.js'
+import omit from 'lodash/omit'
 
 interface AtLoadingProps {
   size?: string | number

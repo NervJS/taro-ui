@@ -1,15 +1,15 @@
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
-@keyframes atRotate {
-  0% {
-    //  transform: rotate(0deg);
-  }
+// @keyframes atRotate {
+//   0% {
+//     transform: rotate(0deg);
+//   }
 
-  100% {
-    //  transform: rotate(360deg);
-  }
-}
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
 
 $at-toast-min-width: 256px !default;
 $at-toast-image-size: 120px !default;

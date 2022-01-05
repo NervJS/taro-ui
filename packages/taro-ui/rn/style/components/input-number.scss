@@ -56,27 +56,27 @@ $at-input-number-btn-padding-lg: 20px;
   &--disabled {
     color: $color-text-disabled;
 
-    &:active {
-      background-color: inherit;
-    }
+    // &:active {
+    //   background-color: inherit;
+    // }
   }
 
   &--lg {
-    #{$component}__btn {
-      padding: $at-input-number-btn-padding-lg;
-      font-size: $at-input-number-font-size-lg;
+    // #{$component}__btn {
+    //   padding: $at-input-number-btn-padding-lg;
+    //   font-size: $at-input-number-font-size-lg;
 
-      &-subtract,
-      &-add {
-        font-size: $at-input-number-btn-size-lg;
-      }
-    }
+    //   &-subtract,
+    //   &-add {
+    //     font-size: $at-input-number-btn-size-lg;
+    //   }
+    // }
 
-    input,
-    #{$component}__input {
-      padding: $spacing-v-sm;
-      font-size: $at-input-number-font-size-lg;
-      width: $at-input-number-width-min-lg;
-    }
+    // input,
+    // #{$component}__input {
+    //   padding: $spacing-v-sm;
+    //   font-size: $at-input-number-font-size-lg;
+    //   width: $at-input-number-width-min-lg;
+    // }
   }
 }

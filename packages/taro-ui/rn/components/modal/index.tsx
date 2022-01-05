@@ -26,7 +26,7 @@ export default class AtModal extends React.Component<
     this.state = {
       _isOpened: isOpened,
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
-      opacity: 0,
+      opacity: 0
     }
   }
 
@@ -46,9 +46,9 @@ export default class AtModal extends React.Component<
     if (this.props.closeOnClickOverlay) {
       this.setState(
         {
-          _isOpened: false,
+          _isOpened: false
         },
-        this.handleClose,
+        this.handleClose
       )
     }
   }
@@ -89,26 +89,26 @@ export default class AtModal extends React.Component<
 
     this.setState(
       {
-        opacity,
+        opacity
       },
       () => {
         setTimeout(() => {
           this.setState(
             {
-              _isOpened: isOpened,
+              _isOpened: isOpened
             },
             () => {
               cb && cb()
-            },
+            }
           )
         }, setStateDelay)
 
         Animated.timing(this.state.opacity, {
           toValue,
           duration,
-          useNativeDriver: true,
+          useNativeDriver: true
         }).start()
-      },
+      }
     )
   }
 
@@ -122,9 +122,9 @@ export default class AtModal extends React.Component<
     const rootClass = classNames(
       'at-modal',
       {
-        'at-modal--active': _isOpened,
+        'at-modal--active': _isOpened
       },
-      this.props.className,
+      this.props.className
     )
 
     if (title || content) {
@@ -155,7 +155,7 @@ export default class AtModal extends React.Component<
                         // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                         // @ts-ignore
                         dangerouslySetInnerHTML={{
-                          __html: content.replace(/\n/g, '<br/>'),
+                          __html: content.replace(/\n/g, '<br/>')
                         }}
                       ></Text>
                     ) : (
@@ -215,7 +215,7 @@ export default class AtModal extends React.Component<
 
 AtModal.defaultProps = {
   isOpened: false,
-  closeOnClickOverlay: true,
+  closeOnClickOverlay: true
 }
 
 AtModal.propTypes = {
@@ -227,5 +227,5 @@ AtModal.propTypes = {
   content: PropTypes.string,
   closeOnClickOverlay: PropTypes.bool,
   cancelText: PropTypes.string,
-  confirmText: PropTypes.string,
+  confirmText: PropTypes.string
 }

@@ -25,7 +25,7 @@ lines.forEach(line => {
       '<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">\n'
     str += line.replace(
       '<glyph',
-      '<path transform="translate(0, -128) rotate(180, 512 512)"', // 调整图标位置
+      '<path transform="translate(0, -128) rotate(180, 512 512)"' // 调整图标位置
     )
     str += '\n</svg>'
 
@@ -34,7 +34,7 @@ lines.forEach(line => {
   }
 })
 
-let importIcon = ''
+let importIcon = '/* eslint-disable prettier/prettier */\n\n'
 let ICONS = 'const ICONS = {\n'
 Array.from(new Set(filenames)).forEach(filename => {
   const cameName = camelize(filename)

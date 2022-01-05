@@ -73,22 +73,22 @@ $component: '.at-checkbox';
     @include active;
 
     &--disabled {
-      #{$component}__option-cnt,
-      #{$component}__desc {
-        opacity: $opacity-disabled;
-      }
+      // #{$component}__option-cnt,
+      // #{$component}__desc {
+      //   opacity: $opacity-disabled;
+      // }
 
-      &:active {
-        background-color: $color-bg;
-      }
+      // &:active {
+      //   background-color: $color-bg;
+      // }
     }
 
     &--selected {
-      #{$component}__icon-cnt {
-        color: $at-checkbox-icon-color-checked;
-        border: none;
-        background-color: $at-checkbox-icon-color;
-      }
+      // #{$component}__icon-cnt {
+      //   color: $at-checkbox-icon-color-checked;
+      //   border: none;
+      //   background-color: $at-checkbox-icon-color;
+      // }
     }
   }
   // &__option + &__option {
