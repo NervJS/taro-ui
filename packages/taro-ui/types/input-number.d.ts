@@ -1,10 +1,13 @@
-import { MouseEvent, ComponentClass, CSSProperties } from 'react'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import { ComponentClass, CSSProperties } from 'react'
+import {
+  CommonEventFunction,
+  CommonEvent
+} from '@tarojs/components/types/common'
 import AtComponent from './base'
 
 export interface InputError {
-  type: 'OVER' | 'LOW' | 'DISABLED',
-  errorValue: number,
+  type: 'OVER' | 'LOW' | 'DISABLED'
+  errorValue: number
 }
 
 export interface AtInputNumberProps extends AtComponent {
@@ -21,7 +24,7 @@ export interface AtInputNumberProps extends AtComponent {
    */
   value: number | string
 
-  customStyle?: CSSProperties
+  customStyle?: CSSProperties | string
   /**
    * 最小值
    * @type {number}
