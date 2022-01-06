@@ -38,7 +38,6 @@
     "build": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",
-    "prepublishOnly": "yarn run clean && yarn run build",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
@@ -82,5 +81,6 @@
     "@tarojs/react": ">=3",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0"
-  }
+  },
+  "gitHead": "c33cc7fbb734f0dbdd6e305dda1bc8300e5adbe2"
 }

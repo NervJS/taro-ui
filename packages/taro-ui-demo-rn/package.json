@@ -52,7 +52,7 @@
     "react-dom": "^16.13.0",
     "react-native": "^0.66.0",
     "react-native-modal": "^13.0.0",
-    "taro-ui": "3.0.0-alpha.11"
+    "taro-ui": "^3.0.0-alpha.11"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

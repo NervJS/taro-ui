@@ -5,9 +5,9 @@ import RollupCommonjs from '@rollup/plugin-commonjs'
 import RollupTypescript from 'rollup-plugin-typescript2'
 import RollupCopy from 'rollup-plugin-copy'
 import Package from '../package.json'
-import { execSync } from 'child_process'
+import iconsMaker from './iconsMaker.js'
 
-execSync('node ./config/iconsMaker.js ./rn/assets/iconfont.svg')
+iconsMaker('../rn/assets/iconfont.svg')
 
 const resolveFile = path => NodePath.resolve(__dirname, '..', path)
 

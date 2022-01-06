@@ -16,40 +16,50 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false      
+      fail-fast: false
       matrix:
         node-version: [14.x]
 
     steps:
-      - uses: actions/checkout@v2
+      # Setup
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+      - name: Git Identity
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Log meta
       - name : GITHUB CONTEXT
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+      # Get commit message
       - name: Get commit message
         run: |
           COMMIT_MESSAGE=$(git log --format=%B -n 1)
           echo "commitmsg=${COMMIT_MESSAGE}" >> $GITHUB_ENV
       - name: Show commit message
         run : echo "$commitmsg"
-      - name: Setup Node ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: 'https://registry.npmjs.org'
-      - name: npm install, build, and test
-        run: |
-          yarn
-          npm run build --if-present
-          npm test
-        env:
-          CI: true
+
+      # Define ${CURRENT_VERSION}
       - name: Set Current Version
         if: startsWith( env.commitmsg , 'chore(release):' )
         shell: bash -ex {0}
         run: |
-          CURRENT_VERSION=$(node -p 'require("./package.json").version')
+          CURRENT_VERSION=$(node -p 'require("./lerna.json").version')
           echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+
+      # Check git tag
       - name: Tag Check
         if: startsWith( env.commitmsg , 'chore(release):' )
         id: tag_check
@@ -65,6 +75,26 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Bootstrap project
+      - name: install
+        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        run: yarn
+      - name: bootstrap
+        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        run: yarn run bootstrap
+      - name: build
+        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        run: yarn build
+
+      # Git stash
+      - name: Drop current changes
+        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        run: |
+          git add .
+          git stash
+
+      # Create git tag
       - name: Create Git Tag
         if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
         uses: azu/action-package-version-to-git-tag@v1
@@ -74,6 +104,16 @@ jobs:
           github_repo: ${{ github.repository }}
           git_commit_sha: ${{ github.sha }}
           git_tag_prefix: "v"
+
+      # Publish
+      - name: npm publish
+        if: steps.tag_check.outputs.exists_tag == 'false' && startsWith( env.commitmsg , 'chore(release):' )
+        run: yarn lerna publish from-package --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Create relase when event is PR
       - name: Create Release
         id: create_release
         if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
@@ -88,9 +128,3 @@ jobs:
             ${{ github.event.pull_request.body }}
           draft: false
           prerelease: false
-      - name: npm publish
-        if: steps.tag_check.outputs.exists_tag == 'false' && startsWith( env.commitmsg , 'chore(release):' )
-        run: npm publish
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
