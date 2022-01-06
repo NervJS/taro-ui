@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "3.0.0-alpha.11",
+  "version": "3.0.0-alpha.12",
   "description": "UI KIT for Taro",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
