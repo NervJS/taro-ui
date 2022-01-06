@@ -21,7 +21,7 @@ const pages = [
   'pages/action/modal/index',
   'pages/action/progress/index',
   'pages/action/action-sheet/index',
-  // 'pages/action/swipe-action/index',
+  'pages/action/swipe-action/index',
   'pages/action/activity-indicator/index',
   'pages/action/message/index',
   'pages/navigation/drawer/index',
@@ -30,13 +30,13 @@ const pages = [
   'pages/navigation/tabbar/index',
   'pages/navigation/segmented-control/index',
   'pages/navigation/navbar/index',
-  // 'pages/navigation/indexes/index',
+  'pages/navigation/indexes/index',
   'pages/layout/flex/index',
   'pages/layout/grid/index',
   'pages/layout/float-layout/index',
   'pages/layout/card/index',
   'pages/layout/list/index',
-  // 'pages/layout/accordion/index',
+  'pages/layout/accordion/index',
   'pages/form/form/index',
   'pages/form/checkbox/index',
   'pages/form/input/index',
@@ -50,8 +50,8 @@ const pages = [
   'pages/form/slider/index',
   'pages/form/search-bar/index',
   'pages/form/image-picker/index',
-  'pages/form/range/index'
-  // 'pages/advanced/calendar/index',
+  'pages/form/range/index',
+  'pages/advanced/calendar/index'
   // 'pages/theme/index'
 ]
 
