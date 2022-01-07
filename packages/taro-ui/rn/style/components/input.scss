@@ -53,16 +53,14 @@
 
   &__input {
     flex: 1;
-    //display: inline-block;
     padding-top: 0;
     padding-right: $spacing-v-md;
     padding-left: 0;
     padding-bottom: 0;
     color: $at-input-text-color;
     font-size: $at-input-font-size;
-    // height: $at-input-font-size * 1.4;
-    // line-height: $line-height-zh * $at-input-font-size;
-    line-height: 1.2 * $at-input-font-size;
+    // 设行高要兼容 placehost style，不然会弹上去
+    // line-height: 1.2 * $at-input-font-size;
     /*postcss-pxtransform rn eject enable*/
     vertical-align: middle;
     /*postcss-pxtransform rn eject disable*/

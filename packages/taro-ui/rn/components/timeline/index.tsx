@@ -17,7 +17,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
     if (pending) rootClassName.push('at-timeline--pending')
 
     const rootClassObject = {
-      'at-timeline--pending': pending,
+      'at-timeline--pending': pending
     }
 
     const itemElems = items.map((item, index) => {
@@ -25,7 +25,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
 
       const iconClass = classNames({
         'at-icon': true,
-        'at-timeline-item__at-icon': true,
+        'at-timeline-item__at-icon': true
         // [`at-icon-${icon}`]: icon
       })
 
@@ -81,7 +81,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
         className={classNames(
           rootClassName,
           rootClassObject,
-          this.props.className,
+          this.props.className
         )}
         style={customStyle}
       >
@@ -94,11 +94,11 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
 AtTimeline.defaultProps = {
   pending: false,
   items: [],
-  customStyle: {},
+  customStyle: {}
 }
 
 AtTimeline.propTypes = {
   pending: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object),
-  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 }

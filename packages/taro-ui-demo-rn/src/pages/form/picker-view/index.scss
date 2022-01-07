@@ -1,7 +1,8 @@
-.example-item {
-  .title-date {
-    margin: 40px 0 20px;
-    text-align: center;
-    font-size: 36px;
-  }
+.title-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 32px;
+  margin-top: 100px;
 }

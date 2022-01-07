@@ -9,12 +9,12 @@ import { AtButtonProps, AtButtonState } from '../../../types/button'
 
 const SIZE_CLASS = {
   normal: 'normal',
-  small: 'small',
+  small: 'small'
 }
 
 const TYPE_CLASS = {
   primary: 'primary',
-  secondary: 'secondary',
+  secondary: 'secondary'
 }
 
 export default class AtButton extends React.Component<
@@ -29,7 +29,7 @@ export default class AtButton extends React.Component<
     this.state = {
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
-      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
+      isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
     }
   }
 
@@ -45,7 +45,7 @@ export default class AtButton extends React.Component<
       full,
       loading,
       disabled,
-      customStyle,
+      customStyle
     } = this.props
     const rootClassName = ['at-button']
     const classObject = {
@@ -53,8 +53,9 @@ export default class AtButton extends React.Component<
       [`at-button--${type}`]: TYPE_CLASS[type],
       [`at-button--${SIZE_CLASS[size]}`]: SIZE_CLASS[size],
       'at-button--circle': circle,
-      'at-button--full': full,
+      'at-button--full': full
     }
+
     return (
       <Button
         disabled={disabled}
@@ -62,7 +63,7 @@ export default class AtButton extends React.Component<
         style={customStyle}
         // @ts-ignore
         hoverStyle={{
-          opacity: 0.6,
+          opacity: 0.6
         }}
         loading={loading}
         type={type !== 'primary' ? 'default' : 'primary'}
@@ -97,7 +98,7 @@ AtButton.defaultProps = {
   sendMessagePath: '',
   sendMessageImg: '',
   showMessageCard: false,
-  appParameter: '',
+  appParameter: ''
 }
 
 AtButton.propTypes = {
@@ -121,7 +122,7 @@ AtButton.propTypes = {
     'getRealnameAuthInfo',
     'getAuthorize',
     'contactShare',
-    '',
+    ''
   ]),
   lang: PropTypes.string,
   sessionFrom: PropTypes.string,
@@ -134,5 +135,5 @@ AtButton.propTypes = {
   onContact: PropTypes.func,
   onGetPhoneNumber: PropTypes.func,
   onError: PropTypes.func,
-  onOpenSetting: PropTypes.func,
+  onOpenSetting: PropTypes.func
 }

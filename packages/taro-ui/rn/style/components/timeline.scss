@@ -16,13 +16,20 @@
     &--sub {
       color: $at-timeline-desc-color;
       font-size: $at-timeline-desc-font-size;
+      line-height: $line-height-zh * $at-timeline-desc-font-size;
+    }
+
+    &-item {
+      color: $at-timeline-title-color;
+      font-size: $at-timeline-title-font-size;
+      line-height: $line-height-zh * $at-timeline-title-font-size;
     }
   }
 
   &__dot {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 8px;
     width: $at-timeline-dot-size;
     height: $at-timeline-dot-size;
     font-size: 0;

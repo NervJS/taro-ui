@@ -10,7 +10,7 @@ import {
   ConfirmEventDetail,
   FocusEventDetail,
   InputEventDetail,
-  KeyboardHeightEventDetail,
+  KeyboardHeightEventDetail
 } from '../../../types/input'
 import '../../style/components/input.scss'
 import AtIcon from '../icon'
@@ -26,7 +26,7 @@ function getInputProps(props: AtInputProps): GetInputPropsReturn {
     type: props.type,
     maxlength: props.maxlength,
     disabled: props.disabled,
-    password: false,
+    password: false
   }
 
   switch (actualProps.type) {
@@ -70,7 +70,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       // fix # 583 AtInput 不触发 onChange 的问题
       this.props.onChange(
         event.detail.value,
-        event as BaseEventOrig<InputEventDetail>,
+        event as BaseEventOrig<InputEventDetail>
       )
     }
     // 还原状态
@@ -95,7 +95,7 @@ export default class AtInput extends React.Component<AtInputProps> {
   }
 
   private handleKeyboardHeightChange = (
-    event: BaseEventOrig<KeyboardHeightEventDetail>,
+    event: BaseEventOrig<KeyboardHeightEventDetail>
   ): void => {
     if (typeof this.props.onKeyboardHeightChange === 'function') {
       this.props.onKeyboardHeightChange(event)
@@ -129,12 +129,12 @@ export default class AtInput extends React.Component<AtInputProps> {
       autoFocus,
       focus,
       value,
-      required,
+      required
     } = this.props
     const { type, maxlength, disabled, password } = getInputProps(this.props)
 
     const overlayCls = classNames('at-input__overlay', {
-      'at-input__overlay--hidden': !disabled,
+      'at-input__overlay--hidden': !disabled
     })
     const placeholderCls = classNames('placeholder', placeholderClass)
 
@@ -144,16 +144,16 @@ export default class AtInput extends React.Component<AtInputProps> {
         className={classNames(
           'at-input',
           {
-            'at-input--without-border': !border,
+            'at-input--without-border': !border
           },
-          className,
+          className
         )}
         style={customStyle}
       >
         <View
           className={classNames('at-input__container', {
             'at-input--error': error,
-            'at-input--disabled': disabled,
+            'at-input--disabled': disabled
           })}
         >
           <View className={overlayCls} onClick={this.handleClick} />
@@ -163,7 +163,7 @@ export default class AtInput extends React.Component<AtInputProps> {
               <Label
                 className={classNames('at-input__title', {
                   'at-input__title--error': error,
-                  'at-input__title--disabled': disabled,
+                  'at-input__title--disabled': disabled
                 })}
                 for={name}
               >
@@ -243,7 +243,7 @@ AtInput.defaultProps = {
   focus: false,
   required: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {},
+  onChange: (): void => {}
 }
 
 AtInput.propTypes = {
@@ -276,5 +276,5 @@ AtInput.propTypes = {
   onConfirm: PropTypes.func,
   onErrorClick: PropTypes.func,
   onClick: PropTypes.func,
-  required: PropTypes.bool,
+  required: PropTypes.bool
 }
