@@ -14,7 +14,7 @@ type ExtendEvent = {
 
 function getMaxLength(
   maxLength: number,
-  textOverflowForbidden: boolean,
+  textOverflowForbidden: boolean
 ): number {
   if (!textOverflowForbidden) {
     return maxLength + 500
@@ -67,7 +67,7 @@ export default class AtTextarea extends React.Component<AtTextareaProps> {
       selectionEnd,
       fixed,
       textOverflowForbidden = true,
-      height,
+      height
     } = this.props
 
     const _maxLength = parseInt(maxLength.toString())
@@ -108,7 +108,7 @@ export default class AtTextarea extends React.Component<AtTextareaProps> {
         {count && (
           <View
             className={classNames('at-textarea__counter', {
-              'at-textarea__counter--error': sizeError,
+              'at-textarea__counter--error': sizeError
             })}
           >
             {`${value.length}/${_maxLength}`}
@@ -137,7 +137,7 @@ AtTextarea.defaultProps = {
   height: '',
   textOverflowForbidden: true,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {},
+  onChange: (): void => {}
 }
 
 AtTextarea.propTypes = {
@@ -163,5 +163,5 @@ AtTextarea.propTypes = {
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onConfirm: PropTypes.func,
+  onConfirm: PropTypes.func
 }

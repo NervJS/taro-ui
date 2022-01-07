@@ -35,7 +35,7 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
           const { value, disabled, label, desc } = option
           const optionCls = classNames('at-checkbox__option', {
             'at-checkbox__option--disabled': disabled,
-            'at-checkbox__option--selected': selectedList.includes(value),
+            'at-checkbox__option--selected': selectedList.includes(value)
           })
 
           return (
@@ -48,26 +48,26 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
                 className={classNames({
                   'at-checkbox__option-wrap': true,
                   'at-checkbox__option-wrap--without-border':
-                    !border || idx === 0,
+                    !border || idx === 0
                 })}
               >
                 <View
                   className={classNames({
                     'at-checkbox__option-cnt': true,
-                    'at-checkbox__option-cnt--disabled': disabled,
+                    'at-checkbox__option-cnt--disabled': disabled
                   })}
                 >
                   <View
                     className={classNames({
                       'at-checkbox__icon-cnt': true,
                       'at-checkbox__icon-cnt--check':
-                        selectedList.includes(value),
+                        selectedList.includes(value)
                     })}
                   >
                     <AtIcon
                       className={classNames({
                         'at-checkbox__icon-cnt--check':
-                          selectedList.includes(value),
+                          selectedList.includes(value)
                       })}
                       value='check'
                       color='#FFF'
@@ -79,7 +79,7 @@ export default class AtCheckbox extends React.Component<AtCheckboxProps<any>> {
                   <View
                     className={classNames({
                       'at-checkbox__desc': true,
-                      'at-checkbox__desc--disabled': disabled,
+                      'at-checkbox__desc--disabled': disabled
                     })}
                   >
                     {desc}
@@ -101,7 +101,7 @@ AtCheckbox.defaultProps = {
   options: [],
   selectedList: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {},
+  onChange: (): void => {}
 }
 
 AtCheckbox.propTypes = {
@@ -109,5 +109,5 @@ AtCheckbox.propTypes = {
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   options: PropTypes.array,
   selectedList: PropTypes.array,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 }

@@ -21,13 +21,13 @@ export default class AtNoticebar extends React.Component<
     super(props)
     this.state = {
       show: true,
-      transformX: new Animated.Value(0),
+      transformX: new Animated.Value(0)
     }
   }
 
   private onClose(event: CommonEvent): void {
     this.setState({
-      show: false,
+      show: false
     })
     this.props.onClose && this.props.onClose(event)
   }
@@ -62,8 +62,9 @@ export default class AtNoticebar extends React.Component<
         {!!icon && (
           <AtIcon
             customStyle={{
+              // ios 生效，android 不生效，考虑换成图
               marginRight: -3,
-              marginBottom: -3,
+              marginBottom: -3
             }}
             className='at-noticebar__content-icon__at-icon'
             value={icon}
@@ -87,7 +88,7 @@ export default class AtNoticebar extends React.Component<
         toValue: -textWidth,
         duration: (textWidth * 30) / (speed / 100),
         easing: Easing.linear,
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start(({ finished }) => {
         if (finished) {
           this.move()
@@ -101,7 +102,7 @@ export default class AtNoticebar extends React.Component<
     (event: any): void => {
       const { width } = event.nativeEvent.layout
       this.setState({
-        [key]: width,
+        [key]: width
       })
     }
 
@@ -111,7 +112,7 @@ export default class AtNoticebar extends React.Component<
       marquee,
       customStyle,
       className,
-      moreText = '查看详情',
+      moreText = '查看详情'
     } = this.props
     let { showMore, close } = this.props
     const { show } = this.state
@@ -152,7 +153,7 @@ export default class AtNoticebar extends React.Component<
               style={{
                 flex: 1,
                 paddingLeft: 10,
-                paddingRight: 10,
+                paddingRight: 10
               }}
             >
               <View style={style}>
@@ -195,7 +196,7 @@ AtNoticebar.defaultProps = {
   moreText: '查看详情',
   showMore: false,
   icon: '',
-  customStyle: {},
+  customStyle: {}
 }
 
 AtNoticebar.propTypes = {
@@ -208,5 +209,5 @@ AtNoticebar.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onClose: PropTypes.func,
-  onGotoMore: PropTypes.func,
+  onGotoMore: PropTypes.func
 }

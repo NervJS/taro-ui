@@ -39,7 +39,7 @@ export default class ArticlePage extends React.Component {
                     </View>
                     <Image
                       className='at-article__img'
-                      src='http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
+                      src='https://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'
                       mode='widthFix'
                     />
                   </View>

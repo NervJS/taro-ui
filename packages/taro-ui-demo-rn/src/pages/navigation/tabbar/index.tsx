@@ -11,7 +11,7 @@ interface IndexPageState {
 
 export default class Index extends React.Component<{}, IndexPageState> {
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI',
+    navigationBarTitleText: 'Taro UI'
   }
 
   public constructor(props: any) {
@@ -21,13 +21,13 @@ export default class Index extends React.Component<{}, IndexPageState> {
       current2: 0,
       current3: 0,
       current4: 0,
-      current5: 0,
+      current5: 0
     }
   }
 
   private handleClick(num: number, value: number): void {
     this.setState({
-      [`current${num}`]: value,
+      [`current${num}`]: value
     })
   }
 
@@ -36,12 +36,12 @@ export default class Index extends React.Component<{}, IndexPageState> {
     const tabList1 = [
       { title: '待办事项', text: 8 },
       { title: '拍照' },
-      { title: '通讯录', dot: true },
+      { title: '通讯录', dot: true }
     ]
     const tabList2 = [
       { title: '待办事项', iconType: 'bullet-list', text: 'new' },
       { title: '拍照', iconType: 'camera' },
-      { title: '文件夹', iconType: 'folder', text: '100', max: 99 },
+      { title: '文件夹', iconType: 'folder', text: '100', max: 99 }
     ]
     const tabList3 = [
       {
@@ -50,20 +50,20 @@ export default class Index extends React.Component<{}, IndexPageState> {
           'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
         selectedImage:
           'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-        text: 'new',
+        text: 'new'
       },
       {
         title: '找折扣',
         image:
-          'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
+          'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png'
       },
       {
         title: '领会员',
         image:
           'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
         text: '100',
-        max: 99,
-      },
+        max: 99
+      }
     ]
 
     return (

@@ -51,15 +51,8 @@ export default class ToastPage extends React.Component<{}, ToastPageState> {
   }
 
   public render(): JSX.Element {
-    const {
-      text,
-      icon,
-      status,
-      isOpened,
-      duration,
-      image,
-      hasMask
-    } = this.state
+    const { text, icon, status, isOpened, duration, image, hasMask } =
+      this.state
 
     return (
       <View className='page toast-page'>
@@ -102,7 +95,7 @@ export default class ToastPage extends React.Component<{}, ToastPageState> {
                   onClick={this.handleClick.bind(this, {
                     text: '凹凸实验室',
                     image:
-                      'http://storage.360buyimg.com/mtd/home/group-21533885306540.png'
+                      'https://storage.360buyimg.com/mtd/home/group-21533885306540.png'
                   })}
                 >
                   自定义图片 Toast

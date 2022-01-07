@@ -81,7 +81,7 @@ export default class Index extends React.Component<{}, IndexState> {
     return {
       title: 'Taro UI',
       path: '/pages/index/index',
-      imageUrl: 'http://storage.360buyimg.com/mtd/home/share1535013100318.jpg'
+      imageUrl: 'https://storage.360buyimg.com/mtd/home/share1535013100318.jpg'
     }
   }
 

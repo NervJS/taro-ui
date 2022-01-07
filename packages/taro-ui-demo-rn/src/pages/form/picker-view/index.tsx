@@ -13,8 +13,8 @@ interface IndexState {
   days: number[]
   day: number
   value: number[]
-  isWeapp: boolean
-  isAlipay: boolean
+  isWeapp?: boolean
+  isAlipay?: boolean
 }
 
 export default class Index extends React.Component<{}, IndexState> {
@@ -46,18 +46,16 @@ export default class Index extends React.Component<{}, IndexState> {
       month: 2,
       days,
       day: 2,
-      value: [9999, 5, 17],
-      isWeapp: false,
-      isAlipay: false
+      value: [9999, 5, 17]
     }
   }
 
   public componentDidMount(): void {
-    const env = Taro.getEnv()
-    this.setState({
-      isWeapp: env === Taro.ENV_TYPE.WEAPP,
-      isAlipay: env === Taro.ENV_TYPE.ALIPAY
-    })
+    // const env = Taro.getEnv()
+    // this.setState({
+    //   isWeapp: env === Taro.ENV_TYPE.WEAPP,
+    //   isAlipay: env === Taro.ENV_TYPE.ALIPAY
+    // })
   }
 
   private handleChange = (e: CommonEvent): void => {
@@ -72,17 +70,7 @@ export default class Index extends React.Component<{}, IndexState> {
   }
 
   public render(): JSX.Element {
-    const {
-      years,
-      months,
-      days,
-      value,
-      year,
-      month,
-      day,
-      isWeapp,
-      isAlipay
-    } = this.state
+    const { years, months, days, value, year, month, day } = this.state
 
     return (
       <View className='page'>
@@ -98,47 +86,29 @@ export default class Index extends React.Component<{}, IndexState> {
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <View className='example-item__desc'>嵌入页面的滑动选择器</View>
-                {isWeapp || isAlipay ? (
-                  <View>
-                    <View className='title-date'>
-                      {year}年{month}月{day}日
-                    </View>
-                    <PickerView
-                      indicatorStyle='height: 50px;'
-                      className='picker'
-                      style='width: 100%; height: 300px; text-align: center;'
-                      value={value}
-                      onChange={this.handleChange}
-                    >
-                      <PickerViewColumn>
-                        {years.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
-                            {item}年
-                          </View>
-                        ))}
-                      </PickerViewColumn>
-                      <PickerViewColumn>
-                        {months.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
-                            {item}月
-                          </View>
-                        ))}
-                      </PickerViewColumn>
-                      <PickerViewColumn>
-                        {days.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
-                            {item}日
-                          </View>
-                        ))}
-                      </PickerViewColumn>
-                    </PickerView>
-                  </View>
-                ) : (
-                  <View className='title-date'>暂时仅支持微信小程序</View>
-                )}
+                <View className='title-date'>
+                  {year}年{month}月{day}日
+                </View>
               </View>
             </View>
           </View>
+          <PickerView value={value} onChange={this.handleChange}>
+            <PickerViewColumn>
+              {years.map(item => {
+                return <View key={item}>{item}年</View>
+              })}
+            </PickerViewColumn>
+            <PickerViewColumn>
+              {months.map(item => {
+                return <View key={item}>{item}月</View>
+              })}
+            </PickerViewColumn>
+            <PickerViewColumn>
+              {days.map(item => {
+                return <View key={item}>{item}日</View>
+              })}
+            </PickerViewColumn>
+          </PickerView>
         </View>
         {/* E Body */}
       </View>

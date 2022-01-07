@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { AtRangeProps, AtRangeState } from '../../../types/range'
 import '../../style/components/range.scss'
 
@@ -30,7 +30,7 @@ export default class AtRange extends React.Component<
     this.currentSlider = ''
     this.state = {
       aX: 0,
-      bX: 0,
+      bX: 0
     }
   }
 
@@ -45,7 +45,7 @@ export default class AtRange extends React.Component<
     }
   }
 
-  private handleTouchMove(sliderName: string, event: ITouchEvent): void {
+  private handleTouchMove(sliderName: string, event: any): void {
     if (this.props.disabled) return
 
     const clientX = event.nativeEvent.pageX
@@ -62,20 +62,20 @@ export default class AtRange extends React.Component<
   private setSliderValue(
     sliderName: string,
     targetValue: number,
-    funcName: string,
+    funcName: string
   ): void {
     const distance = Math.min(Math.max(targetValue, 0), this.width)
     const sliderValue = Math.floor((distance / this.width) * 100)
     if (funcName) {
       this.setState(
         {
-          [sliderName]: sliderValue,
+          [sliderName]: sliderValue
         },
-        () => this.triggerEvent(funcName),
+        () => this.triggerEvent(funcName)
       )
     } else {
       this.setState({
-        [sliderName]: sliderValue,
+        [sliderName]: sliderValue
       })
     }
   }
@@ -139,15 +139,15 @@ export default class AtRange extends React.Component<
       railStyle,
       trackStyle,
       blockSize,
-      disabled,
+      disabled
     } = this.props
 
     const rootCls = classNames(
       'at-range',
       {
-        'at-range--disabled': disabled,
+        'at-range--disabled': disabled
       },
-      className,
+      className
     )
 
     const { aX, bX } = this.state
@@ -165,11 +165,11 @@ export default class AtRange extends React.Component<
 
     const sliderAStyle = {
       ...sliderCommonStyle,
-      left: `${aX}%`,
+      left: `${aX}%`
     }
     const sliderBStyle = {
       ...sliderCommonStyle,
-      left: `${bX}%`,
+      left: `${bX}%`
     }
     const containerStyle: React.CSSProperties = {}
     if (blockSize) {
@@ -182,16 +182,17 @@ export default class AtRange extends React.Component<
     const deltaX = Math.abs(aX - bX)
     const atTrackStyle = {
       left: `${smallerX}%`,
-      width: `${deltaX}%`,
+      width: `${deltaX}%`
     }
 
     const shadowStyle = {
       shadowOffset: {
         width: 0,
-        height: 0,
+        height: 0
       },
       shadowOpacity: 0.2,
       shadowRadius: 2,
+      elevation: 2
     }
 
     return (
@@ -234,7 +235,7 @@ AtRange.defaultProps = {
   min: 0,
   max: 100,
   disabled: false,
-  blockSize: 0,
+  blockSize: 0
 }
 
 AtRange.propTypes = {
@@ -249,5 +250,5 @@ AtRange.propTypes = {
   disabled: PropTypes.bool,
   blockSize: PropTypes.number,
   onChange: PropTypes.func,
-  onAfterChange: PropTypes.func,
+  onAfterChange: PropTypes.func
 }

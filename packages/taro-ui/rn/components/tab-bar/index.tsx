@@ -44,20 +44,23 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
       color,
       iconSize,
       fontSize,
-      selectedColor,
+      selectedColor
     } = this.props
     // const { isIPhoneX } = this.state
     const defaultStyle = {
-      color: color || '',
+      color: color || ''
     }
     const selectedStyle = {
-      color: selectedColor || '',
+      color: selectedColor || ''
     }
-    const titleStyle = {
-      fontSize: +(fontSize ? `${fontSize}` : ''),
+    const titleStyle: React.CSSProperties = {}
+
+    if (fontSize) {
+      titleStyle.fontSize = +fontSize
     }
+
     const rootStyle = {
-      backgroundColor: backgroundColor || '',
+      backgroundColor: backgroundColor || ''
     }
     const imgStyle: any = {
       // width: iconSize,
@@ -73,17 +76,17 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
         className={classNames(
           {
             'at-tab-bar': true,
-            'at-tab-bar--fixed': fixed,
+            'at-tab-bar--fixed': fixed
             // 'at-tab-bar--ipx': isIPhoneX
           },
-          className,
+          className
         )}
         style={Object.assign(rootStyle, customStyle)}
       >
         {tabList.map((item: TabItem, i: number) => (
           <View
             className={classNames('at-tab-bar__item', {
-              'at-tab-bar__item--active': current === i,
+              'at-tab-bar__item--active': current === i
             })}
             style={current === i ? selectedStyle : defaultStyle}
             key={item.title}
@@ -134,7 +137,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                   <View className='at-tab-bar__icon'>
                     <Image
                       className={classNames('at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current !== i,
+                        'at-tab-bar__inner-img--inactive': current !== i
                       })}
                       mode='widthFix'
                       src={item.selectedImage || item.image}
@@ -142,7 +145,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                     ></Image>
                     <Image
                       className={classNames('at-tab-bar__inner-img', {
-                        'at-tab-bar__inner-img--inactive': current === i,
+                        'at-tab-bar__inner-img--inactive': current === i
                       })}
                       mode='widthFix'
                       src={item.image}
@@ -162,7 +165,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
                   className='at-tab-bar__title'
                   style={{
                     ...titleStyle,
-                    color: current === i ? selectedColor : color,
+                    color: current === i ? selectedColor : color
                   }}
                 >
                   {item.title}
@@ -185,7 +188,7 @@ AtTabBar.defaultProps = {
   current: 0,
   tabList: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onClick: (): void => {},
+  onClick: (): void => {}
 }
 
 AtTabBar.propTypes = {
@@ -199,5 +202,5 @@ AtTabBar.propTypes = {
   color: PropTypes.string,
   selectedColor: PropTypes.string,
   tabList: PropTypes.array,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }
