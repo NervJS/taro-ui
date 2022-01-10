@@ -1,6 +1,7 @@
 {
   "packages": [
     "packages/taro-ui",
+    "packages/taro-ui-demo",
     "packages/taro-ui-demo-rn"
   ],
   "command": {

@@ -7,7 +7,7 @@ import AtComponent from './base'
 
 export interface AtTextareaProps extends AtComponent {
   /**
-   * 输入框当前值，用户需要通过 onChange 事件的 event.target.value 来更新 value 值，必填
+   * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
    */
   value: string
   /**
