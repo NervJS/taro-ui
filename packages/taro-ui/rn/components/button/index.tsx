@@ -70,7 +70,7 @@ export default class AtButton extends React.Component<
         size={size === 'normal' ? 'default' : 'mini'}
         onClick={this.onClick.bind(this)}
       >
-        {type === 'secondary' ? (
+        {type === 'secondary' && this.props.children ? (
           <Text
             className={`at-button--secondary--text at-button--${size}--text`}
           >
