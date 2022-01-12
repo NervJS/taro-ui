@@ -59,7 +59,7 @@
     "html-withimg-loader": "^0.1.16",
     "json-loader": "^0.5.7",
     "loader-utils": "^2.0.0",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-container": "^2.0.0",
     "ora": "^4.0.3",
     "postcss": "^7.0.27",
