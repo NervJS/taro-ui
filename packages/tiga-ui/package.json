@@ -25,6 +25,7 @@
   "scripts": {
     "dev": "yarn run dev:lib",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental && cp -rf src/**/*.scss ../tiga-ui-demo/tiga-ui/",
+    "dev:rollup": "rollup --config ./config/rollup.config.js --watch",
     "build": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",

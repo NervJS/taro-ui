@@ -1,0 +1,5 @@
+$font-family: Avenir-black;
+
+@mixin font-family {
+  font-family: $font-family;
+}

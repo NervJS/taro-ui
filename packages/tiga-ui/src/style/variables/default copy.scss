@@ -1,5 +1,5 @@
 /**
- * Default variables  rewrite by https://ajk-ued.yuque.com/docs/share/1f38807d-dd8a-4fe6-85c0-540b469a0e3a
+ * Default variables
  */
 
 @import '../mixins/libs/tint';
@@ -7,15 +7,15 @@
 $hd: 2 !default; // 基本单位
 
 /* The Color of O2Team Brand */
-$color-brand: #ff4d13 !default; // edit
+$color-brand: #6190E8 !default;
 $color-brand-light: #78A4F4 !default;
 $color-brand-dark: #346FC2 !default;
 
 /* Color */
-$color-success: #0cb389 !default; // edit
-$color-error: #ff1226 !default; // edit
-$color-warning: #ff8000 !default; // edit
-$color-info: #2092f2 !default; // edit
+$color-success: #13CE66 !default;
+$color-error: #FF4949 !default;
+$color-warning: #FFC82C !default;
+$color-info: #78A4FA !default;
 
 /* Color Palette */
 $color-black-0: #000 !default;
@@ -34,15 +34,12 @@ $color-grey-6: #F7F7F7 !default;
 $color-white: #FFF !default;
 
 /* Text Color */
-$color-text-base: #333 !default; // 文字的基本色 // edit
-$color-text-base-inverse: #FFF !default; // 反色,深色背景下的文字  // edit
-$color-text-secondary: #666666 !default; // 辅助色,次级文本 // edit
+$color-text-base: #333 !default; // 文字的基本色
+$color-text-base-inverse: #FFF !default; // 反色
+$color-text-secondary: #36D57D !default; // 辅助色
 $color-text-placeholder: #C9C9C9 !default;
 $color-text-disabled: #CCC !default;
-$color-text-title: #000000 !default; // 文章标题,标题、重要文本 // edit
-$color-text-subtle: #999999 !default; // 解释说明性文字 // add
-$color-text-ghost: #CCC !default; // 暗提示 // add
-$color-text-link: #5768a8 !default; // 链接 // add
+$color-text-title: #2C405A !default; // 文章标题
 $color-text-paragraph: #3F536E !default; // 文章段落
 
 /* Link */
@@ -53,45 +50,18 @@ $color-link-disabled: #BFBFBF !default;
 
 /* 背景色 */
 $color-bg: #FFF !default;
-$color-bg-base: #ffffff !default; // 背景色 //edit
+$color-bg-base: #FAFBFC !default;
 $color-bg-light: #ECF5FD !default;
 $color-bg-lighter: tint($color-bg-light, 50%) !default;
 $color-bg-grey: #F7F7F7 !default;
-$color-bg-gray: #f6f6f6 !default; // 灰背景色，表单背景色，模块背景色 // add
-$color-bg-gray-heavy: #f0f0f0 !default; // 深灰背景色 // add
-$color-bg-tap: #e0e0e0 !default; // 按压背景色 // add
-$color-bg-success: #e6f7f3 !default; // 成功通知背景 // add
-$color-bg-warning: #fff3e6 !default; // 警示通知背景 // add
-$color-bg-error: #ffecee !default; // 报错通知背景 // add
-$color-bg-info: #ffecee !default; // 报错通知背景 // add
-$color-bg-overdue: #f2f2f2 !default; // 失效/过期通知背景 // add
 
 /* 边框颜色 */
-$color-border-base: #f6f6f6 !default; // 模块内部分割，列表分割线 // edit
-$color-border-heavy: #f0f0f0 !default; // 模块间分割 // add
-$color-border-heavier: #e0e0e0 !default; // 卡片边框 // add
+$color-border-base: #C5D9E8 !default;
 $color-border-split: tint($color-border-base, 20%) !default; // 分割线
 $color-border-light: tint($color-border-base, 30%) !default;
 $color-border-lighter: tint($color-border-base, 50%) !default;
 $color-border-lightest: tint($color-border-base, 80%) !default;
 $color-border-grey: #CCC !default;
-
-/* 遮罩 */
-$mask-base: rgba(0, 0, 0, 0.7); // 弹窗等组件遮罩 // add
-$mask-active-base: rgba(0, 0, 0, 0.1); // 组件按压遮罩，用于按钮、色块模块 // add
-
-/* 圆角 */
-$radius-sm: 2PX; // 用于标签 // add
-$radius-md: 4PX; // 用于Tagselect、Button、Dropdown // add
-$radius-lg: 8PX; // radius-lg	用于toast、弹窗、大卡片 // add
-$radius-circle: 50%; // 全圆角，特殊排版使用 // add
-
-/* 轻提示 Toast */
-$toast-bg: rgba(0, 0, 0, 0.8); // toast背景色 // add
-$toast-radius: $radius-lg; // toast圆角 // add
-
-/* dialog 弹窗 */
-$dialog-radius: $radius-lg; // 弹窗圆角 // add
 
 /* 图标颜色 */
 $color-icon-base: #CCC !default;
@@ -105,8 +75,6 @@ $border-radius-circle: 50% !default;
 /* 透明度 */
 $opacity-active: 0.6 !default; // Button 等组件点击态额透明度
 $opacity-disabled: 0.3 !default; // Button 等组件禁用态的透明度
-$opacity-disabled-base: 0.5 !default; // 常规失效透明度，如secondaryButton、Switch // add
-$opacity-disabled-light: 0.2 !default; // 填充型失效透明度，如primaryButton // add
 
 /* Font */
 $font-size-xs: 10px * $hd !default; // 非常用字号，用于标签
@@ -122,18 +90,17 @@ $line-height-en: 1.3 !default; // 英文多行
 $line-height-zh: 1.5 !default; // 中文多行
 
 /* 水平间距 */
-$spacing-h-xs: 4PX !default; // edit
-$spacing-h-sm: 8PX !default; // edit
-$spacing-h-md: 12PX !default; // edit
-$spacing-h-lg: 16PX !default; // edit
-$spacing-h-xl: 24PX !default; // edit
+$spacing-h-sm: 5px * $hd !default;
+$spacing-h-md: 8px * $hd !default;
+$spacing-h-lg: 12px * $hd !default;
+$spacing-h-xl: 16px * $hd !default;
 
 /* 垂直间距 */
-$spacing-v-xs: 4PX !default; // edit
-$spacing-v-sm: 8PX !default; // edit
-$spacing-v-md: 12PX !default; // edit
-$spacing-v-lg: 16PX !default; // edit
-$spacing-v-xl: 24PX !default; // edit
+$spacing-v-xs: 3px * $hd !default;
+$spacing-v-sm: 6px * $hd !default;
+$spacing-v-md: 9px * $hd !default;
+$spacing-v-lg: 12px * $hd !default;
+$spacing-v-xl: 15px * $hd !default;
 
 /* 图标尺寸 */
 $icon-size-sm: 18px * $hd !default;
@@ -218,17 +185,6 @@ $at-badge-dot-size: 20px !default;
 
 /* Button */
 $at-button-height: 92px !default;
-$button-height-large: 44px !default; // add
-$button-height-medium: 36px !default; // add
-$button-height-small: 32px !default; // add
-$button-height-mini: 28px !default; // add
-$button-height-tiny: 24px !default; // add
-$button-primary-color: $color-brand !default; // add
-$button-secondary-border-color: $color-brand !default; // add
-$button-secondary-fill-color: $color-bg-base !default; // add
-$button-tertiary-border-color: $color-text-ghost !default; // add
-$button-tertiary-fill-color: $color-bg-base !default; // add
-$button-radius: $radius-md !default; // add
 $at-button-height-sm: 60px !default;
 $at-button-color: $color-brand !default;
 $at-button-border-color-primary: $color-brand !default;

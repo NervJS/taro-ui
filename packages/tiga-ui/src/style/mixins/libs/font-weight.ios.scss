@@ -1,0 +1,9 @@
+$font-weight: 500;
+
+@mixin font-weight {
+
+}
+
+@mixin font-weight-num {
+  font-weight: $font-weight;
+}

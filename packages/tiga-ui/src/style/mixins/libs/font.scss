@@ -1,0 +1,90 @@
+/**
+外部使用：
+1. 直接使用 class
+.font-size-h28 {
+  font-size: 28px;
+  line-height: 38px;
+}
+
+.font-size-h24 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+2. include 方式
+.className {
+  @include font(10px)
+}
+=>
+.className {
+  font-size: 10px;
+  line-height: 14px;
+}
+**/
+
+//去掉一个值的单位，如12px => 12
+@function strip-units($number){
+  @return $number / ($number * 0 + 1);
+}
+// https://ajk-ued.yuque.com/docs/share/1f38807d-dd8a-4fe6-85c0-540b469a0e3a#ifzdK
+// 中文+常规数字
+// iOS：系统默认字体，加粗为medium（weight500）
+// Android：系统默认字体，加粗为bold（weight700）
+// map => (字号: 行高)
+$font-sizes: (
+  28px: 38px,
+  24px: 32px,
+  22px: 30px,
+  20px: 28px,
+  18px: 24px,
+  16px: 22px,
+  14px: 20px,
+  12px: 16px,
+  10px: 14px
+) !default;
+
+@mixin font(
+  $font-size,
+  $line-height: map-get($map: $font-sizes, $key: $font-size)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  @include font-weight;
+}
+
+@each $font-size, $line-height in $font-sizes {
+  .font-size-h#{strip-units($font-size)} {
+    @include font($font-size, $line-height);
+  }
+}
+
+// 特殊数字
+// IOS：Avenir-black
+// Android：sans-serif + bold（weight700）
+$font-sizes-num: (
+  40px: 54px,
+  28px: 38px,
+  24px: 32px,
+  22px: 30px,
+  20px: 28px,
+  18px: 24px,
+  14px: 20px,
+) !default;
+
+@mixin font-num(
+  $font-size,
+  $line-height: map-get($map: $font-sizes-num, $key: $font-size)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  @include font-family;
+  @include font-weight-num;
+}
+
+@each $font-size, $line-height in $font-sizes-num {
+  .font-size-n#{strip-units($font-size)} {
+    @include font-num($font-size, $line-height);
+  }
+}

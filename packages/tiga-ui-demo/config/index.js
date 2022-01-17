@@ -1,8 +1,9 @@
 const config = {
   projectName: 'taro-demo',
-  date: '2020-4-5',
-  designWidth: 750,
+  date: '2022-1-5',
+  designWidth: 375,
   deviceRatio: {
+    375: 4 / 2,
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2

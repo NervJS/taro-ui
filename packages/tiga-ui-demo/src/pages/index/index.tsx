@@ -21,7 +21,7 @@ interface IndexState {
   }[]
 }
 
-export default class Index extends React.Component<{}, IndexState> {
+export default class Index extends React.Component<any, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Tiga UI'
   }
@@ -96,14 +96,20 @@ export default class Index extends React.Component<{}, IndexState> {
 
     return (
       <View className='page page-index'>
-        <View className='logo'>
-          <Image src={logoImg} className='img' mode='widthFix' />
+        <View className='page-index__logo'>
+          <Image
+            src={logoImg}
+            className='page-index__logo--img'
+            mode='widthFix'
+          />
         </View>
-        <View className='page-title'>Tiga UI</View>
+        <Text className='page-title'>Tiga UI</Text>
         <View className='module-list'>
           {list.map((item, index) => (
             <View
-              className='module-list__item'
+              className={`module-list__item ${
+                index === list.length - 1 ? 'module-list__item--last' : ''
+              }`}
               key={index}
               data-id={item.id}
               data-name={item.title}
@@ -111,11 +117,17 @@ export default class Index extends React.Component<{}, IndexState> {
               onClick={this.gotoPanel.bind(this, item.id)}
             >
               <View className='module-list__icon'>
-                <Image src={item.icon} className='img' mode='widthFix' />
+                <Image
+                  src={item.icon}
+                  className='module-list__icon--img'
+                  mode='widthFix'
+                />
               </View>
               <View className='module-list__info'>
-                <View className='title'>{item.title}</View>
-                <View className='content'>{item.content}</View>
+                <View className='module-list__info--title'>{item.title}</View>
+                <View className='module-list__info--content'>
+                  {item.content}
+                </View>
               </View>
               <View className='module-list__arrow'>
                 <Text className='at-icon at-icon-chevron-right' />

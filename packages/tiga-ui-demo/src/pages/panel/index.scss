@@ -4,61 +4,79 @@
 /**
  * 分类页样式
  */
- .panel-header {
+.panel-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 60px;
-  height: 180px;
+  padding: 30px;
+  height: 90px;
 
   &__icon {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     color: #78A4FA;
     text-align: center;
     background: #fff;
-    box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.11);
-    border-radius: 10px;
+    /*  #ifndef  rn  */
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.11);
+    /*  #endif  */
+    border-radius: 5px;
 
-    .img {
-      width: 36px;
-      height: 36px;
+    &--img {
+      width: 18px;
+      height: 18px;
     }
   }
 
   &__title {
-    margin-left: 32px;
+    margin-left: 16px;
     color: #78A4FA;
-    font-size: 36px;
+    font-size: 18px;
     font-weight: bold;
   }
 }
 
 .panel-body {
-  min-height: calc(100vh - 180px);
   background: #fff;
-  box-shadow: 0 26px 163px 0 rgba(0, 0, 0, 0.11);
+  /*  #ifndef  rn  */
+  min-height: calc(100vh - 90px);
+  box-shadow: 0 13px 81px 0 rgba(0, 0, 0, 0.11);
+  /*  #endif  */
+  /*  #ifdef  rn  */
+  flex: 1;
+  display: flex;
+  /*  #endif  */
 }
 
 .component-list {
-  margin: 20px 60px 40px;
+  margin: 10px 30px 20px;
 
   &__item {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 120px;
+    height: 60px;
+    /*  #ifndef  rn  */
     @include hairline-bottom();
+    /*  #endif  */
+    /*  #ifdef  rn  */
+    border-bottom-width: 0.5px;
+    border-bottom-color: $color-border-light;
+    /*  #endif  */
 
-    .name {
+    &--name {
       color: #1d1d26;
-      font-size: 28px;
+      font-size: 14px;
     }
-
+    /*  #ifndef  rn  */
     .at-icon {
       color: #CCC;
     }
+    /*  #endif  */
   }
 }

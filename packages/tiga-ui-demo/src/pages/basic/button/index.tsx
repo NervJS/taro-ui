@@ -10,7 +10,7 @@ interface ButtonPageState {
   isALIPAY?: boolean
 }
 
-export default class ButtonPage extends React.Component<{}, ButtonPageState> {
+export default class ButtonPage extends React.Component<any, ButtonPageState> {
   public constructor(props: any) {
     super(props)
     this.state = {
@@ -77,6 +77,7 @@ export default class ButtonPage extends React.Component<{}, ButtonPageState> {
               </View>
             </View>
           </View>
+          <View className='test red'></View>
         </View>
         {/* E Body */}
       </View>

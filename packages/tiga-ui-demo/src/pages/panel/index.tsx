@@ -26,7 +26,7 @@ interface PanelBasicState {
   currentId: string
 }
 
-export default class PanelBasic extends React.Component<{}, PanelBasicState> {
+export default class PanelBasic extends React.Component<any, PanelBasicState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Tiga UI'
   }
@@ -290,7 +290,7 @@ export default class PanelBasic extends React.Component<{}, PanelBasicState> {
   }
 
   public componentDidMount(): void {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line
     // @ts-ignore
     const { id } = Taro.Current.router.params
     this.setState({
