@@ -125,3 +125,46 @@ view {
     }
   }
 }
+
+/*  #ifdef  rn  */
+.panel {
+  margin: 16px 0 28px;
+
+  &__title {
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 25px;
+    color: #6a6a77;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5 * 16px;
+    border-left: 2PX solid #6190e8;
+
+    // &::before {
+    //   content: "";
+    //   display: inline-block;
+    //   position: absolute;
+    //   left: 12px;
+    //   top: 50%;
+    //   margin-top: -10px;
+    //   width: 2PX;
+    //   height: 20px;
+    //   background-color: #6190e8;
+    //   box-shadow: 0 3px 6px 0 rgba(97, 144, 232, 0.2);
+    //   border-radius: 1PX;
+    // }
+  }
+
+  &__content {
+    padding: 0 10px;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+}
+/*  #endif  */
+
+.red {
+  background-color: red;
+}

@@ -1,6 +1,8 @@
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
+$at-border-width: 0.5px;
+
 .at-web-button {
   border: 0;
   background: transparent;
@@ -12,32 +14,14 @@
 .at-button {
   position: relative;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  margin: 0 auto;
-  padding: 0 $spacing-h-xl;
-  height: $at-button-height;
-  color: $color-text-base;
-  font-size: $font-size-lg;
-  line-height: $at-button-height - 2;
-  text-align: center;
-  border-radius: $border-radius-md;
-  border: 1PX solid $color-border-base;
+  border-radius: $at-button-radius;
   box-sizing: border-box;
-  @include line();
+  // @include line();
 
   &:active {
     opacity: $opacity-active;
-  }
-
-  /* elements */
-
-  &__icon {
-    display: inline-block;
-    margin: 2PX 20px 0 20px;
-  }
-
-  &__text {
-    display: inline;
   }
 
   &__wxbutton {
@@ -47,11 +31,14 @@
     top: 0;
     width: 100%;
     height: 100%;
+    /*  #ifndef  rn  */
     border: none;
     outline: none;
+    /*  #endif  */
     background-color: transparent;
     opacity: 0;
     z-index: 1;
+    border-radius: $at-button-radius;
 
     &::after {
       display: none;
@@ -73,41 +60,109 @@
 
   &--primary {
     color: $color-text-base-inverse;
-    border: 1PX solid $at-button-border-color-primary;
-    background: $at-button-bg;
+    background-color: $at-button-primary-color;
+
+    &__text {
+      color: $color-bg-base;
+    }
   }
 
   &--secondary {
     color: $at-button-color;
-    border: 1PX solid $at-button-border-color-secondary;
+    border: $at-border-width solid $at-button-secondary-border-color;
     background-color: $color-white;
-  }
 
-  &--circle {
-    border-radius: $at-button-height / 2;
-    background-clip: border-box;
-    overflow: hidden;
-  }
+    &__wxbutton {
 
-  &--small {
-    padding: 0 $spacing-h-md;
-    width: auto;
-    min-width: 100px;
-    max-width: 710px;
-    height: $at-button-height-sm;
-    font-size: $font-size-base;
-    line-height: $at-button-height-sm - 2;
+    }
 
-    &.at-button--circle {
-      border-radius: $at-button-height-sm / 2;
+    &__text {
+      color: $color-brand;
     }
   }
 
-  &--full {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+  &--tertiary {
+    color: $at-button-color;
+    border: $at-border-width solid $at-button-tertiary-border-color;
+    background-color: $at-button-tertiary-fill-color;
+
+    &__text {
+      color: $color-text-secondary;
+    }
   }
+
+  // &--circle {
+  //   border-radius: $at-button-height / 2;
+  //   /*  #ifndef  rn  */
+  //   background-clip: border-box;
+  //   /*  #endif  */
+  //   overflow: hidden;
+  // }
+
+  &--large {
+    height: $at-button-height-large;
+
+    &__text {
+      padding: 0 $spacing-h-lg;
+      @include font(18px, $at-button-height-large);
+    }
+  }
+
+  &--medium {
+    height: $at-button-height-medium;
+
+    &__text {
+      padding: 0 $spacing-h-lg;
+      @include font(16px, $at-button-height-medium);
+    }
+  }
+
+  &--small {
+    height: $at-button-height-small;
+
+    &__text {
+      padding: 0 10px;
+      @include font(14px, $at-button-height-small);
+    }
+  }
+
+  &--mini {
+    height: $at-button-height-mini;
+
+    &__text {
+      padding: 0 10px;
+      @include font(14px, $at-button-height-mini);
+    }
+  }
+
+  &--tiny {
+    height: $at-button-height-tiny;
+
+    &__text {
+      padding: 0 10px;
+      @include font(12px, $at-button-height-tiny);
+    }
+  }
+
+  // &--small {
+  //   padding: 0 $spacing-h-md;
+  //   width: auto;
+  //   min-width: 100px;
+  //   max-width: 710px;
+  //   height: $at-button-height-sm;
+  //   font-size: $font-size-base;
+  //   line-height: $at-button-height-sm - 2;
+
+  //   &.at-button--circle {
+  //     border-radius: $at-button-height-sm / 2;
+  //   }
+  // }
+
+  // &--full {
+  //   width: 100%;
+  //   max-width: 100%;
+  //   border-radius: 0;
+  //   border-left: none;
+  //   border-right: none;
+  // }
 }

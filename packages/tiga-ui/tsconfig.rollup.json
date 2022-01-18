@@ -4,6 +4,7 @@
     "target": "es5",
     "module": "es6",
     "downlevelIteration": true,
+    "noUnusedLocals": false,
     "baseUrl": ".",
     "types": ["node"]
   },

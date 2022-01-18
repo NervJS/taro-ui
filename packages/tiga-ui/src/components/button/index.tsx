@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, View, Text } from '@tarojs/components'
+import { Button, View } from '@tarojs/components'
 import classNames from 'classnames'
 import { noop, PLATFORM } from '../../utils'
 import { AtButtonProps } from '../../../types/button'
@@ -19,36 +19,17 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
     onClick
   } = props
 
-  const rootClassName = ''
-
+  const rootClassName = 'at-button'
+  const typeClassName = `at-button--${type}`
+  const sizeClassName = `at-button--${size}`
+  const textClassName = `at-button--${type}__text`
+  const sizeTextClassName = `at-button--${size}__text`
   const webButton = (
     <Button
-      className='at-button__wxbutton'
-      // lang={lang}
-      // formType={formType}
+      // className='at-button__wxbutton'
+      lang={lang}
+      formType={formType}
     ></Button>
-  )
-
-  const RNbutton = (
-    <Button
-      disabled={disabled}
-      className={classNames(rootClassName, className)}
-      style={customStyle}
-      hoverStyle={{
-        opacity: 0.6
-      }}
-      type={type !== 'primary' ? 'default' : 'primary'}
-      size={size === 'medium' ? 'default' : 'mini'}
-      onClick={onClick}
-    >
-      {type === 'secondary' && children ? (
-        <Text className={`at-button--secondary--text at-button--${size}--text`}>
-          {children}
-        </Text>
-      ) : (
-        children
-      )}
-    </Button>
   )
 
   const button = (
@@ -71,24 +52,53 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
     ></Button>
   )
 
+  if (isRN) {
+    return (
+      <Button
+        disabled={disabled}
+        hoverStyle={{
+          opacity: 0.6
+        }}
+        className={classNames(
+          rootClassName,
+          typeClassName,
+          sizeClassName,
+          className,
+          {
+            'at-button--disabled': disabled
+          }
+        )}
+        style={customStyle}
+        onClick={onClick}
+      >
+        <View className={classNames(textClassName, sizeTextClassName)}>
+          {children}
+        </View>
+      </Button>
+    )
+  }
+
   return (
     <View
-      className={classNames(rootClassName, className)}
+      className={classNames(
+        rootClassName,
+        typeClassName,
+        sizeClassName,
+        className,
+        {
+          'at-button--disabled': disabled
+        }
+      )}
       style={customStyle}
       onClick={onClick}
     >
       {isWEB && !disabled && webButton}
-      {isWEAPP && !disabled && (
-        <Form
-        // onSubmit={this.onSumit.bind(this)}
-        // onReset={this.onReset.bind(this)}
-        >
-          {button}
-        </Form>
-      )}
+      {isWEAPP && !disabled && button}
       {isALIPAY && !disabled && button}
-      {isRN && !disabled && RNbutton}
-      <View className='at-button__text'>{children}</View>
+      {/* {isRN && !disabled && RNbutton} */}
+      <View className={classNames(textClassName, sizeTextClassName)}>
+        {children}
+      </View>
     </View>
   )
 }

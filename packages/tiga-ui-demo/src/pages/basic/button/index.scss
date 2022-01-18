@@ -15,27 +15,21 @@
     bottom: 32px;
     z-index: 1100;
   }
-
-  .btn-item {
-    margin-bottom: 20px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    .subitem {
-      display: inline-block;
-      margin-left: 24px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-  }
 }
 
-.test {
-  height: 100px;
-  width: 200px;
-  background-color: red;
+.btn-item {
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .subitem {
+    display: inline-block;
+    margin-left: 24px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }

@@ -218,17 +218,17 @@ $at-badge-dot-size: 20px !default;
 
 /* Button */
 $at-button-height: 92px !default;
-$button-height-large: 44px !default; // add
-$button-height-medium: 36px !default; // add
-$button-height-small: 32px !default; // add
-$button-height-mini: 28px !default; // add
-$button-height-tiny: 24px !default; // add
-$button-primary-color: $color-brand !default; // add
-$button-secondary-border-color: $color-brand !default; // add
-$button-secondary-fill-color: $color-bg-base !default; // add
-$button-tertiary-border-color: $color-text-ghost !default; // add
-$button-tertiary-fill-color: $color-bg-base !default; // add
-$button-radius: $radius-md !default; // add
+$at-button-height-large: 44px !default; // add
+$at-button-height-medium: 36px !default; // add
+$at-button-height-small: 32px !default; // add
+$at-button-height-mini: 28px !default; // add
+$at-button-height-tiny: 24px !default; // add
+$at-button-primary-color: $color-brand !default; // 一级按钮填充色 // add
+$at-button-secondary-border-color: $color-brand !default; // add
+$at-button-secondary-fill-color: $color-bg-base !default; // add
+$at-button-tertiary-border-color: $color-text-ghost !default; // add
+$at-button-tertiary-fill-color: $color-bg-base !default; // add
+$at-button-radius: $radius-md !default; // add
 $at-button-height-sm: 60px !default;
 $at-button-color: $color-brand !default;
 $at-button-border-color-primary: $color-brand !default;
