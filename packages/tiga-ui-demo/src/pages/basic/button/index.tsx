@@ -166,7 +166,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
             <View className='panel__content'>
               <View className='btn-item'>
                 <AtButton
-                  size='large'
+                  size='full'
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
@@ -175,11 +175,12 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
               </View>
               <View className='btn-item'>
                 <AtButton
+                  size='large'
                   type='secondary'
                   customStyle={{ width: Taro.pxTransform(200) }}
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  {`setWidth: ${Taro.pxTransform(200)}dp`}
+                  {`setWidth: ${Taro.pxTransform(200)}`}
                 </AtButton>
               </View>
               <View className='btn-item'>

@@ -19,6 +19,9 @@ $at-border-width: 0.5px;
   border-radius: $at-button-radius;
   box-sizing: border-box;
   // @include line();
+  /*  #ifndef  rn  */
+  display: inline-block;
+  /*  #endif  */
 
   &:active {
     opacity: $opacity-active;
@@ -34,6 +37,7 @@ $at-border-width: 0.5px;
     /*  #ifndef  rn  */
     border: none;
     outline: none;
+    display: inline-block;
     /*  #endif  */
     background-color: transparent;
     opacity: 0;
@@ -64,6 +68,7 @@ $at-border-width: 0.5px;
 
     &__text {
       color: $color-bg-base;
+      text-align: center;
     }
   }
 
@@ -72,12 +77,9 @@ $at-border-width: 0.5px;
     border: $at-border-width solid $at-button-secondary-border-color;
     background-color: $color-white;
 
-    &__wxbutton {
-
-    }
-
     &__text {
       color: $color-brand;
+      text-align: center;
     }
   }
 
@@ -88,16 +90,22 @@ $at-border-width: 0.5px;
 
     &__text {
       color: $color-text-secondary;
+      text-align: center;
     }
   }
 
-  // &--circle {
-  //   border-radius: $at-button-height / 2;
-  //   /*  #ifndef  rn  */
-  //   background-clip: border-box;
-  //   /*  #endif  */
-  //   overflow: hidden;
-  // }
+  // full 只有 large 尺寸，字体大一号
+  &--full {
+    /*  #ifndef  rn  */
+    display: block;
+    /*  #endif  */
+    height: $at-button-height-large;
+
+    &__text {
+      padding: 0 $spacing-h-lg;
+      @include font(19px, $at-button-height-large);
+    }
+  }
 
   &--large {
     height: $at-button-height-large;

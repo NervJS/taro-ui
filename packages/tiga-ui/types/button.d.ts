@@ -27,7 +27,7 @@ export interface AtButtonProps extends AtComponent, TaroButtonProps {
    * 按钮的大小
    * @default 'tertiary'
    */
-  size?: 'large' | 'medium' | 'small' | 'mini' | 'tiny'
+  size?: 'full' | 'large' | 'medium' | 'small' | 'mini' | 'tiny'
   /**
    * 按钮的类型
    * @default 'medium'
