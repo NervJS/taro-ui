@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { Button, View } from '@tarojs/components'
 import classNames from 'classnames'
 import { noop, PLATFORM } from '../../utils'
 import { AtButtonProps } from '../../../types/button'
+
+// RN 水平 padding
+const PADDING_HORIZONTAL = {
+  large: 16,
+  medium: 16,
+  small: 10,
+  mini: 10,
+  tiny: 10
+}
+
+// RN 描边宽度
+const BORDER_WIDTH = 0.5
 
 const AtButton: React.FunctionComponent<AtButtonProps> = props => {
   const { isWEAPP, isWEB, isALIPAY, isRN } = PLATFORM
@@ -24,9 +36,24 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
   const sizeClassName = `at-button--${size}`
   const textClassName = `at-button--${type}__text`
   const sizeTextClassName = `at-button--${size}__text`
+
+  // RN 自动宽度
+  const [width, setWidth] = useState('auto')
+  const onLayout = useCallback(
+    (event: any) => {
+      const { width } = event.nativeEvent.layout
+      const paddingHorizontal = size && PADDING_HORIZONTAL[size]
+      const borderWidth = type !== 'primary' ? BORDER_WIDTH : 0
+      if (paddingHorizontal) {
+        setWidth(width + paddingHorizontal * 2 + borderWidth * 2)
+      }
+    },
+    [size, type]
+  )
+
   const webButton = (
     <Button
-      // className='at-button__wxbutton'
+      className='at-button__wxbutton'
       lang={lang}
       formType={formType}
     ></Button>
@@ -68,10 +95,15 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
             'at-button--disabled': disabled
           }
         )}
-        style={customStyle}
+        style={Object.assign({ width, paddingHorizontal: 0 }, customStyle)}
         onClick={onClick}
       >
-        <View className={classNames(textClassName, sizeTextClassName)}>
+        <View
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          onLayout={onLayout}
+          className={classNames(textClassName, sizeTextClassName)}
+        >
           {children}
         </View>
       </Button>
@@ -95,7 +127,6 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
       {isWEB && !disabled && webButton}
       {isWEAPP && !disabled && button}
       {isALIPAY && !disabled && button}
-      {/* {isRN && !disabled && RNbutton} */}
       <View className={classNames(textClassName, sizeTextClassName)}>
         {children}
       </View>

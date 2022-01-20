@@ -72,6 +72,7 @@ $at-border-width: 0.5px;
     }
   }
 
+  // type 样式定义
   &--secondary {
     color: $at-button-color;
     border: $at-border-width solid $at-button-secondary-border-color;
@@ -102,52 +103,52 @@ $at-border-width: 0.5px;
     height: $at-button-height-large;
 
     &__text {
-      padding: 0 $spacing-h-lg;
       @include font(19px, $at-button-height-large);
     }
   }
 
+  // size 样式定义
   &--large {
     height: $at-button-height-large;
+    padding: 0 $spacing-h-lg;
 
     &__text {
-      padding: 0 $spacing-h-lg;
       @include font(18px, $at-button-height-large);
     }
   }
 
   &--medium {
     height: $at-button-height-medium;
+    padding: 0 $spacing-h-lg;
 
     &__text {
-      padding: 0 $spacing-h-lg;
       @include font(16px, $at-button-height-medium);
     }
   }
 
   &--small {
     height: $at-button-height-small;
+    padding: 0 10PX;
 
     &__text {
-      padding: 0 10px;
       @include font(14px, $at-button-height-small);
     }
   }
 
   &--mini {
     height: $at-button-height-mini;
+    padding: 0 10PX;
 
     &__text {
-      padding: 0 10px;
       @include font(14px, $at-button-height-mini);
     }
   }
 
   &--tiny {
     height: $at-button-height-tiny;
+    padding: 0 10PX;
 
     &__text {
-      padding: 0 10px;
       @include font(12px, $at-button-height-tiny);
     }
   }
