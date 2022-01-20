@@ -59,9 +59,7 @@ md = md({
 const formatModule = (imports, js, jsx, state, method) => {
   const moduleText = `
     ${imports}
-
     ${js}
-
     class MarkdownItReactComponent extends React.Component {
         constructor(props){
             super(props);
@@ -78,7 +76,6 @@ const formatModule = (imports, js, jsx, state, method) => {
         }
         ${method || ''}
         render(){
-
             return (
                 <div className="${options.className}">
                     ${jsx}
@@ -86,7 +83,6 @@ const formatModule = (imports, js, jsx, state, method) => {
             );
         }
     };
-
     export default MarkdownItReactComponent;`
 
   return moduleText

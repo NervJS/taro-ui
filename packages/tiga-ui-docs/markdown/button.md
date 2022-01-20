@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import { AtButton } from 'tiga-ui'
+import { AtButton } from 'taro-ui'
 ```
 :::
 
@@ -18,8 +18,8 @@ import { AtButton } from 'tiga-ui'
 
 :::demo
 ```scss
-@import "~tiga-ui/dist/style/components/button.scss";
-@import "~tiga-ui/dist/style/components/loading.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/loading.scss";
 ```
 :::
 
@@ -53,7 +53,7 @@ import { AtButton } from 'tiga-ui'
 ## Button 参数
 
 | 微信 | H5 | 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
-|:-----|:---|:---------|:-----------------------------|:--------|:-----------------------|:---------|
+|-----|---|---------|-----------------------------|--------|-----------------------|---------|
 | √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
 | √    | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
 | √    | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
@@ -77,7 +77,7 @@ import { AtButton } from 'tiga-ui'
 ## Button 事件
 
 | 微信 | H5 | 事件名称         | 说明                                                                                         | 返回参数   |
-|:-----|:---|:-----------------|:---------------------------------------------------------------------------------------------|:-----------|
+|-----|---|-----------------|---------------------------------------------------------------------------------------------|-----------|
 | √    | √  | onClick          | 点击按钮时触发                                                                               | event 对象 |
 | √    | -  | onGetUserInfo    | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
 | √    | -  | onContact        | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | event 对象 |
