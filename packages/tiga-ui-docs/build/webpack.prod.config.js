@@ -28,7 +28,7 @@ module.exports = {
       ]
     }),
     new webpack.DefinePlugin({
-      BASE_NAME: `'/taro-ui'`
+      BASE_NAME: `'/tiga-ui'`
     }),
     new FaviconWebpackPlugin({
       logo: path.resolve(projectRoot, 'assets/favicon.png'),

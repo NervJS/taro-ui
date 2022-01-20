@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import { AtButton } from 'taro-ui'
+import { AtButton } from 'tiga-ui'
 ```
 :::
 
@@ -18,8 +18,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```scss
-@import "~taro-ui/dist/style/components/button.scss";
-@import "~taro-ui/dist/style/components/loading.scss";
+@import "~tiga-ui/dist/style/components/button.scss";
+@import "~tiga-ui/dist/style/components/loading.scss";
 ```
 :::
 
