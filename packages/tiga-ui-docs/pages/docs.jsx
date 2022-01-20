@@ -50,8 +50,8 @@ class Docs extends React.Component {
               curDemoPath ? 'at-markdown--demo' : ''
             }`}
           >
-            {curDemoPath && false && (
-              <div className='qrcode-menu' style='right: 420px'>
+            {curDemoPath && (
+              <div className='qrcode-menu' style={{ right: '420px' }}>
                 <div className='qrcode-container'>
                   <img src={qrCodeImg} alt='qrcode' />
                   <div className='qrcode-modal'>
