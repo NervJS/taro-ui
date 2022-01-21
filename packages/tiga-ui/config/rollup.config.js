@@ -50,15 +50,6 @@ export default {
         {
           src: resolveFile('src/style'),
           dest: resolveFile('dist')
-        },
-        {
-          src: resolveFile('rn/style/**/*rn.scss'),
-          dest: resolveFile('dist'),
-          rename: (name, extension, fullpath) => {
-            const relativePath = NodePath.relative(resolveFile('rn'), fullpath)
-
-            return relativePath.replace('.scss', '.rn.scss')
-          }
         }
       ]
     })
