@@ -1,3 +1,6 @@
+@import '~tiga-ui/dist/style/mixins/index.scss';
+@import '~tiga-ui/dist/style/variables/default.scss';
+
 .doc-header {
   display: flex;
   align-items: center;
@@ -20,7 +23,7 @@
       width: 120px;
       height: 2PX;
       border-radius: 1PX;
-      background-color: #6190E8;
+      background-color: $color-brand;
     }
   }
 }

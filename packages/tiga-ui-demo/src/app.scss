@@ -1,4 +1,5 @@
 @import "~tiga-ui/dist/style/index.scss";
+$color-brand: #ff4d13;
 
 /*  #ifndef  rn  */
 #app {
@@ -43,14 +44,14 @@ view {
     border-bottom: 0.5 solid $color-bg-gray-heavy; // 0.5px
 
     &-title {
-      color: $color-bg-gray;
+      color: $color-text-title;
       font-size: 14px;
     }
 
     &-note {
       font-size: 12px;
       margin-left: 10px;
-      color: $color-grey-3;
+      color: $color-text-secondary;
     }
   }
 }
@@ -86,8 +87,12 @@ view {
   padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   box-shadow: 0 12px 81px 0 rgba(0, 0, 0, 0.11);
   /*  #endif  */
+  /*  #ifdef  rn  */
+  padding-top: 16px;
+  /*  #endif  */
   padding-bottom: 30px;
   background: #fff;
+
 
   .panel {
     margin: 16px 0 28px;
@@ -110,7 +115,7 @@ view {
         margin-top: -10px;
         width: 2PX;
         height: 20px;
-        background-color: #6190e8;
+        background-color: $color-brand;
         box-shadow: 0 3px 6px 0 rgba(97, 144, 232, 0.2);
         border-radius: 1PX;
       }
@@ -128,31 +133,19 @@ view {
 
 /*  #ifdef  rn  */
 .panel {
-  margin: 16px 0 28px;
+  margin: 0 0 28px;
 
   &__title {
     position: relative;
     margin-bottom: 25px;
-    padding-left: 25px;
+    padding-left: 13px;
+    margin-left: 10px;
     color: #6a6a77;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.5 * 16px;
-    border-left: 2PX solid #6190e8;
-
-    // &::before {
-    //   content: "";
-    //   display: inline-block;
-    //   position: absolute;
-    //   left: 12px;
-    //   top: 50%;
-    //   margin-top: -10px;
-    //   width: 2PX;
-    //   height: 20px;
-    //   background-color: #6190e8;
-    //   box-shadow: 0 3px 6px 0 rgba(97, 144, 232, 0.2);
-    //   border-radius: 1PX;
-    // }
+    border-left-width: 2PX;
+    border-left-color: $color-brand;
   }
 
   &__content {

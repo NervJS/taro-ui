@@ -18,7 +18,7 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    color: #78A4FA;
+    color: $color-brand;
     text-align: center;
     background: #fff;
     /*  #ifndef  rn  */
@@ -34,7 +34,7 @@
 
   &__title {
     margin-left: 16px;
-    color: #78A4FA;
+    color: $color-brand;
     font-size: 18px;
     font-weight: bold;
   }

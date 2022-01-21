@@ -85,21 +85,21 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.9.0.tgz#cbac84b996475b8fc983931539ed1261174e2df3"
   integrity sha512-kY3xYolZoJO1MKslL0NQccHy72R3TIl1prHgfmIrEoGcnMgc6uiskdWaGMuI5/sCGz9T+QuTVz76B1H2ySyBZg==
 
-"@tarojs/api@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/api/-/api-3.4.0.tgz#7369179d22a566c2e110f0c6cf692a989bc58865"
-  integrity sha512-43TwhLEMp+9XG/QHhjptvuflswUs0b++iI98kiWIy6urUaWOZv3yQIh55mJw7T/A+XThJWLsGxiLAa4JK4m9hg==
+"@tarojs/api@^3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/api/-/api-3.4.0-zeta.8.tgz#912a5b17faf490015a870ca14f83f152ca63b521"
+  integrity sha512-9Z61vZVqsM8nbqkWp36jOBVEOa5QspB1hMjGrZhH+lN1tY7fOZ3FNKOOBI0r3CSeE79hCujV9vP80SB9TxWKRw==
   dependencies:
     "@babel/runtime" "^7.14.5"
-    "@tarojs/runtime" "3.4.0"
+    "@tarojs/runtime" "^3.4.0-zeta.8"
 
-"@tarojs/components@~3.4.0-zeta.3":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/components/-/components-3.4.0.tgz#1a63886bb420be53441dc727f88dc41f3cc0c99e"
-  integrity sha512-24aPpSFcnrFtsCdT3QgDSUHtCr9msw5LrD/1cZ8JNPgusELbOYKfzo8uKviixkly7b08GeTB2lxmwr6vY3UAAg==
+"@tarojs/components@~3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/components/-/components-3.4.0-zeta.8.tgz#0e9a7053eca3ee9180a23ae7e92695f299168748"
+  integrity sha512-L6bOuUGdZGmshZUJKCHO/xvkrvXxDIOMSRr1DF875Cfa2VQO/Bwx7bmuG8VzLn/88fwcDrIxUsD4+y35Dqvkfg==
   dependencies:
     "@stencil/core" "2.9.0"
-    "@tarojs/taro" "3.4.0"
+    "@tarojs/taro" "^3.4.0-zeta.8"
     better-scroll "^1.14.1"
     classnames "^2.2.5"
     intersection-observer "^0.7.0"
@@ -108,65 +108,65 @@
     swiper "6.8.0"
     weui "^1.1.2"
 
-"@tarojs/react@~3.4.0-zeta.3":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/react/-/react-3.4.0.tgz#c797af86a9e597ccd6a221c5d0ed39131747e124"
-  integrity sha512-mquUY9umiVLMYTHV7kqn6RDscl0JjZTVy+hRPHVxMAOx1WlDwXSX9ulZt6VlK13D8zVYm3mubdPiiqNSwJahlw==
+"@tarojs/react@~3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/react/-/react-3.4.0-zeta.8.tgz#cf86565eae690724140e72870eff064884f06aa1"
+  integrity sha512-HeCkChgR4vXloVQ+aEvKD4lMQIXVpjFRTdn/8NZ/9YZ3Kog4+I5Ndsz4ECg1Jhm8cJzG4caXuvAWxmlnhPhmPw==
   dependencies:
-    "@tarojs/runtime" "3.4.0"
-    "@tarojs/shared" "3.4.0"
+    "@tarojs/runtime" "^3.4.0-zeta.8"
+    "@tarojs/shared" "^3.4.0-zeta.8"
     react-reconciler "0.26.1"
     scheduler "^0.20.1"
 
-"@tarojs/router@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/router/-/router-3.4.0.tgz#64c0aa2dad09802970f9f7953215c74bca41a0f8"
-  integrity sha512-378J+2WwZP+9+KkQmbzp2LaoY36imQWxSVr4IvFGVMq3R0SvqROsk0cmL7AIRieZV7gKp8U8kYGiZPg5txlorg==
+"@tarojs/router@^3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/router/-/router-3.4.0-zeta.8.tgz#dfc77b27ae3419a6f235287dc350629c3a5a5c45"
+  integrity sha512-1KZUFEyklmSl81m03vTsSoyPeRztju4BMassIGRGT9kS05KQ2KLeQ4PTQJNWJZp0RRHUY6xyH6E/YZYKWr+HOA==
   dependencies:
-    "@tarojs/runtime" "3.4.0"
-    "@tarojs/taro" "3.4.0"
+    "@tarojs/runtime" "^3.4.0-zeta.8"
+    "@tarojs/taro" "^3.4.0-zeta.8"
     history "^5.1.0"
     query-string "^6.13.8"
     universal-router "^8.3.0"
     url-parse "^1.4.7"
 
-"@tarojs/runtime@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/runtime/-/runtime-3.4.0.tgz#4c66231de2205bbdbf5dffd43f8bc576b43c1a85"
-  integrity sha512-IesEhDlrZDWY31TdbkPP0LU4U7TxOViNU4AsW0Uz7vFAhdm+Llo6Rcq2qIngLy2bpF/wekJdDoSDxxCBXw53uQ==
+"@tarojs/runtime@^3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/runtime/-/runtime-3.4.0-zeta.8.tgz#403062ade64490eb015973f2728a64cbf3e10785"
+  integrity sha512-a9h94bTTE5zAyRW3zBF77otwfhwb/+Le79i0OPcZuNWb6m5SpwAb2+KOUCMw2aXim4hTCPghX97nHFOxNjvHLg==
   dependencies:
-    "@tarojs/shared" "3.4.0"
+    "@tarojs/shared" "^3.4.0-zeta.8"
     inversify "5.1.1"
     lodash-es "4.17.15"
     reflect-metadata "^0.1.13"
 
-"@tarojs/shared@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/shared/-/shared-3.4.0.tgz#d966ae4aabbdcc676464ca60a5961868a428a6ec"
-  integrity sha512-41wQ8QQuUAS3nyhtlLufBsn6QAGqVC7X64jdsYPEZVDANBbAt6taOSiyQtgNXz5t+dsyr+pp995kvCu9RFcK8A==
+"@tarojs/shared@^3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/shared/-/shared-3.4.0-zeta.8.tgz#4f4a10dae23759fef9a968442cdfad77a249bad5"
+  integrity sha512-I/8Ni6a0E8/iH20KhZjkFf3eIs0xpuHBUfEYNHgRiErXtwOm6sIBtENhjAXbmhSvpO2mETxiNdKuN2AU4btRjA==
 
-"@tarojs/taro-h5@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/taro-h5/-/taro-h5-3.4.0.tgz#5a082583f8bf601974651c1ad0da20cc4c88297a"
-  integrity sha512-16jkEK8rAwlis1Ax3rrStZcIaWnwYtMShlRGUvZKo62a2HtlXjvJ2wNf8JS1ycU9bWDbLWL/Z9gnp8xAdCP1DQ==
+"@tarojs/taro-h5@^3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/taro-h5/-/taro-h5-3.4.0-zeta.8.tgz#db31a3a393e864aafd84f254d89d0b9ba315f40c"
+  integrity sha512-gLEaB0GDoVlKA92jtm/C2SFbUL0cbuZlNSSqvbJ4Jlrq2esRfz+AWI8mumS9MwV3Cz3zCUT9N9dm58bnEvpJew==
   dependencies:
-    "@tarojs/api" "3.4.0"
-    "@tarojs/router" "3.4.0"
-    "@tarojs/runtime" "3.4.0"
-    "@tarojs/taro" "3.4.0"
+    "@tarojs/api" "^3.4.0-zeta.8"
+    "@tarojs/router" "^3.4.0-zeta.8"
+    "@tarojs/runtime" "^3.4.0-zeta.8"
+    "@tarojs/taro" "^3.4.0-zeta.8"
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
     mobile-detect "^1.4.2"
     whatwg-fetch "^3.4.0"
 
-"@tarojs/taro@3.4.0", "@tarojs/taro@~3.4.0-zeta.3":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-3.4.0.tgz#3e6057e22aceccf04b853094a28fd65a8c42b6ac"
-  integrity sha512-5QO9fxlo+huj+Nv3q6hBpY6b29/npqOUN2zMDvzLluAmg1z9z7Y8ICuk7lJWByVzbVsuVnFxMlDXs70elLgoxg==
+"@tarojs/taro@^3.4.0-zeta.8", "@tarojs/taro@~3.4.0-zeta.8":
+  version "3.4.0-zeta.8"
+  resolved "http://ires.58corp.com/repository/58npm/@tarojs/taro/-/taro-3.4.0-zeta.8.tgz#e88c6500b3566a7287cbbbe7d625397a5b3bf273"
+  integrity sha512-VxyE9WJ0Nmpg5GHIJPAUDsX/KQYPPsSulpBK3ArWKrkjkllibfE3EL9u0eN3N2Mg0KviQH2bp4d/35sSlFr7MA==
   dependencies:
-    "@tarojs/api" "3.4.0"
-    "@tarojs/runtime" "3.4.0"
-    "@tarojs/taro-h5" "3.4.0"
+    "@tarojs/api" "^3.4.0-zeta.8"
+    "@tarojs/runtime" "^3.4.0-zeta.8"
+    "@tarojs/taro-h5" "^3.4.0-zeta.8"
 
 "@types/classnames@^2.2.9":
   version "2.3.1"

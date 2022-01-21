@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { Button, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import { noop, PLATFORM } from '../../utils'
 import { AtButtonProps } from '../../../types/button'
@@ -28,7 +29,18 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
     formType,
     openType,
     lang,
-    onClick
+    sessionFrom,
+    sendMessageTitle,
+    sendMessagePath,
+    sendMessageImg,
+    showMessageCard,
+    appParameter,
+    onClick,
+    onGetUserInfo,
+    onGetPhoneNumber,
+    onOpenSetting,
+    onError,
+    onContact
   } = props
 
   const rootClassName = 'at-button'
@@ -39,6 +51,8 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
 
   // RN 自动宽度
   const [width, setWidth] = useState('auto')
+
+  // RN 布局调整宽度
   const onLayout = useCallback(
     (event: any) => {
       const { width } = event.nativeEvent.layout
@@ -49,6 +63,17 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
       }
     },
     [size, type]
+  )
+
+  const _onClick = useCallback(
+    (event: CommonEvent) => {
+      if (disabled) {
+        event.stopPropagation()
+      } else {
+        onClick && onClick(event)
+      }
+    },
+    [disabled, onClick]
   )
 
   const webButton = (
@@ -65,17 +90,17 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
       formType={formType}
       openType={openType}
       lang={lang}
-      // sessionFrom={sessionFrom}
-      // sendMessageTitle={sendMessageTitle}
-      // sendMessagePath={sendMessagePath}
-      // sendMessageImg={sendMessageImg}
-      // showMessageCard={showMessageCard}
-      // appParameter={appParameter}
-      // onGetUserInfo={this.onGetUserInfo.bind(this)}
-      // onGetPhoneNumber={this.onGetPhoneNumber.bind(this)}
-      // onOpenSetting={this.onOpenSetting.bind(this)}
-      // onError={this.onError.bind(this)}
-      // onContact={this.onContact.bind(this)}
+      sessionFrom={sessionFrom}
+      sendMessageTitle={sendMessageTitle}
+      sendMessagePath={sendMessagePath}
+      sendMessageImg={sendMessageImg}
+      showMessageCard={showMessageCard}
+      appParameter={appParameter}
+      onGetUserInfo={onGetUserInfo}
+      onGetPhoneNumber={onGetPhoneNumber}
+      onOpenSetting={onOpenSetting}
+      onError={onError}
+      onContact={onContact}
     ></Button>
   )
 
@@ -122,7 +147,7 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
         }
       )}
       style={customStyle}
-      onClick={onClick}
+      onClick={_onClick}
     >
       {isWEB && !disabled && webButton}
       {isWEAPP && !disabled && button}
@@ -139,6 +164,13 @@ AtButton.defaultProps = {
   type: 'secondary',
   full: false,
   disabled: false,
+  lang: 'zh_CN',
+  sessionFrom: '',
+  sendMessageTitle: '',
+  sendMessagePath: '',
+  sendMessageImg: '',
+  showMessageCard: false,
+  appParameter: '',
   onClick: noop
 }
 

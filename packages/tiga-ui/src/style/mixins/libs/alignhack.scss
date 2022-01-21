@@ -1,5 +1,6 @@
 // 修复小元素文本垂直居中
 @mixin alignhack($position: before, $margintop: 1px) {
+  /*  #ifndef  rn  */
   &::#{$position} {
     content: '';
     display: inline-block;
@@ -8,4 +9,5 @@
     height: 100%;
     margin-top: $margintop;
   }
+  /*  #endif  */
 }

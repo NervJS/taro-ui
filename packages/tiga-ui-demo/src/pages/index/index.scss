@@ -1,3 +1,6 @@
+@import '~tiga-ui/dist/style/mixins/index.scss';
+@import '~tiga-ui/dist/style/variables/default.scss';
+
 .page {
   position: relative;
   background-color: #f8f8f8;
@@ -70,7 +73,7 @@
     align-items: center;
     width: 36px;
     height: 36px;
-    color: #78A4FA;
+    color: $color-brand;
     text-align: center;
     border: 2px solid rgba(120, 164, 250, 0.16);
     border-radius: 18px;
@@ -106,7 +109,7 @@
     height: 30px;
     color: #fff;
     text-align: center;
-    background: #78A4FA;
+    background: $color-brand;
     /*  #ifndef  rn  */
     box-shadow: 2px 5px 15px 0 rgba(120, 164, 250, 0.30);
     /*  #endif  */

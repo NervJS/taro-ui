@@ -1,7 +1,7 @@
 import React from 'react'
 import { AtButton } from 'tiga-ui'
 import { View } from '@tarojs/components'
-import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -11,14 +11,6 @@ interface ButtonPageState {
 }
 
 export default class ButtonPage extends React.Component<any, ButtonPageState> {
-  public constructor(props: any) {
-    super(props)
-    this.state = {
-      // isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
-      // isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
-    }
-  }
-
   private onButtonClick(): void {
     const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
@@ -31,13 +23,8 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
     if (ENV === 'WEB') {
       alert(content || '您点击了按钮！')
     }
-  }
-
-  public onShareAppMessage(): ShareAppMessageReturn {
-    return {
-      title: 'Tiga UI',
-      path: '/pages/index/index',
-      imageUrl: 'http://storage.360buyimg.com/mtd/home/share1535013100318.jpg'
+    if (ENV === 'RN') {
+      console.warn(content || '您点击了按钮！')
     }
   }
 
@@ -69,7 +56,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   secondary
                 </AtButton>
               </View>
-              <View className='btn-item'>
+              <View className='btn-item btn-item--last-child'>
                 <AtButton
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}
@@ -100,7 +87,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   secondary
                 </AtButton>
               </View>
-              <View className='btn-item'>
+              <View className='btn-item btn-item--last-child'>
                 <AtButton
                   disabled
                   type='tertiary'
@@ -150,7 +137,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   mini
                 </AtButton>
               </View>
-              <View className='btn-item'>
+              <View className='btn-item btn-item--last-child'>
                 <AtButton
                   size='tiny'
                   type='primary'
@@ -183,7 +170,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   {`setWidth: ${Taro.pxTransform(200)}`}
                 </AtButton>
               </View>
-              <View className='btn-item'>
+              <View className='btn-item btn-item--last-child'>
                 <AtButton
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}

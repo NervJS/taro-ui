@@ -1,7 +1,7 @@
 /**
  * 设置placeholder 颜色
  */
-@mixin placeholder($color: $color-grey-3) {
+@mixin placeholder($color: $color-text-subtle) {
   @at-root .placeholder {
     color: $color;
   }

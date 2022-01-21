@@ -1,4 +1,5 @@
 @mixin line($num: 1) {
+  /*  #ifndef  rn  */
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -11,4 +12,9 @@
     /* autoprefixer: off */
     -webkit-box-orient: vertical;
   }
+  /*  #endif  */
+  /*  #ifndef  rn  */
+  number-of-lines: $num;
+  ellipsize-mode: tail;
+  /*  #endif  */
 }

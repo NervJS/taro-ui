@@ -2,8 +2,14 @@
  * 元素居中定位
  */
 @mixin absolute-center($pos: absolute) {
+  /*  #ifndef  rn  */
   position: $pos;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /*  #endif  rn  */
+  /*  #ifdef  rn  */
+  align-items: center;
+  justify-content: center;
+  /*  #endif  */
 }
