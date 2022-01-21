@@ -3,7 +3,9 @@ import RollupJson from '@rollup/plugin-json'
 import RollupNodeResolve from '@rollup/plugin-node-resolve'
 import RollupCommonjs from '@rollup/plugin-commonjs'
 import RollupTypescript from 'rollup-plugin-typescript2'
-import RollupCopy from 'rollup-plugin-copy'
+// ref to https://github.com/vladshcherbin/rollup-plugin-copy/pull/42
+// fork by rollup-plugin-copy 更改的包，验证完后最好锁一下版本，解决源码更新后 copy 没有重新触发的问题
+import RollupCopy from '@guanghechen/rollup-plugin-copy'
 import Package from '../package.json'
 
 const resolveFile = path => NodePath.resolve(__dirname, '..', path)

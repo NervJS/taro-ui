@@ -46,6 +46,7 @@
     "react-native-modal": "^13.0.0"
   },
   "devDependencies": {
+    "@guanghechen/rollup-plugin-copy": "^1.8.6",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
@@ -59,7 +60,6 @@
     "@types/react-native": "^0.64.13",
     "camelize": "^1.0.0",
     "rollup": "^2.3.1",
-    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-typescript2": "^0.27.0",
     "rollup-plugin-visualizer": "^4.0.2",
     "typescript": "4.3.5"
