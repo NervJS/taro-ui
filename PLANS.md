@@ -2,6 +2,6 @@
 
 ## 第一阶段
 
-- [ ] Button
-- [ ] Dialog
+- [X] Button
 - [ ] Toast
+- [ ] Dialog
