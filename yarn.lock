@@ -12005,9 +12005,9 @@ nan@^2.13.2, nan@^2.14.0:
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
 nanoid@^3.0.1:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.3.tgz#b2bcfcfda4b4d6838bc22a0c8dd3c0a17a204c20"
-  integrity sha512-Zw8rTOUfh6FlKgkEbHiB1buOF2zOPOQyGirABUWn+9Z7m9PpyoLVkh6Ksc53vBjndINQ2+9LfRPaHxb/u45EGg==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
+  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -16405,7 +16405,7 @@ taro-css-to-react-native@^2.0.4:
     postcss-value-parser "^3.3.0"
 
 "taro-ui-demo@file:packages/taro-ui-demo":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@tarojs/components" "~3.0.2"
@@ -16414,10 +16414,10 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "~3.0.2"
     react "^16.13.0"
     react-dom "^16.13.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.0-alpha.2-25b21f29-67e3-4b8f-808c-37229355eb71-1593715396950/node_modules/taro-ui"
+    taro-ui "file:packages/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
