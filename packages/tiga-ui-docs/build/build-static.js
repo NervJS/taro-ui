@@ -11,7 +11,7 @@ fs.emptyDirSync(path.resolve(__dirname, '../dist/h5'))
 
 fs.copy(
   // packages/taro-ui-demo/dist
-  path.resolve(__dirname, '../../taro-ui-demo/dist'),
+  path.resolve(__dirname, '../../tiga-ui-demo/dist'),
   path.resolve(__dirname, '../dist/h5')
 )
   .then(() => {

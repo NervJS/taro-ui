@@ -20,9 +20,11 @@ module.exports = {
           {
             test: /\.jsx?$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'babel-loader',
-            options: {
-              rootMode: 'upward'
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env', '@babel/preset-react']
+              }
             }
           },
           {
@@ -39,7 +41,7 @@ module.exports = {
               {
                 loader: 'babel-loader',
                 options: {
-                  rootMode: 'upward'
+                  presets: ['@babel/preset-env', '@babel/preset-react']
                 }
               },
               `${path.join(__dirname, './addImportLoader.js')}`

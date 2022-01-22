@@ -1,3 +1,6 @@
+/* eslint-disable react/no-string-refs */
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import QRCode from 'qrcode.react'
@@ -48,7 +51,7 @@ class Docs extends React.Component {
             }`}
           >
             {curDemoPath && (
-              <div className='qrcode-menu' style='right: 420px'>
+              <div className='qrcode-menu' style={{ right: '420px' }}>
                 <div className='qrcode-container'>
                   <img src={qrCodeImg} alt='qrcode' />
                   <div className='qrcode-modal'>
@@ -78,6 +81,7 @@ class Docs extends React.Component {
                 if (item.items) {
                   return item.items.map(item => (
                     <Route
+                      key={`/docs/${item.name.toLowerCase()}`}
                       path={`/docs/${item.name.toLowerCase()}`}
                       component={require(`../view/${item.name}`).default}
                     />
@@ -87,6 +91,7 @@ class Docs extends React.Component {
                   return item.groups.map(item =>
                     item.items.map(item => (
                       <Route
+                        key={`/docs/${item.name.toLowerCase()}`}
                         path={`/docs/${item.name.toLowerCase()}`}
                         component={require(`../view/${item.name}`).default}
                       />

@@ -2,7 +2,7 @@
 
 ---
 
-提供 `Taro-UI` 的视觉相关资源下载
+提供 `Tiga-UI` 的视觉相关资源下载
 
 <div class="at-resource">
   <div class="at-resource__item">
