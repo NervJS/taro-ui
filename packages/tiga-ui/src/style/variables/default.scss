@@ -90,9 +90,6 @@ $radius-circle: 50%; // 全圆角，特殊排版使用 // add
 $toast-bg: rgba(0, 0, 0, 0.8); // toast背景色 // add
 $toast-radius: $radius-lg; // toast圆角 // add
 
-/* dialog 弹窗 */
-$dialog-radius: $radius-lg; // 弹窗圆角 // add
-
 /* 图标颜色 */
 // $color-icon-base: #CCC !default;
 
@@ -122,18 +119,18 @@ $opacity-disabled-light: 0.2 !default; // 填充型失效透明度，如primaryB
 // $line-height-zh: 1.5 !default; // 中文多行
 
 /* 水平间距 */
-$spacing-h-xs: 4PX !default; // edit
-$spacing-h-sm: 8PX !default; // edit
-$spacing-h-md: 12PX !default; // edit
-$spacing-h-lg: 16PX !default; // edit
-$spacing-h-xl: 24PX !default; // edit
+$spacing-h-xs: 4px !default; // edit
+$spacing-h-sm: 8px !default; // edit
+$spacing-h-md: 12px !default; // edit
+$spacing-h-lg: 16px !default; // edit
+$spacing-h-xl: 24px !default; // edit
 
 /* 垂直间距 */
-$spacing-v-xs: 4PX !default; // edit
-$spacing-v-sm: 8PX !default; // edit
-$spacing-v-md: 12PX !default; // edit
-$spacing-v-lg: 16PX !default; // edit
-$spacing-v-xl: 24PX !default; // edit
+$spacing-v-xs: 4px !default; // edit
+$spacing-v-sm: 8px !default; // edit
+$spacing-v-md: 12px !default; // edit
+$spacing-v-lg: 16px !default; // edit
+$spacing-v-xl: 24px !default; // edit
 
 /* 图标尺寸 */
 // $icon-size-sm: 18px * $hd !default;
@@ -357,13 +354,14 @@ $at-button-bg: $at-button-color !default;
 // $at-message-font-size: $font-size-base !default;
 // $at-message-bg-color: $color-info !default;
 
-// /* Modal */
-// $at-modal-width: 540px !default;
-// $at-modal-header-text-color: $color-text-base !default;
-// $at-modal-content-text-color: $color-text-base !default;
-// $at-modal-btn-default-color: $color-text-base !default;
-// $at-modal-btn-confirm-color: $color-brand !default;
-// $at-modal-bg-color: $color-white !default;
+// /* dialog */
+$at-dialog-width: 295px !default;
+$at-dialog-header-text-color: $color-text-title !default;
+$at-dialog-content-text-color: $color-text-secondary !default;
+// $at-dialog-btn-default-color: $color-text-base !default;
+// $at-dialog-btn-confirm-color: $color-brand !default;
+$at-dialog-bg-color: $color-bg-base !default;
+$at-dialog-radius: $radius-lg; // 弹窗圆角 // add
 
 // /* NavBar */
 // $at-nav-bar-title-color: $color-text-base !default;

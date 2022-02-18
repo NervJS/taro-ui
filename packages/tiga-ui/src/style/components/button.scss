@@ -127,7 +127,7 @@ $at-border-width: 0.5px;
 
   &--small {
     height: $at-button-height-small;
-    padding: 0 10PX;
+    padding: 0 10px;
 
     &__text {
       @include font(14px, $at-button-height-small);
@@ -136,7 +136,7 @@ $at-border-width: 0.5px;
 
   &--mini {
     height: $at-button-height-mini;
-    padding: 0 10PX;
+    padding: 0 10px;
 
     &__text {
       @include font(14px, $at-button-height-mini);
@@ -145,7 +145,7 @@ $at-border-width: 0.5px;
 
   &--tiny {
     height: $at-button-height-tiny;
-    padding: 0 10PX;
+    padding: 0 10px;
 
     &__text {
       @include font(12px, $at-button-height-tiny);

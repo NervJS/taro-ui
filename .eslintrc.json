@@ -45,6 +45,7 @@
         "import/no-named-as-default": "off",
         "class-methods-use-this": "off",
         "prefer-rest-params": "off",
+        "@typescript-eslint/no-empty-function": ["off"],
         "react/jsx-filename-extension": [
           2,
           {

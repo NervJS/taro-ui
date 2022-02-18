@@ -3,6 +3,7 @@ export default {
     'pages/index/index',
     'pages/panel/index',
     'pages/basic/button/index',
+    'pages/action/dialog/index'
   ],
   window: {
     backgroundTextStyle: 'light',

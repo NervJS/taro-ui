@@ -25,10 +25,6 @@ const config = {
   mini: {
     debugReact: true,
     postcss: {
-      pxtransform: {
-        enable: true,
-        config: {}
-      },
       url: {
         enable: true,
         config: {
@@ -40,6 +36,16 @@ const config = {
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      },
+      pxtransform: {
+        enable: false,
+        config: {}
+      },
+      './crossPlatformComments': {
+        enable: true,
+        config: {
+          platform: 'weapp'
         }
       }
     }
@@ -58,6 +64,15 @@ const config = {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
+      },
+      pxtransform: {
+        enable: false
+      },
+      './crossPlatformComments': {
+        enable: true,
+        config: {
+          platform: 'h5'
+        }
       }
     }
   },
@@ -65,7 +80,19 @@ const config = {
     resolve: {
       include: ['tiga-ui']
     },
-    enableSvgTransform: true
+    enableSvgTransform: true,
+    postcss: {
+      pxtransform: {
+        enable: false
+      },
+      scalable: false,
+      './crossPlatformComments': {
+        enable: true,
+        config: {
+          platform: 'rn'
+        }
+      }
+    }
   }
 }
 

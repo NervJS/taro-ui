@@ -45,7 +45,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  primary
+                  主操作
                 </AtButton>
               </View>
               <View className='btn-item'>
@@ -53,7 +53,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='secondary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  secondary
+                  次操作
                 </AtButton>
               </View>
               <View className='btn-item btn-item--last-child'>
@@ -61,7 +61,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  tertiary
+                  次次操作
                 </AtButton>
               </View>
             </View>
@@ -75,7 +75,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  primary
+                  主操作
                 </AtButton>
               </View>
               <View className='btn-item'>
@@ -84,7 +84,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='secondary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  secondary
+                  次操作
                 </AtButton>
               </View>
               <View className='btn-item btn-item--last-child'>
@@ -93,7 +93,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  tertiary
+                  次次操作
                 </AtButton>
               </View>
             </View>
@@ -107,7 +107,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  large
+                  大按钮
                 </AtButton>
               </View>
               <View className='btn-item'>
@@ -116,7 +116,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  medium
+                  中按钮
                 </AtButton>
               </View>
               <View className='btn-item'>
@@ -125,7 +125,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  small
+                  小按钮
                 </AtButton>
               </View>
               <View className='btn-item'>
@@ -134,7 +134,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  mini
+                  迷你按钮
                 </AtButton>
               </View>
               <View className='btn-item btn-item--last-child'>
@@ -143,7 +143,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   type='primary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  tiny
+                  微小按钮
                 </AtButton>
               </View>
             </View>
@@ -169,13 +169,21 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                 >
                   {`setWidth: ${Taro.pxTransform(200)}`}
                 </AtButton>
+                <AtButton
+                  size='large'
+                  type='secondary'
+                  className='f100px'
+                  onClick={this.onButtonClick.bind(this)}
+                >
+                  100px
+                </AtButton>
               </View>
               <View className='btn-item btn-item--last-child'>
                 <AtButton
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  autoWidth
+                  自动宽度
                 </AtButton>
               </View>
             </View>
