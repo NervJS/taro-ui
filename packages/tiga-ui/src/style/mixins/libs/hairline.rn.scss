@@ -1,0 +1,125 @@
+/**
+ * 默认主题下 $color-border-heavy
+ */
+ @mixin hairline-base(
+  $color: $color-border-heavy,
+  $style: solid
+) {
+  border-style: $style;
+  border-color: $color;
+}
+@mixin hairline-surround(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-width: $width;
+}
+
+@mixin hairline-top(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-top-width: $width;
+}
+
+@mixin hairline-bottom(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-bottom-width: $width;
+}
+
+@mixin hairline-left(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-left-width: $width;
+}
+
+@mixin hairline-right(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-right-width: $width;
+}
+
+@mixin hairline-top-bottom(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-top-width: $width;
+  border-bottom-width: $width;
+}
+
+@mixin hairline-left-top(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX
+) {
+  @include hairline-base($color, $style);
+
+  border-left-width: $width;
+  border-top-width: $width;
+}
+
+@mixin hairline-bottom-relative(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX,
+  $left: 0
+) {
+  @include hairline-base($color, $style);
+
+  border-bottom-width: $width;
+}
+
+@mixin hairline-top-relative(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX,
+  $left: 0
+) {
+  @include hairline-base($color, $style);
+
+  border-top-width: $width;
+}
+
+@mixin hairline-left-relative(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX,
+  $top: 0
+) {
+  @include hairline-base($color, $style);
+
+  border-left-width: $width;
+}
+
+@mixin hairline-right-relative(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 0.5PX,
+  $top: 0
+) {
+  @include hairline-base($color, $style);
+
+  border-right-width: $width;
+}

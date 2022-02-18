@@ -17,7 +17,7 @@ const PADDING_HORIZONTAL = {
 // RN 描边宽度
 const BORDER_WIDTH = 0.5
 
-const AtButton: React.FunctionComponent<AtButtonProps> = props => {
+const AtButton: React.FC<AtButtonProps> = props => {
   const { isWEAPP, isWEB, isALIPAY, isRN } = PLATFORM
   const {
     disabled,
@@ -50,7 +50,7 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
   const sizeTextClassName = `at-button--${size}__text`
 
   // RN 自动宽度
-  const [width, setWidth] = useState('auto')
+  const [width, setWidth] = useState<string | number>('auto')
 
   // RN 布局调整宽度
   const onLayout = useCallback(
@@ -59,7 +59,9 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
       const paddingHorizontal = size && PADDING_HORIZONTAL[size]
       const borderWidth = type !== 'primary' ? BORDER_WIDTH : 0
       if (paddingHorizontal) {
-        setWidth(width + paddingHorizontal * 2 + borderWidth * 2)
+        const newWidth = width + paddingHorizontal * 2 + borderWidth * 2
+        // fix: 解决动态计算 button 抖动问题
+        setWidth(parseInt(newWidth))
       }
     },
     [size, type]
@@ -158,6 +160,8 @@ const AtButton: React.FunctionComponent<AtButtonProps> = props => {
     </View>
   )
 }
+
+AtButton.displayName = 'AtButton'
 
 AtButton.defaultProps = {
   size: 'medium',

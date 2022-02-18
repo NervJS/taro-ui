@@ -1,5 +1,5 @@
 /**
- * 默认主题下 $color-text-ghost
+ * 默认主题下 $color-border-heavy
  */
 
 @mixin hairline-common() {
@@ -11,7 +11,7 @@
 }
 
 @mixin hairline-base(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid
 ) {
   @include hairline-common();
@@ -25,7 +25,7 @@
 }
 
 @mixin hairline-surround(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -39,7 +39,7 @@
 }
 
 @mixin hairline-top(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -53,7 +53,7 @@
 }
 
 @mixin hairline-bottom(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -67,7 +67,7 @@
 }
 
 @mixin hairline-left(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -81,7 +81,7 @@
 }
 
 @mixin hairline-right(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -95,7 +95,7 @@
 }
 
 @mixin hairline-top-bottom(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX
 ) {
@@ -109,8 +109,23 @@
   }
 }
 
+@mixin hairline-left-top(
+  $color: $color-border-heavy,
+  $style: solid,
+  $width: 1PX
+) {
+  position: relative;
+
+  &::after {
+    @include hairline-base($color, $style);
+
+    border-top-width: $width;
+    border-left-width: $width;
+  }
+}
+
 @mixin hairline-bottom-relative(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX,
   $left: 0
@@ -130,7 +145,7 @@
 }
 
 @mixin hairline-top-relative(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX,
   $left: 0
@@ -150,7 +165,7 @@
 }
 
 @mixin hairline-left-relative(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX,
   $top: 0
@@ -170,7 +185,7 @@
 }
 
 @mixin hairline-right-relative(
-  $color: $color-text-ghost,
+  $color: $color-border-heavy,
   $style: solid,
   $width: 1PX,
   $top: 0

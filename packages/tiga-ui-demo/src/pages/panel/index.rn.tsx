@@ -146,7 +146,7 @@ export default class PanelBasic extends React.Component<any, PanelBasicState> {
             name: '活动指示器'
           },
           {
-            id: 'Modal',
+            id: 'Dialog',
             name: '模态框'
           },
           {

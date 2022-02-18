@@ -1,0 +1,10 @@
+/**
+ * 元素居中定位
+ */
+@mixin absolute-center($pos: absolute) {}
+
+@mixin absolute-center-child() {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
