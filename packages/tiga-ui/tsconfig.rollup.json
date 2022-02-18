@@ -5,10 +5,10 @@
     "module": "es6",
     "downlevelIteration": true,
     "noUnusedLocals": false,
-    "baseUrl": ".",
-    "types": ["node"]
+    "baseUrl": "."
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "global.d.ts"
   ]
 }
