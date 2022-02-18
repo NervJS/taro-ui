@@ -8,5 +8,9 @@
       "node_modules/@types",
       "types"
     ]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "global.d.ts"
+  ]
 }
