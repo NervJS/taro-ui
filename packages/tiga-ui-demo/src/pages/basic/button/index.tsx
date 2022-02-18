@@ -11,6 +11,13 @@ interface ButtonPageState {
 }
 
 export default class ButtonPage extends React.Component<any, ButtonPageState> {
+  public constructor(props: any) {
+    super(props)
+    this.state = {
+      // isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
+      // isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
+    }
+  }
   private onButtonClick(): void {
     const content = [...arguments].find(item => typeof item === 'string')
     const ENV = Taro.getEnv()
