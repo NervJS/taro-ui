@@ -31,29 +31,6 @@ view {
 .example {
   padding: 5px 10px;
   margin-bottom: 5px;
-
-  /*  #ifndef  rn  */
-  &:not(:first-child) {
-    border-top: 20px solid #f5f5f5;
-  }
-  /*  #endif  */
-
-  &__header {
-    margin-bottom: 10px;
-    padding-bottom: 20px;
-    border-bottom: 0.5 solid $color-bg-gray-heavy; // 0.5px
-
-    &-title {
-      color: $color-text-title;
-      font-size: 14px;
-    }
-
-    &-note {
-      font-size: 12px;
-      margin-left: 10px;
-      color: $color-text-secondary;
-    }
-  }
 }
 
 /**
