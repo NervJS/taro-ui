@@ -14048,9 +14048,9 @@ querystring@0.2.0:
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
 querystringify@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
-  integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.2.0.tgz#3345941b4153cb9d082d8eee4cda2016a9aef7f6"
+  integrity sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
 
 queue@6.0.1:
   version "6.0.1"
@@ -16405,7 +16405,7 @@ taro-css-to-react-native@^2.0.4:
     postcss-value-parser "^3.3.0"
 
 "taro-ui-demo@file:packages/taro-ui-demo":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@tarojs/components" "~3.0.2"
@@ -16414,10 +16414,10 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "~3.0.2"
     react "^16.13.0"
     react-dom "^16.13.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.0-alpha.2-25b21f29-67e3-4b8f-808c-37229355eb71-1593715396950/node_modules/taro-ui"
+    taro-ui "file:packages/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
@@ -17243,9 +17243,9 @@ url-parse-lax@^3.0.0:
     prepend-http "^2.0.0"
 
 url-parse@^1.4.3, url-parse@^1.4.7:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.7.tgz#00780f60dbdae90181f51ed85fb24109422c932a"
+  integrity sha512-HxWkieX+STA38EDk7CE9MEryFeHCKzgagxlGvsdS7WBImq9Mk+PGwiT56w82WI3aicwJA8REp42Cxo98c8FZMA==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
