@@ -1,4 +1,4 @@
-import { ComponentClass } from 'react'
+import { FC } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
@@ -81,7 +81,7 @@ export interface AtDialogContentProps extends AtComponent {
 
 export type AtDialogHeaderProps = AtComponent
 
-export interface AtDialogWrapperProps extends AtComponent {
+export interface AtDialogWrapProps extends AtComponent {
   /**
    * RN 配置，是否内容滚动
    * @default false
@@ -103,6 +103,6 @@ export interface AtDialogActionProps extends AtComponent {
   onClick?: CommonEventFunction
 }
 
-declare const AtDialog: ComponentClass<AtDialogProps>
+declare const AtDialog: FC<AtDialogProps>
 
 export default AtDialog

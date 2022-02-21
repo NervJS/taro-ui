@@ -60,8 +60,9 @@ const AtButton: React.FC<AtButtonProps> = props => {
       const borderWidth = type !== 'primary' ? BORDER_WIDTH : 0
       if (paddingHorizontal) {
         const newWidth = width + paddingHorizontal * 2 + borderWidth * 2
-        // fix: 解决动态计算 button 抖动问题
-        setWidth(parseInt(newWidth))
+        // TODO: fix: 解决动态计算 button 抖动问题
+        // setWidth(parseInt(newWidth))
+        setWidth(newWidth)
       }
     },
     [size, type]

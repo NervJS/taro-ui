@@ -354,7 +354,7 @@ $at-button-bg: $at-button-color !default;
 // $at-message-font-size: $font-size-base !default;
 // $at-message-bg-color: $color-info !default;
 
-// /* dialog */
+/* dialog */
 $at-dialog-width: 295px !default;
 $at-dialog-header-text-color: $color-text-title !default;
 $at-dialog-content-text-color: $color-text-secondary !default;
@@ -362,6 +362,12 @@ $at-dialog-content-text-color: $color-text-secondary !default;
 // $at-dialog-btn-confirm-color: $color-brand !default;
 $at-dialog-bg-color: $color-bg-base !default;
 $at-dialog-radius: $radius-lg; // 弹窗圆角 // add
+
+/* curtain */
+$at-curtain-width: $at-dialog-width !default;
+$at-curtain-btn-size: 36px !default;
+$at-curtain-btn-color: $color-bg !default;
+$at-curtain-btn-v-gap: 10px !default; // close btn 垂直方向跟内容的间距
 
 // /* NavBar */
 // $at-nav-bar-title-color: $color-text-base !default;
@@ -497,3 +503,12 @@ $at-dialog-radius: $radius-lg; // 弹窗圆角 // add
 // $at-timeline-dot-color: $color-bg !default;
 // $at-timeline-dot-border-color: $color-brand-light !default;
 // $at-timeline-line-color: $color-border-lighter !default;
+
+// z-index 组件层级
+$zindex-Toast: 25 !default;
+$zindex-Dialog: 24 !default;
+$zindex-ModalBottomSheet: 16 !default;
+$zindex-ActionSheet: 14 !default;
+$zindex-Tips: 14 !default;
+$zindex-NavMenu: 14 !default;
+$zindex-DropdownMenu: 14 !default;

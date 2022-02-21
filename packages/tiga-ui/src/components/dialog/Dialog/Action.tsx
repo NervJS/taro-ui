@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { View } from '@tarojs/components'
-import { AtDialogActionProps } from '../../../types/dialog'
+import { AtDialogActionProps } from '../../../../types/dialog'
 
 const AtDialogAction: React.FC<AtDialogActionProps> = ({
   hasLeftBorder,

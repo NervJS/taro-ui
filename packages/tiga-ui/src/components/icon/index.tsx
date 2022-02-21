@@ -8,7 +8,14 @@ export default class AtIcon extends Component<AtIconProps> {
   public static propTypes: InferProps<AtIconProps>
 
   public render(): JSX.Element | null {
-    const { value, color, size, customStyle = {}, style = {} } = this.props
+    const {
+      value,
+      color,
+      size,
+      className,
+      customStyle = {},
+      style = {}
+    } = this.props
 
     let inputStyle = style
 
@@ -30,6 +37,8 @@ export default class AtIcon extends Component<AtIconProps> {
     }
 
     return createElement(ICONS[value] || ((): any => null), {
+      // 非 RN 只需透传 className，RN 无效
+      className,
       // 图标色值优先级
       fill: color || (customStyle as any).color || inputStyle.color || '',
       style: Object.assign({}, inputStyle, customStyle, _style)

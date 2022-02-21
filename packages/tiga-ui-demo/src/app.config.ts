@@ -4,7 +4,8 @@ export default {
     'pages/panel/index',
     'pages/basic/button/index',
     'pages/basic/icon/index',
-    'pages/action/dialog/index'
+    'pages/action/dialog/index',
+    'pages/view/curtain/index'
   ],
   window: {
     backgroundTextStyle: 'light',

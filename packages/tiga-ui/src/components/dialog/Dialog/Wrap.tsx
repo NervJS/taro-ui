@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import React from 'react'
 import { View } from '@tarojs/components'
-import { AtDialogWrapperProps } from '../../../types/dialog'
+import { AtDialogWrapProps } from '../../../../types/dialog'
 
-const AtDialogWrapper: React.FC<AtDialogWrapperProps> = ({
+const AtDialogWrapper: React.FC<AtDialogWrapProps> = ({
   className,
   children
 }) => {
-  const rootClass = classNames('at-dialog__wrapper', className)
+  const rootClass = classNames('at-dialog__wrap', className)
   return <View className={rootClass}>{children}</View>
 }
 

@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { View, Text } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
-import AtDialogHeader from './header'
-import AtDialogContent from './content'
-import AtDialogWrapper from './wrapper'
-import AtDialogFooter from './footer'
-import { AtDialogProps } from '../../../types/dialog'
-import { PLATFORM } from '../../utils'
+import AtDialogHeader from './Header'
+import AtDialogContent from './Content'
+import AtDialogWrap from './Wrap'
+import AtDialogFooter from './Footer'
+import { AtDialogProps } from '../../../../types/dialog'
+import { PLATFORM } from '../../../utils'
 
 const AtDialog: React.FC<AtDialogProps> = ({
   customStyle,
@@ -78,6 +78,7 @@ const AtDialog: React.FC<AtDialogProps> = ({
   if (!title) {
     if (content && content.length <= 25) {
       title = content
+      content = ''
     }
   }
 
@@ -105,10 +106,10 @@ const AtDialog: React.FC<AtDialogProps> = ({
     >
       <View className={overlayClass} onClick={handleClickOverlay} />
       <View className={containerClass}>
-        <AtDialogWrapper>
+        <AtDialogWrap>
           {title && <AtDialogHeader>{title}</AtDialogHeader>}
           <AtDialogContent>{dialogContent}</AtDialogContent>
-        </AtDialogWrapper>
+        </AtDialogWrap>
         <AtDialogFooter
           primaryText={primaryText}
           secondaryText={secondaryText}

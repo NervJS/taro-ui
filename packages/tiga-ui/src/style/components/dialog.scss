@@ -52,7 +52,7 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
     @include absolute-center();
   }
 
-  &__wrapper {
+  &__wrap {
     padding: $spacing-v-xl $spacing-h-lg;
     padding-top: $spacing-v-xl - $at-dialog-header-v-gap;
     padding-bottom: $spacing-v-xl - $at-dialog-content-v-gap;

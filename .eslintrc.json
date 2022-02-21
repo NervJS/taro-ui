@@ -43,6 +43,7 @@
           "off"
         ],
         "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
         "class-methods-use-this": "off",
         "prefer-rest-params": "off",
         "@typescript-eslint/no-empty-function": ["off"],

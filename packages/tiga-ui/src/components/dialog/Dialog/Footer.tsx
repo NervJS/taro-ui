@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React, { memo } from 'react'
 import { View } from '@tarojs/components'
-import { AtDialogFooterProps } from '../../../types/dialog'
-import AtDialogAction from './action'
+import { AtDialogFooterProps } from '../../../../types/dialog'
+import AtDialogAction from './Action'
 
 const AtDialogFooter: React.FC<AtDialogFooterProps> = ({
   primaryText,

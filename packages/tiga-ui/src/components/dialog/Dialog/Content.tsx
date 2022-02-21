@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { ScrollView, View } from '@tarojs/components'
-import { AtDialogContentProps } from '../../../types/dialog'
+import { AtDialogContentProps } from '../../../../types/dialog'
 
 const AtDialogContent: React.FC<AtDialogContentProps> = ({
   children,

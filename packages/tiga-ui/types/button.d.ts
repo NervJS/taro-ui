@@ -1,4 +1,4 @@
-import { ComponentClass } from 'react'
+import { FC } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 import { ButtonProps } from '@tarojs/components/types/Button'
 
@@ -55,6 +55,6 @@ export interface AtButtonState {
   isALIPAY: boolean
 }
 
-declare const AtButton: ComponentClass<AtButtonProps>
+declare const AtButton: FC<AtButtonProps>
 
 export default AtButton
