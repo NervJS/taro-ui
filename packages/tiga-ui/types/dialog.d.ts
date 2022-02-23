@@ -19,7 +19,7 @@ export interface AtDialogProps extends AtComponent {
   content?: string
   /**
    * 点击浮层的时候时候自动关闭
-   * @default true
+   * @default false
    */
   closeOnClickOverlay?: boolean
   /**

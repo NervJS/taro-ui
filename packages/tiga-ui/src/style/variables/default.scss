@@ -155,7 +155,7 @@ $spacing-v-xl: 24px !default; // edit
 // $zindex-toast: 1090 !default;
 
 /* timing function */
-// $timing-func: cubic-bezier(0.36, 0.66, 0.04, 1) !default;
+$timing-func: cubic-bezier(0.36, 0.66, 0.04, 1) !default;
 
 /**
 * CSS cubic-bezier timing functions
@@ -505,10 +505,9 @@ $at-curtain-btn-v-gap: 10px !default; // close btn 垂直方向跟内容的间�
 // $at-timeline-line-color: $color-border-lighter !default;
 
 // z-index 组件层级
-$zindex-Toast: 25 !default;
-$zindex-Dialog: 24 !default;
-$zindex-ModalBottomSheet: 16 !default;
-$zindex-ActionSheet: 14 !default;
-$zindex-Tips: 14 !default;
-$zindex-NavMenu: 14 !default;
-$zindex-DropdownMenu: 14 !default;
+$zindex-toast: 25 !default;
+$zindex-dialog: 24 !default;
+$zindex-action-sheet: 14 !default;
+$zindex-tips: 14 !default;
+$zindex-nav-menu: 14 !default;
+$zindex-dropdown-menu: 14 !default;

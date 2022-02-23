@@ -9,23 +9,26 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
   /*  #ifndef  rn  */
   position: fixed;
   /*  #endif  */
+
   /*  #ifdef  rn  */
   position: absolute;
   /*  #endif  */
-  // width: 100%;
-  // height: 100%;
+
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+
   /*  #ifndef  rn  */
   visibility: hidden;
   /*  #endif  */
+
   /*  #ifdef  rn  */
   display: none;
   // RN 对子元素居中定位，其他端为空
   @include absolute-center-child();
   /*  #endif  */
+
   // transition: visibility $at-dialog-duration ease-in;
   // z-index: $zindex-dialog;
 
@@ -44,12 +47,13 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
   }
 
   &__container {
+    // 其他端对自己居中定位，RN 端为空
+    @include absolute-center();
+
     width: $at-dialog-width;
     border-radius: $at-dialog-radius;
     background-color: $at-dialog-bg-color;
     overflow: hidden;
-    // 其他端对自己居中定位，RN 端为空
-    @include absolute-center();
   }
 
   &__wrap {
@@ -66,11 +70,10 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
   }
 
   &__content {
-    // @include font(16px, 16px);
+    // 使用 line-height, 对应的 padding 需要动态计算
     @include font(16px);
 
     padding-top: $spacing-v-lg - $at-dialog-content-v-gap - $at-dialog-header-v-gap;
-
     color: $at-dialog-content-text-color;
     box-sizing: content-box;
     width: auto;
@@ -106,7 +109,7 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
       color: $color-text-secondary;
     }
 
-    &--border--left {
+    &--border-left {
       @include hairline-left-top();
     }
   }
@@ -116,6 +119,7 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
     /*  #ifndef  rn  */
     visibility: visible;
     /*  #endif  */
+
     /*  #ifdef  rn  */
     display: flex;
     /*  #endif  */

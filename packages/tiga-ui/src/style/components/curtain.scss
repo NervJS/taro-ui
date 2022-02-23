@@ -6,15 +6,17 @@
    display: block;
    position: fixed;
   /*  #endif  */
+
   /*  #ifdef  rn  */
   position: absolute;
   /*  #endif  */
+
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: $mask-base;
-  z-index: $zindex-Dialog;
+  z-index: $zindex-dialog;
 
   /* elements */
   &__container {
@@ -25,9 +27,11 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+
     /*  #ifndef  rn  */
     box-sizing: border-box;
     /*  #endif  */
+
     opacity: 1;
   }
 
@@ -48,15 +52,18 @@
     justify-content: center;
     border: 2PX solid $at-curtain-btn-color;
     border-radius: $at-curtain-btn-size / 2;
+
     /*  #ifndef  rn  */
     border-radius: 50%;
     box-sizing: border-box;
     /*  #endif  */
-    z-index: $zindex-Dialog;
+
+    z-index: $zindex-dialog;
     color: $at-curtain-btn-color;
 
     &--at-icon {
       color: $at-curtain-btn-color;
+
       /*  #ifndef  rn  */
       fill: $at-curtain-btn-color;
       /*  #endif  */
@@ -128,6 +135,7 @@
     /*  #ifdef  rn  */
     display: none;
     /*  #endif  */
+
     /*  #ifndef  rn  */
     visibility: hidden;
     /*  #endif  */

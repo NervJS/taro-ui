@@ -45,6 +45,7 @@
         "import/no-named-as-default": "off",
         "import/no-named-as-default-member": "off",
         "class-methods-use-this": "off",
+        "@typescript-eslint/no-empty-interface": "off",
         "prefer-rest-params": "off",
         "@typescript-eslint/no-empty-function": ["off"],
         "react/jsx-filename-extension": [

@@ -56,7 +56,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   次操作
                 </AtButton>
               </View>
-              <View className='btn-item btn-item--last-child'>
+              <View className='btn-item btn-item--last'>
                 <AtButton
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}
@@ -87,7 +87,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   次操作
                 </AtButton>
               </View>
-              <View className='btn-item btn-item--last-child'>
+              <View className='btn-item btn-item--last'>
                 <AtButton
                   disabled
                   type='tertiary'
@@ -137,7 +137,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   迷你按钮
                 </AtButton>
               </View>
-              <View className='btn-item btn-item--last-child'>
+              <View className='btn-item btn-item--last'>
                 <AtButton
                   size='tiny'
                   type='primary'
@@ -178,7 +178,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                   100px
                 </AtButton>
               </View>
-              <View className='btn-item btn-item--last-child'>
+              <View className='btn-item btn-item--last'>
                 <AtButton
                   type='tertiary'
                   onClick={this.onButtonClick.bind(this)}

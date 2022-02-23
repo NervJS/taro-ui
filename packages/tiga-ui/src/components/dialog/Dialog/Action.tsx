@@ -12,7 +12,7 @@ const AtDialogAction: React.FC<AtDialogActionProps> = ({
   const rootClass = classNames(
     'at-dialog__action',
     `at-dialog__action--${type}`,
-    { 'at-dialog__action--border--left': hasLeftBorder }
+    { 'at-dialog__action--border-left': hasLeftBorder }
   )
 
   return (

@@ -5,6 +5,7 @@ export default {
     'pages/basic/button/index',
     'pages/basic/icon/index',
     'pages/action/dialog/index',
+    'pages/action/action-sheet/index',
     'pages/view/curtain/index'
   ],
   window: {

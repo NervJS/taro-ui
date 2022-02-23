@@ -1,0 +1,116 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-action-sheet-duration: 300ms;
+$at-dialog-header-v-gap: (20px - 14px) / 2;
+$at-dialog-item-v-gap: (22px - 16px) / 2;
+
+.at-action-sheet {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: $zindex-action-sheet;
+
+  /*  #ifndef  rn  */
+  visibility: hidden;
+  transition: visibility $at-action-sheet-duration $timing-func;
+  /*  #endif  */
+
+  /* elements */
+  &__overlay {
+    @include overlay;
+
+    opacity: 0;
+
+    /*  #ifndef  rn  */
+    transition: opacity $at-action-sheet-duration $timing-func;
+    /*  #endif  */
+
+  }
+
+  &__container {
+    position: absolute;
+    // padding: $spacing-v-sm $spacing-h-xl;
+
+    /*  #ifndef  rn  */
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    /*  #endif  */
+
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: $color-bg-base;
+
+    /*  #ifndef  rn  */
+    transform: translate3d(0, 100%, 0);
+    // transition: transform $at-action-sheet-duration $timing-func;
+    transition: transform $at-action-sheet-duration ease-in;
+    /*  #endif  */
+
+    box-sizing: border-box;
+  }
+
+  &__header {
+    @include font(14px);
+
+    padding: $spacing-v-lg - $at-dialog-header-v-gap $spacing-h-xl;
+    text-align: center;
+    color: $color-text-subtle;
+    background-color: $color-border-base;
+  }
+
+  &__footer {
+    @include font(16px, 16px);
+    @include active();
+
+    padding: $spacing-v-lg $spacing-h-xl;
+    border-top: 8px solid $color-border-base;
+    text-align: center;
+    color: $color-text-base;
+  }
+
+  &__body {
+    text-align: center;
+    padding: $spacing-v-sm 0;
+    // padding: $spacing-v-sm $spacing-h-lg;
+  }
+
+  &__item {
+    @include font(16px);
+    @include active();
+
+    padding: $spacing-v-lg - $at-dialog-item-v-gap $spacing-h-lg;
+    text-align: center;
+    color: $color-text-base;
+
+    &--sub-text {
+      @include font(14px);
+
+      padding-top: 2px;
+      text-align: center;
+      color: $color-text-subtle;
+    }
+
+    &--border-bottom {
+      @include hairline-bottom-relative();
+    }
+  }
+
+  /* modifiers */
+  /*  #ifndef  rn  */
+  &--active {
+    visibility: visible;
+
+    .at-action-sheet__overlay {
+      opacity: 1;
+    }
+
+    .at-action-sheet__container {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  /*  #endif  */
+}
