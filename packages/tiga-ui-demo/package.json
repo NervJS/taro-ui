@@ -36,12 +36,12 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@tarojs/components": "^3.4.1-zeta.178",
-    "@tarojs/react": "^3.4.1-zeta.178",
-    "@tarojs/rn-runner": "^3.4.1-zeta.178",
-    "@tarojs/runtime": "^3.4.1-zeta.178",
-    "@tarojs/taro": "^3.4.1-zeta.178",
-    "@tarojs/taro-rn": "^3.4.1-zeta.178",
+    "@tarojs/components": "^3.4.2",
+    "@tarojs/react": "^3.4.2",
+    "@tarojs/rn-runner": "^3.4.2",
+    "@tarojs/runtime": "^3.4.2",
+    "@tarojs/taro": "^3.4.2",
+    "@tarojs/taro-rn": "^3.4.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-native": "^0.66.0",
@@ -50,13 +50,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
-    "@tarojs/cli": "^3.4.1-zeta.178",
-    "@tarojs/mini-runner": "^3.4.1-zeta.178",
-    "@tarojs/webpack-runner": "^3.4.1-zeta.178",
+    "@tarojs/cli": "^3.4.2",
+    "@tarojs/mini-runner": "^3.4.2",
+    "@tarojs/webpack-runner": "^3.4.2",
     "@types/react": "^16.0.0",
     "@types/webpack-env": "^1.13.6",
-    "babel-preset-taro": "^3.4.1-zeta.178",
-    "eslint-config-taro": "^3.4.1-zeta.178",
+    "babel-preset-taro": "^3.4.2",
+    "eslint-config-taro": "^3.4.2",
     "typescript": "4.3.5"
   }
 }
