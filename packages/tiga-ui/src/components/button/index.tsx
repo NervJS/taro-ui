@@ -124,7 +124,7 @@ const AtButton: React.FC<AtButtonProps> = props => {
           }
         )}
         style={Object.assign({ width, paddingHorizontal: 0 }, customStyle)}
-        onClick={onClick}
+        onClick={_onClick}
       >
         <View
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment

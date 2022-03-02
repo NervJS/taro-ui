@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.build",
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "allowJs": true
+  }
+}
