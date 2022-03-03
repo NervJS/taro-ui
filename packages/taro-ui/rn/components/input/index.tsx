@@ -17,14 +17,14 @@ import AtIcon from '../icon'
 
 type PickAtInputProps = Pick<
   AtInputProps,
-  'maxlength' | 'disabled' | 'password'
+  'maxLength' | 'maxlength' | 'disabled' | 'password'
 >
 type GetInputPropsReturn = PickAtInputProps & Pick<InputProps, 'type'>
 
 function getInputProps(props: AtInputProps): GetInputPropsReturn {
   const actualProps = {
     type: props.type,
-    maxlength: props.maxlength,
+    maxLength: props.maxLength || props.maxlength,
     disabled: props.disabled,
     password: false
   }
@@ -32,7 +32,7 @@ function getInputProps(props: AtInputProps): GetInputPropsReturn {
   switch (actualProps.type) {
     case 'phone':
       actualProps.type = 'number'
-      actualProps.maxlength = 11
+      actualProps.maxLength = 11
       break
     case 'password':
       actualProps.type = 'text'
@@ -131,7 +131,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       value,
       required
     } = this.props
-    const { type, maxlength, disabled, password } = getInputProps(this.props)
+    const { type, maxLength, disabled, password } = getInputProps(this.props)
 
     const overlayCls = classNames('at-input__overlay', {
       'at-input__overlay--hidden': !disabled
@@ -181,7 +181,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             placeholderClass={placeholderCls}
             placeholder={placeholder}
             cursorSpacing={cursorSpacing}
-            maxlength={maxlength}
+            maxlength={maxLength}
             autoFocus={autoFocus}
             focus={focus}
             value={value}
@@ -233,6 +233,7 @@ AtInput.defaultProps = {
   selectionEnd: -1,
   adjustPosition: true,
   maxlength: 140,
+  maxLength: 140,
   type: 'text',
   disabled: false,
   border: true,
@@ -262,6 +263,7 @@ AtInput.propTypes = {
   adjustPosition: PropTypes.bool,
   cursorSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxlength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   type: PropTypes.string,
   disabled: PropTypes.bool,
   border: PropTypes.bool,
