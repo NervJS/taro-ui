@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -16,7 +17,7 @@
     width: $at-steps-circle-size;
     height: $at-steps-circle-size;
     text-align: center;
-    border-radius: $at-steps-circle-size / 2;
+    border-radius: math.div($at-steps-circle-size, 2);
     color: $at-steps-color-active;
     background-color: $at-steps-bg-color;
 

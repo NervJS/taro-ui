@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -54,7 +55,7 @@ $at-tag-border-size: 1PX;
   }
 
   &--circle {
-    border-radius: $at-tag-height / 2;
+    border-radius: math.div($at-tag-height, 2);
     overflow: hidden;
   }
 
@@ -67,7 +68,7 @@ $at-tag-border-size: 1PX;
     }
 
     &-circle {
-      border-radius: $at-tag-height-sm / 2;
+      border-radius: math.div($at-tag-height-sm, 2);
     }
   }
 }

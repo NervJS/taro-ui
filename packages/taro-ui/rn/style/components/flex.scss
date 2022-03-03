@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -118,7 +119,7 @@
   // box-sizing: border-box;
   /*  #endif  */
   @for $col from 1 through 12 {
-    $width: ($col / 12) * 100%;
+    $width: math.div($col, 12) * 100%;
 
     &-#{$col} {
       // @include flex(0, 0, $width);

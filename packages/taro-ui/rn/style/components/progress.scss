@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -29,13 +30,13 @@
     &-inner {
       width: 100%;
       background-color: $at-progress-inner-bg-color;
-      border-radius: $at-progress-height / 2;
+      border-radius: math.div($at-progress-height, 2);
       //  vertical-align: middle;
 
       &-background {
         position: relative;
         height: $at-progress-height;
-        border-radius: $at-progress-height / 2;
+        border-radius: math.div($at-progress-height, 2);
         background-color: $at-progress-bar-bg-color;
         // transition: all 0.3s $ease-in-out-quad;
         overflow: hidden;

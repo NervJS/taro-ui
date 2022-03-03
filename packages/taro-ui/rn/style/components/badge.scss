@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -23,7 +24,7 @@ $at-badge-box-shadow: 0 4px 8px 0 rgba($color: $at-badge-bg-color, $alpha: 0.2);
     top: -6px;
     width: $at-badge-dot-size;
     height: $at-badge-dot-size;
-    border-radius: $at-badge-dot-size / 2;
+    border-radius: math.div($at-badge-dot-size, 2);
     overflow: hidden;
     background: $at-badge-bg;
     /*  #ifndef  rn  */

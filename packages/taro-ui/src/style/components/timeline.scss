@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -65,9 +66,9 @@
 
   &__tail {
     position: absolute;
-    top: $at-timeline-dot-size / 2;
-    bottom: -$at-timeline-dot-size / 2;
-    left: $at-timeline-dot-size / 2 - 2px;
+    top: math.div($at-timeline-dot-size, 2);
+    bottom: -1 * math.div($at-timeline-dot-size, 2);
+    left: math.div($at-timeline-dot-size, 2) - 2px;
     border-left: 1PX solid $at-timeline-line-color;
   }
 
