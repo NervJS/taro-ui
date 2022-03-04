@@ -1,7 +1,8 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { View } from '@tarojs/components'
 import { AtDialogActionProps } from '../../../../types/dialog'
+import { PLATFORM } from '../../../utils'
 
 const AtDialogAction: React.FC<AtDialogActionProps> = ({
   hasLeftBorder,
@@ -15,12 +16,16 @@ const AtDialogAction: React.FC<AtDialogActionProps> = ({
     { 'at-dialog__action--border-left': hasLeftBorder }
   )
 
+  const restProps = useMemo(() => {
+    const hoverStyle = {
+      backgroundColor: '#e0e0e0'
+    }
+
+    return PLATFORM.isRN ? hoverStyle : {}
+  }, [])
+
   return (
-    <View
-      className={rootClass}
-      onClick={onClick}
-      hoverStyle={{ backgroundColor: '#e0e0e0' }}
-    >
+    <View {...restProps} className={rootClass} onClick={onClick}>
       {children}
     </View>
   )

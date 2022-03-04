@@ -1,67 +1,30 @@
-import PropTypes, { InferProps } from 'prop-types'
-import { Component, createElement } from 'react'
+import classNames from 'classnames'
+import React from 'react'
+import { Text } from '@tarojs/components'
 import { AtIconProps } from '../../../types/icon'
-import ICONS from './icons'
 
-export default class AtIcon extends Component<AtIconProps> {
-  public static defaultProps: AtIconProps
-  public static propTypes: InferProps<AtIconProps>
-
-  public render(): JSX.Element | null {
-    const {
-      value,
-      color,
-      size,
-      className,
-      customStyle = {},
-      style = {}
-    } = this.props
-
-    let inputStyle = style
-
-    // 兼容 style 是数组情况
-    if (Array.isArray(style)) {
-      inputStyle = style.reduce((sty, obj) => Object.assign(sty, obj), {})
-    }
-
-    const fontSize = (customStyle as any).fontSize || inputStyle.fontSize
-
-    const _fontSize =
-      parseInt(String(size)) * 2 || fontSize || parseInt('24') * 2
-
-    const _style = {
-      width: _fontSize,
-      height: _fontSize,
-      // tips: 字体转换的 svg 需要沿着 Y 轴旋转 180 度
-      transform: [{ rotateY: '180deg' }]
-    }
-
-    return createElement(ICONS[value] || ((): any => null), {
-      // 非 RN 只需透传 className，RN 无效
-      className,
-      // 图标色值优先级
-      fill: color || (customStyle as any).color || inputStyle.color || '',
-      style: Object.assign({}, inputStyle, customStyle, _style)
-    })
+const AtIcon: React.FC<AtIconProps> = ({
+  value,
+  size,
+  color,
+  className,
+  customStyle,
+  prefixClass
+}) => {
+  const iconName = value ? `${prefixClass}-${value}` : ''
+  const rootClass = classNames('at-icon', iconName, className)
+  const style = {
+    color,
+    fontSize: size + 'px',
+    ...customStyle
   }
+
+  return <Text className={rootClass} style={style} />
 }
 
 AtIcon.defaultProps = {
-  style: {},
-  customStyle: {},
-  className: '',
   prefixClass: 'at-icon',
-  value: '',
-  color: '',
-  size: ''
+  size: 16
 }
 
-AtIcon.propTypes = {
-  customStyle: PropTypes.oneOfType([PropTypes.object]),
-  className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  prefixClass: PropTypes.string,
-  value: PropTypes.string,
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onClick: PropTypes.func
-}
+export default AtIcon

@@ -44,9 +44,11 @@ const AtActionSheet: React.FC<AtActionSheetProps> = ({
 
   const handleCancel = useCallback(() => {
     if (typeof onCancel === 'function') {
-      return onCancel()
+      onCancel()
     }
-    onClose?.()
+    if (typeof onClose === 'function') {
+      onClose()
+    }
   }, [onClose, onCancel])
 
   const onInternalClose = useCallback(
@@ -69,7 +71,11 @@ const AtActionSheet: React.FC<AtActionSheetProps> = ({
   return (
     <View className={rootClass} onTouchMove={handleTouchMove}>
       {/* RN 场景 overlay 不展示， opacity: 0 */}
-      <View onClick={handleClickOverlay} className='at-action-sheet__overlay' />
+      <View
+        data-testid='at-action-sheet__overlay'
+        onClick={handleClickOverlay}
+        className='at-action-sheet__overlay'
+      />
       <View className='at-action-sheet__container'>
         {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
         <AtActionSheetBody>{children}</AtActionSheetBody>

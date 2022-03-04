@@ -3,7 +3,7 @@ import { CSSProperties } from 'react'
 export interface AtComponent {
   className?: string
   style?: CSSProperties
-  customStyle?: string | CSSProperties
+  customStyle?: CSSProperties
 }
 
 export interface AtIconBaseProps2 extends AtComponent {

@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AtButton test in h5 render by default 1`] = `
-<view
-  className="at-button at-button--secondary at-button--medium"
-  onClick={[Function]}
->
-  <button
-    className="at-button__wxbutton"
-    lang="zh_CN"
-  />
-  <view
-    className="at-button--secondary__text at-button--medium__text"
-  >
-    click me
-  </view>
-</view>
-`;
-
-exports[`AtButton test in h5 render by different size 1`] = `
+exports[`AtButton 测试在 h5 环境 ->  展示：不同的 size 1`] = `
 Array [
   <view
     className="at-button at-button--secondary at-button--full"
@@ -106,7 +89,7 @@ Array [
 ]
 `;
 
-exports[`AtButton test in h5 render by different type 1`] = `
+exports[`AtButton 测试在 h5 环境 ->  展示：不同的 type 1`] = `
 Array [
   <view
     className="at-button at-button--primary at-button--medium"
@@ -151,4 +134,21 @@ Array [
     </view>
   </view>,
 ]
+`;
+
+exports[`AtButton 测试在 h5 环境 ->  展示：默认展示 1`] = `
+<view
+  className="at-button at-button--secondary at-button--medium"
+  onClick={[Function]}
+>
+  <button
+    className="at-button__wxbutton"
+    lang="zh_CN"
+  />
+  <view
+    className="at-button--secondary__text at-button--medium__text"
+  >
+    click me
+  </view>
+</view>
 `;

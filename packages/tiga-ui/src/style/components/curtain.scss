@@ -50,12 +50,12 @@
     bottom: -($at-curtain-btn-size + $at-curtain-btn-v-gap);
     align-items: center;
     justify-content: center;
-    border: 2PX solid $at-curtain-btn-color;
-    border-radius: $at-curtain-btn-size / 2;
+    // border: 2PX solid $at-curtain-btn-color;
+    // border-radius: $at-curtain-btn-size / 2;
 
     /*  #ifndef  rn  */
-    border-radius: 50%;
-    box-sizing: border-box;
+    // border-radius: 50%;
+    // box-sizing: border-box;
     /*  #endif  */
 
     z-index: $zindex-dialog;

@@ -104,7 +104,11 @@ const AtDialog: React.FC<AtDialogProps> = ({
       className={rootClass}
       style={customStyle}
     >
-      <View className={overlayClass} onClick={handleClickOverlay} />
+      <View
+        data-testid='at-dialog__overlay'
+        className={overlayClass}
+        onClick={handleClickOverlay}
+      />
       <View className={containerClass}>
         <AtDialogWrap>
           {title && <AtDialogHeader>{title}</AtDialogHeader>}

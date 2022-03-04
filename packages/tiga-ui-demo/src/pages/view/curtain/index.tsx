@@ -56,7 +56,7 @@ export default class TagPage extends React.Component<any, TagPageState> {
             closeBtnPosition={closeBtnPosition}
             onClose={this.onClose.bind(this)}
           >
-            <Image style='width:100%' mode='widthFix' src={curtainPng} />
+            <Image style={{ width: '100%' }} mode='widthFix' src={curtainPng} />
           </AtCurtain>
 
           {/* 顶部关闭 */}

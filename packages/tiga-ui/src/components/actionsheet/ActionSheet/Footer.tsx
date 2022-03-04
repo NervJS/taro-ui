@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
 import { AtActionSheetFooterProps } from '../../../../types/action-sheet'
+import { PLATFORM } from '../../../utils'
 
 const AtActionSheetFooter: React.FC<AtActionSheetFooterProps> = ({
   className,
@@ -10,20 +11,25 @@ const AtActionSheetFooter: React.FC<AtActionSheetFooterProps> = ({
 }) => {
   const rootClass = classNames('at-action-sheet__footer', className)
 
-  const handleClick = (args: any): void => {
-    if (typeof onClick === 'function') {
-      onClick(args)
+  const handleClick = useCallback(
+    (args: any): void => {
+      if (typeof onClick === 'function') {
+        onClick(args)
+      }
+    },
+    [onClick]
+  )
+
+  const restProps = useMemo(() => {
+    const hoverStyle = {
+      backgroundColor: '#e0e0e0'
     }
-  }
+
+    return PLATFORM.isRN ? hoverStyle : {}
+  }, [])
 
   return (
-    <View
-      className={rootClass}
-      onClick={handleClick}
-      hoverStyle={{
-        backgroundColor: '#e0e0e0'
-      }}
-    >
+    <View {...restProps} className={rootClass} onClick={handleClick}>
       {children}
     </View>
   )

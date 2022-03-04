@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import renderer from 'react-test-renderer'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 
-describe('AtButton test in rn', () => {
+describe('AtButton 测试在 rn 环境 ->', () => {
   const OLD_ENV = { ...process.env }
   process.env.TARO_ENV = 'rn'
 
@@ -15,14 +15,14 @@ describe('AtButton test in rn', () => {
 
   const AtButton = jest.requireActual('../../components/button').default
 
-  it('render by default', () => {
+  it('展示：默认展示', () => {
     const component = renderer.create(<AtButton>click me</AtButton>)
 
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('render by different type', () => {
+  it('展示：不同的 type', () => {
     const component = renderer.create(
       <Fragment>
         <AtButton type='primary'>primary</AtButton>
@@ -35,7 +35,7 @@ describe('AtButton test in rn', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('render by different size', () => {
+  it('展示：不同的 size', () => {
     const component = renderer.create(
       <Fragment>
         <AtButton size='full'>full</AtButton>
@@ -51,7 +51,7 @@ describe('AtButton test in rn', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('when fire click clickFn should be called', () => {
+  it('交互：点击按钮时触发 onClick 绑定的处理函数', () => {
     const clickFn = jest.fn()
     const { getByText } = render(
       <AtButton onClick={clickFn} size='tiny'>
@@ -63,7 +63,7 @@ describe('AtButton test in rn', () => {
     expect(clickFn).toBeCalledTimes(1)
   })
 
-  it('when fire click a disabled button clickFn should not be called', () => {
+  it('交互：当组件属性 disabled 时，点击按钮时不触发 onClick 绑定的处理函数', () => {
     const clickFn = jest.fn()
     const { getByText } = render(
       <AtButton disabled onClick={clickFn}>

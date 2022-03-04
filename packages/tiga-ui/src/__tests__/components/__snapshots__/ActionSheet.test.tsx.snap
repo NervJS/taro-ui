@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtActionSheet 测试在 weapp 环境，h5 类似 ->  展示：当 isOpened 属性是 false 1`] = `
+<view
+  className="at-action-sheet"
+  onTouchMove={[Function]}
+>
+  <view
+    className="at-action-sheet__overlay"
+    data-testid="at-action-sheet__overlay"
+    onClick={[Function]}
+  />
+  <view
+    className="at-action-sheet__container"
+  >
+    <view
+      className="at-action-sheet__body"
+    >
+      <view
+        className="at-action-sheet__item at-action-sheet__item--border-bottom"
+        onClick={[Function]}
+      >
+        按钮一
+      </view>
+      <view
+        className="at-action-sheet__item at-action-sheet__item--border-bottom"
+        onClick={[Function]}
+      >
+        按钮二
+      </view>
+    </view>
+    <view
+      className="at-action-sheet__footer"
+      onClick={[Function]}
+    >
+      取消
+    </view>
+  </view>
+</view>
+`;
+
+exports[`AtActionSheet 测试在 weapp 环境，h5 类似 ->  展示：当 isOpened 属性是 true 1`] = `
+<view
+  className="at-action-sheet at-action-sheet--active"
+  onTouchMove={[Function]}
+>
+  <view
+    className="at-action-sheet__overlay"
+    data-testid="at-action-sheet__overlay"
+    onClick={[Function]}
+  />
+  <view
+    className="at-action-sheet__container"
+  >
+    <view
+      className="at-action-sheet__body"
+    >
+      <view
+        className="at-action-sheet__item at-action-sheet__item--border-bottom"
+        onClick={[Function]}
+      >
+        按钮一
+      </view>
+      <view
+        className="at-action-sheet__item at-action-sheet__item--border-bottom"
+        onClick={[Function]}
+      >
+        按钮二
+      </view>
+    </view>
+    <view
+      className="at-action-sheet__footer"
+      onClick={[Function]}
+    >
+      取消
+    </view>
+  </view>
+</view>
+`;
+
+exports[`AtActionSheet 测试在 weapp 环境，h5 类似 ->  展示：配置 title 和 content 属性 1`] = `
+<view
+  className="at-action-sheet at-action-sheet--active"
+  onTouchMove={[Function]}
+>
+  <view
+    className="at-action-sheet__overlay"
+    data-testid="at-action-sheet__overlay"
+    onClick={[Function]}
+  />
+  <view
+    className="at-action-sheet__container"
+  >
+    <view
+      className="at-action-sheet__header"
+    >
+      此处是操作释义，建议20个字以内，使用陈述句
+    </view>
+    <view
+      className="at-action-sheet__body"
+    >
+      此处内容不展示
+    </view>
+    <view
+      className="at-action-sheet__footer"
+      onClick={[Function]}
+    >
+      取消
+    </view>
+  </view>
+</view>
+`;

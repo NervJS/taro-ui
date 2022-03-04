@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtCurtain 测试在 weapp 环境，h5类似 ->  展示：幕帘关闭按钮展示在指定位置 1`] = `
+<view
+  className="at-curtain"
+  data-testid="at-curtain"
+  onClick={[Function]}
+>
+  <view
+    className="at-curtain__container"
+  >
+    <view
+      className="at-curtain__body"
+    >
+      <image
+        mode="widthFix"
+        src="https://taro-ui.aotu.io/h5/static/images/curtain.png"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+      <view
+        className="at-curtain__btn-close at-curtain__btn-close--top"
+        data-testid="at-curtain__btn-close"
+        onClick={[Function]}
+      >
+        <text
+          className="at-icon at-icon-curtain_icon_cancel at-curtain__btn-close--at-icon"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": "36px",
+            }
+          }
+        />
+      </view>
+    </view>
+  </view>
+</view>
+`;
+
+exports[`AtCurtain 测试在 weapp 环境，h5类似 ->  展示：默认基础幕帘 1`] = `
+<view
+  className="at-curtain"
+  data-testid="at-curtain"
+  onClick={[Function]}
+>
+  <view
+    className="at-curtain__container"
+  >
+    <view
+      className="at-curtain__body"
+    >
+      <image
+        mode="widthFix"
+        src="https://taro-ui.aotu.io/h5/static/images/curtain.png"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+      <view
+        className="at-curtain__btn-close at-curtain__btn-close--bottom"
+        data-testid="at-curtain__btn-close"
+        onClick={[Function]}
+      >
+        <text
+          className="at-icon at-icon-curtain_icon_cancel at-curtain__btn-close--at-icon"
+          style={
+            Object {
+              "color": undefined,
+              "fontSize": "36px",
+            }
+          }
+        />
+      </view>
+    </view>
+  </view>
+</view>
+`;

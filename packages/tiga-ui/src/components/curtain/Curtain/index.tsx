@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import { CommonEvent } from '@tarojs/components/types/common'
@@ -14,7 +14,9 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
   closeBtnPosition,
   onClose
 }) => {
-  const _onClose = useCallback(
+  const [_isOpened, setOpened] = useState(isOpened)
+
+  const onInternalClose = useCallback(
     (e: CommonEvent) => {
       if (PLATFORM.isRN) {
         onClose(e)
@@ -22,9 +24,19 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
         e.stopPropagation()
         onClose(e)
       }
+      setOpened(false)
     },
     [onClose]
   )
+
+  useEffect(() => {
+    setOpened(val => {
+      if (val !== isOpened) {
+        return isOpened
+      }
+      return val
+    })
+  }, [isOpened])
 
   const _stopPropagation = useCallback((e: CommonEvent) => {
     if (!PLATFORM.isRN) {
@@ -32,10 +44,10 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
     }
   }, [])
 
-  const curtainClass = classNames(
+  const rootClass = classNames(
     {
       'at-curtain': true,
-      'at-curtain--closed': !isOpened
+      'at-curtain--closed': !_isOpened
     },
     className
   )
@@ -46,19 +58,23 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
 
   return (
     <View
-      className={curtainClass}
+      data-testid='at-curtain'
+      className={rootClass}
       style={customStyle}
       onClick={_stopPropagation}
     >
       <View className='at-curtain__container'>
         <View className='at-curtain__body'>
           {children}
-          <View className={btnCloseClass} onClick={_onClose}>
+          <View
+            data-testid='at-curtain__btn-close'
+            className={btnCloseClass}
+            onClick={onInternalClose}
+          >
             <AtIcon
               className='at-curtain__btn-close--at-icon'
-              value='close'
-              size={12}
-              // customStyle={{ color: 'white' }}
+              value='curtain_icon_cancel'
+              size={36}
             />
           </View>
         </View>
@@ -70,7 +86,6 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
 export default CurtainMain
 
 CurtainMain.defaultProps = {
-  customStyle: '',
   className: '',
   isOpened: false,
   closeBtnPosition: 'bottom',

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
 import { AtActionSheetItemProps } from '../../../../types/action-sheet'
+import { PLATFORM } from '../../../utils'
 
 const AtActionSheetItem: React.FC<AtActionSheetItemProps> = ({
   className,
@@ -24,14 +25,16 @@ const AtActionSheetItem: React.FC<AtActionSheetItemProps> = ({
     }
   }
 
+  const restProps = useMemo(() => {
+    const hoverStyle = {
+      backgroundColor: '#e0e0e0'
+    }
+
+    return PLATFORM.isRN ? hoverStyle : {}
+  }, [])
+
   return (
-    <View
-      className={rootClass}
-      onClick={handleClick}
-      hoverStyle={{
-        backgroundColor: '#e0e0e0'
-      }}
-    >
+    <View {...restProps} className={rootClass} onClick={handleClick}>
       {children}
       {subText && (
         <View className='at-action-sheet__item--sub-text'>{subText}</View>

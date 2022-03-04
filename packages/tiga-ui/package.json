@@ -23,17 +23,15 @@
     "src"
   ],
   "scripts": {
-    "dev": "yarn run dev:lib",
-    "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
+    "dev": "yarn run dev:rollup",
     "dev:rollup": "rimraf dist && rollup --config ./config/rollup.config.js --watch",
-    "build": "yarn run build:rollup && yarn run build:lib",
-    "build:lib": "tsc --project ./tsconfig.build.json",
+    "build": "yarn run build:rollup",
     "build:rollup": "rollup --config ./config/rollup.config.js",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "test": "cross-env NODE_ENV=test && jest --coverage",
-    "test:ci": "yarn run build:h5 && yarn run test",
+    "test": "cross-env NODE_ENV=test && jest --coverage false",
+    "test:ci": "cross-env NODE_ENV=test && jest --coverage",
     "test:analyze": "rollup --config ./config/rollup.config.analyze.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "clean": "rimraf .temp dist lib coverage"
