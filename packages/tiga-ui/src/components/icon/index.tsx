@@ -24,7 +24,8 @@ const AtIcon: React.FC<AtIconProps> = ({
 
 AtIcon.defaultProps = {
   prefixClass: 'at-icon',
-  size: 16
+  size: 16,
+  color: ''
 }
 
 export default AtIcon
