@@ -26,7 +26,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
-    "tiga-ui-demo": "0.0.1"
+    "sass": "^1.49.9"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
