@@ -61,8 +61,11 @@ const AtButton: React.FC<AtButtonProps> = props => {
       if (paddingHorizontal) {
         const newWidth = width + paddingHorizontal * 2 + borderWidth * 2
         // TODO: fix: 解决动态计算 button 抖动问题
-        // setWidth(parseInt(newWidth))
-        setWidth(newWidth)
+        if (borderWidth) {
+          setWidth(parseInt(`${newWidth}`))
+        } else {
+          setWidth(newWidth)
+        }
       }
     },
     [size, type]
