@@ -27,3 +27,9 @@ npm install tiga-ui
 ```js
 import { AtButton } from 'tiga-ui'
 ```
+
+## 开发与贡献
+
+[开发指南](./DEV.md)
+
+[计划和进度](./PLANS.md)

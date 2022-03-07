@@ -4,4 +4,6 @@
 
 - [X] Button
 - [ ] Toast
-- [ ] Dialog
+- [x] Dialog
+- [x] Curtain
+- [x] ActionSheet
