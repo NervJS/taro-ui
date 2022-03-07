@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtButton 测试在 rn 环境 -> 展示：不同的 size 1`] = `
+Array [
+  <button
+    className="at-button at-button--secondary at-button--full"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--full__text"
+      onLayout={[Function]}
+    >
+      full
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--large"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--large__text"
+      onLayout={[Function]}
+    >
+      large
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--medium"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--medium__text"
+      onLayout={[Function]}
+    >
+      medium
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--mini"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--mini__text"
+      onLayout={[Function]}
+    >
+      mini
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--small"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--small__text"
+      onLayout={[Function]}
+    >
+      small
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--tiny"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--tiny__text"
+      onLayout={[Function]}
+    >
+      tiny
+    </view>
+  </button>,
+]
+`;
+
+exports[`AtButton 测试在 rn 环境 -> 展示：不同的 type 1`] = `
+Array [
+  <button
+    className="at-button at-button--primary at-button--medium"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--primary__text at-button--medium__text"
+      onLayout={[Function]}
+    >
+      primary
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--secondary at-button--medium"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--secondary__text at-button--medium__text"
+      onLayout={[Function]}
+    >
+      secondary
+    </view>
+  </button>,
+  <button
+    className="at-button at-button--tertiary at-button--medium"
+    disabled={false}
+    hoverStyle={
+      Object {
+        "opacity": 0.6,
+      }
+    }
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "auto",
+      }
+    }
+  >
+    <view
+      className="at-button--tertiary__text at-button--medium__text"
+      onLayout={[Function]}
+    >
+      tertiary
+    </view>
+  </button>,
+]
+`;
+
+exports[`AtButton 测试在 rn 环境 -> 展示：默认展示 1`] = `
+<button
+  className="at-button at-button--secondary at-button--medium"
+  disabled={false}
+  hoverStyle={
+    Object {
+      "opacity": 0.6,
+    }
+  }
+  onClick={[Function]}
+  style={
+    Object {
+      "paddingHorizontal": 0,
+      "width": "auto",
+    }
+  }
+>
+  <view
+    className="at-button--secondary__text at-button--medium__text"
+    onLayout={[Function]}
+  >
+    click me
+  </view>
+</button>
+`;
