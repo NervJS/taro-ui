@@ -61,7 +61,7 @@
           }
         ],
         "no-unused-vars": [
-          "error",
+          "off",
           {
             "varsIgnorePattern": "React"
           }

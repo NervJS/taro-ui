@@ -126,25 +126,25 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     </Modal>
   ) : null
 }
-// type rootsiblingsRef = {
-//   update(element: ReactNode, callback?: () => void): void
-//   destroy(callback?: () => void): void
-// }
+type rootsiblingsRef = {
+  update(element: React.ReactNode, callback?: () => void): void
+  destroy(callback?: () => void): void
+}
 
 // ====================== toshowToastInModal ======================
 const AtToastPlus = forwardRef((props: AtToastProps, ref) => {
   const [_timer, setTimer] = useState<NodeJS.Timeout | null>(null)
-  // const rootsiblings = useRef<rootsiblingsRef>(null)
-  let rootsiblings
+  const rootsiblings = useRef<rootsiblingsRef | null>(null)
+  // let rootsiblings
   const hide = useCallback(() => {
     if (_timer) {
       clearTimeout(_timer)
       setTimer(null)
     }
     if (rootsiblings) {
-      rootsiblings.destroy()
+      rootsiblings.current?.destroy()
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      rootsiblings = null
+      rootsiblings.current = null
     }
   }, [_timer, rootsiblings])
   const show = useCallback(
@@ -157,10 +157,10 @@ const AtToastPlus = forwardRef((props: AtToastProps, ref) => {
       toastOpts = Object.assign({}, props, toastOpts, {
         isOpened: true
       })
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      rootsiblings = new RootSiblings(<AtToast {...toastOpts} />)
+
+      rootsiblings.current = new RootSiblings(<AtToast {...toastOpts} />)
     },
-    [props, hide]
+    [props]
   )
   useImperativeHandle(
     ref,
