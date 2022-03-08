@@ -30,7 +30,7 @@ const AtActionSheetItem: React.FC<AtActionSheetItemProps> = ({
       backgroundColor: '#e0e0e0'
     }
 
-    return PLATFORM.isRN ? hoverStyle : {}
+    return PLATFORM.isRN ? { hoverStyle } : {}
   }, [])
 
   return (
