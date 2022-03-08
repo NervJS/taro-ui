@@ -5,7 +5,7 @@
   "description": "Tiga UI docs",
   "scripts": {
     "dev": "yarn run build:static && node ./build/dev-server",
-    "build": "yarn run build:doc && yarn run build:static",
+    "build": "yarn clean && yarn run build:doc && yarn run build:static",
     "build:doc": "node ./build/build-docs",
     "build:static": "node ./build/build-static",
     "clean": "rimraf dist"

@@ -3,7 +3,8 @@
   "npmClient": "yarn",
   "packages": [
     "packages/tiga-ui",
-    "packages/tiga-ui-demo"
+    "packages/tiga-ui-demo",
+    "packages/tiga-ui-docs"
   ],
   "command": {
     "publish": {

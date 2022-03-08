@@ -10,7 +10,7 @@
     "css": "sass"
   },
   "scripts": {
-    "build": "yarn run build:h5",
+    "build": "yarn clean && yarn run build:h5",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -19,6 +19,7 @@
     "build:rn": "taro build --type rn",
     "build:qq": "taro build --type qq",
     "build:quickapp": "taro build --type quickapp",
+    "dev": "yarn run build:h5 --watch",
     "dev:weapp": "yarn run build:weapp --watch",
     "dev:swan": "yarn run build:swan --watch",
     "dev:alipay": "yarn run build:alipay --watch",
