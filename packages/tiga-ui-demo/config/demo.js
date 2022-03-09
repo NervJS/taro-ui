@@ -5,17 +5,9 @@ module.exports = {
   defineConstants: {},
   weapp: {},
   h5: {
-    output: {
-      filename: 'js/[name].[hash:8].js',
-      chunkFilename: 'chunk/[name].[chunkhash:8].js'
-    },
-    // ci 打包 docs，静态资源上传
-    publicPath: '//pages.anjukestatic.com/fe/hbg_ajk_tiga_ui/h5',
+    // 本地跑 demo
+    publicPath: './',
     staticDirectory: 'static',
-    miniCssExtractPluginOption: {
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[id].[contenthash:8].css'
-    },
     postcss: {
       autoprefixer: {
         enable: true,

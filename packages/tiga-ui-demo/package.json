@@ -10,7 +10,8 @@
     "css": "sass"
   },
   "scripts": {
-    "build": "yarn clean && yarn run build:h5",
+    "build": "yarn clean && cross-env NODE_ENV_PRO=docs yarn run build:h5",
+    "build:demo": "yarn clean && yarn run build:h5",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -43,6 +44,7 @@
     "@tarojs/runtime": "^3.4.2",
     "@tarojs/taro": "^3.4.2",
     "@tarojs/taro-rn": "^3.4.2",
+    "cross-env": "^7.0.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-native": "^0.66.0",
