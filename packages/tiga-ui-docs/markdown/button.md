@@ -10,7 +10,7 @@
 
 :::demo
 ```js
-import { AtButton } from 'taro-ui'
+import { AtButton } from 'tiga-ui'
 ```
 :::
 
@@ -18,8 +18,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```scss
-@import "~taro-ui/dist/style/components/button.scss";
-@import "~taro-ui/dist/style/components/loading.scss";
+@import "~tiga-ui/dist/style/components/button.scss";
+@import "~tiga-ui/dist/style/components/loading.scss";
 ```
 :::
 
@@ -37,16 +37,8 @@ import { AtButton } from 'taro-ui'
 
 :::demo
 ```html
-<AtButton type='primary' size='normal'>按钮文案</AtButton>
-<AtButton type='primary' size='small'>按钮文案</AtButton>
-```
-:::
-
-## 带 loading icon
-
-:::demo
-```html
-<AtButton loading type='primary'>按钮文案</AtButton>
+<AtButton type='primary' size='large'>按钮文案</AtButton>
+<AtButton type='primary' size='medium'>按钮文案</AtButton>
 ```
 :::
 
@@ -54,10 +46,9 @@ import { AtButton } from 'taro-ui'
 
 | 微信 | H5 | 参数     | 说明                         | 类型    | 可选值                 | 默认值   |
 |-----|---|---------|-----------------------------|--------|-----------------------|---------|
-| √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary` | -        |
-| √    | √  | size     | 按钮的大小                   | String  | `normal`, `small`      | `normal` |
+| √    | √  | type     | 按钮的类型                   | String  | `primary`, `secondary`, `tertiary` | -        |
+| √    | √  | size     | 按钮的大小                   | String  | `full`, `large`, `medium`, `small`, `mini`, `tiny`      | `normal` |
 | √    | √  | circle   | 设置按钮圆角                 | Boolean | -                      | false    |
-| √    | √  | full    | 是否通栏样式（即按钮宽度为屏幕宽度时的样式）   | Boolean | -                      | false    |
 | √    | √  | loading  | 设置按钮的载入状态           | Boolean | -                      | false    |
 | √    | √  | disabled[1] | 设置按钮为禁用态（不可点击） | Boolean | -                      | false    |
 | √    | -  | formType[2] | 参考[微信button文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | String | `submit`, `reset`                      | -    |

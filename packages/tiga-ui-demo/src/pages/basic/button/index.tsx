@@ -164,10 +164,10 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
                 <AtButton
                   size='large'
                   type='secondary'
-                  customStyle={{ width: Taro.pxTransform(200) }}
+                  customStyle={{ width: Taro.pxTransform(320) }}
                   onClick={this.onButtonClick.bind(this)}
                 >
-                  {`setWidth: ${Taro.pxTransform(200)}`}
+                  {`setWidth: ${Taro.pxTransform(320)}`}
                 </AtButton>
                 <AtButton
                   size='large'

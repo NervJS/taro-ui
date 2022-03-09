@@ -39,11 +39,6 @@ export interface AtButtonProps extends AtComponent, TaroButtonProps {
    */
   disabled?: boolean
   /**
-   * 是否通栏样式（即按钮宽度为屏幕宽度时的样式）
-   * @default false
-   */
-  full?: boolean
-  /**
    * 点击按钮时触发
    */
   onClick?: CommonEventFunction

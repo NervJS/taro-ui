@@ -10,7 +10,7 @@ module.exports = {
       chunkFilename: 'chunk/[name].[chunkhash:8].js'
     },
     // ci 打包 docs，静态资源上传
-    publicPath: '//pages.anjukestatic.com/fe/hbg_ajk_tiga_ui/h5',
+    publicPath: '//pages.anjukestatic.com/fe/hbg_ajk_tiga_ui/h5/',
     staticDirectory: 'static',
     miniCssExtractPluginOption: {
       filename: 'css/[name].[contenthash:8].css',

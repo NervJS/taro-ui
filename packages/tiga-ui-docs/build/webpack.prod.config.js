@@ -14,7 +14,7 @@ module.exports = {
     path: path.resolve(projectRoot, conf.output),
     filename: 'js/[name].[hash:8].js',
     chunkFilename: 'chunk/[name].[chunkhash:8].js',
-    publicPath: '//pages.anjukestatic.com/fe/hbg_ajk_tiga_ui'
+    publicPath: '//pages.anjukestatic.com/fe/hbg_ajk_tiga_ui/'
   },
   resolve: {
     mainFields: ['main']

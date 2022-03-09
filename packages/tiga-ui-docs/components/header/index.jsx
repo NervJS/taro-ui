@@ -25,6 +25,7 @@ class PageHeader extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line
     const { collapse, style } = this.props
     const { toggle } = this.state
     return (
@@ -64,19 +65,19 @@ class PageHeader extends React.Component {
                   设计资源
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href='https://nervjs.github.io/taro-ui-theme-preview/'
                   target='__blank'
                 >
                   主题生成器
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href='https://aotu.io/' target='__blank'>
                   关于我们
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

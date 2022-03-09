@@ -36,7 +36,7 @@ $ taro init myApp
 :::demo
 ```bash
 $ cd myApp
-$ npm install taro-ui
+$ npm install tiga-ui
 ```
 :::
 
@@ -49,7 +49,7 @@ $ npm install taro-ui
 :::demo
 ```js
 h5: {
-  esnextModules: ['taro-ui']
+  esnextModules: ['tiga-ui']
 }
 ```
 :::
@@ -63,38 +63,38 @@ h5: {
 :::demo
 ```js
 // page.js
-import { AtButton } from 'taro-ui'
+import { AtButton } from 'tiga-ui'
 
 // 除了引入所需的组件，还需要手动引入组件样式
 // app.js
-import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
+import 'tiga-ui/dist/style/index.scss' // 全局引入一次即可
 ```
 :::
 
 **引入组件样式的三种方式**
 
-- **全局引入（JS中）：** 在入口文件中引入 `taro-ui` 所有的样式
+- **全局引入（JS中）：** 在入口文件中引入 `tiga-ui` 所有的样式
 :::demo
 ```js
-import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
+import 'tiga-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 ```
 :::
 
 - **全局引入（CSS中）：** 在 `app.scss` 样式文件中 `import` 组件样式并按照文档说明使用
 :::demo
 ```scss
-@import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 方式二
+@import "~tiga-ui/dist/style/index.scss"; // 引入组件样式 - 方式二
 ```
 :::
 
 - **按需引入：** 在页面样式或全局样式中 `import` 需要的组件样式
 :::demo
 ```scss
-@import "~taro-ui/dist/style/components/button.scss"; // 引入所需的组件样式 - 方式三
+@import "~tiga-ui/dist/style/components/button.scss"; // 引入所需的组件样式 - 方式三
 ```
 :::
 
-> 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/taro-ui/tree/dev/src/style/components)
+> 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/tiga-ui/tree/dev/src/style/components)
 
 ## 示例
 
@@ -104,7 +104,7 @@ import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 ```jsx
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { AtButton } from 'tiga-ui'
 
 import './index.scss'
 
@@ -128,7 +128,7 @@ export default class Index extends Component {
 
 :::demo
 ```scss
-@import "~taro-ui/dist/style/index.scss"; // 引入组件样式，仅需引入一次即可
+@import "~tiga-ui/dist/style/index.scss"; // 引入组件样式，仅需引入一次即可
 ```
 :::
 
@@ -138,7 +138,7 @@ export default class Index extends Component {
 
 :::demo
 ```scss
-@import "~taro-ui/dist/style/components/button.scss";
+@import "~tiga-ui/dist/style/components/button.scss";
 ```
 :::
 
