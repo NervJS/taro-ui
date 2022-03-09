@@ -24,16 +24,6 @@ const Footer = () => (
           <p>
             <a
               className='link'
-              href='https://taro-ui.jd.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Tiga UI
-            </a>
-          </p>
-          <p>
-            <a
-              className='link'
               href='https://at-ui.github.io/at-ui/#/zh'
               target='_blank'
               rel='noopener noreferrer'
@@ -127,25 +117,11 @@ const Footer = () => (
           <h3 className='footer_link_tit footer_link_tit3'>关于我们</h3>
           <p>
             <a
-              href='https://aotu.io/'
+              // href='https://aotu.io/'
               target='_blank'
               rel='noopener noreferrer'
             >
-              凹凸实验室
-            </a>
-          </p>
-          <p>
-            <a
-              href='https://aotu.io/join/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              加入我们
-            </a>
-          </p>
-          <p>
-            <a href='mailto:taro@jd.com?subject=【Taro 合作】合作标题'>
-              联系我们
+              58安居客房产新房部
             </a>
           </p>
         </div>
@@ -153,14 +129,14 @@ const Footer = () => (
           <h3 className='footer_link_tit footer_link_tit4'>感谢</h3>
           <p>
             <a
-              href='http://jdc.jd.com/'
+              // href='http://jdc.jd.com/'
               target='_blank'
               rel='noopener noreferrer'
             >
               用户体验设计部
             </a>
           </p>
-          <p>
+          {/* <p>
             <a
               href='https://github.com/nervjs/taro#%E8%B4%A1%E7%8C%AE%E8%80%85%E4%BB%AC'
               target='_blank'
@@ -168,7 +144,7 @@ const Footer = () => (
             >
               Taro 贡献者们
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

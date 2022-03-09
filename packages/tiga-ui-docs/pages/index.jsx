@@ -57,15 +57,15 @@ class Index extends React.Component {
               </NavLink>
               <a
                 className='btn btn-start btn-start--h5'
-                href='https://nervjs.github.io/taro-ui/h5/index.html'
+                // href='https://nervjs.github.io/taro-ui/h5/index.html'
               >
                 开始使用
               </a>
               <a
                 className='btn btn-github'
-                href='https://github.com/NervJS/taro-ui'
+                href='https://igit.58corp.com/_fe/tiga-ui'
               >
-                GitHub
+                GitLab
               </a>
             </div>
           </div>
