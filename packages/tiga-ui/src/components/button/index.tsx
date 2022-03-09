@@ -170,7 +170,6 @@ AtButton.displayName = 'AtButton'
 AtButton.defaultProps = {
   size: 'medium',
   type: 'secondary',
-  full: false,
   disabled: false,
   lang: 'zh_CN',
   sessionFrom: '',
