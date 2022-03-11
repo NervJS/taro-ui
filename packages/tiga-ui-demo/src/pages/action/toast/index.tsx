@@ -203,13 +203,13 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             onClose={this.handleClose}
             isShowInModal
           >
-            <Image
+            {/* <Image
               className='imagebox'
               style={{ width: '100%' }}
               mode='widthFix'
               src={curtainPng}
-            ></Image>
-            <View style={{ color: 'white' }}>12313</View>
+            ></Image> */}
+            <View style={{ color: 'white' }}>文本提示！</View>
             {/* <View className='red'>13313</View> */}
           </AtToast>
         </AtDialog>
