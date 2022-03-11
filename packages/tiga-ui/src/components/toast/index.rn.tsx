@@ -1,17 +1,10 @@
 import classNames from 'classnames'
-import React, {
-  useCallback,
-  useState,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  forwardRef
-} from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { View } from '@tarojs/components'
 import Modal from 'react-native-modal'
-import RootSiblings, { RootSiblingParent } from 'react-native-root-siblings'
+// import RootSiblings, { RootSiblingParent } from 'react-native-root-siblings'
 import { CommonEvent } from '@tarojs/components/types/common'
-import { AtToastProps, ToastRef, ToastRefObj } from '../../../types/toast'
+import { AtToastProps } from '../../../types/toast'
 
 const DURATION_MAP = {
   short: 2000,
@@ -19,17 +12,43 @@ const DURATION_MAP = {
 }
 const LEGAL_DURATION = ['auto', 'short', 'long']
 const AtToast: React.FunctionComponent<AtToastProps> = props => {
-  const { isOpened, text, children, maskHide, onClick, onClose, customStyle } =
-    props
+  const {
+    isOpened,
+    text,
+    children,
+    maskHide,
+    isShowInModal = false,
+    onClick,
+    onClose,
+    customStyle,
+    className
+  } = props
   let { duration = 'auto' } = props
   duration = LEGAL_DURATION.indexOf(duration) > -1 ? duration : 'auto'
-
-  const rootClassName = 'at-toast'
 
   const [_isOpened, setOpened] = useState<boolean>(isOpened)
   const [_timer, setTimer] = useState<NodeJS.Timeout | null>(null)
   const [durationTimer, setDuration] = useState<number>(0)
-
+  const [layout, setLayout] = useState<any | null>(null)
+  const rootStyle: any = {}
+  if (!maskHide) {
+    rootStyle.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+    rootStyle.borderRadius = '4px'
+    rootStyle.marginLeft = layout ? (layout.width * -1) / 2 : 0
+    rootStyle.marginTop = layout ? (layout.height * -1) / 2 : 0
+    rootStyle.opacity = layout ? 1 : 0
+  }
+  const rootClass = classNames(
+    {
+      'at-toast': true,
+      'at-toast--active': _isOpened,
+      'at-toast--no-mask': !maskHide
+    },
+    className
+  )
+  const overlayClass = classNames('at-toast__overlay', {
+    'at-toast__overlay--active': _isOpened
+  })
   let toastContent: React.ReactNode | string | undefined = text
   if (text) {
     toastContent = text
@@ -46,9 +65,8 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const close = useCallback((): void => {
     if (_isOpened) {
       setOpened(false)
-      clearTimmer()
     }
-  }, [_isOpened, clearTimmer])
+  }, [_isOpened])
   const makeTimer = useCallback(
     (durationTimer: number): void => {
       const tempTimer = setTimeout(() => {
@@ -76,10 +94,23 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     },
     [onClose]
   )
+  const onLayout = useCallback(
+    (event): void => {
+      if (_isOpened) {
+        setLayout(event.nativeEvent.layout)
+      }
+    },
+    [_isOpened]
+  )
   // ========================= Effect =========================
   // 同步外界isOpened状态
   useEffect(() => {
-    setOpened(isOpened)
+    setOpened(val => {
+      if (val !== isOpened) {
+        return isOpened
+      }
+      return val
+    })
   }, [isOpened])
   // 字符串duration转换准确时间
   useEffect(() => {
@@ -91,17 +122,38 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   }, [duration, text])
   useEffect(() => {
     if (!_isOpened) {
-      close()
       handleClose()
     } else {
       clearTimmer()
       makeTimer(durationTimer || 0)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [_isOpened, durationTimer])
+  }, [_isOpened])
 
   // ========================= Render =========================
-  return _isOpened ? (
+  const BaseToast = (
+    <View
+      data-testid='at-toast'
+      className={classNames(rootClass)}
+      style={rootStyle}
+      onClick={handleClick}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onLayout={onLayout}
+    >
+      {maskHide && <View className={classNames(overlayClass)} />}
+      <View
+        className={'at-toast-body'}
+        data-testid='at-toast-body'
+        style={customStyle}
+      >
+        {toastContent && (
+          <View className='at-toast-body-content__info'>{toastContent}</View>
+        )}
+      </View>
+    </View>
+  )
+  const ToastComponent = isShowInModal ? (
     <Modal
       animationIn='fadeIn'
       animationOut='fadeOut'
@@ -111,121 +163,17 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
         margin: 0
       }}
     >
-      <View
-        className={classNames(rootClassName)}
-        style={customStyle}
-        onClick={handleClick}
-      >
-        {maskHide && <View className='at-toast__overlay' />}
-        <View className='at-toast-body'>
-          {toastContent && (
-            <View className='at-toast-body-content__info'>{toastContent}</View>
-          )}
-        </View>
-      </View>
+      {BaseToast}
     </Modal>
-  ) : null
-}
-type rootsiblingsRef = {
-  update(element: React.ReactNode, callback?: () => void): void
-  destroy(callback?: () => void): void
-}
-
-// ====================== toshowToastInModal ======================
-const AtToastPlus = forwardRef((props: AtToastProps, ref) => {
-  const [_timer, setTimer] = useState<NodeJS.Timeout | null>(null)
-  const rootsiblings = useRef<rootsiblingsRef | null>(null)
-  // let rootsiblings
-  const hide = useCallback(() => {
-    if (_timer) {
-      clearTimeout(_timer)
-      setTimer(null)
-    }
-    if (rootsiblings) {
-      rootsiblings.current?.destroy()
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      rootsiblings.current = null
-    }
-  }, [_timer, rootsiblings])
-  const show = useCallback(
-    toastOpts => {
-      // const text = toastOpts.text
-      // if (typeof text !== 'string' || text?.length === 0) {
-      //   return
-      // }
-
-      toastOpts = Object.assign({}, props, toastOpts, {
-        isOpened: true
-      })
-
-      rootsiblings.current = new RootSiblings(<AtToast {...toastOpts} />)
-    },
-    [props]
+  ) : (
+    BaseToast
   )
-  useImperativeHandle(
-    ref,
-    useCallback(
-      () => ({
-        show,
-        hide
-      }),
-      [hide, show]
-    ),
-    [hide, show]
-  )
-  return <AtToast {...props} />
-})
-AtToastPlus.displayName = 'toastInModal'
-
-let refs: ToastRefObj[] = []
-
-function addNewRef(newRef: ToastRef) {
-  refs.push({
-    current: newRef
-  })
+  return _isOpened ? ToastComponent : null
 }
 
-function removeOldRef(oldRef: ToastRef | null) {
-  refs = refs.filter(r => r.current !== oldRef)
-}
-
-export function Toast(props: AtToastProps): any {
-  const toastRef = useRef<ToastRef | null>(null)
-  const setRef = useCallback((ref: ToastRef | null) => {
-    if (ref) {
-      toastRef.current = ref
-      addNewRef(ref)
-    } else {
-      removeOldRef(toastRef.current)
-    }
-  }, [])
-
-  return (
-    <RootSiblingParent>
-      <AtToastPlus ref={setRef} {...props} />
-    </RootSiblingParent>
-  )
-}
-function getRef() {
-  const reversePriority = [...refs].reverse()
-  const activeRef = reversePriority.find(ref => ref?.current !== null)
-  if (!activeRef) {
-    return null
-  }
-  return activeRef.current
-}
-
-Toast.show = (params: AtToastProps) => {
-  getRef()?.show(params)
-}
-
-Toast.hide = () => {
-  getRef()?.hide()
-}
 AtToast.defaultProps = {
   duration: 'auto',
   isOpened: false
 }
 
-// export default AtToastPlus
-export default Toast
+export default AtToast

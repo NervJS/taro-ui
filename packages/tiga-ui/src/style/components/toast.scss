@@ -6,13 +6,19 @@ $at-toast-color: $color-white;
 
 .at-toast {
     /*  #ifdef  rn  */
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     @include absolute-center-child();
     /*  #endif  */
+    &--no-mask {
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: auto;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
     &__overlay {
       @include overlay;
       opacity: 0;

@@ -23,6 +23,10 @@ export interface AtToastProps extends AtComponent {
    * 是否存在底部遮罩层(无法点击底部的内容区)
    */
   maskHide?: boolean
+  /**
+   * 兼容性参数 react-native是否在弹窗上面提示的场景
+   */
+  isShowInModal?: boolean
 
   /**
    * 元素被点击之后触发的事件
@@ -38,22 +42,6 @@ export interface AtToastState {
   _isOpened: boolean
 }
 
-export type ToastRef = {
-  // eslint-disable-next-line no-unused-vars
-  show: (params?: AtToastProps) => void
-  hide: () => void
-}
-
-export type ToastRefObj = {
-  current: ToastRef | null
-}
-
-interface ToastComponent extends ComponentClass<AtToastProps> {
-  // eslint-disable-next-line no-unused-vars
-  show: (params?: AtToastProps) => void
-  hide: () => void
-}
-
-declare const AtToast: ToastComponent
+declare const AtToast: FC<AtToastProps>
 
 export default AtToast

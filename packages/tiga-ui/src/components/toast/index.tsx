@@ -12,15 +12,33 @@ const DURATION_MAP = {
 const { isWEB } = PLATFORM
 const LEGAL_DURATION = ['auto', 'short', 'long']
 const AtToast: React.FunctionComponent<AtToastProps> = props => {
-  const { isOpened, text, children, maskHide, onClick, onClose, customStyle } =
-    props
+  const {
+    isOpened,
+    text,
+    children,
+    maskHide,
+    onClick,
+    onClose,
+    customStyle,
+    className
+  } = props
   let { duration = 'auto' } = props
   duration = LEGAL_DURATION.indexOf(duration) > -1 ? duration : 'auto'
 
-  const rootClassName = 'at-toast'
   const [_isOpened, setOpened] = useState<boolean>(isOpened)
   const [_timer, setTimer] = useState<NodeJS.Timeout | null>(null)
   const [durationTimer, setDuration] = useState<number>(0)
+
+  const rootClass = classNames(
+    {
+      'at-toast': true,
+      'at-toast--active': _isOpened
+    },
+    className
+  )
+  const overlayClass = classNames('at-toast__overlay', {
+    'at-toast__overlay--active': _isOpened
+  })
   let toastContent: React.ReactNode | string | undefined = text
   if (text) {
     toastContent = text
@@ -46,9 +64,9 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const close = useCallback((): void => {
     if (_isOpened) {
       setOpened(false)
-      clearTimmer()
     }
-  }, [_isOpened, clearTimmer])
+  }, [_isOpened])
+
   const makeTimer = useCallback(
     (durationTimer: number): void => {
       const tempTimer = setTimeout(() => {
@@ -88,13 +106,17 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
 
   // 同步外界isOpened状态
   useEffect(() => {
-    setOpened(isOpened)
+    setOpened(val => {
+      if (val !== isOpened) {
+        return isOpened
+      }
+      return val
+    })
   }, [isOpened])
-
   // 初始化状态 设置定时器
   useEffect(() => {
     if (!_isOpened) {
-      close()
+      // close()
       handleClose()
     } else {
       clearTimmer()
@@ -102,17 +124,18 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     }
     return () => {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [_isOpened, durationTimer])
+  }, [_isOpened])
 
   // ========================= Render =========================
   const Toast = _isOpened ? (
     <View
-      className={classNames(rootClassName)}
+      data-testid='at-toast'
+      className={classNames(rootClass)}
       style={customStyle}
       onClick={handleClick}
     >
-      {maskHide && <View className='at-toast__overlay' />}
-      <View className='at-toast-body'>
+      {maskHide && <View className={classNames(overlayClass)} />}
+      <View className={'at-toast-body'} data-testid='at-toast-body'>
         {toastContent && (
           <View className='at-toast-body-content__info'>{toastContent}</View>
         )}

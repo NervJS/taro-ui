@@ -6,6 +6,8 @@ import { CommonEventFunction } from '@tarojs/components/types/common'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
+const curtainPng = 'https://taro-ui.aotu.io/h5/static/images/curtain.png'
+
 const INIT_STATE: ToastPageState = {
   text: '',
   duration: 'auto',
@@ -53,7 +55,8 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
   }
   private handleClose = (): void => {
     this.setState({
-      isOpened: false
+      isOpened: false,
+      isOpened2: false
     })
   }
   private closeModal = (type: string, msg?: string): void => {
@@ -67,18 +70,15 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
       })
     }
   }
-  private showToast = (params: ToastPageState): void => {
-    const state = Object.assign({ ...INIT_STATE, isOpened: true }, params)
-    this.setState(state)
-  }
   private handleClickModal = (): void => {
     this.setState({ isOpened2: true })
-    // AtToast.show()
+    AtToast.show()
   }
   private handleClickModal1 = (): void => {
-    // const toast = new AtToast(INIT_STATE)
-    AtToast.show()
-    // AtToast.show({text: 'test'})
+    if (this.state.isOpened2) {
+      return this.setState({ isOpened2: false })
+    }
+    this.setState({ isOpened2: true })
   }
   public render(): JSX.Element {
     const {
@@ -110,6 +110,12 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
                   文本 Toast
                 </AtButton>
               </View>
+            </View>
+          </View>
+
+          <View className='panel'>
+            <View className='panel__title'>多行文本</View>
+            <View className='panel__content'>
               <View className='example-item'>
                 <AtButton
                   onClick={this.handleClick.bind(this, {
@@ -122,27 +128,10 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             </View>
           </View>
 
-          {/* <View className='panel'>
-            <View className='panel__title'>自定义图片</View>
-            <View className='panel__content'>
-              <View className='example__item'>
-                <AtButton
-                  onClick={this.handleClick.bind(this, {
-                    text: '凹凸实验室',
-                    image:
-                      'http://storage.360buyimg.com/mtd/home/group-21533885306540.png'
-                  })}
-                >
-                  自定义图片 Toast
-                </AtButton>
-              </View>
-            </View>
-          </View> */}
-
           <View className='panel'>
             <View className='panel__title'>添加遮罩层</View>
             <View className='panel__content'>
-              <View className='example__item'>
+              <View className='example-item'>
                 <AtButton
                   onClick={this.handleClick.bind(this, {
                     text: '透明遮罩层的作用在于不可点击下面的元素',
@@ -158,7 +147,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             <View className='panel__title'>弹窗上面 toast</View>
             <View className='panel__content'>
               <View className='example__item'>
-                <AtButton onClick={this.handleClick1.bind(this, 1)}>
+                <AtButton onClick={this.handleClick1.bind(this, 3)}>
                   弹窗上面 Toast
                 </AtButton>
               </View>
@@ -186,20 +175,16 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
           onSecondary={this.closeModal.bind(this, 1, 'Modal被关闭了')}
           onClose={this.closeModal.bind(this, 1)}
         >
-          <View>
-            <AtToast
-              maskHide={maskHide}
-              isOpened={isOpened2}
-              duration={duration}
-              onClose={this.handleClose}
-            >
-              <Image
-                className='imagebox'
-                src='https://camo.githubusercontent.com/3e1b76e514b895760055987f164ce6c95935a3aa/687474703a2f2f73746f726167652e333630627579696d672e636f6d2f6d74642f686f6d652f6c6f676f2d3278313531333833373932363730372e706e67'
-              ></Image>
-              <View style={{ color: 'white' }}>12313</View>
-            </AtToast>
-          </View>
+          <AtToast
+            isOpened={isOpened}
+            duration={duration}
+            onClose={this.handleClose}
+            isShowInModal
+          >
+            <View style={{ color: 'white' }}>
+              文本内容提示啊断喉弩啊说的话深度啊啥的饭卡司法计算机房i啊手机费i啊手机费i啊手机费i叫阿斯放假啊说
+            </View>
+          </AtToast>
         </AtDialog>
         <AtDialog
           isOpened={isOpened3}
@@ -209,22 +194,25 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
           secondaryText='取消'
           // onPrimary={this.showToast.bind(this, { text: '弹窗上面的toast' })}
           onPrimary={this.handleClickModal1.bind(this)}
-          onSecondary={this.closeModal.bind(this, 1, 'Modal被关闭了')}
+          onSecondary={this.closeModal.bind(this, 3, 'Modal被关闭了')}
           onClose={this.closeModal.bind(this, 1)}
-        />
-        <AtToast
-          maskHide={maskHide}
-          isOpened={false}
-          duration={duration}
-          onClose={this.handleClose}
         >
-          <Image
-            className='imagebox'
-            src='https://camo.githubusercontent.com/3e1b76e514b895760055987f164ce6c95935a3aa/687474703a2f2f73746f726167652e333630627579696d672e636f6d2f6d74642f686f6d652f6c6f676f2d3278313531333833373932363730372e706e67'
-          ></Image>
-          <View style={{ color: 'white' }}>12313</View>
-          {/* <View className='red'>13313</View> */}
-        </AtToast>
+          <AtToast
+            isOpened={isOpened2}
+            duration={duration}
+            onClose={this.handleClose}
+            isShowInModal
+          >
+            <Image
+              className='imagebox'
+              style={{ width: '100%' }}
+              mode='widthFix'
+              src={curtainPng}
+            ></Image>
+            <View style={{ color: 'white' }}>12313</View>
+            {/* <View className='red'>13313</View> */}
+          </AtToast>
+        </AtDialog>
       </View>
     )
   }
