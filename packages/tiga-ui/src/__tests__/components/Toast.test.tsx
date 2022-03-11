@@ -48,18 +48,16 @@ describe('AtToast 测试在 weapp 环境，h5类似 -> ', () => {
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('交互：测试提示持续时间短', async () => {
+  it('交互：测试提示持续时间短', () => {
     const { getByTestId } = render(
       <AtToast isOpened={true} text='基础提示' duration='short' />
     )
     const container = getByTestId('at-toast')
     expect(container.className).toContain('at-toast--active')
-    const body = getByTestId('at-toast-body')
     // await delay(2000)
 
     setTimeout(() => {
       expect(container.className).not.toContain('at-toast--active')
-      expect(body.className).toContain('at-toast--inactive')
     }, 2000)
   })
   it('交互：测试提示持续时间长', async () => {
@@ -68,11 +66,9 @@ describe('AtToast 测试在 weapp 环境，h5类似 -> ', () => {
     )
     const container = getByTestId('at-toast')
     expect(container.className).toContain('at-toast--active')
-    const body = getByTestId('at-toast-body')
     // await delay(3500)
     setTimeout(() => {
       expect(container.className).not.toContain('at-toast--active')
-      expect(body.className).toContain('at-toast--inactive')
     }, 3500)
   })
   it('交互：测试提示持续时间自动', async () => {
@@ -83,7 +79,7 @@ describe('AtToast 测试在 weapp 环境，h5类似 -> ', () => {
     expect(container.className).toContain('at-toast--active')
 
     setTimeout(() => {
-      expect(container.className).toContain('at-toast--inactive')
+      expect(container.className).not.toContain('at-toast--active')
     }, 2000)
   })
   it('交互：测试提示持续时自动', async () => {
@@ -94,7 +90,7 @@ describe('AtToast 测试在 weapp 环境，h5类似 -> ', () => {
     expect(container.className).toContain('at-toast--active')
 
     setTimeout(() => {
-      expect(container.className).toContain('at-toast--inactive')
+      expect(container.className).not.toContain('at-toast--active')
     }, 3500)
   })
   it('交互：传入onClick事件时，回调函数能够触发', () => {
@@ -128,7 +124,7 @@ describe('AtToast 测试在 weapp 环境，h5类似 -> ', () => {
     expect(container.className).toContain('at-toast--active')
 
     setTimeout(() => {
-      expect(container.className).toContain('at-toast--inactive')
+      expect(container.className).not.toContain('at-toast--active')
       expect(onCloseFn).toBeCalledTimes(1)
     }, 2000)
   })
