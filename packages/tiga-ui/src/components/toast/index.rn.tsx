@@ -36,7 +36,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     rootStyle.borderRadius = '4px'
     rootStyle.marginLeft = layout ? (layout.width * -1) / 2 : 0
     rootStyle.marginTop = layout ? (layout.height * -1) / 2 : 0
-    rootStyle.opacity = layout ? 1 : 0
+    rootStyle.opacity = layout ? 0.8 : 0
   }
   const rootClass = classNames(
     {
