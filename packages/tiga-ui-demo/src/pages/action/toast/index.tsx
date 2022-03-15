@@ -165,28 +165,6 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
         />
         {/* 带弹窗webtoast */}
         <AtDialog
-          isOpened={isOpened1}
-          title='基础模态框'
-          // content='模块框内容'
-          primaryText='showtoast'
-          secondaryText='取消'
-          // onPrimary={this.showToast.bind(this, { text: '弹窗上面的toast' })}
-          onPrimary={this.handleClickModal.bind(this)}
-          onSecondary={this.closeModal.bind(this, 1, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 1)}
-        >
-          <AtToast
-            isOpened={isOpened}
-            duration={duration}
-            onClose={this.handleClose}
-            isShowInModal
-          >
-            <View style={{ color: 'white' }}>
-              文本内容提示啊断喉弩啊说的话深度啊啥的饭卡司法计算机房i啊手机费i啊手机费i啊手机费i叫阿斯放假啊说
-            </View>
-          </AtToast>
-        </AtDialog>
-        <AtDialog
           isOpened={isOpened3}
           title='基础模态框'
           // content='模块框内容'
@@ -203,14 +181,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             onClose={this.handleClose}
             isShowInModal
           >
-            {/* <Image
-              className='imagebox'
-              style={{ width: '100%' }}
-              mode='widthFix'
-              src={curtainPng}
-            ></Image> */}
-            <View style={{ color: 'white' }}>文本提示！</View>
-            {/* <View className='red'>13313</View> */}
+            <View style={{ color: 'white' }}>文本提示</View>
           </AtToast>
         </AtDialog>
       </View>

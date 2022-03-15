@@ -63,7 +63,8 @@ import { AtToast } from 'tagi-ui'
 说明：
 
 - 在 rn 中 Modal 的层级是最高的，考虑到可能出现弹窗上面轻提示的情况组件对兼容性有相关处理.
-  需要 Toast 组件放在 Modal 组件内部，并传入属性值isShowInModal为true
+  需要 Toast 组件放在 Modal 组件内部，并传入属性值isShowInModal为true;
+- 对于其他环境则中不需要把Toast放在Modal组件内部（放Moadl内部可能会导致最大宽度值受影响);
 
 :::demo
 

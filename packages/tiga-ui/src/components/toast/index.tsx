@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtToastProps } from '../../../types/toast'
@@ -20,7 +20,8 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     onClick,
     onClose,
     customStyle,
-    className
+    className,
+    isShowInModal
   } = props
   let { duration = 'auto' } = props
   duration = LEGAL_DURATION.indexOf(duration) > -1 ? duration : 'auto'
@@ -28,7 +29,8 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const [_isOpened, setOpened] = useState<boolean>(isOpened)
   const [_timer, setTimer] = useState<NodeJS.Timeout | null>(null)
   const [durationTimer, setDuration] = useState<number>(0)
-
+  const bodyRef = useRef<HTMLBaseElement | null>(null)
+  const [marginLeft, setMarginLeft] = useState<number>(0)
   const rootClass = classNames(
     {
       'at-toast': true,
@@ -39,6 +41,18 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const overlayClass = classNames('at-toast__overlay', {
     'at-toast__overlay--active': _isOpened
   })
+  // fix：解决水平居中和最大宽度的冲突问题 如果在弹窗中就沿用left50%的效果
+  // 否则正常用动态计算marginleft的那套逻辑
+  const bodyClass = classNames(
+    {
+      'at-toast-body': true,
+      'at-toast-center': !isShowInModal,
+      'at-toast-inner-center': isShowInModal
+    },
+    className
+  )
+  // 动态计算出的marginleft值
+  const marginStyle = !isShowInModal ? { marginLeft: `${marginLeft}px` } : ''
   let toastContent: React.ReactNode | string | undefined = text
   if (text) {
     toastContent = text
@@ -55,6 +69,15 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     toastContent = children
   }
   // ========================= Events =========================
+  // fix：解决水平居中和最大宽度的冲突问题
+  // 动态计算 marginleft = 屏幕宽度-toast主体宽度  / 2
+  const calMarginLeft = useCallback(() => {
+    const screenWidth: number = document.querySelector('body')?.offsetWidth || 0
+    const toastWidth: number = bodyRef.current?.offsetWidth || 0
+    const dymMarginLeft = (screenWidth - toastWidth) / 2
+    setMarginLeft(dymMarginLeft)
+  }, [])
+
   const clearTimmer = useCallback((): void => {
     if (_timer) {
       clearTimeout(_timer)
@@ -118,7 +141,9 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     if (!_isOpened) {
       // close()
       handleClose()
+      setMarginLeft(0)
     } else {
+      calMarginLeft()
       clearTimmer()
       makeTimer(durationTimer || 0)
     }
@@ -135,7 +160,12 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
       onClick={handleClick}
     >
       {maskHide && <View className={classNames(overlayClass)} />}
-      <View className={'at-toast-body'} data-testid='at-toast-body'>
+      <View
+        className={bodyClass}
+        data-testid='at-toast-body'
+        ref={bodyRef}
+        style={marginStyle}
+      >
         {toastContent && (
           <View className='at-toast-body-content__info'>{toastContent}</View>
         )}

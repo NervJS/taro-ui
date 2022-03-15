@@ -106,17 +106,17 @@ $opacity-disabled-base: 0.5 !default; // 常规失效透明度，如secondaryBut
 $opacity-disabled-light: 0.2 !default; // 填充型失效透明度，如primaryButton // add
 
 /* Font */
-$font-size-xs: 10px * $hd !default; // 非常用字号，用于标签
-$font-size-sm: 12px * $hd !default; // 用于辅助信息
-$font-size-base: 14px * $hd !default; // 常用字号
-$font-size-lg: 16px * $hd !default; // 常规标题
-$font-size-xl: 18px * $hd !default; // 大标题
-$font-size-xxl: 20px * $hd !default; // 用于大号的数字
+// $font-size-xs: 10px * $hd !default; // 非常用字号，用于标签
+// $font-size-sm: 12px * $hd !default; // 用于辅助信息
+// $font-size-base: 14px * $hd !default; // 常用字号
+// $font-size-lg: 16px * $hd !default; // 常规标题
+// $font-size-xl: 18px * $hd !default; // 大标题
+// $font-size-xxl: 20px * $hd !default; // 用于大号的数字
 
 /* Line Height */
-$line-height-base: 1 !default; // 单行
-$line-height-en: 1.3 !default; // 英文多行
-$line-height-zh: 1.5 !default; // 中文多行
+// $line-height-base: 1 !default; // 单行
+// $line-height-en: 1.3 !default; // 英文多行
+// $line-height-zh: 1.5 !default; // 中文多行
 
 /* 水平间距 */
 $spacing-h-xs: 4px !default; // edit
@@ -138,21 +138,21 @@ $icon-size-md: 22px * $hd !default;
 $icon-size-lg: 36px * $hd !default;
 
 /* z-index */
-$zindex-divider: 100 !default;
-$zindex-steps: 500 !default;
-$zindex-tab: 600 !default;
-$zindex-form: 700 !default;
-$zindex-nav: 800 !default;
-$zindex-search-bar: 800 !default;
-$zindex-indexes: 805 !default;
-$zindex-flot-layout: 810 !default;
-$zindex-drawer: 900 !default;
-$zindex-modal: 1000 !default;
-$zindex-action-sheet: 1010 !default;
-$zindex-picker: 1010 !default;
-$zindex-curtain: 1080 !default;
-$zindex-message: 1090 !default;
-$zindex-toast: 1090 !default;
+// $zindex-divider: 100 !default;
+// $zindex-steps: 500 !default;
+// $zindex-tab: 600 !default;
+// $zindex-form: 700 !default;
+// $zindex-nav: 800 !default;
+// $zindex-search-bar: 800 !default;
+// $zindex-indexes: 805 !default;
+// $zindex-flot-layout: 810 !default;
+// $zindex-drawer: 900 !default;
+// $zindex-modal: 1000 !default;
+// $zindex-action-sheet: 1010 !default;
+// $zindex-picker: 1010 !default;
+// $zindex-curtain: 1080 !default;
+// $zindex-message: 1090 !default;
+// $zindex-toast: 1090 !default;
 
 /* timing function */
 $timing-func: cubic-bezier(0.36, 0.66, 0.04, 1) !default;
@@ -231,6 +231,10 @@ $at-button-color: $color-brand !default;
 $at-button-border-color-primary: $color-brand !default;
 $at-button-border-color-secondary: $color-brand !default;
 $at-button-bg: $at-button-color !default;
+
+/* Toast */
+$at-toast-max-width: 280px !default;
+$at-toast-color: $color-white !default;
 
 /* Float Button */
 // $at-fab-size: 56px * $hd !default;
