@@ -39,7 +39,6 @@ view {
 .panel__content {
   .example-item {
     margin-bottom: 10px;
-
     &:last-child {
       margin-bottom: 0;
     }
@@ -100,11 +99,11 @@ view {
 
     &__content {
       padding: 0 10px;
-
       &.no-padding {
         padding: 0;
       }
     }
+
   }
 }
 
@@ -137,4 +136,7 @@ view {
 
 .red {
   background-color: red;
+}
+.blue {
+  background-color: blue;
 }

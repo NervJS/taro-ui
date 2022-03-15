@@ -31,7 +31,7 @@ $color-info: #2092f2 !default; // edit
 // $color-grey-5: #F0F0F0 !default;
 // $color-grey-6: #F7F7F7 !default;
 
-// $color-white: #FFF !default;
+$color-white: #FFF !default;
 
 /* Text Color */
 $color-text-base: #333 !default; // 文字的基本色 // edit
@@ -88,7 +88,7 @@ $radius-circle: 50%; // 全圆角，特殊排版使用 // add
 
 /* 轻提示 Toast */
 $toast-bg: rgba(0, 0, 0, 0.8); // toast背景色 // add
-$toast-radius: $radius-lg; // toast圆角 // add
+$toast-radius: $radius-md; // toast圆角 // add
 
 /* 图标颜色 */
 // $color-icon-base: #CCC !default;
@@ -133,9 +133,9 @@ $spacing-v-lg: 16px !default; // edit
 $spacing-v-xl: 24px !default; // edit
 
 /* 图标尺寸 */
-// $icon-size-sm: 18px * $hd !default;
-// $icon-size-md: 22px * $hd !default;
-// $icon-size-lg: 36px * $hd !default;
+$icon-size-sm: 18px * $hd !default;
+$icon-size-md: 22px * $hd !default;
+$icon-size-lg: 36px * $hd !default;
 
 /* z-index */
 // $zindex-divider: 100 !default;
@@ -231,6 +231,10 @@ $at-button-color: $color-brand !default;
 $at-button-border-color-primary: $color-brand !default;
 $at-button-border-color-secondary: $color-brand !default;
 $at-button-bg: $at-button-color !default;
+
+/* Toast */
+$at-toast-max-width: 280px !default;
+$at-toast-color: $color-white !default;
 
 /* Float Button */
 // $at-fab-size: 56px * $hd !default;

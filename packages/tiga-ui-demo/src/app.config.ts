@@ -6,7 +6,8 @@ export default {
     'pages/basic/icon/index',
     'pages/action/dialog/index',
     'pages/action/action-sheet/index',
-    'pages/view/curtain/index'
+    'pages/view/curtain/index',
+    'pages/action/toast/index'
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtToast 测试在 weapp 环境，h5类似 ->  展示：单行文本 1`] = `
+<view
+  className="at-toast at-toast--active"
+  data-testid="at-toast"
+  onClick={[Function]}
+>
+  <view
+    className="at-toast-body"
+    data-testid="at-toast-body"
+  >
+    <view
+      className="at-toast-body-content__info"
+    >
+      基础提示
+    </view>
+  </view>
+</view>
+`;
+
+exports[`AtToast 测试在 weapp 环境，h5类似 ->  展示：多行文本 1`] = `
+<view
+  className="at-toast at-toast--active"
+  data-testid="at-toast"
+  onClick={[Function]}
+>
+  <view
+    className="at-toast-body"
+    data-testid="at-toast-body"
+  >
+    <view
+      className="at-toast-body-content__info"
+    >
+      这是文字多一些的情况，希望行数能够多一些达到超过但行的标准！这下应该有两行了吧
+    </view>
+  </view>
+</view>
+`;
+
+exports[`AtToast 测试在 weapp 环境，h5类似 ->  展示：自定义内容模态框 1`] = `
+<view
+  className="at-toast at-toast--active"
+  data-testid="at-toast"
+  onClick={[Function]}
+>
+  <view
+    className="at-toast-body"
+    data-testid="at-toast-body"
+  >
+    <view
+      className="at-toast-body-content__info"
+    >
+      这里是正文内容，欢迎加入58安居客。。 这里是正文内容，欢迎加入58安居客。。 这里是正文内容，欢迎加入58安居客。。
+    </view>
+  </view>
+</view>
+`;
