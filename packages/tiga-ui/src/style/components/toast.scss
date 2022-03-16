@@ -26,10 +26,12 @@ $ar-toast-content-v-gap: (22px - 16px) / 2;
       /*  #endif  */
     }
     &-center {
+      /*  #ifndef  rn  */
       position: fixed;
       top: 50%;
       z-index: $zindex-toast;
       transform: translateY(-50%);
+      /*  #endif  */
     }
     &-inner-center {
       @include absolute-center(fixed);
@@ -46,7 +48,7 @@ $ar-toast-content-v-gap: (22px - 16px) / 2;
         max-width: $at-toast-max-width;
         // width: $at-toast-max-width;
         box-sizing: border-box;
-  
+
         &-content {
           &__info {
             @include font(16px);

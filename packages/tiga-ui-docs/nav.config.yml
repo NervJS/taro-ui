@@ -25,7 +25,7 @@ components:
         items:
           - title: 轻提示
             name: Toast
-      - title: 导航组件
+      - title: 视图组件
         items:
-          - title: 标签页
-            name: Tabs
+          - title: 标签
+            name: Tag
