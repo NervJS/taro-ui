@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * 默认主题下 $color-border-heavy
  */
@@ -11,115 +13,117 @@
 @mixin hairline-surround(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX,
+  $radius: 0,
 ) {
   @include hairline-base($color, $style);
 
-  border-width: $width;
+  border-width: math.div($width, 2);
+  border-radius: math.div($radius, 2);
 }
 
 @mixin hairline-top(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-top-width: $width;
+  border-top-width: math.div($width, 2);
 }
 
 @mixin hairline-bottom(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-bottom-width: $width;
+  border-bottom-width: math.div($width, 2);
 }
 
 @mixin hairline-left(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-left-width: $width;
+  border-left-width: math.div($width, 2);
 }
 
 @mixin hairline-right(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-right-width: $width;
+  border-right-width: math.div($width, 2);
 }
 
 @mixin hairline-top-bottom(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-top-width: $width;
-  border-bottom-width: $width;
+  border-top-width: math.div($width, 2);
+  border-bottom-width: math.div($width, 2);
 }
 
 @mixin hairline-left-top(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX
+  $width: 1PX
 ) {
   @include hairline-base($color, $style);
 
-  border-left-width: $width;
-  border-top-width: $width;
+  border-left-width: math.div($width, 2);
+  border-top-width: math.div($width, 2);
 }
 
 @mixin hairline-bottom-relative(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX,
+  $width: 1PX,
   $left: 0
 ) {
   @include hairline-base($color, $style);
 
-  border-bottom-width: $width;
+  border-bottom-width: math.div($width, 2);
 }
 
 @mixin hairline-top-relative(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX,
+  $width: 1PX,
   $left: 0
 ) {
   @include hairline-base($color, $style);
 
-  border-top-width: $width;
+  border-top-width: math.div($width, 2);
 }
 
 @mixin hairline-left-relative(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX,
+  $width: 1PX,
   $top: 0
 ) {
   @include hairline-base($color, $style);
 
-  border-left-width: $width;
+  border-left-width: math.div($width, 2);
 }
 
 @mixin hairline-right-relative(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 0.5PX,
+  $width: 1PX,
   $top: 0
 ) {
   @include hairline-base($color, $style);
 
-  border-right-width: $width;
+  border-right-width: math.div($width, 2);
 }

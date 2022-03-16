@@ -22,6 +22,10 @@ components:
           - title: 按钮
             name: Button
       - title: 操作反馈
-        items:           
+        items:
           - title: 轻提示
             name: Toast
+      - title: 导航组件
+        items:
+          - title: 标签页
+            name: Tabs

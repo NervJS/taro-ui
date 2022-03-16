@@ -60,10 +60,8 @@ export interface AtActionSheetItemProps extends AtComponent {
   onClick?: CommonEventFunction
 }
 
-declare const AtActionSheetItem: ComponentClass<AtActionSheetItemProps>
+export declare const AtActionSheetItem: ComponentClass<AtActionSheetItemProps>
 
 declare const AtActionSheet: ComponentClass<AtActionSheetProps>
 
 export default AtActionSheet
-
-export { AtActionSheetItem }

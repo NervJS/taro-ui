@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { Button, View } from '@tarojs/components'
+import { Button, View, Text } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import { noop, PLATFORM } from '../../utils'
@@ -129,14 +129,14 @@ const AtButton: React.FC<AtButtonProps> = props => {
         style={Object.assign({ width, paddingHorizontal: 0 }, customStyle)}
         onClick={_onClick}
       >
-        <View
+        <Text
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           onLayout={onLayout}
           className={classNames(textClassName, sizeTextClassName)}
         >
           {children}
-        </View>
+        </Text>
       </Button>
     )
   }

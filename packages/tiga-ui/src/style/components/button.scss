@@ -13,11 +13,13 @@ $at-border-width: 0.5px;
 
 .at-button {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   border-radius: $at-button-radius;
   box-sizing: border-box;
+
+  /*  #ifdef  rn  */
+  flex-direction: row;
+  justify-content: center;
+  /*  #endif  */
 
   /*  #ifndef  rn  */
   display: inline-block;

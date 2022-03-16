@@ -15,11 +15,11 @@
       <div class="at-timeline__content">
         <p class="head">v0.0.1</p>
         <p class="time">
-          <span>2022-01-20</span>
+          <span>2022-03-10</span>
         </p>
         <ul class="content">
           <li>发布<span>Tiga UI</span>v0.0.1</li>
-          <li>发布第一个版本，包含<span>3</span>个组件</li>
+          <li>发布第一个版本，包含<span>6</span>个组件，分别是 <span>AtButton</span>，<span>AtToast</span>，<span>AtDialog</span>，<span>AtCurtain</span>，<span>AtActionSheet</span>，<span>AtIcon</span>组件</li>
         </ul>
       </div>
     </div>

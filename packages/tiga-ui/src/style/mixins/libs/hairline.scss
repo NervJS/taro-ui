@@ -27,7 +27,8 @@
 @mixin hairline-surround(
   $color: $color-border-heavy,
   $style: solid,
-  $width: 1PX
+  $width: 1PX,
+  $radius: 0,
 ) {
   position: relative;
 
@@ -35,6 +36,7 @@
     @include hairline-base($color, $style);
 
     border-width: $width;
+    border-radius: $radius;
   }
 }
 

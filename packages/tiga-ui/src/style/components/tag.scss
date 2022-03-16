@@ -1,0 +1,89 @@
+@use "sass:math";
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-tag {
+  /*  #ifdef  rn  */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /*  #endif  */
+
+  /*  #ifndef  rn  */
+  display: inline-block;
+  /*  #endif  */
+
+  text-align: center;
+  border-radius: $radius-sm;
+  background-color: $color-border-base;
+  line-height: 0;
+
+  &--text {
+    @include font(14px, 14px);
+    color: $color-text-base;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--normal {
+    padding: 9px $spacing-h-lg;
+
+    @include hairline-surround($color-text-ghost, solid, 1px, 8px);
+  }
+
+  &--small {
+    padding: 7px $spacing-h-md;
+
+    @include hairline-surround(transparent, solid, 1px, 8px);
+  }
+
+  &--active {
+    border-color: $color-brand;
+    @include hairline-surround($color-brand, solid, 1px, 8px);
+
+    &--text {
+      color: $color-brand;
+      font-weight: bold;
+    }
+  }
+
+  &-gap {
+    margin-right: $spacing-h-sm;
+    margin-bottom: $spacing-h-sm;
+  }
+}
+
+.at-tag-group {
+  flex-direction: row;
+  background-color: $color-bg-base;
+  /*  #ifndef  rn  */
+  box-sizing: border-box;
+  white-space: nowrap;
+  /*  #endif  */
+
+  /* type */
+  &--form {
+    margin-bottom: -1 * $spacing-h-sm;
+  }
+  /* type */
+
+  /* size */
+  &--normal {
+    padding: 10px 0 2px $spacing-h-lg;
+  }
+
+  &--small {
+    padding: 8px 0 0 $spacing-h-lg;
+  }
+  /* size */
+
+  &--wrap {
+    flex-wrap: wrap;
+    /*  #ifndef  rn  */
+    white-space: normal;
+    /*  #endif  */
+  }
+
+}

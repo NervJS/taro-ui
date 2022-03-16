@@ -68,7 +68,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton size='full' onClick={this.handleClick.bind(this, 1)}>
+                <AtButton onClick={this.handleClick.bind(this, 1)}>
                   打开 ActionSheet
                 </AtButton>
               </View>
@@ -80,7 +80,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>含标题</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton size='full' onClick={this.handleClick.bind(this, 2)}>
+                <AtButton onClick={this.handleClick.bind(this, 2)}>
                   打开 ActionSheet
                 </AtButton>
               </View>
@@ -92,7 +92,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__title'>自定义选项</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
-                <AtButton size='full' onClick={this.handleClick.bind(this, 3)}>
+                <AtButton onClick={this.handleClick.bind(this, 3)}>
                   打开 ActionSheet
                 </AtButton>
               </View>

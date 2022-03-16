@@ -69,10 +69,11 @@ view {
   padding-bottom: 30px;
   background: #fff;
 
+  &--panel {
+    margin: 16px 0 28px;
+  }
 
   .panel {
-    margin: 16px 0 28px;
-
     &__title {
       position: relative;
       margin-bottom: 25px;

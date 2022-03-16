@@ -1,3 +1,5 @@
+/* android 中文字重不支持 500 和 600，加粗直接设置 700*/
+
 $font-weight: 700;
 
 @mixin font-weight {
