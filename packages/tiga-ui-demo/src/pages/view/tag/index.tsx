@@ -1,7 +1,6 @@
 import React from 'react'
 import { AtTag, AtTagGroup } from 'tiga-ui'
 import { View } from '@tarojs/components'
-// import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
