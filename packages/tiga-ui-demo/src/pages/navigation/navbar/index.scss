@@ -1,0 +1,15 @@
+@import '~tiga-ui/dist/style/mixins/index.scss';
+
+.nav-bar-page {
+  &__bg {
+    background-color: white;
+  }
+
+  &__screen-bg {
+    background-color: #f3f3f3;
+  }
+
+  &__extra {
+    @include font(16px, 18px);
+  }
+}

@@ -8,6 +8,7 @@ export default {
     'pages/action/action-sheet/index',
     'pages/view/curtain/index',
     'pages/action/toast/index',
+    'pages/navigation/navbar/index',
     'pages/view/tag/index'
   ],
   window: {

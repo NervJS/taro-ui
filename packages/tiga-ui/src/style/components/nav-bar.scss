@@ -1,0 +1,25 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-nav-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: $color-bg-base;
+  padding: 13px;
+
+  &__title {
+    @include font(18px, 18px);
+    flex: 1;
+    text-align: center;
+  }
+
+  &__back {
+    @include font(16px, 18px);
+    flex: 1;
+  }
+
+  &__extra {
+    @include font(16px, 18px);
+    flex: 1;
+  }
+}
