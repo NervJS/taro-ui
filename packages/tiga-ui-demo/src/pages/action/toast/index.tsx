@@ -98,7 +98,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
 
         {/* S Body */}
         <View className='doc-body'>
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>基本案例</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -113,7 +113,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             </View>
           </View>
 
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>多行文本</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -128,7 +128,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
             </View>
           </View>
 
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>添加遮罩层</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -143,7 +143,7 @@ export default class ToastPage extends React.Component<any, ToastPageState> {
               </View>
             </View>
           </View>
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>弹窗上面 toast</View>
             <View className='panel__content'>
               <View className='example__item'>

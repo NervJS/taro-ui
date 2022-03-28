@@ -5,11 +5,11 @@ import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-interface ModalPageState {
+interface DialogPageState {
   [key: string]: boolean
 }
 
-export default class ModalPage extends React.Component<any, ModalPageState> {
+export default class DialogPage extends React.Component<any, DialogPageState> {
   public constructor(props) {
     super(props)
     this.state = {
@@ -27,7 +27,7 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
     })
   }
 
-  private closeModal = (type: string, msg?: string): void => {
+  private closeDialog = (type: string, msg?: string): void => {
     this.setState({
       [`isOpened${type}`]: false
     })
@@ -44,11 +44,11 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
 
     return (
       <View className='page'>
-        <DocsHeader title='Modal 模态框' />
+        <DocsHeader title='Dialog 模态框' />
 
         <View className='doc-body'>
           {/* 基础模态框 */}
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>基础模态框</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -59,7 +59,7 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
             </View>
           </View>
           {/* 单个按钮模态框 */}
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>单个按钮模态框</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -70,7 +70,7 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
             </View>
           </View>
           {/* 三个按钮模态框 */}
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>三个按钮模态框</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -81,7 +81,7 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
             </View>
           </View>
           {/* 无标题 */}
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>无标题</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -92,7 +92,7 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
             </View>
           </View>
           {/* 自定义 */}
-          <View className='panel'>
+          <View className='doc-body--panel'>
             <View className='panel__title'>自定义</View>
             <View className='panel__content'>
               <View className='example-item'>
@@ -111,17 +111,17 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
           content='模块框内容'
           primaryText='主要操作'
           secondaryText='次要操作'
-          onPrimary={this.closeModal.bind(this, 1, 'Modal被关闭了')}
-          onSecondary={this.closeModal.bind(this, 1, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 1)}
+          onPrimary={this.closeDialog.bind(this, 1, 'Dialog被关闭了')}
+          onSecondary={this.closeDialog.bind(this, 1, 'Dialog被关闭了')}
+          onClose={this.closeDialog.bind(this, 1)}
         />
         {/* 单个按钮模态框 */}
         <AtDialog
           isOpened={isOpened2}
           title='单个按钮模态框'
           content='模块框内容'
-          onPrimary={this.closeModal.bind(this, 2, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 2)}
+          onPrimary={this.closeDialog.bind(this, 2, 'Dialog被关闭了')}
+          onClose={this.closeDialog.bind(this, 2)}
         />
         {/* 三个按钮模态框 */}
         <AtDialog
@@ -131,24 +131,24 @@ export default class ModalPage extends React.Component<any, ModalPageState> {
           primaryText='主要操作'
           secondaryText='次要操作'
           tertiaryText='辅助操作'
-          onPrimary={this.closeModal.bind(this, 3, 'Modal被关闭了')}
-          onSecondary={this.closeModal.bind(this, 3, 'Modal被关闭了')}
-          onTertiary={this.closeModal.bind(this, 3, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 3)}
+          onPrimary={this.closeDialog.bind(this, 3, 'Dialog被关闭了')}
+          onSecondary={this.closeDialog.bind(this, 3, 'Dialog被关闭了')}
+          onTertiary={this.closeDialog.bind(this, 3, 'Dialog被关闭了')}
+          onClose={this.closeDialog.bind(this, 3)}
         />
         {/* 无标题模态框 */}
         <AtDialog
           isOpened={isOpened4}
           content='无标题模态框'
-          onPrimary={this.closeModal.bind(this, 4, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 4)}
+          onPrimary={this.closeDialog.bind(this, 4, 'Dialog被关闭了')}
+          onClose={this.closeDialog.bind(this, 4)}
         />
         {/* 自定义模态框 */}
         <AtDialog
           isOpened={isOpened5}
           title='自定义模态框'
-          onPrimary={this.closeModal.bind(this, 5, 'Modal被关闭了')}
-          onClose={this.closeModal.bind(this, 5)}
+          onPrimary={this.closeDialog.bind(this, 5, 'Dialog被关闭了')}
+          onClose={this.closeDialog.bind(this, 5)}
         >
           这里是正文内容，欢迎加入58安居客。。
           这里是正文内容，欢迎加入58安居客。。

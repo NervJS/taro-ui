@@ -8,7 +8,7 @@ export default {
   floatlayout: 'layout/float-layout',
   accordion: 'layout/accordion',
   toast: 'action/toast',
-  modal: 'action/modal',
+  dialog: 'action/dialog',
   swipeaction: 'action/swipe-action',
   progress: 'action/progress',
   actionsheet: 'action/action-sheet',

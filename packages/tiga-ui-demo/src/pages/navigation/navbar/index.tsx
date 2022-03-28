@@ -29,7 +29,7 @@ const NavbarPage: React.FC = () => {
       >
         <View className='page'>
           {/* S Header */}
-          <DocsHeader title='导航栏'></DocsHeader>
+          <DocsHeader title='NavBar 导航栏'></DocsHeader>
           {/* E Header */}
 
           {/* S Body */}
