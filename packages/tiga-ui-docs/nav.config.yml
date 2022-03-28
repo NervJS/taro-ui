@@ -29,3 +29,7 @@ components:
         items:
           - title: 标签
             name: Tag
+      - title: 导航组件
+        items:
+          - title: 导航栏
+            name: NavBar
