@@ -18,12 +18,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--full__text"
       onLayout={[Function]}
     >
       full
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--large"
@@ -41,12 +41,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--large__text"
       onLayout={[Function]}
     >
       large
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--medium"
@@ -64,12 +64,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--medium__text"
       onLayout={[Function]}
     >
       medium
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--mini"
@@ -87,12 +87,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--mini__text"
       onLayout={[Function]}
     >
       mini
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--small"
@@ -110,12 +110,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--small__text"
       onLayout={[Function]}
     >
       small
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--tiny"
@@ -133,12 +133,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--tiny__text"
       onLayout={[Function]}
     >
       tiny
-    </view>
+    </text>
   </button>,
 ]
 `;
@@ -161,12 +161,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--primary__text at-button--medium__text"
       onLayout={[Function]}
     >
       primary
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--secondary at-button--medium"
@@ -184,12 +184,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--secondary__text at-button--medium__text"
       onLayout={[Function]}
     >
       secondary
-    </view>
+    </text>
   </button>,
   <button
     className="at-button at-button--tertiary at-button--medium"
@@ -207,12 +207,12 @@ Array [
       }
     }
   >
-    <view
+    <text
       className="at-button--tertiary__text at-button--medium__text"
       onLayout={[Function]}
     >
       tertiary
-    </view>
+    </text>
   </button>,
 ]
 `;
@@ -234,11 +234,11 @@ exports[`AtButton 测试在 rn 环境 -> 展示：默认展示 1`] = `
     }
   }
 >
-  <view
+  <text
     className="at-button--secondary__text at-button--medium__text"
     onLayout={[Function]}
   >
     click me
-  </view>
+  </text>
 </button>
 `;

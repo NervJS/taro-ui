@@ -20,14 +20,10 @@ export interface AtNavBarProps extends AtComponent {
    */
   border?: boolean
   /**
-   * 左边图标类型，图标类型请看 AtIcon 文档
-   * @default 'chevron-left'
+   * 左边图标类型，可为自定义内容
+   * @default <AtIcon value='close' size={18} />
    */
   leftIcon?: ReactNode
-  /**
-   * 左边文字
-   */
-  leftText?: string
   /**
    * 右边操作区
    */

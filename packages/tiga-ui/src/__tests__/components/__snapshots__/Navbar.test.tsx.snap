@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AtNavBar 测试在 h5 环境，rn类似 ->  展示：右边自定义（最多四个字） 1`] = `
+<view
+  className="at-nav-bar"
+>
+  <view
+    className="at-nav-bar__back"
+    onClick={[Function]}
+  >
+    <text
+      className="at-icon at-icon-close"
+      style={
+        Object {
+          "color": "",
+          "fontSize": "18px",
+        }
+      }
+    />
+  </view>
+  <view
+    className="at-nav-bar__title"
+  >
+    标题
+  </view>
+  <view
+    className="at-nav-bar__extra"
+  >
+    右边内容
+  </view>
+</view>
+`;
+
+exports[`AtNavBar 测试在 h5 环境，rn类似 ->  展示：左边自定义（最多四个字） 1`] = `
+<view
+  className="at-nav-bar"
+>
+  <view
+    className="at-nav-bar__back"
+    onClick={[Function]}
+  >
+    取消
+  </view>
+  <view
+    className="at-nav-bar__title"
+  >
+    标题
+  </view>
+  <view
+    className="at-nav-bar__extra"
+  />
+</view>
+`;
+
+exports[`AtNavBar 测试在 h5 环境，rn类似 ->  展示：默认导航栏 1`] = `
+<view
+  className="at-nav-bar"
+>
+  <view
+    className="at-nav-bar__back"
+    onClick={[Function]}
+  >
+    <text
+      className="at-icon at-icon-close"
+      style={
+        Object {
+          "color": "",
+          "fontSize": "18px",
+        }
+      }
+    />
+  </view>
+  <view
+    className="at-nav-bar__title"
+  >
+    自定义标题
+  </view>
+  <view
+    className="at-nav-bar__extra"
+  />
+</view>
+`;

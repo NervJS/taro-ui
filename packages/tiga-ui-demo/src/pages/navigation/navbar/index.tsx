@@ -15,12 +15,13 @@ const NavbarPage: React.FC = () => {
       ? sysInfo.screenHeight - top - 46
       : heightVal + 'px'
 
+  const backHandler = () => {
+    console.warn('点击back区域')
+  }
+
   return (
     <View style={{ paddingTop: top }} className='nav-bar-page__bg'>
-      <AtNavBar
-        title='自定义标题'
-        extra={<View className='nav-bar-page__extra'>右边内定义内容</View>}
-      />
+      <AtNavBar title='自定义标题' />
       <ScrollView
         scrollY
         className='nav-bar-page__screen-bg'
@@ -77,20 +78,18 @@ const NavbarPage: React.FC = () => {
             </View>
             {/* 左边 leftIcon 自定义 */}
             <View className='doc-body--panel'>
-              <View className='panel__title'>左边自定义</View>
+              <View className='panel__title'>左边自定义（最多四个字）</View>
               <View className='panel__content'>
-                <AtNavBar title='标题' leftIcon='取消' />
+                <AtNavBar title='标题' leftIcon='取消' onBack={backHandler} />
               </View>
             </View>
             {/* 右边 extra 自定义 */}
             <View className='doc-body--panel'>
-              <View className='panel__title'>右边自定义</View>
+              <View className='panel__title'>右边自定义（最多四个字）</View>
               <View className='panel__content'>
                 <AtNavBar
                   title='标题'
-                  extra={
-                    <View className='nav-bar-page__extra'>内定义内容</View>
-                  }
+                  extra={<View className='nav-bar-page__extra'>右边内容</View>}
                 />
               </View>
             </View>
