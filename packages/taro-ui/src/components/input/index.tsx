@@ -167,6 +167,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             {...id}
             name={name}
             type={type}
+            disabled={disabled}
             password={password}
             placeholderStyle={placeholderStyle}
             placeholderClass={placeholderCls}
