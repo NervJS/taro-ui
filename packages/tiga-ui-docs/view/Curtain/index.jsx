@@ -1,5 +1,5 @@
 import React from 'react'
-import Doc from '@md/action-sheet.md'
+import Doc from '@md/curtain.md'
 
 class View extends React.Component {
   render() {

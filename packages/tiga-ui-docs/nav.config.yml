@@ -23,14 +23,16 @@ components:
             name: Button
       - title: 视图组件
         items:
+          - title: 幕帘
+            name: Curtain
           - title: 标签
             name: Tag
       - title: 操作反馈
         items:
           - title: 轻提示
             name: Toast
-          # - title: 动作面板
-          #   name: ActionSheet
+          - title: 动作面板
+            name: ActionSheet
           - title: 对话框
             name: Dialog
       - title: 导航组件
