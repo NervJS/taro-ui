@@ -4,7 +4,7 @@ import React from 'react'
 import { Button, Form, View } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
 import { BaseEventOrig, CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
+import Taro, { getCurrentInstance } from '@tarojs/taro'
 import { AtButtonProps, AtButtonState } from '../../../types/button'
 import AtLoading from '../loading/index'
 
@@ -67,7 +67,7 @@ export default class AtButton extends React.Component<
       // TODO: 3.0 this.$scope
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
-      this.$scope.triggerEvent('submit', event.detail, {
+      getCurrentInstance().page.triggerEvent('submit', event.detail, {
         bubbles: true,
         composed: true
       })
@@ -79,7 +79,7 @@ export default class AtButton extends React.Component<
       // TODO: 3.0 this.$scope
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
-      this.$scope.triggerEvent('reset', event.detail, {
+      getCurrentInstance().page.triggerEvent('reset', event.detail, {
         bubbles: true,
         composed: true
       })

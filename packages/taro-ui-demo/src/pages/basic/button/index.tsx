@@ -1,8 +1,8 @@
-import React from 'react'
-import { AtButton, AtFab, AtForm } from 'taro-ui'
+import { Component } from 'react'
+import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
 import { Form, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
+import { AtButton, AtFab, AtForm } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -11,11 +11,7 @@ interface ButtonPageState {
   isALIPAY: boolean
 }
 
-export default class ButtonPage extends React.Component<{}, ButtonPageState> {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
+export default class Index extends Component<{}, ButtonPageState> {
   public constructor(props: any) {
     super(props)
     this.state = {
@@ -80,7 +76,7 @@ export default class ButtonPage extends React.Component<{}, ButtonPageState> {
     })
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { isWEAPP, isALIPAY } = this.state
 
     return (

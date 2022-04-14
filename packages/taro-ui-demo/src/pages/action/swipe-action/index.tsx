@@ -37,10 +37,6 @@ export default class SwipeActionPage extends React.Component<
   {},
   SwipeActionPageState
 > {
-  public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI'
-  }
-
   public constructor(props: any) {
     super(props)
     this.state = {
@@ -78,6 +74,10 @@ export default class SwipeActionPage extends React.Component<
         }
       ]
     }
+  }
+
+  public config: Taro.PageConfig = {
+    navigationBarTitleText: 'Taro UI'
   }
 
   private handleClick = (item: SwipeActionOption, key: number): void => {
