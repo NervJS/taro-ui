@@ -84,7 +84,7 @@
   }
 
   &--circle {
-    border-radius: $at-button-height / 2;
+    border-radius: calc($at-button-height / 2);
     background-clip: border-box;
     overflow: hidden;
   }
