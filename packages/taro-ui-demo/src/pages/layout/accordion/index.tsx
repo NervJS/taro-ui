@@ -91,7 +91,7 @@ export default class CardPage extends React.Component<{}, CardPageState> {
               <View className='example-item'>
                 <AtAccordion
                   title='标题三'
-                  open={value4}
+                  open={value3}
                   icon={{ value: 'tags', color: '#77a1fd' }}
                   onClick={this.onClick.bind(this, 'value3')}
                 >
@@ -117,11 +117,11 @@ export default class CardPage extends React.Component<{}, CardPageState> {
             <View className='panel__content no-padding'>
               <View className='example-item'>
                 <AtAccordion
-                  title='标题三'
+                  title='标题四'
                   note='描述信息'
-                  open={value3}
+                  open={value4}
                   icon={{ value: 'tags', color: '#77a1fd' }}
-                  onClick={this.onClick.bind(this, 'value3')}
+                  onClick={this.onClick.bind(this, 'value4')}
                 >
                   <AtList hasBorder={false}>
                     <AtListItem
