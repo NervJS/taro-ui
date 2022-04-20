@@ -22,6 +22,20 @@ const config = {
   alias: {
     react: path.resolve(__dirname, '../node_modules/react')
   },
+  h5: {
+    postcss: {
+      pxtransform: {
+        enable: false,
+        config: {}
+      },
+      'postcss-crossplatformcomments': {
+        enable: true,
+        config: {
+          platform: process.env.TARO_ENV // 'h5'
+        }
+      }
+    }
+  },
   mini: {
     debugReact: true,
     postcss: {
@@ -42,10 +56,10 @@ const config = {
         enable: false,
         config: {}
       },
-      './crossPlatformComments': {
+      'postcss-crossplatformcomments': {
         enable: true,
         config: {
-          platform: 'weapp'
+          platform: process.env.TARO_ENV // 'weapp'
         }
       }
     }
@@ -56,14 +70,14 @@ const config = {
     },
     enableSvgTransform: true,
     postcss: {
+      scalable: false,
       pxtransform: {
         enable: false
       },
-      scalable: false,
-      './crossPlatformComments': {
+      'postcss-crossplatformcomments': {
         enable: true,
         config: {
-          platform: 'rn'
+          platform: process.env.TARO_ENV // rn
         }
       }
     }
@@ -71,10 +85,14 @@ const config = {
 }
 
 module.exports = function (merge) {
+  let result = {}
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    result = merge({}, config, require('./dev'))
   } else if (process.env.NODE_ENV_PRO) {
-    return merge({}, config, require('./prod'))
+    result = merge({}, config, require('./prod'))
+  } else {
+    result = merge({}, config, require('./demo'))
   }
-  return merge({}, config, require('./demo'))
+
+  return result
 }
