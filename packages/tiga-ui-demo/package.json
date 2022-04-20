@@ -60,6 +60,7 @@
     "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "^3.4.3",
     "eslint-config-taro": "^3.4.3",
+    "postcss-crossplatformcomments": "^0.1.0",
     "react-test-renderer": "^17.0.2",
     "typescript": "4.3.5"
   }

@@ -19,15 +19,6 @@ module.exports = {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
-      },
-      pxtransform: {
-        enable: false
-      },
-      './crossPlatformComments': {
-        enable: true,
-        config: {
-          platform: 'h5'
-        }
       }
     }
   }

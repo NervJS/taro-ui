@@ -1,0 +1,53 @@
+// @import '~tiga-ui/dist/style/mixins/index.scss';
+// @import '~tiga-ui/dist/style/variables/default.scss';
+
+// .at-notice-bar {
+//   display: flex;
+//   flex-direction: row;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   padding: 13px $spacing-h-lg;
+//   box-sizing: border-box;
+
+//   &__content {
+//     flex: 1;
+//     @include font(14px, 14px);
+//   }
+
+//   &__extra {
+//     @include font(14px, 14px);
+//     margin-left: $spacing-h-lg;
+//   }
+
+//   &__close {
+//     line-height: 14px;
+//     margin-left: $spacing-h-lg;
+//   }
+
+//   &__info {
+//     background-color: $color-bg-info;
+//     color: $color-info;
+//   }
+
+//   &__success {
+//     background-color: rgb(230, 247, 243);
+//     color: $color-success;
+//   }
+
+//   &__warning {
+//     background-color: rgb(255, 243, 230);
+//     color: rgb(255, 128, 0);
+//   }
+
+//   &__error {
+//     background-color: rgb(255, 236, 238);
+//     color: rgb(255, 18, 38);
+//   }
+
+//   &__invalidation {
+//     background-color: rgb(242, 242, 242);
+//     color: rgb(102, 102, 102);
+//   }
+// }
