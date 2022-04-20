@@ -14,7 +14,8 @@ export default class AtIcon extends PureComponent<AtIconProps> {
       size,
       className,
       customStyle = {},
-      style = {}
+      style = {},
+      onClick
     } = this.props
 
     let inputStyle = style
@@ -28,19 +29,22 @@ export default class AtIcon extends PureComponent<AtIconProps> {
 
     const _fontSize = parseInt(String(size)) || fontSize
 
-    const _style = {
+    const _style = Object.assign({}, inputStyle, customStyle, {
       width: _fontSize,
       height: _fontSize
       // tips: 字体转换的 svg 需要沿着 Y 轴旋转 180 度
       // transform: [{ rotateY: '180deg' }]
-    }
+    })
 
     return createElement(ICONS[value] || ((): any => null), {
       // 非 RN 只需透传 className，RN 无效
       className,
       // 图标色值优先级
       fill: color || (customStyle as any).color || inputStyle.color || '',
-      style: Object.assign({}, inputStyle, customStyle, _style)
+      style: _style,
+      width: _style.width,
+      height: _style.height,
+      onClick
     })
   }
 }
