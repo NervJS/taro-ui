@@ -1,0 +1,121 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-notice-bar {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 9px $spacing-h-lg;
+  box-sizing: border-box;
+  line-height: 22px;
+
+  &__content {
+    @include font(14px, 22px);
+    flex: 1;
+
+    &--single {
+      @include line(1);
+    }
+
+    &--info {
+      color: $color-info;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--warning {
+      color: rgb(255, 128, 0);
+    }
+
+    &--error {
+      color: rgb(255, 18, 38);
+    }
+
+    &--invalidation {
+      color: rgb(102, 102, 102);
+    }
+  }
+
+  &__action {
+    @include font(14px, 22px);
+    margin-left: $spacing-h-lg;
+
+    &--info {
+      color: $color-info;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--warning {
+      color: rgb(255, 128, 0);
+    }
+
+    &--error {
+      color: rgb(255, 18, 38);
+    }
+
+    &--invalidation {
+      color: rgb(102, 102, 102);
+    }
+  }
+
+  &__close {
+    line-height: 22px;
+    margin-left: $spacing-h-lg;
+
+    &--icon {
+      /*  #ifdef  rn  */
+      margin-top: 3px;
+      /*  #endif  */
+      /*  #ifndef  rn  */
+      vertical-align: -2px;
+      /*  #endif  */
+    }
+
+    &--info {
+      color: $color-info;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--warning {
+      color: rgb(255, 128, 0);
+    }
+
+    &--error {
+      color: rgb(255, 18, 38);
+    }
+
+    &--invalidation {
+      color: rgb(102, 102, 102);
+    }
+  }
+
+  &__info {
+    background-color: $color-bg-info;
+  }
+
+  &__success {
+    background-color: rgb(230, 247, 243);
+  }
+
+  &__warning {
+    background-color: rgb(255, 243, 230);
+  }
+
+  &__error {
+    background-color: rgb(255, 236, 238);
+  }
+
+  &__invalidation {
+    background-color: rgb(242, 242, 242);
+  }
+}
