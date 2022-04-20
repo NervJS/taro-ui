@@ -16,6 +16,11 @@ cd packages/tiga-ui
 yarn dev:rollup // 开发 watch 模式编译文件，方便调试
 ```
 
+### 组件发布
+```
+lerna publish --force-publish --registry http://ires.58corp.com/repository/npm/ --no-git-tag-version --no-push
+```
+
 ## demo 开发调试
 ### 小程序
 ```
