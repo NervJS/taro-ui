@@ -9,3 +9,4 @@ export { default as AtActionSheetItem } from './components/actionsheet/ActionShe
 export { default as AtToast } from './components/toast'
 export { default as AtNavBar } from './components/navbar'
 export { default as AtNoticeBar } from './components/noticebar'
+export { default as AtTextarea } from './components/textarea'

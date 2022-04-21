@@ -1,0 +1,80 @@
+@import '../../style/variables/default.scss';
+@import '../../style/mixins/index.scss';
+
+.at-textarea {
+  // padding: $spacing-v-lg $spacing-h-lg;
+
+  &__header {
+    @include font(16px, 16px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-bottom: $spacing-v-sm;
+    color: $color-text-base;
+
+    &--required {
+      @include font(22px, 16px);
+      position: absolute;
+      left: -10px;
+      // left: -40px;
+      color: $color-error;
+    }
+
+    &--title {
+      @include font(16px, 16px);
+      flex: 1;
+      text-align: left;
+      color: $color-text-base;
+    }
+
+    &__extra {
+      @include font(16px, 16px);
+      color: $color-text-link;
+    }
+  }
+
+  &__input {
+    @include font(16px, 24px);
+    width: 100%;
+    color: $color-text-base;
+    /*  #ifndef  rn  */
+    height: inherit;
+    /*  #endif  rn  */
+
+    /*  #ifndef  rn  */
+    .taro-textarea {
+      @include font(16px, 24px);
+      color: $color-text-base;
+      height: inherit;
+      line-height: inherit;
+    }
+    /*  #endif  rn  */
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+
+    &--error {
+      @include font(14px, 14px);
+      flex: 1;
+      margin-top: $spacing-v-md;
+      color: $color-error;
+    }
+
+    &--gap {
+      flex: 1;
+    }
+
+    &--count{
+      @include font(14px, 14px);
+      margin-top: $spacing-v-md;
+      color: $color-text-subtle;
+
+      &__error {
+        color: $color-error;
+      }
+    }
+  }
+}

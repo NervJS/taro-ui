@@ -10,4 +10,11 @@ export const PLATFORM = {
   isRN: Taro.getEnv() === Taro.ENV_TYPE.RN
 }
 
+export function pxTransform(size: string | number): string | number {
+  if (PLATFORM.isRN) {
+    return +size
+  }
+  return size + 'px'
+}
+
 export default {}

@@ -10,7 +10,8 @@ export default {
     'pages/view/noticebar/index',
     'pages/action/toast/index',
     'pages/navigation/navbar/index',
-    'pages/view/tag/index'
+    'pages/view/tag/index',
+    'pages/form/textarea/index'
   ],
   window: {
     backgroundTextStyle: 'light',
