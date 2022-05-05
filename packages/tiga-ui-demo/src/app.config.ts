@@ -11,7 +11,8 @@ export default {
     'pages/action/toast/index',
     'pages/navigation/navbar/index',
     'pages/view/tag/index',
-    'pages/form/textarea/index'
+    'pages/form/textarea/index',
+    'pages/form/form/index'
   ],
   window: {
     backgroundTextStyle: 'light',

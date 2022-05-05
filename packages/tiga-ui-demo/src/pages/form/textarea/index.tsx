@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtTextarea } from 'tiga-ui'
+import { AtTextarea, AtListItem } from 'tiga-ui'
 import { View } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -34,6 +34,25 @@ export default class Index extends React.Component<any, IndexState> {
 
         {/* S Body */}
         <View className='doc-body'>
+          <View className='panel'>
+            <View className='panel__title'>ListItem</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtListItem
+                  // title='标题'
+                  prefix='标题'
+                  extra='额外的'
+                  description='报错信息'
+                >
+                  <AtTextarea
+                    value={this.state.value1}
+                    onChange={this.handleChange.bind(this, 'value1')}
+                    placeholder='你的问题是...'
+                  />
+                </AtListItem>
+              </View>
+            </View>
+          </View>
           <View className='panel'>
             <View className='panel__title'>基础</View>
             <View className='panel__content'>

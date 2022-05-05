@@ -17,7 +17,7 @@ export interface AtTextareaProps extends AtComponent {
   /**
    * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
    */
-  value: string
+  value?: string
   /**
    * 最大长度
    * @default 200
@@ -97,7 +97,7 @@ export interface AtTextareaProps extends AtComponent {
    * 开发者需要通过 onChange 事件来更新 value 值变化，
    * onChange 函数必填
    */
-  onChange: (value: string, event?: CommonEvent) => void
+  onChange?: (value: string, event?: CommonEvent) => void
   /**
    * 输入框获得焦点时触发，height 为键盘高度，在基础库 1.9.90 起支持
    */

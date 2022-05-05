@@ -1,0 +1,43 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-list-item {
+  &-content {
+    display: flex;
+    flex-direction: row;
+    padding: $spacing-h-lg;
+
+    &-prefix {
+      @include font(16px, 16px);
+      padding-right: $spacing-h-lg;
+    }
+
+    &-main {
+      flex: 1;
+    }
+
+    &-extra {
+      @include font(16px, 16px);
+      padding-left: $spacing-h-lg;
+    }
+
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-description {
+    @include font(14px, 14px);
+    margin-top: $spacing-v-md;
+  }
+
+  &-feedback-error {
+    color: $color-error;
+  }
+
+  &-vertical {}
+
+  &-horizontal {}
+}

@@ -49,7 +49,8 @@
     "react-dom": "^17.0.0",
     "react-native": "^0.67.3",
     "react-native-modal": "^13.0.0",
-    "tiga-ui": "^0.0.2"
+    "rc-field-form": "^1.26.2",
+    "tiga-ui": "0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

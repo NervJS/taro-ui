@@ -120,10 +120,10 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
         {count && (
           <View
             className={classNames('at-textarea__footer--count', {
-              'at-textarea__footer--count__error': value.length > maxLength
+              'at-textarea__footer--count__error': value!.length > maxLength
             })}
           >
-            {value.length}/{maxLength}
+            {`${value!.length}/${maxLength}`}
           </View>
         )}
       </View>

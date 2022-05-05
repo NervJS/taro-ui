@@ -42,7 +42,13 @@ export default {
       }
     }),
     RollupCommonjs({
-      include: /\/node_modules\//
+      include: /\/node_modules\//,
+      namedExports: {
+        'node_modules/rc-util/node_modules/react-is/index.js': [
+          'isFragment',
+          'ForwardRef'
+        ] // https://github.com/mui/material-ui/issues/18791
+      }
     }),
     RollupJson(),
     RollupTypescript({

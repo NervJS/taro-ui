@@ -1,0 +1,31 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-form-item {
+  &-label {
+    @include font(16px, 16px);
+    position: relative;
+    flex: 1;
+  }
+
+  &-tail {
+    @include font(14px, 16px);
+    color: $color-text-link;
+  }
+
+  &-required-asterisk {
+    position: absolute;
+    top: 0;
+    left: -7px;
+    color: $color-error;
+  }
+
+  &-child-vertical {
+    margin-top: $spacing-v-sm;
+  }
+
+  &-feedback-error {
+    @include font(14px, 14px);
+    color: $color-error;
+  }
+}
