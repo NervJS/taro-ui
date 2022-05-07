@@ -17,7 +17,7 @@ const Index = () => {
   }
 
   return (
-    <View className='page'>
+    <View className='page page-form'>
       {/* S Header */}
       <DocsHeader title='Form 表单'></DocsHeader>
       {/* E Header */}

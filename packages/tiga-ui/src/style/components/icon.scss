@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'at-icon';
-  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/a55e2ccd47ac379d3eec52b4940bea10_icon.eot');
-  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/a55e2ccd47ac379d3eec52b4940bea10_icon.eot#iefix') format('embedded-opentype'),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/d775d693d2df9b023c99516e7fafd0da_icon.woff2') format('woff2'),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/7d4cdd0127ba2a2eea39864166d9407b_icon.woff') format('woff'),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e8d2ee50bd137ba2f0d9bd9427aa3fad_icon.ttf') format('truetype'),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/647c0dba281fb6a671131b03eed6d8dd_icon.svg') format('svg');
+  font-family: "at-icon";
+  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/641e710581cb820053226f1e52c0b80b_icon.eot'); /* IE9*/
+src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/641e710581cb820053226f1e52c0b80b_icon.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/60fe412eabc277723f63ecf8fbde24f1_icon.woff2') format("woff2"),
+url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/6a5d04702a51641e05a38a38d4039208_icon.woff') format("woff"),
+url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/d8514ed0af2644c6c508dc30c2613fee_icon.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/c09ba959ab2b6be002436f25dcd5c571_icon.svg') format('svg'); /* iOS 4.1- */
 }
 
 [class^="at-icon-"], [class*=" at-icon-"] {
@@ -16,4 +16,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.at-icon-curtain_icon_cancel:before { content: "\ea02"; }
+.at-icon-comm_icon_right_line:before { content: "\ea02"; }
+.at-icon-comm_icon_question_circle_line:before { content: "\ea03"; }
+.at-icon-comm_icon_more_line:before { content: "\ea04"; }
+.at-icon-comm_icon_left_line:before { content: "\ea05"; }
+.at-icon-comm_icon_false_line:before { content: "\ea06"; }
+.at-icon-comm_icon_false_circle_line:before { content: "\ea07"; }

@@ -306,7 +306,7 @@ export const AtFormItem: React.FC<any> = props => {
       onMetaChange={onMetaChange}
       messageVariables={Variables}
     >
-      {(control, meta, context) => {
+      {(control, meta) => {
         let childNode: React.ReactNode = null
         if (React.isValidElement(children)) {
           const childProps = Object.assign({}, children.props, control)

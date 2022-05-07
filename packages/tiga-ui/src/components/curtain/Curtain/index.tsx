@@ -73,7 +73,7 @@ const CurtainMain: React.FC<AtCurtainMainProps> = ({
           >
             <AtIcon
               className='at-curtain__btn-close--at-icon'
-              value='curtain_icon_cancel'
+              value='comm_icon_false_circle_line'
               size={36}
             />
           </View>

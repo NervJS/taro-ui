@@ -4,7 +4,8 @@ import { Image, View } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-const curtainPng = 'https://taro-ui.aotu.io/h5/static/images/curtain.png'
+const curtainPng =
+  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic01.1sucai.com%2F180115%2F330814-1P11516240997.jpg&refer=http%3A%2F%2Fpic01.1sucai.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654484635&t=d71142ee3e4d43739bf3769056778a25'
 
 interface TagPageState {
   isOpened: boolean
