@@ -61,13 +61,16 @@ const Index = () => {
                 >
                   <Input placeholder='请输入' />
                 </AtFormItem>
-                <AtFormItem
+                <AtFormItem name='address' label='禁用' disabled>
+                  <Input placeholder='请输入' />
+                </AtFormItem>
+                {/* <AtFormItem
                   name='address'
                   label='详细地址'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
                   <AtTextarea placeholder='请输入' />
-                </AtFormItem>
+                </AtFormItem> */}
               </AtForm>
             </View>
           </View>

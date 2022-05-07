@@ -40,4 +40,11 @@
   &-vertical {}
 
   &-horizontal {}
+
+  &-disabled {
+    /*  #ifndef  rn  */
+    cursor: not-allowed;
+    opacity: 0.4;
+    /*  endif  */
+  }
 }

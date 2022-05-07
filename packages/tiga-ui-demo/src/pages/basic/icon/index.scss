@@ -13,6 +13,9 @@
   }
 
   &__name {
+    /*  #ifndef  rn  */
+    user-select: text;
+    /*  #endif  */
     margin-top: 10px;
     color: #88889C;
     font-size: 10px;

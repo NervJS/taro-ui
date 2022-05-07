@@ -1,12 +1,14 @@
 import React, { useContext, useState, useCallback } from 'react'
 import { View, Text, Label } from '@tarojs/components'
 import classNames from 'classnames'
-import { Field, FormInstance } from 'rc-field-form'
+import { Field } from 'rc-field-form'
 import FieldContext from 'rc-field-form/lib/FieldContext'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 import { FormContext, NoStyleItemContext } from './context'
 import { AtListItem } from '../list/ListItem'
+import AtIcon from '../icon'
 import { undefinedFallback } from './undefined-fallback'
+import { pxTransform, PLATFORM } from '../../utils'
 
 const classPrefix = `at-form-item`
 const NAME_SPLIT = '__SPLIT__'
@@ -50,26 +52,33 @@ export const AtFormItemLayout = (props: any) => {
     <Text className={`${classPrefix}-required-asterisk`}>*</Text>
   )
 
+  const labelArea = PLATFORM.isRN ? (
+    <View className={`${classPrefix}-label`}>{label}</View>
+  ) : (
+    <Label className={`${classPrefix}-label`} for={htmlFor}>
+      {label}
+    </Label>
+  )
+
   const labelElement = label ? (
     <React.Fragment>
-      <Label className={`${classPrefix}-label`} for={htmlFor}>
-        {`${label}${help ? ' @' : ''}`}
+      <View
+        className={`${classPrefix}-label-wrap ${classPrefix}-label-wrap-${layout}`}
+      >
+        {labelArea}
+        {help && (
+          <AtIcon
+            value='comm_icon_question_circle_line'
+            color='#333'
+            size='16px'
+            customStyle={{
+              marginLeft: pxTransform('4'),
+              lineHeight: pxTransform('16')
+            }}
+          ></AtIcon>
+        )}
         {requiredMark}
-        {/* TODO: */}
-        {/* {help && ' @'} */}
-        {/* {help && (
-          <Popover content={help} mode='dark' trigger='click'>
-            <span
-              className={`${classPrefix}-label-help`}
-              onClick={e => {
-                e.preventDefault()
-              }}
-            >
-              <QuestionCircleOutline />
-            </span>
-          </Popover>
-        )} */}
-      </Label>
+      </View>
       {
         // 垂直布局时跟 title 一行的案例
         layout === 'vertical' && tail && (
@@ -130,7 +139,6 @@ export const AtFormItemLayout = (props: any) => {
       <View
         className={classNames(
           `${classPrefix}-child`,
-          `${classPrefix}-child-${layout}`,
           `${classPrefix}-child-position-${childElementPosition}`
         )}
       >
@@ -307,9 +315,17 @@ export const AtFormItem: React.FC<any> = props => {
       messageVariables={Variables}
     >
       {(control, meta) => {
+        // TODO: 遍历数组找到表单组件，现在先简单粗暴处理下
+        // RN children 是数组，React 是对象，统一处理成数组
+        const newChildren = React.Children.toArray(children)[0]
+        // console.log(newChildren.props)
         let childNode: React.ReactNode = null
-        if (React.isValidElement(children)) {
-          const childProps = Object.assign({}, children.props, control)
+        if (React.isValidElement(newChildren)) {
+          const childProps = Object.assign(
+            { disabled },
+            newChildren.props,
+            control
+          )
 
           // We should keep user origin event handler
           const triggers = new Set<string>(
@@ -319,9 +335,8 @@ export const AtFormItem: React.FC<any> = props => {
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {
               control[eventName]?.(...args)
-              // eslint-disable-next-line
               // @ts-ignore
-              children.props[eventName]?.(...args)
+              newChildren.props[eventName]?.(...args)
             }
           })
 
@@ -330,11 +345,11 @@ export const AtFormItem: React.FC<any> = props => {
               value={control[props.valuePropName || 'value']}
               update={updateRef.current}
             >
-              {React.cloneElement(children, childProps)}
+              {React.cloneElement(newChildren, childProps)}
             </MemoInput>
           )
         } else {
-          childNode = children
+          childNode = newChildren
         }
 
         return renderLayout(childNode, fieldId, meta, isRequired)

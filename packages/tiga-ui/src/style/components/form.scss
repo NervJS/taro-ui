@@ -4,8 +4,17 @@
 .at-form-item {
   &-label {
     @include font(16px, 16px);
-    position: relative;
-    flex: 1;
+
+    &-wrap {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      &-vertical {
+        flex: 1;
+        margin-bottom: $spacing-v-sm;
+      }
+    }
   }
 
   &-tail {
@@ -18,10 +27,6 @@
     top: 0;
     left: -7px;
     color: $color-error;
-  }
-
-  &-child-vertical {
-    margin-top: $spacing-v-sm;
   }
 
   &-feedback-error {

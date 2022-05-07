@@ -48,7 +48,7 @@ const AtNoticeBar: React.FC<AtNoticeBarProps> = ({
         <View className='at-notice-bar__close' onClick={onClose}>
           <AtIcon
             className={`at-notice-bar__close--icon at-notice-bar__close--${type}`}
-            value='comm_icon_false_line            '
+            value='comm_icon_false_line'
             size={16}
           />
         </View>
