@@ -97,7 +97,7 @@ const Index = () => {
           </View>
         </View> */}
         <View className='doc-body--panel'>
-          <View className='panel__title'>布局 -- vertical布局</View>
+          <View className='panel__title'>垂直布局</View>
           <View className='panel__content'>
             <View className='example-item'>
               <AtForm

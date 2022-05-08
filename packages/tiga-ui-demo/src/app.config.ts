@@ -10,6 +10,7 @@ export default {
     'pages/view/noticebar/index',
     'pages/action/toast/index',
     'pages/navigation/navbar/index',
+    'pages/layout/list/index',
     'pages/view/tag/index',
     'pages/form/textarea/index',
     'pages/form/form/index'

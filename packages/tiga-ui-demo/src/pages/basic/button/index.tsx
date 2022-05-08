@@ -45,7 +45,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
         <View className='doc-body'>
           {/* 主操作 */}
           <View className='doc-body--panel'>
-            <View className='panel__title'>类型 type</View>
+            <View className='panel__title'>类型</View>
             <View className='panel__content'>
               <View className='btn-item'>
                 <AtButton
@@ -74,7 +74,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
             </View>
           </View>
           <View className='doc-body--panel'>
-            <View className='panel__title'>禁用 disabled</View>
+            <View className='panel__title'>禁用</View>
             <View className='panel__content'>
               <View className='btn-item'>
                 <AtButton
@@ -106,7 +106,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
             </View>
           </View>
           <View className='doc-body--panel'>
-            <View className='panel__title'>尺寸 size</View>
+            <View className='panel__title'>尺寸</View>
             <View className='panel__content'>
               <View className='btn-item'>
                 <AtButton
@@ -156,7 +156,7 @@ export default class ButtonPage extends React.Component<any, ButtonPageState> {
             </View>
           </View>
           <View className='doc-body--panel'>
-            <View className='panel__title'>宽度 width</View>
+            <View className='panel__title'>宽度</View>
             <View className='panel__content'>
               <View className='btn-item'>
                 <AtButton

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
 import { ListItemProps } from '../../../types/list'
+import AtIcon from '../icon'
 
 const classPrefix = `at-list-item`
 
@@ -30,8 +31,15 @@ export const AtListItem: FC<ListItemProps> = props => {
       )}
       {arrow && (
         <View className={`${classPrefix}-content-arrow`}>
-          arrow
-          {/* {arrow === true ? <RightOutline /> : arrow} */}
+          {arrow === true ? (
+            <AtIcon
+              className={`${classPrefix}-content-arrow-icon`}
+              value='comm_icon_right_line'
+              size={16}
+            />
+          ) : (
+            arrow
+          )}
         </View>
       )}
     </View>

@@ -204,10 +204,10 @@ export const MENULIST = {
     //   id: 'Grid',
     //   name: '栅格'
     // },
-    // {
-    //   id: 'List',
-    //   name: '列表'
-    // },
+    {
+      id: 'List',
+      name: '列表'
+    },
     // {
     //   id: 'Card',
     //   name: '卡片'

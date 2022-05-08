@@ -79,9 +79,9 @@ view {
       margin-bottom: 25px;
       padding-left: 25px;
       color: #6a6a77;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
-      line-height: 1.5;
+      line-height: 1;
 
       &::before {
         content: "";
@@ -118,9 +118,9 @@ view {
     padding-left: 13px;
     margin-left: 10px;
     color: #6a6a77;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 1.5 * 16px;
+    line-height: 18px;
     border-left-width: 2PX;
     border-left-color: $color-brand;
   }

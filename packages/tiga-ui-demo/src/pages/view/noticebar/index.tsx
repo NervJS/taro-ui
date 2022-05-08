@@ -71,7 +71,7 @@ export default class TagPage extends React.Component<any, TagPageState> {
           </View>
           {/* 不同类型 */}
           <View className='doc-body--panel'>
-            <View className='panel__title'>不同类型 type</View>
+            <View className='panel__title'>不同类型</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtNoticeBar
@@ -103,7 +103,7 @@ export default class TagPage extends React.Component<any, TagPageState> {
           </View>
           {/* 单行 */}
           <View className='doc-body--panel'>
-            <View className='panel__title'>单行 single</View>
+            <View className='panel__title'>单行</View>
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtNoticeBar

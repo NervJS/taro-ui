@@ -3,8 +3,9 @@
 
 .doc-header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 60px;
+  padding: 60px 20px;
   height: 180px;
 
   &__title {

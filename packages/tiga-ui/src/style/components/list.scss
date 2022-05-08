@@ -21,9 +21,18 @@
       padding-left: $spacing-h-lg;
     }
 
+    &-arrow {
+      line-height: 0;
+
+      &-icon {
+        line-height: 16px;
+      }
+    }
+
   }
 
   &-title {
+    @include font(16px, 16px);
     display: flex;
     flex-direction: row;
   }
@@ -47,4 +56,5 @@
     opacity: 0.4;
     /*  endif  */
   }
+
 }
