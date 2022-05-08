@@ -50,16 +50,14 @@ jobs:
         run: |
           yarn
       - name: Lerna Bootstrap
+        if: startsWith( env.commitmsg , 'chore(release):' )
         run: |
           yarn bootstrap
       - name: build:component
-        # if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.commitmsg , 'chore(release):' )
         run: yarn build:component
-      - name: build:rn
-        # if: startsWith( env.commitmsg , 'chore(release):' )
-        run: yarn build:rn
       - name: Release Taro React Native bundle
-        # if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.commitmsg , 'chore(release):' )
         uses: zhiqingchen/taro-react-native-release@v1
         with:
           workingdirectory: ./packages/tiga-ui-demo
