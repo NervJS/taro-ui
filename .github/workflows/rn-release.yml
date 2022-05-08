@@ -1,7 +1,11 @@
 on:
   push:
-    tags: [ v* ]
-  workflow_dispatch:
+    branches:
+      - feat/tiga
+  pull_request:
+    branches:
+      - feat/tiga
+    types: [closed]
 
 jobs:
   taro_release_job:
@@ -10,6 +14,20 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
+      - name: Setup Node 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+
+      # Get commit message
+      - name: Get commit message
+        run: |
+          COMMIT_MESSAGE=$(git log --format=%B -n 1)
+          echo "commitmsg=${COMMIT_MESSAGE}" >> $GITHUB_ENV
+      - name: Show commit message
+        run : echo "$commitmsg"
+
       - name: Cache node_modules Folder
         uses: actions/cache@v2
         with:
@@ -34,12 +52,19 @@ jobs:
       - name: Lerna Bootstrap
         run: |
           yarn bootstrap
+      - name: build:component
+        # if: startsWith( env.commitmsg , 'chore(release):' )
+        run: yarn build:component
+      - name: build:rn
+        # if: startsWith( env.commitmsg , 'chore(release):' )
+        run: yarn build:rn
       - name: Release Taro React Native bundle
+        # if: startsWith( env.commitmsg , 'chore(release):' )
         uses: zhiqingchen/taro-react-native-release@v1
         with:
           workingdirectory: ./packages/tiga-ui-demo
           token: ${{ secrets.GITHUB_TOKEN }}
-          appname: Taro-UI-Demo
+          appname: Tiga-UI-Demo
           logo: https://pic5.58cdn.com.cn/nowater/fangfe/n_v25a185c1657984016926f26af591912c4.jpg
       - name: Upload Qr Image
         uses: actions/upload-artifact@v2
