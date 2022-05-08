@@ -53,7 +53,7 @@ export const AtListItem: FC<ListItemProps> = props => {
         props.customClass
       )}
       // @ts-ignore
-      opacity={props.disabled ? 0.4 : 1}
+      opacity={props.disabled ? 0.3 : 1}
       onClick={props.disabled ? undefined : props.onClick}
     >
       {content}

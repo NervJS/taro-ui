@@ -56,12 +56,22 @@
 }
 
 .at-tag-group {
+  display: flex;
   flex-direction: row;
   background-color: $color-bg-base;
   /*  #ifndef  rn  */
   box-sizing: border-box;
-  white-space: nowrap;
+  // white-space: nowrap;
   /*  #endif  */
+
+  &--wrap {
+    flex-direction: row;
+    /*  #ifndef  rn  */
+    box-sizing: border-box;
+    white-space: nowrap;
+    /*  #endif  */
+    padding-right: 24px;
+  }
 
   /* type */
   &--form {
@@ -79,10 +89,17 @@
   }
   /* size */
 
-  &--wrap {
+  &--iswrap {
     flex-wrap: wrap;
     /*  #ifndef  rn  */
     white-space: normal;
+    /*  #endif  */
+  }
+
+  &--gap {
+    width: 12px;
+    /*  #ifndef  rn  */
+    display: inline-block;
     /*  #endif  */
   }
 

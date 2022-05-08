@@ -52,6 +52,7 @@ export default class TagPage extends React.Component<any, TagPageState> {
 
         {/* S Body */}
         <View className='doc-body'>
+          <Image style={{ display: 'none' }} mode='widthFix' src={curtainPng} />
           <AtCurtain
             isOpened={isOpened}
             closeBtnPosition={closeBtnPosition}

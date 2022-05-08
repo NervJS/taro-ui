@@ -130,6 +130,28 @@ export default class TagPage extends React.Component<any, TagPageState> {
                   禁用选中
                 </AtTag>
               </View>
+              <View
+                className='panel__content--example-item'
+                style={{ flexDirection: 'row', flexWrap: 'wrap' }}
+              >
+                <AtTag
+                  disabled
+                  name='禁用'
+                  size='small'
+                  onClick={this.handleClick.bind(this)}
+                >
+                  禁用
+                </AtTag>
+                <AtTag
+                  disabled
+                  active
+                  name='禁用选中'
+                  size='small'
+                  onClick={this.handleClick.bind(this)}
+                >
+                  禁用选中
+                </AtTag>
+              </View>
             </View>
           </View>
           {/* 标签组头部标签 */}
@@ -162,9 +184,9 @@ export default class TagPage extends React.Component<any, TagPageState> {
             </View>
           </View>
 
-          {/* 标签组默认换行 */}
+          {/* 标签组换行 */}
           <View className='doc-body--panel'>
-            <View className='panel__title'>标签组默认换行</View>
+            <View className='panel__title'>标签组换行</View>
             <View className='panel__content'>
               <View className='tag-group--bg'>
                 <AtTagGroup
@@ -199,7 +221,6 @@ export default class TagPage extends React.Component<any, TagPageState> {
               <View className='tag-group--bg'>
                 <AtTagGroup
                   isWrap
-                  size='small'
                   data={this.state.longTagList}
                   onClick={this.handleLongTagClick.bind(this)}
                 />

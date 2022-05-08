@@ -126,7 +126,7 @@
     &--bottom-right {
       bottom: -($at-curtain-btn-size + $at-curtain-btn-v-gap);
       left: auto;
-      right: 0;
+      right: -$at-curtain-btn-size / 2;
     }
   }
 
