@@ -6,6 +6,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "build:component": "lerna run --scope tiga-ui build",
+    "build:rn": "lerna run --scope tiga-ui-demo build:rn",
     "clean": "lerna run clean",
     "clean:component": "lerna run --scope tiga-ui clean",
     "publish": "lerna publish from-git --yes"
