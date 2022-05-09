@@ -48,7 +48,9 @@ $ar-toast-content-v-gap: (22px - 16px) / 2;
         max-width: $at-toast-max-width;
         // width: $at-toast-max-width;
         box-sizing: border-box;
-
+        &-opactiy {
+          opacity: 0;
+        }
         &-content {
           &__info {
             @include font(16px);
