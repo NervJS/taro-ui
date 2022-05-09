@@ -1,5 +1,4 @@
 import Taro, { SelectorQuery } from '@tarojs/taro'
-
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export const noop = (): void => {}
 
@@ -73,4 +72,5 @@ export function delayGetClientRect({
   })
 }
 
+export const SYSTEMINFO = Taro.getSystemInfoSync()
 export default {}

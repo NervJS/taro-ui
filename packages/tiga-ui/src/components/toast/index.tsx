@@ -3,7 +3,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtToastProps } from '../../../types/toast'
-import { PLATFORM } from '../../utils'
+import { PLATFORM, SYSTEMINFO, delayGetClientRect } from '../../utils'
 
 const DURATION_MAP = {
   short: 2000,
@@ -31,6 +31,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const [durationTimer, setDuration] = useState<number>(0)
   const bodyRef = useRef<HTMLBaseElement | null>(null)
   const [marginLeft, setMarginLeft] = useState<number>(0)
+  const [showToast, setShowToast] = useState(false)
   const rootClass = classNames(
     {
       'at-toast': true,
@@ -47,7 +48,8 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
     {
       'at-toast-body': true,
       'at-toast-center': !isShowInModal,
-      'at-toast-inner-center': isShowInModal
+      'at-toast-inner-center': isShowInModal,
+      'at-toast-body-opactiy': !showToast
     },
     className
   )
@@ -72,10 +74,16 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   // fix：解决水平居中和最大宽度的冲突问题
   // 动态计算 marginleft = 屏幕宽度-toast主体宽度  / 2
   const calMarginLeft = useCallback(() => {
-    const screenWidth: number = document.querySelector('body')?.offsetWidth || 0
-    const toastWidth: number = bodyRef.current?.offsetWidth || 0
-    const dymMarginLeft = (screenWidth - toastWidth) / 2
-    setMarginLeft(dymMarginLeft)
+    const screenWidth: number =
+      document.querySelector('body')?.offsetWidth || SYSTEMINFO.windowWidth || 0
+    delayGetClientRect({ selectorStr: '.at-toast-body', delayTime: 0 }).then(
+      res => {
+        const toastWidth = res[0].width || 0
+        const dymMarginLeft = (screenWidth - toastWidth) / 2
+        setMarginLeft(dymMarginLeft)
+        setShowToast(true)
+      }
+    )
   }, [])
 
   const clearTimmer = useCallback((): void => {
@@ -142,6 +150,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
       // close()
       handleClose()
       setMarginLeft(0)
+      setShowToast(false)
     } else {
       calMarginLeft()
       clearTimmer()
