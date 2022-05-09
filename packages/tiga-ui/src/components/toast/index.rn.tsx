@@ -81,9 +81,12 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
       if (onClick) {
         return onClick(event)
       }
-      close()
+      // ui改进 有遮罩层点击不关
+      if (!maskHide) {
+        close()
+      }
     },
-    [close, onClick]
+    [close, maskHide, onClick]
   )
   const handleClose = useCallback(
     (event?: CommonEvent): void => {
@@ -131,7 +134,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   }, [_isOpened])
 
   // ========================= Render =========================
-  const BaseToast = (
+  const BaseToast = toastContent ? (
     <View
       data-testid='at-toast'
       className={classNames(rootClass)}
@@ -152,7 +155,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
         )}
       </View>
     </View>
-  )
+  ) : null
   const ToastComponent = isShowInModal ? (
     <Modal
       animationIn='fadeIn'
