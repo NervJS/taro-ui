@@ -24,7 +24,7 @@ const Index = () => {
 
       {/* S Body */}
       <View className='doc-body'>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>基础</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -36,7 +36,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>无标题</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -48,7 +48,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>输入校验</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -68,7 +68,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>图标和标题操作区</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -80,7 +80,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>不展示字数统计</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -92,7 +92,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>文字超出不可输入</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -108,7 +108,7 @@ const Index = () => {
             </View>
           </View>
         </View>
-        <View className='panel'>
+        <View className='doc-body--panel'>
           <View className='panel__title'>自定义高度</View>
           <View className='panel__content'>
             <View className='example-item'>
@@ -162,7 +162,7 @@ export default Index
 
 //         {/* S Body */}
 //         <View className='doc-body'>
-//           {/* <View className='panel'>
+//           {/* <View className='doc-body--panel'>
 //             <View className='panel__title'>ListItem</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -181,7 +181,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View> */}
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>基础</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -193,7 +193,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View>
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>带标题</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -207,7 +207,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View>
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>不展示字数统计</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -221,7 +221,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View>
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>文字超出不可输入</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -235,7 +235,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View>
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>不能为空</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>
@@ -252,7 +252,7 @@ export default Index
 //               </View>
 //             </View>
 //           </View>
-//           <View className='panel'>
+//           <View className='doc-body--panel'>
 //             <View className='panel__title'>自定义高度</View>
 //             <View className='panel__content'>
 //               <View className='example-item'>

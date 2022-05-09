@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import Taro, { SelectorQuery } from '@tarojs/taro'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export const noop = (): void => {}
@@ -15,6 +15,62 @@ export function pxTransform(size: string | number): string | number {
     return +size
   }
   return size + 'px'
+}
+
+export function delay(delayTime = 25): Promise<null> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(null)
+    }, delayTime)
+  })
+}
+
+export function delayQuerySelector(
+  selectorStr: string,
+  delayTime = 500
+): Promise<any[]> {
+  return new Promise(resolve => {
+    const selector: SelectorQuery = Taro.createSelectorQuery()
+    delay(delayTime).then(() => {
+      selector
+        .select(selectorStr)
+        .boundingClientRect()
+        .exec((res: any[]) => {
+          resolve(res)
+        })
+    })
+  })
+}
+
+export function delayGetScrollOffset({ delayTime = 500 }): Promise<any[]> {
+  return new Promise(resolve => {
+    delay(delayTime).then(() => {
+      Taro.createSelectorQuery()
+        .selectViewport()
+        .scrollOffset()
+        .exec((res: any[]) => {
+          resolve(res)
+        })
+    })
+  })
+}
+
+export function delayGetClientRect({
+  selectorStr,
+  delayTime = 500
+}): Promise<any[]> {
+  const selector: SelectorQuery = Taro.createSelectorQuery()
+
+  return new Promise(resolve => {
+    delay(delayTime).then(() => {
+      selector
+        .select(selectorStr)
+        .boundingClientRect()
+        .exec((res: any[]) => {
+          resolve(res)
+        })
+    })
+  })
 }
 
 export default {}
