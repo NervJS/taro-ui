@@ -20,7 +20,7 @@ export default class ListPage extends React.Component {
 
   private handleClick = (e: CommonEvent): void => {
     Taro.showToast({
-      title: `Click Item: ${e}`,
+      title: `点击 ListItem: ${e}`,
       icon: 'none'
     })
   }
@@ -38,6 +38,16 @@ export default class ListPage extends React.Component {
               <View className='example-item'>
                 <AtListItem title='标题文字' onClick={this.handleClick} />
                 <AtListItem
+                  prefix={
+                    <AtIcon
+                      className='list-page-arrow'
+                      value='comm_icon_more_line'
+                      size={16}
+                    />
+                  }
+                  title='前缀图标标题'
+                />
+                <AtListItem
                   title='标题文字'
                   arrow={
                     <AtIcon
@@ -48,7 +58,39 @@ export default class ListPage extends React.Component {
                   }
                 />
                 <AtListItem title='标题文字' extra='详细信息' />
-                <AtListItem title='禁用状态' disabled extra='详细信息' />
+                <AtListItem arrow disabled title='禁用状态' extra='详细信息' />
+                <AtListItem
+                  title='标题文字'
+                  extra='详细信息'
+                  description='描述信息'
+                />
+                <AtListItem
+                  arrow
+                  title='标题文字'
+                  extra='详细信息'
+                  description='描述信息右对齐'
+                  descriptionLayout='right'
+                />
+                <AtListItem
+                  title='标题文字'
+                  extra='箭头单独点击事件'
+                  arrow={
+                    <AtIcon
+                      className='list-page-arrow'
+                      value='comm_icon_right_line'
+                      size={16}
+                      onClick={e => {
+                        if (Taro.getEnv() !== Taro.ENV_TYPE.RN) {
+                          e.stopPropagation()
+                        }
+                        Taro.showToast({
+                          title: '点击箭头'
+                        })
+                      }}
+                    />
+                  }
+                  onClick={this.handleClick}
+                />
               </View>
             </View>
           </View>
@@ -58,138 +100,21 @@ export default class ListPage extends React.Component {
             <View className='panel__title'>描述超长</View>
             <View className='panel__content no-padding'>
               <View className='example-item'>
-                {/* <AtList>
-                  <AtListItem title='标题文字' note='描述信息' />
-                  <AtListItem title='标题文字' note='描述信息' arrow='right' />
-                  <AtListItem
-                    arrow='right'
-                    note='描述信息'
-                    title='我是一个很长很长很长的标题文字'
-                    extraText='详细信息详细信息详细信息详细信息'
-                  />
-                </AtList> */}
+                <AtListItem arrow title='标题超过六个字换行' extra='详细信息' />
                 <AtListItem
-                  title='标题超过六个字转行'
+                  arrow
+                  title='标题文字'
                   extra='详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息'
-                  onClick={this.handleClick}
+                />
+                <AtListItem
+                  arrow
+                  ellipsis
+                  title='标题文字'
+                  extra='超长省略详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息'
                 />
               </View>
             </View>
           </View>
-
-          {/* 包含图片 */}
-          {/* <View className='panel'>
-            <View className='panel__title'>包含图片</View>
-            <View className='panel__content no-padding'>
-              <View className='example-item'>
-                <AtList>
-                  <AtListItem
-                    title='标题文字'
-                    arrow='right'
-                    thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-                  />
-                  <AtListItem
-                    title='标题文字'
-                    note='描述信息'
-                    arrow='right'
-                    thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-                  />
-                  <AtListItem
-                    title='标题文字'
-                    note='描述信息'
-                    extraText='详细信息'
-                    arrow='right'
-                    thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-                  />
-                </AtList>
-              </View>
-            </View>
-          </View> */}
-
-          {/* 图标 */}
-          {/* <View className='panel'>
-            <View className='panel__title'>支持图标(不能与thumb同时存在)</View>
-            <View className='panel__content no-padding'>
-              <View className='example-item'>
-                <AtList>
-                  <AtListItem
-                    title='标题文字'
-                    note='描述信息'
-                    arrow='right'
-                    iconInfo={{
-                      size: 25,
-                      color: '#78A4FA',
-                      value: 'calendar'
-                    }}
-                  />
-                  <AtListItem
-                    title='标题文字'
-                    note='描述信息'
-                    extraText='详细信息'
-                    arrow='right'
-                    iconInfo={{
-                      size: 25,
-                      color: '#FF4949',
-                      value: 'bookmark'
-                    }}
-                  />
-                </AtList>
-              </View>
-            </View>
-          </View> */}
-
-          {/* 无边框 */}
-          {/* <View className='panel'>
-            <View className='panel__title'>无边框</View>
-            <View className='panel__content no-padding'>
-              <View className='example-item'>
-                <AtList hasBorder={false}>
-                  <AtListItem
-                    isSwitch
-                    title='标题文字'
-                    hasBorder={false}
-                    onSwitchChange={this.handleChange}
-                  />
-                  <AtListItem
-                    isSwitch
-                    title='标题文字'
-                    hasBorder={false}
-                    onSwitchChange={this.handleChange}
-                  />
-                </AtList>
-              </View>
-            </View>
-          </View> */}
-
-          {/* Switch 按钮列表 */}
-          {/* <View className='panel'>
-            <View className='panel__title'>Switch 按钮列表</View>
-            <View className='panel__content no-padding'>
-              <View className='example-item'>
-                <AtList>
-                  <AtListItem
-                    title='标题文字'
-                    isSwitch
-                    onClick={this.handleClick}
-                    onSwitchChange={this.handleChange}
-                  />
-                  <AtListItem
-                    isSwitch
-                    disabled
-                    switchIsCheck
-                    title='禁用状态'
-                    onSwitchChange={this.handleChange}
-                  />
-                  <AtListItem
-                    isSwitch
-                    switchIsCheck
-                    title='标题文字'
-                    onSwitchChange={this.handleChange}
-                  />
-                </AtList>
-              </View>
-            </View>
-          </View> */}
         </View>
       </View>
     )

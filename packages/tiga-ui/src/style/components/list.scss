@@ -7,26 +7,33 @@
     flex-direction: row;
     padding: $spacing-h-lg;
 
+    /* prefix */
     &-prefix {
       @include font(16px, 16px);
       padding-right: $spacing-h-lg;
     }
 
-    &-main {
-      flex: 1;
-    }
-
     &-extra {
       @include font(16px, 16px);
       padding-left: $spacing-h-lg;
+
+      &-ellipsis {
+        @include line(1)
+      }
     }
 
     &-arrow {
       line-height: 0;
+      padding-left: 4px;
 
       &-icon {
         line-height: 16px;
       }
+    }
+
+    /* main */
+    &-main {
+      flex: 1;
     }
 
   }
@@ -40,11 +47,13 @@
   &-description {
     @include font(14px, 14px);
     margin-top: $spacing-v-md;
+
+    &-right {
+      text-align: right;
+    }
   }
 
-  &-feedback-error {
-    color: $color-error;
-  }
+  /* main */
 
   &-vertical {}
 

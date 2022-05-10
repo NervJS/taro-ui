@@ -15,10 +15,11 @@ const AtTagGroup: React.FC<AtTagGroupProps> = ({
   onClick,
   children
 }) => {
-  const rootClass = classNames('at-tag-group', `at-tag-group--${type}`, {
+  const rootClass = classNames('at-tag-group', {
     [`at-tag-group--${size}`]: type !== 'form',
     // 'at-tag-group--iswrap': isWrap && !scrollX
-    'at-tag-group--iswrap': !scrollX
+    'at-tag-group--iswrap': !scrollX,
+    [`at-tag-group--${type}`]: true
   })
 
   const content = data?.length
@@ -42,7 +43,8 @@ const AtTagGroup: React.FC<AtTagGroupProps> = ({
       <ScrollView scrollX className={rootClass}>
         <View className='at-tag-group--wrap'>
           {content}
-          {!PLATFORM.isRN && <View className='at-tag-group--gap' />}
+          <View className='at-tag-group--gap' />
+          {/* {!PLATFORM.isRN && <View className='at-tag-group--gap' />} */}
         </View>
       </ScrollView>
     )

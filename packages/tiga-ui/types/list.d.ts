@@ -12,6 +12,8 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   disabled?: boolean
+  ellipsis?: boolean
+  descriptionLayout?: 'left' | 'right'
   onClick?: (event: CommonEvent) => void
 } & AtComponent
 

@@ -13,6 +13,7 @@
     -webkit-box-orient: vertical;
   }
   /*  #endif  */
+  // 实际上要设置标签的 props
   /*  #ifndef  rn  */
   number-of-lines: $num;
   ellipsize-mode: tail;

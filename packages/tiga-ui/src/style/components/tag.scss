@@ -66,38 +66,41 @@
 
   &--wrap {
     flex-direction: row;
+    margin-left: $spacing-h-lg;
     /*  #ifndef  rn  */
     box-sizing: border-box;
     white-space: nowrap;
-    /*  #endif  */
     padding-right: 24px;
+    /*  #endif  */
   }
-
-  /* type */
-  &--form {
-    margin-bottom: -1 * $spacing-h-sm;
-  }
-  /* type */
 
   /* size */
   &--normal {
-    padding: 10px 0 2px $spacing-h-lg;
+    padding: 10px 0 2px 0;
   }
 
   &--small {
-    padding: 8px 0 0 $spacing-h-lg;
+    padding: 8px 0 0 0;
   }
   /* size */
 
   &--iswrap {
     flex-wrap: wrap;
+    padding-left: $spacing-h-lg;
     /*  #ifndef  rn  */
     white-space: normal;
     /*  #endif  */
   }
 
+  /* type */
+  &--form {
+    margin-bottom: -1 * $spacing-h-sm;
+    padding-left: 0;
+  }
+  /* type */
+
   &--gap {
-    width: 12px;
+    width: 8px;
     /*  #ifndef  rn  */
     display: inline-block;
     /*  #endif  */

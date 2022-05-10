@@ -1,33 +1,64 @@
-import React, { FC } from 'react'
+import React, { CSSProperties, FC } from 'react'
 import classNames from 'classnames'
 import { View } from '@tarojs/components'
 import { ListItemProps } from '../../../types/list'
 import AtIcon from '../icon'
+import { pxTransform } from '../../utils'
 
 const classPrefix = `at-list-item`
 
 export const AtListItem: FC<ListItemProps> = props => {
-  const clickable = props.clickable ?? !!props.onClick
+  const {
+    prefix,
+    title,
+    children,
+    description,
+    extra,
+    // arrow,
+    ellipsis,
+    descriptionLayout,
+    onClick
+  } = props
+  const clickable = props.clickable ?? !!onClick
   const arrow = props.arrow === undefined ? clickable : props.arrow
+
+  const titleStyle: CSSProperties = {}
+  // 标题文字超过6个字换行: width = 16 * 6
+  if (typeof title === 'string') {
+    const len = title.length > 6 ? 6 : title.length
+    titleStyle.width = pxTransform(len * 16)
+  }
 
   const content = (
     <View className={`${classPrefix}-content`}>
-      {props.prefix && (
-        <View className={`${classPrefix}-content-prefix`}>{props.prefix}</View>
+      {prefix && (
+        <View className={`${classPrefix}-content-prefix`}>{prefix}</View>
       )}
       <View className={`${classPrefix}-content-main`}>
-        {props.title && (
-          <View className={`${classPrefix}-title`}>{props.title}</View>
+        {title && (
+          <View className={`${classPrefix}-title`} style={titleStyle}>
+            {title}
+          </View>
         )}
-        {props.children}
-        {props.description && (
-          <View className={`${classPrefix}-description`}>
-            {props.description}
+        {children}
+        {description && (
+          <View
+            className={`${classPrefix}-description ${classPrefix}-description-${descriptionLayout}`}
+          >
+            {description}
           </View>
         )}
       </View>
-      {props.extra && (
-        <View className={`${classPrefix}-content-extra`}>{props.extra}</View>
+      {extra && (
+        <View
+          className={classNames(`${classPrefix}-content-extra`, {
+            [`${classPrefix}-content-extra-ellipsis`]: ellipsis
+          })}
+          // @ts-ignore
+          numberOfLines={ellipsis ? 1 : 0}
+        >
+          {props.extra}
+        </View>
       )}
       {arrow && (
         <View className={`${classPrefix}-content-arrow`}>
@@ -75,4 +106,8 @@ export const AtListItem: FC<ListItemProps> = props => {
   //     content
   //   )
   // )
+}
+AtListItem.displayName = 'AtListItem'
+AtListItem.defaultProps = {
+  descriptionLayout: 'left'
 }
