@@ -112,9 +112,12 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
       if (onClick) {
         return onClick(event)
       }
-      close()
+      // ui改进 有遮罩层点击不关
+      if (!maskHide) {
+        close()
+      }
     },
-    [close, onClick]
+    [close, maskHide, onClick]
   )
   const handleClose = useCallback(
     (event?: CommonEvent): void => {
