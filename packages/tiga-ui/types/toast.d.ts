@@ -1,4 +1,4 @@
-import { ComponentClass } from 'react'
+import { FC } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'

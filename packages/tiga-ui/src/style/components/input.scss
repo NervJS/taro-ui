@@ -1,0 +1,197 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-input-content-v-gap: (22px - 16px) / 2;
+.at-input {
+  width: auto;
+  position: relative;
+  padding: ($spacing-v-lg - $at-input-content-v-gap) 0;
+  color: $at-input-label-color;
+  background-color: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: $spacing-h-lg;
+
+  &__titlebox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    &__title {
+      max-width: $at-input-title-limit;
+      @include font(16px);
+      text-align: left;
+    }
+    &--symbol {
+      @include font(16px);
+      margin-left: 4px;
+      display: flex;
+      align-self:center;
+      max-width: 16px;
+    }
+    &--required {
+      color: $color-error;
+      @include font(16px);
+      position: absolute;
+      /*  #ifndef  rn  */
+      top: 2px;
+      left: -6px;
+      /*  #endif  */
+      /*  #ifdef  rn  */
+      top: 2px;
+      left: -6px;
+      /*  #endif  */
+    }
+
+  }
+  &-contentbox {
+    margin-left: $spacing-h-lg;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: $spacing-h-lg;
+    &-icon {
+      margin-left: $spacing-h-lg;
+    }
+    &__input {
+      flex: 1;
+    }
+  }
+  &__clear {
+    max-width: $at-input-icon-max-size-sm;
+    overflow: hidden;
+  }
+  &__errorword {
+    @include font(16px);
+    color: $color-error;
+  }
+
+
+  &__input {
+    flex: 1;
+    /*  #ifndef  rn  */
+    display: inline-block;
+    vertical-align: middle;
+    /*  #endif  */
+
+    // padding-right: $spacing-v-md;
+    color: $at-input-text-color;
+    @include font(16px);
+    @include placeholder($at-input-placeholder-color);
+    text-align: left;
+    padding-top: 0;
+    /*  #ifdef  rn  */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding-bottom: 2px;
+    /*  #endif  */
+  }
+
+  input {
+    color: $at-input-text-color;
+    @include font(16px);
+  }
+  textarea {
+    color: $at-input-text-color;
+    @include font(16px);
+    // height: 22px !important;
+  }
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: $at-input-icon-max-size-lg;
+    max-height: $at-input-icon-max-size-lg;
+    overflow: hidden;
+    text-align: center;
+    /*  #ifndef  rn  */
+    line-height: 1;
+    /*  #endif  */
+
+    &-close {
+      color: #ccc;
+    }
+
+    &-alert {
+      color: #FF4949;
+    }
+  }
+  &__button {
+    margin-left: $spacing-h-lg;
+  }
+  &__children {
+    display: inline-flex;
+    > view,
+    div,
+    span,
+    text,
+    image,
+    .taro-img {
+      display: inline-block;
+      // padding: 0 $spacing-v-md;
+      color: $color-brand-dark;
+      @include font(16px);
+      text-align: center;
+    }
+
+    > image,
+    img,
+    .taro-img {
+      display: inline-block;
+      width: 145px;
+      height: 60px;
+      vertical-align: middle;
+    }
+  }
+  &--disabled {
+    cursor: not-allowed;
+    opacity: $opacity-disabled;
+  }
+}
+.at-input-group {
+  background-color: $color-bg;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  vertical-align: middle;
+  padding: ($spacing-v-lg - $at-input-content-v-gap) $spacing-h-lg;
+  &__titlebox {
+    max-width: $at-input-title-limit;
+    min-width: 32px;
+    &__title {
+      @include font(16px);
+    }
+  }
+  &__label {
+    margin-left: 8px;
+    @include font(16px);
+  }
+  &__input {
+    color: $at-input-label-color;
+    background-color: $color-bg;
+    padding-left: $spacing-h-lg;
+    @include font(16px);
+    // height: 22px;
+    /*  #ifdef  rn  */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    padding-bottom: 2px;
+    /*  #endif  */
+  }
+}
+form
+  .at-input {
+    // background-color: blue;
+  }
