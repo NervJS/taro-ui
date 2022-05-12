@@ -52,7 +52,7 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
     onLinechange
   } = props
 
-  const rootClassName = classNames('at-textarea red', className)
+  const rootClassName = classNames('at-textarea', className)
 
   const handleInput = useCallback(
     (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value, event),

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtIcon, AtListItem } from 'tiga-ui'
+import { AtButton, AtIcon, AtListItem } from 'tiga-ui'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
@@ -9,13 +9,6 @@ import './index.scss'
 export default class ListPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
-  }
-
-  private handleChange = (e: CommonEvent): void => {
-    Taro.showToast({
-      title: `Change Switch: ${e}`,
-      icon: 'none'
-    })
   }
 
   private handleClick = (e: CommonEvent): void => {
@@ -90,6 +83,14 @@ export default class ListPage extends React.Component {
                     />
                   }
                   onClick={this.handleClick}
+                />
+                <AtListItem
+                  title='标题文字'
+                  extra={
+                    <View className='list-page-item-button'>
+                      <AtButton>通过调整extra子元素自身布局适应</AtButton>
+                    </View>
+                  }
                 />
               </View>
             </View>

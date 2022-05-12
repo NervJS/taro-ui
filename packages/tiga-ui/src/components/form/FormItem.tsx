@@ -41,7 +41,8 @@ export const AtFormItemLayout = (props: any) => {
     help,
     tail,
     childElementPosition,
-    handleHelpClick
+    onHelpClick,
+    onTailClick
   } = props
 
   const context = useContext(FormContext)
@@ -85,7 +86,7 @@ export const AtFormItemLayout = (props: any) => {
             marginLeft: pxTransform('4'),
             lineHeight: pxTransform('16')
           }}
-          onClick={handleHelpClick}
+          onClick={onHelpClick}
         ></AtIcon>
       )
     } else {
@@ -107,10 +108,12 @@ export const AtFormItemLayout = (props: any) => {
       </View>
       {
         // 垂直布局时跟 title 一行的案例
-        layout === 'vertical' && tail && (
-          <View className={`${classPrefix}-tail`} onClick={() => {}}>
+        layout === 'vertical' && typeof tail === 'string' ? (
+          <View className={`${classPrefix}-tail`} onClick={onTailClick}>
             {tail}
           </View>
+        ) : (
+          tail
         )
       }
     </React.Fragment>
@@ -118,32 +121,36 @@ export const AtFormItemLayout = (props: any) => {
   /** 标题区域 */
 
   const hasMessage = props.errors.length || props.warnings.length
+  let description: React.ReactNode = null
 
-  const description = (
-    <React.Fragment>
-      {props.description}
-      {hasFeedback && hasMessage ? (
-        <React.Fragment>
-          {props.errors.map((error, index) => (
-            <View
-              key={`error-${index}`}
-              className={`${classPrefix}-feedback-error`}
-            >
-              {error}
-            </View>
-          ))}
-          {props.warnings.map((warning, index) => (
-            <View
-              key={`warning-${index}`}
-              className={`${classPrefix}-feedback-warning`}
-            >
-              {warning}
-            </View>
-          ))}
-        </React.Fragment>
-      ) : null}
-    </React.Fragment>
-  )
+  if (props.description || (hasFeedback && hasMessage)) {
+    description = (
+      <React.Fragment>
+        {props.description}
+        {hasFeedback && hasMessage ? (
+          <React.Fragment>
+            {props.errors.map((error, index) => (
+              <View
+                key={`error-${index}`}
+                className={`${classPrefix}-feedback-error`}
+              >
+                {error}
+              </View>
+            ))}
+            {props.warnings.map((warning, index) => (
+              <View
+                key={`warning-${index}`}
+                className={`${classPrefix}-feedback-warning`}
+              >
+                {warning}
+              </View>
+            ))}
+          </React.Fragment>
+        ) : null}
+      </React.Fragment>
+    )
+  }
+
   return (
     <AtListItem
       title={layout === 'vertical' && labelElement}
@@ -210,6 +217,8 @@ export const AtFormItem: React.FC<any> = props => {
     onClick,
     shouldUpdate,
     dependencies,
+    onHelpClick,
+    onTailClick,
     ...fieldProps
   } = props
 
@@ -321,6 +330,8 @@ export const AtFormItem: React.FC<any> = props => {
         childElementPosition={childElementPosition}
         clickable={clickable}
         arrow={arrow}
+        onHelpClick={onHelpClick}
+        onTailClick={onTailClick}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}

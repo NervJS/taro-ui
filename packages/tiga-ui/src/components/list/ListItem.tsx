@@ -30,7 +30,6 @@ export const AtListItem: FC<ListItemProps> = props => {
     const fixLen = PLATFORM.isRN ? 2 : 0
     titleStyle.width = pxTransform(len * 16 + fixLen)
   }
-
   const content = (
     <View className={`${classPrefix}-content`}>
       {prefix && (
@@ -59,7 +58,7 @@ export const AtListItem: FC<ListItemProps> = props => {
           // @ts-ignore
           numberOfLines={ellipsis ? 1 : 0}
         >
-          {props.extra}
+          {extra}
         </View>
       )}
       {arrow && (

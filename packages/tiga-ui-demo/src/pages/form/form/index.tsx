@@ -1,6 +1,7 @@
 import React from 'react'
 import { AtTextarea, AtForm, AtFormItem, AtButton } from 'tiga-ui'
 import { View, Input } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { useForm } from 'rc-field-form'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -115,6 +116,8 @@ const Index = () => {
                   name='subname'
                   label='昵称'
                   tail='操作'
+                  onHelpClick={() => Taro.showToast({ title: '点击帮助icon' })}
+                  onTailClick={() => Taro.showToast({ title: '点击操作区' })}
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
                   <Input placeholder='请输入' />
