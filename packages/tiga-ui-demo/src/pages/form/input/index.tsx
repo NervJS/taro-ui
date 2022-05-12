@@ -22,6 +22,7 @@ interface IndexState {
   value9: string
   value10: string
   value11: any
+  groupConfig: any
   value12: string
   value13: string
   value14: string
@@ -47,7 +48,8 @@ export default class InputItemPage extends React.Component<any, IndexState> {
       value8: '',
       value9: '',
       value10: '',
-      value11: [
+      value11: [],
+      groupConfig: [
         { value: '', label: '室' },
         { value: '', label: '厅' },
         { value: '', label: '卫' }
@@ -103,7 +105,6 @@ export default class InputItemPage extends React.Component<any, IndexState> {
     )
   }
   private handleInput2(value: any): void {
-    // console.log('handleInput2', value)
     this.setState(
       {
         value11: value
@@ -147,168 +148,156 @@ export default class InputItemPage extends React.Component<any, IndexState> {
         {/* E Header */}
 
         {/* S Body */}
-        <View
-          className={classNames('doc-body', 'inputPage')}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          {/* 基础用法 */}
-          <View className='panel'>
-            <View className='panel__title'>基础用法</View>
-            <View className='panel__content no-padding'>
-              {/* <Form  onSubmit={this.formSubmit}> */}
-              <View>常规</View>
-              <AtInput
-                name='value1'
-                title='标题'
-                placeholder='请输入'
-                value={this.state.value1}
-                onChange={this.handleInput.bind(this, 'value1')}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value1'
-                title='标题为六字时'
-                placeholder='请输入'
-                required
-                value={this.state.value2}
-                onChange={this.handleInput.bind(this, 'value2')}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value1'
-                title='标题超过六个字转行'
-                required
-                placeholder='请输入'
-                value={this.state.value3}
-                onChange={this.handleInput.bind(this, 'value3')}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value2'
-                required
-                title='标题'
-                placeholder='请输入'
-                value={this.state.value4}
-                onChange={this.handleInput.bind(this, 'value4')}
-                validMessage='请输入数字'
-                prefix={
-                  <AtIcon
-                    className='at-input-icon'
-                    value='curtain_icon_cancel'
-                    size={8}
-                    style={{ color: 'gray' }}
-                  />
-                }
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value3'
-                required
-                title='必填项'
-                placeholder='请输入'
-                value={this.state.value5}
-                onChange={this.handleInput.bind(this, 'value5')}
-                validMessage='请输入数字'
-                // clearable
-                // contentIcon
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value3'
-                title='带清除'
-                placeholder='请输入'
-                value={this.state.value6}
-                onChange={this.handleInput.bind(this, 'value6')}
-                validMessage='请输入数字'
-                clearable
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value3'
-                title='右区按钮'
-                placeholder='请输入'
-                value={this.state.value7}
-                onChange={this.handleInput.bind(this, 'value7')}
-                clearable
-                buttonTxt='功能按钮'
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value'
-                required
-                title='右区icon'
-                placeholder='请输入'
-                value={this.state.value14}
-                onChange={this.handleInput.bind(this, 'value14')}
-                iconName='curtain_icon_cancel'
-                iconSize={24}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value'
-                required
-                title='右区自定义'
-                placeholder='请输入'
-                value={this.state.value8}
-                onChange={this.handleInput.bind(this, 'value8')}
-              >
-                <View>自定义后缀</View>
-              </AtInput>
-              <View className='gap'></View>
-              <AtInput
-                name='value3'
-                title='校验测试'
-                placeholder='请输入'
-                value={this.state.value9}
-                onChange={this.handleInput.bind(this, 'value9')}
-                // validMessage='请输入数字'
-                // clearable
-                // rules={this.validFC.bind(this)}
-                onKeyboardHeightChange={this.handleKeyboardHeightChange.bind(
-                  this
-                )}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value3'
-                title='禁用'
-                placeholder='请输入'
-                value={this.state.value10}
-                onChange={this.handleInput.bind(this, 'value10')}
-                validMessage='请输入数字'
-                clearable
-                disabled
-              />
-              <View className='gap'></View>
-              <AtInputGroup
-                title='标题'
-                value={this.state.value11}
-                onChange={this.handleInput2.bind(this)}
-              ></AtInputGroup>
-              <View className='gap'></View>
-              <AtInput
-                name='value12'
-                required
-                title='标题'
-                placeholder='请输入'
-                value={this.state.value12}
-                onChange={this.handleInput.bind(this, 'value12')}
-                validMessage='请输入数字'
-                prefix={<View className='unit'>¥</View>}
-              />
-              <View className='gap'></View>
-              <AtInput
-                name='value13'
-                required
-                title='标题'
-                placeholder='请输入'
-                value={this.state.value12}
-                onChange={this.handleInput.bind(this, 'value13')}
-                validMessage='请输入数字'
-              >
-                万元
-              </AtInput>
-              {/* <AtForm>
+        <View className='doc-body'>
+          <View className='doc-body--panel'>
+            {/* 基础用法 */}
+            <View className='panel'>
+              <View className='panel__title'>基础用法</View>
+              <View className='panel__content no-padding'>
+                {/* <Form  onSubmit={this.formSubmit}> */}
+                <AtInput
+                  title='标题'
+                  placeholder='请输入'
+                  value={this.state.value1}
+                  onChange={this.handleInput.bind(this, 'value1')}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  title='标题为六字时'
+                  placeholder='请输入'
+                  required
+                  value={this.state.value2}
+                  onChange={this.handleInput.bind(this, 'value2')}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  title='标题超过六个字转行'
+                  required
+                  placeholder='请输入'
+                  value={this.state.value3}
+                  onChange={this.handleInput.bind(this, 'value3')}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='标题'
+                  placeholder='请输入'
+                  value={this.state.value4}
+                  onChange={this.handleInput.bind(this, 'value4')}
+                  validMessage='请输入数字'
+                  prefix={
+                    <AtIcon
+                      className='at-input-icon'
+                      value='curtain_icon_cancel'
+                      size={16}
+                      style={{ color: 'gray' }}
+                    />
+                  }
+                />
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='必填项'
+                  placeholder='请输入'
+                  value={this.state.value5}
+                  onChange={this.handleInput.bind(this, 'value5')}
+                  validMessage='请输入数字'
+                  // clearable
+                  // contentIcon
+                />
+                <View className='gap'></View>
+                <AtInput
+                  title='带清除'
+                  placeholder='请输入'
+                  value={this.state.value6}
+                  onChange={this.handleInput.bind(this, 'value6')}
+                  validMessage='请输入数字'
+                  clearable
+                />
+                <View className='gap'></View>
+                <AtInput
+                  title='右区按钮'
+                  placeholder='请输入'
+                  value={this.state.value7}
+                  onChange={this.handleInput.bind(this, 'value7')}
+                  clearable
+                  buttonTxt='功能按钮'
+                />
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='右区icon'
+                  placeholder='请输入'
+                  value={this.state.value14}
+                  onChange={this.handleInput.bind(this, 'value14')}
+                  iconName='curtain_icon_cancel'
+                  iconSize={24}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='右区自定义'
+                  placeholder='请输入'
+                  value={this.state.value8}
+                  onChange={this.handleInput.bind(this, 'value8')}
+                >
+                  <View>自定义后缀</View>
+                </AtInput>
+                <View className='gap'></View>
+                <AtInput
+                  title='校验测试'
+                  placeholder='请输入'
+                  value={this.state.value9}
+                  onChange={this.handleInput.bind(this, 'value9')}
+                  // validMessage='请输入数字'
+                  // clearable
+                  // rules={this.validFC.bind(this)}
+                  onKeyboardHeightChange={this.handleKeyboardHeightChange.bind(
+                    this
+                  )}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  title='禁用'
+                  placeholder='请输入'
+                  value={this.state.value10}
+                  onChange={this.handleInput.bind(this, 'value10')}
+                  validMessage='请输入数字'
+                  clearable
+                  disabled
+                />
+                <View className='gap'></View>
+                <AtInputGroup
+                  title='标题'
+                  config={this.state.groupConfig}
+                  value={this.state.value11}
+                  onChange={this.handleInput2.bind(this)}
+                  disabled
+                ></AtInputGroup>
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='标题'
+                  placeholder='请输入'
+                  value={this.state.value12}
+                  onChange={this.handleInput.bind(this, 'value12')}
+                  validMessage='请输入数字'
+                  prefix={<View className='unit'>¥</View>}
+                />
+                <View className='gap'></View>
+                <AtInput
+                  required
+                  title='标题'
+                  placeholder='请输入'
+                  value={this.state.value12}
+                  onChange={this.handleInput.bind(this, 'value13')}
+                  validMessage='请输入数字'
+                >
+                  万元
+                </AtInput>
+                <View className='gap'></View>
+                <AtInput />
+                {/* <AtForm>
                   <AtInput
                     name='value1'
                     title='标准五个字'
@@ -332,6 +321,7 @@ export default class InputItemPage extends React.Component<any, IndexState> {
                     onChange={this.handleInput.bind(this, 'value3')}
                   />
                 </AtForm> */}
+              </View>
             </View>
           </View>
         </View>

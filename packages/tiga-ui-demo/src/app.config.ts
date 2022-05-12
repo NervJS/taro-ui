@@ -14,7 +14,6 @@ export default {
     'pages/view/tag/index',
     'pages/form/textarea/index',
     'pages/form/form/index',
-    'pages/view/tag/index',
     'pages/form/input/index'
   ],
   window: {

@@ -167,7 +167,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   padding: ($spacing-v-lg - $at-input-content-v-gap) $spacing-h-lg;
   &__titlebox {
     max-width: $at-input-title-limit;
-    min-width: 32px;
+    min-width: 34px;
     &__title {
       @include font(16px);
     }
@@ -194,4 +194,8 @@ $at-input-content-v-gap: (22px - 16px) / 2;
 form
   .at-input {
     // background-color: blue;
+    padding: 0;
+    &-contentbox {
+      margin-left: 0;
+    }
   }

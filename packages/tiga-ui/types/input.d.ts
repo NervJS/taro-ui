@@ -1,73 +1,20 @@
 import { FC } from 'react'
-import { BaseEventOrig, ITouchEvent } from '@tarojs/components/types/common'
-import { InputProps } from '@tarojs/components/types/Input'
 import AtComponent from './base'
-
-declare type OmitInputProps = Omit<
-  InputProps,
-  | 'className'
-  | 'type'
-  | 'onBlur'
-  | 'onFocus'
-  | 'onChange'
-  | 'onConfirm'
-  | 'onKeyboardHeightChange'
->
+import {
+  BaseEventOrig,
+  CommonEventFunction
+} from '@tarojs/components/types/common'
 
 declare type InputFunction<T extends string | number, U = any, R = void> = (
   value: T,
   event?: BaseEventOrig<U>
 ) => R
-
-declare type InputBaseEventDetail = {
-  /** 输入值 */
-  value: string | number
-}
-
-export declare type InputEventDetail = InputBaseEventDetail & {
-  /** 光标位置 */
-  cursor: number
-  /** 键值 */
-  keyCode: number
-}
-
-export declare type FocusEventDetail = InputBaseEventDetail & {
-  /** 键盘高度 */
-  height: number
-}
-
-export declare type BlurEventDetail = InputBaseEventDetail
-
-export declare type ConfirmEventDetail = InputBaseEventDetail
-
-export declare type KeyboardHeightEventDetail = {
-  /** 键盘高度 */
-  height: number
-  /** 持续时间 */
-  duration: number
-}
-
 export interface AtInputItemProps extends AtComponent {
   /**
-   * input的值
+   * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
    */
-  prefix?: ReactDOM
-  suffix?: ReactDOM
-  name?: string
-  value: any
+  value?: string
   placeholder?: string
-  autoSize?: boolean
-  rules?: CommonEventFunction
-  iconName?: string
-  iconSize?: number
-  /**
-   * 指定 placeholder 的样式，只在小程序有效
-   */
-  placeholderStyle?: string
-  /**
-   * 指定 placeholder 的样式类，只在小程序有效
-   */
-  placeholderClass?: string
   /**
    * 是否禁用
    * @default false
@@ -79,17 +26,32 @@ export interface AtInputItemProps extends AtComponent {
    */
   required?: boolean
   /**
+   * 最大长度
+   */
+  maxlength?: number
+  /**
    * 标题的内容
    */
   title?: string
   /**
    * 标题右侧icon
    */
-  titleIcon?: string
+  prefix?: ReactDOM
   /**
-   * 内容右侧icon
+   * 内容右侧icon 名称
+   */
+  iconName?: string
+  /**
+   * 内容右侧icon size
+   */
+  iconSize?: number
+  /**
+   * 内容右侧按钮文案
    */
   buttonTxt?: string
+  /**
+   * 内容右侧按钮状态
+   */
   buttonDisabled?: boolean
   /**
    * 校验报错文案
@@ -99,27 +61,25 @@ export interface AtInputItemProps extends AtComponent {
    * 是否具有一键清除
    */
   clearable?: boolean
-  classSuffix?: string
-  customClass?: string
   /**
    * input变化
    */
-  onChange?: CommonEventFunction
-  /**
-   * 元素被关闭之后触发的事件
-   */
-  onClick?: CommonEventFunction
+  onChange?: InputFunction
   onBlur?: CommonEventFunction
   onFocus?: CommonEventFunction
   onKeyboardHeightChange?: CommonEventFunction
-}
-declare const AtInputItem: FC<AtInputItemProps>
-export interface AtInputGroupProps extends AtComponent {
   /**
-   * 大小尺寸
-   * @default 'normal'
+   * 提供单一组件的检验
    */
-  size?: 'normal' | 'small'
+  onRules?: CommonEventFunction
+  /**
+   * 自配置按钮点击事件
+   */
+  onClick?: CommonEventFunction
+}
+declare const AtInput: FC<AtInputItemProps>
+
+export interface AtInputGroupProps extends AtComponent {
   /**
    * 是否为禁用态
    * @default false
@@ -127,15 +87,23 @@ export interface AtInputGroupProps extends AtComponent {
   disabled?: boolean
 
   /**
-   * 标签组的适用场景
+   * 渲染group的配置项
    * @default '[]'
    */
-  value?: Array<{ value: string; label: string }>
+  config?: Array<{ value: string; label: string }>
+  /**
+   * 传递值[]
+   *
+   */
+  value?: Array<string | undefined>
+  /**
+   * 标题的内容
+   */
   title?: string
   /**
-   * 点击标签时触发，返回标签名字和状态的对象
+   * 值变化时传递
    */
-  onChange?: (value: any) => void
+  onChange?: (value: Array) => void
 }
 declare const AtInputGroup: FC<AtInputGroupProps>
-export default AtInputItem
+export default AtInput

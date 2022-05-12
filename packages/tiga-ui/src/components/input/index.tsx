@@ -14,20 +14,13 @@ type ExtendEvent = {
 
 const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
   const {
-    customStyle,
-    name,
+    value,
     disabled,
     required,
     title,
-    rules,
-    placeholderStyle,
     placeholder,
-    placeholderClass,
-    onFocus,
-    onBlur,
-    onChange,
-    value,
     clearable,
+    maxlength,
     validMessage,
     children,
     prefix,
@@ -35,7 +28,12 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     iconSize,
     buttonTxt,
     buttonDisabled,
+    customStyle,
+    onFocus,
+    onBlur,
+    onChange,
     onClick,
+    onRules,
     onKeyboardHeightChange
   } = props
   const rootClass = classNames('at-input', {
@@ -44,11 +42,9 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
       (disabled && !buttonTxt) || (disabled && buttonTxt && buttonDisabled),
     'at-input__container--required': required
   })
-
-  const placeholderCls = classNames('placeholder', placeholderClass)
   const [showValid, setShowValid] = useState(false)
   const handleChange = useCallback(
-    (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value, event),
+    (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value),
     [onChange]
   )
   const handleFocus = useCallback(
@@ -83,29 +79,18 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
   //   }
   // }, [])
 
-  const handleClear = useCallback(
-    (event: ITouchEvent & ExtendEvent): void => {
-      onChange('', event)
-    },
-    [onChange]
-  )
+  const handleClear = useCallback((): void => {
+    onChange?.('')
+  }, [onChange])
 
-  const handleKeyboardHeightChange = useCallback(
-    (event: CommonEvent & ExtendEvent): void => {
-      onKeyboardHeightChange(event)
-    },
-    []
-  )
+  const handleKeyboardHeightChange = useCallback((): void => {
+    // onKeyboardHeightChange(event)
+  }, [])
   return (
     <View className={rootClass} style={customStyle}>
       {title && (
         <View className='at-input__titlebox'>
-          <Label
-            className={`at-input__titlebox__title`}
-            // for={name}
-          >
-            {title}
-          </Label>
+          <Label className={`at-input__titlebox__title`}>{title}</Label>
           {required && <View className='at-input__titlebox--required'>*</View>}
           <View className='at-input__titlebox--symbol'>{prefix}</View>
         </View>
@@ -115,12 +100,9 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
         <View className='at-input__content'>
           <Input
             className='at-input__input'
-            placeholderStyle={placeholderStyle}
-            placeholderClass={placeholderCls}
             placeholder={placeholder}
             value={value}
-            id={name}
-            name={name}
+            maxlength={maxlength}
             onInput={handleChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
