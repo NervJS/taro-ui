@@ -7,7 +7,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   position: relative;
   padding: ($spacing-v-lg - $at-input-content-v-gap) 0;
   color: $at-input-label-color;
-  background-color: $color-bg;
+  background-color: $color-bg-base;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,7 +139,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     .taro-img {
       display: inline-block;
       // padding: 0 $spacing-v-md;
-      color: $color-brand-dark;
+      // color: $color-brand-dark;
       @include font(16px);
       text-align: center;
     }
@@ -159,7 +159,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   }
 }
 .at-input-group {
-  background-color: $color-bg;
+  background-color: $color-bg-base;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -178,7 +178,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   }
   &__input {
     color: $at-input-label-color;
-    background-color: $color-bg;
+    background-color: $color-bg-base;
     padding-left: $spacing-h-lg;
     @include font(16px);
     // height: 22px;
