@@ -52,7 +52,7 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
     onLinechange
   } = props
 
-  const rootClassName = classNames('at-textarea', className)
+  const rootClassName = classNames('at-textarea red', className)
 
   const handleInput = useCallback(
     (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value, event),
@@ -79,7 +79,9 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
     ? +maxLength
     : getMaxLength(+maxLength, !!textOverflowForbidden)
 
-  const textareaStyle = height ? { height: pxTransform(height) } : {}
+  const textareaStyle = height
+    ? { height: pxTransform(height) }
+    : { lineHeight: 16, fontSize: 12 }
 
   return (
     <View className={rootClassName} style={customStyle}>
@@ -91,10 +93,15 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
         </View>
       )}
       <Textarea
+        autoHeight
+        disableDefaultPadding
         className='at-textarea__input'
         style={textareaStyle}
         placeholderStyle={placeholderStyle}
-        placeholderClass={placeholderClass}
+        placeholderClass={classNames(
+          placeholderClass,
+          'at-textarea__input--placeholder'
+        )}
         cursorSpacing={cursorSpacing}
         value={value}
         maxlength={_maxLength}

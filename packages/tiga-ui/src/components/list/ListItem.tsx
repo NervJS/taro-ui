@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { View } from '@tarojs/components'
 import { ListItemProps } from '../../../types/list'
 import AtIcon from '../icon'
-import { pxTransform } from '../../utils'
+import { pxTransform, PLATFORM } from '../../utils'
 
 const classPrefix = `at-list-item`
 
@@ -26,7 +26,9 @@ export const AtListItem: FC<ListItemProps> = props => {
   // 标题文字超过6个字换行: width = 16 * 6
   if (typeof title === 'string') {
     const len = title.length > 6 ? 6 : title.length
-    titleStyle.width = pxTransform(len * 16)
+    // 修正像素级导致 RN 标题换行问题
+    const fixLen = PLATFORM.isRN ? 2 : 0
+    titleStyle.width = pxTransform(len * 16 + fixLen)
   }
 
   const content = (

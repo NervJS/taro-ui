@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback } from 'react'
+import React, { useContext, useState, useCallback, CSSProperties } from 'react'
 import { View, Text, Label } from '@tarojs/components'
 import classNames from 'classnames'
 import { Field } from 'rc-field-form'
@@ -40,7 +40,8 @@ export const AtFormItemLayout = (props: any) => {
     htmlFor,
     help,
     tail,
-    childElementPosition
+    childElementPosition,
+    handleHelpClick
   } = props
 
   const context = useContext(FormContext)
@@ -52,31 +53,56 @@ export const AtFormItemLayout = (props: any) => {
     <Text className={`${classPrefix}-required-asterisk`}>*</Text>
   )
 
+  /** label 区域 */
+  const labelStyle: CSSProperties = {}
+  if (layout === 'horizontal' && typeof label === 'string') {
+    const len = label.length > 6 ? 6 : label.length
+    // 修正像素级导致 RN 标题换行问题
+    const fixLen = PLATFORM.isRN ? 2 : 0
+    labelStyle.width = pxTransform(len * 16 + fixLen)
+  }
   const labelArea = PLATFORM.isRN ? (
-    <View className={`${classPrefix}-label`}>{label}</View>
+    <View className={`${classPrefix}-label`} style={labelStyle}>
+      {label}
+    </View>
   ) : (
-    <Label className={`${classPrefix}-label`} for={htmlFor}>
+    <Label className={`${classPrefix}-label`} for={htmlFor} style={labelStyle}>
       {label}
     </Label>
   )
+  /** label 区域 */
 
+  /** help 区域 */
+  let helpArea: React.ReactNode = null
+  if (help) {
+    if (typeof help === 'boolean') {
+      helpArea = (
+        <AtIcon
+          value='comm_icon_question_circle_line'
+          color='#333'
+          size='16px'
+          customStyle={{
+            marginLeft: pxTransform('4'),
+            lineHeight: pxTransform('16')
+          }}
+          onClick={handleHelpClick}
+        ></AtIcon>
+      )
+    } else {
+      helpArea = help
+    }
+    /** TODO: Popup */
+  }
+  /** help 区域 */
+
+  /** 标题区域 */
   const labelElement = label ? (
     <React.Fragment>
       <View
         className={`${classPrefix}-label-wrap ${classPrefix}-label-wrap-${layout}`}
       >
         {labelArea}
-        {help && (
-          <AtIcon
-            value='comm_icon_question_circle_line'
-            color='#333'
-            size='16px'
-            customStyle={{
-              marginLeft: pxTransform('4'),
-              lineHeight: pxTransform('16')
-            }}
-          ></AtIcon>
-        )}
+        {helpArea}
         {requiredMark}
       </View>
       {
@@ -89,6 +115,7 @@ export const AtFormItemLayout = (props: any) => {
       }
     </React.Fragment>
   ) : null
+  /** 标题区域 */
 
   const hasMessage = props.errors.length || props.warnings.length
 

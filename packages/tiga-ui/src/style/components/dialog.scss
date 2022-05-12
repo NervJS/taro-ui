@@ -73,10 +73,11 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
     // 使用 line-height, 对应的 padding 需要动态计算
     @include font(16px);
 
+    width: auto;
     padding-top: $spacing-v-lg - $at-dialog-content-v-gap - $at-dialog-header-v-gap;
     color: $at-dialog-content-text-color;
     box-sizing: content-box;
-    width: auto;
+    text-align: center;
   }
 
   &__footer {

@@ -29,6 +29,7 @@
 
   &--normal {
     padding: 9px $spacing-h-lg;
+    background-color: $color-bg-base;
 
     @include hairline-surround($color-text-ghost, solid, 1px, 8px);
   }
@@ -40,7 +41,15 @@
   }
 
   &--active {
-    border-color: $color-brand;
+    // TODO: taro bug 不能编译 border-color rgba
+    /*  #ifdef  rn  */
+    border-color: rgba($color: $color-brand, $alpha: 1);
+    /*  #endif  */
+    /*  #ifndef  rn  */
+    border-color: rgba($color: $color-brand, $alpha: 0.3);
+    /*  #endif  */
+    background-color: rgba($color: $color-brand, $alpha: 0.04);
+
     @include hairline-surround($color-brand, solid, 1px, 8px);
 
     &--text {
