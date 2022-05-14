@@ -15,7 +15,7 @@ components:
       - title: 设计资源
         name: Resource
   - title: 组件
-    name: Docs
+    name: Comp
     groups:
       - title: 基础组件
         items:
@@ -39,3 +39,7 @@ components:
         items:
           - title: 导航栏
             name: NavBar
+      - title: 表单
+        items:
+          - title: 输入框
+            name: Input

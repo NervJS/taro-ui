@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AtTextarea, AtForm, AtFormItem, AtButton, AtInput } from 'tiga-ui'
 import { View, Input } from '@tarojs/components'
 import { useForm } from 'rc-field-form'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
-import { useState } from 'react'
 
 const Index = () => {
   const [form] = useForm()
@@ -74,7 +73,7 @@ const Index = () => {
                     placeholder='请输入'
                     value={value1}
                     onChange={handleInput}
-                    buttonTxt='功能按钮'
+                    // buttonTxt='功能按钮'
                   />
                 </AtFormItem>
                 <AtFormItem name='address' label='禁用' disabled>

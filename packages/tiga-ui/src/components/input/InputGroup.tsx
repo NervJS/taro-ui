@@ -9,7 +9,8 @@ type ExtendEvent = {
 }
 
 const AtInputGroup: React.FC<AtInputGroupProps> = props => {
-  const { config = [], value = [], title, disabled, onChange } = props
+  const { config = [], title, disabled, onChange } = props
+  const value = config.map(item => item.value) || []
   const rootClass = classNames('at-input-group', {
     'at-input--disabled': disabled
   })
@@ -39,7 +40,7 @@ const AtInputGroup: React.FC<AtInputGroupProps> = props => {
           <Input
             className='at-input-group__input'
             placeholder='请输入'
-            value={value[index] || item.value || ''}
+            // value={value[index] || ''}
             onInput={e => handleInput(index, e)}
             disabled={disabled}
           />

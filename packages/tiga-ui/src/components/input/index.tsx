@@ -1,9 +1,15 @@
 import classNames from 'classnames'
-import React, { useCallback, useState, useEffect } from 'react'
-import { Input, Label, Text, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
-import { AtInputItemProps } from '../../../types/input'
-import { BaseEventOrig, ITouchEvent } from '@tarojs/components/types/common'
+import React, { useCallback, useState } from 'react'
+import { Input, Label, View } from '@tarojs/components'
+import {
+  CommonEvent,
+  ITouchEvent,
+  BaseEventOrig
+} from '@tarojs/components/types/common'
+import {
+  AtInputItemProps,
+  KeyboardHeightEventDetail
+} from '../../../types/input'
 import AtIcon from '../icon'
 import AtButton from '../button'
 type ExtendEvent = {
@@ -21,11 +27,11 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     placeholder,
     clearable,
     maxlength,
-    validMessage,
     children,
     prefix,
     iconName,
     iconSize,
+    iconColor,
     buttonTxt,
     buttonDisabled,
     customStyle,
@@ -37,14 +43,13 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     onKeyboardHeightChange
   } = props
   const rootClass = classNames('at-input', {
-    'at-input--error': validMessage,
     'at-input--disabled':
       (disabled && !buttonTxt) || (disabled && buttonTxt && buttonDisabled),
     'at-input__container--required': required
   })
   const [showValid, setShowValid] = useState(false)
   const handleChange = useCallback(
-    (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value),
+    (event: CommonEvent & ExtendEvent) => onChange?.(event.detail.value, event),
     [onChange]
   )
   const handleFocus = useCallback(
@@ -56,36 +61,19 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     [onBlur]
   )
 
-  // const handleChange = useCallback(
-  //   (event: BaseEventOrig<InputEventDetail>): void => {
-  //     console.log(event.detail.value, 'value是什么')
-  //     if (required && event.detail.value !== '') {
-  //       setShowValid(false)
-  //     }
-  //     if (typeof onChange === 'function') {
-  //       onChange(event.detail.value, event)
-  //     }
-  //   },
-  //   []
-  // )
-  // const handleBlur = useCallback((event: any): void => {
-  //   console.log('blur')
-  //   if (typeof onBlur === 'function') {
-  //     console.log('handleblurfunc')
-  //   }
-  //   if (rules && typeof rules === 'function') {
-  //     const validres = rules(event.detail.value)
-  //     setShowValid(!validres)
-  //   }
-  // }, [])
+  const handleClear = useCallback(
+    (event: ITouchEvent): void => {
+      onChange?.('', event)
+    },
+    [onChange]
+  )
 
-  const handleClear = useCallback((): void => {
-    onChange?.('')
-  }, [onChange])
-
-  const handleKeyboardHeightChange = useCallback((): void => {
-    // onKeyboardHeightChange(event)
-  }, [])
+  const handleKeyboardHeightChange = useCallback(
+    (event: BaseEventOrig<KeyboardHeightEventDetail>): void => {
+      onKeyboardHeightChange?.(event)
+    },
+    [onKeyboardHeightChange]
+  )
   return (
     <View className={rootClass} style={customStyle}>
       {title && (
@@ -113,9 +101,8 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
             <View className='at-input__clear' onClick={handleClear}>
               <AtIcon
                 className='at-input-icon'
-                value='curtain_icon_cancel'
+                value='comm_icon_false_circle_line'
                 size={16}
-                style={{ color: 'gray' }}
               />
             </View>
           )}
@@ -133,21 +120,17 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
           )}
           {iconName && (
             <View className='at-input__icon'>
-              <AtIcon
-                value={iconName}
-                size={iconSize}
-                style={{ color: 'gray' }}
-              />
+              <AtIcon value={iconName} size={iconSize} color={iconColor} />
             </View>
           )}
           <View className='at-input__children'>{children}</View>
         </View>
 
-        {!!showValid && !!validMessage && (
+        {/* {!!showValid && !!validMessage && (
           <View className='at-input__errorword'>
             <Text className='at-input__word-alert'>{validMessage}</Text>
           </View>
-        )}
+        )} */}
       </View>
     </View>
   )

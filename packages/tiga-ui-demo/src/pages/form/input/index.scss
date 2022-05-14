@@ -1,18 +1,10 @@
-.gap {
-    height: 10px;
-    background-color: '#ccc';
-}
-.inputPage {
-    background-color: '#ccc' !important; 
-    // padding: 0 30px;
-}
-.at-input-icon {
-    align-self: flex-start;
-  }
-.group-title {
-    min-width: 32px;
-}
-.unit {
-    margin-left: 8px;
-    margin-right: -8px;
+.form_item{
+    &_extra_button {
+        height: 16px;
+        margin-top: -10px;
+    }
+    &_prefix_unit {
+        margin-right: -8px;
+        margin-left: 16px;
+    }
 }

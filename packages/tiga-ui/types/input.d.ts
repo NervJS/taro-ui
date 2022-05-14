@@ -1,14 +1,17 @@
 import { FC } from 'react'
 import AtComponent from './base'
 import {
-  BaseEventOrig,
-  CommonEventFunction
+  CommonEvent,
+  CommonEventFunction,
+  BaseEventOrig
 } from '@tarojs/components/types/common'
 
-declare type InputFunction<T extends string | number, U = any, R = void> = (
-  value: T,
-  event?: BaseEventOrig<U>
-) => R
+export declare type KeyboardHeightEventDetail = {
+  /** 键盘高度 */
+  height: number
+  /** 持续时间 */
+  duration: number
+}
 export interface AtInputItemProps extends AtComponent {
   /**
    * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
@@ -46,6 +49,10 @@ export interface AtInputItemProps extends AtComponent {
    */
   iconSize?: number
   /**
+   * 内容右侧icon color
+   */
+  iconColor?: string
+  /**
    * 内容右侧按钮文案
    */
   buttonTxt?: string
@@ -64,10 +71,12 @@ export interface AtInputItemProps extends AtComponent {
   /**
    * input变化
    */
-  onChange?: InputFunction
+  onChange?: (value: string, event?: CommonEvent) => void
   onBlur?: CommonEventFunction
   onFocus?: CommonEventFunction
-  onKeyboardHeightChange?: CommonEventFunction
+  onKeyboardHeightChange?: (
+    event?: BaseEventOrig<KeyboardHeightEventDetail>
+  ) => void
   /**
    * 提供单一组件的检验
    */
@@ -92,11 +101,6 @@ export interface AtInputGroupProps extends AtComponent {
    */
   config?: Array<{ value: string; label: string }>
   /**
-   * 传递值[]
-   *
-   */
-  value?: Array<string | undefined>
-  /**
    * 标题的内容
    */
   title?: string
@@ -105,5 +109,6 @@ export interface AtInputGroupProps extends AtComponent {
    */
   onChange?: (value: Array) => void
 }
-declare const AtInputGroup: FC<AtInputGroupProps>
+export declare const AtInputGroup: FC<AtInputGroupProps>
+
 export default AtInput
