@@ -165,6 +165,7 @@ const Index = () => {
                 onChange={handleInput}
                 iconName='comm_icon_question_circle_line'
               /> */}
+              {/* <AtInputGroup                 title='单独用' config={groupConfig} onChange={handleInput2} /> */}
             </View>
           </View>
         </View>

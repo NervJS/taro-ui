@@ -101,7 +101,7 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
             <View className='at-input__clear' onClick={handleClear}>
               <AtIcon
                 className='at-input-icon'
-                value='comm_icon_false_circle_line'
+                value='input_icon_delete'
                 size={16}
               />
             </View>

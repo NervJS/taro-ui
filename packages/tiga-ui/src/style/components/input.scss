@@ -20,6 +20,9 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     align-items: center;
     flex-direction: row;
     position: relative;
+    /*  #ifdef  rn  */
+    padding-bottom: 2px;
+    /*  #endif  */
     &__title {
       max-width: $at-input-title-limit;
       @include font(16px);
@@ -84,14 +87,15 @@ $at-input-content-v-gap: (22px - 16px) / 2;
 
     // padding-right: $spacing-v-md;
     color: $at-input-text-color;
-    // @include font(16px);
     @include placeholder($at-input-placeholder-color);
     text-align: left;
-    padding-top: 0;
+    // padding-top: 0;
     /*  #ifdef  rn  */
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 16px;
+    // line-height: 16px;
     height: 16px;
     padding-bottom: 1px;
     /*  #endif  */
@@ -99,7 +103,11 @@ $at-input-content-v-gap: (22px - 16px) / 2;
 
   input {
     color: $at-input-text-color;
+    /*  #ifdef  rn  */
+    font-size: 16px;
     height: 16px;
+    // line-height: 16px;
+    /*  #endif  */
   }
   textarea {
     color: $at-input-text-color;
@@ -168,29 +176,53 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   height: 16px;
   &__titlebox {
     max-width: $at-input-title-limit;
-    min-width: 34px;
+    padding-left: 16px;
+    /*  #ifdef  rn  */
+    // padding-bottom: 2px;
+    /*  #endif  */
     &__title {
+      /*  #ifdef  rn  */
       @include font(16px);
+      /*  #endif  */
+      /*  #ifdef  rn  */
+      font-size: 16px;
+      line-height: 16px;
+      height: 16px;
+      /*  #endif  */
     }
   }
   &__label {
     margin-left: 8px;
     height: 16px;
     line-height: 16px;
+    font-size: 16px;
+    label {
+      height: 16px;
+    }
   }
   &__input {
+    flex: 1;
     color: $at-input-label-color;
     background-color: $color-bg-base;
     padding-left: 8px;
-    // @include font(16px);
+    /*  #ifndef  rn  */
+    @include font(16px);
+    /*  #endif  */
     // height: 22px;
     /*  #ifdef  rn  */
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 16px;
     height: 16px;
     padding-bottom: 1px;
     /*  #endif  */
+  }
+  input {
+    color: $at-input-text-color;
+    height: 16px;
+    line-height: 16px;
+    // @include font(16px);
   }
 }
 form {
@@ -216,19 +248,20 @@ form {
       &__label {
         height: 16px;
         line-height: 16px;
+        // @include font(16px);
       }
       input {
-        min-height: 0;
-        height: 16px;
+        height: 18.5px;
       }
       label {
-      //  width: 16px;     height: 16px;
-      //   line-height: 1; 
+        //  width: 16px;     height: 16px;
+        //   line-height: 1;
       }
     }
     input {
-      min-height: 0;
+      // min-height: 0;
       height: 16px;
+      line-height: 16px;
     }
   }
 }
