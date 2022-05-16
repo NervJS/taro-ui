@@ -11167,10 +11167,15 @@ lodash@4.17.13:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
   integrity sha512-vm3/XWXfWtRua0FkUyEHBZy8kCPjErNBT9fJx8Zvs+U6zjqPbTUOpkaoum3O5uiA8sm+yNMHXfYkTUHFoMxFNA==
 
-lodash@4.17.15, "lodash@4.6.1 || ^4.16.1", lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.12:
+lodash@4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+"lodash@4.6.1 || ^4.16.1", lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.12:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.0.0, log-symbols@^2.2.0:
   version "2.2.0"
@@ -16405,7 +16410,7 @@ taro-css-to-react-native@^2.0.4:
     postcss-value-parser "^3.3.0"
 
 "taro-ui-demo@file:packages/taro-ui-demo":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@tarojs/components" "~3.0.2"
@@ -16414,10 +16419,10 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "~3.0.2"
     react "^16.13.0"
     react-dom "^16.13.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.0-alpha.2-25b21f29-67e3-4b8f-808c-37229355eb71-1593715396950/node_modules/taro-ui"
+    taro-ui "file:packages/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
