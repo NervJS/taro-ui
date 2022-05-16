@@ -13744,9 +13744,9 @@ postcss@^6.0.1, postcss@^6.0.14, postcss@^6.0.16, postcss@^6.0.2, postcss@^6.0.2
     supports-color "^5.4.0"
 
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.23, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6, postcss@^7.0.7:
-  version "7.0.27"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.27.tgz#cc67cdc6b0daa375105b7c424a85567345fc54d9"
-  integrity sha512-WuQETPMcW9Uf1/22HWUWP9lgsIC+KEHg2kozMflKjbeUtw9ujvFX6QmIfozaErDkmLWS9WEnEdEe6Uo9/BNTdQ==
+  version "7.0.36"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.36.tgz#056f8cffa939662a8f5905950c07d5285644dfcb"
+  integrity sha512-BebJSIUMwJHRH0HAQoxN4u1CN86glsrwsW0q7T+/m44eXOUAxSNdHRkNZPYz5vVUbg17hFgOQDE7fZk7li3pZw==
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -16405,7 +16405,7 @@ taro-css-to-react-native@^2.0.4:
     postcss-value-parser "^3.3.0"
 
 "taro-ui-demo@file:packages/taro-ui-demo":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@tarojs/components" "~3.0.2"
@@ -16414,10 +16414,10 @@ taro-css-to-react-native@^2.0.4:
     "@tarojs/taro" "~3.0.2"
     react "^16.13.0"
     react-dom "^16.13.0"
-    taro-ui "file:../../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.0.0-alpha.2-25b21f29-67e3-4b8f-808c-37229355eb71-1593715396950/node_modules/taro-ui"
+    taro-ui "file:packages/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.0.0-alpha.2"
+  version "3.0.0-alpha.10"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
