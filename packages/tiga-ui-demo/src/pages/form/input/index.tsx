@@ -51,7 +51,7 @@ const Index = () => {
                 layout='horizontal'
                 requiredMarkStyle='asterisk'
               >
-                <AtFormItem name='base' label='标题'>
+                <AtFormItem name='base' label='标'>
                   <AtInput
                     placeholder='请输入'
                     onChange={handleInput}
@@ -160,12 +160,12 @@ const Index = () => {
                 </AtFormItem>
               </AtForm>
               {/* <AtInput
-                title='单独用'
+                title='单独'
                 placeholder='请输入'
                 onChange={handleInput}
                 iconName='comm_icon_question_circle_line'
-              /> */}
-              {/* <AtInputGroup                 title='单独用' config={groupConfig} onChange={handleInput2} /> */}
+              />
+              <AtInputGroup                 title='单独用' config={groupConfig} onChange={handleInput2} /> */}
             </View>
           </View>
         </View>

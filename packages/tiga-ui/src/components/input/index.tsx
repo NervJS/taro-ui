@@ -80,7 +80,9 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
         <View className='at-input__titlebox'>
           <Label className={`at-input__titlebox__title`}>{title}</Label>
           {required && <View className='at-input__titlebox--required'>*</View>}
-          <View className='at-input__titlebox--symbol'>{prefix}</View>
+          {!!prefix && (
+            <View className='at-input__titlebox--symbol'>{prefix}</View>
+          )}
         </View>
       )}
 
@@ -89,6 +91,7 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
           <Input
             className='at-input__input'
             placeholder={placeholder}
+            placeholder-style='padding-bottom: 3px;'
             value={value}
             maxlength={maxlength}
             onInput={handleChange}
@@ -102,6 +105,7 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
               <AtIcon
                 className='at-input-icon'
                 value='input_icon_delete'
+                color='#ccc'
                 size={16}
               />
             </View>
