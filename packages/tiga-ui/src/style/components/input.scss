@@ -244,7 +244,7 @@ form {
     input {
       min-height: 0;
       /*  #ifndef  weapp  */
-      padding-top: 1px;
+      padding-top: 1.4px;
       /*  #endif  */
       /*  #ifdef  weapp  */
       // height: 16px;
@@ -258,6 +258,9 @@ form {
       /*  #ifndef  rn  */
       vertical-align: middle;
       /*  #endif  */
+      /*  #ifndef  weapp  */
+      padding-top: 0.8px;
+      /*  #endif  */
       &-contentbox {
         margin-left: 0;
       }
@@ -267,7 +270,7 @@ form {
       input {
         min-height: 0;
         /*  #ifndef  weapp  */
-        padding-top: 1px;
+        // padding-top: 0.8px;
         /*  #endif  */
         /*  #ifdef  weapp  */
         padding-bottom: 1.5px;

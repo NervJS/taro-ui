@@ -91,7 +91,7 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
           <Input
             className='at-input__input'
             placeholder={placeholder}
-            placeholder-style='padding-bottom: 3px;'
+            placeholder-style={'padding-bottom: 1rpx'}
             value={value}
             maxlength={maxlength}
             onInput={handleChange}
