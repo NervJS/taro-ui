@@ -13,7 +13,8 @@ export default {
     'pages/layout/list/index',
     'pages/view/tag/index',
     'pages/form/textarea/index',
-    'pages/form/form/index'
+    'pages/form/form/index',
+    'pages/form/input/index'
   ],
   window: {
     backgroundTextStyle: 'light',

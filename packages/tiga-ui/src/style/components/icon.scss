@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "at-icon";
-  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/641e710581cb820053226f1e52c0b80b_icon.eot'); /* IE9*/
-  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/641e710581cb820053226f1e52c0b80b_icon.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/60fe412eabc277723f63ecf8fbde24f1_icon.woff2') format("woff2"),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/6a5d04702a51641e05a38a38d4039208_icon.woff') format("woff"),
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/d8514ed0af2644c6c508dc30c2613fee_icon.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/c09ba959ab2b6be002436f25dcd5c571_icon.svg') format('svg'); /* iOS 4.1- */
+  font-family: 'at-icon';
+  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/723c9f1b94839fe53ef48a9f9c08ecae_icon.eot');
+  src: url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/723c9f1b94839fe53ef48a9f9c08ecae_icon.eot#iefix') format('embedded-opentype'),
+  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/66d6eafc18e25425a2b2486d42c88725_icon.woff2') format('woff2'),
+  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/8cc73d0165a32ab950ee2ac28fd9a404_icon.woff') format('woff'),
+  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/39ba31c7126ed449cd94f7843e221b94_icon.ttf') format('truetype'),
+  url('https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/0c127f4c1d3c6c351fe0341264c4df0d_icon.symbol.svg') format('svg');
 }
 
 [class^="at-icon-"], [class*=" at-icon-"] {
@@ -23,3 +23,6 @@
 .at-icon-comm_icon_left_line:before { content: "\ea05"; }
 .at-icon-comm_icon_false_line:before { content: "\ea06"; }
 .at-icon-comm_icon_false_circle_line:before { content: "\ea07"; }
+.at-icon-comm_icon_checkbox_fill:before { content: "\ea08"; }
+.at-icon-comm_icon_true_line:before { content: "\ea09"; }
+.at-icon-input_icon_delete:before { content: "\ea0a"; }

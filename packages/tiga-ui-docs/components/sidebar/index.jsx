@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import classnames from 'classnames'
@@ -31,6 +32,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { data: items } = this.props
 
     return (
@@ -65,12 +67,10 @@ class Sidebar extends React.Component {
                       {group.title}
                       <i
                         className={classnames('icon', {
-                          'icon-chevron-down': !this.state.currentOpenMenu.includes(
-                            idx
-                          ),
-                          'icon-chevron-up': this.state.currentOpenMenu.includes(
-                            idx
-                          )
+                          'icon-chevron-down':
+                            !this.state.currentOpenMenu.includes(idx),
+                          'icon-chevron-up':
+                            this.state.currentOpenMenu.includes(idx)
                         })}
                       />
                     </a>

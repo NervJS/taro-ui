@@ -331,11 +331,13 @@ $at-toast-color: #FFF !default; // custom
 // $at-input-number-width-min-lg: 120px !default;
 
 // /* Input */
-// $at-input-label-color: $color-text-base !default;
-// $at-input-text-color: $color-text-base !default;
+$at-input-label-color: $color-text-base !default;
+$at-input-text-color: $color-text-base !default;
 // $at-input-font-size: $font-size-lg !default;
-// $at-input-placeholder-color: $color-grey-3 !default;
-
+$at-input-placeholder-color: $color-text-ghost !default;
+$at-input-icon-max-size-sm: 16px !default;
+$at-input-icon-max-size-lg: 24px !default;
+$at-input-title-limit: 98px !default;
 // /* List */
 // $at-list-thumb-size: 56px !default;
 // $at-list-arrow-color: $color-grey-3 !default;
