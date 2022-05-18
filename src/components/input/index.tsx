@@ -184,6 +184,7 @@ export default class AtInput extends AtComponent<AtInputProps> {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             onConfirm={this.handleConfirm}
+            disabled={disabled}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore
             onKeyboardHeightChange={this.handleKeyboardHeightChange}
