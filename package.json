@@ -233,7 +233,7 @@
     "@tarojs/mini-runner": "^2.0.3",
     "@tarojs/plugin-babel": "^2.0.3",
     "@tarojs/plugin-csso": "^2.0.3",
-    "@tarojs/plugin-sass": "^2.0.3",
+    "@tarojs/plugin-sass": "^2.2.10",
     "@tarojs/plugin-uglifyjs": "^2.0.3",
     "@tarojs/router": "^2.0.3",
     "@tarojs/taro": "^2.0.3",
