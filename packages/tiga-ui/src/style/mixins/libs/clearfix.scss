@@ -14,8 +14,8 @@
  */
 @mixin clearfix {
   &::after {
-    clear: both;
     content: '';
+    clear: both;
     display: block;
   }
 }

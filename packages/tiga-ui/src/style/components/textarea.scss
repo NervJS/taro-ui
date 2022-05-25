@@ -3,6 +3,16 @@
 
 .at-textarea {
   // padding: $spacing-v-lg $spacing-h-lg;
+  position: relative;
+  top: -4px;
+
+  /*  #ifdef  weapp  */
+  top: -2px;
+  /*  #endif  */
+
+  /*  #ifdef  rn  */
+  top: -6.5px;
+  /*  #endif  */
 
   &__header {
     @include font(16px, 16px);
@@ -41,7 +51,7 @@
     padding: 0;
     /*  #ifndef  rn  */
     height: inherit;
-    /*  #endif  rn  */
+    /*  #endif  */
 
     /*  #ifndef  rn  */
     .taro-textarea {
@@ -50,8 +60,9 @@
       height: inherit;
       line-height: inherit;
     }
-    /*  #endif  rn  */
+    /*  #endif  */
 
+    // weapp 只支持 font 和 color 设置
     &--placeholder {
       @include font(16px, 24px);
     }

@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AtTextarea, AtForm, AtFormItem, AtButton, AtInput } from 'tiga-ui'
-import { View, Input } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { useForm } from 'rc-field-form'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 const Index = () => {
   const [form] = useForm()
-  const [value1, setValue1] = useState('')
-  const handleInput = e => {
-    setValue1(e)
-  }
   const onSubmit = () => {
     form
       .validateFields()
@@ -44,7 +40,7 @@ const Index = () => {
                     size='full'
                     onClick={onSubmit}
                   >
-                    提交
+                    提交1
                   </AtButton>
                 }
               >
@@ -54,7 +50,7 @@ const Index = () => {
                   label='姓名'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem
                   help
@@ -63,29 +59,18 @@ const Index = () => {
                   extra='[ - ]'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
-                <AtFormItem name='address' label='禁用' disabled>
-                  <Input placeholder='请输入' />
+                <AtFormItem name='disabled' label='禁用' disabled>
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
-                <AtFormItem name='address' label='禁用'>
-                  <AtInput
-                    placeholder='请输入'
-                    value={value1}
-                    onChange={handleInput}
-                    // buttonTxt='功能按钮'
-                  />
-                </AtFormItem>
-                <AtFormItem name='address' label='禁用' disabled>
-                  <Input placeholder='请输入' />
-                </AtFormItem>
-                {/* <AtFormItem
+                <AtFormItem
                   name='address'
                   label='详细地址'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
                   <AtTextarea placeholder='请输入' />
-                </AtFormItem> */}
+                </AtFormItem>
               </AtForm>
             </View>
           </View>
@@ -132,7 +117,7 @@ const Index = () => {
                   tail='操作'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
               </AtForm>
               <AtForm
