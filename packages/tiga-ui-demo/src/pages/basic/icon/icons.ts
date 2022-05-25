@@ -8,6 +8,6 @@ export default {
     'comm_icon_false_circle_line',
     'comm_icon_checkbox_fill',
     'comm_icon_true_line',
-    'input_icon_delete'
+    'comm_icon_input_delete'
   ]
 }
