@@ -139,14 +139,15 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
                   key={`empty_${i * length}${j}`}
                 >
                   {item.type === 'btn' && (
-                    <View
-                      className='at-image-picker__item at-image-picker__choose-btn'
-                      onClick={this.chooseFile}
-                    >
-                      <View className='add-bar'></View>
-                      <View className='add-bar'></View>
-                    </View>
-                  )}
+                    <View onClick={this.chooseFile}>
+                      {
+                        this.props.children
+                        || <View className='at-image-picker__item at-image-picker__choose-btn'>
+                          <View className='add-bar'></View>
+                          <View className='add-bar'></View>
+                        </View>
+                      }
+                    </View>)}
                 </View>
               )
             )}
