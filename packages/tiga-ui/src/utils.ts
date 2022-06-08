@@ -73,4 +73,5 @@ export function delayGetClientRect({
 }
 
 export const SYSTEMINFO = Taro.getSystemInfoSync() || {}
+
 export default {}

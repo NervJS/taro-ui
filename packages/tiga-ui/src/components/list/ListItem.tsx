@@ -14,7 +14,6 @@ export const AtListItem: FC<ListItemProps> = props => {
     children,
     description,
     extra,
-    // arrow,
     ellipsis,
     descriptionLayout,
     onClick
@@ -26,8 +25,11 @@ export const AtListItem: FC<ListItemProps> = props => {
   // 标题文字超过6个字换行: width = 16 * 6
   if (typeof title === 'string') {
     const len = title.length > 6 ? 6 : title.length
-    // 修正像素级导致 RN 标题换行问题
-    const fixLen = PLATFORM.isRN ? 2 : 0
+    // 修正像素级导致标题换行问题
+    let fixLen = PLATFORM.isRN ? 2 : 0
+    if (navigator?.userAgent?.match(/Safari/i)) {
+      fixLen = Math.floor(len / 2)
+    }
     titleStyle.width = pxTransform(len * 16 + fixLen)
   }
   const content = (

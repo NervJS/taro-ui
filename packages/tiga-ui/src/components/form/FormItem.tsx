@@ -9,6 +9,7 @@ import { AtListItem } from '../list/ListItem'
 import AtIcon from '../icon'
 import { undefinedFallback } from './undefined-fallback'
 import { pxTransform, PLATFORM } from '../../utils'
+import { AtFormItemProps } from '../../../types/form'
 
 const classPrefix = `at-form-item`
 const NAME_SPLIT = '__SPLIT__'
@@ -58,8 +59,11 @@ export const AtFormItemLayout = (props: any) => {
   const labelStyle: CSSProperties = {}
   if (layout === 'horizontal' && typeof label === 'string') {
     const len = label.length > 6 ? 6 : label.length
-    // 修正像素级导致 RN 标题换行问题
-    const fixLen = PLATFORM.isRN ? 2 : 0
+    // 修正像素级导致标题换行问题
+    let fixLen = PLATFORM.isRN ? 2 : 0
+    if (navigator?.userAgent?.match(/Safari/i)) {
+      fixLen = Math.floor(len / 2)
+    }
     labelStyle.width = pxTransform(len * 16 + fixLen)
   }
   const labelArea = PLATFORM.isRN ? (
@@ -189,7 +193,7 @@ AtFormItemLayout.defaultProps = {
   warnings: []
 }
 
-export const AtFormItem: React.FC<any> = props => {
+export const AtFormItem: React.FC<AtFormItemProps & any> = props => {
   const {
     className,
     style,
@@ -200,17 +204,17 @@ export const AtFormItem: React.FC<any> = props => {
     description,
     name,
     required,
-    noStyle,
     disabled,
     hasFeedback,
-    fieldId,
     rules,
+    arrow,
+    children,
+    fieldId,
+    noStyle,
     hidden,
     layout,
     childElementPosition,
     clickable,
-    arrow,
-    children,
     messageVariables,
     trigger = 'onChange',
     validateTrigger = trigger,
