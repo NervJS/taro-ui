@@ -11,8 +11,15 @@ import navsConfig from '../nav.config.yml'
 import { default as pathMap } from '../page-route'
 import qrCodeImg from '../assets/qr_code.png'
 import wxAppLogo from '../assets/wxapp-logo.png'
+import androidAppLogo from '../assets/android-logo.png'
+import iosAppLogo from '../assets/ios-logo.png'
 import qrCodeWxApp from '../assets/wxapp.jpg'
 import '../assets/style/docs.scss'
+
+const androidQRCode =
+  'https://cdn.jsdelivr.net/gh/NervJS/taro-ui@feat/tiga/packages/tiga-ui-demo/release/qrcode/android.png'
+const iosQRCode =
+  'https://cdn.jsdelivr.net/gh/NervJS/taro-ui@feat/tiga/packages/tiga-ui-demo/release/qrcode/ios.png'
 
 class Docs extends React.Component {
   constructor() {
@@ -52,6 +59,32 @@ class Docs extends React.Component {
           >
             {curDemoPath && (
               <div className='qrcode-menu' style={{ right: '420px' }}>
+                <div className='android-container'>
+                  <img src={androidAppLogo} alt='qrcode' />
+                  <div className='qrcode-modal'>
+                    <h6>扫描二维码查看演示效果</h6>
+                    <div className='code-image'>
+                      <img
+                        className='wxapp-qrcode'
+                        src={androidQRCode}
+                        alt='wxapp'
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className='ios-container'>
+                  <img src={iosAppLogo} alt='qrcode' />
+                  <div className='qrcode-modal'>
+                    <h6>扫描二维码查看演示效果</h6>
+                    <div className='code-image'>
+                      <img
+                        className='wxapp-qrcode'
+                        src={iosQRCode}
+                        alt='wxapp'
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className='qrcode-container'>
                   <img src={qrCodeImg} alt='qrcode' />
                   <div className='qrcode-modal'>

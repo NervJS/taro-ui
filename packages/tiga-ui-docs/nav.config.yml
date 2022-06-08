@@ -43,3 +43,11 @@ components:
         items:
           - title: 输入框
             name: Input
+          - title: 输入框
+            name: Textarea
+          - title: 输入框
+            name: Form
+      - title: 布局组件
+        items:
+          - title: 列表
+            name: List
