@@ -11,7 +11,8 @@ const Index = () => {
     form
       .validateFields()
       .then(values => {
-        // console.log(values)
+        // eslint-disable-next-line
+        console.log(values)
       }) // Do nothing about submit catch
       .catch(e => e)
   }
@@ -40,7 +41,7 @@ const Index = () => {
                     size='full'
                     onClick={onSubmit}
                   >
-                    提交1
+                    提交
                   </AtButton>
                 }
               >
@@ -75,27 +76,6 @@ const Index = () => {
             </View>
           </View>
         </View>
-        {/* <View className='doc-body--panel'>
-          <View className='panel__title'>FormItem</View>
-          <View className='panel__content'>
-            <View className='example-item'>
-              <AtForm
-                layout='vertical'
-                hasFeedback
-                requiredMarkStyle='asterisk'
-              >
-                <AtFormItem
-                  name='address'
-                  label='详细地址'
-                  rules={[{ required: true, message: '输入不能为空' }]}
-                  // extra={<View>发送验证码</View>}
-                >
-                  <AtTextarea placeholder='请输入' />
-                </AtFormItem>
-              </AtForm>
-            </View>
-          </View>
-        </View> */}
         <View className='doc-body--panel'>
           <View className='panel__title'>垂直布局</View>
           <View className='panel__content'>
@@ -145,46 +125,3 @@ const Index = () => {
 }
 
 export default Index
-
-// const FormPage = () => {
-//   return (
-//     <>
-//       <DemoBlock title='配合列表使用（上下布局）' padding='0' border='none'>
-//         <Form layout='vertical'>
-//           <Form.Item label='用户名' name='username'>
-//             <Input placeholder='请输入用户名' clearable />
-//           </Form.Item>
-//           <Form.Item label='密码' name='password'>
-//             <Input placeholder='请输入密码' clearable type='password' />
-//           </Form.Item>
-//         </Form>
-//       </DemoBlock>
-
-//       <DemoBlock title='配合列表使用（左右布局）' padding='0' border='none'>
-//         <Form layout='horizontal'>
-//           <Form.Item label='用户名' name='username'>
-//             <Input placeholder='请输入用户名' clearable />
-//           </Form.Item>
-//           <Form.Item label='密码' name='password'>
-//             <Input placeholder='请输入密码' clearable type='password' />
-//           </Form.Item>
-//         </Form>
-//       </DemoBlock>
-
-//       <DemoBlock title='额外的操作按钮' padding='0' border='none'>
-//         <Form layout='horizontal'>
-//           <Form.Item
-//             label='短信验证码'
-//             extra={
-//               <div className={styles.extraPart}>
-//                 <a>发送验证码</a>
-//               </div>
-//             }
-//           >
-//             <Input placeholder='请输入验证码' clearable />
-//           </Form.Item>
-//         </Form>
-//       </DemoBlock>
-//     </>
-//   )
-// }
