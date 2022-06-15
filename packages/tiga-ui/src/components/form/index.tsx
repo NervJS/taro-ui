@@ -9,9 +9,9 @@ const classPrefix = 'at-form'
 
 const AtForm: React.FC<AtFormProps> = ({
   name,
-  hasFeedback,
-  layout,
-  requiredMarkStyle,
+  hasFeedback = defaultFormContext.hasFeedback,
+  layout = defaultFormContext.layout,
+  requiredMarkStyle = defaultFormContext.requiredMarkStyle,
   children,
   footer,
   className,

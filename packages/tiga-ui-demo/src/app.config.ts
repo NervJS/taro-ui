@@ -14,7 +14,8 @@ export default {
     'pages/view/tag/index',
     'pages/form/textarea/index',
     'pages/form/form/index',
-    'pages/form/input/index'
+    'pages/form/input/index',
+    'pages/form/switch/index'
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -8,6 +8,11 @@ import AtComponent from './base'
 export interface AtFormProps extends AtComponent {
   /**
    * 是否返回 formId 用于发送模板消息
+   * FormInstance<Values>
+   */
+  form?: any
+  /**
+   * 是否返回 formId 用于发送模板消息
    * @default false
    */
   // reportSubmit?: boolean
@@ -15,17 +20,17 @@ export interface AtFormProps extends AtComponent {
    * 布局模式
    * @default 'horizontal'
    */
-  layout: 'vertical' | 'horizontal'
+  layout?: 'vertical' | 'horizontal'
   /**
    * 是否展示错误反馈
    * @default true
    */
-  hasFeedback: boolean
+  hasFeedback?: boolean
   /**
    * 必填选填的标记样式
    * @default 'asterisk'
    */
-  requiredMarkStyle: 'asterisk' | 'text-required' | 'text-optional'
+  requiredMarkStyle?: 'asterisk' | 'text-required' | 'text-optional'
   /**
    * 表单名称
    */
@@ -44,7 +49,7 @@ export interface AtFormProps extends AtComponent {
   // onReset?: FormFunction
 }
 
-declare const AtForm: ComponentClass<AtFormProps & any>
+declare const AtForm: ComponentClass<AtFormProps>
 
 export interface AtFormItemProps extends AtComponent {
   /**
@@ -54,7 +59,7 @@ export interface AtFormItemProps extends AtComponent {
   /**
    * 标签名
    */
-  label: string | React.ReactNode
+  label?: string | React.ReactNode
   /**
    * 解释说明
    */

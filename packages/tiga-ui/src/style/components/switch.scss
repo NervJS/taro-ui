@@ -1,0 +1,34 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-switch {
+  /*  #ifndef  rn  */
+  width: 51px;
+  height: 31px;
+  /*  #endif  */
+
+  &__disabled {
+    opacity: 0.5;
+  }
+
+  /*  #ifndef  rn  */
+  .weui-switch-cp__box:before, .weui-switch:before {
+    width: 51px;
+    height: 31px;
+    background-color: #e0e0e0;
+    transition-duration: 0.2s;
+  }
+
+  .weui-switch-cp__box:after, .weui-switch:after {
+    top: 2px;
+    left: 2px;
+    width: 27px;
+    height: 27px;
+    transition-duration: 0.2s;
+  }
+
+  .weui-switch, .weui-switch-cp__box {
+    border: none;
+  }
+  /*  #endif  */
+}

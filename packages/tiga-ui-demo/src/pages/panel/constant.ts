@@ -154,10 +154,10 @@ export const MENULIST = {
     //   id: 'Checkbox',
     //   name: '复选框'
     // },
-    // {
-    //   id: 'Switch',
-    //   name: '开关'
-    // },
+    {
+      id: 'Switch',
+      name: '开关'
+    },
     // {
     //   id: 'Rate',
     //   name: '评分'

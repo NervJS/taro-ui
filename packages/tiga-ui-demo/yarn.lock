@@ -13362,6 +13362,11 @@ react-native-collapsible@^1.6.0:
   resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.6.0.tgz#ca261ffff16914f872059bb0972e3a78c4b37f9c"
   integrity sha1-yiYf//FpFPhyBZuwly46eMSzf5w=
 
+react-native-custom-switch@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-custom-switch/-/react-native-custom-switch-1.0.7.tgz#f41ec873b7c64983ba220b56c874a4b39a00a962"
+  integrity sha512-K4QDvh20F9KVQFmTr/PAta8JN2WofO7Ks4ZIq2U3EHKlRXMoMP0AplrV4oR5oRclaw9ltWecivrK/xWX85HC8A==
+
 react-native-device-info@~8.4.8:
   version "8.4.8"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.4.8.tgz#fc92ae423e47db6cfbf30c30012e09cee63727fa"

@@ -11,7 +11,8 @@ const Index = () => {
     form
       .validateFields()
       .then(values => {
-        // console.log(values)
+        // eslint-disable-next-line
+        console.log(values)
       }) // Do nothing about submit catch
       .catch(e => e)
   }

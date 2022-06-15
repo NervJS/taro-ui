@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   AtInput,
   AtForm,
@@ -12,7 +12,7 @@ import { useForm } from 'rc-field-form'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-const Index = () => {
+const Index: React.FC = () => {
   const [form] = useForm()
   const groupConfig = [
     { value: '', label: '室' },
@@ -26,7 +26,8 @@ const Index = () => {
     form
       .validateFields()
       .then(values => {
-        // console.log(values)
+        // eslint-disable-next-line
+        console.log(values)
       }) // Do nothing about submit catch
       .catch(e => e)
   }

@@ -45,11 +45,12 @@
     "@tarojs/taro": "^3.4.3",
     "@tarojs/taro-rn": "^3.4.3",
     "cross-env": "^7.0.3",
+    "rc-field-form": "^1.26.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-native": "^0.67.3",
+    "react-native-custom-switch": "^1.0.7",
     "react-native-modal": "^13.0.0",
-    "rc-field-form": "^1.26.2",
     "tiga-ui": "0.0.2"
   },
   "devDependencies": {

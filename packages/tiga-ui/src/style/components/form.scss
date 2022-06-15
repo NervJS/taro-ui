@@ -33,4 +33,8 @@
     @include font(14px, 14px);
     color: $color-error;
   }
+
+  &-child {
+    font-size: 0;
+  }
 }

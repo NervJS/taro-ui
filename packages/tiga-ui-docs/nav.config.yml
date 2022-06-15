@@ -47,6 +47,8 @@ components:
             name: Textarea
           - title: 输入框
             name: Form
+          - title: 开关
+            name: Switch
       - title: 布局组件
         items:
           - title: 列表
