@@ -1,4 +1,4 @@
-import { ComponentClass } from 'react'
+import { ReactNode, ComponentClass } from 'react'
 
 import AtComponent from './base'
 
@@ -11,7 +11,7 @@ export interface AtActionSheetProps extends AtComponent {
   /**
    * 元素的标题
    */
-  title?: string
+  title?: string | ReactNode
   /**
    * 取消按钮的内容
    * @default 取消

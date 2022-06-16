@@ -120,6 +120,10 @@ export const MENULIST = {
       id: 'Dialog',
       name: '模态框'
     },
+    {
+      id: 'Modal-Sheet',
+      name: '模态面板'
+    },
     // {
     //   id: 'Progress',
     //   name: '进度条'

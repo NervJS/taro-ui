@@ -1,22 +1,26 @@
-import React, { useEffect, useState, useCallback, CSSProperties } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
-import { AtActionSheetProps } from '../../../../types/action-sheet'
-import AtActionSheetHeader from './Header'
-import AtActionSheetBody from './Body'
-import AtActionSheetFooter from './Footer'
-import { PLATFORM, SYSTEMINFO } from '../../../utils'
+import { AtModalSheetProps } from '../../../../types/modal-sheet'
+import AtModalContainer from './Container'
+import AtModalSheetHeader from './Header'
+import AtModalSheetBody from './Body'
 
-const AtActionSheet: React.FC<AtActionSheetProps> = ({
+const AtActionSheet: React.FC<AtModalSheetProps> = ({
   title,
   isOpened,
   className,
   children,
-  cancelText = '取消',
+  cancelText,
+  resetText,
+  confirmText,
+  closeIcon,
   closeOnClickOverlay = true,
   onClose,
-  onCancel
+  onCancel,
+  onReset,
+  onConfirm
 }) => {
   const [_isOpened, setOpen] = useState(isOpened)
 
@@ -32,9 +36,9 @@ const AtActionSheet: React.FC<AtActionSheetProps> = ({
   }, [isOpened])
 
   const rootClass = classNames(
-    'at-action-sheet',
+    'at-modal-sheet',
     {
-      'at-action-sheet--active': _isOpened
+      'at-modal-sheet--active': _isOpened
     },
     className
   )
@@ -69,32 +73,29 @@ const AtActionSheet: React.FC<AtActionSheetProps> = ({
     [closeOnClickOverlay, onInternalClose]
   )
 
-  const containerStyle: CSSProperties = React.useMemo(() => {
-    if (PLATFORM.isRN && SYSTEMINFO.safeArea) {
-      return {
-        paddingBottom: SYSTEMINFO.screenHeight - SYSTEMINFO.safeArea?.bottom
-      }
-    }
-    return {}
-  }, [])
-
   return (
     <View className={rootClass} onTouchMove={handleTouchMove}>
       {/* RN 场景 overlay 不展示， opacity: 0 */}
       <View
-        data-testid='at-action-sheet__overlay'
+        data-testid='at-modal-sheet__overlay'
         onClick={handleClickOverlay}
-        className='at-action-sheet__overlay'
+        className='at-modal-sheet__overlay'
       />
-      <View className='at-action-sheet__container' style={containerStyle}>
-        {title && <AtActionSheetHeader>{title}</AtActionSheetHeader>}
-        <AtActionSheetBody>{children}</AtActionSheetBody>
-        {cancelText && (
-          <AtActionSheetFooter onClick={handleCancel}>
-            {cancelText}
-          </AtActionSheetFooter>
-        )}
-      </View>
+      <AtModalContainer>
+        <AtModalSheetHeader
+          cancelText={cancelText}
+          resetText={resetText}
+          confirmText={confirmText}
+          closeIcon={closeIcon}
+          onCancel={handleCancel}
+          onReset={onReset}
+          onConfirm={onConfirm}
+          onClose={onInternalClose}
+        >
+          {title}
+        </AtModalSheetHeader>
+        <AtModalSheetBody>{children}</AtModalSheetBody>
+      </AtModalContainer>
     </View>
   )
 }
