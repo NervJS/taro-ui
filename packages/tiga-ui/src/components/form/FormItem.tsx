@@ -88,7 +88,7 @@ export const AtFormItemLayout = (props: any) => {
           size='16px'
           customStyle={{
             marginLeft: pxTransform('4'),
-            lineHeight: pxTransform('16')
+            marginTop: PLATFORM.isRN ? pxTransform('3') : 0
           }}
           onClick={onHelpClick}
         ></AtIcon>

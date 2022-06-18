@@ -5,16 +5,16 @@
   &-content {
     display: flex;
     flex-direction: row;
-    padding: $spacing-h-lg;
+    padding: $spacing-h-lg - 3px $spacing-h-lg;
 
     /* prefix */
     &-prefix {
-      @include font(16px, 16px);
+      @include font(16px);
       padding-right: $spacing-h-lg;
     }
 
     &-extra {
-      @include font(16px, 16px);
+      @include font(16px);
       padding-left: $spacing-h-lg;
 
       &-ellipsis {
@@ -27,7 +27,8 @@
       padding-left: 4px;
 
       &-icon {
-        line-height: 16px;
+        line-height: 22px;
+        margin-top: 3px;
       }
     }
 
@@ -39,14 +40,14 @@
   }
 
   &-title {
-    @include font(16px, 16px);
+    @include font(16px);
     display: flex;
     flex-direction: row;
   }
 
   &-description {
-    @include font(14px, 14px);
-    margin-top: $spacing-v-md;
+    @include font(14px);
+    margin-top: $spacing-v-md - 6px;
 
     &-right {
       text-align: right;

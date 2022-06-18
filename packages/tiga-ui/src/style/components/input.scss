@@ -115,7 +115,6 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     // height: 22px !important;
   }
   &__icon {
-    display: inline-flex;
     align-items: center;
     justify-content: center;
     max-width: $at-input-icon-max-size-lg;
@@ -123,6 +122,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     // overflow: hidden;
     text-align: center;
     /*  #ifndef  rn  */
+    display: inline-flex;
     line-height: 1;
     /*  #endif  */
 
@@ -138,7 +138,9 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     margin-left: $spacing-h-lg;
   }
   &__children {
+    /*  #ifndef  rn  */
     display: inline-flex;
+    /*  #endif  */
     > view,
     div,
     span,
@@ -162,7 +164,9 @@ $at-input-content-v-gap: (22px - 16px) / 2;
     }
   }
   &--disabled {
+    /*  #ifndef  rn  */
     cursor: not-allowed;
+    /*  #endif  */
     opacity: $opacity-disabled;
   }
 }

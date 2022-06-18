@@ -4,14 +4,14 @@
 .at-textarea {
   // padding: $spacing-v-lg $spacing-h-lg;
   position: relative;
-  top: -4px;
+  top: -1px;
 
   /*  #ifdef  weapp  */
-  top: -2px;
+  // top: 1px;
   /*  #endif  */
 
   /*  #ifdef  rn  */
-  top: -6.5px;
+  // top: -3.5px;
   /*  #endif  */
 
   &__header {

@@ -19,7 +19,7 @@
   line-height: 0;
 
   &--text {
-    @include font(14px, 14px);
+    @include font(14px);
     color: $color-text-base;
   }
 
@@ -28,14 +28,14 @@
   }
 
   &--normal {
-    padding: 9px $spacing-h-lg;
+    padding: 6px $spacing-h-lg;
     background-color: $color-bg-base;
 
     @include hairline-surround($color-text-ghost, solid, 1px, 8px);
   }
 
   &--small {
-    padding: 7px $spacing-h-md;
+    padding: 4px $spacing-h-md;
 
     @include hairline-surround(transparent, solid, 1px, 8px);
   }

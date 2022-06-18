@@ -1,6 +1,6 @@
 import React from 'react'
 import { AtTextarea, AtForm, AtFormItem, AtButton, AtInput } from 'tiga-ui'
-import { View } from '@tarojs/components'
+import { View, Input } from '@tarojs/components'
 import { useForm } from 'rc-field-form'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
@@ -51,7 +51,7 @@ const Index = () => {
                   label='姓名'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <AtInput placeholder='请输入' />
+                  <Input placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem
                   help
@@ -60,10 +60,10 @@ const Index = () => {
                   extra='[ - ]'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <AtInput placeholder='请输入' />
+                  <Input placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem name='disabled' label='禁用' disabled>
-                  <AtInput placeholder='请输入' />
+                  <Input placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem
                   name='address'
@@ -97,7 +97,7 @@ const Index = () => {
                   tail='操作'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <AtInput placeholder='请输入' />
+                  <Input placeholder='请输入' />
                 </AtFormItem>
               </AtForm>
               <AtForm

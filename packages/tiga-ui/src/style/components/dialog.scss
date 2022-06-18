@@ -90,12 +90,12 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
   }
 
   &__action {
-    @include font(16px, 16px);
+    @include font(16px);
     @include hairline-top();
     @include active();
 
     flex-grow: 1;
-    padding: $spacing-v-lg 0;
+    padding: $spacing-v-lg - 3px 0;
     text-align: center;
 
     &--primary {

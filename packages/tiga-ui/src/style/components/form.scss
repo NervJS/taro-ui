@@ -3,7 +3,7 @@
 
 .at-form-item {
   &-label {
-    @include font(16px, 16px);
+    @include font(16px);
 
     &-wrap {
       display: flex;
@@ -12,13 +12,13 @@
 
       &-vertical {
         flex: 1;
-        margin-bottom: $spacing-v-md;
+        margin-bottom: 6px;
       }
     }
   }
 
   &-tail {
-    @include font(14px, 16px);
+    @include font(14px, 22px);
     color: $color-text-link;
   }
 
@@ -30,7 +30,7 @@
   }
 
   &-feedback-error {
-    @include font(14px, 14px);
+    @include font(14px);
     color: $color-error;
   }
 
