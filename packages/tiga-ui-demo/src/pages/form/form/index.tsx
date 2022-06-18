@@ -1,7 +1,8 @@
 import React from 'react'
 import { AtTextarea, AtForm, AtFormItem, AtButton, AtInput } from 'tiga-ui'
-import { View, Input } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { useForm } from 'rc-field-form'
+// import { TextInput } from 'react-native'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
@@ -45,13 +46,19 @@ const Index = () => {
                   </AtButton>
                 }
               >
+                {/* <AtFormItem help name='name1' label='姓名1'>
+                  <TextInput className='test-input red' placeholder='姓名' />
+                </AtFormItem> */}
+                {/* <AtFormItem help name='name2' label='姓名2'>
+                  <TextInput className='test-textarea red' placeholder='请输入' multiline />
+                </AtFormItem> */}
                 <AtFormItem
                   help
                   name='name'
                   label='姓名'
-                  rules={[{ required: true, message: '输入不能为空' }]}
+                  // rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='姓名' />
                 </AtFormItem>
                 <AtFormItem
                   help
@@ -60,10 +67,10 @@ const Index = () => {
                   extra='[ - ]'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem name='disabled' label='禁用' disabled>
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
                 <AtFormItem
                   name='address'
@@ -97,7 +104,7 @@ const Index = () => {
                   tail='操作'
                   rules={[{ required: true, message: '输入不能为空' }]}
                 >
-                  <Input placeholder='请输入' />
+                  <AtInput placeholder='请输入' />
                 </AtFormItem>
               </AtForm>
               <AtForm

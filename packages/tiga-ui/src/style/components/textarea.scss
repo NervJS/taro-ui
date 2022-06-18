@@ -2,17 +2,7 @@
 @import '../../style/mixins/index.scss';
 
 .at-textarea {
-  // padding: $spacing-v-lg $spacing-h-lg;
   position: relative;
-  top: -1px;
-
-  /*  #ifdef  weapp  */
-  // top: 1px;
-  /*  #endif  */
-
-  /*  #ifdef  rn  */
-  // top: -3.5px;
-  /*  #endif  */
 
   &__header {
     @include font(16px, 16px);
@@ -27,7 +17,6 @@
       @include font(22px, 16px);
       position: absolute;
       left: -10px;
-      // left: -40px;
       color: $color-error;
     }
 
@@ -45,7 +34,10 @@
   }
 
   &__input {
-    @include font(16px, 24px);
+    /* TODO: 设计稿行高 24 */
+    // @include font(16px, 24px);
+    @include font(16px, 22px);
+    position: relative;
     width: 100%;
     color: $color-text-base;
     padding: 0;
@@ -55,7 +47,7 @@
 
     /*  #ifndef  rn  */
     .taro-textarea {
-      @include font(16px, 24px);
+      @include font(16px, 22px);
       color: $color-text-base;
       height: inherit;
       line-height: inherit;
@@ -64,7 +56,7 @@
 
     // weapp 只支持 font 和 color 设置
     &--placeholder {
-      @include font(16px, 24px);
+      @include font(16px, 22px);
     }
   }
 

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useCallback, useState } from 'react'
+import React, { CSSProperties, useCallback, useState } from 'react'
 import { Input, Label, View } from '@tarojs/components'
 import {
   CommonEvent,
@@ -12,6 +12,7 @@ import {
 } from '../../../types/input'
 import AtIcon from '../icon'
 import AtButton from '../button'
+import { PLATFORM, pxTransform } from '../../utils'
 type ExtendEvent = {
   target: {
     value: string
@@ -39,8 +40,8 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     onBlur,
     onChange,
     onClick,
-    onRules,
-    onKeyboardHeightChange
+    onKeyboardHeightChange,
+    ...restProps
   } = props
   const rootClass = classNames('at-input', {
     'at-input--disabled':
@@ -74,6 +75,23 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
     },
     [onKeyboardHeightChange]
   )
+
+  const inputStyle: CSSProperties = React.useMemo(() => {
+    const _style: any = {}
+    if (PLATFORM.isRN && PLATFORM.isAndroid) {
+      _style.top = pxTransform(0.5)
+    }
+    if (PLATFORM.isWEAPP) {
+      if (PLATFORM.isIOS) {
+        _style.top = pxTransform(-1.5)
+      } else {
+        _style.top = pxTransform(-1)
+      }
+    }
+
+    return _style
+  }, [])
+
   return (
     <View className={rootClass} style={customStyle}>
       {title && (
@@ -89,9 +107,11 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
       <View className='at-input-contentbox'>
         <View className='at-input__content'>
           <Input
+            {...restProps}
             className='at-input__input'
+            style={inputStyle}
             placeholder={placeholder}
-            placeholder-style={'padding-bottom: 1rpx'}
+            placeholderClass='at-input__placeholder'
             value={value}
             maxlength={maxlength}
             onInput={handleChange}
@@ -103,7 +123,7 @@ const AtInput: React.FunctionComponent<AtInputItemProps> = props => {
           {clearable && value && (
             <View className='at-input__clear' onClick={handleClear}>
               <AtIcon
-                className='at-input-icon'
+                className='at-input__clear--icon'
                 value='comm_icon_input_delete'
                 color='#ccc'
                 size={16}

@@ -4,16 +4,16 @@ import { View, Input } from '@tarojs/components'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-interface ActionSheetPageState {
+interface ModalSheetPageState {
   isOpened1: boolean
   isOpened2: boolean
   isOpened3: boolean
   [key: string]: boolean
 }
 
-export default class ActionSheetPage extends React.Component<
+export default class ModalSheetPage extends React.Component<
   any,
-  ActionSheetPageState
+  ModalSheetPageState
 > {
   public constructor(props: any) {
     super(props)
@@ -42,7 +42,7 @@ export default class ActionSheetPage extends React.Component<
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='ActionSheet 动作面板' />
+        <DocsHeader title='ModalSheet 动作面板' />
         {/* E Header */}
 
         {/* S Body */}
@@ -53,7 +53,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 1)}>
-                  打开 ActionSheet
+                  打开 ModalSheet
                 </AtButton>
               </View>
             </View>
@@ -65,7 +65,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 2)}>
-                  打开 ActionSheet
+                  打开 ModalSheet
                 </AtButton>
               </View>
             </View>
@@ -77,7 +77,7 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 3)}>
-                  打开 ActionSheet
+                  打开 ModalSheet
                 </AtButton>
               </View>
             </View>

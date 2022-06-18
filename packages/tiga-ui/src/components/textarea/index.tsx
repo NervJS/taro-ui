@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React, { CSSProperties, useCallback } from 'react'
 import { Textarea, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import { AtTextareaProps } from '../../../types/textarea'
-import { pxTransform } from '../../utils'
+import { PLATFORM, pxTransform } from '../../utils'
 
 type ExtendEvent = {
   target: {
@@ -79,9 +79,22 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
     ? +maxLength
     : getMaxLength(+maxLength, !!textOverflowForbidden)
 
-  const textareaStyle = height
-    ? { height: pxTransform(height) }
-    : { lineHeight: 16, fontSize: 12 }
+  const textareaStyle: CSSProperties = React.useMemo(() => {
+    const _style: any = {}
+    if (height !== undefined) {
+      _style.height = pxTransform(height)
+    }
+    if (PLATFORM.isRN && PLATFORM.isIOS) {
+      _style.top = pxTransform(-1.5)
+    }
+    if (PLATFORM.isWEAPP) {
+      if (PLATFORM.isIOS) {
+        _style.top = pxTransform(1)
+      }
+    }
+
+    return _style
+  }, [height])
 
   return (
     <View className={rootClassName} style={customStyle}>
@@ -93,7 +106,7 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
         </View>
       )}
       <Textarea
-        autoHeight
+        // autoHeight
         disableDefaultPadding
         className='at-textarea__input'
         style={textareaStyle}

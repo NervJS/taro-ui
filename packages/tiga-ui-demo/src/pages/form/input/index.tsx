@@ -52,7 +52,7 @@ const Index: React.FC = () => {
                 layout='horizontal'
                 requiredMarkStyle='asterisk'
               >
-                <AtFormItem name='base' label='标'>
+                <AtFormItem name='base' label='标题'>
                   <AtInput
                     placeholder='请输入'
                     onChange={handleInput}
@@ -166,7 +166,7 @@ const Index: React.FC = () => {
                 onChange={handleInput}
                 iconName='comm_icon_question_circle_line'
               />
-              <AtInputGroup                 title='单独用' config={groupConfig} onChange={handleInput2} /> */}
+              <AtInputGroup                 title='单独用' data={groupConfig} onChange={handleInput2} /> */}
             </View>
           </View>
         </View>
@@ -191,7 +191,7 @@ const Index: React.FC = () => {
                 }
               >
                 <AtFormItem name='address' label='标题'>
-                  <AtInputGroup config={groupConfig} onChange={handleInput2} />
+                  <AtInputGroup data={groupConfig} onChange={handleInput2} />
                 </AtFormItem>
               </AtForm>
             </View>

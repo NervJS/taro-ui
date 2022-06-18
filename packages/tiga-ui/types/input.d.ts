@@ -6,13 +6,15 @@ import {
   BaseEventOrig
 } from '@tarojs/components/types/common'
 
+import { InputProps } from '@tarojs/components/types/Input'
+
 export declare type KeyboardHeightEventDetail = {
   /** 键盘高度 */
   height: number
   /** 持续时间 */
   duration: number
 }
-export interface AtInputItemProps extends AtComponent {
+export interface AtInputItemProps extends InputProps, AtComponent {
   /**
    * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
    */
@@ -99,7 +101,7 @@ export interface AtInputGroupProps extends AtComponent {
    * 渲染group的配置项
    * @default '[]'
    */
-  config?: Array<{ value: string; label: string }>
+  data?: Array<{ value: string; label: string }>
   /**
    * 标题的内容
    */

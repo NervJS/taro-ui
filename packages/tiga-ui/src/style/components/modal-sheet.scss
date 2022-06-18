@@ -6,7 +6,6 @@ $at-dialog-header-v-gap: (20px - 14px) / 2;
 $at-dialog-item-v-gap: (22px - 16px) / 2;
 
 .at-modal-sheet {
-  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -14,6 +13,7 @@ $at-dialog-item-v-gap: (22px - 16px) / 2;
   z-index: $zindex-action-sheet;
 
   /*  #ifndef  rn  */
+  position: fixed;
   visibility: hidden;
   transition: visibility $at-action-sheet-duration $timing-func;
   /*  #endif  */

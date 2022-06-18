@@ -5,6 +5,7 @@ import Modal from 'react-native-modal'
 // import RootSiblings, { RootSiblingParent } from 'react-native-root-siblings'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtToastProps } from '../../../types/toast'
+import { pxTransform } from '../../utils'
 
 const DURATION_MAP = {
   short: 2000,
@@ -33,7 +34,7 @@ const AtToast: React.FunctionComponent<AtToastProps> = props => {
   const rootStyle: any = {}
   if (!maskHide) {
     rootStyle.backgroundColor = 'rgba(0, 0, 0, 0.8)'
-    rootStyle.borderRadius = '4px'
+    rootStyle.borderRadius = pxTransform(4)
     rootStyle.marginLeft = layout ? (layout.width * -1) / 2 : 0
     rootStyle.marginTop = layout ? (layout.height * -1) / 2 : 0
     rootStyle.opacity = layout ? 0.8 : 0

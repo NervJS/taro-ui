@@ -130,7 +130,7 @@ import { AtInputGroup } from 'tiga-ui'
 :::demo
 **单独使用**
 ```html
-  <AtInputGroup config={groupConfig} onChange={handleInput} />
+  <AtInputGroup data={groupConfig} onChange={handleInput} />
 ```
 
 :::
@@ -153,7 +153,7 @@ const GROUPCONFIG = [
   requiredMarkStyle='asterisk'
 >
   <AtFormItem name='base' label='标题'>
-    <AtInputGroup config={GROUPCONFIG} onChange={handleInput} />
+    <AtInputGroup data={GROUPCONFIG} onChange={handleInput} />
   </AtFormItem>
 </AtForm>
 ```
@@ -164,7 +164,7 @@ const GROUPCONFIG = [
 
 | 参数     | 说明           | 类型    | 可选值        | 默认值 |
 | -------- | -------------- | ------- | ------------- | ------ |
-| config     | 输入组配置，必填项, 渲染输入组 子元素对象属性为value，label   | Array | - | - |
+| data     | 输入组配置，必填项, 渲染输入组 子元素对象属性为value，label   | Array | - | - |
 | disabled | 是否为禁用态   | Boolean | -             | false  |
 | title     | 单独使用时 自配置标题（表单组忽略）    | string | -             | -   |
 
