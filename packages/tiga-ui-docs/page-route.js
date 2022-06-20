@@ -12,6 +12,7 @@ export default {
   swipeaction: 'action/swipe-action',
   progress: 'action/progress',
   actionsheet: 'action/action-sheet',
+  modalsheet: 'action/action-sheet',
   activityindicator: 'action/activity-indicator',
   message: 'action/message',
   checkbox: 'form/checkbox',

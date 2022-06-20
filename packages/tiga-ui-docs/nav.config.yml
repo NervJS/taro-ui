@@ -33,6 +33,8 @@ components:
             name: Toast
           - title: 动作面板
             name: ActionSheet
+          - title: 模态面板
+            name: ModalSheet
           - title: 对话框
             name: Dialog
       - title: 导航组件

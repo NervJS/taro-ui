@@ -42,7 +42,7 @@ export default class ModalSheetPage extends React.Component<
     return (
       <View className='page'>
         {/* S Header */}
-        <DocsHeader title='ModalSheet 动作面板' />
+        <DocsHeader title='ModalSheet 模态面板' />
         {/* E Header */}
 
         {/* S Body */}

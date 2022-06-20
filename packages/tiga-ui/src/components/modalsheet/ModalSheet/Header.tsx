@@ -24,7 +24,14 @@ const AtModalSheetHeader: React.FC<AtModalSheetHeaderProps> = ({
   const rootClass = classNames('at-modal-sheet__header', className)
 
   /** 操作模式 */
-  if (cancelText || resetText || confirmText) {
+  if (
+    cancelText ||
+    resetText ||
+    confirmText ||
+    onCancel ||
+    onReset ||
+    onConfirm
+  ) {
     return (
       <View className={rootClass}>
         <View className='at-modal-sheet__header--action'>
