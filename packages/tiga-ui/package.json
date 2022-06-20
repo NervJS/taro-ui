@@ -1,6 +1,6 @@
 {
   "name": "tiga-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "UI KIT for Tiga",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",

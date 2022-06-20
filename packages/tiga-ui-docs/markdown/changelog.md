@@ -42,6 +42,16 @@
           <li><span>8</span>个组件，分别是 <span>AtForm</span>，<span>AtFormItem</span>，<span>AtListItem</span>，<span>AtInput</span>，<span>AtInputGroup</span>，<span>AtTextArea</span>，<span>AtModalSheet</span>，<span>AtSwitch</span>组件</li>
         </ul>
       </div>
+      <div class="at-timeline__content">
+        <p class="head">v0.0.4</p>
+        <p class="time">
+          <span>2022-06-20</span>
+        </p>
+        <ul class="content">
+          <li>发布<span>Tiga UI</span>v0.0.4</li>
+          <li>修复字体加粗和遗漏的部分字体被切问题</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
