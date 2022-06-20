@@ -51,7 +51,7 @@
     "react-native": "^0.67.3",
     "react-native-custom-switch": "^1.0.7",
     "react-native-modal": "^13.0.0",
-    "tiga-ui": "0.0.2"
+    "tiga-ui": "0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
