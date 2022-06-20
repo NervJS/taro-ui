@@ -54,7 +54,7 @@
 
     &--text {
       color: $color-brand;
-      font-weight: bold;
+      @include font-bold(14px);
     }
   }
 

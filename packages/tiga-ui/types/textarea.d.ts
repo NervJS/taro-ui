@@ -6,14 +6,7 @@ import {
 import AtComponent from './base'
 
 export interface AtTextareaProps extends AtComponent {
-  title?: React.ReactNode
-  extra?: React.ReactNode
   message?: React.ReactNode
-  /**
-   * 是否必填
-   * @default false
-   */
-  required?: boolean
   /**
    * 输入框当前值，用户需要通过 onChange 事件的 event.detail.value 来更新 value 值，必填
    */

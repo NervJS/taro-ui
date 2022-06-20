@@ -1,5 +1,7 @@
-@mixin font-weight {
+@mixin font-weight($font-weight: bold) {
+  font-weight: $font-weight;
 }
 
-@mixin font-weight-num {
+@mixin font-weight-num($font-weight: bold) {
+  font-weight: $font-weight;
 }

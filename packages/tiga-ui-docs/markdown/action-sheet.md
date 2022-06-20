@@ -106,6 +106,34 @@ import { AtActionSheet, AtActionSheetItem } from "tiga-ui"
 
 :::
 
+## 选项释义文案
+
+:::demo
+
+```html
+<AtActionSheet
+  cancelText='取消'
+  isOpened={isOpened4}
+  onClose={this.handleClose.bind(this, 4)}
+>
+  <AtActionSheetItem
+    onClick={this.showToast.bind(this, '点击了按钮一')}
+    subText='这是按钮一'
+  >
+    按钮一
+  </AtActionSheetItem>
+  <AtActionSheetItem
+    onClick={this.showToast.bind(this, '点击了按钮二')}
+    hasBottomBorder={false}
+    subText='这是按钮二'
+  >
+    按钮二
+  </AtActionSheetItem>
+</AtActionSheet>
+```
+
+:::
+
 ## AtActionSheet 参数
 
 | 参数       | 说明           | 类型    | 可选值 | 默认值  |

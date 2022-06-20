@@ -9,6 +9,7 @@ interface ActionSheetPageState {
   isOpened1: boolean
   isOpened2: boolean
   isOpened3: boolean
+  isOpened4: boolean
   [key: string]: boolean
 }
 
@@ -21,7 +22,8 @@ export default class ActionSheetPage extends React.Component<
     this.state = {
       isOpened1: false,
       isOpened2: false,
-      isOpened3: false
+      isOpened3: false,
+      isOpened4: false
     }
   }
 
@@ -53,7 +55,7 @@ export default class ActionSheetPage extends React.Component<
   }
 
   public render(): JSX.Element {
-    const { isOpened1, isOpened2, isOpened3 } = this.state
+    const { isOpened1, isOpened2, isOpened3, isOpened4 } = this.state
 
     return (
       <View className='page'>
@@ -93,6 +95,18 @@ export default class ActionSheetPage extends React.Component<
             <View className='panel__content'>
               <View className='panel__content--example-item'>
                 <AtButton onClick={this.handleClick.bind(this, 3)}>
+                  打开 ActionSheet
+                </AtButton>
+              </View>
+            </View>
+          </View>
+
+          {/* 选项释义文案 */}
+          <View className='doc-body--panel'>
+            <View className='panel__title'>选项释义文案</View>
+            <View className='panel__content'>
+              <View className='panel__content--example-item'>
+                <AtButton onClick={this.handleClick.bind(this, 4)}>
                   打开 ActionSheet
                 </AtButton>
               </View>
@@ -159,6 +173,26 @@ export default class ActionSheetPage extends React.Component<
             hasBottomBorder={false}
           >
             <Text className='danger'>清除位置信息并退出</Text>
+          </AtActionSheetItem>
+        </AtActionSheet>
+
+        <AtActionSheet
+          cancelText='取消'
+          isOpened={isOpened4}
+          onClose={this.handleClose.bind(this, 4)}
+        >
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮一')}
+            subText='这是按钮一'
+          >
+            按钮一
+          </AtActionSheetItem>
+          <AtActionSheetItem
+            onClick={this.showToast.bind(this, '点击了按钮二')}
+            hasBottomBorder={false}
+            subText='这是按钮二'
+          >
+            按钮二
           </AtActionSheetItem>
         </AtActionSheet>
       </View>

@@ -50,8 +50,19 @@ $font-sizes: (
   font-size: $font-size;
   line-height: $line-height;
 
-  @include font-weight;
+  @include font-weight(normal);
 }
+
+@mixin font-bold(
+  $font-size,
+  $line-height: map-get($map: $font-sizes, $key: $font-size)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  @include font-weight();
+}
+
 
 @each $font-size, $line-height in $font-sizes {
   .font-size-h#{strip-units($font-size)} {
@@ -63,15 +74,13 @@ $font-sizes: (
 // IOS：Avenir-black
 // Android：sans-serif + bold（weight700）
 $font-sizes-num: (
+  40px: 54px,
   28px: 38px,
   24px: 32px,
   22px: 30px,
   20px: 28px,
   18px: 24px,
-  16px: 22px,
   14px: 20px,
-  12px: 16px,
-  10px: 14px,
 ) !default;
 
 @mixin font-num(
@@ -82,7 +91,18 @@ $font-sizes-num: (
   line-height: $line-height;
 
   @include font-family;
-  @include font-weight-num;
+  @include font-weight-num(normal);
+}
+
+@mixin font-num-bold(
+  $font-size,
+  $line-height: map-get($map: $font-sizes-num, $key: $font-size)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  @include font-family;
+  @include font-weight-num();
 }
 
 @each $font-size, $line-height in $font-sizes-num {

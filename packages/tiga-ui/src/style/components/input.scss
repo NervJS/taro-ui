@@ -79,7 +79,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   }
 
   &__input {
-    @include font(16px, 22px);
+    @include font(16px);
     position: relative;
     flex: 1;
     color: $at-input-text-color;
@@ -97,7 +97,7 @@ $at-input-content-v-gap: (22px - 16px) / 2;
   }
 
   &__placeholder {
-    @include font(16px, 22px);
+    @include font(16px);
   }
 
   input {

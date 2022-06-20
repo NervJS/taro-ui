@@ -1,11 +1,9 @@
 /* android 中文字重不支持 500 和 600，加粗直接设置 700*/
 
-$font-weight: 700;
-
-@mixin font-weight {
+@mixin font-weight($font-weight: 700) {
   font-weight: $font-weight;
 }
 
-@mixin font-weight-num {
+@mixin font-weight-num($font-weight: 700) {
   font-weight: $font-weight;
 }

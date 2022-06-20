@@ -26,11 +26,8 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
     customStyle,
     className,
     value,
-    title,
-    extra,
     count,
     height,
-    required,
     message,
     cursorSpacing,
     placeholder,
@@ -98,13 +95,6 @@ const AtTextarea: React.FC<AtTextareaProps> = props => {
 
   return (
     <View className={rootClassName} style={customStyle}>
-      {title && (
-        <View className='at-textarea__header'>
-          {required && <View className='at-textarea__header--required'>*</View>}
-          <View className='at-textarea__header--title'>{title}</View>
-          <View className='at-textarea__header__extra'>{extra}</View>
-        </View>
-      )}
       <Textarea
         // autoHeight
         disableDefaultPadding

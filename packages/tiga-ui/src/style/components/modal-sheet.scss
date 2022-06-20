@@ -59,7 +59,7 @@ $at-dialog-item-v-gap: (22px - 16px) / 2;
     @include display-flex();
     @include hairline-bottom-relative();
 
-    padding: $spacing-v-lg 0;
+    padding: $spacing-v-lg - 3px 0;
     // text-align: center;
     // color: $color-text-subtle;
     // background-color: $color-border-base;
@@ -70,19 +70,19 @@ $at-dialog-item-v-gap: (22px - 16px) / 2;
       width: 116px;
 
       &__cancel {
-        @include font(18px, 18px);
+        @include font(18px);
         margin-left: $spacing-h-lg;
         color: $color-brand;
       }
 
       &__reset {
-        @include font(18px, 18px);
+        @include font(18px);
         margin-left: $spacing-h-lg;
         color: $color-brand;
       }
 
       &__confirm {
-        @include font(18px, 18px);
+        @include font(18px);
 
         justify-content: flex-end;
         padding-right: $spacing-h-lg;
@@ -97,22 +97,12 @@ $at-dialog-item-v-gap: (22px - 16px) / 2;
     }
 
     &--title {
-      @include font(18px, 18px);
+      @include font(18px);
       @include line();
 
       flex: 1;
       text-align: center;
     }
-  }
-
-  &__footer {
-    @include font(16px, 16px);
-    @include active();
-
-    padding: $spacing-v-lg $spacing-h-xl;
-    border-top: 8px solid $color-border-base;
-    text-align: center;
-    color: $color-text-base;
   }
 
   &__body {

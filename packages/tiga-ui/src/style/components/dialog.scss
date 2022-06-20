@@ -99,6 +99,7 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
     text-align: center;
 
     &--primary {
+      @include font-bold(16px);
       color: $color-brand;
     }
 

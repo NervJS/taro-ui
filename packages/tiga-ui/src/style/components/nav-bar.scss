@@ -8,7 +8,7 @@
   padding: 10px $spacing-h-lg;
 
   &__title {
-    @include font(18px);
+    @include font-bold(18px);
     flex: 1;
     text-align: center;
   }
@@ -19,7 +19,7 @@
   }
 
   &__extra {
-    @include font(16px, 24px);
+    @include font-bold(16px, 24px);
     flex: 1;
   }
 }

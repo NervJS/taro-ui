@@ -106,7 +106,7 @@ $at-border-width: 0.5px;
     height: $at-button-height-large;
 
     &__text {
-      @include font(19px, $at-button-height-large);
+      @include font-bold(19px, $at-button-height-large);
     }
   }
 
@@ -116,7 +116,7 @@ $at-border-width: 0.5px;
     padding: 0 $spacing-h-lg;
 
     &__text {
-      @include font(18px, $at-button-height-large);
+      @include font-bold(18px, $at-button-height-large);
     }
   }
 
@@ -125,7 +125,7 @@ $at-border-width: 0.5px;
     padding: 0 $spacing-h-lg;
 
     &__text {
-      @include font(16px, $at-button-height-medium);
+      @include font-bold(16px, $at-button-height-medium);
     }
   }
 

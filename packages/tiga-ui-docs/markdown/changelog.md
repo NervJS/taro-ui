@@ -39,7 +39,7 @@
         </p>
         <ul class="content">
           <li>发布<span>Tiga UI</span>v0.0.3</li>
-          <li><span>8</span>个组件，分别是 <span>AtForm</span>，<span>AtFormList</span>，<span>AtListItem</span>，<span>AtInput</span>，<span>AtInputGroup</span>，<span>AtTextArea</span>，<span>AtModalSheet</span>，<span>AtSwitch</span>组件</li>
+          <li><span>8</span>个组件，分别是 <span>AtForm</span>，<span>AtFormItem</span>，<span>AtListItem</span>，<span>AtInput</span>，<span>AtInputGroup</span>，<span>AtTextArea</span>，<span>AtModalSheet</span>，<span>AtSwitch</span>组件</li>
         </ul>
       </div>
     </div>
