@@ -36,7 +36,7 @@ const AtNavBar: React.FC<AtNavBarProps> = ({
 
 AtNavBar.defaultProps = {
   title: '自定义标题',
-  leftIcon: <AtIcon value='comm_icon_left_line' size={18} color='black' />
+  leftIcon: <AtIcon value='comm_icon_left_line' size={18} color='#333' />
 }
 
 AtNavBar.displayName = 'AtNavBar'

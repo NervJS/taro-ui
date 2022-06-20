@@ -47,7 +47,9 @@ $at-toast-content-v-gap: (22px - 16px) / 2;
         background-color: $toast-bg;
         max-width: $at-toast-max-width;
         // width: $at-toast-max-width;
+        /*  #ifndef  rn  */
         box-sizing: border-box;
+        /*  #endif  */
         &-opactiy {
           opacity: 0;
         }

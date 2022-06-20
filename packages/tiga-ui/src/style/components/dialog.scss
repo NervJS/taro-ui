@@ -76,7 +76,9 @@ $at-dialog-content-v-gap: (22px - 16px) / 2;
     width: auto;
     padding-top: $spacing-v-lg - $at-dialog-content-v-gap - $at-dialog-header-v-gap;
     color: $at-dialog-content-text-color;
-    box-sizing: content-box;
+    /*  #ifndef  rn  */
+    box-sizing: border-box;
+    /*  #endif  */
     text-align: center;
   }
 

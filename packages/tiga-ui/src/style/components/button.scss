@@ -14,7 +14,6 @@ $at-border-width: 0.5px;
 .at-button {
   position: relative;
   border-radius: $at-button-radius;
-  box-sizing: border-box;
 
   /*  #ifdef  rn  */
   flex-direction: row;
@@ -23,6 +22,7 @@ $at-border-width: 0.5px;
 
   /*  #ifndef  rn  */
   display: inline-block;
+  box-sizing: border-box;
   /*  #endif  */
 
   &:active {

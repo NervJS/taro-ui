@@ -8,7 +8,9 @@
   left: 0;
   width: 100%;
   padding: 9px $spacing-h-lg;
+  /*  #ifndef  rn  */
   box-sizing: border-box;
+  /*  #endif  */
   line-height: 22px;
 
   &__content {

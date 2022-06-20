@@ -43,12 +43,12 @@
         </ul>
       </div>
       <div class="at-timeline__content">
-        <p class="head">v0.0.4</p>
+        <p class="head">v0.0.4,v0.0.5</p>
         <p class="time">
           <span>2022-06-20</span>
         </p>
         <ul class="content">
-          <li>发布<span>Tiga UI</span>v0.0.4</li>
+          <li>发布<span>Tiga UI</span>v0.0.4,v0.0.5</li>
           <li>修复字体加粗和遗漏的部分字体被切问题</li>
         </ul>
       </div>

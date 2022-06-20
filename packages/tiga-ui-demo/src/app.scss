@@ -7,7 +7,9 @@ $color-brand: #ff4d13;
 }
 
 view {
+  /*  #ifndef  rn  */
   box-sizing: border-box;
+  /*  #endif  */
 }
 
 .at-frozen {

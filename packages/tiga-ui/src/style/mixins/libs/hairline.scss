@@ -6,7 +6,9 @@
   content: '';
   position: absolute;
   transform-origin: center;
+  /*  #ifndef  rn  */
   box-sizing: border-box;
+  /*  #endif  */
   pointer-events: none;
 }
 

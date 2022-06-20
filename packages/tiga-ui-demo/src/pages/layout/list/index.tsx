@@ -64,6 +64,7 @@ export default class ListPage extends React.Component {
                     className='list-page-arrow'
                     value='comm_icon_right_line'
                     size={16}
+                    color='#666'
                   />
                 }
               />
@@ -75,6 +76,7 @@ export default class ListPage extends React.Component {
                   <AtIcon
                     className='list-page-arrow'
                     value='comm_icon_right_line'
+                    color='#666'
                     size={16}
                     onClick={e => {
                       if (Taro.getEnv() !== Taro.ENV_TYPE.RN) {

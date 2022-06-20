@@ -45,12 +45,11 @@ $at-dialog-item-v-gap: (22px - 16px) / 2;
     background-color: $color-bg-base;
 
     /*  #ifndef  rn  */
+    box-sizing: border-box;
     transform: translate3d(0, 100%, 0);
     // transition: transform $at-action-sheet-duration $timing-func;
     transition: transform $at-action-sheet-duration ease-in;
     /*  #endif  */
-
-    box-sizing: border-box;
   }
 
   &__header {

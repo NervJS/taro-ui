@@ -13,6 +13,11 @@
       padding-right: $spacing-h-lg;
     }
 
+    /* main */
+    &-main {
+      flex: 1;
+    }
+
     &-extra {
       @include font(16px);
       padding-left: $spacing-h-lg;
@@ -29,12 +34,8 @@
       &-icon {
         line-height: 22px;
         margin-top: 3px;
+        color: $color-text-secondary;
       }
-    }
-
-    /* main */
-    &-main {
-      flex: 1;
     }
 
   }

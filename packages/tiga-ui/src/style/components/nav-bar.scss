@@ -11,15 +11,21 @@
     @include font-bold(18px);
     flex: 1;
     text-align: center;
+    color: $color-text-title;
   }
 
   &__back {
     @include font(16px, 24px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     flex: 1;
+    color: $color-text-base;
   }
 
   &__extra {
     @include font-bold(16px, 24px);
     flex: 1;
+    color: $color-text-base;
   }
 }
