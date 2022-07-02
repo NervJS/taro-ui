@@ -1,4 +1,7 @@
 {
+  "babelrcRoots": [
+    "packages/*"
+  ],
   "overrides": [
     {
       "include": "packages/taro-ui-docs/**",
@@ -29,6 +32,41 @@
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-proposal-class-properties"
       ]
+    },
+    {
+      "include": [
+        "packages/taro-ui/test/**",
+        "packages/taro-ui/lib/**",
+        "node_modules/@tarojs/**"
+      ],
+      "env": {
+        "test": {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "debug": false,
+                "targets": {
+                  "node": "current"
+                },
+                "modules": "commonjs",
+                "forceAllTransforms": true
+              }
+            ],
+            "@babel/preset-react"
+          ],
+          "plugins": [
+            "@babel/plugin-transform-modules-commonjs",
+            [
+              "@babel/plugin-proposal-class-properties",
+              {
+                "loose": true
+              }
+            ],
+            "@babel/plugin-transform-runtime"
+          ]
+        }
+      }
     }
   ]
 }
