@@ -26,13 +26,13 @@
     &-inner {
       width: 100%;
       background-color: $at-progress-inner-bg-color;
-      border-radius: $at-progress-height / 2;
+      border-radius: $at-progress-height * 0.5;
       vertical-align: middle;
 
       &-background {
         position: relative;
         height: $at-progress-height;
-        border-radius: $at-progress-height / 2;
+        border-radius: $at-progress-height * 0.5;
         background-color: $at-progress-bar-bg-color;
         transition: all 0.3s $ease-in-out-quad;
         overflow: hidden;
@@ -62,7 +62,7 @@
       right: 0;
       bottom: 0;
       background: $at-progress-bar-bg-color-active;
-      border-radius: $at-progress-height / 2;
+      border-radius: $at-progress-height * 0.5;
       animation: progress-active 2s $ease-out-quad infinite;
     }
   }
