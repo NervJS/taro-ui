@@ -1,0 +1,57 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: $spacing-v-sm $spacing-h-sm;
+  color: $at-message-color;
+  font-size: $at-message-font-size;
+  text-align: center;
+  line-height: $line-height-zh * $at-message-font-size;
+  background: $at-message-bg-color;
+
+  &--content {
+    color: $at-message-color;
+    font-size: $at-message-font-size;
+    text-align: center;
+    line-height: $line-height-zh * $at-message-font-size;
+    background: transparent
+  }
+  // animation: ease both;
+  // transform: translate3d(0, -100%, 0);
+  // transition: all 300ms $ease-in-sine;
+  // opacity: 0;
+  z-index: $zindex-message;
+  // box-sizing: border-box;
+
+  /* modifiers */
+  &--success {
+    background: $color-success;
+  }
+
+  &--error {
+    background: $color-error;
+  }
+
+  &--warning {
+    background: $color-warning;
+  }
+
+  &--info {
+    background: $color-info;
+  }
+
+  &--show {
+    opacity: 1;
+    // transform: translate3d(0, 0, 0);
+  }
+
+  &--hidden {
+    opacity: 0;
+    // transform: translate3d(0, -100%, 0);
+  }
+}

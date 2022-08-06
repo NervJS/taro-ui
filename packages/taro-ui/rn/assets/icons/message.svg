@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="message" unicode="&#xe938;" d="M907 794h-790q-28 -1 -46.5 -19.5t-19.5 -46.5v-527q1 -28 19.5 -46.5t46.5 -19.5h66v-197l263 197h461q28 1 46.5 19.5t19.5 46.5v527q-1 28 -19.5 46.5t-46.5 19.5zM907 201h-479l-177 -132v132h-134v527h790v-527zM249 563v-66h526v66h-526zM249 432v-66h263v66h-263z"/>
+</svg>

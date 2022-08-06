@@ -1,0 +1,10 @@
+.panel {
+  &__content {
+    padding: 0 20px;
+
+    &--example-item {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

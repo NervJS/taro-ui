@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="lightning-bolt" unicode="&#xe931;" d="M303 -26q-4 0 -9 1t-9 6q-10 5 -13.5 16t0.5 21l150 338h-188q-9 0 -14.5 4t-9.5 8q-5 9 -5 16t5 16l212 375q5 9 12.5 14t12.5 5h300q9 -1 15 -4.5t10 -8.5q5 -9 5 -15.5t-5 -15.5l-131 -225h144q9 0 17.5 -5t13 -14.5t2 -17.5t-7.5 -13l-488 -488q-5 -5 -9.5 -8.5 t-9.5 -4.5zM285 425h181q9 -1 14.5 -4.5t10.5 -8.5t5 -13.5t-5 -17.5l-100 -232l319 313h-119q-9 0 -15 4t-10 9q-5 9 -5 15.5t5 15.5l131 225h-231z"/>
+</svg>

@@ -40,7 +40,7 @@ export default class AtSearchBar extends React.Component<
   }
 
   private handleChange = (e: CommonEvent & ExtendEvent): void => {
-    this.props.onChange(e.target.value, e)
+    this.props.onChange(e.detail.value, e)
   }
 
   private handleClear = (event: CommonEvent): void => {

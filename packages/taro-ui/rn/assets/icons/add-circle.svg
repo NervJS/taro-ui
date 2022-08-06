@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="add-circle" unicode="&#xe901;" d="M512 845q196 -5 326 -135t135 -326q-5 -196 -135 -326t-326 -135q-196 5 -326 135t-135 326q5 196 135 326t326 135zM512 -11q168 4 279.5 115.5t115.5 279.5q-4 168 -115.5 279.5t-279.5 115.5q-168 -4 -279.5 -115.5t-115.5 -279.5q4 -168 115.5 -279.5t279.5 -115.5z M545 581v-164h164v-66h-164v-164h-66v164h-164v66h164v164h66z"/>
+</svg>

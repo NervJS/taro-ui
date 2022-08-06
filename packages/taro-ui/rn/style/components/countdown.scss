@@ -1,0 +1,82 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-countdown {
+  // display: inline-block;
+  display: flex;
+  flex-direction: row;
+  min-height: $at-countdown-font-size;
+
+  /* elements */
+  &__item {
+    // display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__time-box {
+    // display: inline-block;
+    min-width: $at-countdown-font-size;
+  }
+
+  &__time {
+    font: {
+      size: $at-countdown-font-size;
+      style: normal;
+      weight: 400;
+    }
+
+    color: $at-countdown-num-color;
+    text-align: center;
+  }
+
+  &__separator {
+    // display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    padding: 0 $spacing-v-xs;
+    font-size: $font-size-base;
+    text-align: justify;
+    align-items: center;
+  }
+
+  /* modifiers */
+  &--card {
+    display: flex;
+    flex-direction: row;
+
+    &__time-box {
+      // display: inline-block;
+      min-width: $at-countdown-font-size;
+      position: relative;
+      padding: $spacing-v-xs 0;
+      border: 1PX solid $color-border-grey;
+      border-radius: $border-radius-md;
+      background-color: $at-countdown-card-num-bg-color;
+
+      &__crossbar {
+        position: absolute;
+        top: $spacing-v-xs;
+        left: 0;
+        width: 100%;
+        height: 55%;
+        border-bottom-width: 1PX;
+        border-bottom-color: $color-grey-3;
+        z-index: $zindex-divider;
+      }
+    }
+
+    &__time {
+      position: relative;
+      color: $at-countdown-card-num-color;
+      text-align: center;
+      z-index: $zindex-divider + 1;
+      font: {
+        size: $at-countdown-font-size;
+        style: normal;
+        weight: 400;
+      }
+    }
+  }
+}

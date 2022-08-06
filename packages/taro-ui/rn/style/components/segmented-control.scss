@@ -1,0 +1,44 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-segmented-control-min-width: 120px;
+
+.at-segmented-control {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  @include border-thin($color: $at-segmented-control-color, $width: 1PX);
+
+  /* elements */
+  &__item {
+    flex: 1;
+    padding: $spacing-v-xs $spacing-h-sm;
+    min-width: $at-segmented-control-min-width;
+    color: $at-segmented-control-color;
+    font-size: $at-segmented-control-font-size;
+    background-color: $at-segmented-control-bg-color;
+    overflow: hidden;
+    text-align: center;
+
+    &--active {
+      color: $at-segmented-control-color-active;
+      background-color: $at-segmented-control-color;
+    }
+
+    &--plus {
+      @include border-thin-left($color: $at-segmented-control-color, $width: 1PX);
+    }
+  }
+
+  // &__item + &__item {
+  //   @include border-thin-left($color: $at-segmented-control-color, $width: 1PX);
+  // }
+
+  /* modifiers */
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+}

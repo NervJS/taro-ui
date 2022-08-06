@@ -1,0 +1,42 @@
+.demo-button {
+  // .at-form {
+  //   padding-left: 0;
+  // }
+}
+
+.btn-demo-fab {
+   /*  #ifndef  rn  */
+  position: fixed;
+    /*  #endif  */
+   /*  #ifdef  rn  */
+  position: absolute;
+    /*  #endif  */
+  right: 32px;
+  z-index: 1100;
+  bottom: 32px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.no-margin-left {
+  margin-left: 0;
+}
+
+.panel__content {
+  &--btn-item {
+    margin-bottom: 20px;
+
+    &--subitem {
+       display: flex;
+      flex-direction: row;
+      margin-left: 24px;
+    }
+  }
+}
+
+.small-btn {
+  display: flex;
+  flex-direction: row;
+}

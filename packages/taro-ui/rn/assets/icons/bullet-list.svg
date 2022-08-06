@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="bullet-list" unicode="&#xe90d;" d="M922 343h-683v68h683v-68zM922 70h-683v68h683v-68zM922 616h-683v68h683v-68zM143 609q-23 1 -34.5 21t0 40t34.5 21q18 0 29.5 -11.5t11.5 -29t-11.5 -29t-29.5 -12.5zM143 336q-17 1 -28.5 12.5t-11.5 29t11.5 29t29 11.5t29 -11.5t11.5 -29t-11.5 -29t-29.5 -12.5z M143 63q-17 1 -28.5 12.5t-11.5 28.5t11.5 29t29 12t29 -12t11.5 -29t-11.5 -28.5t-29.5 -12.5z"/>
+</svg>

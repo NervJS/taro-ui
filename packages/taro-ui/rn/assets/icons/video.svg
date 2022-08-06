@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="video" unicode="&#xe958;" d="M968 562q-9 23 -32.5 33t-46.5 0l-162 -61v65q0 38 -27 65t-65 27h-492q-38 0 -64.5 -27t-27.5 -65v-430q1 -39 27 -65t65 -27h492q39 1 65 27t27 65v68l161 -62q11 -4 23 -4q26 0 43.5 17.5t18.5 43.5v307q0 12 -5 23zM666 169q-1 -13 -9.5 -22t-21.5 -9h-492 q-13 1 -21.5 9.5t-8.5 21.5v430q0 13 9 22t21 9h492q13 0 21.5 -9t9.5 -22v-430zM911 230l-184 74v161l184 74v-309z"/>
+</svg>

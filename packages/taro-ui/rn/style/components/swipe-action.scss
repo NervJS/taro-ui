@@ -1,0 +1,53 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-swipe-action {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &__area {
+    height: auto;
+  }
+
+  /* elements */
+  &__content {
+    position: relative;
+    font-size: $font-size-lg;
+    background-color: $at-swipe-action-bg-color;
+    display: flex;
+    height: 100%;
+    z-index: 2;
+
+    &.animtion {
+      //  transition:: transform 300ms $timing-func;
+    }
+  }
+
+  &__option {
+    @include active;
+    @include align-items(center);
+
+    //  display: inline-flex;
+    padding: 0 $spacing-h-xl;
+    height: 100%;
+    color: $at-swipe-action-color;
+    font-size: $at-swipe-action-font-size;
+    width: 120px;
+
+    text-align: center;
+    background-color: $at-swipe-action-option-bg-color;
+  }
+
+  &__options {
+    @include align-items(center);
+
+    //  display: inline-flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+  }
+}

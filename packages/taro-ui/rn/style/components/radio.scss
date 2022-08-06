@@ -1,0 +1,94 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-radio {
+  position: relative;
+  background-color: $color-bg;
+  @include hairline-top-relative(#d6e4ef);
+  @include hairline-bottom-relative(#d6e4ef);
+
+  /* elements */
+  &__option-wrap {
+    padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
+    @include border-thin-bottom(#d6e4ef);
+
+    &--without-border {
+      border-bottom-width: 0;
+    }
+  }
+
+  &__option-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__title {
+    flex: 6;
+    color: $at-radio-title-color;
+    font-size: $at-radio-title-size;
+    text-align: left;
+    line-height: $line-height-zh * $at-radio-title-size;
+    //  word-break: break-all;
+
+    &--disabled {
+      opacity: $opacity-disabled;
+    }
+  }
+
+  &__icon {
+    flex: 1;
+    font-size: $at-radio-title-size;
+    text-align: right;
+    overflow: hidden;
+   //  visibility: hidden;
+
+    &--checked {
+     //  visibility: visible;
+    }
+  }
+
+  &__desc {
+    //  display: block;
+    width: 86%;
+    color: $at-radio-desc-color;
+    font-size: $at-radio-desc-size;
+    text-align: left;
+    line-height: $line-height-zh * $at-radio-desc-size;
+    letter-spacing: 0;
+    //  word-break: break-all;
+
+    &--disabled {
+      opacity: $opacity-disabled;
+    }
+  }
+
+  &__option {
+    padding-left: $spacing-h-xl;
+    @include active;
+
+    &--disabled {
+      // .at-radio__option-container,
+      // .at-radio__desc {
+      //   opacity: $opacity-disabled;
+      // }
+
+      // &:active {
+      //   background-color: inherit;
+      // }
+    }
+  }
+
+  // &__option + &__option {
+  //   .at-radio__option-wrap {
+  //     @include hairline-top();
+  //   }
+  // }
+
+  &__at-icon {
+    color: $at-radio-check-color;
+  }
+}
+
+// .at-icon {
+//   color: $at-radio-check-color;
+// }

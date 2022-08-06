@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="upload" unicode="&#xe956;" d="M460 720l-105 -105l-46 46l184 184l184 -184l-46 -46l-106 106v-473h-65v472zM817 508q25 2 43.5 -13t21.5 -40v-478q-3 -25 -21.5 -40t-43.5 -13h-650q-25 -2 -43 13t-22 40v478q4 25 22 40t43 13h228v-65h-228v-455h650v455h-227v65h227z"/>
+</svg>

@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="file-audio" unicode="&#xe91f;" d="M698 845l203 -203v-719h-799v922h596zM717 740v-80h80zM840 -15v614h-185v184h-491v-798h676zM410 329h-13q-28 -1 -44.5 -17.5t-16.5 -44.5t16.5 -44.5t44.5 -16.5t44.5 16.5t17.5 44.5v160l116 31v-135h-12q-28 -1 -44.5 -17.5t-16.5 -44.5t16.5 -44.5t44.5 -16.5 t44.5 16.5t17.5 44.5v270l-215 -61v-141z"/>
+</svg>

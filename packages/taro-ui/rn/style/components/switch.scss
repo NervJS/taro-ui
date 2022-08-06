@@ -1,0 +1,61 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$component: '.at-switch';
+
+#{$component} {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-bg;
+  margin-left: $spacing-h-xl;
+  padding: $spacing-v-lg $spacing-h-xl $spacing-v-lg 0;
+  margin-bottom: 1PX;
+
+  @include hairline-bottom();
+
+  // /* elements */
+  // &__title {
+  //   flex: 6;
+  //   color: $at-switch-title-color;
+  //   font-size: $at-switch-title-size;
+  // }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+    background-color: $color-bg;
+  }
+
+  &__switch {
+    display: flex;
+
+    &--disabled {
+      opacity: $opacity-disabled;
+    }
+  }
+
+  &__mask {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $zindex-form;
+    &--disabled {
+      display: flex;
+    }
+  }
+
+
+  &--without-border {
+    border-bottom-width: 0;
+    // &::after {
+    //   border: none;
+    // }
+  }
+}

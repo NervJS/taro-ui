@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="blocked" unicode="&#xe90b;" d="M512 845q196 -5 326 -135t135 -326q-5 -196 -135 -326t-326 -135q-196 5 -326 135t-135 326q5 196 135 326t326 135zM907 384q-1 112 -57 204.5t-155.5 144.5t-207.5 45t-201 -70l489 -614q63 56 97 131t35 159zM512 -11q58 1 112.5 17.5t102.5 48.5l-491 609 q-86 -87 -109 -202t22 -228q47 -112 144 -177.5t219 -67.5z"/>
+</svg>

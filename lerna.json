@@ -1,6 +1,8 @@
 {
   "packages": [
-    "packages/taro-ui"
+    "packages/taro-ui",
+    "packages/taro-ui-demo",
+    "packages/taro-ui-demo-rn"
   ],
   "command": {
     "publish": {
@@ -11,7 +13,6 @@
       "license": "MIT"
     }
   },
-  "version": "3.0.0-alpha.10",
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  "version": "3.1.0-beta.3",
+  "npmClient": "yarn"
 }

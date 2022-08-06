@@ -1,5 +1,5 @@
 const config = {
-  projectName: 'taro-ui-demo',
+  projectName: 'taro-demo',
   date: '2020-4-5',
   designWidth: 750,
   deviceRatio: {
@@ -56,7 +56,7 @@ const config = {
   }
 }
 
-module.exports = function(merge) {
+module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

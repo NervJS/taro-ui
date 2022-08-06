@@ -1,0 +1,112 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+// @keyframes atRotate {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+$at-toast-min-width: 256px !default;
+$at-toast-image-size: 120px !default;
+$at-toast-font-size: $font-size-base !default;
+$at-toast-icon-size: 80px !default;
+$at-toast-color: $color-white;
+$at-toast-bg-color: rgba($color: $color-black-0, $alpha: 0.8);
+
+.at-toast {
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+
+  &--no-mask {
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  /* elements */
+  &__overlay {
+    @include overlay;
+
+    //  position: fixed;
+    opacity: 0;
+    z-index: $zindex-toast;
+  }
+
+  &__body {
+    &--loading {
+      .toast-body-content__img-item {
+       //  animation: atRotate 1350ms linear infinite;
+      }
+    }
+  }
+}
+
+.toast-body {
+  // @include absolute-center(fixed);
+
+  padding: $spacing-v-lg $spacing-h-xl;
+  min-width: $at-toast-min-width;
+  border-radius: $border-radius-md;
+  background-color: $at-toast-bg-color;
+  z-index: $zindex-toast;
+
+  &-content {
+    &__icon {
+      color: $at-toast-color;
+      font-size: $at-toast-icon-size;
+      align-items: center;
+    }
+
+    &__img {
+      line-height: 0;
+      align-items: center;
+
+      &-item {
+        width: $at-toast-image-size;
+        height: $at-toast-image-size;
+      }
+    }
+
+    &__info {
+      margin-top: $spacing-v-md;
+      color: $at-toast-color;
+      font-size: $at-toast-font-size;
+      line-height: $line-height-zh * $at-toast-font-size;
+      text-align: center;
+
+      &-no-margin {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &--text {
+    color: $at-toast-color;
+    padding: $spacing-v-sm $spacing-h-lg;
+    line-height: $line-height-zh * $at-toast-font-size;
+    // min-width: initial;
+
+    // .toast-body-content__info {
+    //   margin-top: 0;
+    // }
+  }
+
+  &.at-toast__body--custom-image,
+  &.at-toast__body--success,
+  &.at-toast__body--error,
+  &.at-toast__body--loading {
+    // padding-bottom: $spacing-v-lg - (($at-toast-font-size * $line-height-zh - $at-toast-font-size) / 2);
+  }
+}

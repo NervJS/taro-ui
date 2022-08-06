@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="shopping-bag-2" unicode="&#xe947;" d="M731 615v19q-7 91 -69.5 150t-153.5 61q-91 -2 -153.5 -61t-69.5 -150v-19h-131v-623q0 -29 19.5 -48.5t49.5 -20.5h553q28 1 48.5 21t20.5 48v623h-114zM354 634q5 62 48 102.5t106 41.5q62 -1 105 -41.5t49 -102.5v-19h-308v19zM776 -8h-553v553h553v-553z"/>
+</svg>

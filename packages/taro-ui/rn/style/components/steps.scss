@@ -1,0 +1,131 @@
+@use "sass:math";
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-steps {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+
+  /* elements */
+  &__circular {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: $at-steps-circle-size;
+    height: $at-steps-circle-size;
+    text-align: center;
+    border-radius: math.div($at-steps-circle-size, 2);
+    color: $at-steps-color-active;
+    background-color: $at-steps-bg-color;
+
+    &--active {
+      color: $at-steps-color;
+      background-color: $at-steps-bg-color-active;
+    }
+  }
+
+  &__item {
+    position: relative;
+    // width: 100px;
+    // flex: 1;
+    width: 33%;
+    text-align: center;
+
+    &--text {
+      &__active {
+        color: $at-steps-color;
+      }
+
+      &__inactive {
+        color: $at-steps-color-active;
+      }
+    }
+
+    // &--active {
+    //   .at-steps__circular {
+    //     color: $at-steps-color;
+    //     background-color: $at-steps-bg-color-active;
+    //   }
+    // }
+
+    // &--inactive {
+    //   .at-steps__circular {
+    //     color: $at-steps-color-active;
+    //     background-color: $at-steps-bg-color;
+    //   }
+    // }
+  }
+
+  &__circular-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  &__single-icon {
+    font-size: $at-steps-circle-size;
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--error {
+      color: $color-error;
+    }
+  }
+
+  &__circle-icon {
+    color: $at-steps-color-active;
+    font-size: $at-steps-icon-size;
+
+    &--active {
+      color: $at-steps-color;
+    }
+
+    &--inactive {
+      color: $at-steps-color-active;
+    }
+  }
+
+  &__left-line {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    right: 70%;
+    height: 1Px;
+    background-color: $at-steps-line-color;
+  }
+
+  &__right-line {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    left: 70%;
+    height: 1Px;
+    background-color: $at-steps-line-color;
+  }
+
+  &__num {
+    font-size: $font-size-sm;
+  }
+
+  &__title {
+    padding: $spacing-v-sm 0;
+    color: $at-steps-title-color;
+    font-size: $at-steps-title-size;
+    text-align: center;
+  }
+
+  &__desc {
+    color: $at-steps-desc-color;
+    font-size: $at-steps-desc-size;
+    text-align: center;
+    line-height: 1.6 * $at-steps-desc-size;
+  }
+}
