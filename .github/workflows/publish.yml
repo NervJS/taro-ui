@@ -3,10 +3,10 @@ on:
   # When Release Pull Request is merged
   push:
     branches:
-      - react-native
+      - next
   pull_request:
     branches:
-      - react-native
+      - next
     types: [closed]
 
 env:
