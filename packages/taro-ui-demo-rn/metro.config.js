@@ -1,11 +1,11 @@
 const fs = require('fs')
 const path = require('path')
-const blacklist = require('metro-config/src/defaults/exclusionList')
+const exclusionList = require('metro-config/src/defaults/exclusionList')
 const escape = require('escape-string-regexp')
 
 const taroUI = path.resolve(__dirname, '../taro-ui')
 const pak = JSON.parse(
-  fs.readFileSync(path.join(taroUI, 'package.json'), 'utf8'),
+  fs.readFileSync(path.join(taroUI, 'package.json'), 'utf8')
 )
 
 const modules = [
@@ -17,8 +17,8 @@ const modules = [
   'react-native-root-siblings',
   ...Object.keys({
     ...pak.dependencies,
-    ...pak.peerDependencies,
-  }),
+    ...pak.peerDependencies
+  })
 ]
 
 module.exports = {
@@ -30,8 +30,8 @@ module.exports = {
       acc[name] = path.join(__dirname, 'node_modules', name)
       return acc
     }, {}),
-    blacklistRE: blacklist([
-      new RegExp(`^${escape(path.join(taroUI, 'node_modules'))}\\/.*$`),
-    ]),
-  },
+    blockList: exclusionList([
+      new RegExp(`^${escape(path.join(taroUI, 'node_modules'))}\\/.*$`)
+    ])
+  }
 }
