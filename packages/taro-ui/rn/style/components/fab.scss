@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -11,7 +12,7 @@
   color: $color-white;
   font-size: $font-size-base;
   text-align: center;
-  border-radius: $at-fab-size / 2;
+  border-radius: math.div($at-fab-size, 2);
   background: $at-fab-bg-color;
   // box-shadow: $at-fab-box-shadow;
 

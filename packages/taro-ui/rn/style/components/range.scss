@@ -1,9 +1,10 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
 .at-range {
   position: relative;
-  padding: 0 $at-range-slider-size / 2 + 4PX;
+  padding: 0 math.div($at-range-slider-size, 2) + 4PX;
   width: 100%;
   // box-sizing: border-box;
 
@@ -34,10 +35,10 @@
 
   &__slider {
     position: absolute;
-    margin-left: -$at-range-slider-size / 2;
+    margin-left: math.div($at-range-slider-size, 2) * -1;
     width: $at-range-slider-size;
     height: $at-range-slider-size;
-    border-radius: $at-range-slider-size / 2;
+    border-radius: math.div($at-range-slider-size, 2);
     background-color: $at-range-slider-color;
     //box-shadow: $at-range-slider-shadow;
     // TODO: box-shadow 替代

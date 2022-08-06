@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -34,7 +35,7 @@
     height: $at-timeline-dot-size;
     font-size: 0;
     text-align: center;
-    border-radius: $at-timeline-dot-size / 2;
+    border-radius: math.div($at-timeline-dot-size, 2);
     background: $at-timeline-dot-color;
     z-index: 1;
     border: 1PX solid transparent;
@@ -65,7 +66,7 @@
     width: $at-timeline-dot-size;
     height: $at-timeline-dot-size;
     text-align: center;
-    border-radius: $at-timeline-dot-size / 2;
+    border-radius: math.div($at-timeline-dot-size, 2);
     background: $at-timeline-dot-color;
     z-index: 1;
   }
@@ -77,9 +78,9 @@
 
   &__tail {
     position: absolute;
-    top: $at-timeline-dot-size / 2;
-    bottom: -$at-timeline-dot-size / 2;
-    left: $at-timeline-dot-size / 2 - 2px;
+    top: math.div($at-timeline-dot-size, 2);
+    bottom: -1 * math.div($at-timeline-dot-size, 2);
+    left: math.div($at-timeline-dot-size, 2) - 2px;
     border-left-color: $at-timeline-line-color;
     border-left-width: 1PX;
     border-style: solid;

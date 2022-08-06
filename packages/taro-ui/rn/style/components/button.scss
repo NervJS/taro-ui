@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -49,7 +50,7 @@
   }
 
   &--circle {
-    border-radius: $at-button-height / 2;
+    border-radius: math.div($at-button-height, 2);
     overflow: hidden;
   }
 
@@ -75,5 +76,5 @@
 }
 
 .at-button--circle {
-  border-radius: $at-button-height-sm / 2;
+  border-radius: math.div($at-button-height-sm, 2);
 }
