@@ -12204,17 +12204,6 @@ taro-css-to-react-native@^2.0.4:
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
 
-taro-ui@3.1.0-beta.2:
-  version "3.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/taro-ui/-/taro-ui-3.1.0-beta.2.tgz#dc4eea0475f74ac7391561af6206367205275404"
-  integrity sha512-iW649RaTV7F4EHhVtnavbp3TilIGcj4X/J+p955Br+c4l3ggZVmnCiCvKLCiIqZzSO5BvryR59f+THpoZbTKmQ==
-  dependencies:
-    classnames "^2.2.6"
-    dayjs "^1.7.7"
-    lodash "^4.17.10"
-    prop-types "^15.7.2"
-    react-native-modal "^13.0.0"
-
 term-size@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
