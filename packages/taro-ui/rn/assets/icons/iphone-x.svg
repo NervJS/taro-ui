@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="iphone-x" unicode="&#xe92f;" d="M797 845h-526q-28 -1 -46.5 -19.5t-19.5 -46.5v-790q1 -28 19.5 -46.5t46.5 -19.5h526q28 1 46.5 19.5t19.5 46.5v790q-1 28 -19.5 46.5t-46.5 19.5zM797 -11h-526v790h65q1 -28 19.5 -46.5t46.5 -19.5h264q28 1 46.5 19.5t18.5 46.5h66v-790z"/>
+</svg>

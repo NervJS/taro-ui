@@ -1,0 +1,18 @@
+.panel__content {
+  &--example-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+
+.example-item__buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

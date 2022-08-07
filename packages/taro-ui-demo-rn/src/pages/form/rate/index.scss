@@ -1,0 +1,15 @@
+.example-item {
+  color: #333;
+  font-size: 28px;
+}
+.panel__content {
+  &--example-item {
+    flex-direction: column;
+  }
+}
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

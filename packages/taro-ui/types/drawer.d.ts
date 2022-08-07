@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 
 import AtComponent from './base'
 
@@ -38,7 +38,8 @@ export interface AtDrawerProps extends AtComponent {
 }
 
 export interface AtDrawerState {
-  animShow: boolean,
+  animShow: boolean
+  translateX?: any
   _show: boolean
 }
 

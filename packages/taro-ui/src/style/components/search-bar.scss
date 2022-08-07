@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 
@@ -26,7 +27,7 @@ $at-search-bar-placholder-color: $color-grey-2;
     width: 100%;
     height: $at-search-bar-input-height;
     background-color: $at-search-bar-input-bg-color;
-    border-radius: $at-search-bar-input-height / 2;
+    border-radius: $at-search-bar-input-height * 0.5;
     overflow: hidden;
     display: flex;
   }

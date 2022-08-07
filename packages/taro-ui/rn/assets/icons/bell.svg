@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="bell" unicode="&#xe90a;" d="M398 -11h195v-66h-195v66zM818 87l72 1v-65h-788v65h73l36 394q8 81 55 144.5t122 94.5v16q2 46 32.5 76.5t76.5 31.5q46 -1 76.5 -31.5t31.5 -76.5v-17q75 -31 122 -94.5t55 -144.5zM496 776q-16 0 -27.5 -10.5t-14.5 -26.5q21 4 42 4t42 -4q-3 16 -14.5 26.5 t-27.5 10.5zM239 87h513l-35 389q-9 89 -70.5 146t-150.5 59q-89 -2 -150.5 -59t-70.5 -146z"/>
+</svg>

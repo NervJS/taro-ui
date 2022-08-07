@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="chevron-down" unicode="&#xe911;" d="M222 589l-68 -69l342 -341l342 341l-69 69l-273 -274z"/>
+</svg>

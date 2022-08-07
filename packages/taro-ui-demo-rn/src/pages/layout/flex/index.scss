@@ -1,0 +1,40 @@
+@import "~taro-ui/dist/style/variables/default.scss";
+@import '~taro-ui/dist/style/components/flex.scss';
+
+.at-row {
+  margin-bottom: 40px;
+}
+
+.at-col {
+  padding: $spacing-v-md $spacing-h-md;
+  color: $color-white;
+  font-size: $font-size-base;
+  text-align: center;
+
+  // &:nth-child(odd) {
+  //   background-color: $color-brand-light;
+  // }
+
+  // &:nth-child(even) {
+  //   background-color: tint($color-brand-light, 20%);
+  // }
+
+  @for $col from 1 through 12 {
+    $even: $col % 2 == 0;
+
+    &-bg-#{$col} {
+      @if $even {
+        background-color: tint($color-brand-light, 20%);
+      } @else {
+        background-color: $color-brand-light;
+      }
+    }
+
+  }
+}
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

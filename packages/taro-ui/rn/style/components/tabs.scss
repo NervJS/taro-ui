@@ -1,0 +1,205 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$component:'.at-tabs';
+$at-tabs-pane-min-height: 100px;
+
+#{$component} {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  /* elements */
+  &__item {
+    position: relative;
+    flex: 1;
+    padding: $spacing-v-lg $spacing-h-lg;
+    color: $at-tabs-color;
+    font-size: $at-tabs-font-size;
+    // text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+
+    // &-underline {
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   // width: 100%;
+    //   height: $at-tabs-line-height;
+    //   // transform: scaleX(0);
+    //   // transition: all 0.15s;
+    // }
+
+    &--active {
+      color: $at-tabs-color-active;
+
+      // #{$component}__item-underline {
+        // transform: scaleX(1);
+      // }
+    }
+
+    &--horizontal {
+      @include hairline-bottom($color-border-light, solid, 0.5);
+      &--active {
+        @include hairline-bottom($at-tabs-color-active, solid, 1);
+      }
+    }
+
+    &--vertical {
+      @include hairline-right($color-border-light, solid, 0.5);
+      &--active {
+        @include hairline-right($at-tabs-color-active, solid, 1);
+      }
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    // width: 100%;
+    text-align: center;
+    // white-space: nowrap;
+    background-color: $at-tabs-bg-color;
+    // box-sizing: border-box;
+    // overflow: -moz-scrollbars-none;
+
+    &--horizontal {
+      flex-direction: row;
+    }
+
+    &--vertical {
+      flex-direction: column;
+    }
+
+    // &::-webkit-scrollbar {
+    //   display: none;
+    //   width: 0 !important;
+    //   height: 0 !important;
+    //   background: transparent;
+    // }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    // width: 100%;
+    // white-space: nowrap;
+    // transition: all 0.3s;
+    // will-change: transform, left, top;
+    overflow: visible;
+  }
+
+  &__underline {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    right: auto;
+    width: 600%;
+    height: $at-tabs-line-height;
+    background-color: $at-tabs-underline-color;
+  }
+
+  /* modifiers */
+  // &--scroll {
+  //   #{$component}__header {
+  //     overflow: scroll;
+  //     // overflow-x: scroll;
+  //     // -webkit-overflow-scrolling: touch;
+  //     // white-space: nowrap;
+  //   }
+
+  //   #{$component}__item {
+  //     display: flex;
+  //     overflow: visible;
+  //   }
+  // }
+
+  &--vertical {
+    display: flex;
+    // flex: 1;
+    flex-direction: row;
+    overflow: hidden;
+
+    // #{$component}__body {
+    //   display: flex;
+    //   flex: 1;
+    //   height: $at-tabs-pane-min-height;
+    //   // width: auto;
+    // }
+
+    // #{$component}__underline {
+    //   top: 0;
+    //   left: 0;
+    //   bottom: auto;
+    //   width: $at-tabs-line-height;
+    //   height: 100%;
+    // }
+
+    // #{$component}__header {
+    //   display: flex;
+    //   // width: auto;
+    // }
+
+    // #{$component}__item {
+    //   display: flex;
+    //   justify-content: center;
+    //   width: auto;
+    //   align-items: center;
+
+    //   &-underline {
+    //     display: flex;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: auto;
+    //     left: auto;
+    //     width: $at-tabs-line-height;
+    //     height: 100%;
+    //     // transform: scaleY(0);
+    //   }
+
+    //   &--active {
+    //     #{$component}__item-underline {
+    //       // transform: scaleY(1);
+    //     }
+    //   }
+    // }
+  }
+}
+
+/* hack SWAN */
+
+// #{$component}--scroll#{$component}--horizontal#{$component}--SWAN {
+//   #{$component}__item-underline {
+//     bottom: $at-tabs-line-height;
+//   }
+// }
+
+/* hack SWAN */
+
+.at-tabs-pane {
+  display: flex;
+  height: 100%;
+  // box-sizing: border-box;
+  // white-space: initial;
+  // vertical-align: top;
+
+  /* modifiers */
+  &--active {
+    height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &--vertical {
+    display: flex;
+    height: 100%;
+    overflow: scroll;
+  }
+}

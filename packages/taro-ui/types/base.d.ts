@@ -2,7 +2,7 @@ import { CSSProperties } from 'react'
 
 export interface AtComponent {
   className?: string
-
+  style?: CSSProperties
   customStyle?: string | CSSProperties
 }
 

@@ -1,0 +1,48 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-rate {
+  font-size: 0;
+  line-height: 0;
+  flex-direction: row;
+
+  /* elements */
+  &__left {
+    //  display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    color: transparent;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  &__icon {
+    position: relative;
+    //  display: inline-block;
+    color: $at-rate-star-color;
+    font-size: 0;
+    line-height: 0;
+    //  transition:: all 0.2s;
+
+    // .at-icon {
+    //   font-size: $at-rate-icon-size;
+    // }
+
+    &--on {
+      color: $at-rate-star-color-on;
+    }
+
+    &--off {
+      color: $at-rate-star-color;
+    }
+
+    &--half {
+      // .at-rate__left {
+      //   color: $at-rate-star-color-on;
+      // }
+    }
+  }
+}

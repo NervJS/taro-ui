@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="folder" unicode="&#xe929;" d="M915 627h-403l-115 115h-346v-633q1 -25 17 -41t41 -17h806q25 1 41 17t17 41v461q-1 24 -17 40.5t-41 16.5zM109 685h264l58 -58h-322v58zM915 109h-806v461h806v-461z"/>
+</svg>

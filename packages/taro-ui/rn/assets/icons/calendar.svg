@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="calendar" unicode="&#xe90e;" d="M896 768h-154v77h-76v-77h-308v77h-76v-77h-154q-33 -1 -54.5 -22.5t-22.5 -54.5v-691q1 -33 22.5 -54.5t54.5 -22.5h768q33 1 54.5 22.5t22.5 54.5v691q-1 33 -22.5 54.5t-54.5 22.5zM896 0h-768v461h768v-461zM128 538v153h154v-77h76v77h308v-77h76v77h154v-153h-768z"/>
+</svg>

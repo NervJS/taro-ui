@@ -1,0 +1,88 @@
+{
+  "private": true,
+  "name": "taro-ui-demo-rn",
+  "version": "3.1.0-beta.3",
+  "description": "Taro UI demo",
+  "author": "O2Team <aotu.io>",
+  "homepage": "https://taro-ui.aotu.io",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nervjs/taro-ui.git"
+  },
+  "license": "MIT",
+  "templateInfo": {
+    "name": "default",
+    "typescript": true,
+    "css": "sass"
+  },
+  "scripts": {
+    "build": "yarn run build:rn",
+    "build:weapp": "taro build --type weapp",
+    "build:swan": "taro build --type swan",
+    "build:alipay": "taro build --type alipay",
+    "build:tt": "taro build --type tt",
+    "build:h5": "taro build --type h5",
+    "build:rn": "taro build --type rn",
+    "build:qq": "taro build --type qq",
+    "build:quickapp": "taro build --type quickapp",
+    "dev:weapp": "yarn run build:weapp --watch",
+    "dev:swan": "yarn run build:swan --watch",
+    "dev:alipay": "yarn run build:alipay --watch",
+    "dev:tt": "yarn run build:tt --watch",
+    "dev:h5": "yarn run build:h5 --watch",
+    "dev:rn": "yarn run build:rn --watch",
+    "dev:qq": "yarn run build:qq --watch",
+    "dev:quickapp": "yarn run build:quickapp --watch",
+    "clean": "rimraf .temp dist"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "@tarojs/components": "3.4.13",
+    "@tarojs/plugin-framework-react": "3.4.13",
+    "@tarojs/react": "3.4.13",
+    "@tarojs/rn-runner": "3.4.13",
+    "@tarojs/runtime": "3.4.13",
+    "@tarojs/taro": "3.4.13",
+    "@tarojs/taro-rn": "3.4.13",
+    "react": "^17.0.2",
+    "react-dom": "^16.13.0",
+    "react-native": "~0.68.1",
+    "react-native-modal": "^13.0.0",
+    "taro-ui": "3.1.0-beta.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@react-native-picker/picker": "^1.15.0",
+    "@tarojs/cli": "3.4.13",
+    "@tarojs/mini-runner": "3.4.13",
+    "@tarojs/webpack-runner": "3.4.13",
+    "@types/react": "^16.0.0",
+    "@types/webpack-env": "^1.13.6",
+    "babel-plugin-transform-imports": "^2.0.0",
+    "babel-preset-taro": "3.4.13",
+    "escape-string-regexp": "^4.0.0",
+    "eslint-config-taro": "3.4.13",
+    "expo-constants": "13.1.1",
+    "expo-modules-core": "0.9.2",
+    "patch-package": "^6.4.7",
+    "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "sass": "1.37.5",
+    "expo-camera": "12.3.0",
+    "expo-barcode-scanner": "11.3.0",
+    "expo-image-picker": "13.1.1",
+    "expo-brightness": "10.2.0",
+    "expo-file-system": "14.0.0",
+    "expo-keep-awake": "10.1.1",
+    "expo-permissions": "13.2.0",
+    "expo-sensors": "11.3.0",
+    "expo-asset": "8.5.0",
+    "expo-av": "11.2.3"
+  }
+}

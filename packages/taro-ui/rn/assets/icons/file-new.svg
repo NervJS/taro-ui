@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="file-new" unicode="&#xe924;" d="M698 845l203 -203v-719h-799v922h596zM717 740v-80h80zM840 -15v614h-185v184h-491v-798h676zM532 538h-61v-123h-123v-62h123v-123h61v123h123v62h-123v123z"/>
+</svg>

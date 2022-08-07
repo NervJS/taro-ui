@@ -57,6 +57,8 @@ export default class AtNoticebar extends React.Component<
 
   private initAnimation(): void {
     const { isWEAPP, isALIPAY } = this.state
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     this.timeout = setTimeout(() => {
       this.timeout = null
       if (this.state.isWEB) {
@@ -109,6 +111,8 @@ export default class AtNoticebar extends React.Component<
               }, 900)
             }
             animBody()
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             this.interval = setInterval(animBody, dura * 1000 + 1000)
           })
       }
@@ -125,14 +129,8 @@ export default class AtNoticebar extends React.Component<
       moreText = '查看详情'
     } = this.props
     let { showMore, close } = this.props
-    const {
-      dura,
-      show,
-      animElemId,
-      animationData,
-      isWEAPP,
-      isALIPAY
-    } = this.state
+    const { dura, show, animElemId, animationData, isWEAPP, isALIPAY } =
+      this.state
     const rootClassName = ['at-noticebar']
 
     if (!single) showMore = false

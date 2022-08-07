@@ -1,0 +1,89 @@
+@use 'sass:math';
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-timeline-item {
+  position: relative;
+  padding: 0 0 $spacing-v-sm;
+
+  /* elements */
+  &__content {
+    margin-left: $at-timeline-offset-left;
+    min-height: 56px;
+    color: $at-timeline-title-color;
+    font-size: $at-timeline-title-font-size;
+    text-align: left;
+
+    &--sub {
+      color: $at-timeline-desc-color;
+      font-size: $at-timeline-desc-font-size;
+      line-height: $line-height-zh * $at-timeline-desc-font-size;
+    }
+
+    &-item {
+      color: $at-timeline-title-color;
+      font-size: $at-timeline-title-font-size;
+      line-height: $line-height-zh * $at-timeline-title-font-size;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: $at-timeline-dot-size;
+    height: $at-timeline-dot-size;
+    font-size: 0;
+    text-align: center;
+    border-radius: math.div($at-timeline-dot-size, 2);
+    background: $at-timeline-dot-color;
+    z-index: 1;
+    border: 1PX solid transparent;
+    border-color: $at-timeline-dot-border-color;
+
+
+    &--green {
+      border-color: $color-success;
+    }
+
+    &--red {
+      border-color: $color-error;
+    }
+
+    &--yellow {
+      border-color: $color-warning;
+    }
+
+    &--has-icon {
+      border-color: transparent;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $at-timeline-dot-size;
+    height: $at-timeline-dot-size;
+    text-align: center;
+    border-radius: math.div($at-timeline-dot-size, 2);
+    background: $at-timeline-dot-color;
+    z-index: 1;
+  }
+
+  &__at-icon {
+    font-size: $at-timeline-dot-size;
+    color: $at-timeline-dot-border-color;
+  }
+
+  &__tail {
+    position: absolute;
+    top: math.div($at-timeline-dot-size, 2);
+    bottom: -1 * math.div($at-timeline-dot-size, 2);
+    left: math.div($at-timeline-dot-size, 2) - 2px;
+    border-left-color: $at-timeline-line-color;
+    border-left-width: 1PX;
+    border-style: solid;
+  }
+
+}

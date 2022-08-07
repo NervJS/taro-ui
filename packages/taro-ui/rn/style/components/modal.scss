@@ -1,0 +1,136 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-modal-duration: 200ms;
+
+.at-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $zindex-modal;
+
+  @include absolute-center();
+
+  &__overlay {
+    @include overlay;
+  }
+
+  &__container {
+
+    width: $at-modal-width;
+    border-radius: $border-radius-lg;
+    background-color: $at-modal-bg-color;
+    overflow: hidden;
+  }
+
+  &__header {
+    @include hairline-bottom-relative($color: $color-grey-4);
+    // @include line(1);
+
+    padding: $spacing-v-md $spacing-h-lg;
+    color: $at-modal-header-text-color;
+    font-size: $font-size-lg;
+    text-align: center;
+  }
+
+  &__content {
+    min-height: 180px;
+    max-height: 840px;
+    padding: $spacing-h-xl $spacing-h-lg;
+    color: $at-modal-content-text-color;
+    font-size: $font-size-base;
+    // box-sizing: content-box;
+    width: auto;
+  }
+
+  &__action {
+    @include display-flex;
+    flex-direction: row;
+
+    &--button {
+      @include flex(auto);
+      // @include line(1);
+      @include active;
+      @include hairline-left-relative($color: $color-grey-4);
+
+      margin-top: 0;
+      min-width: 160px;
+      height: 88px;
+      // outline: 0;
+      // border: 0;
+      border-radius: 0;
+      background-color: transparent;
+
+      &__text {
+        color: $at-modal-btn-default-color;
+        font-size: $font-size-base;
+        line-height: 86px;
+
+        &--confirm {
+          color: $at-modal-btn-confirm-color;
+        }
+      }
+
+      &__no-border {
+        border: 0;
+      }
+
+    }
+  }
+
+  &__footer {
+    @include hairline-top-relative($color: $color-grey-4);
+
+    // .at-modal__action {
+    //   @include display-flex;
+
+    //   & > button {
+    //     @include flex(auto);
+    //     @include line(1);
+    //     @include active;
+
+    //     margin-top: 0;
+    //     min-width: 160px;
+    //     height: 88px;
+    //     color: $at-modal-btn-default-color;
+    //     font-size: $font-size-base;
+    //     line-height: 86px;
+    //     outline: 0;
+    //     border: 0;
+    //     border-radius: 0;
+    //     background-color: transparent;
+
+    //     &::after {
+    //       border: 0;
+    //       border-radius: 0;
+    //       width: initial;
+    //       height: initial;
+    //     }
+
+    //     &:not(:first-child) {
+    //       @include hairline-left-relative($color: $color-grey-4);
+    //     }
+
+    //     &:last-child {
+    //       color: $at-modal-btn-confirm-color;
+    //     }
+    //   }
+    // }
+
+    // &--simple .at-modal__action > button:last-child:nth-child(2) {
+    //   color: $at-modal-btn-confirm-color;
+    // }
+  }
+
+  /* modifiers */
+  // &--active {
+  //  //  visibility: visible;
+
+  //   .at-modal__overlay,
+  //   .at-modal__container {
+  //     opacity: 1;
+  //   }
+  // }
+}

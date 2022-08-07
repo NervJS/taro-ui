@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="link" unicode="&#xe932;" d="M105 372q1 -33 13 -62.5t35 -52.5t52.5 -35.5t62.5 -12.5h190v-54h-190q-59 1 -108.5 29.5t-79 79.5t-29.5 108t29.5 108t79 79.5t108.5 29.5h190v-54h-190q-69 -2 -115 -48t-48 -115zM756 589q92 -3 153 -64t64 -153q-3 -92 -64 -153.5t-153 -63.5h-190v54h190 q69 2 115 48t48 115q-2 69 -48 115t-115 48h-190v54h190zM295 399h434v-54h-434v54z"/>
+</svg>

@@ -38,6 +38,8 @@ export default class AtToast extends React.Component<
     if (duration === 0) {
       return
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     this._timer = setTimeout(() => {
       this.close()
     }, +duration)
