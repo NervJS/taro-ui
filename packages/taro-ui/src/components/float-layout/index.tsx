@@ -72,7 +72,8 @@ export default class AtFloatLayout extends React.Component<
       scrollLeft,
       upperThreshold,
       lowerThreshold,
-      scrollWithAnimation
+      scrollWithAnimation,
+      closeOnClickOverlay = true
     } = this.props
 
     const rootClass = classNames(
@@ -85,7 +86,7 @@ export default class AtFloatLayout extends React.Component<
 
     return (
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-float-layout__overlay' />
+        <View onClick={closeOnClickOverlay && this.close} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           {title ? (
             <View className='layout-header'>
