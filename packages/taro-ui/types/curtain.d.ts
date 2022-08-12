@@ -19,6 +19,10 @@ export interface AtCurtainProps extends AtComponent {
    * 点击关闭按钮触发事件
    */
   onClose: CommonEventFunction
+  /**
+   * 可选子节点
+   */
+  children?: React.ReactNode
 }
 
 declare const AtCurtain: ComponentClass<AtCurtainProps>
