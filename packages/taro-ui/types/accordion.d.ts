@@ -37,6 +37,10 @@ export interface AtAccordionProps extends AtComponent {
    * 点击头部触发事件
    */
   onClick?: (open: boolean, event: CommonEvent) => void
+  /**
+   * 可选子节点
+   */
+  children?: React.ReactNode
 }
 
 export interface AtAccordionState {
