@@ -13,6 +13,7 @@ const modules = [
   'react-native',
   '@tarojs/components-rn',
   '@tarojs/taro-rn',
+  '@tarojs/runtime-rn',
   'react-native-svg',
   'react-native-root-siblings',
   ...Object.keys({
