@@ -74,8 +74,8 @@ npm i babel-plugin-import -D
       'import',
       {
         libraryName: 'taro-ui',
-        customName: name => `taro-ui/lib/components/${name.split('-')[1]}`,
-        customStyleName: name => `taro-ui/dist/style/components/${name.split('-')[1]}.scss`
+        customName: name => `taro-ui/lib/components/${name.slice(3)}`,
+        customStyleName: name => `taro-ui/dist/style/components/${name.slice(3)}.scss`
       },
       'taro-ui'
     ]
