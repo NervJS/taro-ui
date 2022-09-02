@@ -1,8 +1,8 @@
+import { Input, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Input, Text, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
 import { AtSearchBarProps, AtSearchBarState } from '../../../types/search-bar'
 
 type ExtendEvent = {
@@ -57,6 +57,12 @@ export default class AtSearchBar extends React.Component<
 
   private handleActionClick = (event: CommonEvent): void => {
     this.props.onActionClick && this.props.onActionClick(event)
+  }
+
+  public UNSAFE_componentWillReceiveProps(nextProps: AtSearchBarProps): void {
+    if (nextProps.focus !== this.props.focus) {
+      this.setState({ isFocus: !!nextProps.focus })
+    }
   }
 
   public render(): JSX.Element {
