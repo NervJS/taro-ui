@@ -1,8 +1,8 @@
-import { Input, Text, View } from '@tarojs/components'
-import { CommonEvent } from '@tarojs/components/types/common'
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
+import { Input, Text, View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
 import { AtSearchBarProps, AtSearchBarState } from '../../../types/search-bar'
 
 type ExtendEvent = {
