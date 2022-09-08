@@ -24,6 +24,7 @@ export default class AtButton extends React.Component<
 > {
   public static defaultProps: AtButtonProps
   public static propTypes: InferProps<AtButtonProps>
+  private _button
 
   public constructor(props: AtButtonProps) {
     super(props)
@@ -63,7 +64,7 @@ export default class AtButton extends React.Component<
   }
 
   private onSumit(event: CommonEvent): void {
-    if (this.state.isWEAPP || this.state.isWEB) {
+    if (this.state.isWEB) {
       // TODO: 3.0 this.$scope
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
@@ -71,15 +72,25 @@ export default class AtButton extends React.Component<
         bubbles: true,
         composed: true
       })
+    } else if (this.state.isWEAPP) {
+      this._button.triggerEvent('submit', event.detail, {
+        bubbles: true,
+        composed: true
+      })
     }
   }
 
   private onReset(event: CommonEvent): void {
-    if (this.state.isWEAPP || this.state.isWEB) {
+    if (this.state.isWEB) {
       // TODO: 3.0 this.$scope
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
       this.$scope.triggerEvent('reset', event.detail, {
+        bubbles: true,
+        composed: true
+      })
+    } else if (this.state.isWEAPP) {
+      this._button.triggerEvent('reset', event.detail, {
         bubbles: true,
         composed: true
       })
@@ -154,6 +165,7 @@ export default class AtButton extends React.Component<
         onContact={this.onContact.bind(this)}
       ></Button>
     )
+    this._button = button
 
     return (
       <View
