@@ -62,7 +62,7 @@ export default class AtButton extends React.Component<
     this.props.onOpenSetting && this.props.onOpenSetting(event)
   }
 
-  private onSumit(event: CommonEvent): void {
+  private onSubmit(event: CommonEvent): void {
     if (this.state.isWEAPP || this.state.isWEB) {
       // TODO: 3.0 this.$scope
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -164,7 +164,7 @@ export default class AtButton extends React.Component<
         {isWEB && !disabled && webButton}
         {isWEAPP && !disabled && (
           <Form
-            onSubmit={this.onSumit.bind(this)}
+            onSubmit={this.onSubmit.bind(this)}
             onReset={this.onReset.bind(this)}
           >
             {button}
