@@ -59,6 +59,12 @@ export default class AtSearchBar extends React.Component<
     this.props.onActionClick && this.props.onActionClick(event)
   }
 
+  public UNSAFE_componentWillReceiveProps(nextProps: AtSearchBarProps): void {
+    if (nextProps.focus !== this.props.focus) {
+      this.setState({ isFocus: !!nextProps.focus })
+    }
+  }
+
   public render(): JSX.Element {
     const {
       value,
