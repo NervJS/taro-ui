@@ -82,7 +82,7 @@ export default class AtIndexes extends React.Component<
 
     if (ENV === Taro.ENV_TYPE.WEB) {
       delayQuerySelector('.at-indexes', 0).then(rect => {
-        const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
+        const targetOffsetTop = this.listRef.children[idx].offsetTop
         const _scrollTop = targetOffsetTop - rect[0].top
         this.updateState({
           _scrollTop,
@@ -173,13 +173,8 @@ export default class AtIndexes extends React.Component<
 
   public render(): JSX.Element {
     const { className, customStyle, animation, topKey, list } = this.props
-    const {
-      _scrollTop,
-      _scrollIntoView,
-      _tipText,
-      _isShowToast,
-      isWEB
-    } = this.state
+    const { _scrollTop, _scrollIntoView, _tipText, _isShowToast, isWEB } =
+      this.state
 
     const toastStyle = { minWidth: pxTransform(100) }
     const rootCls = classNames('at-indexes', className)
