@@ -1,3 +1,5 @@
+const { mergeConfig } = require('metro-config')
+const { getMetroConfig } = require('@tarojs/rn-supporter')
 const fs = require('fs')
 const path = require('path')
 const exclusionList = require('metro-config/src/defaults/exclusionList')
@@ -13,6 +15,7 @@ const modules = [
   'react-native',
   '@tarojs/components-rn',
   '@tarojs/taro-rn',
+  '@tarojs/runtime-rn',
   'react-native-svg',
   'react-native-root-siblings',
   ...Object.keys({
@@ -21,7 +24,7 @@ const modules = [
   })
 ]
 
-module.exports = {
+module.exports = mergeConfig({
   // maxWorkers: 1,
   // resetCache: true,
   watchFolders: [taroUI, __dirname],
@@ -34,4 +37,4 @@ module.exports = {
       new RegExp(`^${escape(path.join(taroUI, 'node_modules'))}\\/.*$`)
     ])
   }
-}
+}, getMetroConfig())
