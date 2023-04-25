@@ -44,10 +44,10 @@ export default class AtMessage extends React.Component<
       })
     })
     // 绑定函数
-    Taro.atMessage = Taro.eventCenter.trigger.bind(
+    ;(Taro as any).atMessage = Taro.eventCenter.trigger.bind(
       Taro.eventCenter,
       'atMessage'
-    )
+    ) as Taro.TaroStatic
   }
 
   public componentDidShow(): void {

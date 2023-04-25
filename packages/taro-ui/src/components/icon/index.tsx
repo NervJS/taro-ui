@@ -15,7 +15,7 @@ export default class AtIcon extends React.Component<AtIconProps> {
 
   public render(): JSX.Element {
     const {
-      customStyle,
+      customStyle = {},
       className,
       prefixClass,
       value,
@@ -32,7 +32,7 @@ export default class AtIcon extends React.Component<AtIconProps> {
     return (
       <Text
         className={classNames(prefixClass, iconName, className)}
-        style={mergeStyle(rootStyle, customStyle as object)}
+        style={mergeStyle(rootStyle, customStyle)}
         onClick={this.handleClick.bind(this)}
       ></Text>
     )

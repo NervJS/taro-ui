@@ -65,9 +65,9 @@
 
   &__tail {
     position: absolute;
-    top: $at-timeline-dot-size / 2;
-    bottom: -$at-timeline-dot-size / 2;
-    left: $at-timeline-dot-size / 2 - 2px;
+    top: calc($at-timeline-dot-size / 2);
+    bottom: calc($at-timeline-dot-size / -2);
+    left: calc($at-timeline-dot-size / 2) - 2px;
     border-left: 1PX solid $at-timeline-line-color;
   }
 
