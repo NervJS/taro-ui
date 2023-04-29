@@ -3,7 +3,7 @@ import { BaseEvent } from '@tarojs/components/types/common'
 
 // #region Calendar
 declare namespace Calendar {
-  export type DateArg = string | number | Date
+  export type DateArg = string | number
 
   export type classNameType =
     | string
@@ -181,7 +181,7 @@ export interface AtCalendarControllerProps {
   onSelectDate: (e: BaseEvent) => void
 }
 
-export interface AtCalendarControllerState {}
+export interface AtCalendarControllerState { }
 // #endregion
 
 // #region AtCalendarBody
