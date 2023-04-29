@@ -18,7 +18,7 @@ export interface SwipeActionOption {
   /**
    * 选项样式类名
    */
-  className?: object | string | string[]
+  className?: string
 }
 
 export interface AtSwipeActionProps extends AtComponent {
