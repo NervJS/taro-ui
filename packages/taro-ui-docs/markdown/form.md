@@ -60,7 +60,7 @@ export default class Index extends Taro.Component {
           type='text' 
           placeholder='单行文本' 
           value={this.state.value} 
-          onChange={this.handleChange.bind(this, 'value')} 
+          onChange={this.handleChange.bind(this)} 
         />
         <AtButton formType='submit'>提交</AtButton>
         <AtButton formType='reset'>重置</AtButton>

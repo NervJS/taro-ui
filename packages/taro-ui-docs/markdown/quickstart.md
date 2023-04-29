@@ -56,6 +56,44 @@ h5: {
 
 ### 4. 使用 Taro UI
 
+#### 通过 babel 插件按需引入组件
+
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它会在编译过程中将 import 语句自动转换为按需引入的方式。
+
+```bash
+# 安装插件
+npm i babel-plugin-import -D
+```
+
+在.babelrc 或 babel.config.js 中添加配置：
+
+```js
+{
+  "plugins": [
+    [
+      'import',
+      {
+        libraryName: 'taro-ui',
+        customName: name => `taro-ui/lib/components/${name.slice(3)}`,
+        customStyleName: name => `taro-ui/dist/style/components/${name.slice(3)}.scss`
+      },
+      'taro-ui'
+    ]
+  ]
+}
+```
+
+接着你可以在代码中直接引入组件，插件会自动将代码转化为按需引入的形式。
+
+```js
+// 原始代码
+import { AtButton } from 'taro-ui'
+
+// 编译后代码
+import AtButton from 'taro-ui/lib/components/button'
+import 'taro-ui/dist/style/components/button.scss'
+```
+
 #### 引入所需组件
 
 在代码中 `import` 需要的组件并按照文档说明使用

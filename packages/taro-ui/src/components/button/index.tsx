@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import { Button, Form, View } from '@tarojs/components'
+import { Button, View } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
 import { BaseEventOrig, CommonEvent } from '@tarojs/components/types/common'
 import Taro from '@tarojs/taro'
@@ -60,30 +60,6 @@ export default class AtButton extends React.Component<
 
   private onOpenSetting(event: CommonEvent): void {
     this.props.onOpenSetting && this.props.onOpenSetting(event)
-  }
-
-  private onSumit(event: CommonEvent): void {
-    if (this.state.isWEAPP || this.state.isWEB) {
-      // TODO: 3.0 this.$scope
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      this.$scope.triggerEvent('submit', event.detail, {
-        bubbles: true,
-        composed: true
-      })
-    }
-  }
-
-  private onReset(event: CommonEvent): void {
-    if (this.state.isWEAPP || this.state.isWEB) {
-      // TODO: 3.0 this.$scope
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      this.$scope.triggerEvent('reset', event.detail, {
-        bubbles: true,
-        composed: true
-      })
-    }
   }
 
   public render(): JSX.Element {
@@ -162,14 +138,7 @@ export default class AtButton extends React.Component<
         onClick={this.onClick.bind(this)}
       >
         {isWEB && !disabled && webButton}
-        {isWEAPP && !disabled && (
-          <Form
-            onSubmit={this.onSumit.bind(this)}
-            onReset={this.onReset.bind(this)}
-          >
-            {button}
-          </Form>
-        )}
+        {isWEAPP && !disabled && button}
         {isALIPAY && !disabled && button}
         {loadingComponent}
         <View className='at-button__text'>{this.props.children}</View>
