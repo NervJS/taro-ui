@@ -124,8 +124,8 @@ export default class AtInput extends React.Component<AtInputProps> {
       placeholder,
       placeholderStyle,
       placeholderClass,
-      autoFocus,
-      focus,
+      autoFocus = false,
+      focus = false,
       value,
       required
     } = this.props
@@ -174,7 +174,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             cursorSpacing={cursorSpacing}
             maxlength={maxlength}
             autoFocus={autoFocus}
-            focus={focus}
+            {...(focus ? { focus } : {})}
             value={value}
             confirmType={confirmType}
             cursor={cursor}
