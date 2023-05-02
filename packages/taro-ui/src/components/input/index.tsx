@@ -142,6 +142,7 @@ export default class AtInput extends React.Component<AtInputProps> {
       'at-input--error': error,
       'at-input--disabled': disabled
     })
+    // TODO: overlayCls 是否需要移除
     const overlayCls = classNames('at-input__overlay', {
       'at-input__overlay--hidden': !disabled
     })
@@ -185,6 +186,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             onConfirm={this.handleConfirm}
+            disabled={disabled}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore
             onKeyboardHeightChange={this.handleKeyboardHeightChange}
