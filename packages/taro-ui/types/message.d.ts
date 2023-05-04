@@ -2,7 +2,7 @@ import { MouseEvent, ComponentClass } from 'react'
 
 import AtComponent from './base'
 
-export interface AtMessageProps extends AtComponent {}
+export interface AtMessageProps extends AtComponent { }
 
 export interface AtMessageState {
   _isOpened: boolean
@@ -30,6 +30,12 @@ interface Options {
   duration?: number
 }
 
-declare function message({ }: Options ): void
+declare function message({ }: Options): void
+
+declare module '@tarojs/taro' {
+  interface TaroStatic {
+    atMessage: (options: Options) => void
+  }
+}
 
 export { AtMessage, message }
