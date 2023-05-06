@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="download" unicode="&#xe91a;" d="M350 411l124 -124v558h76v-559l126 125l54 -55l-217 -217l-218 217zM896 691q31 0 52 -19.5t25 -50.5v-628q-4 -30 -25 -49.5t-52 -20.5h-768q-31 1 -52 20.5t-25 49.5v628q4 31 25 50.5t52 19.5h269v-77h-269v-614h768v614h-269v77h269z"/>
+</svg>

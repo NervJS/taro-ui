@@ -1,0 +1,10 @@
+.panel__content {
+  &--badge-item {
+    display: flex;
+    flex-direction: row;
+    &--subitem {
+      align-self: flex-start;
+      margin-left: 40px;
+    }
+  }
+}

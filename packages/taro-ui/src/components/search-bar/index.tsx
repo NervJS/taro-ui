@@ -40,7 +40,7 @@ export default class AtSearchBar extends React.Component<
   }
 
   private handleChange = (e: CommonEvent & ExtendEvent): void => {
-    this.props.onChange(e.target.value, e)
+    this.props.onChange(e.detail.value, e)
   }
 
   private handleClear = (event: CommonEvent): void => {
@@ -57,6 +57,12 @@ export default class AtSearchBar extends React.Component<
 
   private handleActionClick = (event: CommonEvent): void => {
     this.props.onActionClick && this.props.onActionClick(event)
+  }
+
+  public UNSAFE_componentWillReceiveProps(nextProps: AtSearchBarProps): void {
+    if (nextProps.focus !== this.props.focus) {
+      this.setState({ isFocus: !!nextProps.focus })
+    }
   }
 
   public render(): JSX.Element {

@@ -1,0 +1,38 @@
+@use "sass:math";
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-fab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: $at-fab-size;
+  height: $at-fab-size;
+  color: $color-white;
+  font-size: $font-size-base;
+  text-align: center;
+  border-radius: math.div($at-fab-size, 2);
+  background: $at-fab-bg-color;
+  // box-shadow: $at-fab-box-shadow;
+
+  // &:active {
+  //   background: $at-fab-bg-color-active;
+  // }
+
+  /* elements */
+  &__icon {
+    width: $at-fab-icon-size;
+    height: $at-fab-icon-size;
+    font-size: $at-fab-icon-size;
+  }
+
+
+
+  /* modifiers */
+  &--small {
+    width: $at-fab-size-sm;
+    height: $at-fab-size-sm;
+  }
+}
+

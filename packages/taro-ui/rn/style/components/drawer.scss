@@ -1,0 +1,72 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-drawer-duration: 300ms;
+
+.at-drawer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* elements */
+  &__mask {
+    @include overlay;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: $at-drawer-content-width;
+    text-align: left;
+    background-color: $color-bg;
+    // opacity: 0;
+    // overflow-y: auto;
+    z-index: 1;
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  /* modifiers */
+  // &--left {
+  //   .at-drawer__content {
+  //     left: 0;
+  //     //  transform: translateX(-100%);
+  //   }
+  // }
+
+  // &--right {
+  //   .at-drawer__content {
+  //     right: 0;
+  //     //  transform: translateX(100%);
+  //   }
+  // }
+
+  &--show {
+    // .at-drawer__content {
+    //   opacity: 1;
+    //   //  transform: translateX(0%);
+    // }
+  }
+}
+
+// @keyframes anim-show {
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes anim-hide {
+//   100% {
+//     opacity: 0;
+//   }
+// }

@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="equalizer" unicode="&#xe91c;" d="M545 845h-66v-362h-99v-198h99v-362h66v362h99v198h-99v362zM578 351h-132v66h132v-66zM874 121h99v-198h-264v198h99v724h66v-724zM907 -11v66h-132v-66h132zM51 647v198h264v-198h-99v-724h-66v724h-99zM117 779v-66h132v66h-132z"/>
+</svg>

@@ -30,7 +30,7 @@ export default class AtTextarea extends React.Component<AtTextareaProps> {
   public static propTypes: InferProps<AtTextareaProps>
 
   private handleInput = (event: CommonEvent & ExtendEvent): void => {
-    this.props.onChange(event.target.value, event)
+    this.props.onChange(event.detail.value, event)
   }
 
   private handleFocus = (event: CommonEvent): void => {

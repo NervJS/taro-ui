@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="volume-minus" unicode="&#xe959;" d="M287 630q-38 -1 -60 -23t-22 -59v-328q0 -37 22 -59t60 -23h164l245 -164v820l-245 -164h-164zM614 638v-508l-139 90h-188v328h188zM778 466q38 -1 60 -23t22 -59t-22 -59t-60 -23v164z"/>
+</svg>

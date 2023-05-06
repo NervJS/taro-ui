@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="loading" unicode="&#xe967;" d="M518 793q-15 3 -25.5 -9.5t-4 -27t22.5 -16.5h1q72 0 136.5 -27t115.5 -77.5t77.5 -115.5t26.5 -136q-4 -152 -104 -252t-252 -103q-152 3 -252 103t-104 252v0q0 12 -7.5 19.5t-19 7.5t-19 -7.5t-8.5 -19.5v0q5 -174 120.5 -289.5t289.5 -120.5q174 5 289.5 120.5 t120.5 289.5q-5 172 -118.5 287t-285.5 122z"/>
+</svg>

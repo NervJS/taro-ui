@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 
 import AtComponent from './base'
 
@@ -82,6 +82,7 @@ export interface AtCountdownState {
 export interface AtCountdownItemProps extends AtComponent {
   num: number
   separator: string
+  isCard?: boolean
 }
 
 declare const AtCountDown: ComponentClass<AtCountDownProps>

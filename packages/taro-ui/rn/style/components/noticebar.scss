@@ -1,0 +1,111 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-noticebar {
+  position: relative;
+  padding: $spacing-v-sm $spacing-h-lg;
+  color: $at-noticebar-text-color;
+  background: $at-noticebar-bg-color;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  /* elements */
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    &--hide {
+      flex-direction: row;
+      opacity: 0;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+    }
+
+    &--has-close {
+      margin-left: 20px;
+    }
+
+    &-icon {
+      // width: 30px;
+      // height: 30px;
+
+      &__at-icon {
+        color: $at-noticebar-text-color;
+        font-size: $at-noticebar-btn-close-size;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-wrap: nowrap;
+      font-size: $at-noticebar-font-size;
+      color: $at-noticebar-text-color;
+
+      &-wrap {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        // padding: 0 20px;
+        overflow: hidden;
+      }
+    }
+
+    &-inner {
+      display: flex;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 42%;
+    left: $spacing-h-lg;
+    width: $at-noticebar-btn-close-size;
+    height: $at-noticebar-btn-close-size;
+
+    &-icon {
+      // width: $at-noticebar-btn-close-size;
+      // height: $at-noticebar-btn-close-size;
+      color: $at-noticebar-btn-close-color;
+      font-size: $at-noticebar-btn-close-size;
+    }
+
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    &-text {
+      font-size: $at-noticebar-font-size;
+      color: $color-grey-2;
+    }
+
+
+    &-icon {
+      display: inline-block;
+      width: $at-noticebar-font-size;
+      // vertical-align: middle;
+      overflow: hidden;
+
+      &__at-icon {
+        color: $color-grey-2;
+        font-size: $at-noticebar-font-size;
+      }
+    }
+  }
+
+
+  /* modifiers */
+  &--single {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}

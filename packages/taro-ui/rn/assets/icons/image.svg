@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="image" unicode="&#xe92e;" d="M866 794h-708q-46 -2 -76 -32t-31 -75v-567q1 -45 31 -75t76 -31h708q46 1 76 31t31 75v567q-1 45 -31 75t-76 32zM158 723h708q16 -1 26 -11t10 -25v-339l-182 181l-178 -183l-108 109l-312 -321v553q0 15 10 25t26 11zM704 85h-532l263 269zM902 120q0 -15 -10 -25 t-26 -10h-62l-213 212l134 131l180 -181zM264 510q-20 0 -36.5 9t-26.5 26t-10 36t10 36t26.5 26t36.5 9q30 -1 50 -21t20 -50t-20 -50t-50 -21z"/>
+</svg>

@@ -1,0 +1,74 @@
+@use "sass:math";
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-tag-border-size: 1PX;
+
+.at-tag {
+  padding: 0 $spacing-h-xl;
+  height: $at-tag-height;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  border: $at-tag-border-size solid $at-tag-border-color;
+  border-radius: $border-radius-md;
+  background-color: $at-tag-bg-color;
+
+  &--text {
+    color: $at-tag-color;
+    font-size: $at-tag-font-size;
+  }
+
+  /* modifiers */
+  &--primary {
+    color: $at-tag-color-primary;
+    border-color: $at-tag-border-color-primary;
+    background-color: $at-tag-bg-color-primary;
+
+    &--text {
+      color: $at-tag-color-primary;
+    }
+  }
+
+  &--active {
+    border-color: $at-tag-border-color-active;
+    background-color: $at-tag-bg-color-active;
+
+    &--text {
+      color: $at-tag-color-active;
+    }
+
+    &-primary {
+      border-color: $at-tag-border-color-active;
+      background-color: $at-tag-bg-color-primary-active;
+
+      &--text {
+        color: $at-tag-color-primary-active;
+      }
+    }
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--circle {
+    border-radius: math.div($at-tag-height, 2);
+    overflow: hidden;
+  }
+
+  &--small {
+    padding: 0 $spacing-h-md;
+    height: $at-tag-height-sm;
+
+    &--text {
+      font-size: $at-tag-font-size-sm;
+    }
+
+    &-circle {
+      border-radius: math.div($at-tag-height-sm, 2);
+    }
+  }
+}

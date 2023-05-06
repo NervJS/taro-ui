@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
@@ -65,6 +65,7 @@ export interface AtFloatLayoutProps extends AtComponent {
 
 export interface AtFloatLayoutState {
   _isOpened: boolean
+  translateY?: any
 }
 
 declare const AtFloatLayout: ComponentClass<AtFloatLayoutProps>

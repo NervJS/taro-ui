@@ -1,0 +1,28 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-load-more {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $at-load-more-height;
+  overflow: hidden;
+  /*  #ifndef  rn  */
+  // box-sizing: border-box;
+  /*  #endif  */
+
+  &__cnt {
+    flex: 1;
+    width: 100%;
+  }
+
+  &__tip {
+    text-align: center;
+    width: 100%;
+    color: $at-load-more-tips-color;
+    font-size: $at-load-more-tips-size;
+  }
+}

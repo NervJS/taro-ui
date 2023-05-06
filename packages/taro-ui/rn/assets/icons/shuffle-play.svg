@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="shuffle-play" unicode="&#xe94a;" d="M770 173h-65q-96 2 -161 67.5t-68 160.5q3 96 68 161.5t161 67.5h65v-98l203 131l-203 131v-98h-65q-89 -1 -157.5 -45t-104.5 -119q-35 75 -103.5 119t-157.5 45h-131v-66h131q96 -2 161 -67.5t68 -161.5q-3 -95 -68 -160.5t-161 -67.5h-131v-66h131q89 1 157.5 45 t103.5 119q36 -75 104.5 -119t157.5 -45h65v-98l203 131l-203 131v-98z"/>
+</svg>

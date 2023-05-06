@@ -39,6 +39,7 @@
         "@typescript-eslint/member-delimiter-style": [
           "off"
         ],
+        "import/no-named-as-default": "off",
         "class-methods-use-this": "off",
         "prefer-rest-params": "off",
         "react/jsx-filename-extension": [
@@ -77,6 +78,7 @@
         ]
       },
       "settings": {
+        "import/ignore": ["react-native"],
         "react": {
           "version": "detect"
         }
@@ -176,7 +178,9 @@
     {
       "files": [
         "packages/taro-ui-demo/**/*.ts",
-        "packages/taro-ui-demo/**/*.tsx"
+        "packages/taro-ui-demo/**/*.tsx",
+        "packages/taro-ui-demo-rn/**/*.ts",
+        "packages/taro-ui-demo-rn/**/*.tsx"
       ],
       "extends": [
         "taro/react"
@@ -185,7 +189,9 @@
     {
       "files": [
         "packages/taro-ui-demo/config/*.js",
-        "packages/taro-ui-demo/babel.config.js"
+        "packages/taro-ui-demo/babel.config.js",
+        "packages/taro-ui-demo-rn/**/*.ts",
+        "packages/taro-ui-demo-rn/**/*.tsx"
       ],
       "rules": {
         "import/no-commonjs": "off"

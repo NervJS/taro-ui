@@ -1,10 +1,11 @@
 {
   "name": "taro-ui",
-  "version": "3.0.0-alpha.11",
+  "version": "3.1.0-beta.4",
   "description": "UI KIT for Taro",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
   "source": "src/index.ts",
+  "react-native": "rn/index.ts",
   "sideEffects": [
     "*.scss",
     "*.css"
@@ -18,7 +19,8 @@
   "files": [
     "lib",
     "dist",
-    "types"
+    "types",
+    "rn"
   ],
   "author": "O2Team <aotu.io>",
   "homepage": "https://taro-ui.aotu.io",
@@ -33,10 +35,10 @@
   "scripts": {
     "dev": "yarn run dev:lib",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",
+    "dev:rollup": "rollup --config ./config/rollup.config.js --watch",
     "build": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",
-    "prepublishOnly": "yarn run clean && yarn run build",
     "lint": "eslint ./src --fix",
     "lint:style": "stylelint \"src/**/*.scss\" --syntax scss",
     "lint:style-fix": "stylelint \"src/**/*.scss\" --syntax scss --fix",
@@ -50,7 +52,8 @@
     "classnames": "^2.2.6",
     "dayjs": "^1.7.7",
     "lodash": "^4.17.10",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-native-modal": "^13.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
@@ -63,8 +66,11 @@
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "@types/react-native": "^0.64.13",
+    "camelize": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-native": "^0.64.0",
     "rollup": "^2.3.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-typescript2": "^0.27.0",
@@ -76,5 +82,6 @@
     "@tarojs/react": ">=3",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0"
-  }
+  },
+  "gitHead": "c33cc7fbb734f0dbdd6e305dda1bc8300e5adbe2"
 }

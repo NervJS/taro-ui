@@ -55,7 +55,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
         }
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
-          const prevTabItem = this.tabHeaderRef.childNodes[index]
+          const prevTabItem = this.tabHeaderRef.children[index]
           prevTabItem &&
             this.setState({
               _scrollTop: prevTabItem.offsetTop,
@@ -81,6 +81,8 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     // 获取触摸时的原点
     this._touchDot = e.touches[0].pageX
     // 使用js计时器记录时间
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     this._timer = setInterval(() => {
       this._interval++
     }, 100)

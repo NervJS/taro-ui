@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 
 import AtComponent from './base'
 
@@ -11,6 +11,8 @@ export interface CheckboxOption<T> {
 
 export interface AtCheckboxProps<T> extends AtComponent {
   options: Array<CheckboxOption<T>>
+
+  border?: boolean
 
   selectedList: Array<T>
 

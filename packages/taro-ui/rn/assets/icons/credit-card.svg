@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="credit-card" unicode="&#xe918;" d="M907 742h-790q-28 0 -46.5 -18.5t-19.5 -46.5v-593q1 -28 19.5 -46.5t46.5 -19.5h790q28 1 46.5 19.5t19.5 46.5v593q-1 28 -19.5 46.5t-46.5 18.5zM907 84h-790v395h790v-395zM907 578h-790v99h790v-99zM644 249h197v-66h-197v66z"/>
+</svg>

@@ -1,0 +1,21 @@
+.tab-content {
+  padding: 100px 50px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #FAFBFC;
+}
+
+.tab-content--vertical {
+  justify-content: center;
+  height: 200PX;
+  // padding: 100PX 50px;
+  // font-size: 30px;
+  text-align: center;
+  background-color: #FAFBFC;
+}
+
+.panel {
+  &__content {
+    padding: 0 20px;
+  }
+}

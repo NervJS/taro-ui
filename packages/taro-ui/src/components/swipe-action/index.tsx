@@ -138,7 +138,7 @@ export default class AtSwipeAction extends React.Component<
 
   public render(): JSX.Element {
     const { componentId, offsetSize } = this.state
-    const { options } = this.props
+    const { options, disabled } = this.props
     const rootClass = classNames('at-swipe-action', this.props.className)
 
     return (
@@ -163,6 +163,7 @@ export default class AtSwipeAction extends React.Component<
             x={offsetSize}
             onTouchEnd={this.onTouchEnd}
             onChange={this.onChange}
+            disabled={disabled}
             style={{
               width: `${this.eleWidth}px`,
               left: `${this.maxOffsetSize}px`

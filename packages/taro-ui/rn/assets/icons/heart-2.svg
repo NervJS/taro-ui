@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <path transform="translate(0, -128) rotate(180, 512 512)" glyph-name="heart-2" unicode="&#xe95f;" d="M513 15l-399 397q-64 70 -63.5 159t65.5 157q69 65 158 66t158 -63l81 -80l79 80q69 64 158 63t157 -66q66 -68 66.5 -157t-63.5 -159z"/>
+</svg>

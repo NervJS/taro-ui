@@ -1,0 +1,149 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+.at-input {
+  position: relative;
+  padding: $spacing-v-lg 0;
+  color: $at-input-label-color;
+  background-color: $color-bg;
+  margin-left: $spacing-h-xl;
+
+  /* 修复底线隐藏问题 */
+  margin-bottom: 1PX;
+  @include hairline-bottom();
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-form;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  /* elements */
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &--required {
+    margin-right: 8px;
+    color: $color-error;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  &__title {
+    margin-right: $spacing-h-md;
+    width: 172px;
+    font-size: $at-input-font-size;
+    line-height: $line-height-zh * $at-input-font-size;
+    // vertical-align: middle;
+    text-align: left;
+    &--error {
+      color: $color-error;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding-top: 0;
+    padding-right: $spacing-v-md;
+    padding-left: 0;
+    padding-bottom: 0;
+    color: $at-input-text-color;
+    font-size: $at-input-font-size;
+    // 设行高要兼容 placehost style，不然会弹上去
+    // line-height: 1.2 * $at-input-font-size;
+    /*postcss-pxtransform rn eject enable*/
+    vertical-align: middle;
+    /*postcss-pxtransform rn eject disable*/
+    @include placeholder($at-input-placeholder-color);
+  }
+
+  // input {
+  //   color: $at-input-text-color;
+  //   font-size: $at-input-font-size;
+  //   height: $at-input-font-size * 1.4;
+  //   line-height: $line-height-zh * $at-input-font-size;
+  // }
+
+  &__icon {
+    // display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    min-width: 40px;
+    // height: 100%;
+    font-size: $at-input-font-size;
+    text-align: center;
+    line-height: $at-input-font-size;
+
+    &-close {
+      color: #ccc;
+      font-size: $at-input-font-size;
+    }
+
+    &-alert {
+      color: #FF4949;
+      font-size: $at-input-font-size;
+    }
+  }
+
+  &__children {
+    // display: inline-flex;
+    @include hairline-left();
+    padding: 0 $spacing-v-md;
+    color: $color-brand-dark;
+    font-size: $at-input-font-size;
+    text-align: center;
+
+    // > view,
+    // div,
+    // span,
+    // text,
+    // image,
+    // .taro-img {
+    //   //display: inline-block;
+    //   padding: 0 $spacing-v-md;
+    //   color: $color-brand-dark;
+    //   font-size: $at-input-font-size;
+    //   text-align: center;
+    // }
+
+    // > image,
+    // img,
+    // .taro-img {
+    //   // display: inline-block;
+    //   width: 145px;
+    //   height: 60px;
+    //   vertical-align: middle;
+    // }
+  }
+
+  /* modifiers */
+  &--error {
+    color: $color-error;
+  }
+
+  &--disabled {
+    opacity: $opacity-disabled;
+  }
+
+  &--without-border {
+    border-bottom-width: 0;
+  }
+
+  // &--without-border {
+  //   &::after {
+  //     border: none;
+  //   }
+  // }
+}

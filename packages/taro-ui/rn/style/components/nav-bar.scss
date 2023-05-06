@@ -1,0 +1,123 @@
+@import '../variables/default.scss';
+@import '../mixins/index.scss';
+
+$at-nav-bar-spacing-v: 9PX;
+$at-nav-bar-spacing-h: 5PX;
+$at-nav-bar-font-size: 18PX;
+$at-nav-bar-back-font-size: 16PX;
+
+.at-nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+  width: 100%;
+  background-color: $color-bg;
+  // box-sizing: border-box;
+  //  white-space: nowrap;
+  overflow: hidden;
+  border-bottom-width: 1px;
+  border-bottom-color: $color-border-light;
+  border-style: solid;
+
+  /* elements */
+  &__left-view {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+    height: 100%;
+    color: $at-nav-bar-link-color;
+    font-size: $at-nav-bar-font-size;
+    // text-align: left;
+    // text-overflow: ellipsis;
+    overflow: hidden;
+    // @include active;
+
+    &__text {
+      color: $at-nav-bar-link-color;
+    }
+
+    // .at-icon {
+    //   font-size: 48px;
+    // }
+  }
+
+  &__right-view {
+    flex: 2;
+    height: 100%;
+    color: $at-nav-bar-link-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &__title {
+    flex: 5;
+    color: $at-nav-bar-title-color;
+    font-size: $at-nav-bar-font-size;
+    text-align: center;
+    //  vertical-align: middle;
+    // line-height: $line-height-base;
+    // @include line;
+  }
+
+  &__text {
+    // display: flex;
+    // align-items: center;
+    padding-left: $at-nav-bar-spacing-h;
+    // height: 100%;
+    font-size: $at-nav-bar-back-font-size;
+    // vertical-align: middle;
+    // line-height: $line-height-base;
+    // @include line;
+  }
+
+  &__container {
+    display: flex;
+    padding: $at-nav-bar-spacing-v $at-nav-bar-spacing-h;
+    width: 50%;
+    height: 100%;
+    font-size: $at-nav-bar-font-size;
+    text-align: center;
+    // box-sizing: border-box;
+    // @include active;
+
+    // .at-icon {
+    //   font-size: 48px;
+    // }
+
+    &--hide {
+     //  visibility: hidden;
+     opacity: 0;
+     height: 0
+    }
+  }
+
+  &__at-icon {
+    // width: $at-fab-icon-size;
+    // height: $at-fab-icon-size;
+    font-size: 48px;
+    color: $at-nav-bar-link-color;
+  }
+
+  /* modifiers */
+  &--no-border {
+    border-bottom-width: 0;
+    // &::after {
+    //   border-bottom-width: 0;
+    // }
+  }
+
+  // &--fixed {
+  //   //  position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: $zindex-nav;
+  // }
+}

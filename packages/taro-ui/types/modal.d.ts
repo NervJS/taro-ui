@@ -1,7 +1,7 @@
-import { MouseEvent, ComponentClass } from "react"
-import { CommonEventFunction } from "@tarojs/components/types/common"
+import { ComponentClass } from 'react'
+import { CommonEventFunction } from '@tarojs/components/types/common'
 
-import AtComponent from "./base"
+import AtComponent from './base'
 
 export interface AtModalProps extends AtComponent {
   /**
@@ -53,9 +53,9 @@ export interface AtModalActionProps extends AtComponent {
   isSimple: boolean
 }
 
-export interface AtModalContentProps extends AtComponent {}
+export type AtModalContentProps = AtComponent
 
-export interface AtModalHeaderProps extends AtComponent {}
+export type AtModalHeaderProps = AtComponent
 
 declare const AtModal: ComponentClass<AtModalProps>
 
