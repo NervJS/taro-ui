@@ -2,6 +2,7 @@ const highlight = require('highlight.js')
 const loaderUtils = require('loader-utils')
 const frontMatter = require('front-matter')
 const mdContainer = require('markdown-it-container')
+const humps = require('humps')
 
 let md = require('markdown-it')
 
@@ -57,6 +58,7 @@ md = md({
   })
 
 const formatModule = (imports, js, jsx, state, method) => {
+
   const moduleText = `
     ${imports}
 
@@ -160,11 +162,51 @@ module.exports = function (source) {
     }
   })
 
+  // warning
+  md.use(mdContainer, 'caution', {
+    validate: params => params.trim().match(/^caution\s*(.*)$/),
+    render: (tokens, idx) => {
+      // container 从开头到结尾把之间的token跑一遍，其中idx定位到具体的位置
+
+      // 获取描述
+      const m = tokens[idx].info.trim().match(/^caution\s*(.*)$/)
+
+      // 有此标记代表 ::: 开始
+      if (tokens[idx].nesting === 1) {
+        return `<div className="at-component__caution">${md.render(m[1])}`
+      }
+      return '</div>'
+    }
+  })
+
   // md 处理过后的字符串含有 class 和 style ，需要再次处理给到react
+  const htmlStyleToReactStyle = (htmlStyle) => {
+    const reactStyle = {}
+
+    const stylePairs = htmlStyle.split(';')
+    stylePairs.forEach((stylePair) => {
+      if (stylePair) {
+        const [key, value] = stylePair.split(':')
+        if (key && value) {
+          const reactKey = humps.camelize(key.trim())
+          reactStyle[reactKey] = value.trim()
+        }
+      }
+    })
+
+    return reactStyle
+  }
+
   const content = md
     .render(body)
     .replace(/<hr>/g, '<hr />')
     .replace(/<br>/g, '<br />')
     .replace(/class=/g, 'className=')
+    // style="color: red" => style={{color: 'red'}}
+    .replace(/style="(.*?)"/g, (_, style) => {
+      const reactStyle = htmlStyleToReactStyle(style)
+      return `style={${JSON.stringify(reactStyle)}}`
+    })
+
   return formatModule(imports, moduleJS.join('\n'), content, state)
 }

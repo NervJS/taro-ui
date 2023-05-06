@@ -184,28 +184,42 @@ import './icon.scss'
 
 ### 主要
 
-<IconList type='main'></IconList>
+<div>
+  <IconList type='main'></IconList>
+</div> 
 
 ### 文件
 
-<IconList type='file'></IconList>
+<div>
+  <IconList type='file'></IconList>
+</div>
 
 ### 文本
 
-<IconList type='text'></IconList>
+<div>
+  <IconList type='text'></IconList>
+</div>
 
 ### 箭头
 
-<IconList type='arrow'></IconList>
+<div>
+  <IconList type='arrow'></IconList>
+</div>
 
 ### 媒体控制
 
-<IconList type='media'></IconList>
+<div>
+  <IconList type='media'></IconList>
+</div>
 
 ### 多媒体
 
-<IconList type='photo'></IconList>
+<div>
+  <IconList type='photo'></IconList>
+</div>
 
 ### Logo
 
-<IconList type='logo'></IconList>
+<div>
+  <IconList type='logo'></IconList>
+</div>

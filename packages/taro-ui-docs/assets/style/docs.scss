@@ -106,6 +106,16 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
     background-color: $bg-color-base;
     cursor: pointer;
   }
+  &__caution {
+    background-color: #fff8e6;
+    border: 1px solid #ffe58f;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 16px 0;
+    color: #faad14;
+    font-size: 14px;
+    border-left: 4px solid #ffe58f;
+  }
 }
 
 .at-markdown {
@@ -433,7 +443,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 
   &::after {
     display: none;
-    content: "";
+    content: '';
     z-index: 11;
     position: absolute;
     width: 15px;
@@ -484,7 +494,7 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
 /**
  * Resource
  */
- .at-resource {
+.at-resource {
   margin: 24px 0;
 
   &__item {
@@ -497,12 +507,12 @@ $drop-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
     border: 1px solid $border-color-lighter;
     border-radius: $border-radius-base;
     overflow: hidden;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &:hover {
       border-color: $border-color-lightest;
       background-color: #fff;
-      box-shadow: 0 4px 30px 0 rgba(223, 225, 230, .5);
+      box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
     }
     a {
       width: 100%;

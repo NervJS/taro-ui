@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import 'at-ui-style'
@@ -37,10 +37,10 @@ class App extends React.Component {
     )
   }
 }
-
-ReactDOM.render(
+const container = document.getElementById('container');
+const root = createRoot(container);
+root.render(
   <Router>
     <App />
-  </Router>,
-  document.getElementById('container')
+  </Router>
 )
