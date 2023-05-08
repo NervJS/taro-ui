@@ -176,6 +176,7 @@ export default class AtInput extends React.Component<AtInputProps> {
             cursorSpacing={cursorSpacing}
             maxlength={maxLength}
             autoFocus={autoFocus}
+            // TODO: 临时解决方案，等 Taro 更新后还原到 focus={focus}
             {...(focus ? { focus } : {})}
             value={value}
             confirmType={confirmType}
