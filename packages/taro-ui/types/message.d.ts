@@ -32,7 +32,7 @@ interface Options {
   duration?: number
 }
 
-declare function message({ }: Options): void
+declare function message(options: Options): void
 
 declare module '@tarojs/taro' {
   interface TaroStatic {
