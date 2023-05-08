@@ -79,9 +79,12 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss": "^8.4.18",
     "react-refresh": "^0.11.0",
+    "sass": "^1.49.9",
     "stylelint": "^14.4.0",
     "typescript": "^4.1.0",
-    "webpack": "4.46.0",
-    "sass": "^1.49.9"
+    "webpack": "4.46.0"
+  },
+  "resolutions": {
+    "@swc/core": "1.3.42"
   }
 }
