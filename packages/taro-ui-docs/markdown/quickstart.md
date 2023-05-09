@@ -154,7 +154,7 @@ import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 在 taro3.5 之后的版本中，在开启 `prebundle` (默认开启)的情况下，会导致 taro-ui 所引用的 @taro/components 组件没有被打进最终的 bundle 中，导致页面表现异常。
 :::
 
-为了解决上述问题，可以手动将ossaui排除在prebundle列表之外。在 taro 项目的 `config/index.js` 中新增如下配置项：
+为了解决上述问题，可以手动将 taro-ui 排除在 prebundle 列表之外。在 taro 项目的 `config/index.js` 中新增如下配置项：
 
 ```js
 module.exports = {
