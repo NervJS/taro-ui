@@ -9,6 +9,11 @@
     "url": "git@github.com:nervjs/taro-ui.git"
   },
   "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
@@ -42,6 +47,9 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.16.0",
     "typescript": "~3.7.2"
+  },
+  "resolutions": {
+    "sharp": "^0.28.3"
   },
   "husky": {
     "hooks": {

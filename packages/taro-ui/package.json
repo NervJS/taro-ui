@@ -78,10 +78,12 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
+    "@tarojs/taro": ">=3",
     "@tarojs/components": ">=3",
     "@tarojs/react": ">=3",
     "react": ">=16.13.0",
-    "react-dom": ">=16.13.0"
+    "react-dom": ">=16.13.0",
+    "react-native": ">=0.62.0"
   },
   "gitHead": "c33cc7fbb734f0dbdd6e305dda1bc8300e5adbe2"
 }

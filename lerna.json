@@ -1,8 +1,6 @@
 {
   "packages": [
-    "packages/taro-ui",
-    "packages/taro-ui-demo",
-    "packages/taro-ui-demo-rn"
+    "packages/taro-ui"
   ],
   "command": {
     "publish": {
@@ -14,5 +12,6 @@
     }
   },
   "version": "3.1.0-beta.4",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }
