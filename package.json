@@ -11,7 +11,9 @@
   "license": "MIT",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/taro-ui",
+      "packages/taro-ui-demo",
+      "packages/taro-ui-docs"
     ]
   },
   "scripts": {
