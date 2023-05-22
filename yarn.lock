@@ -17752,10 +17752,10 @@ taro-css-to-react-native@3.6.6:
     "@tarojs/taro" "3.6.6"
     react "^18.2.0"
     react-dom "^18.2.0"
-    taro-ui "file:../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.1.0-beta.4-2fb21315-8c20-4004-a214-9a8fba63b1b3-1684774094338/node_modules/taro-ui"
+    taro-ui "file:../../Library/Caches/Yarn/v6/npm-taro-ui-demo-3.1.0-beta.4-7223e386-b3d9-4fc0-bf1e-becbe3704d54-1684775109049/node_modules/taro-ui"
 
 "taro-ui@file:packages/taro-ui":
-  version "3.1.0-beta.4"
+  version "3.1.0-beta.5cd"
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
@@ -18252,20 +18252,10 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@^3.8.3:
-  version "3.9.10"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.10.tgz"
-  integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
-
-typescript@^4.1.0:
-  version "4.9.5"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
-
-typescript@~3.7.2:
-  version "3.7.7"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-3.7.7.tgz"
-  integrity sha512-MmQdgo/XenfZPvVLtKZOq9jQQvzaUAUpcKW8Z43x9B2fOm4S5g//tPtMweZUIP+SoBqrVPEIm+dJeQ9dfO0QdA==
+typescript@~4.1.0:
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.6.tgz#1becd85d77567c3c741172339e93ce2e69932138"
+  integrity sha512-pxnwLxeb/Z5SP80JDRzVjh58KsM6jZHRAOtTpS7sXLS4ogXNKC9ANxHHZqLLeVHZN35jCtI4JdmLLbLiC1kBow==
 
 ua-parser-js@^0.7.30:
   version "0.7.35"

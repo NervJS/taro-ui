@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "3.1.0-beta.4",
+  "version": "3.1.0-beta.5",
   "description": "UI KIT for Taro",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
@@ -75,8 +75,7 @@
     "rollup": "^2.3.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "rollup-plugin-visualizer": "^4.0.2",
-    "typescript": "^3.8.3"
+    "rollup-plugin-visualizer": "^4.0.2"
   },
   "peerDependencies": {
     "@tarojs/taro": ">=3",
