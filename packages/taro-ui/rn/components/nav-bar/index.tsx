@@ -228,5 +228,6 @@ AtNavBar.propTypes = {
   ]),
   onClickLeftIcon: PropTypes.func,
   onClickRgIconSt: PropTypes.func,
-  onClickRgIconNd: PropTypes.func
+  onClickRgIconNd: PropTypes.func,
+  onClickTitle: PropTypes.func
 }
