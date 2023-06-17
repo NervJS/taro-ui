@@ -107,7 +107,7 @@ export default class AtModal extends React.Component<
                       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                       // @ts-ignore
                       dangerouslySetInnerHTML={{
-                        __html: content.replace(/\n/g, '<br/>')
+                        __html: content.replace(/\\n/g, '<br/>')
                       }}
                     ></Text>
                   ) : (
