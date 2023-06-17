@@ -56,13 +56,15 @@ export interface AtSwipeActionProps extends AtComponent {
 
   /**
    * 滑块最大滑动距离，一般是按钮个数乘以按钮宽度
+   * @deprecated 已废弃，无需设置 maxDistance
    */
-  maxDistance: number
+  maxDistance?: number
 
   /**
    * SwipeAction 组件宽度
+   * @deprecated 已废弃，无需设置 areaWidth
    */
-  areaWidth: number
+  areaWidth?: number
 
   /**
    * 判断是否需要打开的比例阈值，即 滑块滑动距离 / 滑块最大滑动距离， 默认为 0.5
@@ -75,6 +77,8 @@ export interface AtSwipeActionState {
   offsetSize: number
   _isOpened: boolean
   needAnimation: boolean
+  eleWidth: number
+  maxOffsetSize: number
 }
 
 export interface AtSwipeActionOptionsProps extends AtComponent {

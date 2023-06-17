@@ -34,6 +34,7 @@ $at-list-item-horizontal-padding: 24px;
     color: $at-list-text-color;
     font-size: $font-size-lg;
     line-height: $line-height-zh;
+    width: 100%;
     @include active;
     @include hairline-bottom-relative($left: $spacing-h-lg);
 
