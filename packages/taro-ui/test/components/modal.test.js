@@ -84,7 +84,7 @@ describe('Modal Snap', () => {
         title='标题'
         cancelText='取消'
         confirmText='确认'
-        content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+        content='欢迎加入京东凹凸实验室\n欢迎加入京东凹凸实验室'
       />
     )
     expect(component).toMatchSnapshot()
@@ -106,7 +106,7 @@ describe('Modal Behavior ', () => {
         onClose={onClose}
         onCancel={onCancel}
         onConfirm={onConfirm}
-        content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+        content='欢迎加入京东凹凸实验室\n欢迎加入京东凹凸实验室'
       />
     )
     const componentDom = findDOMNode(component, 'at-modal')
@@ -144,7 +144,7 @@ describe('Modal Behavior ', () => {
         closeOnClickOverlay={false}
         confirmText='确认'
         onClose={onClose}
-        content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+        content='欢迎加入京东凹凸实验室\n欢迎加入京东凹凸实验室'
       />
     )
     const componentDom = findDOMNode(component, 'at-modal')
