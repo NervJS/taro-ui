@@ -22,6 +22,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
     this.props.onClickRgIconNd && this.props.onClickRgIconNd(event)
   }
 
+  private handleClickTitle(event: ITouchEvent): void {
+    this.props.onClickTitle && this.props.onClickTitle(event)
+  }
+
   public render(): JSX.Element {
     const {
       customStyle,
@@ -33,7 +37,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       leftText,
       title,
       rightFirstIconType,
-      rightSecondIconType,
+      rightSecondIconType
     } = this.props
     const linkStyle: any = {
       // color,
@@ -49,7 +53,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       prefixClass: 'at-icon',
       value: '',
       color: '',
-      size: 24,
+      size: 24
     }
 
     const leftIconInfo =
@@ -61,9 +65,9 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       'at-nav-bar__at-icon',
       {
         [`${leftIconInfo.prefixClass}-${leftIconInfo.value}`]:
-          leftIconInfo.value,
+          leftIconInfo.value
       },
-      leftIconInfo.className,
+      leftIconInfo.className
     )
 
     const rightFirstIconInfo =
@@ -75,9 +79,9 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       'at-nav-bar__at-icon',
       {
         [`${rightFirstIconInfo.prefixClass}-${rightFirstIconInfo.value}`]:
-          rightFirstIconInfo.value,
+          rightFirstIconInfo.value
       },
-      rightFirstIconInfo.className,
+      rightFirstIconInfo.className
     )
 
     const rightSecondIconInfo =
@@ -89,9 +93,9 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
       'at-nav-bar__at-icon',
       {
         [`${rightSecondIconInfo.prefixClass}-${rightSecondIconInfo.value}`]:
-          rightSecondIconInfo.value,
+          rightSecondIconInfo.value
       },
-      rightSecondIconInfo.className,
+      rightSecondIconInfo.className
     )
 
     return (
@@ -100,9 +104,9 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           {
             'at-nav-bar': true,
             'at-nav-bar--fixed': fixed,
-            'at-nav-bar--no-border': !border,
+            'at-nav-bar--no-border': !border
           },
-          className,
+          className
         )}
         style={customStyle}
       >
@@ -120,7 +124,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
               customStyle={Object.assign(
                 {},
                 linkStyle,
-                leftIconInfo.customStyle,
+                leftIconInfo.customStyle
               )}
             />
           )}
@@ -132,14 +136,17 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
             {leftText}
           </Text>
         </View>
-        <View className='at-nav-bar__title'>
+        <View
+          className='at-nav-bar__title'
+          onClick={this.handleClickTitle.bind(this)}
+        >
           {title || this.props.children}
         </View>
         <View className='at-nav-bar__right-view'>
           <View
             className={classNames({
               'at-nav-bar__container': true,
-              'at-nav-bar__container--hide': !rightSecondIconType,
+              'at-nav-bar__container--hide': !rightSecondIconType
             })}
             style={linkStyle}
             onClick={this.handleClickNd.bind(this)}
@@ -153,7 +160,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
                 customStyle={Object.assign(
                   {},
                   linkStyle,
-                  leftIconInfo.customStyle,
+                  leftIconInfo.customStyle
                 )}
               />
             )}
@@ -164,7 +171,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           <View
             className={classNames({
               'at-nav-bar__container': true,
-              'at-nav-bar__container--hide': !rightFirstIconType,
+              'at-nav-bar__container--hide': !rightFirstIconType
             })}
             style={linkStyle}
             onClick={this.handleClickSt.bind(this)}
@@ -178,7 +185,7 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
                 customStyle={Object.assign(
                   {},
                   linkStyle,
-                  leftIconInfo.customStyle,
+                  leftIconInfo.customStyle
                 )}
               />
             )}
@@ -202,7 +209,7 @@ AtNavBar.defaultProps = {
   leftText: '',
   title: '',
   rightFirstIconType: '',
-  rightSecondIconType: '',
+  rightSecondIconType: ''
 }
 
 AtNavBar.propTypes = {
@@ -217,9 +224,10 @@ AtNavBar.propTypes = {
   rightFirstIconType: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   rightSecondIconType: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object,
+    PropTypes.object
   ]),
   onClickLeftIcon: PropTypes.func,
   onClickRgIconSt: PropTypes.func,
   onClickRgIconNd: PropTypes.func,
+  onClickTitle: PropTypes.func
 }
