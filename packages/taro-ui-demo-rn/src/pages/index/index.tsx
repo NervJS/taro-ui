@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, Text, View } from '@tarojs/components'
 import Taro, { ShareAppMessageReturn } from '@tarojs/taro'
+import { AtIcon } from 'taro-ui'
 import iconAction from '../../assets/images/icon-list-action.png'
 import iconBasic from '../../assets/images/icon-list-basic.png'
 import iconForm from '../../assets/images/icon-list-form.png'
@@ -130,7 +131,7 @@ export default class Index extends React.Component<{}, IndexState> {
                 </View>
               </View>
               <View className='module-list__arrow'>
-                <Text className='at-icon at-icon-chevron-right' />
+                <AtIcon value='chevron-right' color='#fff' size='20' />
               </View>
             </View>
           ))}
