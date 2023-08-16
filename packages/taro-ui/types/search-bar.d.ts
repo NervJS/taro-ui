@@ -1,5 +1,8 @@
-import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import { ComponentClass } from 'react'
+import {
+  CommonEventFunction,
+  CommonEvent
+} from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 
@@ -58,6 +61,11 @@ export interface AtSearchBarProps extends AtComponent {
    * @default 'text'
    */
   inputType?: 'text' | 'number' | 'idcard' | 'digit'
+  /** 使用原生键盘
+   * @default true
+   * @supported alipay
+   */
+  enableNative?: boolean
   /**
    * 输入框值改变时触发的事件
    * @description 必填，开发者需要通过 onChange 事件来更新 value 值变化

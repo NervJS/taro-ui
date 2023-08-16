@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
@@ -53,6 +53,11 @@ export interface AtNavBarProps extends AtComponent {
    * 从右到左第二个图标类型点击事件
    */
   onClickRgIconNd?: CommonEventFunction
+
+  /**
+   * 标题点击事件
+   */
+  onClickTitle?: CommonEventFunction
 }
 
 declare const AtNavBar: ComponentClass<AtNavBarProps>

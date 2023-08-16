@@ -22,6 +22,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
     this.props.onClickRgIconNd && this.props.onClickRgIconNd(event)
   }
 
+  private handleClickTitle(event: ITouchEvent): void {
+    this.props.onClickTitle && this.props.onClickTitle(event)
+  }
+
   public render(): JSX.Element {
     const {
       customStyle,
@@ -53,7 +57,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
     const leftIconClass = classNames(
       leftIconInfo.prefixClass,
       {
-        [`${leftIconInfo.prefixClass}-${leftIconInfo.value}`]: leftIconInfo.value
+        [`${leftIconInfo.prefixClass}-${leftIconInfo.value}`]:
+          leftIconInfo.value
       },
       leftIconInfo.className
     )
@@ -65,7 +70,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
     const rightFirstIconClass = classNames(
       rightFirstIconInfo.prefixClass,
       {
-        [`${rightFirstIconInfo.prefixClass}-${rightFirstIconInfo.value}`]: rightFirstIconInfo.value
+        [`${rightFirstIconInfo.prefixClass}-${rightFirstIconInfo.value}`]:
+          rightFirstIconInfo.value
       },
       rightFirstIconInfo.className
     )
@@ -77,7 +83,8 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
     const rightSecondIconClass = classNames(
       rightSecondIconInfo.prefixClass,
       {
-        [`${rightSecondIconInfo.prefixClass}-${rightSecondIconInfo.value}`]: rightSecondIconInfo.value
+        [`${rightSecondIconInfo.prefixClass}-${rightSecondIconInfo.value}`]:
+          rightSecondIconInfo.value
       },
       rightSecondIconInfo.className
     )
@@ -115,7 +122,10 @@ export default class AtNavBar extends React.Component<AtNavBarProps> {
           )}
           <Text className='at-nav-bar__text'>{leftText}</Text>
         </View>
-        <View className='at-nav-bar__title'>
+        <View
+          className='at-nav-bar__title'
+          onClick={this.handleClickTitle.bind(this)}
+        >
           {title || this.props.children}
         </View>
         <View className='at-nav-bar__right-view'>
@@ -200,5 +210,6 @@ AtNavBar.propTypes = {
   ]),
   onClickLeftIcon: PropTypes.func,
   onClickRgIconSt: PropTypes.func,
-  onClickRgIconNd: PropTypes.func
+  onClickRgIconNd: PropTypes.func,
+  onClickTitle: PropTypes.func
 }

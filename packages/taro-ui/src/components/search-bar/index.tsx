@@ -76,7 +76,8 @@ export default class AtSearchBar extends React.Component<
       actionName = '搜索',
       inputType, // 处理issue#464
       className,
-      customStyle
+      customStyle,
+      enableNative
     } = this.props
     const { isFocus } = this.state
     const fontSize = 14
@@ -135,6 +136,7 @@ export default class AtSearchBar extends React.Component<
             focus={isFocus}
             disabled={disabled}
             maxlength={maxLength}
+            enableNative={enableNative}
             onInput={this.handleChange}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
@@ -171,7 +173,8 @@ AtSearchBar.defaultProps = {
   actionName: '搜索',
   inputType: 'text',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: (): void => {}
+  onChange: (): void => {},
+  enableNative: true
 }
 
 AtSearchBar.propTypes = {
@@ -189,5 +192,6 @@ AtSearchBar.propTypes = {
   onBlur: PropTypes.func,
   onConfirm: PropTypes.func,
   onActionClick: PropTypes.func,
-  onClear: PropTypes.func
+  onClear: PropTypes.func,
+  enableNative: PropTypes.bool
 }

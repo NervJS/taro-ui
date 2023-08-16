@@ -192,6 +192,7 @@ export default class Index extends Taro.Component {
 | showActionButton | √ | √ | 是否一直显示右侧按钮 | Boolean  | -  | false |
 | actionName | √ | √ | 右侧按钮文案 | String  | -  | '搜索' |
 | inputType | √ | √ | 输入框输入类型 | String | 'text', 'number', 'idcard', 'digit' | 'text' |
+| enableNative |   |   | 是否使用原生键盘，仅支持支付宝小程序 | Boolean | true |
 
 ## 事件
 

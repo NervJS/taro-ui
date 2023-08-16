@@ -83,3 +83,4 @@ import { AtNavBar } from 'taro-ui'
 | onClickLeftIcon | 左边第一个图标类型点击事件 | -  |
 | onClickRgIconSt | 从右到左第一个图标类型点击事件 | -  |
 | onClickRgIconNd | 从右到左第二个图标类型点击事件 | -  |
+| onClickTitle | 标题点击事件 | -  |
