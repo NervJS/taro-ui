@@ -21,7 +21,7 @@ declare namespace Calendar {
   export interface Item {
     value: string
 
-    _value: dayjs.Dayjs
+    _value?: dayjs.Dayjs
 
     text: number
 
@@ -46,6 +46,12 @@ declare namespace Calendar {
     isSelectedTail?: boolean
   }
 
+  export interface SelectedDate {
+    end?: Calendar.DateArg
+
+    start: Calendar.DateArg
+  }
+
   export interface GroupOptions {
     validDates: Array<ValidDate>
 
@@ -66,12 +72,6 @@ declare namespace Calendar {
     value: number
 
     list: List<T>
-  }
-
-  export interface SelectedDate {
-    end?: Calendar.DateArg
-
-    start: Calendar.DateArg
   }
 }
 
@@ -181,7 +181,7 @@ export interface AtCalendarControllerProps {
   onSelectDate: (e: BaseEvent) => void
 }
 
-export interface AtCalendarControllerState { }
+export interface AtCalendarControllerState {}
 // #endregion
 
 // #region AtCalendarBody
