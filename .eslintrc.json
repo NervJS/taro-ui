@@ -54,12 +54,14 @@
             ]
           }
         ],
-        "no-unused-vars": [
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
           "error",
           {
             "varsIgnorePattern": "React"
           }
         ],
+        "@typescript-eslint/no-empty-interface": "off",
         "no-console": [
           "error",
           {
