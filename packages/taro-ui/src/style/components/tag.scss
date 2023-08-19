@@ -42,7 +42,7 @@ $at-tag-border-size: 1PX;
   }
 
   &--circle {
-    border-radius: $at-tag-height * 0.5;
+    border-radius: calc($at-tag-height / 2);
     background-clip: border-box;
     overflow: hidden;
   }
@@ -54,7 +54,7 @@ $at-tag-border-size: 1PX;
     line-height: calc($at-tag-height-sm - 2px);
 
     &.at-tag--circle {
-      border-radius: $at-tag-height-sm * 0.5;
+      border-radius: calc($at-tag-height-sm / 2);
     }
   }
 }

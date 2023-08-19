@@ -137,7 +137,7 @@ export default class Index extends React.Component<{}, IndexState> {
                 <AtForm>
                   <AtInput
                     name='value1'
-                    title='标准五个字'
+                    title='标题五个字'
                     type='text'
                     placeholder='标准五个字'
                     value={this.state.value1}
@@ -145,7 +145,7 @@ export default class Index extends React.Component<{}, IndexState> {
                   />
                   <AtInput
                     name='value2'
-                    title='标题实在特别长就换行'
+                    title='测试标题特别长换行'
                     placeholder='其他列保持正常间距'
                     value={this.state.value2}
                     onChange={this.handleInput.bind(this, 'value2')}

@@ -3,7 +3,7 @@ import { BaseEvent } from '@tarojs/components/types/common'
 
 // #region Calendar
 declare namespace Calendar {
-  export type DateArg = string | number | Date
+  export type DateArg = string | number
 
   export type classNameType =
     | string
@@ -21,7 +21,7 @@ declare namespace Calendar {
   export interface Item {
     value: string
 
-    _value: dayjs.Dayjs
+    _value?: dayjs.Dayjs
 
     text: number
 
@@ -46,6 +46,12 @@ declare namespace Calendar {
     isSelectedTail?: boolean
   }
 
+  export interface SelectedDate {
+    end?: Calendar.DateArg
+
+    start: Calendar.DateArg
+  }
+
   export interface GroupOptions {
     validDates: Array<ValidDate>
 
@@ -66,12 +72,6 @@ declare namespace Calendar {
     value: number
 
     list: List<T>
-  }
-
-  export interface SelectedDate {
-    end?: Calendar.DateArg
-
-    start: Calendar.DateArg
   }
 }
 

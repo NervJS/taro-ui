@@ -29,5 +29,8 @@ stats.html
 # Test files
 coverage
 
+# miniapp private files
+*.private.*
+
 # taro rn release
 !packages/taro-ui-demo-rn/release/**

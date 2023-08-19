@@ -1,5 +1,8 @@
-import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import { ComponentClass } from 'react'
+import {
+  CommonEventFunction,
+  CommonEvent
+} from '@tarojs/components/types/common'
 
 import AtComponent from './base'
 

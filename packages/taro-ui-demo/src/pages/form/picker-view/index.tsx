@@ -106,27 +106,31 @@ export default class Index extends React.Component<{}, IndexState> {
                     <PickerView
                       indicatorStyle='height: 50px;'
                       className='picker'
-                      style='width: 100%; height: 300px; text-align: center;'
+                      style={{
+                        width: '100%',
+                        height: '300px',
+                        textAlign: 'center',
+                      }}
                       value={value}
                       onChange={this.handleChange}
                     >
                       <PickerViewColumn>
                         {years.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
+                          <View key={idx} style={{lineHeight: '50px'}}>
                             {item}年
                           </View>
                         ))}
                       </PickerViewColumn>
                       <PickerViewColumn>
                         {months.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
+                          <View key={idx} style={{lineHeight: '50px'}}>
                             {item}月
                           </View>
                         ))}
                       </PickerViewColumn>
                       <PickerViewColumn>
                         {days.map((item, idx) => (
-                          <View key={idx} style='line-height: 50px'>
+                          <View key={idx} style={{lineHeight: '50px'}}>
                             {item}日
                           </View>
                         ))}

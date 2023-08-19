@@ -9,6 +9,13 @@
     "url": "git@github.com:nervjs/taro-ui.git"
   },
   "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/taro-ui",
+      "packages/taro-ui-demo",
+      "packages/taro-ui-docs"
+    ]
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
@@ -21,11 +28,11 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "eslint-config-taro": "~3.0.2",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
     "conventional-changelog-cli": "^2.0.31",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
+    "eslint": "^8.12.0",
     "eslint-config-o2team": "^0.1.7",
     "eslint-config-prettier": "^6.10.1",
     "eslint-import-resolver-custom-alias": "^1.2.0",
@@ -41,7 +48,10 @@
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.16.0",
-    "typescript": "~3.7.2"
+    "typescript": "~4.1.0"
+  },
+  "resolutions": {
+    "sharp": "^0.28.3"
   },
   "husky": {
     "hooks": {

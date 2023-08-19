@@ -3,7 +3,7 @@ import { SelectorQuery } from '@tarojs/taro/types/index'
 
 const ENV = Taro.getEnv()
 
-function delay(delayTime = 25): Promise<null> {
+function delay(delayTime = 25): Promise<void> {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve()

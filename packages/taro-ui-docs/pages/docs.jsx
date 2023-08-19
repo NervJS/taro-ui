@@ -43,18 +43,17 @@ class Docs extends React.Component {
           </div>
           <div
             ref='atMarkdown'
-            className={`at-markdown col-sm-24 col-md-18 col-lg-20 ${
-              curDemoPath ? 'at-markdown--demo' : ''
-            }`}
+            className={`at-markdown col-sm-24 col-md-18 col-lg-20 ${curDemoPath ? 'at-markdown--demo' : ''
+              }`}
           >
             {curDemoPath && (
-              <div className='qrcode-menu' style='right: 420px'>
+              <div className='qrcode-menu' style={{ right: '420px' }}>
                 <div className='qrcode-container'>
                   <img src={qrCodeImg} alt='qrcode' />
                   <div className='qrcode-modal'>
                     <h6>扫描二维码查看演示效果</h6>
                     <div className='code-image'>
-                      <QRCode value={curPageUrl} size='140' />
+                      <QRCode value={curPageUrl} size={140} />
                     </div>
                   </div>
                 </div>

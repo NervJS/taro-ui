@@ -9,7 +9,8 @@
     {
       "files": [
         "packages/**/*.ts",
-        "packages/**/*.tsx"
+        "packages/**/*.tsx",
+        "packages/**/*.d.ts"
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
@@ -53,12 +54,14 @@
             ]
           }
         ],
-        "no-unused-vars": [
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
           "error",
           {
             "varsIgnorePattern": "React"
           }
         ],
+        "@typescript-eslint/no-empty-interface": "off",
         "no-console": [
           "error",
           {
@@ -78,9 +81,22 @@
         ]
       },
       "settings": {
-        "import/ignore": ["react-native"],
+        "import/ignore": [
+          "react-native"
+        ],
         "react": {
           "version": "detect"
+        },
+        "import/resolver": {
+          "node": {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".ts",
+              ".tsx",
+              ".d.ts"
+            ]
+          }
         }
       }
     },

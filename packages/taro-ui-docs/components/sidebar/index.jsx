@@ -36,12 +36,12 @@ class Sidebar extends React.Component {
     return (
       <nav className='at-nav'>
         {items.map(item => (
-          <div key={item.name}>
+          <div key={item.title}>
             <h2 className='at-nav__title'>{item.title}</h2>
             <ul className='at-nav__items'>
               {item.items &&
-                item.items.map(navItem => (
-                  <li className='at-nav__item' key={navItem.name}>
+                item.items.map((navItem, index) => (
+                  <li className='at-nav__item' key={index}>
                     <NavLink
                       exact
                       className='at-nav__page'
@@ -57,7 +57,7 @@ class Sidebar extends React.Component {
                 ))}
               {item.groups &&
                 item.groups.map((group, idx) => (
-                  <li className='at-nav__item active' key={group.title}>
+                  <li className='at-nav__item active' key={idx}>
                     <a
                       className='at-nav__group'
                       onClick={this.toggleMenu.bind(this, idx)}

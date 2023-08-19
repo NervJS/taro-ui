@@ -15,10 +15,12 @@
 使用 `npm` 或者 `yarn` 全局安装，或者直接使用 [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
 :::demo
+
 ```bash
 $ npm install -g @tarojs/cli
 $ yarn global add @tarojs/cli
 ```
+
 :::
 
 ### 2. 初始化项目
@@ -26,18 +28,22 @@ $ yarn global add @tarojs/cli
 使用命令创建模板项目
 
 :::demo
+
 ```bash
 $ taro init myApp
 ```
+
 :::
 
 ### 3. 安装 Taro UI
 
 :::demo
+
 ```bash
 $ cd myApp
 $ npm install taro-ui
 ```
+
 :::
 
 **P.S.因为要支持自定义主题功能，需要将样式从组件中抽离出来，在微信小程序中依赖 globalClass 功能，所以需要微信基础库版本在 v2.2.3 以上。**
@@ -47,11 +53,13 @@ $ npm install taro-ui
 <p style="color: #f00;">由于引用 `node_modules` 的模块，默认不会编译，所以需要额外给 H5 配置 `esnextModules`，在 taro 项目的 `config/index.js` 中新增如下配置项：</p>
 
 :::demo
+
 ```js
 h5: {
   esnextModules: ['taro-ui']
 }
 ```
+
 :::
 
 ### 4. 使用 Taro UI
@@ -99,6 +107,7 @@ import 'taro-ui/dist/style/components/button.scss'
 在代码中 `import` 需要的组件并按照文档说明使用
 
 :::demo
+
 ```js
 // page.js
 import { AtButton } from 'taro-ui'
@@ -107,38 +116,68 @@ import { AtButton } from 'taro-ui'
 // app.js
 import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
 ```
+
 :::
 
 **引入组件样式的三种方式**
 
-- **全局引入（JS中）：** 在入口文件中引入 `taro-ui` 所有的样式
+- **全局引入（JS 中）：** 在入口文件中引入 `taro-ui` 所有的样式
+
 :::demo
+
 ```js
 import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 ```
+
 :::
 
-- **全局引入（CSS中）：** 在 `app.scss` 样式文件中 `import` 组件样式并按照文档说明使用
+- **全局引入（CSS 中）：** 在 `app.scss` 样式文件中 `import` 组件样式并按照文档说明使用
 :::demo
+
 ```scss
-@import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 方式二
+@import '~taro-ui/dist/style/index.scss'; // 引入组件样式 - 方式二
 ```
+
 :::
 
 - **按需引入：** 在页面样式或全局样式中 `import` 需要的组件样式
 :::demo
+
 ```scss
-@import "~taro-ui/dist/style/components/button.scss"; // 引入所需的组件样式 - 方式三
+@import '~taro-ui/dist/style/components/button.scss'; // 引入所需的组件样式 - 方式三
 ```
+
 :::
 
+::: caution
+
+在 taro3.5 之后的版本中，在开启 `prebundle` (默认开启)的情况下，会导致 taro-ui 所引用的 @taro/components 组件没有被打进最终的 bundle 中，导致页面表现异常。
+:::
+
+为了解决上述问题，可以手动将 taro-ui 排除在 prebundle 列表之外。在 taro 项目的 `config/index.js` 中新增如下配置项：
+
+```js
+module.exports = {
+  // ...
+  framework: 'react',
+  compiler: {
+    type: 'webpack5',
+    prebundle: {
+      exclude: ['taro-ui']
+    }
+  },
+}
+```
+
 > 具体的组件样式文件请查看 [组件样式列表](https://github.com/NervJS/taro-ui/tree/dev/src/style/components)
+
 
 ## 示例
 
 在 `/myApp/src/pages/index/index.tsx` 文件添加以下代码
 
 :::demo
+
 ```jsx
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -150,24 +189,27 @@ export default class Index extends Component {
   config: Config = {
     navigationBarTitleText: '首页'
   }
-  
-  render () {
+
+  render() {
     return (
       <View className='index'>
-         <AtButton type='primary'>按钮文案</AtButton>
+        <AtButton type='primary'>按钮文案</AtButton>
       </View>
     )
   }
 }
 ```
+
 :::
 
 在 `/myApp/src/app.scss` 文件中添加如下代码
 
 :::demo
+
 ```scss
-@import "~taro-ui/dist/style/index.scss"; // 引入组件样式，仅需引入一次即可
+@import '~taro-ui/dist/style/index.scss'; // 引入组件样式，仅需引入一次即可
 ```
+
 :::
 
 ## 按需引入
@@ -175,9 +217,11 @@ export default class Index extends Component {
 如果你只希望引入部分组件，比如 Button，那么可以只 `@import` 需要的样式文件
 
 :::demo
+
 ```scss
-@import "~taro-ui/dist/style/components/button.scss";
+@import '~taro-ui/dist/style/components/button.scss';
 ```
+
 :::
 
 ## 编译并预览
@@ -187,6 +231,7 @@ export default class Index extends Component {
 **微信小程序编译预览模式**
 
 :::demo
+
 ```bash
 # npm script
 $ npm run dev:weapp
@@ -195,11 +240,13 @@ $ taro build --type weapp --watch
 # npx用户也可以使用
 $ npx taro build --type weapp --watch
 ```
+
 :::
 
 **支付宝小程序编译预览模式**
 
 :::demo
+
 ```bash
 # npm script
 $ npm run dev:alipay
@@ -208,11 +255,13 @@ $ taro build --type alipay --watch
 # npx 用户也可以使用
 $ npx taro build --type alipay --watch
 ```
+
 :::
 
 **百度小程序编译预览模式**
 
 :::demo
+
 ```bash
 # npm script
 $ npm run dev:swan
@@ -221,11 +270,13 @@ $ taro build --type swan --watch
 # npx 用户也可以使用
 $ npx taro build --type swan --watch
 ```
+
 :::
 
 **H5 编译预览模式**
 
 :::demo
+
 ```bash
 # npm script
 $ npm run dev:h5
@@ -234,4 +285,5 @@ $ taro build --type h5 --watch
 # npx 用户也可以使用
 $ npx taro build --type h5 --watch
 ```
+
 :::

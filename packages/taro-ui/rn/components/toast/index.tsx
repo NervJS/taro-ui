@@ -104,7 +104,7 @@ export default class AtToast extends React.Component<
   public componentDidMount(): void {
     const { _isOpened } = this.state
     if (!this.toast) {
-      this.toast = new RootSiblings()
+      this.toast = new RootSiblings(null)
     }
 
     if (_isOpened) {

@@ -1,10 +1,10 @@
-import React, { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export interface AtComponent {
   className?: string
   style?: CSSProperties
   customStyle?: string | CSSProperties
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export interface AtIconBaseProps2 extends AtComponent {

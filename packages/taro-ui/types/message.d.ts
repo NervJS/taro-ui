@@ -34,4 +34,10 @@ interface Options {
 
 declare function message(options: Options): void
 
+declare module '@tarojs/taro' {
+  interface TaroStatic {
+    atMessage: (options: Options) => void
+  }
+}
+
 export { AtMessage, message }

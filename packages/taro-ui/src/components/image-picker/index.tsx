@@ -75,7 +75,9 @@ export default class AtImagePicker extends React.Component<AtImagePickerProps> {
         const newFiles = files.concat(targetFiles)
         this.props.onChange(newFiles, 'add')
       })
-      .catch(this.props.onFail)
+      .catch(err => {
+        this.props?.onFail?.(err)
+      })
   }
 
   private handleImageClick = (idx: number): void => {

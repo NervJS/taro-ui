@@ -10,7 +10,7 @@
   // box-sizing: border-box;
 
   @for $col from 1 through 12 {
-    $width: ($col / 12) * 100%;
+    $width: calc($col / 12) * 100%;
 
     &-#{$col} {
       @include flex(0, 0, $width);
