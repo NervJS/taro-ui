@@ -34,16 +34,18 @@ Taro 是由 [凹凸实验室](https://aotu.io) 倾力打造的多端开发解决
 
 ## 安装
 
-需要安装 `Taro` 开发工具 `@tarojs/cli`，`Taro` 版本需要在 `1.0.0-beta.18` 以上
+### 2.x
+当 Taro 版本 < 3 时，使用 2.x 版本
 
 ```bash
-npm install -g @tarojs/cli
+$ npm install taro-ui@2.3.4
 ```
 
-然后在项目中安装 Taro UI
+### 3.x
+当 Taro 版本 ≥ 3 时，使用 3.x 版本
 
 ```bash
-npm install taro-ui
+$ npm install taro-ui@latest
 ```
 
 ## 使用
