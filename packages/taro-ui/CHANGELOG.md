@@ -1,3 +1,30 @@
+# 3.1.0 (2023-08-20)
+
+
+### Bug Fixes
+
+* **modal:** 修复 content 中包含 \n 而无法换行的问题 [#1617](https://github.com/nervjs/taro-ui/issues/1617) ([b404c6b](https://github.com/nervjs/taro-ui/commit/b404c6ba5410a062b6626e631916dfc7cc130f56))
+* **types:** 修复 atMessage类型丢失的问题 ([4cf5335](https://github.com/nervjs/taro-ui/commit/4cf5335be670c3272743826de21971876cdba098)), closes [#1589](https://github.com/nervjs/taro-ui/issues/1589)
+* **types:** 修复类型声明不正确的问题 ([7d2610a](https://github.com/nervjs/taro-ui/commit/7d2610a688a5b656def15dc564d92f02bb8697c8))
+* **types:** 修复类型声明问题 ([ca82492](https://github.com/nervjs/taro-ui/commit/ca82492c30de1d5d58e3bef24bfe980381e5e9ab))
+* 修复 disabled 不生效的问题 ([#1549](https://github.com/nervjs/taro-ui/issues/1549)) ([8e9a7bd](https://github.com/nervjs/taro-ui/commit/8e9a7bd253fa2bff167786c5846a57f4632ff2f3))
+* 修复初始化 RootSiblings 报错的问题 ([bb354e0](https://github.com/nervjs/taro-ui/commit/bb354e08410f593f586bd0bea7eaf54553e03201))
+* 修复类型声明异常的问题 ([da406aa](https://github.com/nervjs/taro-ui/commit/da406aa0ed0ab92d8dd7d6700a49465c5d765ea8))
+* 更新依赖，解决 ts 类型错误 ([af562a7](https://github.com/nervjs/taro-ui/commit/af562a77ebba0968d6a5b44364b112a5368336f1))
+* 解决 input 组件 focus 状态丢失的问题 ([3538c3d](https://github.com/nervjs/taro-ui/commit/3538c3d830ca6cd46dc7d2963fe6f1a099e1c25d)), closes [#1463](https://github.com/nervjs/taro-ui/issues/1463)
+
+
+### Features
+
+* AtSearchBar 增加 enableNative 参数 ([09863bd](https://github.com/nervjs/taro-ui/commit/09863bd0813e2e3682b8832c143c79e9a2522408))
+* **nav-bar:** 增加标题点击事件 ([369e71e](https://github.com/nervjs/taro-ui/commit/369e71ee6852748e654eee3e6edebdf34a8d042b))
+* react 升级到 18，并解决兼容性问题 ([e8ec931](https://github.com/nervjs/taro-ui/commit/e8ec9319a8a83ee4c35f8fb84d4b6c457f199a5d))
+* rn 0.71 ([dc77a8a](https://github.com/nervjs/taro-ui/commit/dc77a8aea76b179cf5f21fbf250ed75b14918162))
+* 兼容到 Taro3.4.3 ([66a990d](https://github.com/nervjs/taro-ui/commit/66a990d7f6b176c4a39911e600201268322557d3))
+* 更新3.6 依赖 ([cbbdf77](https://github.com/nervjs/taro-ui/commit/cbbdf771a492daf6225f3b4bdc67655fcbf47f04))
+
+
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
