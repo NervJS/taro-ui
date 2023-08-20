@@ -41,7 +41,12 @@ $ taro init myApp
 
 ```bash
 $ cd myApp
-$ npm install taro-ui
+
+# 当 Taro 版本 < 3 时，使用 2.x 版本
+$ npm install taro-ui@2.3.4
+
+# 当 Taro 版本 ≥ 3 时，使用 3.x 版本
+$ npm install taro-ui@latest
 ```
 
 :::
