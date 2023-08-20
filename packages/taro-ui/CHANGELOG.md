@@ -24,12 +24,6 @@
 * 更新3.6 依赖 ([cbbdf77](https://github.com/nervjs/taro-ui/commit/cbbdf771a492daf6225f3b4bdc67655fcbf47f04))
 
 
-
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # 3.0.0-alpha.2 (2020-04-18)
 
 
