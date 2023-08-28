@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
@@ -40,6 +40,7 @@ export interface AtAccordionProps extends AtComponent {
 }
 
 export interface AtAccordionState {
+  componentId?: string
   wrapperHeight: number
 }
 

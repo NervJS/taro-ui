@@ -4,7 +4,7 @@ import React from 'react'
 import { Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtAccordionProps, AtAccordionState } from '../../../types/accordion'
-import { delayQuerySelector } from '../../common/utils'
+import { delayQuerySelector, uuid } from '../../common/utils'
 
 export default class AtAccordion extends React.Component<
   AtAccordionProps,
@@ -21,6 +21,7 @@ export default class AtAccordion extends React.Component<
     this.isCompleted = true
     this.startOpen = false
     this.state = {
+      componentId: uuid(),
       wrapperHeight: 0
     }
   }
@@ -34,10 +35,12 @@ export default class AtAccordion extends React.Component<
 
   private toggleWithAnimation(): void {
     const { open, isAnimation } = this.props
+    const { componentId } = this.state
     if (!this.isCompleted || !isAnimation) return
 
     this.isCompleted = false
-    delayQuerySelector('.at-accordion__body', 0).then(rect => {
+
+    delayQuerySelector(`#at-accordion__body-${componentId}`, 0).then(rect => {
       const height = parseInt(rect[0].height.toString())
       const startHeight = open ? height : 0
       const endHeight = open ? 0 : height
@@ -73,15 +76,8 @@ export default class AtAccordion extends React.Component<
   }
 
   public render(): JSX.Element {
-    const {
-      customStyle,
-      className,
-      title,
-      icon,
-      hasBorder,
-      open,
-      note
-    } = this.props
+    const { customStyle, className, title, icon, hasBorder, open, note } =
+      this.props
     const { wrapperHeight } = this.state
 
     const rootCls = classNames('at-accordion', className)
@@ -111,6 +107,8 @@ export default class AtAccordion extends React.Component<
       contentStyle.height = ''
     }
 
+    const { componentId } = this.state
+
     return (
       <View className={rootCls} style={customStyle}>
         <View className={headerCls} onClick={this.handleClick}>
@@ -126,7 +124,12 @@ export default class AtAccordion extends React.Component<
           </View>
         </View>
         <View style={contentStyle} className={contentCls}>
-          <View className='at-accordion__body'>{this.props.children}</View>
+          <View
+            id={`at-accordion__body-${componentId}`}
+            className='at-accordion__body'
+          >
+            {this.props.children}
+          </View>
         </View>
       </View>
     )
