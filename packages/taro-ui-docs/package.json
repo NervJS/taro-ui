@@ -11,8 +11,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "yarn run build:static && node ./build/dev-server",
-    "build": "yarn run build:doc && yarn run build:static",
+    "dev": "pnpm run build:static && node ./build/dev-server",
+    "build": "pnpm run build:doc && pnpm run build:static",
     "build:doc": "node ./build/build-docs",
     "build:static": "node ./build/build-static",
     "clean": "rimraf dist"
@@ -29,21 +29,12 @@
     "core-js": "~3.6.0",
     "highlight.js": "^9.18.1",
     "qrcode.react": "^1.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
-    "taro-ui-demo": "file:../taro-ui-demo"
+    "taro-ui-demo": "workspace:taro-ui-demo@*"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
     "@types/classnames": "^2.2.10",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
     "@types/webpack-env": "^1.15.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",

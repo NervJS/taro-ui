@@ -16,7 +16,7 @@
     "css": "sass"
   },
   "scripts": {
-    "build": "yarn run build:rn",
+    "build": "pnpm run build:rn",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -25,14 +25,14 @@
     "build:rn": "taro build --type rn",
     "build:qq": "taro build --type qq",
     "build:quickapp": "taro build --type quickapp",
-    "dev:weapp": "yarn run build:weapp --watch",
-    "dev:swan": "yarn run build:swan --watch",
-    "dev:alipay": "yarn run build:alipay --watch",
-    "dev:tt": "yarn run build:tt --watch",
-    "dev:h5": "yarn run build:h5 --watch",
-    "dev:rn": "yarn run build:rn --watch",
-    "dev:qq": "yarn run build:qq --watch",
-    "dev:quickapp": "yarn run build:quickapp --watch",
+    "dev:weapp": "pnpm run build:weapp --watch",
+    "dev:swan": "pnpm run build:swan --watch",
+    "dev:alipay": "pnpm run build:alipay --watch",
+    "dev:tt": "pnpm run build:tt --watch",
+    "dev:h5": "pnpm run build:h5 --watch",
+    "dev:rn": "pnpm run build:rn --watch",
+    "dev:qq": "pnpm run build:qq --watch",
+    "dev:quickapp": "pnpm run build:quickapp --watch",
     "clean": "rimraf .temp dist"
   },
   "browserslist": [
@@ -49,14 +49,11 @@
     "@tarojs/runtime": "3.6.5-canary.1",
     "@tarojs/taro": "3.6.5-canary.1",
     "@tarojs/taro-rn": "3.6.5-canary.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-native": "^0.71.6",
     "react-native-modal": "^13.0.0",
-    "taro-ui": "3.1.0-beta.4"
+    "taro-ui": "workspace:taro-ui@*"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.0",
     "@react-native-picker/picker": "^1.15.0",
     "@tarojs/cli": "3.6.5-canary.1",
     "@tarojs/mini-runner": "3.6.5-canary.1",
