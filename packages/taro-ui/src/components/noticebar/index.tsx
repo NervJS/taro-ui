@@ -57,8 +57,6 @@ export default class AtNoticebar extends React.Component<
 
   private initAnimation(): void {
     const { isWEAPP, isALIPAY } = this.state
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     this.timeout = setTimeout(() => {
       this.timeout = null
       if (this.state.isWEB) {
@@ -111,8 +109,6 @@ export default class AtNoticebar extends React.Component<
               }, 900)
             }
             animBody()
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-            // @ts-ignore
             this.interval = setInterval(animBody, dura * 1000 + 1000)
           })
       }

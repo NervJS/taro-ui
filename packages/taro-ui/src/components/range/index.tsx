@@ -111,29 +111,29 @@ export default class AtRange extends React.Component<
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: AtRangeProps): void {
-    const { value } = nextProps
+    const { value = [] } = nextProps
     this.updatePos()
     if (
-      this.props.value![0] !== value![0] ||
-      this.props.value![1] !== value![1]
+      this.props.value?.[0] !== value?.[0] ||
+      this.props.value?.[1] !== value?.[1]
     ) {
-      this.setValue(value!)
+      this.setValue(value)
     }
   }
 
   public componentDidMount(): void {
-    const { value } = this.props
+    const { value = [] } = this.props
     this.updatePos()
-    this.setValue(value!)
+    this.setValue(value)
   }
 
   public render(): JSX.Element {
     const {
       className,
       customStyle,
-      sliderStyle,
-      railStyle,
-      trackStyle,
+      sliderStyle = {},
+      railStyle = {},
+      trackStyle = {},
       blockSize,
       disabled
     } = this.props
@@ -176,17 +176,17 @@ export default class AtRange extends React.Component<
           <View className='at-range__rail' style={railStyle}></View>
           <View
             className='at-range__track'
-            style={mergeStyle(atTrackStyle, trackStyle!)}
+            style={mergeStyle(atTrackStyle, trackStyle)}
           ></View>
           <View
             className='at-range__slider'
-            style={mergeStyle(sliderAStyle, sliderStyle!)}
+            style={mergeStyle(sliderAStyle, sliderStyle)}
             onTouchMove={this.handleTouchMove.bind(this, 'aX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'aX')}
           ></View>
           <View
             className='at-range__slider'
-            style={mergeStyle(sliderBStyle, sliderStyle!)}
+            style={mergeStyle(sliderBStyle, sliderStyle)}
             onTouchMove={this.handleTouchMove.bind(this, 'bX')}
             onTouchEnd={this.handleTouchEnd.bind(this, 'bX')}
           ></View>

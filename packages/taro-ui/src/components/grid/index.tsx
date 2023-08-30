@@ -72,8 +72,8 @@ export default class AtGrid extends React.Component<AtGridProps> {
                             {
                               [`${
                                 childItem.iconInfo.prefixClass || 'at-icon'
-                              }-${childItem.iconInfo.value}`]: childItem
-                                .iconInfo.value
+                              }-${childItem.iconInfo.value}`]:
+                                childItem.iconInfo.value
                             },
                             childItem.iconInfo.className
                           )}

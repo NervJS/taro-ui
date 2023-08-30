@@ -50,8 +50,8 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
 
   private handleClick(clickType: 'minus' | 'plus', e: CommonEvent): void {
     const { disabled, value, min = 0, max = 100, step = 1 } = this.props
-    const lowThanMin = clickType === 'minus' && value <= min
-    const overThanMax = clickType === 'plus' && value >= max
+    const lowThanMin = clickType === 'minus' && Number(value) <= min
+    const overThanMax = clickType === 'plus' && Number(value) >= max
     if (lowThanMin || overThanMax || disabled) {
       const deltaValue = clickType === 'minus' ? -step : step
       const errorValue = addNum(Number(value), deltaValue)
@@ -78,14 +78,14 @@ export default class AtInputNumber extends React.Component<AtInputNumberProps> {
     const { max = 100, min = 0 } = this.props
     let resultValue = value === '' ? min : value
     // 此处不能使用 Math.max，会是字符串变数字，并丢失 .
-    if (resultValue > max) {
+    if (Number(resultValue) > max) {
       resultValue = max
       this.handleError({
         type: 'OVER',
         errorValue: resultValue
       })
     }
-    if (resultValue < min) {
+    if (Number(resultValue) < min) {
       resultValue = min
       this.handleError({
         type: 'LOW',

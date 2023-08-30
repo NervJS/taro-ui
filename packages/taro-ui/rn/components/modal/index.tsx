@@ -72,7 +72,7 @@ export default class AtModal extends React.Component<
     }
   }
 
-  private animateLayout(isOpened: boolean, cb?: Function): void {
+  private animateLayout(isOpened: boolean, cb?: () => void): void {
     let fromValue
     let toValue
     let setStateDelay = 0
@@ -152,8 +152,6 @@ export default class AtModal extends React.Component<
                   <View className='content-simple'>
                     {isWEB ? (
                       <Text
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                        // @ts-ignore
                         dangerouslySetInnerHTML={{
                           __html: content.replace(/\n/g, '<br/>')
                         }}

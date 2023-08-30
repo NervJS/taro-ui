@@ -104,8 +104,6 @@ export default class AtModal extends React.Component<
                 <View className='content-simple'>
                   {isWEB ? (
                     <Text
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                      // @ts-ignore
                       dangerouslySetInnerHTML={{
                         __html: content.replace(/\\n/g, '<br/>')
                       }}

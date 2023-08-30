@@ -194,8 +194,6 @@ export default class AtInput extends React.Component<AtInputProps> {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             onConfirm={this.handleConfirm}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-            // @ts-ignore
             onKeyboardHeightChange={this.handleKeyboardHeightChange}
           />
           {clear && value && (

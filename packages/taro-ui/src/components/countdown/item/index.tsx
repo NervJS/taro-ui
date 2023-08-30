@@ -3,9 +3,7 @@ import React from 'react'
 import { Text, View } from '@tarojs/components'
 import { AtCountdownItemProps } from '../../../../types/countdown'
 
-export default class AtCountdownItem extends React.Component<
-  AtCountdownItemProps
-> {
+export default class AtCountdownItem extends React.Component<AtCountdownItemProps> {
   public static defaultProps: AtCountdownItemProps
   public static propTypes: InferProps<AtCountdownItemProps>
 

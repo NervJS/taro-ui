@@ -13,9 +13,11 @@ function getFullItem(
   isShowStatus?: boolean
 ): any {
   if (options.marks.find(x => x.value === item.value)) {
-    (item.marks as Array<Calendar.Mark>) = [{
-      value: item.value as string
-    }]
+    item.marks = [
+      {
+        value: item.value as string
+      }
+    ]
   }
   if (!isShowStatus) return item
 
