@@ -29,9 +29,6 @@
     "url": "git@github.com:nervjs/taro-ui.git"
   },
   "license": "MIT",
-  "publishConfig": {
-    "tag": "next"
-  },
   "scripts": {
     "dev": "pnpm run dev:lib",
     "dev:lib": "tsc --project ./tsconfig.build.json --watch --incremental",

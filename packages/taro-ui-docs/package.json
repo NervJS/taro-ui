@@ -26,17 +26,15 @@
     "at-ui-style": "^1.5.1",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
-    "core-js": "~3.6.0",
     "highlight.js": "^9.18.1",
     "qrcode.react": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
-    "taro-ui-demo": "workspace:taro-ui-demo@*"
+    "taro-ui-demo": "workspace:^"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/webpack-env": "^1.15.1",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chalk": "^4.0.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -46,7 +44,7 @@
     "file-loader": "^6.0.0",
     "front-matter": "^3.1.0",
     "fs-extra": "^9.0.0",
-    "html-webpack-plugin": "^4.0.4",
+    "html-webpack-plugin": "^4.1.0",
     "html-withimg-loader": "^0.1.16",
     "htmltojsx": "^0.3.0",
     "humps": "^2.0.1",
