@@ -186,7 +186,7 @@ export default class Index extends Taro.Component {
 
 | 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   | 可选或必填
 | ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |-------- |
-| title | 标题  | String  | - | 0 | 必填 |
+| title | 标题  | ReactNode  | - | - | 必填 |
 | iconPrefixClass |  icon className 前缀，用于第三方字体图标库，比如想使用'fa fa-clock' 的图标，则 传入`iconPrefixClass='fa' iconType='clock'`,[拓展图标库详细](/#/docs/icon) | String | - | - | - |
 | iconType | 未选中时展示的 icon 类型，可扩展第三方字体图标库，[拓展图标库详细](/#/docs/icon)  | String | - | - | 可选 |
 | selectedIconType  | 选中时展示的 icon 类型，可扩展第三方字体图标库，[拓展图标库详细](/#/docs/icon)  | String | - | - |可选 |
