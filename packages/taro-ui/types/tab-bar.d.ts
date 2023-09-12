@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ReactNode, ComponentClass } from 'react'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import AtComponent from './base'
@@ -20,7 +20,7 @@ export interface TabItem {
   /**
    * 标题
    */
-  title: string
+  title: ReactNode
   /**
    * icon className 前缀，用于第三方字体图标库，
    * 比如想使用'fa fa-clock' 的图标，则传入 iconPrefixClass='fa' iconType='clock'，
