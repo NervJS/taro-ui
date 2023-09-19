@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import React from 'react'
 import { SelectorQuery } from '@tarojs/taro/types/index'
 
 const ENV = Taro.getEnv()
@@ -255,6 +256,21 @@ function mergeStyle(
   return objectToString(style1) + objectToString(style2)
 }
 
+/**
+ * 自定义验证器，用于验证参数是否是 JSX.Element
+ * @param {any} props
+ * @param {string} propName
+ * @param {string} componentName
+ * @returns
+ */
+function isJSXElement(props, propName, componentName) {
+  if (!React.isValidElement(props[propName])) {
+    return new Error(
+      `Invalid prop ${propName} supplied to ${componentName}. It must be a valid JSX element.`
+    )
+  }
+}
+
 export {
   delay,
   delayQuerySelector,
@@ -266,5 +282,6 @@ export {
   handleTouchScroll,
   delayGetClientRect,
   delayGetScrollOffset,
-  mergeStyle
+  mergeStyle,
+  isJSXElement
 }
