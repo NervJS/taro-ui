@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   sharp: ^0.28.3
 
@@ -194,7 +198,7 @@ importers:
         version: 7.7.7
       '@tarojs/components':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+        version: 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/helper':
         specifier: 3.6.6
         version: 3.6.6
@@ -234,6 +238,9 @@ importers:
       '@tarojs/taro':
         specifier: 3.6.6
         version: 3.6.6(@types/react@18.2.21)
+      classnames:
+        specifier: ^2.2.6
+        version: 2.2.6
       taro-ui:
         specifier: workspace:^
         version: link:../taro-ui
@@ -288,10 +295,10 @@ importers:
         version: 7.7.7
       '@tarojs/components':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+        version: 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/plugin-framework-react':
         specifier: 3.6.6
-        version: 3.6.6(@pmmmwh/react-refresh-webpack-plugin@0.5.5)(@types/react@18.2.21)(react-refresh@0.11.0)(react@18.2.0)
+        version: 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/react':
         specifier: 3.6.6
         version: 3.6.6(react@18.2.0)
@@ -308,6 +315,9 @@ importers:
         specifier: 3.6.6
         version: >-
           3.6.6(@babel/core@7.22.11)(@babel/preset-env@7.22.14)(@bam.tech/react-native-image-resizer@3.0.7)(@react-native-async-storage/async-storage@1.17.12)(@react-native-camera-roll/camera-roll@5.0.4)(@react-native-clipboard/clipboard@1.11.2)(@react-native-community/geolocation@3.0.6)(@react-native-community/netinfo@9.3.11)(@react-native-community/segmented-control@2.2.2)(@react-native-community/slider@4.3.3)(@react-native-masked-view/masked-view@0.2.9)(@react-native-picker/picker@1.15.0)(expo-av@13.0.3)(expo-barcode-scanner@12.0.0)(expo-brightness@11.0.1)(expo-camera@13.0.0)(expo-file-system@15.1.1)(expo-image-picker@14.0.3)(expo-keep-awake@11.0.1)(expo-location@15.0.1)(expo-sensors@12.0.1)(expo@48.0.0)(react-native-device-info@10.3.1)(react-native-gesture-handler@2.9.0)(react-native-pager-view@6.0.2)(react-native-safe-area-context@4.4.1)(react-native-screens@3.25.0)(react-native-svg@13.8.0)(react-native-syan-image-picker@0.5.3)(react-native-webview@11.23.1)(react-native@0.71.6)(react@18.2.0)
+      classnames:
+        specifier: ^2.2.6
+        version: 2.2.6
       react-native:
         specifier: ^0.71.6
         version: 0.71.6(@babel/core@7.22.11)(@babel/preset-env@7.22.14)(react@18.2.0)
@@ -4380,12 +4390,61 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+    dev: true
+
+  /@tarojs/components-advanced@3.6.6(@types/react@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cAJniZi8iB3d1VinqQ8qrLHc4jo7DmLZQsDnM5qdtn0wS4zdv+mhGw9gl3NscGCe2xhnmLwI1M1sy0K4an8a7w==}
+    peerDependencies:
+      react: '>=17'
+      vue: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
+      '@tarojs/runtime': 3.6.6
+      '@tarojs/shared': 3.6.6
+      '@tarojs/taro': 3.6.6(@types/react@18.2.0)
+      memoize-one: 6.0.0
+      postcss: 8.4.18
+      react: 18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-native'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+
+  /@tarojs/components-advanced@3.6.6(@types/react@18.2.21)(react@18.2.0):
+    resolution: {integrity: sha512-cAJniZi8iB3d1VinqQ8qrLHc4jo7DmLZQsDnM5qdtn0wS4zdv+mhGw9gl3NscGCe2xhnmLwI1M1sy0K4an8a7w==}
+    peerDependencies:
+      react: '>=17'
+      vue: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/runtime': 3.6.6
+      '@tarojs/shared': 3.6.6
+      '@tarojs/taro': 3.6.6(@types/react@18.2.21)
+      memoize-one: 6.0.0
+      postcss: 8.4.18
+      react: 18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-native'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
 
   /@tarojs/components-react@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-FZh6VBFaqaHsuphTiTmmQ70K7/mvXqB7teL1IDn1sniDwMwLLXZRvWojcdxkE1nGPtD+gPmdhZEPWHMUNYpung==}
     dependencies:
       '@babel/runtime': 7.22.11
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/taro': 3.6.6(@types/react@18.2.21)
       classnames: 2.2.6
       intersection-observer: 0.7.0
@@ -4510,6 +4569,67 @@ packages:
       - '@types/webpack'
       - '@types/webpack-dev-server'
       - react
+    dev: true
+
+  /@tarojs/components@3.6.6(@types/react@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-GWxFtKeiTNajkIyNjyrkEyvrtqOIcrdWSF46A5pCbtmpjdsloN6NX9ms4fwvSjoyci8VZ+sBimnviIqTpBfL+w==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-native': '*'
+      vue: '*'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-native':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@stencil/core': 2.22.3
+      '@tarojs/components-advanced': 3.6.6(@types/react@18.2.0)(react@18.2.0)
+      '@tarojs/router': 3.6.6(@types/react@18.2.0)
+      '@tarojs/taro': 3.6.6(@types/react@18.2.0)
+      '@types/react': 18.2.0
+      classnames: 2.2.6
+      hls.js: 1.4.10
+      intersection-observer: 0.7.0
+      resolve-pathname: 3.0.0
+      swiper: 6.8.0
+      weui: 1.1.3
+    transitivePeerDependencies:
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - react
+
+  /@tarojs/components@3.6.6(@types/react@18.2.21)(react@18.2.0):
+    resolution: {integrity: sha512-GWxFtKeiTNajkIyNjyrkEyvrtqOIcrdWSF46A5pCbtmpjdsloN6NX9ms4fwvSjoyci8VZ+sBimnviIqTpBfL+w==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-native': '*'
+      vue: '*'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-native':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@stencil/core': 2.22.3
+      '@tarojs/components-advanced': 3.6.6(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/router': 3.6.6(@types/react@18.2.21)
+      '@tarojs/taro': 3.6.6(@types/react@18.2.21)
+      '@types/react': 18.2.21
+      classnames: 2.2.6
+      hls.js: 1.4.10
+      intersection-observer: 0.7.0
+      resolve-pathname: 3.0.0
+      swiper: 6.8.0
+      weui: 1.1.3
+    transitivePeerDependencies:
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - react
 
   /@tarojs/helper@3.6.6:
     resolution: {integrity: sha512-feY1z2rqV+5g8ZBagcOcjbI0P7jq9gIFW8664MXc5iFNxgUbU2w8eNbwRv9zAb1/U9cZoWxx+QGSw4xyTKy/6A==}
@@ -4548,7 +4668,7 @@ packages:
       postcss: ^8.4.18
     dependencies:
       '@babel/core': 7.22.11
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/helper': 3.6.6
       '@tarojs/plugin-platform-alipay': 3.6.6(@types/react@18.2.0)
       '@tarojs/plugin-platform-jd': 3.6.6(@types/react@18.2.0)
@@ -4628,7 +4748,7 @@ packages:
       postcss: ^8.4.18
     dependencies:
       '@babel/core': 7.22.11
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/helper': 3.6.6
       '@tarojs/plugin-platform-alipay': 3.6.6(@types/react@18.2.21)
       '@tarojs/plugin-platform-jd': 3.6.6(@types/react@18.2.21)
@@ -4740,10 +4860,46 @@ packages:
       - vue
     dev: false
 
+  /@tarojs/plugin-framework-react@3.6.6(@types/react@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Umr1rB9Sf3QdcWUWYjY2BBUumjGKsy6txYjw8ntDU6R2MqsjiXGVD759D1q6L8hViYW3Zh1LNr8dunGu1lr9uw==}
+    peerDependencies:
+      '@pmmmwh/react-refresh-webpack-plugin': '*'
+      '@prefresh/webpack': '*'
+      preact: '*'
+      react: '>=17'
+      react-refresh: '*'
+    peerDependenciesMeta:
+      '@pmmmwh/react-refresh-webpack-plugin':
+        optional: true
+      '@prefresh/webpack':
+        optional: true
+      preact:
+        optional: true
+      react:
+        optional: true
+      react-refresh:
+        optional: true
+    dependencies:
+      '@tarojs/helper': 3.6.6
+      '@tarojs/runtime': 3.6.6
+      '@tarojs/service': 3.6.6(@types/react@18.2.0)
+      '@tarojs/shared': 3.6.6
+      acorn: 8.10.0
+      acorn-walk: 8.2.0
+      lodash: 4.17.21
+      react: 18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - supports-color
+      - vue
+    dev: false
+
   /@tarojs/plugin-platform-alipay@3.6.6(@types/react@18.2.0):
     resolution: {integrity: sha512-65SFA8Vmlwf5ZflI+jXN3W2nrh2NYM3GRAjOcZDIPE+6Je33Bi/7jNaTn3t+YwJlcVjY6djp3/dmC+xwc7skfA==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.0)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4758,7 +4914,7 @@ packages:
   /@tarojs/plugin-platform-alipay@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-65SFA8Vmlwf5ZflI+jXN3W2nrh2NYM3GRAjOcZDIPE+6Je33Bi/7jNaTn3t+YwJlcVjY6djp3/dmC+xwc7skfA==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4772,7 +4928,7 @@ packages:
   /@tarojs/plugin-platform-h5@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-NVn9an5hcdWAtqylDirbCHBGdwEhk0VYOzspeubemNLQ/lGLkJHU50CfOF42RBZA1sAfwwh6JB1LNILMdtCaPA==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/components-react': 3.6.6(@types/react@18.2.21)
       '@tarojs/router': 3.6.6(@types/react@18.2.21)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
@@ -4846,7 +5002,7 @@ packages:
   /@tarojs/plugin-platform-swan@3.6.6(@types/react@18.2.0):
     resolution: {integrity: sha512-ISylMI0/7cZ7S/nKwDvkKke76h2m+TtcCqrhvmm4Fo/RyFdxPtZu/wtJ62WSw39dcU5Jec6UuP/YqsMGYEqcWw==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.0)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4861,7 +5017,7 @@ packages:
   /@tarojs/plugin-platform-swan@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-ISylMI0/7cZ7S/nKwDvkKke76h2m+TtcCqrhvmm4Fo/RyFdxPtZu/wtJ62WSw39dcU5Jec6UuP/YqsMGYEqcWw==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4875,7 +5031,7 @@ packages:
   /@tarojs/plugin-platform-tt@3.6.6(@types/react@18.2.0):
     resolution: {integrity: sha512-NgHSRX9tejcQQm3ATc4zaG6mtHYr1c7udhaaFrHxCZJeLqsWWlw7f06FIpghKdbhmKCUcqXUgtbQOwdcvb9P1Q==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.0)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4890,7 +5046,7 @@ packages:
   /@tarojs/plugin-platform-tt@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-NgHSRX9tejcQQm3ATc4zaG6mtHYr1c7udhaaFrHxCZJeLqsWWlw7f06FIpghKdbhmKCUcqXUgtbQOwdcvb9P1Q==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4904,7 +5060,7 @@ packages:
   /@tarojs/plugin-platform-weapp@3.6.6(@types/react@18.2.0):
     resolution: {integrity: sha512-/feSsGVeXlcuruuSamUvDz/CzttN0E/ziXLjJ6ldBYW7Mscfb1Ro+HnM26eaCGWrJTee4WRvvYerr7Nn6m+PbQ==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.0)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.0)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -4919,7 +5075,7 @@ packages:
   /@tarojs/plugin-platform-weapp@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-/feSsGVeXlcuruuSamUvDz/CzttN0E/ziXLjJ6ldBYW7Mscfb1Ro+HnM26eaCGWrJTee4WRvvYerr7Nn6m+PbQ==}
     dependencies:
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -5062,6 +5218,22 @@ packages:
       - react
       - react-native
 
+  /@tarojs/router@3.6.6(@types/react@18.2.0):
+    resolution: {integrity: sha512-HfKeOLGB+ufhAIPA3BlQIwwgtopQYOWJD3xhDuqCgZhWhYca/fA6qACteh82t7Ki3sUPJ/T834YNPR18TaBC3w==}
+    dependencies:
+      '@tarojs/runtime': 3.6.6
+      '@tarojs/taro': 3.6.6(@types/react@18.2.0)
+      dingtalk-jsapi: 2.15.4
+      history: 5.3.0
+      mobile-detect: 1.4.5
+      query-string: 7.1.3
+      universal-router: 8.3.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - vue
+
   /@tarojs/router@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-HfKeOLGB+ufhAIPA3BlQIwwgtopQYOWJD3xhDuqCgZhWhYca/fA6qACteh82t7Ki3sUPJ/T834YNPR18TaBC3w==}
     dependencies:
@@ -5169,7 +5341,6 @@ packages:
       - '@types/webpack-dev-server'
       - supports-color
       - vue
-    dev: true
 
   /@tarojs/service@3.6.6(@types/react@18.2.21):
     resolution: {integrity: sha512-5Jf4nFETN8ODHvLmOKa4rO4pfynMATjRqTAoY2KSUE/KtKy7poKiJG7PFhQxuiXxDIPZBZZbzwvq2GUqSilFwA==}
@@ -5197,7 +5368,7 @@ packages:
     resolution: {integrity: sha512-Ze4HzJV9GoY9epB0eIrFzLAkQyh3XH8ZgJcGpo0kC3BUxtDZqS14ca6ZS/H0KOsOIFwdhb4VO7An15YofLEDMw==}
     dependencies:
       '@tarojs/api': 3.6.6
-      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/components': 3.6.6(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/router': 3.6.6(@types/react@18.2.21)
       '@tarojs/runtime': 3.6.6
       '@tarojs/shared': 3.6.6
@@ -5637,6 +5808,7 @@ packages:
     resolution: {integrity: sha512-QSOBN6m3TKBPFAcDhuFItDQtw1Fo1/FKDTHGeyeTwBXd3bu0V9s+oHEhntHN7PUK5dAOYFWsnO0wynWwS/KRxQ==}
     dependencies:
       '@types/react': 18.2.21
+    dev: true
 
   /@types/react@18.2.0:
     resolution: {integrity: sha512-0FLj93y5USLHdnhIhABk83rm8XEGA7kH3cr+YUlvxoUGp1xNt/DINUMvqPxLyOQMzLmZe8i4RTHbvb8MC7NmrA==}
@@ -6968,6 +7140,7 @@ packages:
 
   /bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     optional: true
@@ -10845,6 +11018,7 @@ packages:
 
   /file-uri-to-path@1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     optional: true
 
   /filelist@1.0.4:
@@ -11442,6 +11616,7 @@ packages:
 
   /glob@6.0.4:
     resolution: {integrity: sha512-MKZeRNyYZAVVVG1oZeLaWie1uweH40m9AZwIwxyPbTSX4hHrVYSzLg0Ro5Z5R7XKkIX+Cc6oD1rqeDJnwsB8/A==}
+    requiresBuild: true
     dependencies:
       inflight: 1.0.6
       inherits: 2.0.4
@@ -15204,6 +15379,7 @@ packages:
 
   /nan@2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     optional: true
 
   /nanoid@3.3.6:
@@ -15248,6 +15424,7 @@ packages:
   /ncp@2.0.0:
     resolution: {integrity: sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==}
     hasBin: true
+    requiresBuild: true
     optional: true
 
   /needle@3.2.0:
@@ -17930,6 +18107,7 @@ packages:
   /rimraf@2.4.5:
     resolution: {integrity: sha512-J5xnxTyqaiw06JjMftq7L9ouA448dw/E7dKghkP9WpKNuwmARNNg+Gk8/u5ryb9N/Yo2+z3MCwuqFK/+qPOPfQ==}
     hasBin: true
+    requiresBuild: true
     dependencies:
       glob: 6.0.4
     optional: true
