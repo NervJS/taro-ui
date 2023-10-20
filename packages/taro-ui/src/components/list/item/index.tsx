@@ -4,7 +4,7 @@ import React from 'react'
 import { Image, Switch, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtListItemProps } from '../../../../types/list'
-import { mergeStyle } from '../../../common/utils'
+import { mergeStyle, isJSXElement } from '../../../common/utils'
 
 export default class AtListItem extends React.Component<AtListItemProps> {
   public static defaultProps: AtListItemProps
@@ -43,10 +43,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       switchIsCheck
     } = this.props
 
-    let { extraText, title } = this.props
-
-    extraText = String(extraText)
-    title = String(title)
+    const { extraText, title } = this.props
 
     const rootClass = classNames(
       'at-list__item',
@@ -156,16 +153,16 @@ AtListItem.defaultProps = {
 }
 
 AtListItem.propTypes = {
-  note: PropTypes.string,
+  note: isJSXElement,
   disabled: PropTypes.bool,
-  title: PropTypes.string,
+  title: isJSXElement,
   thumb: PropTypes.string,
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
   hasBorder: PropTypes.bool,
   switchColor: PropTypes.string,
   switchIsCheck: PropTypes.bool,
-  extraText: PropTypes.string,
+  extraText: isJSXElement,
   extraThumb: PropTypes.string,
   onSwitchChange: PropTypes.func,
   arrow: PropTypes.oneOf(['up', 'down', 'right']),

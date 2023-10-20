@@ -82,7 +82,7 @@ export default class AtTabBar extends React.Component<AtTabBarProps> {
               'at-tab-bar__item--active': current === i
             })}
             style={current === i ? selectedStyle : defaultStyle}
-            key={item.title}
+            key={i}
             onClick={this.handleClick.bind(this, i)}
           >
             {item.iconType ? (

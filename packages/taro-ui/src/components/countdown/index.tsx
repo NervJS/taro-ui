@@ -55,6 +55,7 @@ export default class AtCountdown extends React.Component<
   private clearTimer(): void {
     if (this.timer) {
       clearTimeout(this.timer as number)
+      this.timer = 0
     }
   }
 
@@ -127,14 +128,9 @@ export default class AtCountdown extends React.Component<
   }
 
   public render(): JSX.Element {
-    const {
-      className,
-      customStyle,
-      format = { day: '天', hours: '时', minutes: '分', seconds: '秒' },
-      isShowDay,
-      isCard,
-      isShowHour
-    } = this.props
+    const { className, customStyle, format, isShowDay, isCard, isShowHour } =
+      this.props
+
     const { _day, _hours, _minutes, _seconds } = this.state
 
     return (
