@@ -4739,14 +4739,6 @@ rc-util@^4.21.1:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
 
-react-devtools-core@^4.26.1:
-  version "4.27.5"
-  resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.27.5.tgz#35e41c09e7662ea29948d3caaeeea82f068cbbac"
-  integrity sha512-QJTriF1V4oyIenViCvM6qQuvcevQsp0sbKkHBZIQOij+AwY9DdOBY+dOeuymUqO5zV61CbmGxWsAIjeWlFS++w==
-  dependencies:
-    shell-quote "^1.6.1"
-    ws "^7"
-
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
