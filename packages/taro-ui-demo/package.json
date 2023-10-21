@@ -78,7 +78,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "postcss": "^8.4.18",
+    "postcss": "^8.4.31",
     "react-refresh": "^0.11.0",
     "sass": "^1.49.9",
     "stylelint": "^14.4.0",
