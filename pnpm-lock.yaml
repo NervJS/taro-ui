@@ -154,6 +154,9 @@ importers:
       '@tarojs/components':
         specifier: 3.6.6
         version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/plugin-platform-weapp':
+        specifier: 3.6.6
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/react':
         specifier: 3.6.6
         version: 3.6.6(react@18.2.0)
@@ -5062,6 +5065,22 @@ packages:
       - '@types/webpack-dev-server'
       - supports-color
       - vue
+
+  /@tarojs/plugin-platform-weapp@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
+    resolution: {integrity: sha512-/feSsGVeXlcuruuSamUvDz/CzttN0E/ziXLjJ6ldBYW7Mscfb1Ro+HnM26eaCGWrJTee4WRvvYerr7Nn6m+PbQ==}
+    dependencies:
+      '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
+      '@tarojs/service': 3.6.6(@types/react@18.2.21)
+      '@tarojs/shared': 3.6.6
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-native'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - react
+      - supports-color
+      - vue
+    dev: true
 
   /@tarojs/plugin-platform-weapp@3.6.6(@types/react@18.2.0):
     resolution: {integrity: sha512-/feSsGVeXlcuruuSamUvDz/CzttN0E/ziXLjJ6ldBYW7Mscfb1Ro+HnM26eaCGWrJTee4WRvvYerr7Nn6m+PbQ==}
