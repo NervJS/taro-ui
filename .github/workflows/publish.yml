@@ -51,6 +51,25 @@ jobs:
       - name: Show commit message
         run : echo "$commitmsg"
 
+      - name: Commit message compliance verification
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) != true
+        uses: andymckay/cancel-action@0.3
+
+      - name: Publish push tag verification
+        if: github.event_name == 'push' && contains( env.COMMIT_MESSAGE , '--tag=' ) != true
+        uses: andymckay/cancel-action@0.3
+
+      # Get & check npm publish
+      - name: Get publish params
+        if: github.event_name == 'push'
+        run: |
+          PUBLISH_PARAMS=`echo $COMMIT_MESSAGE | grep -oE "^chore\(release\): publish \S*\s(.*)" | cut -d " " -f 4-`
+          echo "PUBLISH_PARAMS=${PUBLISH_PARAMS}" >> $GITHUB_ENV
+
+      - name: Show publish params
+        if: github.event_name == 'push'
+        run: echo "Publish pushing provide parameter [$PUBLISH_PARAMS]."
+
       # Define ${CURRENT_VERSION}
       - name: Set Current Version
         if: startsWith( env.commitmsg , 'chore(release):' )
@@ -75,6 +94,12 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ------------------ If git tag already exists, skip -------------
+
+      - name: Git tag verification
+        if: steps.tag_check.outputs.exists_tag == false
+        uses: andymckay/cancel-action@0.3
 
       # Bootstrap project
       - name: Cache pnpm modules
@@ -139,3 +164,16 @@ jobs:
             ${{ github.event.pull_request.body }}
           draft: false
           prerelease: false
+
+      # Create PR page comment when event is PR
+      - uses: actions/github-script@v6
+        if: github.event.pull_request.merged == true
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'https://github.com/${{ github.repository }}/releases/tag/v${{ env.CURRENT_VERSION }} is released 🎉'
+            })

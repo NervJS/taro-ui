@@ -1,0 +1,52 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - next
+      - feat/**
+  pull_request:
+    branches:
+      - next
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with :
+          ref : ${{ github.ref || github.head_ref || github.ref_name }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Bootstrap project
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: install
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+
+      - name: build
+        run: pnpm build
