@@ -156,25 +156,25 @@ importers:
         version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-alipay':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-h5':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-jd':
         specifier: 3.6.6
         version: 3.6.6(@types/react@18.2.21)
       '@tarojs/plugin-platform-qq':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-swan':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-tt':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/plugin-platform-weapp':
         specifier: 3.6.6
-        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+        version: 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/react':
         specifier: 3.6.6
         version: 3.6.6(react@18.2.0)
@@ -192,8 +192,8 @@ importers:
         specifier: ^2.2.9
         version: 2.2.10
       '@types/node':
-        specifier: ^13.11.1
-        version: 13.11.1
+        specifier: ~16.6.0
+        version: 16.6.0
       '@types/react-native':
         specifier: ^0.64.13
         version: 0.64.13
@@ -2912,7 +2912,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 29.6.4
       '@jest/types': 29.6.3
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       jest-mock: 29.6.3
 
   /@jest/fake-timers@29.6.4:
@@ -2921,7 +2921,7 @@ packages:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       jest-message-util: 29.6.3
       jest-mock: 29.6.3
       jest-util: 29.6.3
@@ -2938,7 +2938,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       '@types/yargs': 15.0.15
       chalk: 4.1.2
 
@@ -2948,7 +2948,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       '@types/yargs': 16.0.5
       chalk: 4.1.2
 
@@ -2959,7 +2959,7 @@ packages:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       '@types/yargs': 17.0.24
       chalk: 4.1.2
 
@@ -4463,7 +4463,7 @@ packages:
       - '@types/webpack'
       - '@types/webpack-dev-server'
 
-  /@tarojs/components-react@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/components-react@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-FZh6VBFaqaHsuphTiTmmQ70K7/mvXqB7teL1IDn1sniDwMwLLXZRvWojcdxkE1nGPtD+gPmdhZEPWHMUNYpung==}
     dependencies:
       '@babel/runtime': 7.22.11
@@ -4479,6 +4479,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - vue
     dev: true
 
@@ -4938,7 +4939,7 @@ packages:
       - vue
     dev: false
 
-  /@tarojs/plugin-platform-alipay@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-alipay@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-65SFA8Vmlwf5ZflI+jXN3W2nrh2NYM3GRAjOcZDIPE+6Je33Bi/7jNaTn3t+YwJlcVjY6djp3/dmC+xwc7skfA==}
     dependencies:
       '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
@@ -4949,6 +4950,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -4982,15 +4984,15 @@ packages:
       - supports-color
       - vue
 
-  /@tarojs/plugin-platform-h5@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-h5@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-NVn9an5hcdWAtqylDirbCHBGdwEhk0VYOzspeubemNLQ/lGLkJHU50CfOF42RBZA1sAfwwh6JB1LNILMdtCaPA==}
     dependencies:
       '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
-      '@tarojs/components-react': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+      '@tarojs/components-react': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/router': 3.6.6(@types/react@18.2.21)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
-      '@tarojs/taro-h5': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+      '@tarojs/taro-h5': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       babel-plugin-transform-taroapi: 3.6.6
       resolve: 1.22.4
     transitivePeerDependencies:
@@ -4998,6 +5000,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -5047,10 +5050,10 @@ packages:
       - supports-color
       - vue
 
-  /@tarojs/plugin-platform-qq@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-qq@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-GPLUNeduZMG7wFmPZspfVTc2oSv9zlanKjJn/7uUDPA3HKIbflcVehkPn2Cq28BuvSvY8q3oqFUPMGvKP7jHnw==}
     dependencies:
-      '@tarojs/plugin-platform-weapp': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)
+      '@tarojs/plugin-platform-weapp': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
       '@tarojs/service': 3.6.6(@types/react@18.2.21)
       '@tarojs/shared': 3.6.6
     transitivePeerDependencies:
@@ -5058,6 +5061,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -5091,7 +5095,7 @@ packages:
       - supports-color
       - vue
 
-  /@tarojs/plugin-platform-swan@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-swan@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-ISylMI0/7cZ7S/nKwDvkKke76h2m+TtcCqrhvmm4Fo/RyFdxPtZu/wtJ62WSw39dcU5Jec6UuP/YqsMGYEqcWw==}
     dependencies:
       '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
@@ -5102,6 +5106,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -5135,7 +5140,7 @@ packages:
       - supports-color
       - vue
 
-  /@tarojs/plugin-platform-tt@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-tt@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-NgHSRX9tejcQQm3ATc4zaG6mtHYr1c7udhaaFrHxCZJeLqsWWlw7f06FIpghKdbhmKCUcqXUgtbQOwdcvb9P1Q==}
     dependencies:
       '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
@@ -5146,6 +5151,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -5179,7 +5185,7 @@ packages:
       - supports-color
       - vue
 
-  /@tarojs/plugin-platform-weapp@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/plugin-platform-weapp@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-/feSsGVeXlcuruuSamUvDz/CzttN0E/ziXLjJ6ldBYW7Mscfb1Ro+HnM26eaCGWrJTee4WRvvYerr7Nn6m+PbQ==}
     dependencies:
       '@tarojs/components': 3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0)
@@ -5190,6 +5196,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - supports-color
       - vue
     dev: true
@@ -5501,7 +5508,7 @@ packages:
   /@tarojs/shared@3.6.6:
     resolution: {integrity: sha512-8OwrMReJSAKVyHaUM/pcqEP1V9SD+U3mIyYKIfePuXjAd3YzdXkJxt5JRUjk4ElrJ96yrLPUfISmaE84AYBWmQ==}
 
-  /@tarojs/taro-h5@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21):
+  /@tarojs/taro-h5@3.6.6(@types/react-native@0.64.13)(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-Ze4HzJV9GoY9epB0eIrFzLAkQyh3XH8ZgJcGpo0kC3BUxtDZqS14ca6ZS/H0KOsOIFwdhb4VO7An15YofLEDMw==}
     dependencies:
       '@tarojs/api': 3.6.6
@@ -5520,6 +5527,7 @@ packages:
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
+      - react
       - vue
     dev: true
 
@@ -5925,13 +5933,13 @@ packages:
   /@types/favicons@5.5.0:
     resolution: {integrity: sha512-s76OlRaBfqtGu2ZBobnZv2NETfqsQUVfKKlOkKNGo4ArBsqiblodKsnQ3j29hCCgmpQacEfLxealV96za+tzVQ==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
     dev: true
 
   /@types/fs-extra@8.1.2:
     resolution: {integrity: sha512-SvSrYXfWSc7R4eqnOzbQF4TZmfpNSM9FrSWLU3EUnWBuyZqNBOrv1B1JA3byUDPUl9z4Ab3jeZG2eDdySlgNMg==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
     dev: true
 
   /@types/geojson@7946.0.10:
@@ -5941,7 +5949,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
     dev: true
 
   /@types/hammerjs@2.0.41:
@@ -5974,7 +5982,7 @@ packages:
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
     dev: true
 
   /@types/lodash.debounce@4.0.7:
@@ -6002,12 +6010,15 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node@13.11.1:
-    resolution: {integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==}
-
   /@types/node@15.14.9:
     resolution: {integrity: sha512-qjd88DrCxupx/kJD5yQgZdcYKZKSIGBVDIBE1/LTGcNm3d2Np/jxojkdePDdfnBHJc5W7vSMpbJ1aB7p/Py69A==}
     dev: true
+
+  /@types/node@16.6.0:
+    resolution: {integrity: sha512-OyiZPohMMjZEYqcVo/UJ04GyAxXOJEZO/FpzyXxcH4r/ArrVoXHf4MbUrkLp0Tz7/p1mMKpo5zJ6ZHl8XBNthQ==}
+
+  /@types/node@16.6.2:
+    resolution: {integrity: sha512-LSw8TZt12ZudbpHc6EkIyDM3nHVWKYrAvGy6EAJfNfjusbwnThqjqxUKKRwuV3iWYeW/LYMzNgaq3MaLffQ2xA==}
 
   /@types/node@20.4.7:
     resolution: {integrity: sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==}
@@ -6055,19 +6066,19 @@ packages:
   /@types/resolve@0.0.8:
     resolution: {integrity: sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
     dev: true
 
   /@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
     dev: false
 
   /@types/responselike@1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
     dev: true
 
   /@types/sass@1.45.0:
@@ -6108,7 +6119,7 @@ packages:
     resolution: {integrity: sha512-4UqPv+2567NhMQuMLdKAyK4yzrfCqwaTt6bLhHEs8PFcxbHILsrxaY63n4wgE/BRLDWDQeI+WcTmkXKExh9hQg==}
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
     dev: true
 
   /@types/webpack-env@1.15.1:
@@ -6118,7 +6129,7 @@ packages:
   /@types/webpack-sources@3.2.0:
     resolution: {integrity: sha512-Ft7YH3lEVRQ6ls8k4Ff1oB4jN6oy/XmU6tQISKdhfh+1mR+viZFphS6WL0IrtDOzvefmJg5a0s7ZQoRXwqTEFg==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
       '@types/source-list-map': 0.1.2
       source-map: 0.7.4
     dev: true
@@ -6126,7 +6137,7 @@ packages:
   /@types/webpack@4.41.33:
     resolution: {integrity: sha512-PPajH64Ft2vWevkerISMtnZ8rTs4YmRbs+23c402J0INmxDKCrhZNvwZYtzx96gY2wAtXdrK1BS2fiC8MlLr3g==}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
       '@types/tapable': 1.0.8
       '@types/uglify-js': 3.17.1
       '@types/webpack-sources': 3.2.0
@@ -13356,7 +13367,7 @@ packages:
       '@jest/environment': 29.6.4
       '@jest/fake-timers': 29.6.4
       '@jest/types': 29.6.3
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       jest-mock: 29.6.3
       jest-util: 29.6.3
 
@@ -13383,7 +13394,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       jest-util: 29.6.3
 
   /jest-regex-util@27.5.1:
@@ -13394,7 +13405,7 @@ packages:
     resolution: {integrity: sha512-jZCyo6iIxO1aqUxpuBlwTDMkzOAJS4a3eYz3YzgxxVQFwLeSA7Jfq5cbqCY+JLvTDrWirgusI/0KwxKMgrdf7w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       graceful-fs: 4.2.11
 
   /jest-util@27.5.1:
@@ -13402,7 +13413,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.5.1
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.11
@@ -13413,7 +13424,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 13.11.1
+      '@types/node': 16.6.0
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.11
@@ -13434,7 +13445,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -13443,7 +13454,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 16.6.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
