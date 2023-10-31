@@ -23,30 +23,19 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with :
-          ref : ${{ github.ref || github.head_ref || github.ref_name }}
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+            version: 8
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      # Bootstrap project
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
-      - name: install
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 8
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
+      - run: pnpm start
 
       - name: build
         run: pnpm build

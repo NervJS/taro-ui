@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "start": "pnpm install --shamefully-hoist",
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm -r run build",
     "clean": " rimraf **/dist && rimraf **/node_modules",
