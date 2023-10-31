@@ -48,13 +48,15 @@ export default class AtFloatLayout extends React.Component<
     }
   }
 
-  private close = (): void => {
-    this.setState(
-      {
-        _isOpened: false
-      },
-      this.handleClose
-    )
+  private close = (type: 'overlay' | 'button', closeOnClickOverlay?: boolean): void => {
+    if ((type === 'overlay' && closeOnClickOverlay) || type === 'button') {
+      this.setState(
+        {
+          _isOpened: false
+        },
+        this.handleClose
+      )
+    }
   }
 
   private handleTouchMove = (e: CommonEvent): void => {
@@ -65,14 +67,14 @@ export default class AtFloatLayout extends React.Component<
     const { _isOpened } = this.state
     const {
       title,
-
       scrollY,
       scrollX,
       scrollTop,
       scrollLeft,
       upperThreshold,
       lowerThreshold,
-      scrollWithAnimation
+      scrollWithAnimation,
+      closeOnClickOverlay = true
     } = this.props
 
     const rootClass = classNames(
@@ -85,12 +87,12 @@ export default class AtFloatLayout extends React.Component<
 
     return (
       <View className={rootClass} onTouchMove={this.handleTouchMove}>
-        <View onClick={this.close} className='at-float-layout__overlay' />
+        <View onClick={() => this.close('overlay', closeOnClickOverlay)} className='at-float-layout__overlay' />
         <View className='at-float-layout__container layout'>
           {title ? (
             <View className='layout-header'>
               <Text className='layout-header__title'>{title}</Text>
-              <View className='layout-header__btn-close' onClick={this.close} />
+              <View className='layout-header__btn-close' onClick={() => this.close('button')} />
             </View>
           ) : null}
           <View className='layout-body'>

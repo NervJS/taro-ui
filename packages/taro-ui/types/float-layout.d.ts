@@ -61,6 +61,10 @@ export interface AtFloatLayoutProps extends AtComponent {
    * 滚动到底部/右边，会触发 onScrollToLower 事件
    */
   onScrollToLower?: CommonEventFunction
+  /**
+   * 点击遮罩层是否关闭，默认关闭
+   */
+  closeOnClickOverlay?: boolean
 }
 
 export interface AtFloatLayoutState {
