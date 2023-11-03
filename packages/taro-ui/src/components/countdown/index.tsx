@@ -128,8 +128,19 @@ export default class AtCountdown extends React.Component<
   }
 
   public render(): JSX.Element {
-    const { className, customStyle, format, isShowDay, isCard, isShowHour } =
-      this.props
+    const {
+      className,
+      customStyle,
+      format = {
+        day: '天',
+        hours: '时',
+        minutes: '分',
+        seconds: '秒'
+      },
+      isShowDay,
+      isCard,
+      isShowHour
+    } = this.props
 
     const { _day, _hours, _minutes, _seconds } = this.state
 
@@ -145,7 +156,7 @@ export default class AtCountdown extends React.Component<
         style={customStyle}
       >
         {isShowDay && (
-          <AtCountdownItem num={_day} separator={format.day || ''} />
+          <AtCountdownItem num={_day} separator={format.day || '天'} />
         )}
         {isShowHour && (
           <AtCountdownItem num={_hours} separator={format.hours} />
