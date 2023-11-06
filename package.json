@@ -10,8 +10,10 @@
   },
   "license": "MIT",
   "scripts": {
+    "start": "pnpm install --shamefully-hoist",
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm -r run build",
+    "build:demo": "pnpm --filter=taro-ui-demo build:h5",
     "clean": " rimraf **/dist && rimraf **/node_modules",
     "prepare": "husky install"
   },
