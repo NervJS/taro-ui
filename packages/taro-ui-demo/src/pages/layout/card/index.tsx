@@ -1,5 +1,5 @@
 import React from 'react'
-import { AtCard, AtIcon } from 'taro-ui'
+import { AtButton, AtCard, AtIcon } from 'taro-ui'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
@@ -106,6 +106,25 @@ export default class CardPage extends React.Component {
                 <AtCard
                   note='小Tips'
                   extra='2019/01/23 22:33:33'
+                  extraStyle={{
+                    fontSize: '12px',
+                    maxWidth: '200px',
+                    color: '#6190e8'
+                  }}
+                  title='这是个标题'
+                  thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+                >
+                  这也是内容区 可以随意定义功能
+                </AtCard>
+              </View>
+              <View className='example-item'>
+                <AtCard
+                  note='小Tips'
+                  extra={
+                    <AtButton size='small' type='primary'>
+                      提交
+                    </AtButton>
+                  }
                   extraStyle={{
                     fontSize: '12px',
                     maxWidth: '200px',
