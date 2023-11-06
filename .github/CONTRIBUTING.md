@@ -31,7 +31,7 @@ Issues 是用来提交 Bug 或 Feature 相关的内容，一个 Bug Issue 应该
 
 ## 开发环境
 
-请确保您的 Node 版本是 8.0+，并且 Taro 升级到最新版
+请确保您的 Node 版本是 16.x，并且 Taro 升级到最新版
 
 ```bash
 git clone git@github.com:NervJS/taro-ui.git
