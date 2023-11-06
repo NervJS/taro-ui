@@ -26,7 +26,7 @@ export default class AtDivider extends React.Component<AtDividerProps> {
 
     const fontStyle = {
       color: fontColor,
-      'fontSize': fontSize ? `${pxTransform(Number(fontSize))}` : ''
+      fontSize: fontSize ? `${pxTransform(Number(fontSize))}` : ''
     }
 
     const lineStyle: React.CSSProperties = {

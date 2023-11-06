@@ -105,8 +105,8 @@ export default class AtCountdown extends React.Component<
   public UNSAFE_componentWillReceiveProps(nextProps: AtCountDownProps): void {
     if (JSON.stringify(this.props) === JSON.stringify(nextProps)) return
 
-    const { day, hours, minutes, seconds } = nextProps
-    this.seconds = toSeconds(day!, hours!, minutes!, seconds!)
+    const { day = 0, hours = 0, minutes = 0, seconds = 0 } = nextProps
+    this.seconds = toSeconds(day, hours, minutes, seconds)
     this.clearTimer()
     this.setTimer()
   }
@@ -128,8 +128,19 @@ export default class AtCountdown extends React.Component<
   }
 
   public render(): JSX.Element {
-    const { className, customStyle, format, isShowDay, isCard, isShowHour } =
-      this.props
+    const {
+      className,
+      customStyle,
+      format = {
+        day: '天',
+        hours: '时',
+        minutes: '分',
+        seconds: '秒'
+      },
+      isShowDay,
+      isCard,
+      isShowHour
+    } = this.props
 
     const { _day, _hours, _minutes, _seconds } = this.state
 
@@ -144,12 +155,14 @@ export default class AtCountdown extends React.Component<
         )}
         style={customStyle}
       >
-        {isShowDay && <AtCountdownItem num={_day} separator={format!.day} />}
-        {isShowHour && (
-          <AtCountdownItem num={_hours} separator={format!.hours} />
+        {isShowDay && (
+          <AtCountdownItem num={_day} separator={format.day || '天'} />
         )}
-        <AtCountdownItem num={_minutes} separator={format!.minutes} />
-        <AtCountdownItem num={_seconds} separator={format!.seconds} />
+        {isShowHour && (
+          <AtCountdownItem num={_hours} separator={format.hours} />
+        )}
+        <AtCountdownItem num={_minutes} separator={format.minutes} />
+        <AtCountdownItem num={_seconds} separator={format.seconds} />
       </View>
     )
   }

@@ -6,9 +6,7 @@ import { CommonEvent } from '@tarojs/components/types/common'
 import { AtSegmentedControlProps } from '../../../types/segmented-control'
 import { mergeStyle, pxTransform } from '../../common/utils'
 
-export default class AtSegmentedControl extends React.Component<
-  AtSegmentedControlProps
-> {
+export default class AtSegmentedControl extends React.Component<AtSegmentedControlProps> {
   public static defaultProps: AtSegmentedControlProps
   public static propTypes: InferProps<AtSegmentedControlProps>
 

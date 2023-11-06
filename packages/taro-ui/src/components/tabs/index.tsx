@@ -81,8 +81,6 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     // 获取触摸时的原点
     this._touchDot = e.touches[0].pageX
     // 使用js计时器记录时间
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     this._timer = setInterval(() => {
       this._interval++
     }, 100)

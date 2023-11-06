@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       # Setup
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: Git Identity
         run: |
@@ -77,15 +77,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Bootstrap project
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
       - name: install
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
-        run: yarn
-      - name: bootstrap
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
-        run: yarn run bootstrap
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
       - name: build
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
-        run: yarn build
+        run: pnpm build
 
       # Git stash
       - name: Drop current changes
@@ -106,9 +113,13 @@ jobs:
           git_tag_prefix: "v"
 
       # Publish
-      - name: npm publish
-        if: steps.tag_check.outputs.exists_tag == 'false' && startsWith( env.commitmsg , 'chore(release):' )
-        run: yarn lerna publish from-package --yes
+      - name: Publish
+        run: |
+          if [ '${{ github.event_name }}' == 'pull_request' ] ; then
+            pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref }} -r
+          elif [ '${{ github.event_name }}' == 'push' ] ; then
+            pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref_name }} -r ${{ env.PUBLISH_PARAMS }}
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

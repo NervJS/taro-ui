@@ -42,6 +42,8 @@
     "ios >= 8"
   ],
   "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.6.6",
     "@tarojs/helper": "3.6.6",
@@ -57,21 +59,14 @@
     "@tarojs/runtime": "3.6.6",
     "@tarojs/shared": "3.6.6",
     "@tarojs/taro": "3.6.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "taro-ui": "file:../taro-ui"
+    "taro-ui": "workspace:^"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "3.6.6",
     "@tarojs/mini-runner": "3.6.6",
     "@tarojs/webpack-runner": "3.6.6",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
     "@types/webpack-env": "^1.13.6",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
     "babel-preset-taro": "3.6.6",
     "eslint": "^8.12.0",
     "eslint-config-taro": "3.6.6",

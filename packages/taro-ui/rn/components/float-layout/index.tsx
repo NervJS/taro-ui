@@ -5,7 +5,7 @@ import { ScrollView, Text, View } from '@tarojs/components'
 import { Modal, Animated, Dimensions } from 'react-native'
 import {
   AtFloatLayoutProps,
-  AtFloatLayoutState,
+  AtFloatLayoutState
 } from '../../../types/float-layout'
 import { handleTouchScroll } from '../../common/utils'
 import AtIcon from '../icon'
@@ -25,7 +25,7 @@ export default class AtFloatLayout extends React.Component<
     const { isOpened } = props
     this.state = {
       _isOpened: isOpened,
-      translateY: 0,
+      translateY: 0
     }
   }
 
@@ -43,7 +43,7 @@ export default class AtFloatLayout extends React.Component<
 
   animating = false
 
-  private animateLayout(isOpened: boolean, cb?: Function): void {
+  private animateLayout(isOpened: boolean, cb?: () => void): void {
     this.animating = true
     let fromValue
     let toValue
@@ -61,36 +61,33 @@ export default class AtFloatLayout extends React.Component<
 
     this.setState(
       {
-        translateY,
+        translateY
       },
       () => {
         setTimeout(() => {
           this.setState(
             {
-              _isOpened: isOpened,
+              _isOpened: isOpened
             },
             () => {
               cb && cb()
-            },
+            }
           )
         }, setStateDelay)
 
         Animated.timing(this.state.translateY, {
           toValue,
           duration,
-          useNativeDriver: true,
+          useNativeDriver: true
         }).start(() => {
           this.animating = false
         })
-      },
+      }
     )
   }
 
   private handleClose = (): void => {
     if (typeof this.props.onClose === 'function') {
-      // TODO: Fix typings
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
       this.props.onClose()
     }
   }
@@ -112,15 +109,15 @@ export default class AtFloatLayout extends React.Component<
       scrollLeft,
       upperThreshold,
       lowerThreshold,
-      scrollWithAnimation,
+      scrollWithAnimation
     } = this.props
 
     const rootClass = classNames(
       'at-float-layout',
       {
-        'at-float-layout--active': _isOpened,
+        'at-float-layout--active': _isOpened
       },
-      this.props.className,
+      this.props.className
     )
 
     return (
@@ -162,14 +159,8 @@ export default class AtFloatLayout extends React.Component<
                 upperThreshold={upperThreshold}
                 lowerThreshold={lowerThreshold}
                 scrollWithAnimation={scrollWithAnimation}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore // TODO: Fix typings
                 onScroll={this.props.onScroll}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore // TODO: Fix typings
                 onScrollToLower={this.props.onScrollToLower}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore // TODO: Fix typings
                 onScrollToUpper={this.props.onScrollToUpper}
                 className='layout-body__content'
               >
@@ -189,7 +180,7 @@ AtFloatLayout.defaultProps = {
 
   scrollY: true,
   scrollX: false,
-  scrollWithAnimation: false,
+  scrollWithAnimation: false
 }
 
 AtFloatLayout.propTypes = {
@@ -205,5 +196,5 @@ AtFloatLayout.propTypes = {
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   onScrollToLower: PropTypes.func,
-  onScrollToUpper: PropTypes.func,
+  onScrollToUpper: PropTypes.func
 }

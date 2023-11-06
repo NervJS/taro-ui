@@ -16,24 +16,23 @@ jobs:
           path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-node_modules
           restore-keys: ${{ runner.os }}-node_modules
-      - name: Get Yarn Cache Directory Path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: yarn-cache
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }}
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install Dependencies
-        run: |
-          yarn
-      - name: Lerna Bootstrap
-        run: |
-          yarn bootstrap
+            ${{ runner.os }}-
+
+      - name: install
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+
       - name: Release Taro React Native bundle
         uses: zhiqingchen/taro-react-native-release@v1
         with:

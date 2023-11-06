@@ -15,16 +15,8 @@ export default class AtCard extends React.Component<AtCardProps> {
   }
 
   public render(): JSX.Element {
-    const {
-      title,
-      note,
-      extra,
-      extraStyle,
-      thumb,
-      isFull,
-      icon,
-      renderIcon
-    } = this.props
+    const { title, note, extra, extraStyle, thumb, isFull, icon, renderIcon } =
+      this.props
 
     const rootClass = classNames(
       'at-card',

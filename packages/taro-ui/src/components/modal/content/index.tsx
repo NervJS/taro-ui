@@ -3,9 +3,7 @@ import React from 'react'
 import { ScrollView } from '@tarojs/components'
 import { AtModalContentProps } from '../../../../types/modal'
 
-export default class AtModalContent extends React.Component<
-  AtModalContentProps
-> {
+export default class AtModalContent extends React.Component<AtModalContentProps> {
   public render(): JSX.Element {
     const rootClass = classNames('at-modal__content', this.props.className)
     return (

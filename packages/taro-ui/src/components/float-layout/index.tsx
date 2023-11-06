@@ -39,21 +39,18 @@ export default class AtFloatLayout extends React.Component<
     }
   }
 
-  private handleClose = (): void => {
+  private handleClose = (e): void => {
     if (typeof this.props.onClose === 'function') {
-      // TODO: Fix typings
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      this.props.onClose()
+      this.props.onClose(e)
     }
   }
 
-  private close = (): void => {
+  private close = (e): void => {
     this.setState(
       {
         _isOpened: false
       },
-      this.handleClose
+      () => this.handleClose(e)
     )
   }
 
@@ -102,14 +99,8 @@ export default class AtFloatLayout extends React.Component<
               upperThreshold={upperThreshold}
               lowerThreshold={lowerThreshold}
               scrollWithAnimation={scrollWithAnimation}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore // TODO: Fix typings
               onScroll={this.props.onScroll}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore // TODO: Fix typings
               onScrollToLower={this.props.onScrollToLower}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore // TODO: Fix typings
               onScrollToUpper={this.props.onScrollToUpper}
               className='layout-body__content'
             >

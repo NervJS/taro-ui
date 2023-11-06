@@ -3,8 +3,6 @@ import { AtForm, AtInput } from 'taro-ui'
 import { View } from '@tarojs/components'
 import { ImageBackground } from 'react-native'
 import { BaseEventOrig } from '@tarojs/components/types/common'
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { InputProps } from '@tarojs/components/types/Input'
 import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
@@ -32,7 +30,9 @@ interface IndexState {
   [key: string]: string | boolean | number
 }
 
-export default class Index extends React.Component<{}, IndexState> {
+interface IndexProps {}
+
+export default class Index extends React.Component<IndexProps, IndexState> {
   public constructor(props: any) {
     super(props)
     this.state = {
@@ -53,12 +53,12 @@ export default class Index extends React.Component<{}, IndexState> {
       value16: '',
       value17: '',
       disabled: false,
-      second: 60,
+      second: 60
     }
   }
 
   public config: Taro.PageConfig = {
-    navigationBarTitleText: 'Taro UI',
+    navigationBarTitleText: 'Taro UI'
   }
 
   private showTipText(): string {
@@ -68,18 +68,18 @@ export default class Index extends React.Component<{}, IndexState> {
   private sendCode(): void {
     if (this.state.disabled) return
     this.setState({
-      disabled: true,
+      disabled: true
     })
     // 倒计时
     const timer = setInterval(() => {
       if (this.state.second > 0) {
         this.setState({
-          second: this.state.second - 1,
+          second: this.state.second - 1
         })
       } else {
         this.setState({
           second: 60,
-          disabled: false,
+          disabled: false
         })
         clearInterval(timer)
       }
@@ -88,7 +88,7 @@ export default class Index extends React.Component<{}, IndexState> {
 
   private handleInput(stateName: string, value: string): void {
     this.setState({
-      [stateName]: value,
+      [stateName]: value
     })
   }
 
@@ -104,19 +104,17 @@ export default class Index extends React.Component<{}, IndexState> {
     Taro.showToast({
       title: '请输入数字',
       icon: 'success',
-      duration: 2000,
+      duration: 2000
     })
   }
 
   private handleKeyboardHeightChange(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    event: BaseEventOrig<InputProps.onKeyboardHeightChangeEventDetail>,
+    event: BaseEventOrig<InputProps.onKeyboardHeightChangeEventDetail>
   ): void {
     Taro.showToast({
       title: `高度 ${event.detail.height}`,
       icon: 'success',
-      duration: 2000,
+      duration: 2000
     })
   }
 
@@ -283,10 +281,8 @@ export default class Index extends React.Component<{}, IndexState> {
                     placeholder='监听键盘高度事件'
                     value={this.state.value17}
                     onChange={this.handleInput.bind(this, 'value17')}
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                    // @ts-ignore
                     onKeyboardHeightChange={this.handleKeyboardHeightChange.bind(
-                      this,
+                      this
                     )}
                   />
                 </AtForm>
@@ -317,10 +313,10 @@ export default class Index extends React.Component<{}, IndexState> {
                     <ImageBackground
                       style={{
                         width: Taro.pxTransform(145),
-                        height: Taro.pxTransform(60),
+                        height: Taro.pxTransform(60)
                       }}
                       source={{
-                        uri: 'https://taro-ui.aotu.io/h5/static/images/verification_code.png',
+                        uri: 'https://taro-ui.aotu.io/h5/static/images/verification_code.png'
                       }}
                       resizeMode='cover'
                     />
@@ -338,7 +334,7 @@ export default class Index extends React.Component<{}, IndexState> {
                       style={{
                         color: this.state.disabled ? '#FF4949' : undefined,
                         fontSize: 12,
-                        width: 90,
+                        width: 90
                       }}
                       onClick={this.sendCode.bind(this)}
                     >

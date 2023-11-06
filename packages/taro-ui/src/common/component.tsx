@@ -14,7 +14,7 @@ const objectToString = (style: object | string): string => {
   return ''
 }
 
-export default class AtComponent<P = {}, S = {}> extends Component<P, S> {
+export default class AtComponent<P, S> extends Component<P, S> {
   /**
    * 合并 style
    * @param {Object|String} style1
