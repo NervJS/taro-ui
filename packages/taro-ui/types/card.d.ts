@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
@@ -23,7 +23,7 @@ export interface AtCardProps extends AtComponent {
   /**
    * 元素的额外信息
    */
-  extra?: string
+  extra?: JSX.Element | string
   /**
    * 元素的额外信息自定义样式
    */
