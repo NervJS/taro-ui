@@ -3,7 +3,8 @@ on:
   # When Release Pull Request is merged
   push:
     branches:
-      - next
+      - 'chore/**'
+      - 'feat/**'
   pull_request:
     branches:
       - next
@@ -13,12 +14,13 @@ env:
   CI: true
 jobs:
   publish:
+    permissions:
+      contents: write # to create tags and refs
+      actions: write # to cancel running workflow (andymckay/cancel-action)
+      issues: write # to create comment
+
     name: publish
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [16.x]
 
     steps:
       # Setup
