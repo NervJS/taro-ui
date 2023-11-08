@@ -1,0 +1,50 @@
+name: Publish root to TCB
+on:
+  check_suite:
+    types: [completed]
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 21 * * *"
+
+env:
+  CI: true
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Cache pnpm modules and build
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            build/taro-docs
+          key: ${{ runner.os }}-tcb
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Build
+        run: pnpm run build:doc
+
+      - name: Deploy static to Tencent CloudBase
+        id: deployStatic
+        uses: TencentCloudBase/cloudbase-action@v1.1.1
+        with:
+          secretId: ${{ secrets.TCB_SECRET_ID }}
+          secretKey: ${{ secrets.TCB_SECRET_KEY }}
+          envId: ${{ secrets.TCB_TARO_DOCS_ENV_ID }}
+          staticSrcPath: dist
