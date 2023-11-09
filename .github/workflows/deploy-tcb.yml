@@ -35,7 +35,10 @@ jobs:
 
       - run: pnpm start
 
-      - name: Build
+      - name: Build taro-ui
+        run: pnpm run build:ui
+
+      - name: Build taro-ui-docs
         run: pnpm run build:doc
 
       - name: Deploy static to Tencent CloudBase
