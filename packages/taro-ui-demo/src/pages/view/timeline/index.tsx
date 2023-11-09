@@ -114,6 +114,30 @@ export default class TimelinePage extends React.Component {
               </View>
             </View>
           </View>
+
+          {/* 点击节点事件 */}
+          <View className='panel'>
+            <View className='panel__title'>点击节点</View>
+            <View className='panel__content'>
+              <View className='example-item'>
+                <AtTimeline
+                  pending
+                  items={[
+                    { title: '刷牙洗脸' },
+                    { title: '吃早餐' },
+                    { title: '上班' },
+                    { title: '睡觉' }
+                  ]}
+                  onClickItem={index => {
+                    Taro.showToast({
+                      title: `点击了第 ${index} 个节点`,
+                      icon: 'none'
+                    })
+                  }}
+                ></AtTimeline>
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     )

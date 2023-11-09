@@ -9,7 +9,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static propTypes: InferProps<AtTimelineProps>
 
   public render(): JSX.Element {
-    const { pending, items, customStyle } = this.props
+    const { pending, items, customStyle, onClickItem } = this.props
 
     const rootClassName = ['at-timeline']
     if (pending) rootClassName.push('at-timeline--pending')
@@ -36,10 +36,15 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
         dotClass.push('at-timeline-item__dot')
       }
 
+      const handleItemClick = (index, e) => {
+        onClickItem?.(index, e)
+      }
+
       return (
         <View
           className={classNames(itemRootClassName)}
           key={`at-timeline-item-${index}`}
+          onClick={e => handleItemClick(index, e)}
         >
           <View className='at-timeline-item__tail'></View>
           <View className={classNames(dotClass)}>

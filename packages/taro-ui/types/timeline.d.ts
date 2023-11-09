@@ -32,6 +32,13 @@ export interface AtTimelineProps extends AtComponent {
    * 需展示的内容
    */
   items: Array<Item>
+
+  /**
+   * 点击 item 触发的事件
+   * @param {number} current 当前点击的 item 的索引值
+   * @param {MouseEvent} event
+   */
+  onClickItem?: (current: number, event: MouseEvent) => void
 }
 
 declare const AtTimeline: ComponentClass<AtTimelineProps>

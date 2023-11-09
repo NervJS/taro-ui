@@ -11,7 +11,7 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
   public static propTypes: InferProps<AtTimelineProps>
 
   public render(): JSX.Element {
-    const { pending, items, customStyle } = this.props
+    const { pending, items, customStyle, onClickItem } = this.props
 
     const rootClassName = ['at-timeline']
     if (pending) rootClassName.push('at-timeline--pending')
@@ -50,10 +50,14 @@ export default class AtTimeline extends React.Component<AtTimelineProps> {
 
       const hideStyle = isLast ? { display: 'none' } : {}
 
+      const handleItemClick = (index, e) => {
+        onClickItem?.(index, e)
+      }
       return (
         <View
           className={classNames(itemRootClassName)}
           key={`at-timeline-item-${index}`}
+          onClick={e => handleItemClick(index, e)}
         >
           <View
             className='at-timeline-item__tail'

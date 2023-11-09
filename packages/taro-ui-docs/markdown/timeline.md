@@ -106,6 +106,12 @@ import { AtTimeline } from 'taro-ui'
 |:-------------|:----------------------------------------|:----------------|:-----------------|:-------|
 | pending      | 最后一项是否为未完成态                  | Boolean         | -                | false  |
 | items        | 需展示的内容。数组对象参数参考下文 item | Array Of Object | -                | []     |
+| onClickItem  | 点击 item 触发的事件 | (current, e) => void | -                | []     |
+
+## Timeline 事件
+| 事件名称 | 说明          | 返回参数  |
+|---------- |-------------- |---------- |
+| onClickItem | 点击 item 触发的事件 | current,步骤索引值  |
 
 ## items object 字段详解
 
