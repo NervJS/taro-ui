@@ -12,29 +12,28 @@ env:
   CI: true
 jobs:
   publish:
-    name: Publish
+    name: Publish Docs to TCB
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16.x]
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
         with:
-          ref: ${{ github.head_ref }}
+            version: 8
 
-      - name: Cache pnpm modules and build
-        uses: actions/cache@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          path: |
-            node_modules
-          key: ${{ runner.os }}-tcb
-          restore-keys: |
-            ${{ runner.os }}-
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - name: install
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
+      - run: pnpm start
 
       - name: Build
         run: pnpm run build:doc
