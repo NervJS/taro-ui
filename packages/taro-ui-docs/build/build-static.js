@@ -11,6 +11,11 @@ fs.emptyDirSync(path.resolve(__dirname, '../dist/h5'))
 
 function mergeDemoH5AndDist() {
   const demoH5Path = path.resolve(__dirname, '../../taro-ui-demo/dist')
+  if (!fs.existsSync(demoH5Path)) {
+    console.log('Please run `npm run build:demo` first')
+    return
+  }
+
   const distH5Path = path.resolve(__dirname, '../dist/h5')
   const distPath = path.resolve(__dirname, '../dist')
   const files = fs.readdirSync(demoH5Path)
