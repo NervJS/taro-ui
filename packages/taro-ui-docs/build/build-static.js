@@ -13,6 +13,7 @@ function mergeDemoH5AndDist() {
   const demoH5Path = path.resolve(__dirname, '../../taro-ui-demo/dist')
   if (!fs.existsSync(demoH5Path)) {
     console.log('Please run `npm run build:demo` first')
+    spinner.stop()
     return
   }
 
