@@ -4,7 +4,7 @@ on:
     types: [completed]
   push:
     branches:
-      - master
+      - next
   schedule:
     - cron: "0 21 * * *"
 
@@ -24,7 +24,6 @@ jobs:
         with:
           path: |
             node_modules
-            build/taro-docs
           key: ${{ runner.os }}-tcb
           restore-keys: |
             ${{ runner.os }}-
@@ -47,4 +46,4 @@ jobs:
           secretId: ${{ secrets.TCB_SECRET_ID }}
           secretKey: ${{ secrets.TCB_SECRET_KEY }}
           envId: ${{ secrets.TCB_TARO_DOCS_ENV_ID }}
-          staticSrcPath: dist
+          staticSrcPath: packages/taro-ui-docs/dist

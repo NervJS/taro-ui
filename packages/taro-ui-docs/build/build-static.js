@@ -9,12 +9,32 @@ spinner.start()
 // packages/taro-ui-docs/dist/h5
 fs.emptyDirSync(path.resolve(__dirname, '../dist/h5'))
 
-fs.copy(
-  // packages/taro-ui-demo/dist
-  path.resolve(__dirname, '../../taro-ui-demo/dist'),
-  path.resolve(__dirname, '../dist/h5')
-)
-  .then(() => {
-    spinner.stop()
+function mergeDemoH5AndDist() {
+  const demoH5Path = path.resolve(__dirname, '../../taro-ui-demo/dist')
+  const distH5Path = path.resolve(__dirname, '../dist/h5')
+  const distPath = path.resolve(__dirname, '../dist')
+  const files = fs.readdirSync(demoH5Path)
+
+  const promises = []
+  files.forEach(file => {
+    if (file !== 'index.html') {
+      promises.push(
+        fs.copy(path.resolve(demoH5Path, file), path.resolve(distPath, file))
+      )
+    } else {
+      promises.push(
+        fs.copy(path.resolve(demoH5Path, file), path.resolve(distH5Path, file))
+      )
+    }
   })
-  .catch(err => console.error(err))
+
+  Promise.all(promises)
+    .then(() => {
+      spinner.stop()
+    })
+    .catch(err => {
+      console.log('build static error:', err)
+    })
+}
+
+mergeDemoH5AndDist()
