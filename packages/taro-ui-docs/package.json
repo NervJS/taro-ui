@@ -26,7 +26,7 @@
     "at-ui-style": "^1.5.1",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.7.2",
     "qrcode.react": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
