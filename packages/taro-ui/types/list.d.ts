@@ -1,4 +1,4 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 
 import AtComponent, { AtIconBaseProps } from './base'
@@ -55,8 +55,14 @@ export interface AtListItemProps extends AtComponent {
   switchColor?: string
   /**
    * icon 信息
+   *
    */
   iconInfo?: AtIconBaseProps
+  /**
+   * 自定义 icon
+   *
+   */
+  icon?: JSX.Element
   /**
    * 箭头的方向
    */

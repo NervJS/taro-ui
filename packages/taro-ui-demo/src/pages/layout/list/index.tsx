@@ -125,7 +125,26 @@ export default class ListPage extends React.Component {
               </View>
             </View>
           </View>
-
+          {/* 自定义图标 */}
+          <View className='panel'>
+            <View className='panel__title'>
+              支持自定义图标(不能与thumb同时存在)
+            </View>
+            <View className='panel__content no-padding'>
+              <View className='example-item'>
+                <AtList>
+                  <AtListItem
+                    title='标题文字'
+                    note='描述信息'
+                    arrow='right'
+                    iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar' }}
+                    thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+                    icon={<View className='at-icon at-icon-bookmark' />}
+                  />
+                </AtList>
+              </View>
+            </View>
+          </View>
           {/* 无边框 */}
           <View className='panel'>
             <View className='panel__title'>无边框</View>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
@@ -7,7 +6,6 @@ import { Image, Switch, Text, View } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import { AtListItemProps } from '../../../../types/list'
 import AtIcon from '../../icon'
-// @ts-ignore
 
 export default class AtListItem extends React.Component<AtListItemProps> {
   public static defaultProps: AtListItemProps
@@ -44,6 +42,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       extraThumb,
       switchColor,
       switchIsCheck,
+      icon
     } = this.props
 
     let { extraText, title } = this.props
@@ -57,9 +56,9 @@ export default class AtListItem extends React.Component<AtListItemProps> {
         'at-list__item--thumb': thumb,
         'at-list__item--multiple': note,
         'at-list__item--disabled': disabled,
-        'at-list__item--no-border': !hasBorder,
+        'at-list__item--no-border': !hasBorder
       },
-      this.props.className,
+      this.props.className
     )
 
     // const iconClass = classNames(
@@ -73,10 +72,37 @@ export default class AtListItem extends React.Component<AtListItemProps> {
     // )
 
     const containerClass = classNames('at-list__item-container', {
-      'at-list__item-container--disabled': disabled,
+      'at-list__item-container--disabled': disabled
     })
 
     const TouchView = disabled ? View : TouchableHighlight
+
+    const renderIcon = () => {
+      if (icon) {
+        return <View className='item-icon'>{icon}</View>
+      } else if (iconInfo?.value) {
+        return (
+          <View className='at-list__item-icon item-icon'>
+            <AtIcon
+              value={iconInfo.value}
+              size={iconInfo.size}
+              color={iconInfo.color}
+              customStyle={iconInfo.customStyle}
+            />
+          </View>
+        )
+      } else if (thumb) {
+        return (
+          <View className='at-list__item--thumb'>
+            <Image
+              className='at-list__item--thumb__info'
+              mode='scaleToFill'
+              src={thumb}
+            />
+          </View>
+        )
+      }
+    }
 
     return (
       <TouchView
@@ -87,25 +113,7 @@ export default class AtListItem extends React.Component<AtListItemProps> {
         onPress={this.handleClick}
       >
         <View className={containerClass}>
-          {!!thumb && (
-            <View className='at-list__item--thumb'>
-              <Image
-                className='at-list__item--thumb__info'
-                mode='scaleToFill'
-                src={thumb}
-              />
-            </View>
-          )}
-          {iconInfo && iconInfo.value && (
-            <View className='at-list__item-icon item-icon'>
-              <AtIcon
-                value={iconInfo.value}
-                size={iconInfo.size}
-                color={iconInfo.color}
-                customStyle={iconInfo.customStyle}
-              />
-            </View>
-          )}
+          {renderIcon()}
           <View className='at-list__item-content'>
             <View className='at-list__item-content__info'>
               <Text
@@ -186,7 +194,7 @@ AtListItem.defaultProps = {
   switchIsCheck: false,
   extraText: '',
   extraThumb: '',
-  iconInfo: { value: '' },
+  iconInfo: { value: '' }
 }
 
 AtListItem.propTypes = {
@@ -209,6 +217,6 @@ AtListItem.propTypes = {
     color: PropTypes.string,
     prefixClass: PropTypes.string,
     customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  }),
+    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+  })
 }

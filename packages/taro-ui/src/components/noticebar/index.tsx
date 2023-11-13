@@ -13,8 +13,8 @@ export default class AtNoticebar extends React.Component<
   public static defaultProps: AtNoticeBarProps
   public static propTypes: InferProps<AtNoticeBarProps>
 
-  private timeout: NodeJS.Timeout | null
-  private interval: NodeJS.Timer
+  private timeout: ReturnType<typeof setTimeout> | null
+  private interval: ReturnType<typeof setInterval> | null
 
   public constructor(props: AtNoticeBarProps) {
     super(props)

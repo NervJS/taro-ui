@@ -40,7 +40,8 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       hasBorder,
       extraThumb,
       switchColor,
-      switchIsCheck
+      switchIsCheck,
+      icon
     } = this.props
 
     const { extraText, title } = this.props
@@ -55,42 +56,51 @@ export default class AtListItem extends React.Component<AtListItemProps> {
       },
       this.props.className
     )
-    const iconClass = classNames(
-      (iconInfo && iconInfo.prefixClass) || 'at-icon',
-      {
-        [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${
-          iconInfo && iconInfo.value
-        }`]: iconInfo && iconInfo.value
-      },
-      iconInfo && iconInfo.className
-    )
+
+    const renderIcon = () => {
+      if (icon) {
+        return <View className='item-icon'>{icon}</View>
+      } else if (iconInfo?.value) {
+        const iconClass = classNames(
+          (iconInfo && iconInfo.prefixClass) || 'at-icon',
+          {
+            [`${(iconInfo && iconInfo.prefixClass) || 'at-icon'}-${
+              iconInfo && iconInfo.value
+            }`]: iconInfo && iconInfo.value
+          },
+          iconInfo && iconInfo.className
+        )
+        return (
+          <View className='at-list__item-icon item-icon'>
+            <Text
+              className={iconClass}
+              style={mergeStyle(
+                {
+                  color: iconInfo.color || '',
+                  fontSize: `${iconInfo.size || 24}px`
+                },
+                iconInfo.customStyle || ''
+              )}
+            ></Text>
+          </View>
+        )
+      } else if (thumb) {
+        return (
+          <View className='at-list__item-thumb item-thumb'>
+            <Image
+              className='item-thumb__info'
+              mode='scaleToFill'
+              src={thumb}
+            />
+          </View>
+        )
+      }
+    }
 
     return (
       <View className={rootClass} onClick={this.handleClick}>
         <View className='at-list__item-container'>
-          {thumb && (
-            <View className='at-list__item-thumb item-thumb'>
-              <Image
-                className='item-thumb__info'
-                mode='scaleToFill'
-                src={thumb}
-              />
-            </View>
-          )}
-          {iconInfo && iconInfo.value && (
-            <View className='at-list__item-icon item-icon'>
-              <Text
-                className={iconClass}
-                style={mergeStyle(
-                  {
-                    color: iconInfo.color || '',
-                    fontSize: `${iconInfo.size || 24}px`
-                  },
-                  iconInfo.customStyle || ''
-                )}
-              ></Text>
-            </View>
-          )}
+          {renderIcon()}
           <View className='at-list__item-content item-content'>
             <View className='item-content__info'>
               <View className='item-content__info-title'>{title}</View>
