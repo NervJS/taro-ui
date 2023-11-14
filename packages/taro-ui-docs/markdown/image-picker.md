@@ -110,6 +110,21 @@ export default class Index extends Taro.Component {
 
 :::
 
+## 自定义上传按钮
+
+:::demo
+
+```jsx
+<AtImagePicker
+  files={this.state.files}
+  onChange={this.onChange.bind(this)}
+>
+  <AtButton type="primary">自定义上传按钮</AtButton>
+</AtImagePicker>
+```
+
+:::
+
 ## 多种图片预览模式
 
 :::demo
