@@ -48,8 +48,8 @@ jobs:
       # Get commit message
       - name: Get commit message
         run: |
-          COMMIT_MESSAGE=$(git log --format=%B -n 1)
-          echo "commitmsg=${COMMIT_MESSAGE}" >> $GITHUB_ENV
+          COMMIT_MESSAGE=$(git log --format=%s -n 1)
+          echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
       - name: Show commit message
         run : echo "$commitmsg"
 
