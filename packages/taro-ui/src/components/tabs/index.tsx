@@ -17,7 +17,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
 
   private _tabId: string
   private _touchDot: number
-  private _timer: NodeJS.Timeout | null
+  private _timer: ReturnType<typeof setInterval> | null
   private _interval: number
   private _isMoving: boolean
   private tabHeaderRef: any
@@ -116,7 +116,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
     const { swipeable, tabDirection } = this.props
     if (!swipeable || tabDirection === 'vertical') return
 
-    clearInterval(this._timer as NodeJS.Timeout)
+    this._timer && clearInterval(this._timer)
     this._interval = 0
     this._isMoving = false
   }

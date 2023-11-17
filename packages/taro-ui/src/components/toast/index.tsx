@@ -13,7 +13,7 @@ export default class AtToast extends React.Component<
   public static defaultProps: AtToastProps
   public static propTypes: InferProps<AtToastProps>
 
-  private _timer: NodeJS.Timeout | null
+  private _timer: ReturnType<typeof setTimeout> | null
 
   public constructor(props: AtToastProps) {
     super(props)

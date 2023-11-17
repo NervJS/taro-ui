@@ -107,7 +107,29 @@ import { AtList, AtListItem } from "taro-ui"
   />
 </AtList>
 ```
+:::
 
+## 支持图标的 Item
+
+:::demo
+
+```jsx
+<AtList>
+  <AtListItem
+    title='标题文字'
+    note='描述信息'
+    arrow='right'
+    iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar' }}
+    thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+    icon={<View className='at-icon at-icon-bookmark' />}
+  />
+</AtList>
+```
+:::
+
+::: caution
+
+当 icon、thumb、iconInfo 属性同时存在时，优先级为 icon >  iconInfo > thumb
 :::
 
 ## 无边框的 Item
@@ -149,6 +171,7 @@ import { AtList, AtListItem } from "taro-ui"
 
 :::
 
+
 ## AtList 参数
 
 | 参数      | 说明       | 类型    | 可选值 | 默认值 |
@@ -157,20 +180,21 @@ import { AtList, AtListItem } from "taro-ui"
 
 ## AtListItem 参数
 
-| 参数          | 说明             | 类型                                                                 | 可选值                 | 默认值  |
-| ------------- | ---------------- | -------------------------------------------------------------------- | ---------------------- | ------- |
-| title         | 元素的标题       | JSX.Element                                                          | -                      | -       |
-| disabled      | 是否禁用         | Boolean                                                              | -                      | `false` |
-| note          | 元素的描述信息   | JSX.Element                                                          | -                      | -       |
-| thumb         | 元素的主要缩略图 | String                                                               | -                      | -       |
-| arrow         | 箭头的方向       | String                                                               | `right`,`top`,`down` | -       |
-| extraText     | 额外信息的文本   | JSX.Element                                                          | -                      | -       |
-| extraThumb    | 额外信息的缩略图 | String                                                               | -                      | -       |
-| isSwitch      | 额外信息是否开关 | Boolean                                                              | -                      | `false` |
-| switchColor   | 开关的颜色       | String                                                               | -                      | `#6190E8` |
-| switchIsCheck | 额外信息开关的值 | Boolean                                                              | -                      | `false` |
-| hasBorder     | 是否有边框       | Boolean                                                              | -                      | `true`  |
-| iconInfo      | icon 信息        | {'{ value , size? , color?, prefixClass?,className?,customStyle? }'} | -                      | `true`  |
+| 参数          | 说明             | 类型                                                                 | 可选值               | 默认值    |
+| ------------- | ---------------- | -------------------------------------------------------------------- | -------------------- | --------- |
+| title         | 元素的标题       | JSX.Element                                                          | -                    | -         |
+| disabled      | 是否禁用         | Boolean                                                              | -                    | `false`   |
+| note          | 元素的描述信息   | JSX.Element                                                          | -                    | -         |
+| thumb         | 元素的主要缩略图 | String                                                               | -                    | -         |
+| arrow         | 箭头的方向       | String                                                               | `right`,`top`,`down` | -         |
+| extraText     | 额外信息的文本   | JSX.Element                                                          | -                    | -         |
+| extraThumb    | 额外信息的缩略图 | String                                                               | -                    | -         |
+| isSwitch      | 额外信息是否开关 | Boolean                                                              | -                    | `false`   |
+| switchColor   | 开关的颜色       | String                                                               | -                    | `#6190E8` |
+| switchIsCheck | 额外信息开关的值 | Boolean                                                              | -                    | `false`   |
+| hasBorder     | 是否有边框       | Boolean                                                              | -                    | `true`    |
+| iconInfo      | icon 信息        | {'{ value , size? , color?, prefixClass?,className?,customStyle? }'} | -                    | `true`    |
+| icon          | icon 的内容      | JSX.Element                                                          | -                    | -         |
 
 ## AtListItem 事件
 
@@ -178,3 +202,4 @@ import { AtList, AtListItem } from "taro-ui"
 | -------------- | -------------------------- | -------- |
 | onClick        | 用户点击元素触发的事件     | -        |
 | onSwitchChange | 用户点击切换 Switch 时触发 | -        |
+

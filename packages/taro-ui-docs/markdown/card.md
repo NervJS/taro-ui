@@ -47,7 +47,7 @@ import { AtCard } from "taro-ui"
 | note   | 元素的辅助信息 | String  | -      | -      |
 | thumb  | 元素的缩略图   | String  | -      | -      |
 | renderIcon | 元素自定义图标 | Jsx | - | - |  
-| extra  | 元素的额外信息 | String  | -      | -      |
+| extra  | 元素的额外信息 | Jsx  | -      | -      |
 | extraStyle | 元素的额外信息自定义样式 | Object | - | - | 
 | isFull | 是否通栏       | Boolean | -      | -      |
 

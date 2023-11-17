@@ -78,7 +78,8 @@
               "^UNSAFE_"
             ]
           }
-        ]
+        ],
+        "@typescript-eslint/ban-ts-comment": "off"
       },
       "settings": {
         "import/ignore": [
