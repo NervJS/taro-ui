@@ -51,7 +51,7 @@ jobs:
           COMMIT_MESSAGE=$(git log --format=%s -n 1)
           echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
       - name: Show commit message
-        run : echo "$commitmsg"
+        run : echo "$COMMIT_MESSAGE"
 
       - name: Commit message compliance verification
         if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) != true
