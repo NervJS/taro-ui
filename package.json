@@ -3,7 +3,7 @@
   "name": "taro-ui",
   "description": "UI KIT for Taro",
   "author": "O2Team <aotu.io>",
-  "homepage": "https://taro-ui.aotu.io",
+  "homepage": "https://taro-ui.taro.zone",
   "repository": {
     "type": "git",
     "url": "git@github.com:nervjs/taro-ui.git"
@@ -17,7 +17,11 @@
     "build:demo": "pnpm --filter=taro-ui-demo build:h5",
     "build:doc": "pnpm run build:demo && pnpm --filter=taro-ui-docs build",
     "clean": " rimraf **/dist && rimraf **/node_modules",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "run-s version:*",
+    "version:release": "pnpm --parallel -r --aggregate-output --filter=./packages/* exec npm version ${npm_package_version}",
+    "version:git": "git add . && git commit -m \"chore(release): publish ${npm_package_version}\"",
+    "version:changelog": "conventional-changelog -p angular"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

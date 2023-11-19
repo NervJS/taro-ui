@@ -25,9 +25,9 @@ jobs:
     steps:
       # Setup
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
@@ -48,10 +48,10 @@ jobs:
       # Get commit message
       - name: Get commit message
         run: |
-          COMMIT_MESSAGE=$(git log --format=%B -n 1)
-          echo "commitmsg=${COMMIT_MESSAGE}" >> $GITHUB_ENV
+          COMMIT_MESSAGE=$(git log --format=%s -n 1)
+          echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
       - name: Show commit message
-        run : echo "$commitmsg"
+        run : echo "$COMMIT_MESSAGE"
 
       - name: Commit message compliance verification
         if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) != true
