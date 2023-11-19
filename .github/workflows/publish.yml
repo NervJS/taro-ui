@@ -75,7 +75,7 @@ jobs:
 
       # Define ${CURRENT_VERSION}
       - name: Set Current Version
-        if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' )
         shell: bash -ex {0}
         run: |
           CURRENT_VERSION=$(node -p 'require("./packages/taro-ui/package.json").version')
@@ -83,7 +83,7 @@ jobs:
 
       # Check git tag
       - name: Tag Check
-        if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' )
         id: tag_check
         shell: bash -ex {0}
         run: |
@@ -115,7 +115,7 @@ jobs:
       - name: install
         uses: pnpm/action-setup@v2.4.0
         with:
-          version: 7
+          version: 8
           run_install: |
             - recursive: true
               args: [--frozen-lockfile]
@@ -124,14 +124,14 @@ jobs:
 
       # Git stash
       - name: Drop current changes
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
         run: |
           git add .
           git stash
 
       # Create git tag
       - name: Create Git Tag
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
         uses: azu/action-package-version-to-git-tag@v1
         with:
           version: ${{ env.CURRENT_VERSION }}
@@ -155,7 +155,7 @@ jobs:
       # Create relase when event is PR
       - name: Create Release
         id: create_release
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
