@@ -12,16 +12,17 @@ on:
 
 env:
   CI: true
+permissions: {}
 jobs:
   publish:
     permissions:
       contents: write # to create tags and refs
       actions: write # to cancel running workflow (andymckay/cancel-action)
       issues: write # to create comment
+      pull-requests: write # to create comment and so on
 
     name: publish
     runs-on: ubuntu-latest
-
     steps:
       # Setup
       - name: Checkout
