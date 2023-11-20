@@ -1,10 +1,10 @@
 {
   "private": true,
   "name": "taro-ui-demo",
-  "version": "3.1.0-beta.4",
+  "version": "3.2.0",
   "description": "Taro UI demo",
   "author": "O2Team <aotu.io>",
-  "homepage": "https://taro-ui.aotu.io",
+  "homepage": "https://taro-ui.taro.zone",
   "repository": {
     "type": "git",
     "url": "git@github.com:nervjs/taro-ui.git"

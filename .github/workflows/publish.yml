@@ -12,22 +12,23 @@ on:
 
 env:
   CI: true
+permissions: {}
 jobs:
   publish:
     permissions:
       contents: write # to create tags and refs
       actions: write # to cancel running workflow (andymckay/cancel-action)
       issues: write # to create comment
+      pull-requests: write # to create comment and so on
 
     name: publish
     runs-on: ubuntu-latest
-
     steps:
       # Setup
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
@@ -48,10 +49,10 @@ jobs:
       # Get commit message
       - name: Get commit message
         run: |
-          COMMIT_MESSAGE=$(git log --format=%B -n 1)
-          echo "commitmsg=${COMMIT_MESSAGE}" >> $GITHUB_ENV
+          COMMIT_MESSAGE=$(git log --format=%s -n 1)
+          echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
       - name: Show commit message
-        run : echo "$commitmsg"
+        run : echo "$COMMIT_MESSAGE"
 
       - name: Commit message compliance verification
         if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) != true
@@ -74,7 +75,7 @@ jobs:
 
       # Define ${CURRENT_VERSION}
       - name: Set Current Version
-        if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' )
         shell: bash -ex {0}
         run: |
           CURRENT_VERSION=$(node -p 'require("./packages/taro-ui/package.json").version')
@@ -82,7 +83,7 @@ jobs:
 
       # Check git tag
       - name: Tag Check
-        if: startsWith( env.commitmsg , 'chore(release):' )
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' )
         id: tag_check
         shell: bash -ex {0}
         run: |
@@ -112,25 +113,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - name: install
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2.4.0
         with:
           version: 8
           run_install: |
             - recursive: true
               args: [--frozen-lockfile]
       - name: build
-        run: pnpm build
+        run: |
+          pnpm build
 
       # Git stash
       - name: Drop current changes
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
         run: |
           git add .
           git stash
 
       # Create git tag
       - name: Create Git Tag
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false'
         uses: azu/action-package-version-to-git-tag@v1
         with:
           version: ${{ env.CURRENT_VERSION }}
@@ -143,9 +145,9 @@ jobs:
       - name: Publish
         run: |
           if [ '${{ github.event_name }}' == 'pull_request' ] ; then
-            pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref }} -r
+            cd README.md packages/taro-ui & pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref }} -r
           elif [ '${{ github.event_name }}' == 'push' ] ; then
-            pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref_name }} -r ${{ env.PUBLISH_PARAMS }}
+            cd README.md packages/taro-ui & pnpm publish --registry=https://registry.npmjs.org/ --publish-branch=${{ github.ref_name }} -r ${{ env.PUBLISH_PARAMS }}
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -154,7 +156,7 @@ jobs:
       # Create relase when event is PR
       - name: Create Release
         id: create_release
-        if: startsWith( env.commitmsg , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
+        if: startsWith( env.COMMIT_MESSAGE , 'chore(release):' ) && steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
