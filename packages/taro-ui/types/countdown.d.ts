@@ -25,6 +25,8 @@ export interface FormatObject {
   seconds: string
 }
 
+type isTrue = string | boolean;
+
 export interface AtCountDownProps extends AtComponent {
   /**
    * 是否显示卡片式样式
@@ -32,15 +34,10 @@ export interface AtCountDownProps extends AtComponent {
    */
   isCard?: boolean
   /**
-   * 是否显示天数
-   * @default false
+   * 自定义显示天，时，分，秒
+   * @default {isShowDay:false,isShowHour:true,isShowMinute:true,isShowSecond:true}
    */
-  isShowDay?: boolean
-  /**
-   * 是否显示小时
-   * @default true
-   */
-  isShowHour?: boolean
+  showFieldNames?: {isShowDay?: isTrue, isShowHour?: isTrue, isShowMinute?: isTrue, isShowSecond?: isTrue}
   /**
    * 格式化分割符号
    * @default { day: '天', hours: '时', minutes: '分', seconds: '秒' }

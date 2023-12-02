@@ -54,29 +54,31 @@ export default class CountdownPage extends Taro.Component {
 
 :::
 
-## 显示天数
+## 自定义显示天，时，分，秒
 
 :::demo
 
 ```html
 <AtCountdown
-  isShowDay
+  showFieldNames={{
+    isShowDay: true,
+    isShowHour: true, 
+    isShowMinute: true, 
+    isShowSecond: true
+  }}
   day={2}
   hours={1}
   minutes={1}
   seconds={10}
 />
 ```
-
 :::
-
 ## 自定义格式化
 
 :::demo
 
 ```html
 <AtCountdown
-  isShowDay
   format={{ hours: ':', minutes: ':', seconds: '' }}
   day={2}
   hours={1}
@@ -107,8 +109,7 @@ export default class CountdownPage extends Taro.Component {
 | 参数       | 说明  | 类型    | 可选值 | 默认值   |
 | ---------- | ------- | ------- | ----| -------- |
 | isCard | 是否显示卡片式样式 | Boolean  | - | false |
-| isShowDay | 是否显示天数 | Boolean  | - | false |
-| isShowHour | 是否显示小时 | Boolean  | - | true |
+| showFieldNames | 自定义显示天，时，分，秒 | Object  | - | `isShowDay:false,isShowHour:true,isShowMinute:true,isShowSecond:true` |
 | format | 格式化分割符号 | Object  | - | `day: '天',hours: '时',minutes: '分',seconds: '秒'` |
 | day | 天数 | Number  | - | 0 |
 | hours | 小时 | Number | - | 0 |

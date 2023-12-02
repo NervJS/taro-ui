@@ -63,7 +63,7 @@ export default class AtCountdown extends React.Component<
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
-      day = this.props.isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
+      day = Math.floor(this.seconds / (60 * 60 * 24))
       hours = Math.floor(this.seconds / (60 * 60)) - day * 24
       minutes = Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
       seconds =
@@ -137,10 +137,16 @@ export default class AtCountdown extends React.Component<
         minutes: '分',
         seconds: '秒'
       },
-      isShowDay,
       isCard,
-      isShowHour
+      showFieldNames = {
+        isShowDay: false,
+        isShowHour: true,
+        isShowMinute: true,
+        isShowSecond: true
+      }
     } = this.props
+
+    const { isShowDay, isShowHour, isShowMinute, isShowSecond } = showFieldNames;
 
     const { _day, _hours, _minutes, _seconds } = this.state
 
@@ -161,8 +167,12 @@ export default class AtCountdown extends React.Component<
         {isShowHour && (
           <AtCountdownItem num={_hours} separator={format?.hours || ''} />
         )}
-        <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
-        <AtCountdownItem num={_seconds} separator={format?.seconds || ''} />
+        {
+          isShowMinute && <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
+        }
+        {
+          isShowSecond && <AtCountdownItem num={_seconds} separator={format?.seconds || ''} />
+        }
       </View>
     )
   }
@@ -172,8 +182,12 @@ AtCountdown.defaultProps = {
   customStyle: '',
   className: '',
   isCard: false,
-  isShowDay: false,
-  isShowHour: true,
+  showFieldNames: {
+    isShowDay: false,
+    isShowHour: true,
+    isShowMinute: true,
+    isShowSecond: true
+  },
   format: {
     day: '天',
     hours: '时',
@@ -190,8 +204,7 @@ AtCountdown.propTypes = {
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   isCard: PropTypes.bool,
-  isShowDay: PropTypes.bool,
-  isShowHour: PropTypes.bool,
+  showFieldNames: PropTypes.object,
   format: PropTypes.object,
   day: PropTypes.number,
   hours: PropTypes.number,
