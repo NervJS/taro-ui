@@ -19,6 +19,20 @@ const toSeconds = (
   seconds: number
 ): number => day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds
 
+const defaultShowFieldNames = {
+    isShowDay: false,
+    isShowHour: true,
+    isShowMinute: true,
+    isShowSecond: true
+}
+
+const defaultFormat = {
+    day: '天',
+    hours: '时',
+    minutes: '分',
+    seconds: '秒'
+}
+
 export default class AtCountdown extends React.Component<
   AtCountDownProps,
   AtCountdownState
@@ -63,9 +77,11 @@ export default class AtCountdown extends React.Component<
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
-      day = Math.floor(this.seconds / (60 * 60 * 24))
-      hours = Math.floor(this.seconds / (60 * 60)) - day * 24
-      minutes = Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
+      const showFieldNames = this.props.showFieldNames || defaultShowFieldNames;
+      const { isShowDay, isShowHour, isShowMinute } = showFieldNames;
+      day = isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
+      hours = isShowHour ? Math.floor(this.seconds / (60 * 60)) - day * 24 : 0
+      minutes = isShowMinute ? Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60 : 0
       seconds =
         Math.floor(this.seconds) -
         day * 24 * 60 * 60 -
@@ -131,19 +147,9 @@ export default class AtCountdown extends React.Component<
     const {
       className,
       customStyle,
-      format = {
-        day: '天',
-        hours: '时',
-        minutes: '分',
-        seconds: '秒'
-      },
+      format = defaultFormat,
       isCard,
-      showFieldNames = {
-        isShowDay: false,
-        isShowHour: true,
-        isShowMinute: true,
-        isShowSecond: true
-      }
+      showFieldNames = defaultShowFieldNames
     } = this.props
 
     const { isShowDay, isShowHour, isShowMinute, isShowSecond } = showFieldNames;
@@ -182,18 +188,8 @@ AtCountdown.defaultProps = {
   customStyle: '',
   className: '',
   isCard: false,
-  showFieldNames: {
-    isShowDay: false,
-    isShowHour: true,
-    isShowMinute: true,
-    isShowSecond: true
-  },
-  format: {
-    day: '天',
-    hours: '时',
-    minutes: '分',
-    seconds: '秒'
-  },
+  showFieldNames: defaultShowFieldNames,
+  format: defaultFormat,
   day: 0,
   hours: 0,
   minutes: 0,
