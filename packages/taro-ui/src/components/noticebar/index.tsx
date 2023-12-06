@@ -25,7 +25,7 @@ export default class AtNoticebar extends React.Component<
       animationData: {
         actions: [{}]
       },
-      dura: 15,
+      dura: 0,
       isWEAPP: Taro.getEnv() === Taro.ENV_TYPE.WEAPP,
       isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
       isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB
@@ -135,8 +135,13 @@ export default class AtNoticebar extends React.Component<
     const innerClassName = ['at-noticebar__content-inner']
     if (marquee) {
       close = false
-      style['animation-duration'] = `${dura}s`
       innerClassName.push(animElemId)
+      style['animation-delay'] = '3s'
+
+      if (dura > 0) {
+        style['animation-duration'] = `${dura}s`
+        style['animation-delay'] = '1s'
+      }
     }
 
     const classObject = {
