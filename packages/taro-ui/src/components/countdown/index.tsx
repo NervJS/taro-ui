@@ -19,18 +19,11 @@ const toSeconds = (
   seconds: number
 ): number => day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds
 
-const defaultShowFieldNames = {
-    isShowDay: false,
-    isShowHour: true,
-    isShowMinute: true,
-    isShowSecond: true
-}
-
 const defaultFormat = {
-    day: '天',
-    hours: '时',
-    minutes: '分',
-    seconds: '秒'
+  day: '天',
+  hours: '时',
+  minutes: '分',
+  seconds: '秒'
 }
 
 export default class AtCountdown extends React.Component<
@@ -77,11 +70,13 @@ export default class AtCountdown extends React.Component<
     let [day, hours, minutes, seconds] = [0, 0, 0, 0]
 
     if (this.seconds > 0) {
-      const showFieldNames = this.props.showFieldNames || defaultShowFieldNames;
-      const { isShowDay, isShowHour, isShowMinute } = showFieldNames;
-      day = isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
-      hours = isShowHour ? Math.floor(this.seconds / (60 * 60)) - day * 24 : 0
-      minutes = isShowMinute ? Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60 : 0
+      day = this.props.isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
+      hours = this.props.isShowHour
+        ? Math.floor(this.seconds / (60 * 60)) - day * 24
+        : 0
+      minutes = this.props.isShowMinute
+        ? Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
+        : 0
       seconds =
         Math.floor(this.seconds) -
         day * 24 * 60 * 60 -
@@ -149,10 +144,10 @@ export default class AtCountdown extends React.Component<
       customStyle,
       format = defaultFormat,
       isCard,
-      showFieldNames = defaultShowFieldNames
+      isShowDay,
+      isShowHour,
+      isShowMinute
     } = this.props
-
-    const { isShowDay, isShowHour, isShowMinute, isShowSecond } = showFieldNames;
 
     const { _day, _hours, _minutes, _seconds } = this.state
 
@@ -173,12 +168,10 @@ export default class AtCountdown extends React.Component<
         {isShowHour && (
           <AtCountdownItem num={_hours} separator={format?.hours || ''} />
         )}
-        {
-          isShowMinute && <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
-        }
-        {
-          isShowSecond && <AtCountdownItem num={_seconds} separator={format?.seconds || ''} />
-        }
+        {isShowMinute && (
+          <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
+        )}
+        <AtCountdownItem num={_seconds} separator={format?.seconds || ''} />
       </View>
     )
   }
@@ -188,7 +181,9 @@ AtCountdown.defaultProps = {
   customStyle: '',
   className: '',
   isCard: false,
-  showFieldNames: defaultShowFieldNames,
+  isShowDay: false,
+  isShowHour: true,
+  isShowMinute: true,
   format: defaultFormat,
   day: 0,
   hours: 0,
@@ -200,7 +195,9 @@ AtCountdown.propTypes = {
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   isCard: PropTypes.bool,
-  showFieldNames: PropTypes.object,
+  isShowDay: PropTypes.bool,
+  isShowHour: PropTypes.bool,
+  isShowMinute: PropTypes.bool,
   format: PropTypes.object,
   day: PropTypes.number,
   hours: PropTypes.number,
