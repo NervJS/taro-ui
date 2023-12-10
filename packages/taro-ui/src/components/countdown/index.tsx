@@ -19,6 +19,13 @@ const toSeconds = (
   seconds: number
 ): number => day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds
 
+const defaultFormat = {
+  day: '天',
+  hours: '时',
+  minutes: '分',
+  seconds: '秒'
+}
+
 export default class AtCountdown extends React.Component<
   AtCountDownProps,
   AtCountdownState
@@ -64,8 +71,12 @@ export default class AtCountdown extends React.Component<
 
     if (this.seconds > 0) {
       day = this.props.isShowDay ? Math.floor(this.seconds / (60 * 60 * 24)) : 0
-      hours = Math.floor(this.seconds / (60 * 60)) - day * 24
-      minutes = Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
+      hours = this.props.isShowHour
+        ? Math.floor(this.seconds / (60 * 60)) - day * 24
+        : 0
+      minutes = this.props.isShowMinute
+        ? Math.floor(this.seconds / 60) - day * 24 * 60 - hours * 60
+        : 0
       seconds =
         Math.floor(this.seconds) -
         day * 24 * 60 * 60 -
@@ -131,15 +142,11 @@ export default class AtCountdown extends React.Component<
     const {
       className,
       customStyle,
-      format = {
-        day: '天',
-        hours: '时',
-        minutes: '分',
-        seconds: '秒'
-      },
-      isShowDay,
+      format = defaultFormat,
       isCard,
-      isShowHour
+      isShowDay,
+      isShowHour,
+      isShowMinute
     } = this.props
 
     const { _day, _hours, _minutes, _seconds } = this.state
@@ -161,7 +168,9 @@ export default class AtCountdown extends React.Component<
         {isShowHour && (
           <AtCountdownItem num={_hours} separator={format?.hours || ''} />
         )}
-        <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
+        {isShowMinute && (
+          <AtCountdownItem num={_minutes} separator={format?.minutes || ''} />
+        )}
         <AtCountdownItem num={_seconds} separator={format?.seconds || ''} />
       </View>
     )
@@ -174,12 +183,8 @@ AtCountdown.defaultProps = {
   isCard: false,
   isShowDay: false,
   isShowHour: true,
-  format: {
-    day: '天',
-    hours: '时',
-    minutes: '分',
-    seconds: '秒'
-  },
+  isShowMinute: true,
+  format: defaultFormat,
   day: 0,
   hours: 0,
   minutes: 0,
@@ -192,6 +197,7 @@ AtCountdown.propTypes = {
   isCard: PropTypes.bool,
   isShowDay: PropTypes.bool,
   isShowHour: PropTypes.bool,
+  isShowMinute: PropTypes.bool,
   format: PropTypes.object,
   day: PropTypes.number,
   hours: PropTypes.number,

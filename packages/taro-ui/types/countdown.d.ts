@@ -42,6 +42,11 @@ export interface AtCountDownProps extends AtComponent {
    */
   isShowHour?: boolean
   /**
+   * 是否显示分钟
+   * @default true
+   */
+  isShowMinute?: boolean
+  /**
    * 格式化分割符号
    * @default { day: '天', hours: '时', minutes: '分', seconds: '秒' }
    */
