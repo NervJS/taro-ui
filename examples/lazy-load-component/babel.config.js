@@ -10,16 +10,16 @@ module.exports = {
       },
     ],
   ],
-  // plugins: [
-  //   [
-  //     "import",
-  //     {
-  //       libraryName: "taro-ui",
-  //       customName: (name) => `taro-ui/lib/components/${name.slice(3)}`,
-  //       customStyleName: (name) =>
-  //         `taro-ui/dist/style/components/${name.slice(3)}.scss`,
-  //     },
-  //     "taro-ui",
-  //   ],
-  // ],
+  plugins: [
+    [
+      "import",
+      {
+        libraryName: "taro-ui",
+        customName: (name) => `taro-ui/lib/components/${name.slice(3)}`,
+        customStyleName: (name) =>
+          `taro-ui/dist/style/components/${name.slice(3)}.scss`,
+      },
+      "taro-ui",
+    ],
+  ],
 };
