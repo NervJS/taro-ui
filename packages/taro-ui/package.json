@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "UI KIT for Taro",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
@@ -54,14 +54,6 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
-    "@tarojs/plugin-platform-alipay": "3.6.6",
-    "@tarojs/plugin-platform-h5": "3.6.6",
-    "@tarojs/plugin-platform-jd": "3.6.6",
-    "@tarojs/plugin-platform-qq": "3.6.6",
-    "@tarojs/plugin-platform-swan": "3.6.6",
-    "@tarojs/plugin-platform-tt": "3.6.6",
-    "@tarojs/plugin-platform-weapp": "3.6.6",
-    "@tarojs/taro-rn": "3.6.6",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@tarojs/components": "3.6.6",
