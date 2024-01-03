@@ -16,7 +16,6 @@
     "css": "sass"
   },
   "scripts": {
-    "build": "pnpm run build:rn",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
