@@ -78,15 +78,7 @@
     "@tarojs/taro": ">=3",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0",
-    "react-native": ">=0.62.0",
-    "@tarojs/plugin-platform-alipay": "3.6.6",
-    "@tarojs/plugin-platform-h5": "3.6.6",
-    "@tarojs/plugin-platform-jd": "3.6.6",
-    "@tarojs/plugin-platform-qq": "3.6.6",
-    "@tarojs/plugin-platform-swan": "3.6.6",
-    "@tarojs/plugin-platform-tt": "3.6.6",
-    "@tarojs/plugin-platform-weapp": "3.6.6",
-    "@tarojs/taro-rn": "3.6.6"
+    "react-native": ">=0.62.0"
   },
   "gitHead": "c33cc7fbb734f0dbdd6e305dda1bc8300e5adbe2"
 }
