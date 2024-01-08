@@ -1,3 +1,45 @@
+# 3.2.2 (2024-01-04)
+
+
+
+### Bug Fixes
+
+* 修复 taro 模板安装 taro-ui 时的报错 ([1b7652b](https://github.com/nervjs/taro-ui/commit/1b7652b91ab9ff44309cbfe91538e916582a3d1a)), closes [#1732](https://github.com/nervjs/taro-ui/issues/1732) [#1718](https://github.com/nervjs/taro-ui/issues/1718)
+
+
+# 3.2.1 (2024-01-03)
+
+
+### Bug Fixes
+
+* **h5:** 解决 AtNoticebar 组件在 web 端卡顿的问题 ([3c07b6d](https://github.com/nervjs/taro-ui/commit/3c07b6d6bc5e1c86cc0217063f976faf395af960)), closes [#1714](https://github.com/nervjs/taro-ui/issues/1714)
+
+
+### Features
+
+* 添加无法自定义显示天，时，分，秒 ([37fc4d4](https://github.com/nervjs/taro-ui/commit/37fc4d41b052c0940c32043c08dd08f43b9525a0)), closes [#1716](https://github.com/nervjs/taro-ui/issues/1716)
+
+
+# 3.2.0 (2023-11-20)
+
+New Features
+
+- 添加 Timeline 获取节点信息事件 (#1650)
+- List 组件支持自定义 icon 属性 (#1626)
+- Card 组件 extra 属性支持 ReactNode (#1684)
+
+Bug Fixes
+
+- 修复 AtAccordion 组件展开高度错误的问题 (#1656)
+- 修复 enableNative 属性不存在的问题 (#1654)
+- 修复日历组件无法正常加载的问题
+
+Improvements
+
+- yarn 升级到 pnpm
+- 完善 CI 流程
+- 更新 Taro-UI 文档地址
+
 # 3.1.0 (2023-08-20)
 
 
