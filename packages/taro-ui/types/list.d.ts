@@ -28,7 +28,7 @@ export interface AtListItemProps extends AtComponent {
   /**
    * 元素的标题
    */
-  title?: string
+  title?: JSX.Element
   /**
    * 元素的主要缩略图
    */
@@ -40,7 +40,7 @@ export interface AtListItemProps extends AtComponent {
   /**
    * 额外信息的文本
    */
-  extraText?: string
+  extraText?: JSX.Element
   /**
    * 额外信息的缩略图
    */
