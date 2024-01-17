@@ -169,8 +169,7 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
       transformStyle = `translate3d(-${current * 100}%, 0px, 0px)`
     }
     Object.assign(bodyStyle, {
-      transform: transformStyle,
-      '-webkit-transform': transformStyle
+      transform: transformStyle
     })
     if (!animated) {
       bodyStyle.transition = 'unset'
