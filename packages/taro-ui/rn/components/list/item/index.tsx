@@ -198,16 +198,16 @@ AtListItem.defaultProps = {
 }
 
 AtListItem.propTypes = {
-  note: PropTypes.string,
+  note: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   disabled: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   thumb: PropTypes.string,
   onClick: PropTypes.func,
   isSwitch: PropTypes.bool,
   hasBorder: PropTypes.bool,
   switchColor: PropTypes.string,
   switchIsCheck: PropTypes.bool,
-  extraText: PropTypes.string,
+  extraText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   extraThumb: PropTypes.string,
   onSwitchChange: PropTypes.func,
   arrow: PropTypes.oneOf(['up', 'down', 'right']),

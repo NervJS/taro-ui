@@ -65,11 +65,6 @@ export interface AtSwipeActionProps extends AtComponent {
    * @deprecated 已废弃，无需设置 areaWidth
    */
   areaWidth?: number
-
-  /**
-   * 判断是否需要打开的比例阈值，即 滑块滑动距离 / 滑块最大滑动距离， 默认为 0.5
-   */
-  moveRatio?: number
 }
 
 export interface AtSwipeActionState {

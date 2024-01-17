@@ -182,12 +182,12 @@ import { AtList, AtListItem } from "taro-ui"
 
 | 参数          | 说明             | 类型                                                                 | 可选值               | 默认值    |
 | ------------- | ---------------- | -------------------------------------------------------------------- | -------------------- | --------- |
-| title         | 元素的标题       | JSX.Element                                                          | -                    | -         |
+| title         | 元素的标题       | JSX.Element 、String                                                        | -                    | -         |
 | disabled      | 是否禁用         | Boolean                                                              | -                    | `false`   |
-| note          | 元素的描述信息   | JSX.Element                                                          | -                    | -         |
+| note          | 元素的描述信息   | JSX.Element 、String                                                          | -                    | -         |
 | thumb         | 元素的主要缩略图 | String                                                               | -                    | -         |
 | arrow         | 箭头的方向       | String                                                               | `right`,`top`,`down` | -         |
-| extraText     | 额外信息的文本   | JSX.Element                                                          | -                    | -         |
+| extraText     | 额外信息的文本   | JSX.Element 、String                                                          | -                    | -         |
 | extraThumb    | 额外信息的缩略图 | String                                                               | -                    | -         |
 | isSwitch      | 额外信息是否开关 | Boolean                                                              | -                    | `false`   |
 | switchColor   | 开关的颜色       | String                                                               | -                    | `#6190E8` |

@@ -24,7 +24,7 @@ export interface AtListItemProps extends AtComponent {
   /**
    * 元素的描述信息
    */
-  note?: string
+  note?: JSX.Element | string
   /**
    * 元素的标题
    */
