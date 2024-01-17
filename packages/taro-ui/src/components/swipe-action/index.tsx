@@ -20,11 +20,10 @@ export default class AtSwipeAction extends React.Component<
   public static propTypes: InferProps<AtSwipeActionProps>
 
   private moveX: number
-  private moveRatio: number
 
   public constructor(props: AtSwipeActionProps) {
     super(props)
-    const { isOpened, moveRatio } = props
+    const { isOpened } = props
     this.state = {
       componentId: uuid(),
       // eslint-disable-next-line no-extra-boolean-cast
@@ -35,7 +34,6 @@ export default class AtSwipeAction extends React.Component<
       maxOffsetSize: 0
     }
     this.moveX = this.state.offsetSize
-    this.moveRatio = moveRatio || 0.5
   }
 
   public componentDidMount(): void {
@@ -148,22 +146,7 @@ export default class AtSwipeAction extends React.Component<
 
   onTouchEnd = e => {
     const { maxOffsetSize } = this.state
-    if (this.moveX === -maxOffsetSize) {
-      this._reset(true)
-      this.handleOpened(e)
-      return
-    }
-    if (this.moveX === 0) {
-      this._reset(false)
-      this.handleClosed(e)
-      return
-    }
-    if (this.state._isOpened && this.moveX < 0) {
-      this._reset(false)
-      this.handleClosed(e)
-      return
-    }
-    if (Math.abs(this.moveX) < maxOffsetSize * this.moveRatio) {
+    if (Math.abs(this.moveX) < maxOffsetSize / 2) {
       this._reset(false)
       this.handleClosed(e)
     } else {
