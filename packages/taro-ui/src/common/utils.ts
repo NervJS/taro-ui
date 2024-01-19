@@ -17,14 +17,16 @@ function delayQuerySelector(
   delayTime = 500
 ): Promise<any[]> {
   return new Promise(resolve => {
-    const selector: SelectorQuery = Taro.createSelectorQuery()
-    delay(delayTime).then(() => {
-      selector
-        .select(selectorStr)
-        .boundingClientRect()
-        .exec((res: any[]) => {
-          resolve(res)
-        })
+    Taro.nextTick(() => {
+      const selector: SelectorQuery = Taro.createSelectorQuery()
+      delay(delayTime).then(() => {
+        selector
+          .select(selectorStr)
+          .boundingClientRect()
+          .exec((res: any[]) => {
+            resolve(res)
+          })
+      })
     })
   })
 }
