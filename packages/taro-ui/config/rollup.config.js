@@ -9,7 +9,8 @@ import iconsMaker from './iconsMaker.js'
 
 iconsMaker('../rn/assets/iconfont.svg')
 
-const resolveFile = path => NodePath.resolve(__dirname, '..', path)
+const resolveFile = path =>
+  NodePath.resolve(__dirname, '..', path).split(NodePath.sep).join('/')
 
 const externalPackages = [
   'react',
