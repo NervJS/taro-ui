@@ -1,13 +1,27 @@
-import { MouseEvent, ComponentClass } from 'react'
+import { ComponentClass } from 'react'
 import { CommonEventFunction } from '@tarojs/components/types/common'
 import { ButtonProps } from '@tarojs/components/types/Button'
 
 import AtComponent from './base'
 
-type TaroButtonProps = Pick<ButtonProps, 'formType' | 'openType' |
-  'lang' | 'sessionFrom' | 'sendMessageTitle' | 'sendMessagePath' |
-  'sendMessageImg' | 'showMessageCard' | 'appParameter' | 'onContact' |
-  'onGetUserInfo' | 'onGetPhoneNumber' | 'onOpenSetting' | 'onError'>
+type TaroButtonProps = Pick<
+  ButtonProps,
+  | 'formType'
+  | 'openType'
+  | 'lang'
+  | 'sessionFrom'
+  | 'sendMessageTitle'
+  | 'sendMessagePath'
+  | 'sendMessageImg'
+  | 'showMessageCard'
+  | 'appParameter'
+  | 'onContact'
+  | 'onGetUserInfo'
+  | 'onGetPhoneNumber'
+  | 'onOpenSetting'
+  | 'onError'
+  | 'onChooseAvatar'
+>
 
 export interface AtButtonProps extends AtComponent, TaroButtonProps {
   /**
