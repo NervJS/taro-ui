@@ -27,6 +27,12 @@
     color: $at-indexes-nav-color;
     font-size: $at-indexes-nav-font-size;
     text-align: center;
+
+    &--active {
+      background-color: $at-indexes-nav-color;
+      color: $color-white;
+      border-radius: $border-radius-md;
+    }
   }
 
   &__body {

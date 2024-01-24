@@ -31,6 +31,7 @@ export default class AtIndexes extends React.Component<
   private listId: string
   private timeoutTimer: NodeJS.Timeout | number | undefined
   private listRef: any
+  private indexMap: { key: string; startHeight: number; endHeight: number }[]
 
   public constructor(props: AtIndexesProps) {
     super(props)
@@ -39,7 +40,8 @@ export default class AtIndexes extends React.Component<
       _scrollTop: 0,
       _tipText: '',
       _isShowToast: false,
-      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB
+      isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
+      currentIndex: -1
     }
     // 右侧导航高度
     this.menuHeight = 0
@@ -50,6 +52,7 @@ export default class AtIndexes extends React.Component<
     // 当前索引
     this.currentIndex = -1
     this.listId = isTest() ? 'indexes-list-AOTU2018' : `list-${uuid()}`
+    this.indexMap = []
   }
 
   private handleClick = (item: Item): void => {
@@ -136,21 +139,63 @@ export default class AtIndexes extends React.Component<
     }
   }
 
-  private initData(): void {
+  private async initData(): Promise<void> {
     delayQuerySelector('.at-indexes__menu').then(rect => {
       const len = this.props.list.length
       this.menuHeight = rect[0].height
       this.startTop = rect[0].top
       this.itemHeight = Math.floor(this.menuHeight / (len + 1))
     })
+
+    const headerHeight =
+      (await delayQuerySelector('#at-indexes__top'))?.[0]?.height || 0
+    const itemHeight =
+      (await delayQuerySelector('.at-list__item'))?.[0].height || 0
+    const titleHeight =
+      (await delayQuerySelector('.at-indexes__list-title'))?.[0].height || 0
+
+    this.indexMap = []
+    this.props.list.forEach((dataList, i) => {
+      if (i === 0) {
+        this.indexMap.push({
+          key: dataList.key,
+          startHeight: headerHeight,
+          endHeight:
+            dataList.items.length * itemHeight + headerHeight + titleHeight
+        })
+      } else {
+        const prev = this.indexMap[i - 1]
+        this.indexMap.push({
+          key: dataList.key,
+          startHeight: prev.endHeight,
+          endHeight:
+            prev.endHeight + dataList.items.length * itemHeight + titleHeight
+        })
+      }
+    })
   }
 
   private handleScroll(e: CommonEvent): void {
     if (e && e.detail) {
+      const scrollTop = e.detail.scrollTop
+
       this.setState({
-        _scrollTop: e.detail.scrollTop
+        _scrollTop: scrollTop
       })
+
+      this.getAnchorIndex(scrollTop)
     }
+  }
+
+  // 根据滚动高度，判断当前应该显示的索引值
+  private getAnchorIndex(scrollTop: number) {
+    const index = this.indexMap.findIndex(item => {
+      return scrollTop >= item.startHeight && scrollTop < item.endHeight
+    })
+
+    this.setState({
+      currentIndex: index
+    })
   }
 
   public UNSAFE_componentWillReceiveProps(nextProps: AtIndexesProps): void {
@@ -178,7 +223,8 @@ export default class AtIndexes extends React.Component<
       _scrollIntoView,
       _tipText,
       _isShowToast,
-      isWEB
+      isWEB,
+      currentIndex
     } = this.state
 
     const toastStyle = { minWidth: pxTransform(100) }
@@ -189,7 +235,9 @@ export default class AtIndexes extends React.Component<
       const targetView = `at-indexes__list-${key}`
       return (
         <View
-          className='at-indexes__menu-item'
+          className={classNames('at-indexes__menu-item', {
+            'at-indexes__menu-item--active': currentIndex === i
+          })}
           key={key}
           onClick={this.jumpTarget.bind(this, targetView, i + 1)}
         >
