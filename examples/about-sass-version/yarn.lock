@@ -8446,9 +8446,9 @@ ip-regex@^2.1.0:
   integrity sha512-58yWmlHpp7VYfcdTwMTvwMmqx/Elfxjd9RXTDyMsbL7lLWmhMylLEqiYVLKuLzOZqVgiWXD9MfR62Vv89VRxkw==
 
 ip@^1.1.0, ip@^1.1.5:
-  version "1.1.8"
-  resolved "https://registry.npmmirror.com/ip/-/ip-1.1.8.tgz#ae05948f6b075435ed3307acce04629da8cdbf48"
-  integrity sha512-PuExPYUiu6qMBQb4l06ecm6T6ujzhmh+MeJcW9wa89PoAz5pvd4zPgN5WJV104mb6S2T1AwNIAaB70JNrLQWhg==
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.9.tgz#8dfbcc99a754d07f425310b86a99546b1151e396"
+  integrity sha512-cyRxvOEpNHNtchU3Ln9KC/auJgup87llfQpQ+t5ghoC/UhL16SWzbueiCsdTnWmqAWl7LadfuwhlqmtOaqMHdQ==
 
 ipaddr.js@1.9.1, ipaddr.js@^1.9.0:
   version "1.9.1"
@@ -14117,10 +14117,10 @@ taro-plugin-compiler-optimization@^1.0.1:
   resolved "https://registry.npmmirror.com/taro-plugin-compiler-optimization/-/taro-plugin-compiler-optimization-1.0.4.tgz#796eaa84bb68b71b43fd47ac653ad2c2b6fa3e34"
   integrity sha512-7aAOSWLpkPlJkCM6NPjcZEqoLXdquNy16CEEKIzAAD03OJ742rHhVzbZ0NIdMABMV7xC+gzRFq9eoZ64gm9o2g==
 
-taro-ui@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/taro-ui/-/taro-ui-3.2.2.tgz#9002833c0933724286e4bb5a3548bf57125c0aa5"
-  integrity sha512-/4OJ+4NdYWLE4uLdUjm0JOWSuwT9adcpko+UCMDREgeopBRwLpARyeqraL39yHl8wHZaRZXm4JKoOpnLFbRpSg==
+taro-ui@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/taro-ui/-/taro-ui-3.3.0.tgz#2d10e6f53baeacacf1990a07107fab3d65da13f8"
+  integrity sha512-M4tf2OEy1BzmeFyvF0kFOgzzW1Lc86TlQ5UwZh4cNMkuViqGId/DLqY0iMlqAjfXstRn0x4HaFFw91xfLqkPzg==
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
