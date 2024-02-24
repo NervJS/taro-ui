@@ -2,3 +2,4 @@ packages:
   - "packages/**"
   - "!**/test/**"
   - "!examples/**"
+  - "!packages/taro-ui-demo-rn/"
