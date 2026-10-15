@@ -92,8 +92,12 @@ module.exports = (async () => {
   return mergeConfig(taroMetro, {
     // Metro v0.73 worker threads hang on Node 20
     maxWorkers: 1,
-    // Empty transformer required for Metro v0.73 + Node 20 compat
-    transformer: {},
+    transformer: {
+      // Keep an explicit transformer object for Metro 0.73 + Node 20.
+      // Skip Taro's babel-plugin-global-define for third-party node_modules:
+      // it rewrites `function define()` in regenerator-runtime into a BooleanLiteral.
+      babelTransformerPath: require.resolve('./rn-babel-transformer.js')
+    },
     watchFolders: Array.from(watchFoldersSet),
     resolver: {
       extraNodeModules,
