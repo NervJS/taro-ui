@@ -43,22 +43,26 @@ jobs:
           mkdir -p release/ios/assets release/android/assets release/qrcode
           PUBLIC_PATH="/gh/${GITHUB_REPOSITORY}@${GITHUB_REF_NAME}/examples/demo-rn/release/ios/assets"
 
-          pnpm run build:rn -- --reset-cache --platform ios \
+          # pnpm run forwards a literal "--", which Taro still treats as success
+          # even when Metro fails. Call taro directly and assert bundle files.
+          pnpm exec taro build --type rn --reset-cache --platform ios \
             --bundle-output release/ios/main.js \
             --assets-dest release/ios/assets \
             --sourcemap-output release/ios/main.map \
             --publicPath "${PUBLIC_PATH}"
+          test -s release/ios/main.js
 
           if [ -d "release/ios/assets${PUBLIC_PATH}" ]; then
             cp -rf "release/ios/assets${PUBLIC_PATH}" release/ios/
             rm -rf "release/ios/assets${PUBLIC_PATH}"
           fi
 
-          pnpm run build:rn -- --reset-cache --platform android \
+          pnpm exec taro build --type rn --reset-cache --platform android \
             --bundle-output release/android/main.js \
             --assets-dest release/android/assets \
             --sourcemap-output release/android/main.map \
             --publicPath "${PUBLIC_PATH}"
+          test -s release/android/main.js
 
       - name: Generate Playground QR codes
         run: |

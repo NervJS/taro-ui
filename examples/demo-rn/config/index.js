@@ -72,7 +72,7 @@ const config = {
   },
   rn: {
     resolve: {
-      include: ['../taro-ui']
+      include: ['taro-ui']
     },
     enableSvgTransform: true
   }
