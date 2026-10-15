@@ -3,6 +3,15 @@ on:
     tags: [v*]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+env:
+  NODE_OPTIONS: --openssl-legacy-provider
+  RN_APP_NAME: Taro-UI-Demo
+  RN_APP_LOGO: https://pic5.58cdn.com.cn/nowater/fangfe/n_v25a185c1657984016926f26af591912c4.jpg
+  RN_WORKDIR: examples/demo-rn
+
 jobs:
   taro_release_job:
     runs-on: ubuntu-latest
@@ -10,35 +19,57 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
-      - name: Cache node_modules Folder
-        uses: actions/cache@v4
-        with:
-          path: ${{ github.workspace }}/node_modules
-          key: ${{ runner.os }}-node_modules
-          restore-keys: ${{ runner.os }}-node_modules
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
-
-      - name: install
+      - name: Install pnpm
         uses: pnpm/action-setup@v4
+
+      # Metro 0.73 (demo-rn) hangs on Node 20+; pin 18 like the rest of CI.
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
+          node-version: 18.x
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --shamefully-hoist
+
+      - name: Build taro-ui
+        run: pnpm run build:ui
 
       - name: Release Taro React Native bundle
-        uses: zhiqingchen/taro-react-native-release@v1
-        with:
-          workingdirectory: ./examples/demo-rn
-          token: ${{ secrets.GITHUB_TOKEN }}
-          appname: Taro-UI-Demo
-          logo: https://pic5.58cdn.com.cn/nowater/fangfe/n_v25a185c1657984016926f26af591912c4.jpg
+        working-directory: examples/demo-rn
+        run: |
+          set -euo pipefail
+          mkdir -p release/ios/assets release/android/assets release/qrcode
+          PUBLIC_PATH="/gh/${GITHUB_REPOSITORY}@${GITHUB_REF_NAME}/examples/demo-rn/release/ios/assets"
+
+          pnpm run build:rn -- --reset-cache --platform ios \
+            --bundle-output release/ios/main.js \
+            --assets-dest release/ios/assets \
+            --sourcemap-output release/ios/main.map \
+            --publicPath "${PUBLIC_PATH}"
+
+          if [ -d "release/ios/assets${PUBLIC_PATH}" ]; then
+            cp -rf "release/ios/assets${PUBLIC_PATH}" release/ios/
+            rm -rf "release/ios/assets${PUBLIC_PATH}"
+          fi
+
+          pnpm run build:rn -- --reset-cache --platform android \
+            --bundle-output release/android/main.js \
+            --assets-dest release/android/assets \
+            --sourcemap-output release/android/main.map \
+            --publicPath "${PUBLIC_PATH}"
+
+      - name: Generate Playground QR codes
+        run: |
+          node scripts/rn-release-qr.mjs \
+            --repository "${GITHUB_REPOSITORY}" \
+            --refname "${GITHUB_REF_NAME}" \
+            --reftype "${GITHUB_REF_TYPE}" \
+            --workingdirectory "${RN_WORKDIR}" \
+            --appname "${RN_APP_NAME}" \
+            --logo "${RN_APP_LOGO}"
+
       - name: Upload Qr Image
         uses: actions/upload-artifact@v4
         with:
@@ -46,3 +77,43 @@ jobs:
           path: |
             examples/demo-rn/release/qrcode/ios.png
             examples/demo-rn/release/qrcode/android.png
+            examples/demo-rn/release/ios/main.js
+            examples/demo-rn/release/android/main.js
+
+      - name: Commit RN bundles for jsDelivr
+        if: github.ref_type == 'branch'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add examples/demo-rn/release
+          if git diff --cached --quiet; then
+            echo 'No bundle changes to commit'
+            exit 0
+          fi
+          git commit -m "release: commit RN bundles by github actions"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Attach bundles to GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1 || \
+            gh release create "${GITHUB_REF_NAME}" --title "${GITHUB_REF_NAME}" \
+              --notes "Taro UI React Native demo bundles. Scan the QR codes with [Taro Playground](https://github.com/wuba/taro-playground)."
+          cp examples/demo-rn/release/ios/main.js ios-main.js
+          cp examples/demo-rn/release/android/main.js android-main.js
+          cp examples/demo-rn/release/qrcode/ios.png ios-qr.png
+          cp examples/demo-rn/release/qrcode/android.png android-qr.png
+          gh release upload "${GITHUB_REF_NAME}" \
+            ios-main.js android-main.js ios-qr.png android-qr.png \
+            --clobber
+          gh release edit "${GITHUB_REF_NAME}" --notes "$(cat <<EOF
+          Use [Taro Playground App](https://github.com/wuba/taro-playground) to scan the following qr codes:
+
+          | | Android | iOS |
+          | :--: | :--: | :--: |
+          | QR code | ![AndroidBundle](https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/android-qr.png) | ![iOSBundle](https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/ios-qr.png) |
+          | Bundle file url | https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/android-main.js | https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/ios-main.js |
+          EOF
+          )"
