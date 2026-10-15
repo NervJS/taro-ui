@@ -93,7 +93,14 @@ jobs:
             exit 0
           fi
           git commit -m "release: commit RN bundles by github actions"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          # Protected branches (and some fork token scopes) reject this push.
+          # Bundles and QR codes are already uploaded as artifacts, so do not
+          # fail the job when git cannot update the branch.
+          if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            echo "Pushed RN bundles to ${GITHUB_REF_NAME} for jsDelivr."
+          else
+            echo "::warning::Could not push RN bundles to ${GITHUB_REF_NAME} (branch protection or token scope). Download the bundle-qr-code artifact from this run instead."
+          fi
 
       - name: Attach bundles to GitHub Release
         if: github.ref_type == 'tag'
